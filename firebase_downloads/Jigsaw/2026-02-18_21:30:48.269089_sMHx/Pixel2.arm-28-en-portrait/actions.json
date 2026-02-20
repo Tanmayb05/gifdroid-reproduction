@@ -1,0 +1,38 @@
+{
+  "events": [{
+    "sourceScreenId": "0",
+    "destinationScreenId": "1",
+    "startTimeSeconds": 5.850874,
+    "endTimeSeconds": 7.774323,
+    "executionResult": "SUCCESS",
+    "launch": {
+      "action": "android.intent.action.MAIN"
+    }
+  }, {
+    "sequence": 1,
+    "sourceScreenId": "1",
+    "destinationScreenId": "1",
+    "startTimeSeconds": 9.322175,
+    "endTimeSeconds": 16.93211,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TYPE_TEXT",
+      "childSequence": "0.0.0.0.0.1",
+      "enterTextString": "kxtyqh",
+      "targetDetails": {
+        "className": "android.widget.EditText",
+        "androidClassName": "android.widget.EditText"
+      }
+    }
+  }, {
+    "sequence": 2,
+    "sourceScreenId": "1",
+    "destinationScreenId": "1",
+    "startTimeSeconds": 17.284566,
+    "endTimeSeconds": 68.66277,
+    "executionResult": "SUCCESS",
+    "wait": {
+      "durationSeconds": 45.0
+    }
+  }]
+}

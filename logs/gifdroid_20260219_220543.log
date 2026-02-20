@@ -1,0 +1,31 @@
+2026-02-19 22:05:43  INFO      Log file: logs/gifdroid_20260219_220543.log
+2026-02-19 22:05:43  INFO      GIFdroid started
+2026-02-19 22:05:43  INFO        --video    : app_LuxAlarm/app_LuxAlarm.mp4
+2026-02-19 22:05:43  INFO        --utg      : app_LuxAlarm/utg.json
+2026-02-19 22:05:43  INFO        --artifact : app_LuxAlarm/artifacts/
+2026-02-19 22:05:43  INFO        --out      : app_LuxAlarm/execution.json
+2026-02-19 22:05:43  INFO        --log-dir  : logs
+2026-02-19 22:05:43  INFO      ==================================================
+2026-02-19 22:05:43  INFO      STEP 1: Keyframe Location
+2026-02-19 22:05:43  INFO        Input video : app_LuxAlarm/app_LuxAlarm.mp4
+2026-02-19 22:06:57  INFO        Keyframes found   : 8
+2026-02-19 22:06:57  INFO        Keyframe indices  : [3, 40, 81, 433, 477, 555, 682, 713]
+2026-02-19 22:06:57  INFO        Duration          : 74.13s
+2026-02-19 22:06:57  INFO      ==================================================
+2026-02-19 22:06:57  INFO      STEP 2: GUI Mapping
+2026-02-19 22:06:57  INFO        Screenshots dir : app_LuxAlarm/artifacts/
+2026-02-19 22:08:15  INFO        Mapped index sequence : [92, 1, 86, 9, 1, 1, 1, 9]
+2026-02-19 22:08:15  INFO        Duration              : 78.60s
+2026-02-19 22:08:15  INFO      ==================================================
+2026-02-19 22:08:15  INFO      STEP 3: Find Execution Trace
+2026-02-19 22:08:15  INFO        UTG file : app_LuxAlarm/utg.json
+2026-02-19 22:08:15  INFO        Candidate traces found : 1
+2026-02-19 22:08:15  INFO          Trace 0: [0, 1, 85, 86, 87, 37, 29, 30, 31, 53, 54, 10, 9]
+2026-02-19 22:08:15  INFO        Duration : 0.09s
+2026-02-19 22:08:15  INFO      ==================================================
+2026-02-19 22:08:15  INFO      STEP 4: Store Execution Trace
+2026-02-19 22:08:15  INFO      Execution trace written to: app_LuxAlarm/execution.json
+2026-02-19 22:08:15  INFO        Duration : 0.00s
+2026-02-19 22:08:15  INFO      ==================================================
+2026-02-19 22:08:15  INFO      Pipeline complete.  Total time: 152.83s
+2026-02-19 22:08:15  INFO      ==================================================

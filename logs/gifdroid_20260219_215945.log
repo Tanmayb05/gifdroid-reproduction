@@ -1,0 +1,31 @@
+2026-02-19 21:59:45  INFO      Log file: logs/gifdroid_20260219_215945.log
+2026-02-19 21:59:45  INFO      GIFdroid started
+2026-02-19 21:59:45  INFO        --video    : app_Jigsaw/app_Jigsaw.mp4
+2026-02-19 21:59:45  INFO        --utg      : app_Jigsaw/utg.json
+2026-02-19 21:59:45  INFO        --artifact : app_Jigsaw/artifacts/
+2026-02-19 21:59:45  INFO        --out      : app_Jigsaw/execution.json
+2026-02-19 21:59:45  INFO        --log-dir  : logs
+2026-02-19 21:59:45  INFO      ==================================================
+2026-02-19 21:59:45  INFO      STEP 1: Keyframe Location
+2026-02-19 21:59:45  INFO        Input video : app_Jigsaw/app_Jigsaw.mp4
+2026-02-19 22:01:24  INFO        Keyframes found   : 6
+2026-02-19 22:01:24  INFO        Keyframe indices  : [15, 31, 67, 97, 470, 1024]
+2026-02-19 22:01:24  INFO        Duration          : 98.72s
+2026-02-19 22:01:24  INFO      ==================================================
+2026-02-19 22:01:24  INFO      STEP 2: GUI Mapping
+2026-02-19 22:01:24  INFO        Screenshots dir : app_Jigsaw/artifacts/
+2026-02-19 22:01:25  INFO        Mapped index sequence : [1, 1, 1, 1, 1, 1]
+2026-02-19 22:01:25  INFO        Duration              : 0.99s
+2026-02-19 22:01:25  INFO      ==================================================
+2026-02-19 22:01:25  INFO      STEP 3: Find Execution Trace
+2026-02-19 22:01:25  INFO        UTG file : app_Jigsaw/utg.json
+2026-02-19 22:01:25  INFO        Candidate traces found : 1
+2026-02-19 22:01:25  INFO          Trace 0: [0, 1]
+2026-02-19 22:01:25  INFO        Duration : 0.00s
+2026-02-19 22:01:25  INFO      ==================================================
+2026-02-19 22:01:25  INFO      STEP 4: Store Execution Trace
+2026-02-19 22:01:25  INFO      Execution trace written to: app_Jigsaw/execution.json
+2026-02-19 22:01:25  INFO        Duration : 0.00s
+2026-02-19 22:01:25  INFO      ==================================================
+2026-02-19 22:01:25  INFO      Pipeline complete.  Total time: 99.71s
+2026-02-19 22:01:25  INFO      ==================================================

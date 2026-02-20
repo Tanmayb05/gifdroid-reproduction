@@ -1,0 +1,4291 @@
+"roboscript": {
+  "executionMode": {
+    "strict": true,
+    "shouldWaitForElement": true,
+    "notify": true,
+    "minScoreThreshold": 0
+  },
+  "postscript": {
+    "terminate": true
+  }
+}
+[
+  {
+    "id": 800,
+    "description": "ReproScript",
+    "crawlStage": "crawl",
+    "maxNumberOfRuns": 1,
+    "contextDescriptor": {
+      "condition": "app_under_test_shown",
+      "activationProbability": 1.0
+    },
+    "actions": [
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/action_search",
+            "contentDescription": "Search"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 1
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "kxtyqh",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/search_src_text"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/search_plate"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/search_edit_frame"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 2
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Collapse"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 3
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/bottom_navigation_inbox",
+            "contentDescription": "Inbox"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/bottomNavigationView"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 4
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 1,
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‏‏‏‏‏‎‏‏‎‏‏‏‏‎‏‎‎‎‏‏‎‏‏‏‎‏‏‎‏‎‏‎‎‎‎‎‎‏‎‎‎‏‏‏‎‏‏‏‏‎‎‎‏‎‎‎‏‎‏‎More options‎‏‎‎‏‎"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 5
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 6
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/button1",
+            "text": "Confirm"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 3,
+            "resourceId": "de.danoeh.antennapod:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 7
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/bottom_navigation_home",
+            "contentDescription": "Home"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/bottomNavigationView"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 8
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 1,
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‏‏‏‏‏‎‏‏‎‏‏‏‏‎‏‎‎‎‏‏‎‏‏‏‎‏‏‎‏‎‏‎‎‎‎‎‎‏‎‎‎‏‏‏‎‏‏‏‏‎‎‎‏‎‎‎‏‎‏‎More options‎‏‎‎‏‎"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 9
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 10
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 2,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 11
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "de.danoeh.antennapod:id/bottom_navigation_subscriptions",
+            "contentDescription": "Subscriptions"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/bottomNavigationView"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 12
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/bottom_navigation_queue",
+            "contentDescription": "Queue"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/bottomNavigationView"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 13
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 14
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/bottom_navigation_inbox",
+            "contentDescription": "Inbox"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/bottomNavigationView"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 15
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 16
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "de.danoeh.antennapod:id/bottom_navigation_subscriptions",
+            "contentDescription": "Subscriptions"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/bottomNavigationView"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 17
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 4,
+            "resourceId": "de.danoeh.antennapod:id/bottom_navigation_more",
+            "contentDescription": "More"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/bottomNavigationView"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 18
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 19
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 20
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 21
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 22
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 23
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/button",
+            "text": "Duration"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/gridLayout"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 24
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/button",
+            "text": "Date"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/gridLayout"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 25
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/button",
+            "text": "Date ▼"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/gridLayout"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 26
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/button",
+            "text": "Date ▲"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/gridLayout"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 27
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/touch_outside"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/coordinator"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 28
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 29
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 2,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 30
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 31
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.CheckedTextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/text1",
+            "text": "Queue"
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/select_dialog_listview"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/contentPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 32
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 33
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 34
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 35
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 36
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Navigate up"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 37
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 38
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 39
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 40
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 41
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 42
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 43
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 44
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 45
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 46
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 47
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Navigate up"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 48
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 49
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 0,
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‏‏‏‏‏‎‏‏‎‏‏‏‏‎‏‎‎‎‏‏‎‏‏‏‎‏‏‎‏‎‏‎‎‎‎‎‎‏‎‎‎‏‏‏‎‏‏‏‏‎‎‎‏‎‎‎‏‎‏‎More options‎‏‎‎‏‎"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 50
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 5,
+            "resourceId": "de.danoeh.antennapod:id/attribAndroidVersionLabel",
+            "text": "9"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/deviceInfoGroup"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 51
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 3,
+            "resourceId": "de.danoeh.antennapod:id/attribAppVersionLabel",
+            "text": "3.11.0"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/deviceInfoGroup"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 52
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 0,
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‏‏‏‏‏‎‏‏‎‏‏‏‏‎‏‎‎‎‏‏‎‏‏‏‎‏‏‎‏‎‏‎‎‎‎‎‎‏‎‎‎‏‏‏‎‏‏‏‏‎‎‎‏‎‎‎‏‎‏‎More options‎‏‎‎‏‎"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 53
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Navigate up"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 54
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 9
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 55
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 56
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 57
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 58
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 59
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "contentDescription": "Translators"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.HorizontalScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/sliding_tabs"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 60
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "androidx.viewpager.widget.ViewPager",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/viewpager"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 61
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 62
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 63
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Developers"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.HorizontalScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/sliding_tabs"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 64
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 65
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 66
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "androidx.viewpager.widget.ViewPager",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/viewpager"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/settingsContainer"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 67
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 68
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 69
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 70
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 71
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 72
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 73
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 74
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 75
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 76
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 77
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 78
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 79
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Navigate up"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 80
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 81
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 82
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 83
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 84
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/text1",
+            "text": "View license"
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/select_dialog_listview"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/contentPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 85
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/scrollView"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/contentPanel"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/parentPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 86
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/scrollView"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/contentPanel"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/parentPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 87
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 88
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 89
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/text1",
+            "text": "View license"
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/select_dialog_listview"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/contentPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 90
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 91
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 92
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 93
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 94
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 95
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 96
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 97
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 98
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 99
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 100
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 101
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 102
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 103
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 104
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 105
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 106
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 107
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 108
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 109
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 110
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 111
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 112
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 113
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 114
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/text1",
+            "text": "View website"
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/select_dialog_listview"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/contentPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 115
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 116
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 117
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/text1",
+            "text": "View website"
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/select_dialog_listview"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/contentPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 118
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 119
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Navigate up"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 120
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 121
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 122
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 123
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 124
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 125
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2,
+            "contentDescription": "Special thanks"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.HorizontalScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/sliding_tabs"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 126
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Developers"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.HorizontalScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/sliding_tabs"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 127
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "contentDescription": "Translators"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.HorizontalScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/sliding_tabs"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 128
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 129
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 130
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 131
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 132
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 133
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Navigate up"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 134
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 135
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 136
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Navigate up"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 137
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recycler_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/list_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 138
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Navigate up"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 139
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Navigate up"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 140
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/action_search",
+            "contentDescription": "Search"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 141
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Collapse"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 142
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Open menu"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 143
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Close menu"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 144
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/action_search",
+            "contentDescription": "Search"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 145
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "ovppyo",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/search_src_text"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/search_plate"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/search_edit_frame"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 146
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/actionButton",
+            "text": "Search online"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/recyclerViewFeeds"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 147
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "tpkmbw",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/search_src_text",
+            "text": "ovppyo"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/search_plate"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/search_edit_frame"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 148
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Collapse"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 149
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/actionButton",
+            "text": "Search online"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/recyclerViewFeeds"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 150
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/search_close_btn",
+            "contentDescription": "Clear query"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/search_plate"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/search_edit_frame"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 151
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "pbezpq",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/search_src_text"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/search_plate"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/search_edit_frame"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 152
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 153
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/search_close_btn",
+            "contentDescription": "Clear query"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/search_plate"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/search_edit_frame"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 154
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/actionButton",
+            "text": "Search online"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/recyclerViewFeeds"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 155
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Collapse"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 156
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Collapse"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 157
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 1,
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‏‏‏‏‏‎‏‏‎‏‏‏‏‎‏‎‎‎‏‏‎‏‏‏‎‏‏‎‏‎‏‎‎‎‎‎‎‏‎‎‎‏‏‏‎‏‏‏‏‎‎‎‏‎‎‎‏‎‏‎More options‎‏‎‎‏‎"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 158
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 159
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 1,
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‏‏‏‏‏‎‏‏‎‏‏‏‏‎‏‎‎‎‏‏‎‏‏‏‎‏‏‎‏‎‏‎‎‎‎‎‎‏‎‎‎‏‏‏‎‏‏‏‏‎‎‎‏‎‎‎‏‎‏‎More options‎‏‎‎‏‎"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 160
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Open menu"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 161
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/nav_list"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/nav_layout"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 162
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 2,
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‏‏‏‏‏‎‏‏‎‏‏‏‏‎‏‎‎‎‏‏‎‏‏‏‎‏‏‎‏‎‏‎‎‎‎‎‎‏‎‎‎‏‏‏‎‏‏‏‏‎‎‎‏‎‎‎‏‎‏‎More options‎‏‎‎‏‎"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 163
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 2,
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‏‏‏‏‏‎‏‏‎‏‏‏‏‎‏‎‎‎‏‏‎‏‏‏‎‏‏‎‏‎‏‎‎‎‎‎‎‏‎‎‎‏‏‏‎‏‏‏‏‎‎‎‏‎‎‎‏‎‏‎More options‎‏‎‎‏‎"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 164
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 165
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/button1",
+            "text": "Confirm"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 166
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/action_search",
+            "contentDescription": "Search"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 167
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Collapse"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 168
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Open menu"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 169
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 170
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 2,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 171
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/nav_list"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/nav_layout"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 172
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recyclerView"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/custom"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/customPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 173
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 2,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 174
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/nav_list"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/nav_layout"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 175
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button3",
+            "text": "Reset"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 176
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/nav_list"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/nav_layout"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 177
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 178
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 1,
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‏‏‏‏‏‎‏‏‎‏‏‏‏‎‏‎‎‎‏‏‎‏‏‏‎‏‏‎‏‎‏‎‎‎‎‎‎‏‎‎‎‏‏‏‎‏‏‏‏‎‎‎‏‎‎‎‏‎‏‎More options‎‏‎‎‏‎"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 179
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 1,
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‏‏‏‏‏‎‏‏‎‏‏‏‏‎‏‎‎‎‏‏‎‏‏‏‎‏‏‎‏‎‏‎‎‎‎‎‎‏‎‎‎‏‏‏‎‏‏‏‏‎‎‎‏‎‎‎‏‎‏‎More options‎‏‎‎‏‎"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 180
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 181
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/button1",
+            "text": "Lock queue"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 3,
+            "resourceId": "de.danoeh.antennapod:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 182
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Open menu"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 183
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/nav_list"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/nav_layout"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 184
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.widget.GridView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/discover_grid"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 185
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 9
+          },
+          {
+            "className": "android.widget.GridView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/discover_grid"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 186
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.GridView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/discover_grid"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 187
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/searchButton",
+            "contentDescription": "Search podcast…"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/searchbar"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 188
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "gzkzof",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/search_src_text"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/search_plate"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/search_edit_frame"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 189
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/search_close_btn",
+            "contentDescription": "Clear query"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/search_plate"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/search_edit_frame"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 190
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Collapse"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 191
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Open menu"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 192
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/nav_list"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/nav_layout"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 193
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 3,
+            "resourceId": "de.danoeh.antennapod:id/addLocalFolderButton",
+            "text": "Add local folder"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/scrollView"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 194
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 195
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 10
+          },
+          {
+            "className": "android.widget.GridView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/discover_grid"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 196
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.widget.GridView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/discover_grid"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 197
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.widget.GridView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/discover_grid"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 198
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.widget.GridView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/discover_grid"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 199
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.GridView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/discover_grid"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 200
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/discover_more",
+            "text": "Discover more »"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 201
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Back"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 202
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "fflqxn",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/combinedFeedSearchEditText"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/searchbar"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 203
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Collapse"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/appbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 204
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/addViaUrlButton",
+            "text": "Add podcast by RSS address"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/scrollView"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 205
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "ttlhdg",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/textInput"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 206
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "cqygug",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/textInput",
+            "text": "tttlhdg\n"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 207
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/button1",
+            "text": "Confirm"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 208
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 209
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.widget.GridView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/discover_grid"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 210
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 5,
+            "resourceId": "de.danoeh.antennapod:id/searchFyydButton",
+            "text": "Search fyyd"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/scrollView"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 211
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 212
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/errorRetryButton",
+            "text": "Show suggestions"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/errorContainer"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 213
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/addViaUrlButton",
+            "text": "Add podcast by RSS address"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/scrollView"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 214
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/button1",
+            "text": "Confirm"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 215
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 216
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.GridView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/discover_grid"
+          },
+          {
+            "className": "android.widget.RelativeLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 217
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 0,
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‏‏‏‏‏‎‏‏‎‏‏‏‏‎‏‎‎‎‏‏‎‏‏‏‎‏‏‎‏‎‏‎‎‎‎‎‎‏‎‎‎‏‏‏‎‏‏‏‏‎‎‎‏‎‎‎‏‎‏‎More options‎‏‎‎‏‎"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 218
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 219
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/resolver_list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 220
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 221
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recyclerView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/swipeRefresh"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 222
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 223
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.CheckBox",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/share_position_checkbox",
+            "text": "Include playback position"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 224
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/mediaAddressCard"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/design_bottom_sheet"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 225
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/resolver_list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 226
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/text1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‏‏‏‏‎‎‏‎‎‏‎‏‎‏‏‏‏‏‏‏‏‏‏‎‎‎‎‎‏‎‏‎‎‏‏‏‎‎‎‏‏‏‏‎‎‎‎‏‎‎‎‎‎‎‏‏‎‎‎‎‎App info‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/select_dialog_listview"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/contentPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 227
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 228
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/contentPanel"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/content"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 229
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/resolver_list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 230
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 231
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recyclerView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/swipeRefresh"
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/coordinatorLayout"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 232
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 0,
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‏‏‏‏‏‎‏‏‎‏‏‏‏‎‏‎‎‎‏‏‎‏‏‏‎‏‏‎‏‎‏‎‎‎‎‎‎‏‎‎‎‏‏‏‎‏‏‏‏‎‎‎‏‎‎‎‏‎‏‎More options‎‏‎‎‏‎"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 233
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 234
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 235
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 2,
+            "resourceId": "de.danoeh.antennapod:id/toolbar"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/collapsing_toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/appBar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 236
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "de.danoeh.antennapod:id/recyclerView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 1,
+            "resourceId": "de.danoeh.antennapod:id/swipeRefresh"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 237
+      }
+    ]
+  }
+]

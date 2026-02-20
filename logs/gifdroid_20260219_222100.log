@@ -1,0 +1,31 @@
+2026-02-19 22:21:00  INFO      Log file: logs/gifdroid_20260219_222100.log
+2026-02-19 22:21:00  INFO      GIFdroid started
+2026-02-19 22:21:00  INFO        --video    : app_WifiAnalyzer/app_WifiAnalyzer.mp4
+2026-02-19 22:21:00  INFO        --utg      : app_WifiAnalyzer/utg.json
+2026-02-19 22:21:00  INFO        --artifact : app_WifiAnalyzer/artifacts/
+2026-02-19 22:21:00  INFO        --out      : app_WifiAnalyzer/execution.json
+2026-02-19 22:21:00  INFO        --log-dir  : logs
+2026-02-19 22:21:00  INFO      ==================================================
+2026-02-19 22:21:00  INFO      STEP 1: Keyframe Location
+2026-02-19 22:21:00  INFO        Input video : app_WifiAnalyzer/app_WifiAnalyzer.mp4
+2026-02-19 22:22:25  INFO        Keyframes found   : 16
+2026-02-19 22:22:25  INFO        Keyframe indices  : [12, 36, 114, 130, 211, 226, 244, 370, 514, 528, 623, 688, 715, 726, 749, 876]
+2026-02-19 22:22:25  INFO        Duration          : 85.59s
+2026-02-19 22:22:25  INFO      ==================================================
+2026-02-19 22:22:25  INFO      STEP 2: GUI Mapping
+2026-02-19 22:22:25  INFO        Screenshots dir : app_WifiAnalyzer/artifacts/
+2026-02-19 22:23:42  INFO        Mapped index sequence : [38, 31, 5, 1, 31, 7, 19, 22, 14, 22, 10, 10, 11, 38, 31, 6]
+2026-02-19 22:23:42  INFO        Duration              : 76.70s
+2026-02-19 22:23:42  INFO      ==================================================
+2026-02-19 22:23:42  INFO      STEP 3: Find Execution Trace
+2026-02-19 22:23:42  INFO        UTG file : app_WifiAnalyzer/utg.json
+2026-02-19 22:23:42  INFO        Candidate traces found : 1
+2026-02-19 22:23:42  INFO          Trace 0: [0, 1, 2, 6]
+2026-02-19 22:23:42  INFO        Duration : 0.01s
+2026-02-19 22:23:42  INFO      ==================================================
+2026-02-19 22:23:42  INFO      STEP 4: Store Execution Trace
+2026-02-19 22:23:42  INFO      Execution trace written to: app_WifiAnalyzer/execution.json
+2026-02-19 22:23:42  INFO        Duration : 0.00s
+2026-02-19 22:23:42  INFO      ==================================================
+2026-02-19 22:23:42  INFO      Pipeline complete.  Total time: 162.30s
+2026-02-19 22:23:42  INFO      ==================================================

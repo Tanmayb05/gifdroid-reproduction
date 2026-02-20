@@ -1,0 +1,121 @@
+"roboscript": {
+  "executionMode": {
+    "strict": true,
+    "shouldWaitForElement": true,
+    "notify": true,
+    "minScoreThreshold": 0
+  },
+  "postscript": {
+    "terminate": true
+  }
+}
+[
+  {
+    "id": 800,
+    "description": "ReproScript",
+    "crawlStage": "crawl",
+    "maxNumberOfRuns": 1,
+    "contextDescriptor": {
+      "condition": "app_under_test_shown",
+      "activationProbability": 1.0
+    },
+    "actions": [
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "kxtyqh",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.godot.game:id/godot_fragment_container"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 1
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 2
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 3
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 4
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 5
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 6
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 7
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 8
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 9
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 10
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 11
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 12
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 13
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 14
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 15
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 3000,
+        "reproActionSeq": 16
+      }
+    ]
+  }
+]

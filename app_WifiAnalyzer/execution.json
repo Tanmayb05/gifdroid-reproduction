@@ -1,0 +1,40 @@
+{
+    "video": "app_WifiAnalyzer/app_WifiAnalyzer.mp4",
+    "utg": "app_WifiAnalyzer/utg.json",
+    "artifact": "app_WifiAnalyzer/artifacts/",
+    "replay_traces": [
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 2,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 2,
+                    "destinationScreenId": 6,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_channel_graph",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout",
+                            "contentDescription": "Channel Graph"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

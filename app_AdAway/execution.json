@@ -1,0 +1,111 @@
+{
+    "video": "app_AdAway/app_AdAway.mp4",
+    "utg": "app_AdAway/utg.json",
+    "artifact": "app_AdAway/artifacts/",
+    "replay_traces": [
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 4,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "org.adaway:id/vpnCardView",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 4,
+                    "destinationScreenId": 5,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "org.adaway:id/next_button",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "textLabel": "NEXT"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 5,
+                    "destinationScreenId": 6,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "org.adaway:id/next_button",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "textLabel": "NEXT"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 6,
+                    "destinationScreenId": 8,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "org.adaway:id/next_button",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "textLabel": "FINISH"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 8,
+                    "destinationScreenId": 9,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "org.adaway:id/allowedHostCardView",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 9,
+                    "destinationScreenId": 10,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "org.adaway:id/menu_search",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "contentDescription": "Filter hosts"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 10,
+                    "destinationScreenId": 12,
+                    "action": {
+                        "type": "TYPE_TEXT",
+                        "targetDetails": {
+                            "resourceName": "android:id/search_src_text",
+                            "className": "android.widget.EditText",
+                            "androidClassName": "android.widget.EditText"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

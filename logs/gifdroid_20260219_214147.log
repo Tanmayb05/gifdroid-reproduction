@@ -1,0 +1,31 @@
+2026-02-19 21:41:47  INFO      Log file: logs/gifdroid_20260219_214147.log
+2026-02-19 21:41:47  INFO      GIFdroid started
+2026-02-19 21:41:47  INFO        --video    : app_AntennaPod/app_AntennaPod.mp4
+2026-02-19 21:41:47  INFO        --utg      : app_AntennaPod/utg.json
+2026-02-19 21:41:47  INFO        --artifact : app_AntennaPod/artifacts/
+2026-02-19 21:41:47  INFO        --out      : app_AntennaPod/execution.json
+2026-02-19 21:41:47  INFO        --log-dir  : logs
+2026-02-19 21:41:47  INFO      ==================================================
+2026-02-19 21:41:47  INFO      STEP 1: Keyframe Location
+2026-02-19 21:41:47  INFO        Input video : app_AntennaPod/app_AntennaPod.mp4
+2026-02-19 21:42:43  INFO        Keyframes found   : 9
+2026-02-19 21:42:43  INFO        Keyframe indices  : [12, 63, 264, 278, 368, 416, 471, 554, 582]
+2026-02-19 21:42:43  INFO        Duration          : 56.55s
+2026-02-19 21:42:43  INFO      ==================================================
+2026-02-19 21:42:43  INFO      STEP 2: GUI Mapping
+2026-02-19 21:42:43  INFO        Screenshots dir : app_AntennaPod/artifacts/
+2026-02-19 21:44:17  INFO        Mapped index sequence : [93, 79, 11, 79, 79, 86, 87, 96, 67]
+2026-02-19 21:44:17  INFO        Duration              : 93.77s
+2026-02-19 21:44:17  INFO      ==================================================
+2026-02-19 21:44:17  INFO      STEP 3: Find Execution Trace
+2026-02-19 21:44:17  INFO        UTG file : app_AntennaPod/utg.json
+2026-02-19 21:44:17  INFO        Candidate traces found : 1
+2026-02-19 21:44:17  INFO          Trace 0: [0, 1, 11, 13, 14, 24, 57, 59, 79, 66, 67]
+2026-02-19 21:44:17  INFO        Duration : 0.06s
+2026-02-19 21:44:17  INFO      ==================================================
+2026-02-19 21:44:17  INFO      STEP 4: Store Execution Trace
+2026-02-19 21:44:17  INFO      Execution trace written to: app_AntennaPod/execution.json
+2026-02-19 21:44:17  INFO        Duration : 0.00s
+2026-02-19 21:44:17  INFO      ==================================================
+2026-02-19 21:44:17  INFO      Pipeline complete.  Total time: 150.38s
+2026-02-19 21:44:17  INFO      ==================================================

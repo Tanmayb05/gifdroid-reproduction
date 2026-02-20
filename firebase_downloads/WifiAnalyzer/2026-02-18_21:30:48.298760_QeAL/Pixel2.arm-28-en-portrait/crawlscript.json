@@ -1,0 +1,2726 @@
+"roboscript": {
+  "executionMode": {
+    "strict": true,
+    "shouldWaitForElement": true,
+    "notify": true,
+    "minScoreThreshold": 0
+  },
+  "postscript": {
+    "terminate": true
+  }
+}
+[
+  {
+    "id": 800,
+    "description": "ReproScript",
+    "crawlStage": "crawl",
+    "maxNumberOfRuns": 1,
+    "contextDescriptor": {
+      "condition": "app_under_test_shown",
+      "activationProbability": 1.0
+    },
+    "actions": [
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 1
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 1000,
+        "reproActionSeq": 2
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/action_scanner",
+            "contentDescription": "Pause"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 3
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ExpandableListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/accessPointsView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/accessPointsRefresh"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 4
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 5
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/action_scanner",
+            "contentDescription": "Play"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 6
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/action_filter",
+            "contentDescription": "Filter"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 7
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "kxtyqh",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSSIDtext"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSSID"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 8
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 4,
+            "resourceId": "com.vrem.wifianalyzer:id/filterStrength4"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/filterStrength"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 9
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/filterWifiBand6",
+            "text": "6 GHz"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/filterWiFiBand"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 10
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 5,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurityWPA3",
+            "text": "WPA3"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurity"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 11
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/filterStrength3"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/filterStrength"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 12
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/filterStrength1"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/filterStrength"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 13
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurityWEP",
+            "text": "WEP"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurity"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 14
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurityNone",
+            "text": "None"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurity"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 15
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button3",
+            "text": "CLOSE"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 16
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom_channel_graph",
+            "contentDescription": "Channel Graph"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 17
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/action_scanner",
+            "contentDescription": "Pause"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 18
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom_time_graph",
+            "contentDescription": "Time Graph"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 19
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Open navigation drawer"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 20
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/attachPopup"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 21
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom_channel_graph",
+            "contentDescription": "Channel Graph"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 22
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Open navigation drawer"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 23
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/action_filter",
+            "contentDescription": "Filter"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 24
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/attachPopup"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 25
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/ssid",
+            "text": "AndroidWifi (02:15:b2:00:01:00)"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 26
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 27
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/action_wifi_band",
+            "text": "2.4\nGHZ"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 28
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 29
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom_time_graph",
+            "contentDescription": "Time Graph"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 30
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/ssid",
+            "text": "AndroidWifi (02:15:b2:00:01:00)"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 31
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/ssid",
+            "text": "AndroidWifi (02:15:b2:00:01:00)"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 32
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 33
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/action_filter",
+            "contentDescription": "Filter"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 34
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 4,
+            "resourceId": "com.vrem.wifianalyzer:id/filterStrength4"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/filterStrength"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 35
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 2,
+            "resourceId": "android:id/button1",
+            "text": "APPLY"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 36
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom_channel_rating",
+            "contentDescription": "Channel Rating"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 37
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/channelRatingView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/channelRatingRefresh"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 38
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/action_wifi_band",
+            "text": "6\nGHZ"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 39
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 40
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/channelRatingView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/channelRatingRefresh"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 41
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 10
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/channelRatingView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/channelRatingRefresh"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 42
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom_access_points",
+            "contentDescription": "Access Points"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 43
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/action_filter",
+            "contentDescription": "Filter"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 44
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/action_filter",
+            "contentDescription": "Filter"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 45
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurityWPA",
+            "text": "WPA"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurity"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 46
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 4,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurityWPA2",
+            "text": "WPA2"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurity"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 47
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/filterStrength0"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/filterStrength"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 48
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/filterStrength2"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/filterStrength"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 49
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurityWPS",
+            "text": "WPS"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurity"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 50
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/button2",
+            "text": "RESET"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 51
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom_channel_rating",
+            "contentDescription": "Channel Rating"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 52
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/channelRatingView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/channelRatingRefresh"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 53
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom_channel_graph",
+            "contentDescription": "Channel Graph"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 54
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/action_wifi_band",
+            "text": "2.4\nGHZ"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 55
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 56
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom_channel_rating",
+            "contentDescription": "Channel Rating"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 57
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/channelRatingView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/channelRatingRefresh"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 58
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Open navigation drawer"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 59
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_drawer_access_points"
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/design_navigation_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_drawer"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 60
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/attachPopup"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 61
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 62
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom_time_graph",
+            "contentDescription": "Time Graph"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 63
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/action_wifi_band",
+            "text": "2.4\nGHZ"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 64
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 65
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/action_filter",
+            "contentDescription": "Filter"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 66
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurityWEP",
+            "text": "WEP"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/filterSecurity"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 67
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button3",
+            "text": "CLOSE"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 68
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Open navigation drawer"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 69
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 7,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_drawer_channel_available"
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/design_navigation_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_drawer"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 70
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "https://en.wikipedia.org/wiki/List_of_WLAN_channels"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 71
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 72
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/attachPopup"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 73
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 74
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "https://en.wikipedia.org/wiki/List_of_WLAN_channels"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 75
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 76
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/main_fragment"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 77
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/attachPopup"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 78
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 79
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/ssid",
+            "text": "AndroidWifi (02:15:b2:00:01:00)"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 80
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 81
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Open navigation drawer"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 82
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 11,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_drawer_about"
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/design_navigation_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_drawer"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 83
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 7,
+            "text": "https://vremsoftwaredevelopment.github.io/WiFiAnalyzer/#documentation"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 84
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 85
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 3,
+            "text": "http://www.gnu.org/licenses/gpl-3.0.html"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 86
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 87
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/license",
+            "text": "GNU General Public License v3.0"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 88
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button3",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 89
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/main_fragment"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 90
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 7,
+            "text": "https://vremsoftwaredevelopment.github.io/WiFiAnalyzer/#documentation"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 91
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 92
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 13,
+            "text": "https://vremsoftwaredevelopment.github.io/WiFiAnalyzer/#privacy-policy"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 93
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 94
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 15,
+            "resourceId": "com.vrem.wifianalyzer:id/writeReview",
+            "text": "WRITE A REVIEW"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 95
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 9,
+            "text": "https://vremsoftwaredevelopment.github.io/WiFiAnalyzer/#how-to"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 96
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 97
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 14,
+            "resourceId": "com.vrem.wifianalyzer:id/contributors",
+            "text": "CONTRIBUTORS"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 98
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/scrollView"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/contentPanel"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/parentPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 99
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button3",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 100
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/main_fragment"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 101
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "https://design.google.com/icons"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 20
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 102
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 103
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "https://design.google.com/icons"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 20
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 104
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 105
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Open navigation drawer"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 106
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "https://design.google.com/icons"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 20
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 107
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "https://design.google.com/icons"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 20
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 108
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_drawer_channel_graph"
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/design_navigation_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_drawer"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 109
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/action_scanner",
+            "contentDescription": "Pause"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 110
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom_channel_rating",
+            "contentDescription": "Channel Rating"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_bottom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 111
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/channelRatingView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 2,
+            "resourceId": "com.vrem.wifianalyzer:id/channelRatingRefresh"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 112
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 0,
+            "contentDescription": "Open navigation drawer"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/toolbar"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 113
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 8,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_drawer_vendors"
+          },
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/design_navigation_view"
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/nav_drawer"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 114
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_name",
+            "text": "10NET COMMUNICATIONS DCA"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 115
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_macs",
+            "text": "A8:5E:E4"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 116
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_name",
+            "text": "1394 TRADE ASSOCIATION"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 117
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_macs",
+            "text": "18:95:52, 6C:CE:44, 78:A7:EB, 9C:97:89"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 9
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 118
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_name",
+            "text": "12SIDED TECHNOLOGY LLC"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 119
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_macs",
+            "text": "00:A0:2D"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 120
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_name",
+            "text": "1VERGE INTERNET TECHNOLOGY BEIJING CO LTD"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 11
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 121
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_macs",
+            "text": "70:02:58"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 122
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_name",
+            "text": "12MM HEALTH TECHNOLOGY HAINAN CO LTD"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 123
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_macs",
+            "text": "00:19:74"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 124
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_name",
+            "text": "01DB METRAVIB"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 125
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_macs",
+            "text": "3C:40:15"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 126
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_name",
+            "text": "12MM HEALTH TECHNOLOGY HAINAN CO LTD"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 127
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_macs",
+            "text": "A8:5E:E4"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 128
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_macs",
+            "text": "08:00:24"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 129
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_name",
+            "text": "11WAVE TECHNONLOGY CO LTD"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 130
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_name",
+            "text": "100FIO NETWORKS TECHNOLOGY LLC"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 131
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_macs",
+            "text": "3C:40:15"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 132
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_name",
+            "text": "16063"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 133
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_name",
+            "text": "1394 PRINTER WORKING GROUP"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 134
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 1,
+            "resourceId": "com.vrem.wifianalyzer:id/vendor_macs",
+            "text": "00:A0:2D"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.widget.ListView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/list"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 135
+      }
+    ]
+  }
+]

@@ -1,0 +1,128 @@
+{
+    "video": "app_AntennaPod/app_AntennaPod.mp4",
+    "utg": "app_AntennaPod/utg.json",
+    "artifact": "app_AntennaPod/artifacts/",
+    "replay_traces": [
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 11,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "de.danoeh.antennapod:id/bottom_navigation_subscriptions",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout",
+                            "contentDescription": "Subscriptions"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 11,
+                    "destinationScreenId": 13,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "de.danoeh.antennapod:id/bottom_navigation_more",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout",
+                            "contentDescription": "More"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 13,
+                    "destinationScreenId": 14,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.LinearLayout",
+                            "androidClassName": "android.widget.LinearLayout"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 14,
+                    "destinationScreenId": 24,
+                    "action": {
+                        "type": "SWIPE",
+                        "targetDetails": {
+                            "resourceName": "de.danoeh.antennapod:id/recycler_view",
+                            "className": "androidx.recyclerview.widget.RecyclerView",
+                            "androidClassName": "androidx.recyclerview.widget.RecyclerView"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 24,
+                    "destinationScreenId": 57,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.ImageButton",
+                            "androidClassName": "android.widget.ImageButton",
+                            "contentDescription": "Navigate up"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 57,
+                    "destinationScreenId": 59,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.ImageButton",
+                            "androidClassName": "android.widget.ImageButton",
+                            "contentDescription": "Open menu"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 59,
+                    "destinationScreenId": 79,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.RelativeLayout",
+                            "androidClassName": "android.widget.RelativeLayout"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 79,
+                    "destinationScreenId": 66,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "de.danoeh.antennapod:id/searchButton",
+                            "className": "android.widget.ImageView",
+                            "androidClassName": "android.widget.ImageView",
+                            "contentDescription": "Search podcast\u2026"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 66,
+                    "destinationScreenId": 67,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.ImageButton",
+                            "androidClassName": "android.widget.ImageButton",
+                            "contentDescription": "Collapse"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

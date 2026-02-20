@@ -1,0 +1,130 @@
+{
+    "video": "app_PortAuthority/app_PortAuthority.mp4",
+    "utg": "app_PortAuthority/utg.json",
+    "artifact": "app_PortAuthority/artifacts/",
+    "replay_traces": [
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 2,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "android:id/button1",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "textLabel": "\u200e\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200f\u200f\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200e\u200f\u200e\u200e\u200e\u200e\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200f\u200f\u200e\u200f\u200f\u200e\u200e\u200f\u200f\u200f\u200f\u200e\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200f\u200f\u200e\u200e\u200f\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200f\u200f\u200e\u200f\u200f\u200f\u200f\u200f\u200f\u200e\u200f\u200f\u200f\u200e\u200f\u200f\u200f\u200e\u200eOK\u200e\u200f\u200e\u200e\u200f\u200e"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 2,
+                    "destinationScreenId": 3,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "android:id/button1",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "textLabel": "\u200e\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200f\u200f\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200e\u200f\u200e\u200e\u200e\u200e\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200e\u200e\u200f\u200e\u200f\u200e\u200e\u200f\u200f\u200e\u200f\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200e\u200e\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200e\u200f\u200f\u200e\u200e\u200f\u200e\u200f\u200f\u200f\u200e\u200e\u200f\u200e\u200f\u200e\u200f\u200e\u200e\u200f\u200f\u200f\u200e\u200f\u200f\u200e\u200f\u200e\u200f\u200e\u200e\u200e\u200e\u200e\u200eOK\u200e\u200f\u200e\u200e\u200f\u200e"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 3,
+                    "destinationScreenId": 18,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "com.aaronjwood.portauthority:id/leftDrawerIcon",
+                            "className": "android.widget.ImageView",
+                            "androidClassName": "android.widget.ImageView"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 18,
+                    "destinationScreenId": 23,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "android:id/text1",
+                            "className": "android.widget.TextView",
+                            "androidClassName": "android.widget.TextView",
+                            "textLabel": "\u2699 Settings"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 23,
+                    "destinationScreenId": 29,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 29,
+                    "destinationScreenId": 30,
+                    "action": {
+                        "type": "LONG_PRESS",
+                        "targetDetails": {
+                            "resourceName": "com.aaronjwood.portauthority:id/internalIpAddress",
+                            "className": "android.widget.TextView",
+                            "androidClassName": "android.widget.TextView",
+                            "textLabel": "192.168.232.3/21"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 30,
+                    "destinationScreenId": 31,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.LinearLayout",
+                            "androidClassName": "android.widget.LinearLayout",
+                            "contentDescription": "\u200e\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200f\u200f\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200e\u200f\u200e\u200e\u200e\u200e\u200f\u200f\u200f\u200f\u200f\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200f\u200e\u200e\u200f\u200f\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200e\u200e\u200e\u200f\u200e\u200f\u200f\u200e\u200f\u200f\u200f\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200f\u200f\u200e\u200e\u200e\u200f\u200e\u200e\u200e\u200f\u200e\u200e\u200f\u200f\u200e\u200e\u200f\u200f\u200eCopy\u200e\u200f\u200e\u200e\u200f\u200e"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 31,
+                    "destinationScreenId": 33,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "com.aaronjwood.portauthority:id/leftDrawerIcon",
+                            "className": "android.widget.ImageView",
+                            "androidClassName": "android.widget.ImageView"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 33,
+                    "destinationScreenId": 6,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "android:id/text1",
+                            "className": "android.widget.TextView",
+                            "androidClassName": "android.widget.TextView",
+                            "textLabel": "\u2194 DNS Lookup"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

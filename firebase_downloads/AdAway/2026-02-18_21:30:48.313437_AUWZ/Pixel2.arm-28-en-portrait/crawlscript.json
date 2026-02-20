@@ -1,0 +1,1070 @@
+"roboscript": {
+  "executionMode": {
+    "strict": true,
+    "shouldWaitForElement": true,
+    "notify": true,
+    "minScoreThreshold": 0
+  },
+  "postscript": {
+    "terminate": true
+  }
+}
+[
+  {
+    "id": 800,
+    "description": "ReproScript",
+    "crawlStage": "crawl",
+    "maxNumberOfRuns": 1,
+    "contextDescriptor": {
+      "condition": "app_under_test_shown",
+      "activationProbability": 1.0
+    },
+    "actions": [
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "org.adaway:id/rootCardView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 1
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button1",
+            "text": "CLOSE"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 2
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "androidx.viewpager.widget.ViewPager",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/view_pager"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 3
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 5,
+            "resourceId": "org.adaway:id/vpnCardView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 4
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/button1",
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "android:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 5
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "androidx.viewpager.widget.ViewPager",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/view_pager"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 6
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 5,
+            "resourceId": "org.adaway:id/vpnCardView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 7
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 3,
+            "resourceId": "org.adaway:id/rootCardView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 8
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button1",
+            "text": "CLOSE"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 9
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 5,
+            "resourceId": "org.adaway:id/vpnCardView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 10
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/next_button",
+            "text": "NEXT"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/content"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 11
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "androidx.viewpager.widget.ViewPager",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/view_pager"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 12
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 3,
+            "resourceId": "org.adaway:id/next_button",
+            "text": "NEXT"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/content"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 13
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/headerImageView",
+            "contentDescription": "Support"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 14
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 15
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 3,
+            "resourceId": "org.adaway:id/next_button",
+            "text": "FINISH"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/content"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 16
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 9,
+            "resourceId": "org.adaway:id/allowedHostCardView"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/content"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/coordinator_layout"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 17
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/hosts_lists_list"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 18
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/menu_search",
+            "contentDescription": "Filter hosts"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/action_bar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 19
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/lists_navigation_blocked",
+            "contentDescription": "Blocked"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/navigation"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 20
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "org.adaway:id/lists_navigation_allowed",
+            "contentDescription": "Allowed"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/navigation"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 21
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "mpeits",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/search_src_text"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/search_plate"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/search_edit_frame"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 22
+      },
+      {
+        "eventType": "VIEW_SWIPED",
+        "swipeDirection": "Up",
+        "elementDescriptors": [
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "androidx.viewpager.widget.ViewPager",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/lists_view_pager"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/coordinator"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 23
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/lists_navigation_blocked",
+            "contentDescription": "Blocked"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/navigation"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 24
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "org.adaway:id/lists_navigation_allowed",
+            "contentDescription": "Allowed"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/navigation"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 25
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/search_close_btn",
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‎‎‏‎‎‏‏‏‎‏‏‎‎‎‎‏‏‏‎‎‎‏‏‎‏‏‎‎‎‎‏‏‎‎‎‏‏‏‎‎‏‎‎‎‏‎‎‎‏‏‎‏‏‏‎‎‏‎‎‏‎Clear query‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/search_plate"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/search_edit_frame"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 26
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/lists_navigation_blocked",
+            "contentDescription": "Blocked"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/navigation"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 27
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "org.adaway:id/lists_navigation_allowed",
+            "contentDescription": "Allowed"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/navigation"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 28
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "androidx.viewpager.widget.ViewPager",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/lists_view_pager"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/coordinator"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 29
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/lists_navigation_redirected",
+            "contentDescription": "Redirected"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/navigation"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 30
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/menu_toggle_source",
+            "contentDescription": "Toggle sources"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/action_bar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 31
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 1,
+            "resourceId": "org.adaway:id/lists_add",
+            "contentDescription": "Add host"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/coordinator"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 32
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "utgopu",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 3,
+            "resourceId": "org.adaway:id/list_dialog_ip"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/custom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 33
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "akqndp",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 1,
+            "resourceId": "org.adaway:id/list_dialog_hostname"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/custom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 34
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button2",
+            "text": "CANCEL"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 35
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "gdxsol",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/search_src_text"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/search_plate"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/search_edit_frame"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 36
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/hosts_lists_list"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 37
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/menu_toggle_source",
+            "contentDescription": "Toggle sources"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/action_bar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 38
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 1,
+            "resourceId": "org.adaway:id/lists_add",
+            "contentDescription": "Add host"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/coordinator"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 39
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/button2",
+            "text": "CANCEL"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 40
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "org.adaway:id/lists_navigation_allowed",
+            "contentDescription": "Allowed"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/navigation"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 41
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/menu_toggle_source",
+            "contentDescription": "Toggle sources"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/action_bar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 42
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageView",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/search_close_btn",
+            "contentDescription": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‎‎‏‎‎‏‏‏‎‏‏‎‎‎‎‏‏‏‎‎‎‏‏‎‏‏‎‎‎‎‏‏‎‎‎‏‏‏‎‎‏‎‎‎‏‎‎‎‏‏‎‏‏‏‎‎‏‎‎‏‎Clear query‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/search_plate"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/search_edit_frame"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 43
+      },
+      {
+        "eventType": "VIEW_LONG_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "androidx.viewpager.widget.ViewPager",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/lists_view_pager"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/coordinator"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 44
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.ImageButton",
+            "groupViewChildPosition": 1,
+            "resourceId": "org.adaway:id/lists_add",
+            "contentDescription": "Add host"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/coordinator"
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 45
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "gqyodh",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 1,
+            "resourceId": "org.adaway:id/list_dialog_hostname"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.FrameLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/custom"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 46
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/button1",
+            "text": "ADD"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.widget.ScrollView",
+            "groupViewChildPosition": 2,
+            "resourceId": "org.adaway:id/buttonPanel"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 47
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.Button",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/menu_toggle_source",
+            "contentDescription": "Toggle sources"
+          },
+          {
+            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.ViewGroup",
+            "groupViewChildPosition": 0,
+            "resourceId": "org.adaway:id/action_bar"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 48
+      },
+      {
+        "eventType": "ENTER_TEXT",
+        "replacementText": "bkfvvp",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.EditText",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/search_src_text"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 1,
+            "resourceId": "android:id/search_plate"
+          },
+          {
+            "className": "android.widget.LinearLayout",
+            "groupViewChildPosition": 0,
+            "resourceId": "android:id/search_edit_frame"
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 49
+      }
+    ]
+  }
+]

@@ -1,0 +1,2191 @@
+{
+  "events": [{
+    "sourceScreenId": "0",
+    "destinationScreenId": "1",
+    "startTimeSeconds": 5.060107,
+    "endTimeSeconds": 7.304278,
+    "executionResult": "SUCCESS",
+    "launch": {
+      "action": "android.intent.action.MAIN"
+    }
+  }, {
+    "sequence": 1,
+    "sourceScreenId": "1",
+    "destinationScreenId": "2",
+    "startTimeSeconds": 8.343708,
+    "endTimeSeconds": 11.445507,
+    "executionResult": "SUCCESS",
+    "wait": {
+      "durationSeconds": 2.0
+    }
+  }, {
+    "sequence": 3,
+    "sourceScreenId": "2",
+    "destinationScreenId": "3",
+    "startTimeSeconds": 13.993807,
+    "endTimeSeconds": 16.409266,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.2.1",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_scanner",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "contentDescription": "Pause"
+      }
+    }
+  }, {
+    "sequence": 4,
+    "sourceScreenId": "3",
+    "destinationScreenId": "4",
+    "startTimeSeconds": 18.533563,
+    "endTimeSeconds": 20.535037,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.2.0.0.0.0.0",
+      "targetDetails": {
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 5,
+    "sourceScreenId": "4",
+    "destinationScreenId": "3",
+    "startTimeSeconds": 22.262354,
+    "endTimeSeconds": 23.782393,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "android:id/button1",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+      }
+    }
+  }, {
+    "sequence": 6,
+    "sourceScreenId": "3",
+    "destinationScreenId": "2",
+    "startTimeSeconds": 25.178908,
+    "endTimeSeconds": 26.632156,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.2.1",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_scanner",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "contentDescription": "Play"
+      }
+    }
+  }, {
+    "sequence": 7,
+    "sourceScreenId": "2",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 28.030183,
+    "endTimeSeconds": 30.001617,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.2.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_filter",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "contentDescription": "Filter"
+      }
+    }
+  }, {
+    "sequence": 8,
+    "sourceScreenId": "5",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 31.788058,
+    "endTimeSeconds": 41.540896000000004,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TYPE_TEXT",
+      "childSequence": "0.0.0.0.1.0.0.0.1.1",
+      "enterTextString": "kxtyqh",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterSSIDtext",
+        "className": "android.widget.EditText",
+        "androidClassName": "android.widget.EditText"
+      }
+    }
+  }, {
+    "sequence": 9,
+    "sourceScreenId": "5",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 42.671786,
+    "endTimeSeconds": 44.815876,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.3.1.4",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterStrength4",
+        "className": "android.widget.ImageView",
+        "androidClassName": "android.widget.ImageView"
+      }
+    }
+  }, {
+    "sequence": 10,
+    "sourceScreenId": "5",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 45.897636,
+    "endTimeSeconds": 47.550603,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.2.1.2",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterWifiBand6",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "6 GHz"
+      }
+    }
+  }, {
+    "sequence": 11,
+    "sourceScreenId": "5",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 48.425523,
+    "endTimeSeconds": 50.02013,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.4.1.5",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterSecurityWPA3",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "WPA3"
+      }
+    }
+  }, {
+    "sequence": 12,
+    "sourceScreenId": "5",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 51.123968,
+    "endTimeSeconds": 53.122212,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.3.1.3",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterStrength3",
+        "className": "android.widget.ImageView",
+        "androidClassName": "android.widget.ImageView"
+      }
+    }
+  }, {
+    "sequence": 13,
+    "sourceScreenId": "5",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 54.074886,
+    "endTimeSeconds": 55.684528,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.3.1.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterStrength1",
+        "className": "android.widget.ImageView",
+        "androidClassName": "android.widget.ImageView"
+      }
+    }
+  }, {
+    "sequence": 14,
+    "sourceScreenId": "5",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 56.627529,
+    "endTimeSeconds": 58.238888,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.4.1.2",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterSecurityWEP",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "WEP"
+      }
+    }
+  }, {
+    "sequence": 15,
+    "sourceScreenId": "5",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 59.037862,
+    "endTimeSeconds": 60.698973,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.4.1.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterSecurityNone",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "None"
+      }
+    }
+  }, {
+    "sequence": 16,
+    "sourceScreenId": "5",
+    "destinationScreenId": "2",
+    "startTimeSeconds": 61.624034,
+    "endTimeSeconds": 62.693928,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.2.0.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "android:id/button3",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "CLOSE"
+      }
+    }
+  }, {
+    "sequence": 17,
+    "sourceScreenId": "2",
+    "destinationScreenId": "6",
+    "startTimeSeconds": 64.041822,
+    "endTimeSeconds": 65.744801,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.3.0.2",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_channel_graph",
+        "className": "android.widget.FrameLayout",
+        "androidClassName": "android.widget.FrameLayout",
+        "contentDescription": "Channel Graph"
+      }
+    }
+  }, {
+    "sequence": 18,
+    "sourceScreenId": "6",
+    "destinationScreenId": "7",
+    "startTimeSeconds": 67.394982,
+    "endTimeSeconds": 69.292665,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.2.2",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_scanner",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "contentDescription": "Pause"
+      }
+    }
+  }, {
+    "sequence": 19,
+    "sourceScreenId": "7",
+    "destinationScreenId": "8",
+    "startTimeSeconds": 71.000362,
+    "endTimeSeconds": 72.401904,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.3.0.3",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_time_graph",
+        "className": "android.widget.FrameLayout",
+        "androidClassName": "android.widget.FrameLayout",
+        "contentDescription": "Time Graph"
+      }
+    }
+  }, {
+    "sequence": 20,
+    "sourceScreenId": "8",
+    "destinationScreenId": "9",
+    "startTimeSeconds": 73.951021,
+    "endTimeSeconds": 75.522602,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.0",
+      "targetDetails": {
+        "className": "android.widget.ImageButton",
+        "androidClassName": "android.widget.ImageButton",
+        "contentDescription": "Open navigation drawer"
+      }
+    }
+  }, {
+    "sequence": 21,
+    "sourceScreenId": "9",
+    "destinationScreenId": "3",
+    "startTimeSeconds": 78.745886,
+    "endTimeSeconds": 80.449137,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.1.1.0.1.0.0.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/attachPopup",
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 22,
+    "sourceScreenId": "3",
+    "destinationScreenId": "7",
+    "startTimeSeconds": 82.19248,
+    "endTimeSeconds": 83.839444,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.3.0.2",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_channel_graph",
+        "className": "android.widget.FrameLayout",
+        "androidClassName": "android.widget.FrameLayout",
+        "contentDescription": "Channel Graph"
+      }
+    }
+  }, {
+    "sequence": 23,
+    "sourceScreenId": "7",
+    "destinationScreenId": "10",
+    "startTimeSeconds": 84.741548,
+    "endTimeSeconds": 86.368718,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.0",
+      "targetDetails": {
+        "className": "android.widget.ImageButton",
+        "androidClassName": "android.widget.ImageButton",
+        "contentDescription": "Open navigation drawer"
+      }
+    }
+  }, {
+    "sequence": 24,
+    "sourceScreenId": "10",
+    "destinationScreenId": "7",
+    "startTimeSeconds": 89.754535,
+    "endTimeSeconds": 91.577467,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.1.0.0.0.2.1",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_filter",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "contentDescription": "Filter"
+      }
+    }
+  }, {
+    "sequence": 25,
+    "sourceScreenId": "7",
+    "destinationScreenId": "4",
+    "startTimeSeconds": 92.895122,
+    "endTimeSeconds": 94.824199,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.1.0.0.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/attachPopup",
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 26,
+    "sourceScreenId": "4",
+    "destinationScreenId": "11",
+    "startTimeSeconds": 95.835274,
+    "endTimeSeconds": 99.051082,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/ssid",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "AndroidWifi (02:15:b2:00:01:00)"
+      }
+    }
+  }, {
+    "sequence": 27,
+    "sourceScreenId": "11",
+    "destinationScreenId": "7",
+    "startTimeSeconds": 101.523507,
+    "endTimeSeconds": 103.596075,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "android:id/button1",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+      }
+    }
+  }, {
+    "sequence": 28,
+    "sourceScreenId": "7",
+    "destinationScreenId": "12",
+    "startTimeSeconds": 104.67374,
+    "endTimeSeconds": 108.427556,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.2.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_wifi_band",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "2.4\nGHZ"
+      }
+    }
+  }, {
+    "sequence": 29,
+    "sourceScreenId": "12",
+    "destinationScreenId": "13",
+    "startTimeSeconds": 109.119453,
+    "endTimeSeconds": 111.552419,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.2",
+      "targetDetails": {
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 30,
+    "sourceScreenId": "13",
+    "destinationScreenId": "14",
+    "startTimeSeconds": 113.330294,
+    "endTimeSeconds": 115.029313,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.3.0.3",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_time_graph",
+        "className": "android.widget.FrameLayout",
+        "androidClassName": "android.widget.FrameLayout",
+        "contentDescription": "Time Graph"
+      }
+    }
+  }, {
+    "sequence": 31,
+    "sourceScreenId": "14",
+    "destinationScreenId": "4",
+    "startTimeSeconds": 116.644099,
+    "endTimeSeconds": 118.522917,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.1.0.0.0.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/ssid",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "AndroidWifi (02:15:b2:00:01:00)"
+      }
+    }
+  }, {
+    "sequence": 32,
+    "sourceScreenId": "4",
+    "destinationScreenId": "4",
+    "startTimeSeconds": 119.511219,
+    "endTimeSeconds": 121.231392,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/ssid",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "AndroidWifi (02:15:b2:00:01:00)"
+      }
+    }
+  }, {
+    "sequence": 33,
+    "sourceScreenId": "4",
+    "destinationScreenId": "14",
+    "startTimeSeconds": 122.40831,
+    "endTimeSeconds": 124.228906,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "android:id/button1",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+      }
+    }
+  }, {
+    "sequence": 34,
+    "sourceScreenId": "14",
+    "destinationScreenId": "15",
+    "startTimeSeconds": 125.34573,
+    "endTimeSeconds": 127.212965,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.2.1",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_filter",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "contentDescription": "Filter"
+      }
+    }
+  }, {
+    "sequence": 35,
+    "sourceScreenId": "15",
+    "destinationScreenId": "15",
+    "startTimeSeconds": 128.736631,
+    "endTimeSeconds": 130.847813,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.2.1.4",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterStrength4",
+        "className": "android.widget.ImageView",
+        "androidClassName": "android.widget.ImageView"
+      }
+    }
+  }, {
+    "sequence": 36,
+    "sourceScreenId": "15",
+    "destinationScreenId": "14",
+    "startTimeSeconds": 131.644538,
+    "endTimeSeconds": 133.399818,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.2.0.2",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "android:id/button1",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "APPLY"
+      }
+    }
+  }, {
+    "sequence": 37,
+    "sourceScreenId": "14",
+    "destinationScreenId": "16",
+    "startTimeSeconds": 134.437519,
+    "endTimeSeconds": 135.861265,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.3.0.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_channel_rating",
+        "className": "android.widget.FrameLayout",
+        "androidClassName": "android.widget.FrameLayout",
+        "contentDescription": "Channel Rating"
+      }
+    }
+  }, {
+    "sequence": 38,
+    "sourceScreenId": "16",
+    "destinationScreenId": "16",
+    "startTimeSeconds": 142.496781,
+    "endTimeSeconds": 144.826061,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.2.0.0.2.0.0",
+      "targetDetails": {
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 39,
+    "sourceScreenId": "16",
+    "destinationScreenId": "17",
+    "startTimeSeconds": 149.109439,
+    "endTimeSeconds": 154.599145,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.2.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_wifi_band",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "6\nGHZ"
+      }
+    }
+  }, {
+    "sequence": 40,
+    "sourceScreenId": "17",
+    "destinationScreenId": "18",
+    "startTimeSeconds": 155.255494,
+    "endTimeSeconds": 156.682961,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0",
+      "targetDetails": {
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 41,
+    "sourceScreenId": "18",
+    "destinationScreenId": "18",
+    "startTimeSeconds": 164.347893,
+    "endTimeSeconds": 168.706367,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.2.0.0.2.0.2",
+      "targetDetails": {
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 42,
+    "sourceScreenId": "18",
+    "destinationScreenId": "18",
+    "startTimeSeconds": 174.229732,
+    "endTimeSeconds": 178.853702,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.2.0.0.2.0.10",
+      "targetDetails": {
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 43,
+    "sourceScreenId": "18",
+    "destinationScreenId": "19",
+    "startTimeSeconds": 183.46101,
+    "endTimeSeconds": 186.802151,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.3.0.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_access_points",
+        "className": "android.widget.FrameLayout",
+        "androidClassName": "android.widget.FrameLayout",
+        "contentDescription": "Access Points"
+      }
+    }
+  }, {
+    "sequence": 44,
+    "sourceScreenId": "19",
+    "destinationScreenId": "19",
+    "startTimeSeconds": 188.371455,
+    "endTimeSeconds": 192.890211,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.2.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_filter",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "contentDescription": "Filter"
+      }
+    }
+  }, {
+    "sequence": 45,
+    "sourceScreenId": "19",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 193.944218,
+    "endTimeSeconds": 195.784843,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.2.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_filter",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "contentDescription": "Filter"
+      }
+    }
+  }, {
+    "sequence": 46,
+    "sourceScreenId": "5",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 196.762166,
+    "endTimeSeconds": 198.526133,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.4.1.3",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterSecurityWPA",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "WPA"
+      }
+    }
+  }, {
+    "sequence": 47,
+    "sourceScreenId": "5",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 199.343755,
+    "endTimeSeconds": 200.945381,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.4.1.4",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterSecurityWPA2",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "WPA2"
+      }
+    }
+  }, {
+    "sequence": 48,
+    "sourceScreenId": "5",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 201.815787,
+    "endTimeSeconds": 203.556317,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.3.1.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterStrength0",
+        "className": "android.widget.ImageView",
+        "androidClassName": "android.widget.ImageView"
+      }
+    }
+  }, {
+    "sequence": 49,
+    "sourceScreenId": "5",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 204.424992,
+    "endTimeSeconds": 206.071962,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.3.1.2",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterStrength2",
+        "className": "android.widget.ImageView",
+        "androidClassName": "android.widget.ImageView"
+      }
+    }
+  }, {
+    "sequence": 50,
+    "sourceScreenId": "5",
+    "destinationScreenId": "5",
+    "startTimeSeconds": 207.034794,
+    "endTimeSeconds": 208.678,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.4.1.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterSecurityWPS",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "WPS"
+      }
+    }
+  }, {
+    "sequence": 51,
+    "sourceScreenId": "5",
+    "destinationScreenId": "3",
+    "startTimeSeconds": 209.683121,
+    "endTimeSeconds": 211.390127,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.2.0.1",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "android:id/button2",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "RESET"
+      }
+    }
+  }, {
+    "sequence": 52,
+    "sourceScreenId": "3",
+    "destinationScreenId": "18",
+    "startTimeSeconds": 212.796036,
+    "endTimeSeconds": 214.343548,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.3.0.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_channel_rating",
+        "className": "android.widget.FrameLayout",
+        "androidClassName": "android.widget.FrameLayout",
+        "contentDescription": "Channel Rating"
+      }
+    }
+  }, {
+    "sequence": 53,
+    "sourceScreenId": "18",
+    "destinationScreenId": "18",
+    "startTimeSeconds": 220.192808,
+    "endTimeSeconds": 223.310557,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.2.0.0.2.0.1",
+      "targetDetails": {
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 54,
+    "sourceScreenId": "18",
+    "destinationScreenId": "7",
+    "startTimeSeconds": 230.189924,
+    "endTimeSeconds": 233.426703,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.3.0.2",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_channel_graph",
+        "className": "android.widget.FrameLayout",
+        "androidClassName": "android.widget.FrameLayout",
+        "contentDescription": "Channel Graph"
+      }
+    }
+  }, {
+    "sequence": 55,
+    "sourceScreenId": "7",
+    "destinationScreenId": "20",
+    "startTimeSeconds": 234.608186,
+    "endTimeSeconds": 235.963403,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.2.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_wifi_band",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "2.4\nGHZ"
+      }
+    }
+  }, {
+    "sequence": 56,
+    "sourceScreenId": "20",
+    "destinationScreenId": "7",
+    "startTimeSeconds": 236.615511,
+    "endTimeSeconds": 238.754517,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0",
+      "targetDetails": {
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 57,
+    "sourceScreenId": "7",
+    "destinationScreenId": "18",
+    "startTimeSeconds": 239.930901,
+    "endTimeSeconds": 241.415495,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.3.0.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_channel_rating",
+        "className": "android.widget.FrameLayout",
+        "androidClassName": "android.widget.FrameLayout",
+        "contentDescription": "Channel Rating"
+      }
+    }
+  }, {
+    "sequence": 58,
+    "sourceScreenId": "18",
+    "destinationScreenId": "18",
+    "startTimeSeconds": 245.002661,
+    "endTimeSeconds": 248.841636,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.2.0.0.2.0.3",
+      "targetDetails": {
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 59,
+    "sourceScreenId": "18",
+    "destinationScreenId": "21",
+    "startTimeSeconds": 255.712288,
+    "endTimeSeconds": 259.348207,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.0",
+      "targetDetails": {
+        "className": "android.widget.ImageButton",
+        "androidClassName": "android.widget.ImageButton",
+        "contentDescription": "Open navigation drawer"
+      }
+    }
+  }, {
+    "sequence": 60,
+    "sourceScreenId": "21",
+    "destinationScreenId": "3",
+    "startTimeSeconds": 269.125184,
+    "endTimeSeconds": 271.699904,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.1",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/nav_drawer_access_points",
+        "className": "androidx.appcompat.widget.LinearLayoutCompat",
+        "androidClassName": "androidx.appcompat.widget.LinearLayoutCompat"
+      }
+    }
+  }, {
+    "sequence": 61,
+    "sourceScreenId": "3",
+    "destinationScreenId": "4",
+    "startTimeSeconds": 273.132183,
+    "endTimeSeconds": 275.001486,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.2.0.0.0.0.0.0.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/attachPopup",
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 62,
+    "sourceScreenId": "4",
+    "destinationScreenId": "3",
+    "startTimeSeconds": 275.856537,
+    "endTimeSeconds": 277.560626,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "android:id/button1",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+      }
+    }
+  }, {
+    "sequence": 63,
+    "sourceScreenId": "3",
+    "destinationScreenId": "8",
+    "startTimeSeconds": 279.080947,
+    "endTimeSeconds": 280.677492,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.3.0.3",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_time_graph",
+        "className": "android.widget.FrameLayout",
+        "androidClassName": "android.widget.FrameLayout",
+        "contentDescription": "Time Graph"
+      }
+    }
+  }, {
+    "sequence": 64,
+    "sourceScreenId": "8",
+    "destinationScreenId": "20",
+    "startTimeSeconds": 281.730025,
+    "endTimeSeconds": 283.060544,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.2.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_wifi_band",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "2.4\nGHZ"
+      }
+    }
+  }, {
+    "sequence": 65,
+    "sourceScreenId": "20",
+    "destinationScreenId": "22",
+    "startTimeSeconds": 283.478843,
+    "endTimeSeconds": 285.767051,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.1",
+      "targetDetails": {
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 66,
+    "sourceScreenId": "22",
+    "destinationScreenId": "15",
+    "startTimeSeconds": 287.470342,
+    "endTimeSeconds": 289.306429,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.2.1",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_filter",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "contentDescription": "Filter"
+      }
+    }
+  }, {
+    "sequence": 67,
+    "sourceScreenId": "15",
+    "destinationScreenId": "15",
+    "startTimeSeconds": 290.011216,
+    "endTimeSeconds": 291.539776,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0.0.3.1.2",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/filterSecurityWEP",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "WEP"
+      }
+    }
+  }, {
+    "sequence": 68,
+    "sourceScreenId": "15",
+    "destinationScreenId": "22",
+    "startTimeSeconds": 292.333977,
+    "endTimeSeconds": 294.373788,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.2.0.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "android:id/button3",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "CLOSE"
+      }
+    }
+  }, {
+    "sequence": 69,
+    "sourceScreenId": "22",
+    "destinationScreenId": "23",
+    "startTimeSeconds": 295.214033,
+    "endTimeSeconds": 296.961917,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.0",
+      "targetDetails": {
+        "className": "android.widget.ImageButton",
+        "androidClassName": "android.widget.ImageButton",
+        "contentDescription": "Open navigation drawer"
+      }
+    }
+  }, {
+    "sequence": 70,
+    "sourceScreenId": "23",
+    "destinationScreenId": "24",
+    "startTimeSeconds": 299.841315,
+    "endTimeSeconds": 301.709478,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.7",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/nav_drawer_channel_available",
+        "className": "androidx.appcompat.widget.LinearLayoutCompat",
+        "androidClassName": "androidx.appcompat.widget.LinearLayoutCompat"
+      }
+    }
+  }, {
+    "sequence": 71,
+    "sourceScreenId": "24",
+    "destinationScreenId": "25",
+    "startTimeSeconds": 304.922278,
+    "endTimeSeconds": 306.881253,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.2.0.0.0.0",
+      "targetDetails": {
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "https://en.wikipedia.org/wiki/List_of_WLAN_channels"
+      }
+    }
+  }, {
+    "sequence": 72,
+    "sourceScreenId": "25",
+    "destinationScreenId": "24",
+    "startTimeSeconds": 309.011113,
+    "endTimeSeconds": 309.809258,
+    "executionResult": "SUCCESS",
+    "system": {
+      "type": "BACK"
+    }
+  }, {
+    "sequence": 73,
+    "sourceScreenId": "24",
+    "destinationScreenId": "4",
+    "startTimeSeconds": 311.543562,
+    "endTimeSeconds": 313.557775,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.1.0.0.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/attachPopup",
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 74,
+    "sourceScreenId": "4",
+    "destinationScreenId": "24",
+    "startTimeSeconds": 314.412134,
+    "endTimeSeconds": 316.358068,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "android:id/button1",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+      }
+    }
+  }, {
+    "sequence": 75,
+    "sourceScreenId": "24",
+    "destinationScreenId": "26",
+    "startTimeSeconds": 317.79173,
+    "endTimeSeconds": 321.689116,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.2.0.0.0.0",
+      "targetDetails": {
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "https://en.wikipedia.org/wiki/List_of_WLAN_channels"
+      }
+    }
+  }, {
+    "sequence": 76,
+    "sourceScreenId": "26",
+    "destinationScreenId": "24",
+    "startTimeSeconds": 322.579463,
+    "endTimeSeconds": 323.403048,
+    "executionResult": "SUCCESS",
+    "system": {
+      "type": "BACK"
+    }
+  }, {
+    "sequence": 77,
+    "sourceScreenId": "24",
+    "destinationScreenId": "27",
+    "startTimeSeconds": 325.085112,
+    "endTimeSeconds": 329.426745,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "SWIPE",
+      "childSequence": "0.0.0.0.0.0.0.2.0.0",
+      "targetDetails": {
+        "className": "android.widget.ScrollView",
+        "androidClassName": "android.widget.ScrollView"
+      }
+    }
+  }, {
+    "sequence": 78,
+    "sourceScreenId": "27",
+    "destinationScreenId": "4",
+    "startTimeSeconds": 332.666824,
+    "endTimeSeconds": 334.665514,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.1.0.0.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/attachPopup",
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 79,
+    "sourceScreenId": "4",
+    "destinationScreenId": "27",
+    "startTimeSeconds": 335.726011,
+    "endTimeSeconds": 337.243642,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "android:id/button1",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+      }
+    }
+  }, {
+    "sequence": 80,
+    "sourceScreenId": "27",
+    "destinationScreenId": "4",
+    "startTimeSeconds": 338.603299,
+    "endTimeSeconds": 340.380165,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.1.0.0.0.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/ssid",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "AndroidWifi (02:15:b2:00:01:00)"
+      }
+    }
+  }, {
+    "sequence": 81,
+    "sourceScreenId": "4",
+    "destinationScreenId": "27",
+    "startTimeSeconds": 341.32994,
+    "endTimeSeconds": 343.319187,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.1.0.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "android:id/button1",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+      }
+    }
+  }, {
+    "sequence": 82,
+    "sourceScreenId": "27",
+    "destinationScreenId": "28",
+    "startTimeSeconds": 344.753377,
+    "endTimeSeconds": 346.453636,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.0",
+      "targetDetails": {
+        "className": "android.widget.ImageButton",
+        "androidClassName": "android.widget.ImageButton",
+        "contentDescription": "Open navigation drawer"
+      }
+    }
+  }, {
+    "sequence": 83,
+    "sourceScreenId": "28",
+    "destinationScreenId": "29",
+    "startTimeSeconds": 353.555671,
+    "endTimeSeconds": 356.19917,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.11",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/nav_drawer_about",
+        "className": "androidx.appcompat.widget.LinearLayoutCompat",
+        "androidClassName": "androidx.appcompat.widget.LinearLayoutCompat"
+      }
+    }
+  }, {
+    "sequence": 84,
+    "sourceScreenId": "29",
+    "destinationScreenId": "30",
+    "startTimeSeconds": 358.716909,
+    "endTimeSeconds": 363.428753,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.2.0.7",
+      "targetDetails": {
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "https://vremsoftwaredevelopment.github.io/WiFiAnalyzer/#documentation"
+      }
+    }
+  }, {
+    "sequence": 85,
+    "sourceScreenId": "30",
+    "destinationScreenId": "29",
+    "startTimeSeconds": 364.26023,
+    "endTimeSeconds": 366.321173,
+    "executionResult": "SUCCESS",
+    "system": {
+      "type": "BACK"
+    }
+  }, {
+    "sequence": 86,
+    "sourceScreenId": "29",
+    "destinationScreenId": "31",
+    "startTimeSeconds": 368.514444,
+    "endTimeSeconds": 370.163087,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.2.0.3",
+      "targetDetails": {
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "http://www.gnu.org/licenses/gpl-3.0.html"
+      }
+    }
+  }, {
+    "sequence": 87,
+    "sourceScreenId": "31",
+    "destinationScreenId": "29",
+    "startTimeSeconds": 370.595042,
+    "endTimeSeconds": 371.690984,
+    "executionResult": "SUCCESS",
+    "system": {
+      "type": "BACK"
+    }
+  }, {
+    "sequence": 88,
+    "sourceScreenId": "29",
+    "destinationScreenId": "32",
+    "startTimeSeconds": 373.522709,
+    "endTimeSeconds": 375.157285,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.2.0.2",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/license",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "GNU General Public License v3.0"
+      }
+    }
+  }, {
+    "sequence": 89,
+    "sourceScreenId": "32",
+    "destinationScreenId": "29",
+    "startTimeSeconds": 376.203497,
+    "endTimeSeconds": 377.842256,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.2.0.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "android:id/button3",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+      }
+    }
+  }, {
+    "sequence": 90,
+    "sourceScreenId": "29",
+    "destinationScreenId": "33",
+    "startTimeSeconds": 379.322113,
+    "endTimeSeconds": 383.996682,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "SWIPE",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.2",
+      "targetDetails": {
+        "className": "android.widget.ScrollView",
+        "androidClassName": "android.widget.ScrollView"
+      }
+    }
+  }, {
+    "sequence": 91,
+    "sourceScreenId": "33",
+    "destinationScreenId": "34",
+    "startTimeSeconds": 387.526208,
+    "endTimeSeconds": 391.937043,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.2.0.7",
+      "targetDetails": {
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "https://vremsoftwaredevelopment.github.io/WiFiAnalyzer/#documentation"
+      }
+    }
+  }, {
+    "sequence": 92,
+    "sourceScreenId": "34",
+    "destinationScreenId": "33",
+    "startTimeSeconds": 392.586045,
+    "endTimeSeconds": 393.415668,
+    "executionResult": "SUCCESS",
+    "system": {
+      "type": "BACK"
+    }
+  }, {
+    "sequence": 93,
+    "sourceScreenId": "33",
+    "destinationScreenId": "35",
+    "startTimeSeconds": 395.280419,
+    "endTimeSeconds": 399.767526,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.2.0.13",
+      "targetDetails": {
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "https://vremsoftwaredevelopment.github.io/WiFiAnalyzer/#privacy-policy"
+      }
+    }
+  }, {
+    "sequence": 94,
+    "sourceScreenId": "35",
+    "destinationScreenId": "33",
+    "startTimeSeconds": 400.498778,
+    "endTimeSeconds": 401.362312,
+    "executionResult": "SUCCESS",
+    "system": {
+      "type": "BACK"
+    }
+  }, {
+    "sequence": 95,
+    "sourceScreenId": "33",
+    "destinationScreenId": "33",
+    "startTimeSeconds": 403.139348,
+    "endTimeSeconds": 405.581223,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.2.0.15",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/writeReview",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "WRITE A REVIEW"
+      }
+    }
+  }, {
+    "sequence": 96,
+    "sourceScreenId": "33",
+    "destinationScreenId": "36",
+    "startTimeSeconds": 407.707838,
+    "endTimeSeconds": 409.702573,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.2.0.9",
+      "targetDetails": {
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "https://vremsoftwaredevelopment.github.io/WiFiAnalyzer/#how-to"
+      }
+    }
+  }, {
+    "sequence": 97,
+    "sourceScreenId": "36",
+    "destinationScreenId": "33",
+    "startTimeSeconds": 410.425235,
+    "endTimeSeconds": 411.384816,
+    "executionResult": "SUCCESS",
+    "system": {
+      "type": "BACK"
+    }
+  }, {
+    "sequence": 98,
+    "sourceScreenId": "33",
+    "destinationScreenId": "32",
+    "startTimeSeconds": 413.311794,
+    "endTimeSeconds": 414.76666,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.2.0.14",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/contributors",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "CONTRIBUTORS"
+      }
+    }
+  }, {
+    "sequence": 99,
+    "sourceScreenId": "32",
+    "destinationScreenId": "32",
+    "startTimeSeconds": 415.289485,
+    "endTimeSeconds": 418.983586,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "SWIPE",
+      "childSequence": "0.0.0.0.1.0",
+      "targetDetails": {
+        "resourceName": "android:id/scrollView",
+        "className": "android.widget.ScrollView",
+        "androidClassName": "android.widget.ScrollView"
+      }
+    }
+  }, {
+    "sequence": 100,
+    "sourceScreenId": "32",
+    "destinationScreenId": "33",
+    "startTimeSeconds": 419.572544,
+    "endTimeSeconds": 421.227548,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.2.0.0",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "android:id/button3",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "textLabel": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‏‏‏‎‏‎‎‏‎‏‏‎‏‏‎‎‏‏‏‏‎‏‎‏‎‎‏‎‏‎‏‎‎‏‎‏‏‎‎‏‏‎‏‎‎‏‎‏‏‎‏‏‏‏‏‏‎‏‏‏‎‏‏‏‎‎OK‎‏‎‎‏‎"
+      }
+    }
+  }, {
+    "sequence": 101,
+    "sourceScreenId": "33",
+    "destinationScreenId": "37",
+    "startTimeSeconds": 422.864281,
+    "endTimeSeconds": 427.363676,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "SWIPE",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.2",
+      "targetDetails": {
+        "className": "android.widget.ScrollView",
+        "androidClassName": "android.widget.ScrollView"
+      }
+    }
+  }, {
+    "sequence": 102,
+    "sourceScreenId": "37",
+    "destinationScreenId": "38",
+    "startTimeSeconds": 431.609557,
+    "endTimeSeconds": 436.126755,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.2.0.20.0",
+      "targetDetails": {
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "https://design.google.com/icons"
+      }
+    }
+  }, {
+    "sequence": 103,
+    "sourceScreenId": "38",
+    "destinationScreenId": "37",
+    "startTimeSeconds": 437.786513,
+    "endTimeSeconds": 438.54566,
+    "executionResult": "SUCCESS",
+    "system": {
+      "type": "BACK"
+    }
+  }, {
+    "sequence": 104,
+    "sourceScreenId": "37",
+    "destinationScreenId": "39",
+    "startTimeSeconds": 440.143178,
+    "endTimeSeconds": 442.143594,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.2.0.20.0",
+      "targetDetails": {
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "https://design.google.com/icons"
+      }
+    }
+  }, {
+    "sequence": 105,
+    "sourceScreenId": "39",
+    "destinationScreenId": "37",
+    "startTimeSeconds": 442.696308,
+    "endTimeSeconds": 443.575175,
+    "executionResult": "SUCCESS",
+    "system": {
+      "type": "BACK"
+    }
+  }, {
+    "sequence": 106,
+    "sourceScreenId": "37",
+    "destinationScreenId": "40",
+    "startTimeSeconds": 445.603954,
+    "endTimeSeconds": 447.579017,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.0",
+      "targetDetails": {
+        "className": "android.widget.ImageButton",
+        "androidClassName": "android.widget.ImageButton",
+        "contentDescription": "Open navigation drawer"
+      }
+    }
+  }, {
+    "sequence": 107,
+    "sourceScreenId": "40",
+    "destinationScreenId": "40",
+    "startTimeSeconds": 452.499239,
+    "endTimeSeconds": 454.673725,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.1.1.0.0.2.0.20.0",
+      "targetDetails": {
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "https://design.google.com/icons"
+      }
+    }
+  }, {
+    "sequence": 108,
+    "sourceScreenId": "40",
+    "destinationScreenId": "40",
+    "startTimeSeconds": 457.287352,
+    "endTimeSeconds": 460.079123,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.1.1.0.0.2.0.20.0",
+      "targetDetails": {
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "https://design.google.com/icons"
+      }
+    }
+  }, {
+    "sequence": 109,
+    "sourceScreenId": "40",
+    "destinationScreenId": "41",
+    "startTimeSeconds": 462.12857,
+    "endTimeSeconds": 463.920015,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.3",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/nav_drawer_channel_graph",
+        "className": "androidx.appcompat.widget.LinearLayoutCompat",
+        "androidClassName": "androidx.appcompat.widget.LinearLayoutCompat"
+      }
+    }
+  }, {
+    "sequence": 110,
+    "sourceScreenId": "41",
+    "destinationScreenId": "42",
+    "startTimeSeconds": 465.608756,
+    "endTimeSeconds": 467.582546,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.2.2",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/action_scanner",
+        "className": "android.widget.Button",
+        "androidClassName": "android.widget.Button",
+        "contentDescription": "Pause"
+      }
+    }
+  }, {
+    "sequence": 111,
+    "sourceScreenId": "42",
+    "destinationScreenId": "43",
+    "startTimeSeconds": 469.060877,
+    "endTimeSeconds": 470.42137,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.3.0.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_channel_rating",
+        "className": "android.widget.FrameLayout",
+        "androidClassName": "android.widget.FrameLayout",
+        "contentDescription": "Channel Rating"
+      }
+    }
+  }, {
+    "sequence": 112,
+    "sourceScreenId": "43",
+    "destinationScreenId": "43",
+    "startTimeSeconds": 476.811323,
+    "endTimeSeconds": 480.416432,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.2.0.0.2.0.1",
+      "targetDetails": {
+        "className": "android.widget.LinearLayout",
+        "androidClassName": "android.widget.LinearLayout"
+      }
+    }
+  }, {
+    "sequence": 113,
+    "sourceScreenId": "43",
+    "destinationScreenId": "44",
+    "startTimeSeconds": 485.593325,
+    "endTimeSeconds": 488.662026,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.0.0.0",
+      "targetDetails": {
+        "className": "android.widget.ImageButton",
+        "androidClassName": "android.widget.ImageButton",
+        "contentDescription": "Open navigation drawer"
+      }
+    }
+  }, {
+    "sequence": 114,
+    "sourceScreenId": "44",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 497.145997,
+    "endTimeSeconds": 499.704976,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.0.8",
+      "targetDetails": {
+        "componentType": "BUTTON",
+        "resourceName": "com.vrem.wifianalyzer:id/nav_drawer_vendors",
+        "className": "androidx.appcompat.widget.LinearLayoutCompat",
+        "androidClassName": "androidx.appcompat.widget.LinearLayoutCompat"
+      }
+    }
+  }, {
+    "sequence": 115,
+    "sourceScreenId": "45",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 501.962778,
+    "endTimeSeconds": 503.857437,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.2.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_name",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "10NET COMMUNICATIONS DCA"
+      }
+    }
+  }, {
+    "sequence": 116,
+    "sourceScreenId": "45",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 505.670855,
+    "endTimeSeconds": 508.443653,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.5.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_macs",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "A8:5E:E4"
+      }
+    }
+  }, {
+    "sequence": 117,
+    "sourceScreenId": "45",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 510.292873,
+    "endTimeSeconds": 512.951456,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.7.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_name",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "1394 TRADE ASSOCIATION"
+      }
+    }
+  }, {
+    "sequence": 118,
+    "sourceScreenId": "45",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 515.01369,
+    "endTimeSeconds": 517.326384,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.9.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_macs",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "18:95:52, 6C:CE:44, 78:A7:EB, 9C:97:89"
+      }
+    }
+  }, {
+    "sequence": 119,
+    "sourceScreenId": "45",
+    "destinationScreenId": "46",
+    "startTimeSeconds": 519.451742,
+    "endTimeSeconds": 523.65613,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.5.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_name",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "12SIDED TECHNOLOGY LLC"
+      }
+    }
+  }, {
+    "sequence": 120,
+    "sourceScreenId": "46",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 527.015478,
+    "endTimeSeconds": 529.567347,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.7.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_macs",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "00:A0:2D"
+      }
+    }
+  }, {
+    "sequence": 121,
+    "sourceScreenId": "45",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 531.396319,
+    "endTimeSeconds": 534.245475,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.11.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_name",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "1VERGE INTERNET TECHNOLOGY BEIJING CO LTD"
+      }
+    }
+  }, {
+    "sequence": 122,
+    "sourceScreenId": "45",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 536.116171,
+    "endTimeSeconds": 538.644879,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.0.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_macs",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "70:02:58"
+      }
+    }
+  }, {
+    "sequence": 123,
+    "sourceScreenId": "45",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 540.385099,
+    "endTimeSeconds": 542.453678,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.4.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_name",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "12MM HEALTH TECHNOLOGY HAINAN CO LTD"
+      }
+    }
+  }, {
+    "sequence": 124,
+    "sourceScreenId": "45",
+    "destinationScreenId": "46",
+    "startTimeSeconds": 544.000455,
+    "endTimeSeconds": 548.534444,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.8.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_macs",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "00:19:74"
+      }
+    }
+  }, {
+    "sequence": 125,
+    "sourceScreenId": "46",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 551.016257,
+    "endTimeSeconds": 553.816534,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.0.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_name",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "01DB METRAVIB"
+      }
+    }
+  }, {
+    "sequence": 126,
+    "sourceScreenId": "45",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 556.118714,
+    "endTimeSeconds": 558.262844,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.4.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_macs",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "3C:40:15"
+      }
+    }
+  }, {
+    "sequence": 127,
+    "sourceScreenId": "45",
+    "destinationScreenId": "46",
+    "startTimeSeconds": 560.08455,
+    "endTimeSeconds": 564.116432,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.4.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_name",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "12MM HEALTH TECHNOLOGY HAINAN CO LTD"
+      }
+    }
+  }, {
+    "sequence": 128,
+    "sourceScreenId": "46",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 566.776272,
+    "endTimeSeconds": 569.29519,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.5.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_macs",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "A8:5E:E4"
+      }
+    }
+  }, {
+    "sequence": 129,
+    "sourceScreenId": "45",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 571.010064,
+    "endTimeSeconds": 573.364727,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.2.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_macs",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "08:00:24"
+      }
+    }
+  }, {
+    "sequence": 130,
+    "sourceScreenId": "45",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 575.585521,
+    "endTimeSeconds": 577.95962,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.3.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_name",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "11WAVE TECHNONLOGY CO LTD"
+      }
+    }
+  }, {
+    "sequence": 131,
+    "sourceScreenId": "45",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 579.959235,
+    "endTimeSeconds": 582.072209,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.1.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_name",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "100FIO NETWORKS TECHNOLOGY LLC"
+      }
+    }
+  }, {
+    "sequence": 132,
+    "sourceScreenId": "45",
+    "destinationScreenId": "47",
+    "startTimeSeconds": 584.033118,
+    "endTimeSeconds": 588.521224,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.4.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_macs",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "3C:40:15"
+      }
+    }
+  }, {
+    "sequence": 133,
+    "sourceScreenId": "47",
+    "destinationScreenId": "47",
+    "startTimeSeconds": 592.498194,
+    "endTimeSeconds": 596.930629,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "LONG_PRESS",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.8.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_name",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "16063"
+      }
+    }
+  }, {
+    "sequence": 134,
+    "sourceScreenId": "47",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 599.513754,
+    "endTimeSeconds": 601.824408,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.6.0",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_name",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "1394 PRINTER WORKING GROUP"
+      }
+    }
+  }, {
+    "sequence": 135,
+    "sourceScreenId": "45",
+    "destinationScreenId": "45",
+    "startTimeSeconds": 603.478816,
+    "endTimeSeconds": 606.192271,
+    "executionResult": "SUCCESS",
+    "target": {
+      "type": "TAP",
+      "childSequence": "0.0.0.0.0.0.0.1.0.0.1.7.1",
+      "targetDetails": {
+        "resourceName": "com.vrem.wifianalyzer:id/vendor_macs",
+        "className": "android.widget.TextView",
+        "androidClassName": "android.widget.TextView",
+        "textLabel": "00:A0:2D"
+      }
+    }
+  }]
+}

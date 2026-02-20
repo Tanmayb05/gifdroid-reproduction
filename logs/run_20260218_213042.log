@@ -1,0 +1,767 @@
+2026-02-18 21:30:42,109 [INFO] GIFdroid Reproduction - Firebase Robo Test Runner
+2026-02-18 21:30:42,110 [INFO] Project root: /Users/tanmaybhuskute/Documents/gifdroid-reproduction
+2026-02-18 21:30:42,110 [INFO] APKs directory: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps
+2026-02-18 21:30:42,110 [INFO] Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/logs/run_20260218_213042.log
+2026-02-18 21:30:42,110 [INFO] 
+============================================================
+2026-02-18 21:30:42,110 [INFO] PHASE 1: Verifying gcloud setup
+2026-02-18 21:30:42,110 [INFO] ============================================================
+2026-02-18 21:30:42,110 [INFO] 
+[1/5] Checking gcloud version...
+2026-02-18 21:30:42,110 [DEBUG]   $ gcloud version 2>&1 | head -1
+2026-02-18 21:30:44,488 [DEBUG]   STDOUT: Google Cloud SDK 556.0.0
+2026-02-18 21:30:44,488 [INFO]   gcloud installed: Google Cloud SDK 556.0.0
+2026-02-18 21:30:44,488 [INFO] 
+[2/5] Checking current project...
+2026-02-18 21:30:44,488 [DEBUG]   $ gcloud config get-value project 2>/dev/null
+2026-02-18 21:30:45,301 [DEBUG]   STDOUT: gifdroid-reproduction
+2026-02-18 21:30:45,301 [INFO]   Current project: gifdroid-reproduction
+2026-02-18 21:30:45,301 [INFO] 
+[3/5] Project already set to gifdroid-reproduction. Skipping.
+2026-02-18 21:30:45,301 [INFO] 
+[4/5] Checking authentication...
+2026-02-18 21:30:45,301 [DEBUG]   $ gcloud auth list --format='value(account)' --filter='status:ACTIVE'
+2026-02-18 21:30:45,721 [DEBUG]   STDOUT: tanmaybhuskute8@gmail.com
+2026-02-18 21:30:45,721 [INFO]   Authenticated as: tanmaybhuskute8@gmail.com
+2026-02-18 21:30:45,721 [INFO] 
+[5/5] Checking required APIs...
+2026-02-18 21:30:45,721 [DEBUG]   $ gcloud services list --enabled --filter="name:(testing.googleapis.com OR toolresults.googleapis.com)" --format="value(name)"
+2026-02-18 21:30:46,914 [DEBUG]   STDOUT: projects/470345417243/services/testing.googleapis.com
+projects/470345417243/services/toolresults.googleapis.com
+2026-02-18 21:30:46,914 [INFO]   Enabled: projects/470345417243/services/testing.googleapis.com
+2026-02-18 21:30:46,914 [INFO]   Enabled: projects/470345417243/services/toolresults.googleapis.com
+2026-02-18 21:30:46,914 [INFO] 
+  Phase 1 complete. All checks passed.
+2026-02-18 21:30:46,914 [INFO] 
+============================================================
+2026-02-18 21:30:46,914 [INFO] PHASE 2: Running Firebase Robo Tests (parallel, timeout=10m)
+2026-02-18 21:30:46,914 [INFO] ============================================================
+2026-02-18 21:30:46,915 [INFO]   Found 10 APKs:
+2026-02-18 21:30:46,915 [INFO]     - AdAway.apk
+2026-02-18 21:30:46,915 [INFO]     - AntennaPod.apk
+2026-02-18 21:30:46,915 [INFO]     - DeadHash.apk
+2026-02-18 21:30:46,915 [INFO]     - HomeMedkit.apk
+2026-02-18 21:30:46,915 [INFO]     - Jigsaw.apk
+2026-02-18 21:30:46,915 [INFO]     - LuxAlarm.apk
+2026-02-18 21:30:46,915 [INFO]     - Pomodorot.apk
+2026-02-18 21:30:46,915 [INFO]     - PortAuthority.apk
+2026-02-18 21:30:46,915 [INFO]     - SimpleNotes.apk
+2026-02-18 21:30:46,915 [INFO]     - WifiAnalyzer.apk
+2026-02-18 21:30:46,915 [INFO] 
+  Launching 10 Robo tests in parallel...
+2026-02-18 21:30:46,915 [INFO]   [AdAway] Launching Robo test (timeout=10m)...
+2026-02-18 21:30:46,915 [INFO]   [AntennaPod] Launching Robo test (timeout=10m)...
+2026-02-18 21:30:46,915 [INFO]   [DeadHash] Launching Robo test (timeout=10m)...
+2026-02-18 21:30:46,916 [INFO]   [HomeMedkit] Launching Robo test (timeout=10m)...
+2026-02-18 21:30:46,918 [INFO]   [Jigsaw] Launching Robo test (timeout=10m)...
+2026-02-18 21:30:46,918 [INFO]   [LuxAlarm] Launching Robo test (timeout=10m)...
+2026-02-18 21:30:46,921 [INFO]   [Pomodorot] Launching Robo test (timeout=10m)...
+2026-02-18 21:30:46,923 [INFO]   [PortAuthority] Launching Robo test (timeout=10m)...
+2026-02-18 21:30:46,925 [INFO]   [SimpleNotes] Launching Robo test (timeout=10m)...
+2026-02-18 21:30:46,925 [INFO]   [WifiAnalyzer] Launching Robo test (timeout=10m)...
+2026-02-18 21:31:11,015 [DEBUG]   [DeadHash] Full gcloud output:
+Have questions, feedback, or issues? Get support by visiting:
+  https://firebase.google.com/support/
+
+Uploading [/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/DeadHash.apk] to Firebase Test Lab...
+Raw results will be stored in your GCS bucket at [https://console.developers.google.com/storage/browser/test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.361565_rhqB/]
+
+Test [matrix-d0aov53wdd7ca] has been created in the Google Cloud.
+Creating individual test executions...
+..............................done.
+Firebase Test Lab will execute your robo test on 1 device(s). More devices may be added later if flaky test attempts are specified.
+
+Test results will be streamed to [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.fe05bf1bab139047/matrices/4869753297474262569 ].
+21:30:58 Test is Incompatible Environment
+
+Robo testing complete.
+
+More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.fe05bf1bab139047/matrices/4869753297474262569 ].
+┌─────────┬───────────────────────────┬─────────────────────────────────────┐
+│ OUTCOME │      TEST_AXIS_VALUE      │             TEST_DETAILS            │
+├─────────┼───────────────────────────┼─────────────────────────────────────┤
+│ Skipped │ Pixel2.arm-28-en-portrait │ App does not support the OS version │
+└─────────┴───────────────────────────┴─────────────────────────────────────┘
+2026-02-18 21:31:11,015 [INFO] 
+  [DeadHash] Output (last 15 lines):
+2026-02-18 21:31:11,015 [INFO]     Creating individual test executions...
+2026-02-18 21:31:11,015 [INFO]     ..............................done.
+2026-02-18 21:31:11,015 [INFO]     Firebase Test Lab will execute your robo test on 1 device(s). More devices may be added later if flaky test attempts are specified.
+2026-02-18 21:31:11,015 [INFO]     
+2026-02-18 21:31:11,015 [INFO]     Test results will be streamed to [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.fe05bf1bab139047/matrices/4869753297474262569 ].
+2026-02-18 21:31:11,015 [INFO]     21:30:58 Test is Incompatible Environment
+2026-02-18 21:31:11,015 [INFO]     
+2026-02-18 21:31:11,015 [INFO]     Robo testing complete.
+2026-02-18 21:31:11,015 [INFO]     
+2026-02-18 21:31:11,015 [INFO]     More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.fe05bf1bab139047/matrices/4869753297474262569 ].
+2026-02-18 21:31:11,015 [INFO]     ┌─────────┬───────────────────────────┬─────────────────────────────────────┐
+2026-02-18 21:31:11,015 [INFO]     │ OUTCOME │      TEST_AXIS_VALUE      │             TEST_DETAILS            │
+2026-02-18 21:31:11,015 [INFO]     ├─────────┼───────────────────────────┼─────────────────────────────────────┤
+2026-02-18 21:31:11,015 [INFO]     │ Skipped │ Pixel2.arm-28-en-portrait │ App does not support the OS version │
+2026-02-18 21:31:11,016 [INFO]     └─────────┴───────────────────────────┴─────────────────────────────────────┘
+2026-02-18 21:31:11,016 [WARNING]   [DeadHash] Test SKIPPED (incompatible environment).
+2026-02-18 21:31:11,016 [INFO]   [DeadHash] Result bucket: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.361565_rhqB/
+2026-02-18 21:31:11,016 [INFO]   [DeadHash] Matrix ID: matrix-d0aov53wdd7ca
+2026-02-18 21:31:11,016 [INFO]   [DeadHash] Test submission complete.
+2026-02-18 21:31:18,233 [DEBUG]   [Pomodorot] Full gcloud output:
+Have questions, feedback, or issues? Get support by visiting:
+  https://firebase.google.com/support/
+
+Uploading [/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/Pomodorot.apk] to Firebase Test Lab...
+Raw results will be stored in your GCS bucket at [https://console.developers.google.com/storage/browser/test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.262768_kKnp/]
+
+Test [matrix-sm8rvk2ffnuaa] has been created in the Google Cloud.
+Creating individual test executions...
+...........................................................................done.
+Firebase Test Lab will execute your robo test on 1 device(s). More devices may be added later if flaky test attempts are specified.
+
+Test results will be streamed to [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.9f2166fa098ddef0/matrices/5486035050353816780 ].
+21:31:17 Test is Incompatible Architecture
+
+Robo testing complete.
+
+More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.9f2166fa098ddef0/matrices/5486035050353816780 ].
+┌─────────┬───────────────────────────┬─────────────────────────────────────────────────────────────────────────┐
+│ OUTCOME │      TEST_AXIS_VALUE      │                               TEST_DETAILS                              │
+├─────────┼───────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+│ Skipped │ Pixel2.arm-28-en-portrait │ App architecture or requested options are incompatible with this device │
+└─────────┴───────────────────────────┴─────────────────────────────────────────────────────────────────────────┘
+2026-02-18 21:31:18,233 [INFO] 
+  [Pomodorot] Output (last 15 lines):
+2026-02-18 21:31:18,233 [INFO]     Creating individual test executions...
+2026-02-18 21:31:18,233 [INFO]     ...........................................................................done.
+2026-02-18 21:31:18,233 [INFO]     Firebase Test Lab will execute your robo test on 1 device(s). More devices may be added later if flaky test attempts are specified.
+2026-02-18 21:31:18,233 [INFO]     
+2026-02-18 21:31:18,233 [INFO]     Test results will be streamed to [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.9f2166fa098ddef0/matrices/5486035050353816780 ].
+2026-02-18 21:31:18,233 [INFO]     21:31:17 Test is Incompatible Architecture
+2026-02-18 21:31:18,233 [INFO]     
+2026-02-18 21:31:18,234 [INFO]     Robo testing complete.
+2026-02-18 21:31:18,234 [INFO]     
+2026-02-18 21:31:18,234 [INFO]     More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.9f2166fa098ddef0/matrices/5486035050353816780 ].
+2026-02-18 21:31:18,234 [INFO]     ┌─────────┬───────────────────────────┬─────────────────────────────────────────────────────────────────────────┐
+2026-02-18 21:31:18,234 [INFO]     │ OUTCOME │      TEST_AXIS_VALUE      │                               TEST_DETAILS                              │
+2026-02-18 21:31:18,234 [INFO]     ├─────────┼───────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+2026-02-18 21:31:18,234 [INFO]     │ Skipped │ Pixel2.arm-28-en-portrait │ App architecture or requested options are incompatible with this device │
+2026-02-18 21:31:18,234 [INFO]     └─────────┴───────────────────────────┴─────────────────────────────────────────────────────────────────────────┘
+2026-02-18 21:31:18,234 [INFO]   [Pomodorot] Result bucket: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.262768_kKnp/
+2026-02-18 21:31:18,234 [INFO]   [Pomodorot] Matrix ID: matrix-sm8rvk2ffnuaa
+2026-02-18 21:31:18,234 [INFO]   [Pomodorot] Test submission complete.
+2026-02-18 21:34:31,355 [DEBUG]   [Jigsaw] Full gcloud output:
+Have questions, feedback, or issues? Get support by visiting:
+  https://firebase.google.com/support/
+
+Uploading [/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/Jigsaw.apk] to Firebase Test Lab...
+Raw results will be stored in your GCS bucket at [https://console.developers.google.com/storage/browser/test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.269089_sMHx/]
+
+Test [matrix-1292t2o8u92ks] has been created in the Google Cloud.
+Creating individual test executions...
+.........................................................................................................done.
+Firebase Test Lab will execute your robo test on 1 device(s). More devices may be added later if flaky test attempts are specified.
+
+Test results will be streamed to [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.91a4c59d5bc6cd3e/matrices/8300654027675411499 ].
+21:31:17 Test is Pending
+21:32:30 Starting attempt 1.
+21:32:30 Setting up Android test.
+21:32:30 Test is Running
+21:32:42 Starting Android test.
+21:34:06 Completed Android test.
+21:34:06 Tearing down Android test.
+21:34:18 Done. Test time = 69 (secs)
+21:34:18 Starting results processing. Attempt: 1
+21:34:30 Completed results processing. Time taken = 7 (secs)
+21:34:30 Test is Finished
+
+Robo testing complete.
+
+More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.91a4c59d5bc6cd3e/matrices/8300654027675411499 ].
+┌─────────┬───────────────────────────┬──────────────┐
+│ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+├─────────┼───────────────────────────┼──────────────┤
+│ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+└─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:34:31,356 [INFO] 
+  [Jigsaw] Output (last 15 lines):
+2026-02-18 21:34:31,356 [INFO]     21:34:06 Completed Android test.
+2026-02-18 21:34:31,356 [INFO]     21:34:06 Tearing down Android test.
+2026-02-18 21:34:31,356 [INFO]     21:34:18 Done. Test time = 69 (secs)
+2026-02-18 21:34:31,356 [INFO]     21:34:18 Starting results processing. Attempt: 1
+2026-02-18 21:34:31,356 [INFO]     21:34:30 Completed results processing. Time taken = 7 (secs)
+2026-02-18 21:34:31,356 [INFO]     21:34:30 Test is Finished
+2026-02-18 21:34:31,356 [INFO]     
+2026-02-18 21:34:31,356 [INFO]     Robo testing complete.
+2026-02-18 21:34:31,356 [INFO]     
+2026-02-18 21:34:31,356 [INFO]     More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.91a4c59d5bc6cd3e/matrices/8300654027675411499 ].
+2026-02-18 21:34:31,356 [INFO]     ┌─────────┬───────────────────────────┬──────────────┐
+2026-02-18 21:34:31,356 [INFO]     │ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+2026-02-18 21:34:31,356 [INFO]     ├─────────┼───────────────────────────┼──────────────┤
+2026-02-18 21:34:31,356 [INFO]     │ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+2026-02-18 21:34:31,356 [INFO]     └─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:34:31,356 [INFO]   [Jigsaw] Result bucket: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.269089_sMHx/
+2026-02-18 21:34:31,357 [INFO]   [Jigsaw] Matrix ID: matrix-1292t2o8u92ks
+2026-02-18 21:34:31,357 [INFO]   [Jigsaw] Test submission complete.
+2026-02-18 21:43:37,227 [DEBUG]   [PortAuthority] Full gcloud output:
+Have questions, feedback, or issues? Get support by visiting:
+  https://firebase.google.com/support/
+
+Uploading [/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/PortAuthority.apk] to Firebase Test Lab...
+Raw results will be stored in your GCS bucket at [https://console.developers.google.com/storage/browser/test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.283970_UiWR/]
+
+Test [matrix-24f4dgont6zhd] has been created in the Google Cloud.
+Creating individual test executions...
+...............done.
+Firebase Test Lab will execute your robo test on 1 device(s). More devices may be added later if flaky test attempts are specified.
+
+Test results will be streamed to [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.d71b454eb84c457e/matrices/7392163214364565148 ].
+21:30:54 Test is Pending
+21:31:54 Starting attempt 1.
+21:31:54 Setting up Android test.
+21:31:54 Starting Android test.
+21:31:54 Test is Running
+21:42:23 Completed Android test.
+21:42:23 Tearing down Android test.
+21:43:12 Done. Test time = 607 (secs)
+21:43:12 Starting results processing. Attempt: 1
+21:43:36 Completed results processing. Time taken = 31 (secs)
+21:43:36 Test is Finished
+
+Robo testing complete.
+
+More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.d71b454eb84c457e/matrices/7392163214364565148 ].
+┌─────────┬───────────────────────────┬──────────────┐
+│ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+├─────────┼───────────────────────────┼──────────────┤
+│ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+└─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:43:37,228 [INFO] 
+  [PortAuthority] Output (last 15 lines):
+2026-02-18 21:43:37,228 [INFO]     21:42:23 Completed Android test.
+2026-02-18 21:43:37,228 [INFO]     21:42:23 Tearing down Android test.
+2026-02-18 21:43:37,228 [INFO]     21:43:12 Done. Test time = 607 (secs)
+2026-02-18 21:43:37,228 [INFO]     21:43:12 Starting results processing. Attempt: 1
+2026-02-18 21:43:37,229 [INFO]     21:43:36 Completed results processing. Time taken = 31 (secs)
+2026-02-18 21:43:37,229 [INFO]     21:43:36 Test is Finished
+2026-02-18 21:43:37,229 [INFO]     
+2026-02-18 21:43:37,229 [INFO]     Robo testing complete.
+2026-02-18 21:43:37,229 [INFO]     
+2026-02-18 21:43:37,229 [INFO]     More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.d71b454eb84c457e/matrices/7392163214364565148 ].
+2026-02-18 21:43:37,229 [INFO]     ┌─────────┬───────────────────────────┬──────────────┐
+2026-02-18 21:43:37,229 [INFO]     │ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+2026-02-18 21:43:37,229 [INFO]     ├─────────┼───────────────────────────┼──────────────┤
+2026-02-18 21:43:37,229 [INFO]     │ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+2026-02-18 21:43:37,229 [INFO]     └─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:43:37,229 [INFO]   [PortAuthority] Result bucket: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.283970_UiWR/
+2026-02-18 21:43:37,229 [INFO]   [PortAuthority] Matrix ID: matrix-24f4dgont6zhd
+2026-02-18 21:43:37,229 [INFO]   [PortAuthority] Test submission complete.
+2026-02-18 21:43:55,282 [DEBUG]   [HomeMedkit] Full gcloud output:
+Have questions, feedback, or issues? Get support by visiting:
+  https://firebase.google.com/support/
+
+Uploading [/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/HomeMedkit.apk] to Firebase Test Lab...
+Raw results will be stored in your GCS bucket at [https://console.developers.google.com/storage/browser/test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.243427_RwOM/]
+
+Test [matrix-eowulzv74q2ca] has been created in the Google Cloud.
+Creating individual test executions...
+..............................done.
+Firebase Test Lab will execute your robo test on 1 device(s). More devices may be added later if flaky test attempts are specified.
+
+Test results will be streamed to [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.3ab7f1a662b42383/matrices/5385168853314910836 ].
+21:31:00 Test is Pending
+21:32:00 Starting attempt 1.
+21:32:00 Test is Running
+21:32:12 Setting up Android test.
+21:32:12 Starting Android test.
+21:42:42 Completed Android test.
+21:42:42 Tearing down Android test.
+21:43:18 Done. Test time = 619 (secs)
+21:43:18 Starting results processing. Attempt: 1
+21:43:54 Completed results processing. Time taken = 37 (secs)
+21:43:54 Test is Finished
+
+Robo testing complete.
+
+More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.3ab7f1a662b42383/matrices/5385168853314910836 ].
+┌─────────┬───────────────────────────┬──────────────┐
+│ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+├─────────┼───────────────────────────┼──────────────┤
+│ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+└─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:43:55,283 [INFO] 
+  [HomeMedkit] Output (last 15 lines):
+2026-02-18 21:43:55,283 [INFO]     21:42:42 Completed Android test.
+2026-02-18 21:43:55,283 [INFO]     21:42:42 Tearing down Android test.
+2026-02-18 21:43:55,283 [INFO]     21:43:18 Done. Test time = 619 (secs)
+2026-02-18 21:43:55,283 [INFO]     21:43:18 Starting results processing. Attempt: 1
+2026-02-18 21:43:55,283 [INFO]     21:43:54 Completed results processing. Time taken = 37 (secs)
+2026-02-18 21:43:55,283 [INFO]     21:43:54 Test is Finished
+2026-02-18 21:43:55,283 [INFO]     
+2026-02-18 21:43:55,283 [INFO]     Robo testing complete.
+2026-02-18 21:43:55,283 [INFO]     
+2026-02-18 21:43:55,283 [INFO]     More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.3ab7f1a662b42383/matrices/5385168853314910836 ].
+2026-02-18 21:43:55,283 [INFO]     ┌─────────┬───────────────────────────┬──────────────┐
+2026-02-18 21:43:55,283 [INFO]     │ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+2026-02-18 21:43:55,283 [INFO]     ├─────────┼───────────────────────────┼──────────────┤
+2026-02-18 21:43:55,283 [INFO]     │ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+2026-02-18 21:43:55,283 [INFO]     └─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:43:55,283 [INFO]   [HomeMedkit] Result bucket: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.243427_RwOM/
+2026-02-18 21:43:55,283 [INFO]   [HomeMedkit] Matrix ID: matrix-eowulzv74q2ca
+2026-02-18 21:43:55,283 [INFO]   [HomeMedkit] Test submission complete.
+2026-02-18 21:44:10,548 [DEBUG]   [AdAway] Full gcloud output:
+Have questions, feedback, or issues? Get support by visiting:
+  https://firebase.google.com/support/
+
+Uploading [/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/AdAway.apk] to Firebase Test Lab...
+Raw results will be stored in your GCS bucket at [https://console.developers.google.com/storage/browser/test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.313437_AUWZ/]
+
+Test [matrix-1q8clgvyvofy5] has been created in the Google Cloud.
+Creating individual test executions...
+.............................................done.
+Firebase Test Lab will execute your robo test on 1 device(s). More devices may be added later if flaky test attempts are specified.
+
+Test results will be streamed to [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.d06f7e3e7eccf946/matrices/7725350600026265923 ].
+21:31:04 Test is Pending
+21:33:04 Starting attempt 1.
+21:33:04 Setting up Android test.
+21:33:04 Test is Running
+21:33:16 Starting Android test.
+21:42:33 Completed Android test.
+21:42:33 Tearing down Android test.
+21:43:45 Done. Test time = 543 (secs)
+21:43:45 Starting results processing. Attempt: 1
+21:44:10 Completed results processing. Time taken = 19 (secs)
+21:44:10 Test is Finished
+
+Robo testing complete.
+
+More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.d06f7e3e7eccf946/matrices/7725350600026265923 ].
+┌─────────┬───────────────────────────┬──────────────┐
+│ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+├─────────┼───────────────────────────┼──────────────┤
+│ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+└─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:44:10,549 [INFO] 
+  [AdAway] Output (last 15 lines):
+2026-02-18 21:44:10,549 [INFO]     21:42:33 Completed Android test.
+2026-02-18 21:44:10,549 [INFO]     21:42:33 Tearing down Android test.
+2026-02-18 21:44:10,549 [INFO]     21:43:45 Done. Test time = 543 (secs)
+2026-02-18 21:44:10,549 [INFO]     21:43:45 Starting results processing. Attempt: 1
+2026-02-18 21:44:10,549 [INFO]     21:44:10 Completed results processing. Time taken = 19 (secs)
+2026-02-18 21:44:10,549 [INFO]     21:44:10 Test is Finished
+2026-02-18 21:44:10,549 [INFO]     
+2026-02-18 21:44:10,549 [INFO]     Robo testing complete.
+2026-02-18 21:44:10,549 [INFO]     
+2026-02-18 21:44:10,549 [INFO]     More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.d06f7e3e7eccf946/matrices/7725350600026265923 ].
+2026-02-18 21:44:10,549 [INFO]     ┌─────────┬───────────────────────────┬──────────────┐
+2026-02-18 21:44:10,549 [INFO]     │ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+2026-02-18 21:44:10,549 [INFO]     ├─────────┼───────────────────────────┼──────────────┤
+2026-02-18 21:44:10,549 [INFO]     │ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+2026-02-18 21:44:10,549 [INFO]     └─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:44:10,549 [INFO]   [AdAway] Result bucket: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.313437_AUWZ/
+2026-02-18 21:44:10,549 [INFO]   [AdAway] Matrix ID: matrix-1q8clgvyvofy5
+2026-02-18 21:44:10,549 [INFO]   [AdAway] Test submission complete.
+2026-02-18 21:44:26,307 [DEBUG]   [WifiAnalyzer] Full gcloud output:
+Have questions, feedback, or issues? Get support by visiting:
+  https://firebase.google.com/support/
+
+Uploading [/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/WifiAnalyzer.apk] to Firebase Test Lab...
+Raw results will be stored in your GCS bucket at [https://console.developers.google.com/storage/browser/test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.298760_QeAL/]
+
+Test [matrix-34xocmd9a7lur] has been created in the Google Cloud.
+Creating individual test executions...
+...............................done.
+Firebase Test Lab will execute your robo test on 1 device(s). More devices may be added later if flaky test attempts are specified.
+
+Test results will be streamed to [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.8b511c26788f17da/matrices/5224625232671999469 ].
+21:30:58 Test is Pending
+21:31:59 Starting attempt 1.
+21:31:59 Setting up Android test.
+21:31:59 Test is Running
+21:32:11 Starting Android test.
+21:42:35 Completed Android test.
+21:42:35 Tearing down Android test.
+21:43:49 Done. Test time = 609 (secs)
+21:43:49 Starting results processing. Attempt: 1
+21:44:25 Completed results processing. Time taken = 38 (secs)
+21:44:25 Test is Finished
+
+Robo testing complete.
+
+More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.8b511c26788f17da/matrices/5224625232671999469 ].
+┌─────────┬───────────────────────────┬──────────────┐
+│ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+├─────────┼───────────────────────────┼──────────────┤
+│ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+└─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:44:26,307 [INFO] 
+  [WifiAnalyzer] Output (last 15 lines):
+2026-02-18 21:44:26,307 [INFO]     21:42:35 Completed Android test.
+2026-02-18 21:44:26,307 [INFO]     21:42:35 Tearing down Android test.
+2026-02-18 21:44:26,307 [INFO]     21:43:49 Done. Test time = 609 (secs)
+2026-02-18 21:44:26,307 [INFO]     21:43:49 Starting results processing. Attempt: 1
+2026-02-18 21:44:26,307 [INFO]     21:44:25 Completed results processing. Time taken = 38 (secs)
+2026-02-18 21:44:26,307 [INFO]     21:44:25 Test is Finished
+2026-02-18 21:44:26,307 [INFO]     
+2026-02-18 21:44:26,307 [INFO]     Robo testing complete.
+2026-02-18 21:44:26,307 [INFO]     
+2026-02-18 21:44:26,307 [INFO]     More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.8b511c26788f17da/matrices/5224625232671999469 ].
+2026-02-18 21:44:26,307 [INFO]     ┌─────────┬───────────────────────────┬──────────────┐
+2026-02-18 21:44:26,307 [INFO]     │ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+2026-02-18 21:44:26,307 [INFO]     ├─────────┼───────────────────────────┼──────────────┤
+2026-02-18 21:44:26,307 [INFO]     │ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+2026-02-18 21:44:26,307 [INFO]     └─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:44:26,307 [INFO]   [WifiAnalyzer] Result bucket: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.298760_QeAL/
+2026-02-18 21:44:26,307 [INFO]   [WifiAnalyzer] Matrix ID: matrix-34xocmd9a7lur
+2026-02-18 21:44:26,307 [INFO]   [WifiAnalyzer] Test submission complete.
+2026-02-18 21:44:28,791 [DEBUG]   [SimpleNotes] Full gcloud output:
+Have questions, feedback, or issues? Get support by visiting:
+  https://firebase.google.com/support/
+
+Uploading [/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/SimpleNotes.apk] to Firebase Test Lab...
+Raw results will be stored in your GCS bucket at [https://console.developers.google.com/storage/browser/test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.115065_ERyS/]
+
+Test [matrix-7ot2o29y8h56a] has been created in the Google Cloud.
+Creating individual test executions...
+..............................done.
+Firebase Test Lab will execute your robo test on 1 device(s). More devices may be added later if flaky test attempts are specified.
+
+Test results will be streamed to [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.ab626a8798b84fed/matrices/7526853490249247235 ].
+21:30:58 Test is Pending
+21:31:58 Starting attempt 1.
+21:31:58 Setting up Android test.
+21:31:58 Test is Running
+21:32:10 Starting Android test.
+21:42:39 Completed Android test.
+21:42:39 Tearing down Android test.
+21:43:51 Done. Test time = 611 (secs)
+21:43:51 Starting results processing. Attempt: 1
+21:44:28 Completed results processing. Time taken = 35 (secs)
+21:44:28 Test is Finished
+
+Robo testing complete.
+
+More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.ab626a8798b84fed/matrices/7526853490249247235 ].
+┌─────────┬───────────────────────────┬──────────────┐
+│ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+├─────────┼───────────────────────────┼──────────────┤
+│ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+└─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:44:28,791 [INFO] 
+  [SimpleNotes] Output (last 15 lines):
+2026-02-18 21:44:28,791 [INFO]     21:42:39 Completed Android test.
+2026-02-18 21:44:28,791 [INFO]     21:42:39 Tearing down Android test.
+2026-02-18 21:44:28,791 [INFO]     21:43:51 Done. Test time = 611 (secs)
+2026-02-18 21:44:28,791 [INFO]     21:43:51 Starting results processing. Attempt: 1
+2026-02-18 21:44:28,791 [INFO]     21:44:28 Completed results processing. Time taken = 35 (secs)
+2026-02-18 21:44:28,791 [INFO]     21:44:28 Test is Finished
+2026-02-18 21:44:28,791 [INFO]     
+2026-02-18 21:44:28,791 [INFO]     Robo testing complete.
+2026-02-18 21:44:28,791 [INFO]     
+2026-02-18 21:44:28,791 [INFO]     More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.ab626a8798b84fed/matrices/7526853490249247235 ].
+2026-02-18 21:44:28,792 [INFO]     ┌─────────┬───────────────────────────┬──────────────┐
+2026-02-18 21:44:28,792 [INFO]     │ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+2026-02-18 21:44:28,792 [INFO]     ├─────────┼───────────────────────────┼──────────────┤
+2026-02-18 21:44:28,792 [INFO]     │ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+2026-02-18 21:44:28,792 [INFO]     └─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:44:28,792 [INFO]   [SimpleNotes] Result bucket: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.115065_ERyS/
+2026-02-18 21:44:28,792 [INFO]   [SimpleNotes] Matrix ID: matrix-7ot2o29y8h56a
+2026-02-18 21:44:28,792 [INFO]   [SimpleNotes] Test submission complete.
+2026-02-18 21:44:39,905 [DEBUG]   [LuxAlarm] Full gcloud output:
+Have questions, feedback, or issues? Get support by visiting:
+  https://firebase.google.com/support/
+
+Uploading [/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/LuxAlarm.apk] to Firebase Test Lab...
+Raw results will be stored in your GCS bucket at [https://console.developers.google.com/storage/browser/test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.310986_czIZ/]
+
+Test [matrix-gpd0oc8j1wa9a] has been created in the Google Cloud.
+Creating individual test executions...
+..............................done.
+Firebase Test Lab will execute your robo test on 1 device(s). More devices may be added later if flaky test attempts are specified.
+
+Test results will be streamed to [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.953c260b2b4f59b7/matrices/6696567745183862432 ].
+21:30:57 Test is Pending
+21:31:57 Starting attempt 1.
+21:31:57 Setting up Android test.
+21:31:57 Test is Running
+21:32:09 Starting Android test.
+21:42:26 Completed Android test.
+21:42:26 Tearing down Android test.
+21:43:38 Done. Test time = 609 (secs)
+21:43:38 Starting results processing. Attempt: 1
+21:44:39 Completed results processing. Time taken = 54 (secs)
+21:44:39 Test is Finished
+
+Robo testing complete.
+
+More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.953c260b2b4f59b7/matrices/6696567745183862432 ].
+┌─────────┬───────────────────────────┬──────────────┐
+│ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+├─────────┼───────────────────────────┼──────────────┤
+│ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+└─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:44:39,905 [INFO] 
+  [LuxAlarm] Output (last 15 lines):
+2026-02-18 21:44:39,905 [INFO]     21:42:26 Completed Android test.
+2026-02-18 21:44:39,905 [INFO]     21:42:26 Tearing down Android test.
+2026-02-18 21:44:39,905 [INFO]     21:43:38 Done. Test time = 609 (secs)
+2026-02-18 21:44:39,905 [INFO]     21:43:38 Starting results processing. Attempt: 1
+2026-02-18 21:44:39,905 [INFO]     21:44:39 Completed results processing. Time taken = 54 (secs)
+2026-02-18 21:44:39,905 [INFO]     21:44:39 Test is Finished
+2026-02-18 21:44:39,906 [INFO]     
+2026-02-18 21:44:39,906 [INFO]     Robo testing complete.
+2026-02-18 21:44:39,906 [INFO]     
+2026-02-18 21:44:39,906 [INFO]     More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.953c260b2b4f59b7/matrices/6696567745183862432 ].
+2026-02-18 21:44:39,906 [INFO]     ┌─────────┬───────────────────────────┬──────────────┐
+2026-02-18 21:44:39,906 [INFO]     │ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+2026-02-18 21:44:39,906 [INFO]     ├─────────┼───────────────────────────┼──────────────┤
+2026-02-18 21:44:39,906 [INFO]     │ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+2026-02-18 21:44:39,906 [INFO]     └─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:44:39,906 [INFO]   [LuxAlarm] Result bucket: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.310986_czIZ/
+2026-02-18 21:44:39,906 [INFO]   [LuxAlarm] Matrix ID: matrix-gpd0oc8j1wa9a
+2026-02-18 21:44:39,906 [INFO]   [LuxAlarm] Test submission complete.
+2026-02-18 21:45:05,267 [DEBUG]   [AntennaPod] Full gcloud output:
+Have questions, feedback, or issues? Get support by visiting:
+  https://firebase.google.com/support/
+
+Uploading [/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/AntennaPod.apk] to Firebase Test Lab...
+Raw results will be stored in your GCS bucket at [https://console.developers.google.com/storage/browser/test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.332359_MKnQ/]
+
+Test [matrix-176iup8j9f8xy] has been created in the Google Cloud.
+Creating individual test executions...
+...............done.
+Firebase Test Lab will execute your robo test on 1 device(s). More devices may be added later if flaky test attempts are specified.
+
+Test results will be streamed to [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.2449659c98ab81a8/matrices/6803660138998986181 ].
+21:30:57 Test is Pending
+21:32:10 Starting attempt 1.
+21:32:10 Setting up Android test.
+21:32:10 Starting Android test.
+21:32:10 Test is Running
+21:42:39 Completed Android test.
+21:42:39 Tearing down Android test.
+21:44:04 Done. Test time = 607 (secs)
+21:44:04 Starting results processing. Attempt: 1
+21:45:04 Completed results processing. Time taken = 57 (secs)
+21:45:04 Test is Finished
+
+Robo testing complete.
+
+More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.2449659c98ab81a8/matrices/6803660138998986181 ].
+┌─────────┬───────────────────────────┬──────────────┐
+│ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+├─────────┼───────────────────────────┼──────────────┤
+│ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+└─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:45:05,267 [INFO] 
+  [AntennaPod] Output (last 15 lines):
+2026-02-18 21:45:05,267 [INFO]     21:42:39 Completed Android test.
+2026-02-18 21:45:05,267 [INFO]     21:42:39 Tearing down Android test.
+2026-02-18 21:45:05,267 [INFO]     21:44:04 Done. Test time = 607 (secs)
+2026-02-18 21:45:05,267 [INFO]     21:44:04 Starting results processing. Attempt: 1
+2026-02-18 21:45:05,267 [INFO]     21:45:04 Completed results processing. Time taken = 57 (secs)
+2026-02-18 21:45:05,267 [INFO]     21:45:04 Test is Finished
+2026-02-18 21:45:05,267 [INFO]     
+2026-02-18 21:45:05,267 [INFO]     Robo testing complete.
+2026-02-18 21:45:05,267 [INFO]     
+2026-02-18 21:45:05,267 [INFO]     More details are available at [ https://console.firebase.google.com/project/gifdroid-reproduction/testlab/histories/bh.2449659c98ab81a8/matrices/6803660138998986181 ].
+2026-02-18 21:45:05,267 [INFO]     ┌─────────┬───────────────────────────┬──────────────┐
+2026-02-18 21:45:05,267 [INFO]     │ OUTCOME │      TEST_AXIS_VALUE      │ TEST_DETAILS │
+2026-02-18 21:45:05,267 [INFO]     ├─────────┼───────────────────────────┼──────────────┤
+2026-02-18 21:45:05,267 [INFO]     │ [32mPassed [39;0m │ Pixel2.arm-28-en-portrait │ --           │
+2026-02-18 21:45:05,267 [INFO]     └─────────┴───────────────────────────┴──────────────┘
+2026-02-18 21:45:05,267 [INFO]   [AntennaPod] Result bucket: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.332359_MKnQ/
+2026-02-18 21:45:05,267 [INFO]   [AntennaPod] Matrix ID: matrix-176iup8j9f8xy
+2026-02-18 21:45:05,267 [INFO]   [AntennaPod] Test submission complete.
+2026-02-18 21:45:05,268 [INFO] 
+  Phase 2 complete. Results saved to result_buckets.json
+2026-02-18 21:45:05,268 [INFO] 
+============================================================
+2026-02-18 21:45:05,268 [INFO] PHASE 3: Verifying Test Results in GCS
+2026-02-18 21:45:05,268 [INFO] ============================================================
+2026-02-18 21:45:05,268 [INFO]   [DeadHash] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.361565_rhqB/ ...
+2026-02-18 21:45:05,268 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.361565_rhqB/ 2>&1
+2026-02-18 21:45:08,027 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.361565_rhqB/DeadHash.apk
+2026-02-18 21:45:08,028 [INFO]   [DeadHash] Found 1 entries in GCS. Test completed.
+2026-02-18 21:45:08,028 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.361565_rhqB/DeadHash.apk
+2026-02-18 21:45:08,028 [INFO]   [Pomodorot] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.262768_kKnp/ ...
+2026-02-18 21:45:08,028 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.262768_kKnp/ 2>&1
+2026-02-18 21:45:09,916 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.262768_kKnp/Pomodorot.apk
+2026-02-18 21:45:09,916 [INFO]   [Pomodorot] Found 1 entries in GCS. Test completed.
+2026-02-18 21:45:09,916 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.262768_kKnp/Pomodorot.apk
+2026-02-18 21:45:09,916 [INFO]   [Jigsaw] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.269089_sMHx/ ...
+2026-02-18 21:45:09,916 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.269089_sMHx/ 2>&1
+2026-02-18 21:45:11,727 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.269089_sMHx/Jigsaw.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.269089_sMHx/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:11,727 [INFO]   [Jigsaw] Found 2 entries in GCS. Test completed.
+2026-02-18 21:45:11,727 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.269089_sMHx/Jigsaw.apk
+2026-02-18 21:45:11,727 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.269089_sMHx/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:11,727 [INFO]   [PortAuthority] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.283970_UiWR/ ...
+2026-02-18 21:45:11,727 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.283970_UiWR/ 2>&1
+2026-02-18 21:45:13,616 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.283970_UiWR/PortAuthority.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.283970_UiWR/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:13,616 [INFO]   [PortAuthority] Found 2 entries in GCS. Test completed.
+2026-02-18 21:45:13,616 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.283970_UiWR/PortAuthority.apk
+2026-02-18 21:45:13,617 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.283970_UiWR/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:13,617 [INFO]   [HomeMedkit] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.243427_RwOM/ ...
+2026-02-18 21:45:13,617 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.243427_RwOM/ 2>&1
+2026-02-18 21:45:15,282 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.243427_RwOM/HomeMedkit.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.243427_RwOM/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:15,282 [INFO]   [HomeMedkit] Found 2 entries in GCS. Test completed.
+2026-02-18 21:45:15,282 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.243427_RwOM/HomeMedkit.apk
+2026-02-18 21:45:15,282 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.243427_RwOM/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:15,282 [INFO]   [AdAway] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.313437_AUWZ/ ...
+2026-02-18 21:45:15,282 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.313437_AUWZ/ 2>&1
+2026-02-18 21:45:16,933 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.313437_AUWZ/AdAway.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.313437_AUWZ/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:16,933 [INFO]   [AdAway] Found 2 entries in GCS. Test completed.
+2026-02-18 21:45:16,934 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.313437_AUWZ/AdAway.apk
+2026-02-18 21:45:16,934 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.313437_AUWZ/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:16,934 [INFO]   [WifiAnalyzer] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.298760_QeAL/ ...
+2026-02-18 21:45:16,934 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.298760_QeAL/ 2>&1
+2026-02-18 21:45:18,454 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.298760_QeAL/WifiAnalyzer.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.298760_QeAL/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:18,454 [INFO]   [WifiAnalyzer] Found 2 entries in GCS. Test completed.
+2026-02-18 21:45:18,455 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.298760_QeAL/WifiAnalyzer.apk
+2026-02-18 21:45:18,455 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.298760_QeAL/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:18,455 [INFO]   [SimpleNotes] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.115065_ERyS/ ...
+2026-02-18 21:45:18,455 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.115065_ERyS/ 2>&1
+2026-02-18 21:45:20,261 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.115065_ERyS/SimpleNotes.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.115065_ERyS/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:20,261 [INFO]   [SimpleNotes] Found 2 entries in GCS. Test completed.
+2026-02-18 21:45:20,261 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.115065_ERyS/SimpleNotes.apk
+2026-02-18 21:45:20,261 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.115065_ERyS/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:20,261 [INFO]   [LuxAlarm] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.310986_czIZ/ ...
+2026-02-18 21:45:20,261 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.310986_czIZ/ 2>&1
+2026-02-18 21:45:21,886 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.310986_czIZ/LuxAlarm.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.310986_czIZ/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:21,886 [INFO]   [LuxAlarm] Found 2 entries in GCS. Test completed.
+2026-02-18 21:45:21,886 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.310986_czIZ/LuxAlarm.apk
+2026-02-18 21:45:21,886 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.310986_czIZ/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:21,886 [INFO]   [AntennaPod] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.332359_MKnQ/ ...
+2026-02-18 21:45:21,886 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.332359_MKnQ/ 2>&1
+2026-02-18 21:45:23,621 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.332359_MKnQ/AntennaPod.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.332359_MKnQ/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:23,621 [INFO]   [AntennaPod] Found 2 entries in GCS. Test completed.
+2026-02-18 21:45:23,621 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.332359_MKnQ/AntennaPod.apk
+2026-02-18 21:45:23,622 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.332359_MKnQ/Pixel2.arm-28-en-portrait/
+2026-02-18 21:45:23,622 [INFO] 
+  Summary:
+2026-02-18 21:45:23,622 [INFO]     DeadHash: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.361565_rhqB/
+2026-02-18 21:45:23,622 [INFO]     Pomodorot: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.262768_kKnp/
+2026-02-18 21:45:23,622 [INFO]     Jigsaw: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.269089_sMHx/
+2026-02-18 21:45:23,622 [INFO]     PortAuthority: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.283970_UiWR/
+2026-02-18 21:45:23,622 [INFO]     HomeMedkit: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.243427_RwOM/
+2026-02-18 21:45:23,622 [INFO]     AdAway: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.313437_AUWZ/
+2026-02-18 21:45:23,622 [INFO]     WifiAnalyzer: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.298760_QeAL/
+2026-02-18 21:45:23,622 [INFO]     SimpleNotes: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.115065_ERyS/
+2026-02-18 21:45:23,622 [INFO]     LuxAlarm: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.310986_czIZ/
+2026-02-18 21:45:23,622 [INFO]     AntennaPod: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.332359_MKnQ/
+2026-02-18 21:45:23,622 [INFO] 
+============================================================
+2026-02-18 21:45:23,622 [INFO] PHASE 4: Downloading Results
+2026-02-18 21:45:23,622 [INFO] ============================================================
+2026-02-18 21:45:23,623 [INFO]   [DeadHash] Downloading from gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.361565_rhqB/ ...
+2026-02-18 21:45:23,623 [DEBUG]   $ gsutil -o "GSUtil:parallel_process_count=1" -m cp -r gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.361565_rhqB/ /Users/tanmaybhuskute/Documents/gifdroid-reproduction/firebase_downloads/DeadHash/
+2026-02-18 21:45:25,830 [INFO]   [DeadHash] Downloaded 1 files.
+2026-02-18 21:45:25,831 [INFO]   [Pomodorot] Downloading from gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.262768_kKnp/ ...
+2026-02-18 21:45:25,831 [DEBUG]   $ gsutil -o "GSUtil:parallel_process_count=1" -m cp -r gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.262768_kKnp/ /Users/tanmaybhuskute/Documents/gifdroid-reproduction/firebase_downloads/Pomodorot/
+2026-02-18 21:45:29,835 [INFO]   [Pomodorot] Downloaded 1 files.
+2026-02-18 21:45:29,836 [INFO]   [Jigsaw] Downloading from gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.269089_sMHx/ ...
+2026-02-18 21:45:29,836 [DEBUG]   $ gsutil -o "GSUtil:parallel_process_count=1" -m cp -r gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.269089_sMHx/ /Users/tanmaybhuskute/Documents/gifdroid-reproduction/firebase_downloads/Jigsaw/
+2026-02-18 21:45:33,261 [INFO]   [Jigsaw] Downloaded 9 files.
+2026-02-18 21:45:33,262 [INFO]   [PortAuthority] Downloading from gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.283970_UiWR/ ...
+2026-02-18 21:45:33,262 [DEBUG]   $ gsutil -o "GSUtil:parallel_process_count=1" -m cp -r gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.283970_UiWR/ /Users/tanmaybhuskute/Documents/gifdroid-reproduction/firebase_downloads/PortAuthority/
+2026-02-18 21:45:41,407 [INFO]   [PortAuthority] Downloaded 89 files.
+2026-02-18 21:45:41,408 [INFO]   [HomeMedkit] Downloading from gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.243427_RwOM/ ...
+2026-02-18 21:45:41,408 [DEBUG]   $ gsutil -o "GSUtil:parallel_process_count=1" -m cp -r gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.243427_RwOM/ /Users/tanmaybhuskute/Documents/gifdroid-reproduction/firebase_downloads/HomeMedkit/
+2026-02-18 21:45:51,022 [INFO]   [HomeMedkit] Downloaded 103 files.
+2026-02-18 21:45:51,024 [INFO]   [AdAway] Downloading from gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.313437_AUWZ/ ...
+2026-02-18 21:45:51,024 [DEBUG]   $ gsutil -o "GSUtil:parallel_process_count=1" -m cp -r gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.313437_AUWZ/ /Users/tanmaybhuskute/Documents/gifdroid-reproduction/firebase_downloads/AdAway/
+2026-02-18 21:45:56,993 [INFO]   [AdAway] Downloaded 45 files.
+2026-02-18 21:45:56,993 [INFO]   [WifiAnalyzer] Downloading from gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.298760_QeAL/ ...
+2026-02-18 21:45:56,993 [DEBUG]   $ gsutil -o "GSUtil:parallel_process_count=1" -m cp -r gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.298760_QeAL/ /Users/tanmaybhuskute/Documents/gifdroid-reproduction/firebase_downloads/WifiAnalyzer/
+2026-02-18 21:46:07,728 [INFO]   [WifiAnalyzer] Downloaded 101 files.
+2026-02-18 21:46:07,728 [INFO]   [SimpleNotes] Downloading from gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.115065_ERyS/ ...
+2026-02-18 21:46:07,728 [DEBUG]   $ gsutil -o "GSUtil:parallel_process_count=1" -m cp -r gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.115065_ERyS/ /Users/tanmaybhuskute/Documents/gifdroid-reproduction/firebase_downloads/SimpleNotes/
+2026-02-18 21:46:17,581 [INFO]   [SimpleNotes] Downloaded 101 files.
+2026-02-18 21:46:17,582 [INFO]   [LuxAlarm] Downloading from gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.310986_czIZ/ ...
+2026-02-18 21:46:17,582 [DEBUG]   $ gsutil -o "GSUtil:parallel_process_count=1" -m cp -r gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.310986_czIZ/ /Users/tanmaybhuskute/Documents/gifdroid-reproduction/firebase_downloads/LuxAlarm/
+2026-02-18 21:46:32,470 [INFO]   [LuxAlarm] Downloaded 197 files.
+2026-02-18 21:46:32,471 [INFO]   [AntennaPod] Downloading from gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.332359_MKnQ/ ...
+2026-02-18 21:46:32,471 [DEBUG]   $ gsutil -o "GSUtil:parallel_process_count=1" -m cp -r gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-02-18_21:30:48.332359_MKnQ/ /Users/tanmaybhuskute/Documents/gifdroid-reproduction/firebase_downloads/AntennaPod/
+2026-02-18 21:46:49,819 [INFO]   [AntennaPod] Downloaded 199 files.
+2026-02-18 21:46:49,821 [INFO] 
+  Phase 4 complete. Files downloaded to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/firebase_downloads/
+2026-02-18 21:46:49,821 [INFO] 
+============================================================
+2026-02-18 21:46:49,821 [INFO] PHASE 5: Organizing Results
+2026-02-18 21:46:49,821 [INFO] ============================================================
+2026-02-18 21:46:49,821 [INFO] 
+  [DeadHash] Organizing into /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_DeadHash/
+2026-02-18 21:46:49,822 [WARNING]     WARNING: No UTG JSON found. Available JSON files:
+2026-02-18 21:46:49,822 [INFO]     PNG screenshots: 0
+2026-02-18 21:46:49,822 [INFO]     utg.json present: False
+2026-02-18 21:46:49,822 [INFO] 
+  [Pomodorot] Organizing into /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Pomodorot/
+2026-02-18 21:46:49,822 [WARNING]     WARNING: No UTG JSON found. Available JSON files:
+2026-02-18 21:46:49,823 [INFO]     PNG screenshots: 0
+2026-02-18 21:46:49,823 [INFO]     utg.json present: False
+2026-02-18 21:46:49,823 [INFO] 
+  [Jigsaw] Organizing into /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/
+2026-02-18 21:46:49,823 [INFO]     Copied actions.json -> utg.json
+2026-02-18 21:46:49,825 [INFO]     PNG screenshots: 2
+2026-02-18 21:46:49,826 [INFO]     utg.json present: True
+2026-02-18 21:46:49,826 [INFO] 
+  [PortAuthority] Organizing into /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/
+2026-02-18 21:46:49,827 [INFO]     Copied actions.json -> utg.json
+2026-02-18 21:46:49,852 [INFO]     PNG screenshots: 42
+2026-02-18 21:46:49,852 [INFO]     utg.json present: True
+2026-02-18 21:46:49,853 [INFO] 
+  [HomeMedkit] Organizing into /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/
+2026-02-18 21:46:49,854 [INFO]     Copied actions.json -> utg.json
+2026-02-18 21:46:49,881 [INFO]     PNG screenshots: 49
+2026-02-18 21:46:49,881 [INFO]     utg.json present: True
+2026-02-18 21:46:49,881 [INFO] 
+  [AdAway] Organizing into /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/
+2026-02-18 21:46:49,882 [INFO]     Copied actions.json -> utg.json
+2026-02-18 21:46:49,893 [INFO]     PNG screenshots: 20
+2026-02-18 21:46:49,893 [INFO]     utg.json present: True
+2026-02-18 21:46:49,893 [INFO] 
+  [WifiAnalyzer] Organizing into /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/
+2026-02-18 21:46:49,894 [INFO]     Copied actions.json -> utg.json
+2026-02-18 21:46:49,922 [INFO]     PNG screenshots: 48
+2026-02-18 21:46:49,922 [INFO]     utg.json present: True
+2026-02-18 21:46:49,922 [INFO] 
+  [SimpleNotes] Organizing into /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/
+2026-02-18 21:46:49,923 [INFO]     Copied actions.json -> utg.json
+2026-02-18 21:46:49,953 [INFO]     PNG screenshots: 48
+2026-02-18 21:46:49,953 [INFO]     utg.json present: True
+2026-02-18 21:46:49,953 [INFO] 
+  [LuxAlarm] Organizing into /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/
+2026-02-18 21:46:49,954 [INFO]     Copied actions.json -> utg.json
+2026-02-18 21:46:50,003 [INFO]     PNG screenshots: 96
+2026-02-18 21:46:50,003 [INFO]     utg.json present: True
+2026-02-18 21:46:50,004 [INFO] 
+  [AntennaPod] Organizing into /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/
+2026-02-18 21:46:50,005 [INFO]     Copied actions.json -> utg.json
+2026-02-18 21:46:50,054 [INFO]     PNG screenshots: 97
+2026-02-18 21:46:50,054 [INFO]     utg.json present: True
+2026-02-18 21:46:50,054 [INFO] 
+  Phase 5 complete. App directories created in project root.
+2026-02-18 21:46:50,054 [INFO] 
+============================================================
+2026-02-18 21:46:50,054 [INFO] ALL PHASES COMPLETE
+2026-02-18 21:46:50,055 [INFO] ============================================================
+2026-02-18 21:46:50,055 [INFO] 
+Result buckets: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/result_buckets.json
+2026-02-18 21:46:50,055 [INFO] Downloads:      /Users/tanmaybhuskute/Documents/gifdroid-reproduction/firebase_downloads/
+2026-02-18 21:46:50,055 [INFO] Log file:       /Users/tanmaybhuskute/Documents/gifdroid-reproduction/logs/run_20260218_213042.log
+2026-02-18 21:46:50,055 [INFO] App directories:
+2026-02-18 21:46:50,055 [INFO]   /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_DeadHash/
+2026-02-18 21:46:50,055 [INFO]   /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Pomodorot/
+2026-02-18 21:46:50,055 [INFO]   /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/
+2026-02-18 21:46:50,055 [INFO]   /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/
+2026-02-18 21:46:50,055 [INFO]   /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/
+2026-02-18 21:46:50,055 [INFO]   /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/
+2026-02-18 21:46:50,055 [INFO]   /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/
+2026-02-18 21:46:50,055 [INFO]   /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/
+2026-02-18 21:46:50,055 [INFO]   /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/
+2026-02-18 21:46:50,055 [INFO]   /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/

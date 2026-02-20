@@ -1,0 +1,31 @@
+2026-02-19 21:48:03  INFO      Log file: logs/gifdroid_20260219_214803.log
+2026-02-19 21:48:03  INFO      GIFdroid started
+2026-02-19 21:48:03  INFO        --video    : app_HomeMedkit/app_HomeMedkit.mp4
+2026-02-19 21:48:03  INFO        --utg      : app_HomeMedkit/utg.json
+2026-02-19 21:48:03  INFO        --artifact : app_HomeMedkit/artifacts/
+2026-02-19 21:48:03  INFO        --out      : app_HomeMedkit/execution.json
+2026-02-19 21:48:03  INFO        --log-dir  : logs
+2026-02-19 21:48:03  INFO      ==================================================
+2026-02-19 21:48:03  INFO      STEP 1: Keyframe Location
+2026-02-19 21:48:03  INFO        Input video : app_HomeMedkit/app_HomeMedkit.mp4
+2026-02-19 21:49:22  INFO        Keyframes found   : 8
+2026-02-19 21:49:22  INFO        Keyframe indices  : [15, 47, 281, 371, 400, 517, 585, 776]
+2026-02-19 21:49:22  INFO        Duration          : 78.91s
+2026-02-19 21:49:22  INFO      ==================================================
+2026-02-19 21:49:22  INFO      STEP 2: GUI Mapping
+2026-02-19 21:49:22  INFO        Screenshots dir : app_HomeMedkit/artifacts/
+2026-02-19 21:50:05  INFO        Mapped index sequence : [15, 15, 18, 15, 18, 18, 28, 1]
+2026-02-19 21:50:05  INFO        Duration              : 42.47s
+2026-02-19 21:50:05  INFO      ==================================================
+2026-02-19 21:50:05  INFO      STEP 3: Find Execution Trace
+2026-02-19 21:50:05  INFO        UTG file : app_HomeMedkit/utg.json
+2026-02-19 21:50:05  INFO        Candidate traces found : 1
+2026-02-19 21:50:05  INFO          Trace 0: [0, 1]
+2026-02-19 21:50:05  INFO        Duration : 0.00s
+2026-02-19 21:50:05  INFO      ==================================================
+2026-02-19 21:50:05  INFO      STEP 4: Store Execution Trace
+2026-02-19 21:50:05  INFO      Execution trace written to: app_HomeMedkit/execution.json
+2026-02-19 21:50:05  INFO        Duration : 0.00s
+2026-02-19 21:50:05  INFO      ==================================================
+2026-02-19 21:50:05  INFO      Pipeline complete.  Total time: 121.39s
+2026-02-19 21:50:05  INFO      ==================================================
