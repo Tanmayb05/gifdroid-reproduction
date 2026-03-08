@@ -1,0 +1,20 @@
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools
+
+emulator -list-avds
+emulator -avd Pixel_2
+
+adb start-server
+adb devices
+
+
+
+=====
+TERMINAL 2
+=====
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools
+adb devices
+pip install uiautomator
+
+python3 -c "from uiautomator import device as d; print(d.info)"
