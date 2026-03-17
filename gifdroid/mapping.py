@@ -50,6 +50,25 @@ def mapping(image, index, size):
     results = sorted([(v, k) for (k, v) in results.items()], reverse=True)
     return results[0][1]
 
+def mapping_with_scores(image, index, size):
+    """
+    Same as mapping() but returns the full ranked score list for robustness analysis.
+    Returns: (best_match_filename, sorted_scores)
+      sorted_scores: list of (score, filename) sorted descending
+    """
+    alpha = 0.5
+    orb = cv2.ORB_create(nfeatures=1500)
+    results = {}
+    image = cv2.resize(image, (size[1], size[0]))
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    _, des = orb.detectAndCompute(image, None)
+    for (k, v) in index.items():
+        sim_ssim = ssim(image, v['ssim'])
+        sim_orb = match_bfmatcher(des, v['orb'])
+        results[k] = alpha * sim_ssim + (1-alpha) * sim_orb
+    sorted_results = sorted([(v, k) for (k, v) in results.items()], reverse=True)
+    return sorted_results[0][1], sorted_results
+
 def gui_mapping(screenshots, keyframes):
     index, size = load_screenshots(screenshots)
     index_sequence = [mapping(keyframe, index, size) for keyframe in keyframes]

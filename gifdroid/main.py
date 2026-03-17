@@ -6,9 +6,9 @@ import logging
 import time
 from datetime import datetime
 
-from location import keyframe_location
-from mapping import gui_mapping
-from trace import find_execution_trace
+from gifdroid.location import keyframe_location
+from gifdroid.mapping import gui_mapping
+from gifdroid.trace import find_execution_trace
 
 # ---------------------------------------------------------------------------
 # Logging setup
