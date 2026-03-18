@@ -1,0 +1,5319 @@
+"roboscript": {
+  "executionMode": {
+    "strict": true,
+    "shouldWaitForElement": true,
+    "notify": true,
+    "minScoreThreshold": 0
+  },
+  "postscript": {
+    "terminate": true
+  }
+}
+[
+  {
+    "id": 800,
+    "description": "ReproScript",
+    "crawlStage": "crawl",
+    "maxNumberOfRuns": 1,
+    "contextDescriptor": {
+      "condition": "app_under_test_shown",
+      "activationProbability": 1.0
+    },
+    "actions": [
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 1
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 2
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 3
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 4
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 5
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 6
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 7
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 8
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 2000,
+        "reproActionSeq": 9
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 2000,
+        "reproActionSeq": 10
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 2000,
+        "reproActionSeq": 11
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 2000,
+        "reproActionSeq": 12
+      },
+      {
+        "eventType": "WAIT",
+        "delayTime": 2000,
+        "reproActionSeq": 13
+      },
+      {
+        "eventType": "GO_HOME",
+        "reproActionSeq": 14
+      },
+      {
+        "eventType": "LAUNCH_APP",
+        "appPackageName": "com.dsalmun.luxalarm",
+        "reproActionSeq": 15
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 16
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 17
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 18
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 19
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 20
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "05:30"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 21
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 22
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 23
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 24
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 25
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 26
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 27
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 28
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 29
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 30
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 31
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 32
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 33
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 34
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 35
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 36
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 9
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 37
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 38
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 39
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 40
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 10
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 41
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 42
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 11
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 43
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 44
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 45
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 46
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 47
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 48
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 49
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 11
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 50
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 51
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 52
+      },
+      {
+        "eventType": "GO_HOME",
+        "reproActionSeq": 53
+      },
+      {
+        "eventType": "LAUNCH_APP",
+        "appPackageName": "com.dsalmun.luxalarm",
+        "reproActionSeq": 54
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 55
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 56
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 57
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 58
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 59
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 60
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "05:30"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 61
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 62
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 63
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 64
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 65
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 66
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 67
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 68
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 69
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "12:48"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 70
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 11
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 71
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 72
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 73
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 74
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 75
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 76
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 77
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 78
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 10
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 79
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 80
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 81
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 82
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 83
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 84
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 9
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 85
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 86
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 11
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 87
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 88
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 89
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 90
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 91
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 92
+      },
+      {
+        "eventType": "GO_HOME",
+        "reproActionSeq": 93
+      },
+      {
+        "eventType": "LAUNCH_APP",
+        "appPackageName": "com.dsalmun.luxalarm",
+        "reproActionSeq": 94
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "05:30"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 95
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 9
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 96
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 11
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 97
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 10
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 98
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 99
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 100
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 101
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 102
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 103
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 104
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 105
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "12:48"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 106
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 107
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 108
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 109
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 110
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "14:48"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 111
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 112
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 113
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 114
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 115
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 9
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 116
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 117
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 118
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 119
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 120
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 121
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 122
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 123
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 124
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 125
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 126
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 127
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 128
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 129
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 130
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 131
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 12,
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‎‎‎‏‎‎‎‎‏‏‎‏‎‏‏‏‎‏‎‎‏‏‎‎‏‎‏‏‏‎‏‏‏‏‏‎‏‎‏‏‎‎‎‎‎‏‏‎‎‎‏‎‏‏‎‎‏‎‏‎Default (‎‏‎‎‏‏‎Cesium‎‏‎‎‏‏‏‎)‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 132
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 133
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 134
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 135
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 136
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 137
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 138
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 9
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 139
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 140
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 141
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 142
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 143
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 144
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 145
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 146
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "14:48"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 147
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 148
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 149
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 150
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 151
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 9
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 152
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 153
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 154
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 155
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 156
+      },
+      {
+        "eventType": "GO_HOME",
+        "reproActionSeq": 157
+      },
+      {
+        "eventType": "LAUNCH_APP",
+        "appPackageName": "com.dsalmun.luxalarm",
+        "reproActionSeq": 158
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 159
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 10
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 160
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "14:48"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 161
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 9
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 162
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 163
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "14:48"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 164
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 165
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 166
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 167
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 168
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 169
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 170
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 171
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 172
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 173
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 174
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 175
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 176
+      },
+      {
+        "eventType": "GO_HOME",
+        "reproActionSeq": 177
+      },
+      {
+        "eventType": "LAUNCH_APP",
+        "appPackageName": "com.dsalmun.luxalarm",
+        "reproActionSeq": 178
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 179
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 10
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 180
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 181
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 182
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 183
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 184
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 185
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 186
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 187
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "04:52"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 188
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 189
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 190
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 191
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 192
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 193
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 10
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 194
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 195
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 196
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 197
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 198
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 199
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "04:52"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 200
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 201
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 202
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 203
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 204
+      },
+      {
+        "eventType": "GO_HOME",
+        "reproActionSeq": 205
+      },
+      {
+        "eventType": "LAUNCH_APP",
+        "appPackageName": "com.dsalmun.luxalarm",
+        "reproActionSeq": 206
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 207
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 208
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 209
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 210
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "18:54"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 211
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 212
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 213
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 214
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 215
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 216
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 217
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 218
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 219
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "18:54"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 220
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 221
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 222
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 223
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 224
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 225
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 226
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 227
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 228
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 229
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 230
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 231
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 232
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 233
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 234
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 9
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 235
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 236
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 10
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 237
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 12,
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‎‎‎‏‎‎‎‎‏‏‎‏‎‏‏‏‎‏‎‎‏‏‎‎‏‎‏‏‏‎‏‏‏‏‏‎‏‎‏‏‎‎‎‎‎‏‏‎‎‎‏‎‏‏‎‎‏‎‏‎Default (‎‏‎‎‏‏‎Cesium‎‏‎‎‏‏‏‎)‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 238
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 239
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 240
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 241
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "18:54"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 242
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 243
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 244
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 245
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 246
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "18:54"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 247
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 248
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 249
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 11
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 250
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 251
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 252
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 253
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "18:54"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 254
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 255
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 256
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 10
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 257
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 258
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "18:54"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 259
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 260
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 261
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "18:54"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 262
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 12
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 263
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 264
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "18:54"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 265
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 10
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 266
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 267
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "18:54"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 268
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 269
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 270
+      },
+      {
+        "eventType": "GO_HOME",
+        "reproActionSeq": 271
+      },
+      {
+        "eventType": "LAUNCH_APP",
+        "appPackageName": "com.dsalmun.luxalarm",
+        "reproActionSeq": 272
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "18:54"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 273
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 274
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 275
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 276
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 3
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 277
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 278
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 279
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "05:56"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 280
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 281
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 282
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 283
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 284
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 285
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "18:54"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 286
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 287
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "05:56"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 288
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 289
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 290
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 291
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 292
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 293
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 294
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 295
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 296
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 297
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 298
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 299
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 300
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 301
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 302
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "18:54"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 303
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 304
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 305
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 306
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 307
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 308
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 309
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 12,
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‎‎‎‏‎‎‎‎‏‏‎‏‎‏‏‏‎‏‎‎‏‏‎‎‏‎‏‏‏‎‏‏‏‏‏‎‏‎‏‏‎‎‎‎‎‏‏‎‎‎‏‎‏‏‎‎‏‎‏‎Default (‎‏‎‎‏‏‎Cesium‎‏‎‎‏‏‏‎)‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 310
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 311
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 9
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 312
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 313
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 314
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 4
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 315
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 6
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 316
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 10
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 317
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 12,
+            "text": "‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‏‎‎‏‎‎‎‎‏‏‏‏‏‎‏‏‏‎‎‎‏‎‎‎‎‏‏‎‏‎‏‏‏‎‏‎‎‏‏‎‎‏‎‏‏‏‎‏‏‏‏‏‎‏‎‏‏‎‎‎‎‎‏‏‎‎‎‏‎‏‏‎‎‏‎‏‎Default (‎‏‎‎‏‏‎Cesium‎‏‎‎‏‏‏‎)‎‏‎‎‏‎"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 318
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 319
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 320
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 9
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 321
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 322
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 323
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 324
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 2
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 325
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 326
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 10
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 327
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "05:56"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 1
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 328
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 329
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 7
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 330
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.widget.TextView",
+            "groupViewChildPosition": 0,
+            "text": "18:54"
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 331
+      },
+      {
+        "eventType": "PRESSED_BACK",
+        "reproActionSeq": 332
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 8
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 333
+      },
+      {
+        "eventType": "VIEW_CLICKED",
+        "elementDescriptors": [
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 5
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          },
+          {
+            "className": "android.view.View",
+            "groupViewChildPosition": 0
+          }
+        ],
+        "extractionMode": "UIAUTOMATOR",
+        "reproActionSeq": 334
+      }
+    ]
+  }
+]
