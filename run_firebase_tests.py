@@ -68,19 +68,29 @@ def log(msg, level="info"):
 def run_cmd(cmd, capture=True, check=True):
     """Run a shell command and return stdout."""
     log(f"  $ {cmd}", "debug")
-    result = subprocess.run(
-        cmd, shell=True, capture_output=capture, text=True,
-        env=os.environ,
-    )
     if capture:
-        if result.stdout:
-            log(f"  STDOUT: {result.stdout.strip()}", "debug")
-        if result.stderr:
-            log(f"  STDERR: {result.stderr.strip()}", "debug")
-    if check and result.returncode != 0:
-        log(f"  Command failed (rc={result.returncode}): {result.stderr.strip()}", "warning")
-        return None
-    return result.stdout.strip() if capture else ""
+        result = subprocess.run(
+            cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            env=os.environ,
+        )
+        stdout = result.stdout.decode("utf-8", errors="replace")
+        stderr = result.stderr.decode("utf-8", errors="replace")
+        if stdout:
+            log(f"  STDOUT: {stdout.strip()}", "debug")
+        if stderr:
+            log(f"  STDERR: {stderr.strip()}", "debug")
+        if check and result.returncode != 0:
+            log(f"  Command failed (rc={result.returncode}): {stderr.strip()}", "warning")
+            return None
+        return stdout.strip()
+    else:
+        result = subprocess.run(
+            cmd, shell=True, env=os.environ,
+        )
+        if check and result.returncode != 0:
+            log(f"  Command failed (rc={result.returncode})", "warning")
+            return None
+        return ""
 
 
 def phase1_verify_gcloud():
@@ -153,9 +163,9 @@ def _run_single_robo_test(apk_path, test_timeout):
     )
 
     result = subprocess.run(
-        cmd, shell=True, capture_output=True, text=True, env=os.environ,
+        cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=os.environ,
     )
-    output = result.stdout.strip()
+    output = result.stdout.decode("utf-8", errors="replace").strip()
 
     # Log full output to file
     log(f"  [{apk_name}] Full gcloud output:\n{output}", "debug")
