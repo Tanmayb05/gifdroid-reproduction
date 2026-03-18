@@ -390,12 +390,17 @@ def phase5_organize_results(result_buckets):
             continue
 
         app_dir = os.path.join(PROJECT_ROOT, f"app_{apk_name}")
-        artifacts_dir = os.path.join(app_dir, "artifacts")
+        input_dir = os.path.join(app_dir, "input")
+        artifacts_dir = os.path.join(input_dir, "artifacts")
+        screenrec_dir = os.path.join(input_dir, "screenrec")
+        handheld_dir = os.path.join(input_dir, "handheld")
         os.makedirs(artifacts_dir, exist_ok=True)
+        os.makedirs(screenrec_dir, exist_ok=True)
+        os.makedirs(handheld_dir, exist_ok=True)
 
         log(f"\n  [{apk_name}] Organizing into {app_dir}/")
 
-        # Find and copy UTG JSON file -> utg.json
+        # Find and copy UTG JSON file -> input/utg.json
         # Firebase Robo produces: actions.json (primary UTG), crawlscript.json
         # Priority: actions.json > activity_map.json > crawlscript.json
         utg_found = False
@@ -406,25 +411,30 @@ def phase5_organize_results(result_buckets):
             for root, dirs, files in os.walk(download_dir):
                 if candidate in files:
                     src = os.path.join(root, candidate)
-                    dest = os.path.join(app_dir, "utg.json")
+                    dest = os.path.join(input_dir, "utg.json")
                     shutil.copy2(src, dest)
-                    log(f"    Copied {candidate} -> utg.json")
+                    log(f"    Copied {candidate} -> input/utg.json")
                     utg_found = True
                     break
 
-        # Copy all PNG screenshots to artifacts/
+        # Collect all PNG screenshots, sort numerically, copy as artifacts_1.png, artifacts_2.png, ...
+        png_files = []
         for root, dirs, files in os.walk(download_dir):
             for f in files:
-                fpath = os.path.join(root, f)
                 if f.lower().endswith(".png"):
-                    dest = os.path.join(artifacts_dir, f)
-                    if os.path.exists(dest):
-                        base, ext = os.path.splitext(f)
-                        counter = 1
-                        while os.path.exists(dest):
-                            dest = os.path.join(artifacts_dir, f"{base}_{counter}{ext}")
-                            counter += 1
-                    shutil.copy2(fpath, dest)
+                    png_files.append(os.path.join(root, f))
+
+        def _numeric_sort_key(p):
+            name = os.path.splitext(os.path.basename(p))[0]
+            try:
+                return int(name)
+            except ValueError:
+                return name
+
+        png_files.sort(key=_numeric_sort_key)
+        for idx, fpath in enumerate(png_files, start=1):
+            dest = os.path.join(artifacts_dir, f"artifacts_{idx}.png")
+            shutil.copy2(fpath, dest)
 
         if not utg_found:
             log(f"    WARNING: No UTG JSON found. Available JSON files:", "warning")
@@ -434,7 +444,7 @@ def phase5_organize_results(result_buckets):
                         log(f"    {os.path.relpath(os.path.join(root, f), download_dir)}")
 
         png_count = len(glob.glob(os.path.join(artifacts_dir, "*.png")))
-        utg_exists = os.path.exists(os.path.join(app_dir, "utg.json"))
+        utg_exists = os.path.exists(os.path.join(input_dir, "utg.json"))
         log(f"    PNG screenshots: {png_count}")
         log(f"    utg.json present: {utg_exists}")
 

@@ -118,6 +118,7 @@ def store_trace(utg, traces, out, logger):
             trace_seq['trace'].append(seq)
         output_json['replay_traces'].append(trace_seq)
 
+    os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
     with open(out, 'w') as fp:
         json.dump(output_json, fp, indent=4)
     logger.info(f'Execution trace written to: {out}')
