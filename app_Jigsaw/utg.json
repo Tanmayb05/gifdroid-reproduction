@@ -2,18 +2,17 @@
   "events": [{
     "sourceScreenId": "0",
     "destinationScreenId": "1",
-    "startTimeSeconds": 5.850874,
-    "endTimeSeconds": 7.774323,
+    "startTimeSeconds": 5.233,
+    "endTimeSeconds": 6.796,
     "executionResult": "SUCCESS",
     "launch": {
-      "action": "android.intent.action.MAIN"
     }
   }, {
     "sequence": 1,
     "sourceScreenId": "1",
     "destinationScreenId": "1",
-    "startTimeSeconds": 9.322175,
-    "endTimeSeconds": 16.93211,
+    "startTimeSeconds": 7.273,
+    "endTimeSeconds": 15.282,
     "executionResult": "SUCCESS",
     "target": {
       "type": "TYPE_TEXT",
@@ -23,16 +22,6 @@
         "className": "android.widget.EditText",
         "androidClassName": "android.widget.EditText"
       }
-    }
-  }, {
-    "sequence": 2,
-    "sourceScreenId": "1",
-    "destinationScreenId": "1",
-    "startTimeSeconds": 17.284566,
-    "endTimeSeconds": 68.66277,
-    "executionResult": "SUCCESS",
-    "wait": {
-      "durationSeconds": 45.0
     }
   }]
 }

@@ -1,0 +1,86 @@
+2026-03-17 22:36:15,562 [INFO] GIFdroid Reproduction - Firebase Robo Test Runner
+2026-03-17 22:36:15,562 [INFO] Project root: /Users/tanmaybhuskute/Documents/gifdroid-reproduction
+2026-03-17 22:36:15,562 [INFO] APKs directory: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps
+2026-03-17 22:36:15,562 [INFO] Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/logs/run_20260317_223615.log
+2026-03-17 22:36:15,563 [INFO] 
+============================================================
+2026-03-17 22:36:15,563 [INFO] PHASE 3: Verifying Test Results in GCS
+2026-03-17 22:36:15,563 [INFO] ============================================================
+2026-03-17 22:36:15,563 [INFO]   [DeadHash] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.834924_EvUT/ ...
+2026-03-17 22:36:15,563 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.834924_EvUT/ 2>&1
+2026-03-17 22:36:20,992 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.834924_EvUT/DeadHash.apk
+2026-03-17 22:36:20,992 [INFO]   [DeadHash] Found 1 entries in GCS. Test completed.
+2026-03-17 22:36:20,992 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.834924_EvUT/DeadHash.apk
+2026-03-17 22:36:20,992 [INFO]   [Pomodorot] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:40.212387_RLlS/ ...
+2026-03-17 22:36:20,993 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:40.212387_RLlS/ 2>&1
+2026-03-17 22:36:23,523 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:40.212387_RLlS/Pomodorot.apk
+2026-03-17 22:36:23,523 [INFO]   [Pomodorot] Found 1 entries in GCS. Test completed.
+2026-03-17 22:36:23,523 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:40.212387_RLlS/Pomodorot.apk
+2026-03-17 22:36:23,523 [INFO]   [Jigsaw] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.846153_AyJw/ ...
+2026-03-17 22:36:23,523 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.846153_AyJw/ 2>&1
+2026-03-17 22:36:26,092 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.846153_AyJw/Jigsaw.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.846153_AyJw/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:26,092 [INFO]   [Jigsaw] Found 2 entries in GCS. Test completed.
+2026-03-17 22:36:26,092 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.846153_AyJw/Jigsaw.apk
+2026-03-17 22:36:26,092 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.846153_AyJw/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:26,092 [INFO]   [AdAway] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.997012_Fgda/ ...
+2026-03-17 22:36:26,092 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.997012_Fgda/ 2>&1
+2026-03-17 22:36:28,519 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.997012_Fgda/AdAway.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.997012_Fgda/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:28,519 [INFO]   [AdAway] Found 2 entries in GCS. Test completed.
+2026-03-17 22:36:28,519 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.997012_Fgda/AdAway.apk
+2026-03-17 22:36:28,519 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.997012_Fgda/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:28,519 [INFO]   [LuxAlarm] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.939936_GEvr/ ...
+2026-03-17 22:36:28,519 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.939936_GEvr/ 2>&1
+2026-03-17 22:36:30,998 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.939936_GEvr/LuxAlarm.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.939936_GEvr/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:30,999 [INFO]   [LuxAlarm] Found 2 entries in GCS. Test completed.
+2026-03-17 22:36:30,999 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.939936_GEvr/LuxAlarm.apk
+2026-03-17 22:36:30,999 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.939936_GEvr/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:30,999 [INFO]   [SimpleNotes] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.962167_lqsN/ ...
+2026-03-17 22:36:30,999 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.962167_lqsN/ 2>&1
+2026-03-17 22:36:33,455 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.962167_lqsN/SimpleNotes.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.962167_lqsN/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:33,456 [INFO]   [SimpleNotes] Found 2 entries in GCS. Test completed.
+2026-03-17 22:36:33,456 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.962167_lqsN/SimpleNotes.apk
+2026-03-17 22:36:33,456 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.962167_lqsN/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:33,456 [INFO]   [PortAuthority] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.670343_Lahj/ ...
+2026-03-17 22:36:33,456 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.670343_Lahj/ 2>&1
+2026-03-17 22:36:35,927 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.670343_Lahj/PortAuthority.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.670343_Lahj/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:35,928 [INFO]   [PortAuthority] Found 2 entries in GCS. Test completed.
+2026-03-17 22:36:35,928 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.670343_Lahj/PortAuthority.apk
+2026-03-17 22:36:35,928 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.670343_Lahj/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:35,928 [INFO]   [AntennaPod] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.828346_mQuk/ ...
+2026-03-17 22:36:35,928 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.828346_mQuk/ 2>&1
+2026-03-17 22:36:38,428 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.828346_mQuk/AntennaPod.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.828346_mQuk/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:38,428 [INFO]   [AntennaPod] Found 2 entries in GCS. Test completed.
+2026-03-17 22:36:38,428 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.828346_mQuk/AntennaPod.apk
+2026-03-17 22:36:38,428 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.828346_mQuk/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:38,428 [INFO]   [HomeMedkit] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.856946_bSIN/ ...
+2026-03-17 22:36:38,428 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.856946_bSIN/ 2>&1
+2026-03-17 22:36:40,986 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.856946_bSIN/HomeMedkit.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.856946_bSIN/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:40,987 [INFO]   [HomeMedkit] Found 2 entries in GCS. Test completed.
+2026-03-17 22:36:40,987 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.856946_bSIN/HomeMedkit.apk
+2026-03-17 22:36:40,987 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.856946_bSIN/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:40,987 [INFO]   [WifiAnalyzer] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.961699_eGFr/ ...
+2026-03-17 22:36:40,987 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.961699_eGFr/ 2>&1
+2026-03-17 22:36:43,488 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.961699_eGFr/WifiAnalyzer.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.961699_eGFr/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:43,488 [INFO]   [WifiAnalyzer] Found 2 entries in GCS. Test completed.
+2026-03-17 22:36:43,488 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.961699_eGFr/WifiAnalyzer.apk
+2026-03-17 22:36:43,488 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.961699_eGFr/Pixel2.arm-28-en-portrait/
+2026-03-17 22:36:43,490 [INFO] 
+  Summary:
+2026-03-17 22:36:43,490 [INFO]     DeadHash: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.834924_EvUT/
+2026-03-17 22:36:43,490 [INFO]     Pomodorot: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:40.212387_RLlS/
+2026-03-17 22:36:43,490 [INFO]     Jigsaw: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.846153_AyJw/
+2026-03-17 22:36:43,490 [INFO]     AdAway: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.997012_Fgda/
+2026-03-17 22:36:43,490 [INFO]     LuxAlarm: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.939936_GEvr/
+2026-03-17 22:36:43,490 [INFO]     SimpleNotes: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.962167_lqsN/
+2026-03-17 22:36:43,490 [INFO]     PortAuthority: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.670343_Lahj/
+2026-03-17 22:36:43,490 [INFO]     AntennaPod: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.828346_mQuk/
+2026-03-17 22:36:43,491 [INFO]     HomeMedkit: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.856946_bSIN/
+2026-03-17 22:36:43,491 [INFO]     WifiAnalyzer: status=completed, gcs=gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.961699_eGFr/
