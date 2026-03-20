@@ -14,10 +14,11 @@ from gifdroid.trace import find_execution_trace
 # Logging setup
 # ---------------------------------------------------------------------------
 
-def setup_logger(log_dir='logs'):
+def setup_logger(log_dir, video_type=''):
     os.makedirs(log_dir, exist_ok=True)
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    log_file = os.path.join(log_dir, f'gifdroid_{timestamp}.log')
+    suffix = f'_{video_type}' if video_type else ''
+    log_file = os.path.join(log_dir, f'gifdroid_{timestamp}{suffix}.log')
 
     fmt = '%(asctime)s  %(levelname)-8s  %(message)s'
     datefmt = '%Y-%m-%d %H:%M:%S'
@@ -57,8 +58,8 @@ def parse_args():
                         help='output of the execution trace',
                         default='execution.json', type=str)
     parser.add_argument('--log-dir', dest='log_dir',
-                        help='directory for log files',
-                        default='logs', type=str)
+                        help='directory for log files (default: utg dir derived from --out)',
+                        default=None, type=str)
     return parser.parse_args()
 
 
@@ -205,7 +206,21 @@ def main(video, screenshots, utg, logger):
 
 if __name__ == '__main__':
     args = parse_args()
-    logger = setup_logger(args.log_dir)
+
+    if args.log_dir:
+        log_dir = args.log_dir
+    else:
+        log_dir = os.path.dirname(os.path.dirname(os.path.abspath(args.out)))
+
+    video_basename = os.path.basename(args.video) if args.video else ''
+    if 'hhv' in video_basename:
+        video_type = 'hhv'
+    elif 'srv' in video_basename:
+        video_type = 'srv'
+    else:
+        video_type = ''
+
+    logger = setup_logger(log_dir, video_type)
 
     logger.info('GIFdroid started')
     logger.info(f'  --video    : {args.video}')
