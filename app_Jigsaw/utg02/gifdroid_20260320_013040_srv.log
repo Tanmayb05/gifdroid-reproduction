@@ -1,0 +1,48 @@
+2026-03-20 01:30:40  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/gifdroid_20260320_013040_srv.log
+2026-03-20 01:30:40  INFO      GIFdroid started
+2026-03-20 01:30:40  INFO        --video    : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/input/screenrec/srv_app_Jigsaw.mp4
+2026-03-20 01:30:40  INFO        --utg      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/input/utg.json
+2026-03-20 01:30:40  INFO        --artifact : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/input/artifacts
+2026-03-20 01:30:40  INFO        --out      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/output/execution_srv_Jigsaw.json
+2026-03-20 01:30:40  INFO        --log-dir  : None
+2026-03-20 01:30:40  INFO      ==================================================
+2026-03-20 01:30:40  INFO      STEP 1: Keyframe Location
+2026-03-20 01:30:40  INFO        Input video : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/input/screenrec/srv_app_Jigsaw.mp4
+2026-03-20 01:30:40  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/input/screenrec/srv_app_Jigsaw.mp4"
+2026-03-20 01:30:49  DEBUG     read_frames_from_video: 1025 frames decoded in 9.28s
+2026-03-20 01:32:32  DEBUG     calculate_sim_seq: 1024 similarities computed in 102.21s
+2026-03-20 01:32:32  DEBUG     detect_keyframes: 6 keyframes detected from 1024 frames in 0.00s
+2026-03-20 01:32:32  INFO      keyframe_location: done — 6 keyframes at indices [15, 31, 67, 97, 470, 1024] (111.53s total)
+2026-03-20 01:32:32  INFO        Keyframes found   : 6
+2026-03-20 01:32:32  INFO        Keyframe indices  : [15, 31, 67, 97, 470, 1024]
+2026-03-20 01:32:32  INFO        Duration          : 111.74s
+2026-03-20 01:32:32  INFO      ==================================================
+2026-03-20 01:32:32  INFO      STEP 2: GUI Mapping
+2026-03-20 01:32:32  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/input/artifacts
+2026-03-20 01:32:32  INFO      gui_mapping: matching 6 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/input/artifacts"
+2026-03-20 01:32:32  DEBUG     load_screenshots: 2 screenshots loaded in 0.27s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/input/artifacts"
+2026-03-20 01:32:32  DEBUG     mapping: best match "artifacts_2.png" (score=0.253)
+2026-03-20 01:32:33  DEBUG     mapping: best match "artifacts_2.png" (score=0.140)
+2026-03-20 01:32:33  DEBUG     mapping: best match "artifacts_2.png" (score=0.426)
+2026-03-20 01:32:33  DEBUG     mapping: best match "artifacts_2.png" (score=0.477)
+2026-03-20 01:32:33  DEBUG     mapping: best match "artifacts_2.png" (score=0.149)
+2026-03-20 01:32:34  DEBUG     mapping: best match "artifacts_2.png" (score=0.164)
+2026-03-20 01:32:34  INFO      gui_mapping: done — index sequence [2, 2, 2, 2, 2, 2] (1.84s)
+2026-03-20 01:32:34  INFO        Mapped index sequence : [2, 2, 2, 2, 2, 2]
+2026-03-20 01:32:34  INFO        Duration              : 1.84s
+2026-03-20 01:32:34  INFO      ==================================================
+2026-03-20 01:32:34  INFO      STEP 3: Find Execution Trace
+2026-03-20 01:32:34  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/input/utg.json
+2026-03-20 01:32:34  INFO      find_execution_trace: target sequence [2, 2, 2, 2, 2, 2]
+2026-03-20 01:32:34  DEBUG     read_graph: 2 edges, 2 vertices loaded in 0.00s
+2026-03-20 01:32:34  DEBUG     find_execution_trace: 0 candidate paths found in 0.00s
+2026-03-20 01:32:34  WARNING   find_execution_trace: no paths found from node 0 to screen 2 in the UTG (sequence=[2, 2, 2, 2, 2, 2]). Returning empty trace. (0.00s)
+2026-03-20 01:32:34  INFO        Candidate traces found : 0
+2026-03-20 01:32:34  INFO        Duration : 0.00s
+2026-03-20 01:32:34  INFO      ==================================================
+2026-03-20 01:32:34  INFO      STEP 4: Store Execution Trace
+2026-03-20 01:32:34  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/output/execution_srv_Jigsaw.json
+2026-03-20 01:32:34  INFO        Duration : 0.00s
+2026-03-20 01:32:34  INFO      ==================================================
+2026-03-20 01:32:34  INFO      Pipeline complete.  Total time: 113.59s
+2026-03-20 01:32:34  INFO      ==================================================

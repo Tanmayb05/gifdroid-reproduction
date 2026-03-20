@@ -1,0 +1,53 @@
+2026-03-20 01:47:15  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/gifdroid_20260320_014715_srv.log
+2026-03-20 01:47:15  INFO      GIFdroid started
+2026-03-20 01:47:15  INFO        --video    : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/input/screenrec/srv_app_PortAuthority.mp4
+2026-03-20 01:47:15  INFO        --utg      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/input/utg.json
+2026-03-20 01:47:15  INFO        --artifact : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/input/artifacts
+2026-03-20 01:47:15  INFO        --out      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/output/execution_srv_PortAuthority.json
+2026-03-20 01:47:15  INFO        --log-dir  : None
+2026-03-20 01:47:15  INFO      ==================================================
+2026-03-20 01:47:15  INFO      STEP 1: Keyframe Location
+2026-03-20 01:47:15  INFO        Input video : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/input/screenrec/srv_app_PortAuthority.mp4
+2026-03-20 01:47:15  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/input/screenrec/srv_app_PortAuthority.mp4"
+2026-03-20 01:47:45  DEBUG     read_frames_from_video: 3050 frames decoded in 30.38s
+2026-03-20 01:52:59  DEBUG     calculate_sim_seq: 3049 similarities computed in 313.69s
+2026-03-20 01:52:59  DEBUG     detect_keyframes: 7 keyframes detected from 3049 frames in 0.01s
+2026-03-20 01:52:59  INFO      keyframe_location: done — 7 keyframes at indices [11, 40, 161, 286, 2962, 3000, 3049] (344.18s total)
+2026-03-20 01:53:00  INFO        Keyframes found   : 7
+2026-03-20 01:53:00  INFO        Keyframe indices  : [11, 40, 161, 286, 2962, 3000, 3049]
+2026-03-20 01:53:00  INFO        Duration          : 345.28s
+2026-03-20 01:53:00  INFO      ==================================================
+2026-03-20 01:53:00  INFO      STEP 2: GUI Mapping
+2026-03-20 01:53:00  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/input/artifacts
+2026-03-20 01:53:00  INFO      gui_mapping: matching 7 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/input/artifacts"
+2026-03-20 01:53:07  DEBUG     load_screenshots: 88 screenshots loaded in 6.99s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/input/artifacts"
+2026-03-20 01:53:18  DEBUG     mapping: best match "artifacts_12.png" (score=0.223)
+2026-03-20 01:53:28  DEBUG     mapping: best match "artifacts_12.png" (score=0.358)
+2026-03-20 01:53:41  DEBUG     mapping: best match "artifacts_25.png" (score=0.562)
+2026-03-20 01:53:52  DEBUG     mapping: best match "artifacts_25.png" (score=0.422)
+2026-03-20 01:54:03  DEBUG     mapping: best match "artifacts_17.png" (score=0.396)
+2026-03-20 01:54:13  DEBUG     mapping: best match "artifacts_17.png" (score=0.394)
+2026-03-20 01:54:23  DEBUG     mapping: best match "artifacts_64.png" (score=0.423)
+2026-03-20 01:54:24  INFO      gui_mapping: done — index sequence [12, 12, 25, 25, 17, 17, 64] (83.37s)
+2026-03-20 01:54:24  INFO        Mapped index sequence : [12, 12, 25, 25, 17, 17, 64]
+2026-03-20 01:54:24  INFO        Duration              : 83.37s
+2026-03-20 01:54:24  INFO      ==================================================
+2026-03-20 01:54:24  INFO      STEP 3: Find Execution Trace
+2026-03-20 01:54:24  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/input/utg.json
+2026-03-20 01:54:24  INFO      find_execution_trace: target sequence [12, 12, 25, 25, 17, 17, 64]
+2026-03-20 01:54:24  DEBUG     read_graph: 254 edges, 88 vertices loaded in 0.01s
+2026-03-20 01:54:24  DEBUG     find_execution_trace: 27134 candidate paths found in 0.31s
+2026-03-20 01:54:26  INFO      find_execution_trace: 4 trace(s) found (LCS=2, length=10) in 2.72s
+2026-03-20 01:54:26  INFO        Candidate traces found : 4
+2026-03-20 01:54:26  INFO          Trace 0: [0, 1, 2, 3, 8, 11, 12, 60, 61, 64]
+2026-03-20 01:54:26  INFO          Trace 1: [0, 1, 2, 3, 8, 11, 12, 66, 61, 64]
+2026-03-20 01:54:26  INFO          Trace 2: [0, 1, 2, 3, 8, 24, 12, 60, 61, 64]
+2026-03-20 01:54:26  INFO          Trace 3: [0, 1, 2, 3, 8, 24, 12, 66, 61, 64]
+2026-03-20 01:54:26  INFO        Duration : 2.73s
+2026-03-20 01:54:26  INFO      ==================================================
+2026-03-20 01:54:26  INFO      STEP 4: Store Execution Trace
+2026-03-20 01:54:26  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/output/execution_srv_PortAuthority.json
+2026-03-20 01:54:26  INFO        Duration : 0.00s
+2026-03-20 01:54:26  INFO      ==================================================
+2026-03-20 01:54:26  INFO      Pipeline complete.  Total time: 431.38s
+2026-03-20 01:54:26  INFO      ==================================================

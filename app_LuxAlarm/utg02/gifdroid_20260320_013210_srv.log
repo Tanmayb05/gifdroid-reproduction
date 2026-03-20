@@ -1,0 +1,39 @@
+2026-03-20 01:32:10  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/gifdroid_20260320_013210_srv.log
+2026-03-20 01:32:10  INFO      GIFdroid started
+2026-03-20 01:32:10  INFO        --video    : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/input/screenrec/srv_app_LuxAlarm.mp4
+2026-03-20 01:32:10  INFO        --utg      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/input/utg.json
+2026-03-20 01:32:10  INFO        --artifact : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/input/artifacts
+2026-03-20 01:32:10  INFO        --out      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/output/execution_srv_LuxAlarm.json
+2026-03-20 01:32:10  INFO        --log-dir  : None
+2026-03-20 01:32:10  INFO      ==================================================
+2026-03-20 01:32:10  INFO      STEP 1: Keyframe Location
+2026-03-20 01:32:10  INFO        Input video : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/input/screenrec/srv_app_LuxAlarm.mp4
+2026-03-20 01:32:10  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/input/screenrec/srv_app_LuxAlarm.mp4"
+2026-03-20 01:32:17  DEBUG     read_frames_from_video: 714 frames decoded in 7.09s
+2026-03-20 01:33:28  DEBUG     calculate_sim_seq: 713 similarities computed in 71.17s
+2026-03-20 01:33:28  DEBUG     detect_keyframes: 8 keyframes detected from 713 frames in 0.00s
+2026-03-20 01:33:28  INFO      keyframe_location: done — 8 keyframes at indices [3, 40, 81, 433, 477, 555, 682, 713] (78.30s total)
+2026-03-20 01:33:28  INFO        Keyframes found   : 8
+2026-03-20 01:33:28  INFO        Keyframe indices  : [3, 40, 81, 433, 477, 555, 682, 713]
+2026-03-20 01:33:28  INFO        Duration          : 78.48s
+2026-03-20 01:33:28  INFO      ==================================================
+2026-03-20 01:33:28  INFO      STEP 2: GUI Mapping
+2026-03-20 01:33:28  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/input/artifacts
+2026-03-20 01:33:28  INFO      gui_mapping: matching 8 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/input/artifacts"
+2026-03-20 01:33:30  DEBUG     load_screenshots: 25 screenshots loaded in 1.42s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/input/artifacts"
+2026-03-20 01:33:33  DEBUG     mapping: best match "artifacts_6.png" (score=0.223)
+2026-03-20 01:33:35  DEBUG     mapping: best match "artifacts_6.png" (score=0.226)
+2026-03-20 01:33:38  DEBUG     mapping: best match "artifacts_6.png" (score=0.224)
+2026-03-20 01:33:41  DEBUG     mapping: best match "artifacts_10.png" (score=0.605)
+2026-03-20 01:33:44  DEBUG     mapping: best match "artifacts_2.png" (score=0.456)
+2026-03-20 01:33:46  DEBUG     mapping: best match "artifacts_2.png" (score=0.453)
+2026-03-20 01:33:49  DEBUG     mapping: best match "artifacts_2.png" (score=0.461)
+2026-03-20 01:33:52  DEBUG     mapping: best match "artifacts_17.png" (score=0.599)
+2026-03-20 01:33:52  INFO      gui_mapping: done — index sequence [6, 6, 6, 10, 2, 2, 2, 17] (23.79s)
+2026-03-20 01:33:52  INFO        Mapped index sequence : [6, 6, 6, 10, 2, 2, 2, 17]
+2026-03-20 01:33:52  INFO        Duration              : 23.79s
+2026-03-20 01:33:52  INFO      ==================================================
+2026-03-20 01:33:52  INFO      STEP 3: Find Execution Trace
+2026-03-20 01:33:52  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/input/utg.json
+2026-03-20 01:33:52  INFO      find_execution_trace: target sequence [6, 6, 6, 10, 2, 2, 2, 17]
+2026-03-20 01:33:52  DEBUG     read_graph: 331 edges, 25 vertices loaded in 0.00s
