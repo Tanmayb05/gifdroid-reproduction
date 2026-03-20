@@ -1,0 +1,111 @@
+{
+    "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/screenrec/srv_app_AntennaPod.mp4",
+    "utg": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/utg.json",
+    "artifact": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/artifacts",
+    "replay_traces": [
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 11,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "de.danoeh.antennapod:id/bottom_navigation_more",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout",
+                            "contentDescription": "More"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 11,
+                    "destinationScreenId": 36,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.LinearLayout",
+                            "androidClassName": "android.widget.LinearLayout"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 36,
+                    "destinationScreenId": 38,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "de.danoeh.antennapod:id/addLocalFolderButton",
+                            "className": "android.widget.TextView",
+                            "androidClassName": "android.widget.TextView",
+                            "textLabel": "Add local folder"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 38,
+                    "destinationScreenId": 129,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 129,
+                    "destinationScreenId": 42,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.ImageButton",
+                            "androidClassName": "android.widget.ImageButton",
+                            "contentDescription": "Navigate up"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 42,
+                    "destinationScreenId": 53,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "de.danoeh.antennapod:id/search_card",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 53,
+                    "destinationScreenId": 54,
+                    "action": {
+                        "type": "TYPE_TEXT",
+                        "targetDetails": {
+                            "resourceName": "de.danoeh.antennapod:id/search",
+                            "className": "android.widget.EditText",
+                            "androidClassName": "android.widget.EditText"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 54,
+                    "destinationScreenId": 55,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.LinearLayout",
+                            "androidClassName": "android.widget.LinearLayout"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

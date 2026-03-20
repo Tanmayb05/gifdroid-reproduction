@@ -1,0 +1,60 @@
+2026-03-19 20:38:05  INFO      Log file: logs/gifdroid_20260319_203805.log
+2026-03-19 20:38:05  INFO      GIFdroid started
+2026-03-19 20:38:05  INFO        --video    : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/input/handheld/hhv_app_AdAway.mp4
+2026-03-19 20:38:05  INFO        --utg      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/input/utg.json
+2026-03-19 20:38:05  INFO        --artifact : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/input/artifacts
+2026-03-19 20:38:05  INFO        --out      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/output/execution_hhv_AdAway.json
+2026-03-19 20:38:05  INFO        --log-dir  : logs
+2026-03-19 20:38:05  INFO      Output already exists, skipping: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/output/execution_hhv_AdAway.json
+2026-03-19 20:38:05  INFO      Log file: logs/gifdroid_20260319_203805.log
+2026-03-19 20:38:05  INFO      GIFdroid started
+2026-03-19 20:38:05  INFO        --video    : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/screenrec/srv_app_AntennaPod.mp4
+2026-03-19 20:38:05  INFO        --utg      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/utg.json
+2026-03-19 20:38:05  INFO        --artifact : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/artifacts
+2026-03-19 20:38:05  INFO        --out      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/output/execution_srv_AntennaPod.json
+2026-03-19 20:38:05  INFO        --log-dir  : logs
+2026-03-19 20:38:05  INFO      ==================================================
+2026-03-19 20:38:05  INFO      STEP 1: Keyframe Location
+2026-03-19 20:38:05  INFO        Input video : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/screenrec/srv_app_AntennaPod.mp4
+2026-03-19 20:38:05  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/screenrec/srv_app_AntennaPod.mp4"
+2026-03-19 20:38:10  DEBUG     read_frames_from_video: 583 frames decoded in 4.64s
+2026-03-19 20:39:02  DEBUG     calculate_sim_seq: 582 similarities computed in 51.71s
+2026-03-19 20:39:02  DEBUG     detect_keyframes: 9 keyframes detected from 582 frames in 0.00s
+2026-03-19 20:39:02  INFO      keyframe_location: done — 9 keyframes at indices [12, 63, 264, 278, 368, 416, 471, 554, 582] (56.39s total)
+2026-03-19 20:39:02  INFO        Keyframes found   : 9
+2026-03-19 20:39:02  INFO        Keyframe indices  : [12, 63, 264, 278, 368, 416, 471, 554, 582]
+2026-03-19 20:39:02  INFO        Duration          : 56.58s
+2026-03-19 20:39:02  INFO      ==================================================
+2026-03-19 20:39:02  INFO      STEP 2: GUI Mapping
+2026-03-19 20:39:02  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/artifacts
+2026-03-19 20:39:02  INFO      gui_mapping: matching 9 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/artifacts"
+2026-03-19 20:39:10  DEBUG     load_screenshots: 151 screenshots loaded in 7.81s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/artifacts"
+2026-03-19 20:39:25  DEBUG     mapping: best match "artifacts_1.png" (score=0.224)
+2026-03-19 20:39:40  DEBUG     mapping: best match "artifacts_35.png" (score=0.628)
+2026-03-19 20:39:55  DEBUG     mapping: best match "artifacts_11.png" (score=0.670)
+2026-03-19 20:40:10  DEBUG     mapping: best match "artifacts_35.png" (score=0.631)
+2026-03-19 20:40:25  DEBUG     mapping: best match "artifacts_36.png" (score=0.425)
+2026-03-19 20:40:40  DEBUG     mapping: best match "artifacts_35.png" (score=0.487)
+2026-03-19 20:40:55  DEBUG     mapping: best match "artifacts_29.png" (score=0.368)
+2026-03-19 20:41:10  DEBUG     mapping: best match "artifacts_19.png" (score=0.366)
+2026-03-19 20:41:24  DEBUG     mapping: best match "artifacts_55.png" (score=0.366)
+2026-03-19 20:41:24  INFO      gui_mapping: done — index sequence [1, 35, 11, 35, 36, 35, 29, 19, 55] (142.47s)
+2026-03-19 20:41:24  INFO        Mapped index sequence : [1, 35, 11, 35, 36, 35, 29, 19, 55]
+2026-03-19 20:41:24  INFO        Duration              : 142.47s
+2026-03-19 20:41:24  INFO      ==================================================
+2026-03-19 20:41:24  INFO      STEP 3: Find Execution Trace
+2026-03-19 20:41:24  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/utg.json
+2026-03-19 20:41:24  INFO      find_execution_trace: target sequence [1, 35, 11, 35, 36, 35, 29, 19, 55]
+2026-03-19 20:41:24  DEBUG     read_graph: 403 edges, 151 vertices loaded in 0.00s
+2026-03-19 20:44:57  DEBUG     find_execution_trace: 850306 candidate paths found in 212.52s
+2026-03-19 20:47:16  INFO      find_execution_trace: 1 trace(s) found (LCS=4, length=10) in 351.81s
+2026-03-19 20:47:16  INFO        Candidate traces found : 1
+2026-03-19 20:47:16  INFO          Trace 0: [0, 1, 11, 36, 38, 129, 42, 53, 54, 55]
+2026-03-19 20:47:16  INFO        Duration : 351.89s
+2026-03-19 20:47:16  INFO      ==================================================
+2026-03-19 20:47:16  INFO      STEP 4: Store Execution Trace
+2026-03-19 20:47:16  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/output/execution_srv_AntennaPod.json
+2026-03-19 20:47:16  INFO        Duration : 0.00s
+2026-03-19 20:47:16  INFO      ==================================================
+2026-03-19 20:47:16  INFO      Pipeline complete.  Total time: 550.94s
+2026-03-19 20:47:16  INFO      ==================================================

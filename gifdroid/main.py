@@ -218,4 +218,9 @@ if __name__ == '__main__':
         logger.error('Missing required arguments. Run with -h for usage.')
         exit(1)
 
+    # Idempotency check: skip if the output trace already exists
+    if os.path.isfile(args.out):
+        logger.info(f'Output already exists, skipping: {args.out}')
+        exit(0)
+
     main(args.video, args.artifact, args.utg, logger)

@@ -24,3 +24,25 @@ ffmpeg -i <input.mp4> \
 Place the output at the path expected by the `--video` argument.
 
 **Why:** OpenCV 3.4.2 does not support wide-gamut/HDR color spaces (bt2020). Converting to bt709 makes it compatible.
+
+---
+
+## No Execution Trace Found (Empty Output)
+
+**Error:**
+
+```text
+ValueError: min() arg is an empty sequence
+```
+
+**Root cause:** The UTG has no path from node 0 to the last screen ID in the keyframe sequence. This happens when the keyframe location maps to a screen that is unreachable from the start node in the UTG graph — common with handheld videos where extra frames or motion artifacts push the final keyframe to a wrong screen ID.
+
+**Fix applied:** `find_execution_trace` in `trace.py` now guards against an empty candidate set and returns `[]` with a warning log instead of crashing:
+
+```text
+WARNING  gifdroid.trace: no paths found from node 0 to screen X in the UTG (sequence=[...]). Returning empty trace.
+```
+
+The output JSON is still written with an empty `replay_traces` list, and the run is marked complete (idempotent — won't re-run).
+
+**Why:** The LCS-based path search requires a reachable path in the UTG. If the mapped screen ID is wrong or the UTG is incomplete, no candidate paths exist and the min() call fails on an empty list.

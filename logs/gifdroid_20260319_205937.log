@@ -1,0 +1,97 @@
+2026-03-19 20:59:37  INFO      Log file: logs/gifdroid_20260319_205937.log
+2026-03-19 20:59:37  INFO      GIFdroid started
+2026-03-19 20:59:37  INFO        --video    : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/handheld/hhv_app_HomeMedkit.mp4
+2026-03-19 20:59:37  INFO        --utg      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/utg.json
+2026-03-19 20:59:37  INFO        --artifact : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/artifacts
+2026-03-19 20:59:37  INFO        --out      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/output/execution_hhv_HomeMedkit.json
+2026-03-19 20:59:37  INFO        --log-dir  : logs
+2026-03-19 20:59:37  INFO      ==================================================
+2026-03-19 20:59:37  INFO      STEP 1: Keyframe Location
+2026-03-19 20:59:37  INFO        Input video : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/handheld/hhv_app_HomeMedkit.mp4
+2026-03-19 20:59:37  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/handheld/hhv_app_HomeMedkit.mp4"
+2026-03-19 20:59:47  DEBUG     read_frames_from_video: 1359 frames decoded in 10.62s
+2026-03-19 21:01:49  DEBUG     calculate_sim_seq: 1358 similarities computed in 121.50s
+2026-03-19 21:01:49  DEBUG     detect_keyframes: 54 keyframes detected from 1358 frames in 0.00s
+2026-03-19 21:01:49  INFO      keyframe_location: done — 54 keyframes at indices [129, 281, 379, 400, 434, 454, 465, 492, 497, 515, 520, 526, 543, 558, 591, 604, 615, 640, 649, 676, 688, 707, 768, 775, 786, 807, 838, 849, 918, 928, 945, 957, 967, 1015, 1023, 1033, 1043, 1052, 1061, 1082, 1118, 1134, 1144, 1150, 1158, 1181, 1201, 1207, 1240, 1248, 1265, 1271, 1297, 1358] (132.15s total)
+2026-03-19 21:01:49  INFO        Keyframes found   : 54
+2026-03-19 21:01:49  INFO        Keyframe indices  : [129, 281, 379, 400, 434, 454, 465, 492, 497, 515, 520, 526, 543, 558, 591, 604, 615, 640, 649, 676, 688, 707, 768, 775, 786, 807, 838, 849, 918, 928, 945, 957, 967, 1015, 1023, 1033, 1043, 1052, 1061, 1082, 1118, 1134, 1144, 1150, 1158, 1181, 1201, 1207, 1240, 1248, 1265, 1271, 1297, 1358]
+2026-03-19 21:01:49  INFO        Duration          : 132.45s
+2026-03-19 21:01:49  INFO      ==================================================
+2026-03-19 21:01:49  INFO      STEP 2: GUI Mapping
+2026-03-19 21:01:49  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/artifacts
+2026-03-19 21:01:49  INFO      gui_mapping: matching 54 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/artifacts"
+2026-03-19 21:01:53  DEBUG     load_screenshots: 80 screenshots loaded in 3.70s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/artifacts"
+2026-03-19 21:02:01  DEBUG     mapping: best match "artifacts_18.png" (score=0.290)
+2026-03-19 21:02:09  DEBUG     mapping: best match "artifacts_18.png" (score=0.326)
+2026-03-19 21:02:16  DEBUG     mapping: best match "artifacts_18.png" (score=0.322)
+2026-03-19 21:02:24  DEBUG     mapping: best match "artifacts_18.png" (score=0.315)
+2026-03-19 21:02:32  DEBUG     mapping: best match "artifacts_18.png" (score=0.281)
+2026-03-19 21:02:40  DEBUG     mapping: best match "artifacts_18.png" (score=0.282)
+2026-03-19 21:02:48  DEBUG     mapping: best match "artifacts_18.png" (score=0.281)
+2026-03-19 21:02:56  DEBUG     mapping: best match "artifacts_18.png" (score=0.304)
+2026-03-19 21:03:04  DEBUG     mapping: best match "artifacts_18.png" (score=0.303)
+2026-03-19 21:03:11  DEBUG     mapping: best match "artifacts_18.png" (score=0.300)
+2026-03-19 21:03:19  DEBUG     mapping: best match "artifacts_18.png" (score=0.303)
+2026-03-19 21:03:27  DEBUG     mapping: best match "artifacts_18.png" (score=0.307)
+2026-03-19 21:03:34  DEBUG     mapping: best match "artifacts_18.png" (score=0.300)
+2026-03-19 21:03:42  DEBUG     mapping: best match "artifacts_18.png" (score=0.296)
+2026-03-19 21:03:50  DEBUG     mapping: best match "artifacts_18.png" (score=0.290)
+2026-03-19 21:03:58  DEBUG     mapping: best match "artifacts_18.png" (score=0.291)
+2026-03-19 21:04:06  DEBUG     mapping: best match "artifacts_18.png" (score=0.262)
+2026-03-19 21:04:13  DEBUG     mapping: best match "artifacts_18.png" (score=0.275)
+2026-03-19 21:04:21  DEBUG     mapping: best match "artifacts_18.png" (score=0.270)
+2026-03-19 21:04:29  DEBUG     mapping: best match "artifacts_18.png" (score=0.280)
+2026-03-19 21:04:37  DEBUG     mapping: best match "artifacts_18.png" (score=0.280)
+2026-03-19 21:04:45  DEBUG     mapping: best match "artifacts_18.png" (score=0.293)
+2026-03-19 21:04:53  DEBUG     mapping: best match "artifacts_18.png" (score=0.291)
+2026-03-19 21:05:00  DEBUG     mapping: best match "artifacts_18.png" (score=0.290)
+2026-03-19 21:05:08  DEBUG     mapping: best match "artifacts_18.png" (score=0.287)
+2026-03-19 21:05:16  DEBUG     mapping: best match "artifacts_18.png" (score=0.285)
+2026-03-19 21:05:24  DEBUG     mapping: best match "artifacts_18.png" (score=0.293)
+2026-03-19 21:05:32  DEBUG     mapping: best match "artifacts_18.png" (score=0.311)
+2026-03-19 21:05:39  DEBUG     mapping: best match "artifacts_18.png" (score=0.314)
+2026-03-19 21:05:47  DEBUG     mapping: best match "artifacts_18.png" (score=0.314)
+2026-03-19 21:05:55  DEBUG     mapping: best match "artifacts_18.png" (score=0.309)
+2026-03-19 21:06:03  DEBUG     mapping: best match "artifacts_18.png" (score=0.314)
+2026-03-19 21:06:11  DEBUG     mapping: best match "artifacts_18.png" (score=0.314)
+2026-03-19 21:06:19  DEBUG     mapping: best match "artifacts_18.png" (score=0.304)
+2026-03-19 21:06:26  DEBUG     mapping: best match "artifacts_18.png" (score=0.298)
+2026-03-19 21:06:34  DEBUG     mapping: best match "artifacts_18.png" (score=0.295)
+2026-03-19 21:06:42  DEBUG     mapping: best match "artifacts_18.png" (score=0.300)
+2026-03-19 21:06:50  DEBUG     mapping: best match "artifacts_18.png" (score=0.302)
+2026-03-19 21:06:58  DEBUG     mapping: best match "artifacts_18.png" (score=0.301)
+2026-03-19 21:07:05  DEBUG     mapping: best match "artifacts_18.png" (score=0.295)
+2026-03-19 21:07:13  DEBUG     mapping: best match "artifacts_18.png" (score=0.313)
+2026-03-19 21:07:21  DEBUG     mapping: best match "artifacts_18.png" (score=0.311)
+2026-03-19 21:07:29  DEBUG     mapping: best match "artifacts_18.png" (score=0.309)
+2026-03-19 21:07:37  DEBUG     mapping: best match "artifacts_18.png" (score=0.307)
+2026-03-19 21:07:44  DEBUG     mapping: best match "artifacts_18.png" (score=0.303)
+2026-03-19 21:07:52  DEBUG     mapping: best match "artifacts_18.png" (score=0.294)
+2026-03-19 21:08:00  DEBUG     mapping: best match "artifacts_18.png" (score=0.294)
+2026-03-19 21:08:08  DEBUG     mapping: best match "artifacts_18.png" (score=0.306)
+2026-03-19 21:08:16  DEBUG     mapping: best match "artifacts_18.png" (score=0.300)
+2026-03-19 21:08:23  DEBUG     mapping: best match "artifacts_18.png" (score=0.299)
+2026-03-19 21:08:31  DEBUG     mapping: best match "artifacts_18.png" (score=0.315)
+2026-03-19 21:08:39  DEBUG     mapping: best match "artifacts_18.png" (score=0.317)
+2026-03-19 21:08:47  DEBUG     mapping: best match "artifacts_18.png" (score=0.315)
+2026-03-19 21:08:54  DEBUG     mapping: best match "artifacts_18.png" (score=0.330)
+2026-03-19 21:08:54  INFO      gui_mapping: done — index sequence [18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18] (425.44s)
+2026-03-19 21:08:54  INFO        Mapped index sequence : [18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18]
+2026-03-19 21:08:54  INFO        Duration              : 425.44s
+2026-03-19 21:08:54  INFO      ==================================================
+2026-03-19 21:08:54  INFO      STEP 3: Find Execution Trace
+2026-03-19 21:08:54  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/utg.json
+2026-03-19 21:08:54  INFO      find_execution_trace: target sequence [18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18]
+2026-03-19 21:08:54  DEBUG     read_graph: 298 edges, 80 vertices loaded in 0.00s
+2026-03-19 21:09:06  DEBUG     find_execution_trace: 52482 candidate paths found in 11.66s
+2026-03-19 21:09:37  INFO      find_execution_trace: 1 trace(s) found (LCS=1, length=5) in 42.59s
+2026-03-19 21:09:37  INFO        Candidate traces found : 1
+2026-03-19 21:09:37  INFO          Trace 0: [0, 1, 3, 16, 18]
+2026-03-19 21:09:37  INFO        Duration : 42.60s
+2026-03-19 21:09:37  INFO      ==================================================
+2026-03-19 21:09:37  INFO      STEP 4: Store Execution Trace
+2026-03-19 21:09:37  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/output/execution_hhv_HomeMedkit.json
+2026-03-19 21:09:37  INFO        Duration : 0.00s
+2026-03-19 21:09:37  INFO      ==================================================
+2026-03-19 21:09:37  INFO      Pipeline complete.  Total time: 600.49s
+2026-03-19 21:09:37  INFO      ==================================================

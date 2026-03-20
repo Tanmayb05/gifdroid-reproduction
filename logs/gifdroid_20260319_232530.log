@@ -1,0 +1,42 @@
+2026-03-19 23:25:30  INFO      Log file: logs/gifdroid_20260319_232530.log
+2026-03-19 23:25:30  INFO      GIFdroid started
+2026-03-19 23:25:30  INFO        --video    : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/handheld/hhv_app_LuxAlarm.mp4
+2026-03-19 23:25:30  INFO        --utg      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/utg.json
+2026-03-19 23:25:30  INFO        --artifact : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/artifacts
+2026-03-19 23:25:30  INFO        --out      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/output/execution_hhv_LuxAlarm.json
+2026-03-19 23:25:30  INFO        --log-dir  : logs
+2026-03-19 23:25:30  INFO      ==================================================
+2026-03-19 23:25:30  INFO      STEP 1: Keyframe Location
+2026-03-19 23:25:30  INFO        Input video : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/handheld/hhv_app_LuxAlarm.mp4
+2026-03-19 23:25:30  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/handheld/hhv_app_LuxAlarm.mp4"
+2026-03-19 23:25:41  DEBUG     read_frames_from_video: 818 frames decoded in 10.20s
+2026-03-19 23:27:13  DEBUG     calculate_sim_seq: 817 similarities computed in 92.66s
+2026-03-19 23:27:13  DEBUG     detect_keyframes: 11 keyframes detected from 817 frames in 0.00s
+2026-03-19 23:27:13  INFO      keyframe_location: done — 11 keyframes at indices [107, 179, 229, 254, 262, 438, 626, 721, 733, 801, 809] (102.92s total)
+2026-03-19 23:27:14  INFO        Keyframes found   : 11
+2026-03-19 23:27:14  INFO        Keyframe indices  : [107, 179, 229, 254, 262, 438, 626, 721, 733, 801, 809]
+2026-03-19 23:27:14  INFO        Duration          : 103.29s
+2026-03-19 23:27:14  INFO      ==================================================
+2026-03-19 23:27:14  INFO      STEP 2: GUI Mapping
+2026-03-19 23:27:14  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/artifacts
+2026-03-19 23:27:14  INFO      gui_mapping: matching 11 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/artifacts"
+2026-03-19 23:27:16  DEBUG     load_screenshots: 25 screenshots loaded in 1.89s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/artifacts"
+2026-03-19 23:27:19  DEBUG     mapping: best match "artifacts_7.png" (score=0.306)
+2026-03-19 23:27:22  DEBUG     mapping: best match "artifacts_7.png" (score=0.324)
+2026-03-19 23:27:25  DEBUG     mapping: best match "artifacts_7.png" (score=0.320)
+2026-03-19 23:27:28  DEBUG     mapping: best match "artifacts_7.png" (score=0.312)
+2026-03-19 23:27:32  DEBUG     mapping: best match "artifacts_7.png" (score=0.310)
+2026-03-19 23:27:35  DEBUG     mapping: best match "artifacts_7.png" (score=0.311)
+2026-03-19 23:27:38  DEBUG     mapping: best match "artifacts_7.png" (score=0.342)
+2026-03-19 23:27:41  DEBUG     mapping: best match "artifacts_7.png" (score=0.312)
+2026-03-19 23:27:44  DEBUG     mapping: best match "artifacts_7.png" (score=0.310)
+2026-03-19 23:27:47  DEBUG     mapping: best match "artifacts_7.png" (score=0.319)
+2026-03-19 23:27:50  DEBUG     mapping: best match "artifacts_7.png" (score=0.319)
+2026-03-19 23:27:50  INFO      gui_mapping: done — index sequence [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7] (36.47s)
+2026-03-19 23:27:50  INFO        Mapped index sequence : [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7]
+2026-03-19 23:27:50  INFO        Duration              : 36.47s
+2026-03-19 23:27:50  INFO      ==================================================
+2026-03-19 23:27:50  INFO      STEP 3: Find Execution Trace
+2026-03-19 23:27:50  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/utg.json
+2026-03-19 23:27:50  INFO      find_execution_trace: target sequence [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7]
+2026-03-19 23:27:50  DEBUG     read_graph: 331 edges, 25 vertices loaded in 0.00s
