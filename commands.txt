@@ -1,59 +1,56 @@
 # GIFdroid run commands
 # Run from the project root: /Users/tanmaybhuskute/Documents/gifdroid-reproduction
 
-# AdAway — screen recording
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/input/screenrec/srv_app_AdAway.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/output/execution_srv_AdAway.json
+# AdAway [utg01] — screen recording: srv_app_AdAway.mp4 not found, skipped
 
-# AdAway — handheld
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/input/handheld/hhv_app_AdAway.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/output/execution_hhv_AdAway.json
+# AdAway [utg01] — handheld: hhv_app_AdAway.MOV not found, skipped
 
-# AntennaPod — screen recording
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/screenrec/srv_app_AntennaPod.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/output/execution_srv_AntennaPod.json
+# AntennaPod [utg01] — screen recording
+python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/input/screenrec/srv_app_AntennaPod.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/output/execution_srv_AntennaPod.json
 
-# AntennaPod — handheld
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/handheld/hhv_app_AntennaPod.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/output/execution_hhv_AntennaPod.json
+# AntennaPod [utg01] — handheld
+python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/input/handheld/hhv_app_AntennaPod.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/output/execution_hhv_AntennaPod.json
 
-# DeadHash — screen recording: srv_app_DeadHash.mp4 not found, skipped
+# DeadHash [utg01] — screen recording: srv_app_DeadHash.mp4 not found, skipped
 
-# DeadHash — handheld: hhv_app_DeadHash.MOV not found, skipped
+# DeadHash [utg01] — handheld: hhv_app_DeadHash.MOV not found, skipped
 
-# HomeMedkit — screen recording
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/screenrec/srv_app_HomeMedkit.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/output/execution_srv_HomeMedkit.json
+# HomeMedkit [utg01] — screen recording
+python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg01/input/screenrec/srv_app_HomeMedkit.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg01/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg01/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg01/output/execution_srv_HomeMedkit.json
 
-# HomeMedkit — handheld
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/handheld/hhv_app_HomeMedkit.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/output/execution_hhv_HomeMedkit.json
+# HomeMedkit [utg01] — handheld
+python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg01/input/handheld/hhv_app_HomeMedkit.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg01/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg01/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg01/output/execution_hhv_HomeMedkit.json
 
-# Jigsaw — screen recording
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/input/screenrec/srv_app_Jigsaw.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/output/execution_srv_Jigsaw.json
+# Jigsaw [utg01] — screen recording
+python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg01/input/screenrec/srv_app_Jigsaw.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg01/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg01/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg01/output/execution_srv_Jigsaw.json
 
-# Jigsaw — handheld
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/input/handheld/hhv_app_Jigsaw.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/output/execution_hhv_Jigsaw.json
+# Jigsaw [utg01] — handheld
+python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg01/input/handheld/hhv_app_Jigsaw.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg01/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg01/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg01/output/execution_hhv_Jigsaw.json
 
-# LuxAlarm — screen recording
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/screenrec/srv_app_LuxAlarm.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/output/execution_srv_LuxAlarm.json
+# LuxAlarm [utg01] — screen recording
+python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg01/input/screenrec/srv_app_LuxAlarm.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg01/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg01/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg01/output/execution_srv_LuxAlarm.json
 
-# LuxAlarm — handheld
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/handheld/hhv_app_LuxAlarm.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/output/execution_hhv_LuxAlarm.json
+# LuxAlarm [utg01] — handheld
+python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg01/input/handheld/hhv_app_LuxAlarm.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg01/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg01/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg01/output/execution_hhv_LuxAlarm.json
 
-# Pomodorot — screen recording: srv_app_Pomodorot.mp4 not found, skipped
+# Pomodorot [utg01] — screen recording: srv_app_Pomodorot.mp4 not found, skipped
 
-# Pomodorot — handheld: hhv_app_Pomodorot.MOV not found, skipped
+# Pomodorot [utg01] — handheld: hhv_app_Pomodorot.MOV not found, skipped
 
-# PortAuthority — screen recording
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/input/screenrec/srv_app_PortAuthority.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/output/execution_srv_PortAuthority.json
+# PortAuthority [utg01] — screen recording
+python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg01/input/screenrec/srv_app_PortAuthority.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg01/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg01/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg01/output/execution_srv_PortAuthority.json
 
-# PortAuthority — handheld
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/input/handheld/hhv_app_PortAuthority.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/output/execution_hhv_PortAuthority.json
+# PortAuthority [utg01] — handheld
+python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg01/input/handheld/hhv_app_PortAuthority.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg01/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg01/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg01/output/execution_hhv_PortAuthority.json
 
-# SimpleNotes — screen recording
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/input/screenrec/srv_app_SimpleNotes.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/output/execution_srv_SimpleNotes.json
+# SimpleNotes [utg01] — screen recording: srv_app_SimpleNotes.mp4 not found, skipped
 
-# SimpleNotes — handheld
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/input/handheld/hhv_app_SimpleNotes.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/output/execution_hhv_SimpleNotes.json
+# SimpleNotes [utg01] — handheld
+python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg01/input/handheld/hhv_app_SimpleNotes.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg01/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg01/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg01/output/execution_hhv_SimpleNotes.json
 
-# WifiAnalyzer — screen recording
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/input/screenrec/srv_app_WifiAnalyzer.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/output/execution_srv_WifiAnalyzer.json
+# WifiAnalyzer [utg01] — screen recording
+python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/screenrec/srv_app_WifiAnalyzer.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/output/execution_srv_WifiAnalyzer.json
 
-# WifiAnalyzer — handheld
-python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/input/handheld/hhv_app_WifiAnalyzer.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/output/execution_hhv_WifiAnalyzer.json
+# WifiAnalyzer [utg01] — handheld
+python -m gifdroid.main --video /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/handheld/hhv_app_WifiAnalyzer.mp4 --utg /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/utg.json --artifact /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/artifacts --out /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/output/execution_hhv_WifiAnalyzer.json
 

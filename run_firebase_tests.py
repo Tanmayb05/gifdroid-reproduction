@@ -370,17 +370,22 @@ def phase4_download_results(result_buckets):
     return result_buckets
 
 
-def phase5_organize_results(result_buckets):
+def phase5_organize_results(result_buckets, utg_id="utg01"):
     """
-    Phase 5: Organize results into app_<name>/ directories.
+    Phase 5: Organize results into app_<name>/<utg_id>/ directories.
 
     Structure:
         app_<Name>/
-        ├── utg.json        (activity_map.json renamed)
-        └── artifacts/      (all PNG screenshots)
+        └── <utg_id>/
+            ├── input/
+            │   ├── utg.json        (activity_map.json renamed)
+            │   ├── artifacts/      (all PNG screenshots)
+            │   ├── screenrec/
+            │   └── handheld/
+            └── output/
     """
     log("\n" + "=" * 60)
-    log("PHASE 5: Organizing Results")
+    log(f"PHASE 5: Organizing Results (utg slot: {utg_id})")
     log("=" * 60)
 
     for apk_name, info in result_buckets.items():
@@ -390,15 +395,17 @@ def phase5_organize_results(result_buckets):
             continue
 
         app_dir = os.path.join(PROJECT_ROOT, f"app_{apk_name}")
-        input_dir = os.path.join(app_dir, "input")
+        input_dir = os.path.join(app_dir, utg_id, "input")
         artifacts_dir = os.path.join(input_dir, "artifacts")
         screenrec_dir = os.path.join(input_dir, "screenrec")
         handheld_dir = os.path.join(input_dir, "handheld")
+        output_dir = os.path.join(app_dir, utg_id, "output")
         os.makedirs(artifacts_dir, exist_ok=True)
         os.makedirs(screenrec_dir, exist_ok=True)
         os.makedirs(handheld_dir, exist_ok=True)
+        os.makedirs(output_dir, exist_ok=True)
 
-        log(f"\n  [{apk_name}] Organizing into {app_dir}/")
+        log(f"\n  [{apk_name}] Organizing into {app_dir}/{utg_id}/")
 
         # Find and copy UTG JSON file -> input/utg.json
         # Firebase Robo produces: actions.json (primary UTG), crawlscript.json
@@ -448,7 +455,7 @@ def phase5_organize_results(result_buckets):
         log(f"    PNG screenshots: {png_count}")
         log(f"    utg.json present: {utg_exists}")
 
-    log(f"\n  Phase 5 complete. App directories created in project root.")
+    log(f"\n  Phase 5 complete. App directories created in project root (slot: {utg_id}).")
 
 
 def main():
@@ -464,6 +471,10 @@ def main():
     parser.add_argument(
         "--test-timeout", type=str, default="10m",
         help="Timeout for each Robo test (default: 10m). Use 1m for quick testing."
+    )
+    parser.add_argument(
+        "--utg", type=str, default="utg01",
+        help="UTG slot to organize results into (default: utg01). E.g. utg02 for a second run."
     )
     args = parser.parse_args()
 
@@ -488,7 +499,7 @@ def main():
         elif args.phase == 5:
             with open(RESULT_BUCKETS_FILE, "r") as f:
                 result_buckets = json.load(f)
-            phase5_organize_results(result_buckets)
+            phase5_organize_results(result_buckets, utg_id=args.utg)
         return
 
     # Run all phases
@@ -502,7 +513,7 @@ def main():
     result_buckets = phase3_monitor_tests(result_buckets)
 
     phase4_download_results(result_buckets)
-    phase5_organize_results(result_buckets)
+    phase5_organize_results(result_buckets, utg_id=args.utg)
 
     log("\n" + "=" * 60)
     log("ALL PHASES COMPLETE")
@@ -510,9 +521,9 @@ def main():
     log(f"\nResult buckets: {RESULT_BUCKETS_FILE}")
     log(f"Downloads:      {DOWNLOAD_DIR}/")
     log(f"Log file:       {LOG_FILE}")
-    log(f"App directories:")
+    log(f"App directories (slot: {args.utg}):")
     for apk_name in result_buckets:
-        app_dir = os.path.join(PROJECT_ROOT, f"app_{apk_name}")
+        app_dir = os.path.join(PROJECT_ROOT, f"app_{apk_name}", args.utg)
         log(f"  {app_dir}/")
 
 
