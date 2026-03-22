@@ -1,0 +1,39 @@
+2026-03-22 17:10:27,130 [INFO] GIFdroid Reproduction - Firebase Robo Test Runner
+2026-03-22 17:10:27,130 [INFO] Project root: /Users/tanmaybhuskute/Documents/gifdroid-reproduction
+2026-03-22 17:10:27,130 [INFO] APKs directory: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps
+2026-03-22 17:10:27,130 [INFO] Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/logs/run_20260322_171027.log
+2026-03-22 17:10:27,130 [INFO] 
+============================================================
+2026-03-22 17:10:27,130 [INFO] PHASE 1: Verifying gcloud setup
+2026-03-22 17:10:27,130 [INFO] ============================================================
+2026-03-22 17:10:27,130 [INFO] 
+[1/5] Checking gcloud version...
+2026-03-22 17:10:27,130 [DEBUG]   $ gcloud version 2>&1 | head -1
+2026-03-22 17:10:30,418 [DEBUG]   STDOUT: Google Cloud SDK 556.0.0
+2026-03-22 17:10:30,418 [INFO]   gcloud installed: Google Cloud SDK 556.0.0
+2026-03-22 17:10:30,419 [INFO] 
+[2/5] Checking current project...
+2026-03-22 17:10:30,419 [DEBUG]   $ gcloud config get-value project 2>/dev/null
+2026-03-22 17:10:31,877 [DEBUG]   STDOUT: gifdroid-reproduction
+2026-03-22 17:10:31,877 [INFO]   Current project: gifdroid-reproduction
+2026-03-22 17:10:31,877 [INFO] 
+[3/5] Project already set to gifdroid-reproduction. Skipping.
+2026-03-22 17:10:31,877 [INFO] 
+[4/5] Checking authentication...
+2026-03-22 17:10:31,877 [DEBUG]   $ gcloud auth list --format='value(account)' --filter='status:ACTIVE'
+2026-03-22 17:10:32,982 [DEBUG]   STDOUT: tanmaybhuskute8@gmail.com
+2026-03-22 17:10:32,982 [INFO]   Authenticated as: tanmaybhuskute8@gmail.com
+2026-03-22 17:10:32,982 [INFO] 
+[5/5] Checking required APIs...
+2026-03-22 17:10:32,982 [DEBUG]   $ gcloud services list --enabled --filter="name:(testing.googleapis.com OR toolresults.googleapis.com)" --format="value(name)"
+2026-03-22 17:10:34,799 [DEBUG]   STDOUT: projects/470345417243/services/testing.googleapis.com
+projects/470345417243/services/toolresults.googleapis.com
+2026-03-22 17:10:34,799 [INFO]   Enabled: projects/470345417243/services/testing.googleapis.com
+2026-03-22 17:10:34,799 [INFO]   Enabled: projects/470345417243/services/toolresults.googleapis.com
+2026-03-22 17:10:34,799 [INFO] 
+  Phase 1 complete. All checks passed.
+2026-03-22 17:10:34,800 [INFO] 
+============================================================
+2026-03-22 17:10:34,800 [INFO] PHASE 2: Running Firebase Robo Tests (parallel, timeout=10m)
+2026-03-22 17:10:34,800 [INFO] ============================================================
+2026-03-22 17:10:34,800 [ERROR]   ERROR: No APK files found in apps/

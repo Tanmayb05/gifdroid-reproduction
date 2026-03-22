@@ -1,0 +1,92 @@
+2026-03-22 17:15:35,765 [INFO] GIFdroid Reproduction - Firebase Robo Test Runner
+2026-03-22 17:15:35,765 [INFO] Project root: /Users/tanmaybhuskute/Documents/gifdroid-reproduction
+2026-03-22 17:15:35,765 [INFO] APKs directory: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps
+2026-03-22 17:15:35,765 [INFO] Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/logs/run_20260322_171535.log
+2026-03-22 17:15:35,765 [INFO] 
+============================================================
+2026-03-22 17:15:35,766 [INFO] PHASE 1: Verifying gcloud setup
+2026-03-22 17:15:35,766 [INFO] ============================================================
+2026-03-22 17:15:35,766 [INFO] 
+[1/5] Checking gcloud version...
+2026-03-22 17:15:35,766 [DEBUG]   $ gcloud version 2>&1 | head -1
+2026-03-22 17:15:37,116 [DEBUG]   STDOUT: Google Cloud SDK 556.0.0
+2026-03-22 17:15:37,116 [INFO]   gcloud installed: Google Cloud SDK 556.0.0
+2026-03-22 17:15:37,116 [INFO] 
+[2/5] Checking current project...
+2026-03-22 17:15:37,116 [DEBUG]   $ gcloud config get-value project 2>/dev/null
+2026-03-22 17:15:38,118 [DEBUG]   STDOUT: gifdroid-reproduction
+2026-03-22 17:15:38,118 [INFO]   Current project: gifdroid-reproduction
+2026-03-22 17:15:38,119 [INFO] 
+[3/5] Project already set to gifdroid-reproduction. Skipping.
+2026-03-22 17:15:38,119 [INFO] 
+[4/5] Checking authentication...
+2026-03-22 17:15:38,119 [DEBUG]   $ gcloud auth list --format='value(account)' --filter='status:ACTIVE'
+2026-03-22 17:15:39,192 [DEBUG]   STDOUT: tanmaybhuskute8@gmail.com
+2026-03-22 17:15:39,193 [INFO]   Authenticated as: tanmaybhuskute8@gmail.com
+2026-03-22 17:15:39,193 [INFO] 
+[5/5] Checking required APIs...
+2026-03-22 17:15:39,193 [DEBUG]   $ gcloud services list --enabled --filter="name:(testing.googleapis.com OR toolresults.googleapis.com)" --format="value(name)"
+2026-03-22 17:15:40,683 [DEBUG]   STDOUT: projects/470345417243/services/testing.googleapis.com
+projects/470345417243/services/toolresults.googleapis.com
+2026-03-22 17:15:40,684 [INFO]   Enabled: projects/470345417243/services/testing.googleapis.com
+2026-03-22 17:15:40,684 [INFO]   Enabled: projects/470345417243/services/toolresults.googleapis.com
+2026-03-22 17:15:40,684 [INFO] 
+  Phase 1 complete. All checks passed.
+2026-03-22 17:15:40,684 [INFO] 
+============================================================
+2026-03-22 17:15:40,684 [INFO] PHASE 2: Running Firebase Robo Tests (parallel, timeout=10m)
+2026-03-22 17:15:40,685 [INFO] ============================================================
+2026-03-22 17:15:40,686 [INFO]   Found 10 APKs:
+2026-03-22 17:15:40,686 [INFO]     - AdAway.apk
+2026-03-22 17:15:40,686 [INFO]     - AntennaPod.apk
+2026-03-22 17:15:40,686 [INFO]     - DeadHash.apk
+2026-03-22 17:15:40,686 [INFO]     - HomeMedkit.apk
+2026-03-22 17:15:40,686 [INFO]     - Jigsaw.apk
+2026-03-22 17:15:40,686 [INFO]     - LuxAlarm.apk
+2026-03-22 17:15:40,686 [INFO]     - Pomodorot.apk
+2026-03-22 17:15:40,686 [INFO]     - PortAuthority.apk
+2026-03-22 17:15:40,686 [INFO]     - SimpleNotes.apk
+2026-03-22 17:15:40,686 [INFO]     - WifiAnalyzer.apk
+2026-03-22 17:15:40,687 [INFO] 
+  Loaded 10 existing results from result_buckets.json
+2026-03-22 17:15:40,687 [INFO]   [AdAway] Already has results. Skipping.
+2026-03-22 17:15:40,687 [INFO]   [AntennaPod] Already has results. Skipping.
+2026-03-22 17:15:40,687 [INFO]   [DeadHash] Already has results. Skipping.
+2026-03-22 17:15:40,687 [INFO]   [HomeMedkit] Already has results. Skipping.
+2026-03-22 17:15:40,687 [INFO]   [Jigsaw] Already has results. Skipping.
+2026-03-22 17:15:40,687 [INFO]   [LuxAlarm] Already has results. Skipping.
+2026-03-22 17:15:40,687 [INFO]   [Pomodorot] Already has results. Skipping.
+2026-03-22 17:15:40,687 [INFO]   [PortAuthority] Already has results. Skipping.
+2026-03-22 17:15:40,687 [INFO]   [SimpleNotes] Already has results. Skipping.
+2026-03-22 17:15:40,687 [INFO]   [WifiAnalyzer] Already has results. Skipping.
+2026-03-22 17:15:40,687 [INFO]   All APKs already have results. Nothing to do.
+2026-03-22 17:15:40,687 [INFO] 
+============================================================
+2026-03-22 17:15:40,687 [INFO] PHASE 3: Verifying Test Results in GCS
+2026-03-22 17:15:40,687 [INFO] ============================================================
+2026-03-22 17:15:40,688 [INFO]   [DeadHash] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.834924_EvUT/ ...
+2026-03-22 17:15:40,688 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.834924_EvUT/ 2>&1
+2026-03-22 17:15:43,976 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.834924_EvUT/DeadHash.apk
+2026-03-22 17:15:43,977 [INFO]   [DeadHash] Found 1 entries in GCS. Test completed.
+2026-03-22 17:15:43,977 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.834924_EvUT/DeadHash.apk
+2026-03-22 17:15:43,977 [INFO]   [Pomodorot] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:40.212387_RLlS/ ...
+2026-03-22 17:15:43,977 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:40.212387_RLlS/ 2>&1
+2026-03-22 17:15:46,365 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:40.212387_RLlS/Pomodorot.apk
+2026-03-22 17:15:46,365 [INFO]   [Pomodorot] Found 1 entries in GCS. Test completed.
+2026-03-22 17:15:46,365 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:40.212387_RLlS/Pomodorot.apk
+2026-03-22 17:15:46,366 [INFO]   [Jigsaw] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.846153_AyJw/ ...
+2026-03-22 17:15:46,366 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.846153_AyJw/ 2>&1
+2026-03-22 17:15:48,826 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.846153_AyJw/Jigsaw.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.846153_AyJw/Pixel2.arm-28-en-portrait/
+2026-03-22 17:15:48,826 [INFO]   [Jigsaw] Found 2 entries in GCS. Test completed.
+2026-03-22 17:15:48,826 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.846153_AyJw/Jigsaw.apk
+2026-03-22 17:15:48,826 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.846153_AyJw/Pixel2.arm-28-en-portrait/
+2026-03-22 17:15:48,826 [INFO]   [AdAway] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.997012_Fgda/ ...
+2026-03-22 17:15:48,826 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.997012_Fgda/ 2>&1
+2026-03-22 17:15:51,396 [DEBUG]   STDOUT: gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.997012_Fgda/AdAway.apk
+gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.997012_Fgda/Pixel2.arm-28-en-portrait/
+2026-03-22 17:15:51,396 [INFO]   [AdAway] Found 2 entries in GCS. Test completed.
+2026-03-22 17:15:51,396 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.997012_Fgda/AdAway.apk
+2026-03-22 17:15:51,396 [DEBUG]     gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.997012_Fgda/Pixel2.arm-28-en-portrait/
+2026-03-22 17:15:51,396 [INFO]   [LuxAlarm] Listing gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.939936_GEvr/ ...
+2026-03-22 17:15:51,396 [DEBUG]   $ gsutil ls gs://test-lab-bmii6k1jnh2ux-w8n8zdb9a37pu/2026-03-17_21:43:39.939936_GEvr/ 2>&1

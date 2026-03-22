@@ -33,6 +33,8 @@ RESULT_BUCKETS_FILE = os.path.join(PROJECT_ROOT, "result_buckets.json")
 DOWNLOAD_DIR = os.path.join(PROJECT_ROOT, "firebase_downloads")
 LOGS_DIR = os.path.join(PROJECT_ROOT, "logs")
 
+RUN_TIMESTAMP = datetime.now().strftime("%Y-%m-%d_%H%M%S")
+
 DEVICE = "model=Pixel2.arm,version=28,locale=en,orientation=portrait"
 
 # Ensure gcloud/gsutil are on PATH (installed via google-cloud-sdk)
@@ -339,10 +341,7 @@ def phase4_download_results(result_buckets):
             log(f"  [{apk_name}] No GCS path. Skipping download.")
             continue
 
-        local_dir = os.path.join(DOWNLOAD_DIR, apk_name)
-        if os.path.exists(local_dir) and os.listdir(local_dir):
-            log(f"  [{apk_name}] Already downloaded. Skipping.")
-            continue
+        local_dir = os.path.join(DOWNLOAD_DIR, apk_name, RUN_TIMESTAMP)
 
         os.makedirs(local_dir, exist_ok=True)
 

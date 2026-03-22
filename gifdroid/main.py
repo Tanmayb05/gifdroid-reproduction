@@ -6,6 +6,8 @@ import logging
 import time
 from datetime import datetime
 
+import cv2
+
 from gifdroid.location import keyframe_location
 from gifdroid.mapping import gui_mapping
 from gifdroid.trace import find_execution_trace
@@ -59,6 +61,9 @@ def parse_args():
                         default='execution.json', type=str)
     parser.add_argument('--log-dir', dest='log_dir',
                         help='directory for log files (default: utg dir derived from --out)',
+                        default=None, type=str)
+    parser.add_argument('--save-keyframes', dest='save_keyframes',
+                        help='directory to save extracted keyframe PNGs (default: <out_dir>/keyframes)',
                         default=None, type=str)
     return parser.parse_args()
 
@@ -129,7 +134,15 @@ def store_trace(utg, traces, out, logger):
 # Main pipeline
 # ---------------------------------------------------------------------------
 
-def main(video, screenshots, utg, logger):
+def save_keyframes(keyframes, keyframe_indices, save_dir, prefix, logger):
+    os.makedirs(save_dir, exist_ok=True)
+    for i, (frame, idx) in enumerate(zip(keyframes, keyframe_indices)):
+        path = os.path.join(save_dir, f'{prefix}_keyframe_{i+1:03d}_frame{idx:06d}.png')
+        cv2.imwrite(path, frame)
+    logger.info(f'  Keyframes saved to: {save_dir} ({len(keyframes)} files)')
+
+
+def main(video, screenshots, utg, logger, keyframes_dir=None, keyframes_prefix='keyframe'):
     total_start = time.time()
 
     # ------------------------------------------------------------------
@@ -146,6 +159,12 @@ def main(video, screenshots, utg, logger):
     logger.info(f'  Keyframes found   : {len(keyframe_index)}')
     logger.info(f'  Keyframe indices  : {keyframe_index}')
     logger.info(f'  Duration          : {elapsed:.2f}s')
+
+    # ------------------------------------------------------------------
+    # Save keyframes to disk
+    # ------------------------------------------------------------------
+    if keyframes_dir is not None:
+        save_keyframes(keyframe_sequence, keyframe_index, keyframes_dir, keyframes_prefix, logger)
 
     # ------------------------------------------------------------------
     # Step 2: GUI mapping
@@ -222,12 +241,20 @@ if __name__ == '__main__':
 
     logger = setup_logger(log_dir, video_type)
 
+    keyframes_dir = args.save_keyframes if args.save_keyframes else \
+        os.path.join(os.path.dirname(os.path.abspath(args.out)), 'keyframes')
+
+    # e.g. "utg01_hhv" derived from the utg directory name and video type
+    utg_dirname = os.path.basename(os.path.dirname(os.path.dirname(os.path.abspath(args.utg))))
+    keyframes_prefix = f'{utg_dirname}_{video_type}' if video_type else utg_dirname
+
     logger.info('GIFdroid started')
-    logger.info(f'  --video    : {args.video}')
-    logger.info(f'  --utg      : {args.utg}')
-    logger.info(f'  --artifact : {args.artifact}')
-    logger.info(f'  --out      : {args.out}')
-    logger.info(f'  --log-dir  : {args.log_dir}')
+    logger.info(f'  --video          : {args.video}')
+    logger.info(f'  --utg            : {args.utg}')
+    logger.info(f'  --artifact       : {args.artifact}')
+    logger.info(f'  --out            : {args.out}')
+    logger.info(f'  --log-dir        : {args.log_dir}')
+    logger.info(f'  --save-keyframes : {keyframes_dir}')
 
     if args.video is None or args.utg is None or args.artifact is None:
         logger.error('Missing required arguments. Run with -h for usage.')
@@ -238,4 +265,4 @@ if __name__ == '__main__':
         logger.info(f'Output already exists, skipping: {args.out}')
         exit(0)
 
-    main(args.video, args.artifact, args.utg, logger)
+    main(args.video, args.artifact, args.utg, logger, keyframes_dir=keyframes_dir, keyframes_prefix=keyframes_prefix)
