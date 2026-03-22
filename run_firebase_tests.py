@@ -433,9 +433,9 @@ def phase5_organize_results(result_buckets, utg_id="utg01"):
         def _numeric_sort_key(p):
             name = os.path.splitext(os.path.basename(p))[0]
             try:
-                return int(name)
+                return (0, int(name), "")
             except ValueError:
-                return name
+                return (1, 0, name)
 
         png_files.sort(key=_numeric_sort_key)
         for idx, fpath in enumerate(png_files, start=1):
