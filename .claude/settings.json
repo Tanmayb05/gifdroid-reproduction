@@ -15,7 +15,13 @@
       "Bash(find /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_*/utg*/output/keyframes -name *.png)",
       "Bash(ls /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_*/utg*/input/artifacts/)",
       "Bash(ls /Users/tanmaybhuskute/Documents/gifdroid-reproduction/*)",
-      "Bash(grep -c \"\\\\.png$\")"
+      "Bash(grep -c \"\\\\.png$\")",
+      "Read(//usr/local/bin/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(/usr/local/bin/python3.12 analysis/analyze_gifdroid.py --extract)",
+      "Bash(/usr/local/bin/python3.12 analysis/analyze_gifdroid.py --report)",
+      "Bash(/usr/local/bin/python3.12 analysis/analyze_gifdroid.py --plot)",
+      "Bash(/usr/local/bin/pip3.12 install:*)"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction"

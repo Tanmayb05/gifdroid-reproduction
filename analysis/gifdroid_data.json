@@ -1,0 +1,3766 @@
+{
+  "generated_at": "2026-03-23T00:25:25.939983",
+  "root": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",
+  "run_count": 31,
+  "runs": [
+    {
+      "app": "AdAway",
+      "utg": "utg01",
+      "video_type": "srv",
+      "log_file": "app_AdAway/utg01/gifdroid_20260320_021546_srv.log",
+      "inputs": {
+        "video_path": "app_AdAway/utg01/input/screenrec/srv_app_AdAway.mp4",
+        "video_size_mb": 2.96,
+        "artifact_count": 20,
+        "utg_vertices": 20,
+        "utg_edges": 50
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 772,
+        "decode_time_s": 8.22,
+        "similarities_computed": 771,
+        "sim_time_s": 93.38,
+        "keyframes_detected": 3,
+        "keyframe_indices": [
+          11,
+          52,
+          771
+        ],
+        "step_duration_s": 101.87,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 19,
+        "load_time_s": 1.81,
+        "confidence_scores": [
+          0.323,
+          0.414,
+          0.41
+        ],
+        "score_mean": 0.3823,
+        "score_median": 0.41,
+        "score_min": 0.323,
+        "score_max": 0.414,
+        "score_stdev": 0.0514,
+        "mapped_sequence": [
+          9,
+          8,
+          12
+        ],
+        "unique_screens_mapped": 3,
+        "step_duration_s": 8.45
+      },
+      "step3_find_trace": {
+        "candidate_paths": 2,
+        "traces_found": 1,
+        "lcs": 2,
+        "trace_length": 9,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10,
+            12
+          ]
+        ],
+        "step_duration_s": 0.0
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg01/output/execution_srv_AdAway.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 110.33,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 8,
+        "action_types": [
+          "LAUNCH",
+          "TAP",
+          "TYPE_TEXT"
+        ]
+      }
+    },
+    {
+      "app": "AdAway",
+      "utg": "utg01",
+      "video_type": "hhv",
+      "log_file": "app_AdAway/utg01/gifdroid_20260320_011559_hhv.log",
+      "inputs": {
+        "video_path": "app_AdAway/utg01/input/handheld/hhv_app_AdAway.mp4",
+        "video_size_mb": 13.94,
+        "artifact_count": 20,
+        "utg_vertices": 20,
+        "utg_edges": 50
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 1331,
+        "decode_time_s": 13.1,
+        "similarities_computed": 1330,
+        "sim_time_s": 122.16,
+        "keyframes_detected": 39,
+        "keyframe_indices": [
+          11,
+          21,
+          74,
+          168,
+          231,
+          245,
+          366,
+          421,
+          428,
+          454,
+          550,
+          608,
+          626,
+          643,
+          677,
+          683,
+          689,
+          718,
+          745,
+          764,
+          792,
+          802,
+          812,
+          819,
+          827,
+          858,
+          880,
+          943,
+          1017,
+          1097,
+          1126,
+          1161,
+          1174,
+          1187,
+          1221,
+          1227,
+          1262,
+          1270,
+          1330
+        ],
+        "step_duration_s": 135.64,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 19,
+        "load_time_s": 1.14,
+        "confidence_scores": [
+          0.276,
+          0.29,
+          0.292,
+          0.271,
+          0.287,
+          0.303,
+          0.297,
+          0.258,
+          0.265,
+          0.276,
+          0.289,
+          0.289,
+          0.281,
+          0.283,
+          0.283,
+          0.284,
+          0.284,
+          0.286,
+          0.285,
+          0.286,
+          0.287,
+          0.286,
+          0.291,
+          0.295,
+          0.292,
+          0.297,
+          0.3,
+          0.305,
+          0.37,
+          0.351,
+          0.309,
+          0.352,
+          0.353,
+          0.317,
+          0.326,
+          0.321,
+          0.299,
+          0.302,
+          0.283
+        ],
+        "score_mean": 0.2975,
+        "score_median": 0.29,
+        "score_min": 0.258,
+        "score_max": 0.37,
+        "score_stdev": 0.0245,
+        "mapped_sequence": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "unique_screens_mapped": 1,
+        "step_duration_s": 79.16
+      },
+      "step3_find_trace": {
+        "candidate_paths": 2,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 4,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            4,
+            5
+          ]
+        ],
+        "step_duration_s": 0.0
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg01/output/execution_hhv_AdAway.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 214.8,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 3,
+        "action_types": [
+          "LAUNCH",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "AdAway",
+      "utg": "utg02",
+      "video_type": "hhv",
+      "log_file": "app_AdAway/utg02/gifdroid_20260320_024223_hhv.log",
+      "inputs": {
+        "video_path": "app_AdAway/utg02/input/handheld/hhv_app_AdAway.mp4",
+        "video_size_mb": 14.19,
+        "artifact_count": 5,
+        "utg_vertices": 4,
+        "utg_edges": 5
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 1331,
+        "decode_time_s": 13.82,
+        "similarities_computed": 1330,
+        "sim_time_s": 145.86,
+        "keyframes_detected": 39,
+        "keyframe_indices": [
+          11,
+          20,
+          74,
+          149,
+          169,
+          231,
+          245,
+          366,
+          421,
+          428,
+          454,
+          527,
+          550,
+          608,
+          626,
+          643,
+          677,
+          683,
+          714,
+          745,
+          764,
+          792,
+          802,
+          812,
+          819,
+          857,
+          880,
+          943,
+          1016,
+          1097,
+          1126,
+          1161,
+          1173,
+          1187,
+          1221,
+          1227,
+          1262,
+          1270,
+          1330
+        ],
+        "step_duration_s": 160.15,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 4,
+        "load_time_s": 0.84,
+        "confidence_scores": [
+          0.271,
+          0.278,
+          0.285,
+          0.273,
+          0.266,
+          0.275,
+          0.289,
+          0.287,
+          0.251,
+          0.256,
+          0.265,
+          0.275,
+          0.275,
+          0.275,
+          0.269,
+          0.271,
+          0.272,
+          0.272,
+          0.273,
+          0.275,
+          0.274,
+          0.276,
+          0.275,
+          0.279,
+          0.284,
+          0.286,
+          0.289,
+          0.295,
+          0.351,
+          0.333,
+          0.298,
+          0.335,
+          0.338,
+          0.303,
+          0.311,
+          0.306,
+          0.29,
+          0.292,
+          0.275
+        ],
+        "score_mean": 0.2857,
+        "score_median": 0.276,
+        "score_min": 0.251,
+        "score_max": 0.351,
+        "score_stdev": 0.0222,
+        "mapped_sequence": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "unique_screens_mapped": 1,
+        "step_duration_s": 20.73
+      },
+      "step3_find_trace": {
+        "candidate_paths": 1,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 3,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "step_duration_s": 0.01
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg02/output/execution_hhv_AdAway.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 180.89,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 2,
+        "action_types": [
+          "LAUNCH",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "AdAway",
+      "utg": "utg03",
+      "video_type": "srv",
+      "log_file": "app_AdAway/utg03/gifdroid_20260322_182733_srv.log",
+      "inputs": {
+        "video_path": "app_AdAway/utg03/input/screenrec/srv_app_AdAway.mp4",
+        "video_size_mb": 2.96,
+        "artifact_count": 5,
+        "utg_vertices": 4,
+        "utg_edges": 5
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 772,
+        "decode_time_s": 7.41,
+        "similarities_computed": 771,
+        "sim_time_s": 68.16,
+        "keyframes_detected": 3,
+        "keyframe_indices": [
+          11,
+          52,
+          771
+        ],
+        "step_duration_s": 75.77,
+        "saved_keyframe_files": 3
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 5,
+        "load_time_s": 0.6,
+        "confidence_scores": [
+          0.223,
+          0.332,
+          0.283
+        ],
+        "score_mean": 0.2793,
+        "score_median": 0.283,
+        "score_min": 0.223,
+        "score_max": 0.332,
+        "score_stdev": 0.0546,
+        "mapped_sequence": [
+          1,
+          3,
+          1
+        ],
+        "unique_screens_mapped": 2,
+        "step_duration_s": 2.24
+      },
+      "step3_find_trace": {
+        "candidate_paths": 1,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 2,
+        "trace_sequences": [
+          [
+            0,
+            1
+          ]
+        ],
+        "step_duration_s": 0.0
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/output/execution_srv_AdAway.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 78.12,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 1,
+        "action_types": [
+          "LAUNCH"
+        ]
+      }
+    },
+    {
+      "app": "AntennaPod",
+      "utg": "utg01",
+      "video_type": "srv",
+      "log_file": "app_AntennaPod/utg01/gifdroid_20260320_012419_srv.log",
+      "inputs": {
+        "video_path": "app_AntennaPod/utg01/input/screenrec/srv_app_AntennaPod.mp4",
+        "video_size_mb": 5.08,
+        "artifact_count": 97,
+        "utg_vertices": 96,
+        "utg_edges": 217
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 583,
+        "decode_time_s": 5.41,
+        "similarities_computed": 582,
+        "sim_time_s": 52.11,
+        "keyframes_detected": 9,
+        "keyframe_indices": [
+          12,
+          63,
+          264,
+          278,
+          368,
+          416,
+          471,
+          554,
+          582
+        ],
+        "step_duration_s": 57.71,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 96,
+        "load_time_s": 4.98,
+        "confidence_scores": [
+          0.179,
+          0.611,
+          0.67,
+          0.612,
+          0.43,
+          0.543,
+          0.391,
+          0.372,
+          0.366
+        ],
+        "score_mean": 0.4638,
+        "score_median": 0.43,
+        "score_min": 0.179,
+        "score_max": 0.67,
+        "score_stdev": 0.1573,
+        "mapped_sequence": [
+          93,
+          79,
+          11,
+          79,
+          79,
+          86,
+          87,
+          96,
+          67
+        ],
+        "unique_screens_mapped": 7,
+        "step_duration_s": 92.67
+      },
+      "step3_find_trace": {
+        "candidate_paths": 208,
+        "traces_found": 1,
+        "lcs": 3,
+        "trace_length": 11,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            11,
+            13,
+            14,
+            24,
+            57,
+            59,
+            79,
+            66,
+            67
+          ]
+        ],
+        "step_duration_s": 0.05
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/output/execution_srv_AntennaPod.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 150.44,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 10,
+        "action_types": [
+          "LAUNCH",
+          "SWIPE",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "AntennaPod",
+      "utg": "utg01",
+      "video_type": "hhv",
+      "log_file": "app_AntennaPod/utg01/gifdroid_20260320_030244_hhv.log",
+      "inputs": {
+        "video_path": "app_AntennaPod/utg01/input/handheld/hhv_app_AntennaPod.mp4",
+        "video_size_mb": 12.82,
+        "artifact_count": 97,
+        "utg_vertices": 96,
+        "utg_edges": 217
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 2025,
+        "decode_time_s": 20.57,
+        "similarities_computed": 2024,
+        "sim_time_s": 252.95,
+        "keyframes_detected": 10,
+        "keyframe_indices": [
+          4,
+          9,
+          115,
+          172,
+          930,
+          1019,
+          1430,
+          1679,
+          1988,
+          2024
+        ],
+        "step_duration_s": 274.53,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 96,
+        "load_time_s": 7.35,
+        "confidence_scores": [
+          0.305,
+          0.305,
+          0.301,
+          0.31,
+          0.324,
+          0.324,
+          0.325,
+          0.311,
+          0.33,
+          0.331
+        ],
+        "score_mean": 0.3166,
+        "score_median": 0.3175,
+        "score_min": 0.301,
+        "score_max": 0.331,
+        "score_stdev": 0.0113,
+        "mapped_sequence": [
+          71,
+          71,
+          71,
+          71,
+          71,
+          71,
+          71,
+          71,
+          71,
+          71
+        ],
+        "unique_screens_mapped": 1,
+        "step_duration_s": 108.67
+      },
+      "step3_find_trace": {
+        "candidate_paths": 62,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 11,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            11,
+            13,
+            14,
+            24,
+            57,
+            58,
+            69,
+            70,
+            71
+          ]
+        ],
+        "step_duration_s": 0.04
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/output/execution_hhv_AntennaPod.json",
+        "step_duration_s": 0.01
+      },
+      "total_time_s": 383.25,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 10,
+        "action_types": [
+          "LAUNCH",
+          "SWIPE",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "AntennaPod",
+      "utg": "utg02",
+      "video_type": "hhv",
+      "log_file": "app_AntennaPod/utg02/gifdroid_20260319_204717_hhv.log",
+      "inputs": {
+        "video_path": "app_AntennaPod/utg02/input/handheld/hhv_app_AntennaPod.mp4",
+        "video_size_mb": 12.82,
+        "artifact_count": 152,
+        "utg_vertices": 151,
+        "utg_edges": 403
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 2025,
+        "decode_time_s": 17.82,
+        "similarities_computed": 2024,
+        "sim_time_s": 201.31,
+        "keyframes_detected": 10,
+        "keyframe_indices": [
+          4,
+          9,
+          115,
+          172,
+          930,
+          1019,
+          1430,
+          1679,
+          1988,
+          2024
+        ],
+        "step_duration_s": 219.88,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 151,
+        "load_time_s": 8.83,
+        "confidence_scores": [
+          0.304,
+          0.304,
+          0.301,
+          0.31,
+          0.324,
+          0.324,
+          0.326,
+          0.31,
+          0.329,
+          0.331
+        ],
+        "score_mean": 0.3163,
+        "score_median": 0.317,
+        "score_min": 0.301,
+        "score_max": 0.331,
+        "score_stdev": 0.0116,
+        "mapped_sequence": [
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29,
+          29
+        ],
+        "unique_screens_mapped": 1,
+        "step_duration_s": 157.78
+      },
+      "step3_find_trace": {
+        "candidate_paths": 257,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 4,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            7,
+            29
+          ]
+        ],
+        "step_duration_s": 213.83
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/output/execution_hhv_AntennaPod.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 591.5,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 3,
+        "action_types": [
+          "LAUNCH",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "AntennaPod",
+      "utg": "utg03",
+      "video_type": "srv",
+      "log_file": "app_AntennaPod/utg03/gifdroid_20260322_182901_srv.log",
+      "inputs": {
+        "video_path": "app_AntennaPod/utg03/input/screenrec/srv_app_AntennaPod.mp4",
+        "video_size_mb": 5.08,
+        "artifact_count": 85,
+        "utg_vertices": 84,
+        "utg_edges": 214
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 583,
+        "decode_time_s": 5.84,
+        "similarities_computed": 582,
+        "sim_time_s": 51.79,
+        "keyframes_detected": 9,
+        "keyframe_indices": [
+          12,
+          63,
+          264,
+          278,
+          368,
+          416,
+          471,
+          554,
+          582
+        ],
+        "step_duration_s": 57.82,
+        "saved_keyframe_files": 9
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 85,
+        "load_time_s": 7.35,
+        "confidence_scores": [
+          0.224,
+          0.628,
+          0.67,
+          0.631,
+          0.425,
+          0.487,
+          0.386,
+          0.411,
+          0.397
+        ],
+        "score_mean": 0.4732,
+        "score_median": 0.425,
+        "score_min": 0.224,
+        "score_max": 0.67,
+        "score_stdev": 0.1456,
+        "mapped_sequence": [
+          1,
+          35,
+          11,
+          35,
+          36,
+          35,
+          85,
+          85,
+          85
+        ],
+        "unique_screens_mapped": 5,
+        "step_duration_s": 316.64
+      },
+      "step3_find_trace": {
+        "candidate_paths": 0,
+        "trace_sequences": [],
+        "step_duration_s": 0.19
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg03/output/execution_srv_AntennaPod.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 375.03,
+      "execution_json": {
+        "replay_trace_count": 0,
+        "trace0_action_count": 0,
+        "action_types": []
+      }
+    },
+    {
+      "app": "HomeMedkit",
+      "utg": "utg01",
+      "video_type": "srv",
+      "log_file": "app_HomeMedkit/utg01/gifdroid_20260320_004639_srv.log",
+      "inputs": {
+        "video_path": "app_HomeMedkit/utg01/input/screenrec/srv_app_HomeMedkit.mp4",
+        "video_size_mb": 7.15,
+        "artifact_count": 49,
+        "utg_vertices": 49,
+        "utg_edges": 127
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 777,
+        "decode_time_s": 5.85,
+        "similarities_computed": 776,
+        "sim_time_s": 68.46,
+        "keyframes_detected": 8,
+        "keyframe_indices": [
+          15,
+          47,
+          281,
+          371,
+          400,
+          517,
+          585,
+          776
+        ],
+        "step_duration_s": 74.62,
+        "saved_keyframe_files": 54
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 48,
+        "load_time_s": 2.31,
+        "confidence_scores": [
+          0.164,
+          0.363,
+          0.537,
+          0.495,
+          0.553,
+          0.546,
+          0.484,
+          0.481
+        ],
+        "score_mean": 0.4529,
+        "score_median": 0.4895,
+        "score_min": 0.164,
+        "score_max": 0.553,
+        "score_stdev": 0.1314,
+        "mapped_sequence": [
+          15,
+          15,
+          18,
+          15,
+          18,
+          18,
+          28,
+          1
+        ],
+        "unique_screens_mapped": 4,
+        "step_duration_s": 40.52
+      },
+      "step3_find_trace": {
+        "candidate_paths": 1,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 2,
+        "trace_sequences": [
+          [
+            0,
+            1
+          ]
+        ],
+        "step_duration_s": 0.0
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg01/output/execution_srv_HomeMedkit.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 115.14,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 1,
+        "action_types": [
+          "LAUNCH"
+        ]
+      }
+    },
+    {
+      "app": "HomeMedkit",
+      "utg": "utg01",
+      "video_type": "hhv",
+      "log_file": "app_HomeMedkit/utg01/gifdroid_20260320_172304_hhv.log",
+      "inputs": {
+        "video_path": "app_HomeMedkit/utg01/input/handheld/hhv_app_HomeMedkit.mp4",
+        "video_size_mb": 14.67,
+        "artifact_count": 49,
+        "utg_vertices": 49,
+        "utg_edges": 127
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 1359,
+        "decode_time_s": 12.58,
+        "similarities_computed": 1358,
+        "sim_time_s": 128.89,
+        "keyframes_detected": 54,
+        "keyframe_indices": [
+          129,
+          281,
+          379,
+          400,
+          434,
+          454,
+          465,
+          492,
+          497,
+          515,
+          520,
+          526,
+          543,
+          558,
+          591,
+          604,
+          615,
+          640,
+          649,
+          676,
+          688,
+          707,
+          768,
+          775,
+          786,
+          807,
+          838,
+          849,
+          918,
+          928,
+          945,
+          957,
+          967,
+          1015,
+          1023,
+          1033,
+          1043,
+          1052,
+          1061,
+          1082,
+          1118,
+          1134,
+          1144,
+          1150,
+          1158,
+          1181,
+          1201,
+          1207,
+          1240,
+          1248,
+          1265,
+          1271,
+          1297,
+          1358
+        ],
+        "step_duration_s": 141.84,
+        "saved_keyframe_files": 54
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 48,
+        "load_time_s": 2.66,
+        "confidence_scores": [
+          0.283,
+          0.317,
+          0.314,
+          0.307,
+          0.275,
+          0.275,
+          0.275,
+          0.298,
+          0.297,
+          0.294,
+          0.298,
+          0.301,
+          0.293,
+          0.29,
+          0.283,
+          0.284,
+          0.255,
+          0.269,
+          0.264,
+          0.275,
+          0.275,
+          0.285,
+          0.285,
+          0.283,
+          0.28,
+          0.278,
+          0.286,
+          0.304,
+          0.308,
+          0.308,
+          0.304,
+          0.308,
+          0.304,
+          0.299,
+          0.292,
+          0.289,
+          0.293,
+          0.296,
+          0.294,
+          0.287,
+          0.304,
+          0.304,
+          0.302,
+          0.301,
+          0.297,
+          0.286,
+          0.286,
+          0.297,
+          0.293,
+          0.291,
+          0.308,
+          0.309,
+          0.306,
+          0.321
+        ],
+        "score_mean": 0.2928,
+        "score_median": 0.2935,
+        "score_min": 0.255,
+        "score_max": 0.321,
+        "score_stdev": 0.0137,
+        "mapped_sequence": [
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15
+        ],
+        "unique_screens_mapped": 1,
+        "step_duration_s": 263.26
+      },
+      "step3_find_trace": {
+        "candidate_paths": 1,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 3,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            15
+          ]
+        ],
+        "step_duration_s": 0.0
+      },
+      "step4_store": {
+        "output_file": "app_HomeMedKit/utg01/output/execution_hhv_HomeMedKit.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 409.47,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 2,
+        "action_types": [
+          "LAUNCH",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "HomeMedkit",
+      "utg": "utg02",
+      "video_type": "hhv",
+      "log_file": "app_HomeMedkit/utg02/gifdroid_20260319_205937_hhv.log",
+      "inputs": {
+        "video_path": "app_HomeMedkit/utg02/input/handheld/hhv_app_HomeMedkit.mp4",
+        "video_size_mb": 14.67,
+        "artifact_count": 81,
+        "utg_vertices": 80,
+        "utg_edges": 298
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 1359,
+        "decode_time_s": 10.62,
+        "similarities_computed": 1358,
+        "sim_time_s": 121.5,
+        "keyframes_detected": 54,
+        "keyframe_indices": [
+          129,
+          281,
+          379,
+          400,
+          434,
+          454,
+          465,
+          492,
+          497,
+          515,
+          520,
+          526,
+          543,
+          558,
+          591,
+          604,
+          615,
+          640,
+          649,
+          676,
+          688,
+          707,
+          768,
+          775,
+          786,
+          807,
+          838,
+          849,
+          918,
+          928,
+          945,
+          957,
+          967,
+          1015,
+          1023,
+          1033,
+          1043,
+          1052,
+          1061,
+          1082,
+          1118,
+          1134,
+          1144,
+          1150,
+          1158,
+          1181,
+          1201,
+          1207,
+          1240,
+          1248,
+          1265,
+          1271,
+          1297,
+          1358
+        ],
+        "step_duration_s": 132.45,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 80,
+        "load_time_s": 3.7,
+        "confidence_scores": [
+          0.29,
+          0.326,
+          0.322,
+          0.315,
+          0.281,
+          0.282,
+          0.281,
+          0.304,
+          0.303,
+          0.3,
+          0.303,
+          0.307,
+          0.3,
+          0.296,
+          0.29,
+          0.291,
+          0.262,
+          0.275,
+          0.27,
+          0.28,
+          0.28,
+          0.293,
+          0.291,
+          0.29,
+          0.287,
+          0.285,
+          0.293,
+          0.311,
+          0.314,
+          0.314,
+          0.309,
+          0.314,
+          0.314,
+          0.304,
+          0.298,
+          0.295,
+          0.3,
+          0.302,
+          0.301,
+          0.295,
+          0.313,
+          0.311,
+          0.309,
+          0.307,
+          0.303,
+          0.294,
+          0.294,
+          0.306,
+          0.3,
+          0.299,
+          0.315,
+          0.317,
+          0.315,
+          0.33
+        ],
+        "score_mean": 0.2996,
+        "score_median": 0.3,
+        "score_min": 0.262,
+        "score_max": 0.33,
+        "score_stdev": 0.0141,
+        "mapped_sequence": [
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18,
+          18
+        ],
+        "unique_screens_mapped": 1,
+        "step_duration_s": 425.44
+      },
+      "step3_find_trace": {
+        "candidate_paths": 52482,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 5,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            3,
+            16,
+            18
+          ]
+        ],
+        "step_duration_s": 42.6
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/output/execution_hhv_HomeMedkit.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 600.49,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 4,
+        "action_types": [
+          "LAUNCH",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "HomeMedkit",
+      "utg": "utg03",
+      "video_type": "srv",
+      "log_file": "app_HomeMedkit/utg03/gifdroid_20260322_184846_srv.log",
+      "inputs": {
+        "video_path": "app_HomeMedkit/utg03/input/screenrec/srv_app_HomeMedkit.mp4",
+        "video_size_mb": 7.15,
+        "artifact_count": 53,
+        "utg_vertices": 52,
+        "utg_edges": 210
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 777,
+        "decode_time_s": 7.61,
+        "similarities_computed": 776,
+        "sim_time_s": 73.72,
+        "keyframes_detected": 8,
+        "keyframe_indices": [
+          15,
+          47,
+          281,
+          371,
+          400,
+          517,
+          585,
+          776
+        ],
+        "step_duration_s": 81.59,
+        "saved_keyframe_files": 8
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 53,
+        "load_time_s": 5.39,
+        "confidence_scores": [
+          0.339,
+          0.373,
+          0.435,
+          0.438,
+          0.442,
+          0.439,
+          0.466,
+          0.485
+        ],
+        "score_mean": 0.4271,
+        "score_median": 0.4385,
+        "score_min": 0.339,
+        "score_max": 0.485,
+        "score_stdev": 0.048,
+        "mapped_sequence": [
+          46,
+          25,
+          53,
+          18,
+          19,
+          19,
+          9,
+          3
+        ],
+        "unique_screens_mapped": 7,
+        "step_duration_s": 197.31
+      },
+      "step3_find_trace": {
+        "candidate_paths": 9995,
+        "traces_found": 2,
+        "lcs": 3,
+        "trace_length": 8,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            31,
+            19,
+            37,
+            9,
+            2,
+            3
+          ],
+          [
+            0,
+            1,
+            31,
+            19,
+            37,
+            9,
+            7,
+            3
+          ]
+        ],
+        "step_duration_s": 0.57
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/output/execution_srv_HomeMedkit.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 279.7,
+      "execution_json": {
+        "replay_trace_count": 2,
+        "trace0_action_count": 7,
+        "action_types": [
+          "LAUNCH",
+          "SWIPE",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "Jigsaw",
+      "utg": "utg01",
+      "video_type": "srv",
+      "log_file": "app_Jigsaw/utg01/gifdroid_20260320_012850_srv.log",
+      "inputs": {
+        "video_path": "app_Jigsaw/utg01/input/screenrec/srv_app_Jigsaw.mp4",
+        "video_size_mb": 2.34,
+        "artifact_count": 2,
+        "utg_vertices": 2,
+        "utg_edges": 3
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 1025,
+        "decode_time_s": 9.53,
+        "similarities_computed": 1024,
+        "sim_time_s": 98.13,
+        "keyframes_detected": 6,
+        "keyframe_indices": [
+          15,
+          31,
+          67,
+          97,
+          470,
+          1024
+        ],
+        "step_duration_s": 107.99,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 1,
+        "load_time_s": 0.24,
+        "confidence_scores": [
+          0.12,
+          0.391,
+          0.174,
+          0.144,
+          0.428,
+          0.41
+        ],
+        "score_mean": 0.2778,
+        "score_median": 0.2825,
+        "score_min": 0.12,
+        "score_max": 0.428,
+        "score_stdev": 0.1459,
+        "mapped_sequence": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "unique_screens_mapped": 1,
+        "step_duration_s": 1.23
+      },
+      "step3_find_trace": {
+        "candidate_paths": 1,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 2,
+        "trace_sequences": [
+          [
+            0,
+            1
+          ]
+        ],
+        "step_duration_s": 0.0
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg01/output/execution_srv_Jigsaw.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 109.23,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 1,
+        "action_types": [
+          "LAUNCH"
+        ]
+      }
+    },
+    {
+      "app": "Jigsaw",
+      "utg": "utg01",
+      "video_type": "hhv",
+      "log_file": "app_Jigsaw/utg01/gifdroid_20260320_004911_hhv.log",
+      "inputs": {
+        "video_path": "app_Jigsaw/utg01/input/handheld/hhv_app_Jigsaw.mp4",
+        "video_size_mb": 5.59,
+        "artifact_count": 2,
+        "utg_vertices": 2,
+        "utg_edges": 3
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 563,
+        "decode_time_s": 4.17,
+        "similarities_computed": 562,
+        "sim_time_s": 50.12,
+        "keyframes_detected": 16,
+        "keyframe_indices": [
+          114,
+          229,
+          236,
+          267,
+          329,
+          350,
+          384,
+          403,
+          410,
+          448,
+          470,
+          492,
+          536,
+          545,
+          552,
+          562
+        ],
+        "step_duration_s": 54.4,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 1,
+        "load_time_s": 0.17,
+        "confidence_scores": [
+          0.264,
+          0.26,
+          0.258,
+          0.261,
+          0.26,
+          0.257,
+          0.262,
+          0.259,
+          0.259,
+          0.258,
+          0.272,
+          0.27,
+          0.275,
+          0.276,
+          0.277,
+          0.277
+        ],
+        "score_mean": 0.2653,
+        "score_median": 0.2615,
+        "score_min": 0.257,
+        "score_max": 0.277,
+        "score_stdev": 0.0077,
+        "mapped_sequence": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "unique_screens_mapped": 1,
+        "step_duration_s": 2.37
+      },
+      "step3_find_trace": {
+        "candidate_paths": 1,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 2,
+        "trace_sequences": [
+          [
+            0,
+            1
+          ]
+        ],
+        "step_duration_s": 0.0
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg01/output/execution_hhv_Jigsaw.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 56.77,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 1,
+        "action_types": [
+          "LAUNCH"
+        ]
+      }
+    },
+    {
+      "app": "Jigsaw",
+      "utg": "utg02",
+      "video_type": "srv",
+      "log_file": "app_Jigsaw/utg02/gifdroid_20260320_013040_srv.log",
+      "inputs": {
+        "video_path": "app_Jigsaw/utg02/input/screenrec/srv_app_Jigsaw.mp4",
+        "video_size_mb": 2.34,
+        "artifact_count": 3,
+        "utg_vertices": 2,
+        "utg_edges": 2
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 1025,
+        "decode_time_s": 9.28,
+        "similarities_computed": 1024,
+        "sim_time_s": 102.21,
+        "keyframes_detected": 6,
+        "keyframe_indices": [
+          15,
+          31,
+          67,
+          97,
+          470,
+          1024
+        ],
+        "step_duration_s": 111.74,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 2,
+        "load_time_s": 0.27,
+        "confidence_scores": [
+          0.253,
+          0.14,
+          0.426,
+          0.477,
+          0.149,
+          0.164
+        ],
+        "score_mean": 0.2682,
+        "score_median": 0.2085,
+        "score_min": 0.14,
+        "score_max": 0.477,
+        "score_stdev": 0.1485,
+        "mapped_sequence": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "unique_screens_mapped": 1,
+        "step_duration_s": 1.84
+      },
+      "step3_find_trace": {
+        "candidate_paths": 0,
+        "trace_sequences": [],
+        "step_duration_s": 0.0
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/output/execution_srv_Jigsaw.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 113.59,
+      "execution_json": {
+        "replay_trace_count": 0,
+        "trace0_action_count": 0,
+        "action_types": []
+      }
+    },
+    {
+      "app": "Jigsaw",
+      "utg": "utg02",
+      "video_type": "hhv",
+      "log_file": "app_Jigsaw/utg02/gifdroid_20260320_021745_hhv.log",
+      "inputs": {
+        "video_path": "app_Jigsaw/utg02/input/handheld/hhv_app_Jigsaw.mp4",
+        "video_size_mb": 5.59,
+        "artifact_count": 3,
+        "utg_vertices": 2,
+        "utg_edges": 2
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 563,
+        "decode_time_s": 6.58,
+        "similarities_computed": 562,
+        "sim_time_s": 66.02,
+        "keyframes_detected": 16,
+        "keyframe_indices": [
+          114,
+          229,
+          236,
+          267,
+          329,
+          350,
+          384,
+          403,
+          410,
+          448,
+          470,
+          492,
+          536,
+          545,
+          552,
+          562
+        ],
+        "step_duration_s": 72.88,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 2,
+        "load_time_s": 0.66,
+        "confidence_scores": [
+          0.209,
+          0.22,
+          0.22,
+          0.221,
+          0.22,
+          0.217,
+          0.221,
+          0.22,
+          0.22,
+          0.22,
+          0.22,
+          0.219,
+          0.219,
+          0.222,
+          0.225,
+          0.225
+        ],
+        "score_mean": 0.2199,
+        "score_median": 0.22,
+        "score_min": 0.209,
+        "score_max": 0.225,
+        "score_stdev": 0.0035,
+        "mapped_sequence": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "unique_screens_mapped": 1,
+        "step_duration_s": 5.53
+      },
+      "step3_find_trace": {
+        "candidate_paths": 0,
+        "trace_sequences": [],
+        "step_duration_s": 0.0
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg02/output/execution_hhv_Jigsaw.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 78.41,
+      "execution_json": {
+        "replay_trace_count": 0,
+        "trace0_action_count": 0,
+        "action_types": []
+      }
+    },
+    {
+      "app": "LuxAlarm",
+      "utg": "utg01",
+      "video_type": "srv",
+      "log_file": "app_LuxAlarm/utg01/gifdroid_20260320_012923_srv.log",
+      "inputs": {
+        "video_path": "app_LuxAlarm/utg01/input/screenrec/srv_app_LuxAlarm.mp4",
+        "video_size_mb": 6.38,
+        "artifact_count": 96,
+        "utg_vertices": 96,
+        "utg_edges": 298
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 714,
+        "decode_time_s": 6.97,
+        "similarities_computed": 713,
+        "sim_time_s": 69.24,
+        "keyframes_detected": 8,
+        "keyframe_indices": [
+          3,
+          40,
+          81,
+          433,
+          477,
+          555,
+          682,
+          713
+        ],
+        "step_duration_s": 76.48,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 95,
+        "load_time_s": 5.48,
+        "confidence_scores": [
+          0.147,
+          0.169,
+          0.147,
+          0.618,
+          0.456,
+          0.453,
+          0.461,
+          0.613
+        ],
+        "score_mean": 0.383,
+        "score_median": 0.4545,
+        "score_min": 0.147,
+        "score_max": 0.618,
+        "score_stdev": 0.2006,
+        "mapped_sequence": [
+          92,
+          1,
+          86,
+          9,
+          1,
+          1,
+          1,
+          9
+        ],
+        "unique_screens_mapped": 4,
+        "step_duration_s": 88.83
+      },
+      "step3_find_trace": {
+        "candidate_paths": 602,
+        "traces_found": 1,
+        "lcs": 3,
+        "trace_length": 13,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            85,
+            86,
+            87,
+            37,
+            29,
+            30,
+            31,
+            53,
+            54,
+            10,
+            9
+          ]
+        ],
+        "step_duration_s": 0.1
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg01/output/execution_srv_LuxAlarm.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 165.41,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 12,
+        "action_types": [
+          "LAUNCH",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "LuxAlarm",
+      "utg": "utg01",
+      "video_type": "hhv",
+      "log_file": "app_LuxAlarm/utg01/gifdroid_20260320_005825_hhv.log",
+      "inputs": {
+        "video_path": "app_LuxAlarm/utg01/input/handheld/hhv_app_LuxAlarm.mp4",
+        "video_size_mb": 7.5,
+        "artifact_count": 96,
+        "utg_vertices": 96,
+        "utg_edges": 298
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 818,
+        "decode_time_s": 7.46,
+        "similarities_computed": 817,
+        "sim_time_s": 75.27,
+        "keyframes_detected": 11,
+        "keyframe_indices": [
+          107,
+          179,
+          229,
+          254,
+          262,
+          438,
+          626,
+          721,
+          733,
+          801,
+          809
+        ],
+        "step_duration_s": 83.11,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 95,
+        "load_time_s": 4.91,
+        "confidence_scores": [
+          0.262,
+          0.277,
+          0.27,
+          0.276,
+          0.265,
+          0.268,
+          0.286,
+          0.281,
+          0.28,
+          0.266,
+          0.267
+        ],
+        "score_mean": 0.2725,
+        "score_median": 0.27,
+        "score_min": 0.262,
+        "score_max": 0.286,
+        "score_stdev": 0.0078,
+        "mapped_sequence": [
+          89,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "unique_screens_mapped": 2,
+        "step_duration_s": 112.09
+      },
+      "step3_find_trace": {
+        "candidate_paths": 1,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 2,
+        "trace_sequences": [
+          [
+            0,
+            1
+          ]
+        ],
+        "step_duration_s": 0.0
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg01/output/execution_hhv_LuxAlarm.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 195.2,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 1,
+        "action_types": [
+          "LAUNCH"
+        ]
+      }
+    },
+    {
+      "app": "PortAuthority",
+      "utg": "utg01",
+      "video_type": "srv",
+      "log_file": "app_PortAuthority/utg01/gifdroid_20260320_015444_srv.log",
+      "inputs": {
+        "video_path": "app_PortAuthority/utg01/input/screenrec/srv_app_PortAuthority.mp4",
+        "video_size_mb": 9.75,
+        "artifact_count": 42,
+        "utg_vertices": 41,
+        "utg_edges": 206
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 3050,
+        "decode_time_s": 35.78,
+        "similarities_computed": 3049,
+        "sim_time_s": 436.57,
+        "keyframes_detected": 7,
+        "keyframe_indices": [
+          11,
+          40,
+          161,
+          286,
+          2962,
+          3000,
+          3049
+        ],
+        "step_duration_s": 472.97,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 41,
+        "load_time_s": 2.95,
+        "confidence_scores": [
+          0.214,
+          0.33,
+          0.586,
+          0.418,
+          0.396,
+          0.394,
+          0.42
+        ],
+        "score_mean": 0.394,
+        "score_median": 0.396,
+        "score_min": 0.214,
+        "score_max": 0.586,
+        "score_stdev": 0.1115,
+        "mapped_sequence": [
+          8,
+          8,
+          29,
+          29,
+          6,
+          6,
+          6
+        ],
+        "unique_screens_mapped": 3,
+        "step_duration_s": 44.5
+      },
+      "step3_find_trace": {
+        "candidate_paths": 553,
+        "traces_found": 1,
+        "lcs": 2,
+        "trace_length": 11,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            2,
+            3,
+            18,
+            23,
+            29,
+            30,
+            31,
+            33,
+            6
+          ]
+        ],
+        "step_duration_s": 0.04
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg01/output/execution_srv_PortAuthority.json",
+        "step_duration_s": 0.01
+      },
+      "total_time_s": 517.52,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 10,
+        "action_types": [
+          "LAUNCH",
+          "LONG_PRESS",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "PortAuthority",
+      "utg": "utg01",
+      "video_type": "hhv",
+      "log_file": "app_PortAuthority/utg01/gifdroid_20260320_010141_hhv.log",
+      "inputs": {
+        "video_path": "app_PortAuthority/utg01/input/handheld/hhv_app_PortAuthority.mp4",
+        "video_size_mb": 11.47,
+        "artifact_count": 42,
+        "utg_vertices": 41,
+        "utg_edges": 206
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 882,
+        "decode_time_s": 8.4,
+        "similarities_computed": 881,
+        "sim_time_s": 80.34,
+        "keyframes_detected": 22,
+        "keyframe_indices": [
+          50,
+          118,
+          155,
+          181,
+          296,
+          429,
+          465,
+          490,
+          509,
+          577,
+          590,
+          614,
+          639,
+          657,
+          689,
+          720,
+          788,
+          815,
+          820,
+          827,
+          869,
+          874
+        ],
+        "step_duration_s": 89.07,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 41,
+        "load_time_s": 2.19,
+        "confidence_scores": [
+          0.242,
+          0.217,
+          0.223,
+          0.224,
+          0.213,
+          0.207,
+          0.202,
+          0.202,
+          0.196,
+          0.184,
+          0.188,
+          0.194,
+          0.219,
+          0.216,
+          0.229,
+          0.223,
+          0.229,
+          0.19,
+          0.191,
+          0.196,
+          0.237,
+          0.238
+        ],
+        "score_mean": 0.2118,
+        "score_median": 0.2145,
+        "score_min": 0.184,
+        "score_max": 0.242,
+        "score_stdev": 0.0177,
+        "mapped_sequence": [
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          14,
+          37,
+          14,
+          14,
+          14,
+          14,
+          14,
+          37,
+          37,
+          37,
+          37,
+          37
+        ],
+        "unique_screens_mapped": 2,
+        "step_duration_s": 94.28
+      },
+      "step3_find_trace": {
+        "candidate_paths": 1076,
+        "traces_found": 4,
+        "lcs": 1,
+        "trace_length": 9,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            22,
+            31,
+            32,
+            37
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            10,
+            11,
+            31,
+            32,
+            37
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            15,
+            11,
+            31,
+            32,
+            37
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            18,
+            6,
+            31,
+            32,
+            37
+          ]
+        ],
+        "step_duration_s": 0.13
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg01/output/execution_hhv_PortAuthority.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 183.47,
+      "execution_json": {
+        "replay_trace_count": 4,
+        "trace0_action_count": 8,
+        "action_types": [
+          "LAUNCH",
+          "LONG_PRESS",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "PortAuthority",
+      "utg": "utg02",
+      "video_type": "srv",
+      "log_file": "app_PortAuthority/utg02/gifdroid_20260320_014715_srv.log",
+      "inputs": {
+        "video_path": "app_PortAuthority/utg02/input/screenrec/srv_app_PortAuthority.mp4",
+        "video_size_mb": 9.75,
+        "artifact_count": 89,
+        "utg_vertices": 88,
+        "utg_edges": 254
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 3050,
+        "decode_time_s": 30.38,
+        "similarities_computed": 3049,
+        "sim_time_s": 313.69,
+        "keyframes_detected": 7,
+        "keyframe_indices": [
+          11,
+          40,
+          161,
+          286,
+          2962,
+          3000,
+          3049
+        ],
+        "step_duration_s": 345.28,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 88,
+        "load_time_s": 6.99,
+        "confidence_scores": [
+          0.223,
+          0.358,
+          0.562,
+          0.422,
+          0.396,
+          0.394,
+          0.423
+        ],
+        "score_mean": 0.3969,
+        "score_median": 0.396,
+        "score_min": 0.223,
+        "score_max": 0.562,
+        "score_stdev": 0.1003,
+        "mapped_sequence": [
+          12,
+          12,
+          25,
+          25,
+          17,
+          17,
+          64
+        ],
+        "unique_screens_mapped": 4,
+        "step_duration_s": 83.37
+      },
+      "step3_find_trace": {
+        "candidate_paths": 27134,
+        "traces_found": 4,
+        "lcs": 2,
+        "trace_length": 10,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            2,
+            3,
+            8,
+            11,
+            12,
+            60,
+            61,
+            64
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            8,
+            11,
+            12,
+            66,
+            61,
+            64
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            8,
+            24,
+            12,
+            60,
+            61,
+            64
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            8,
+            24,
+            12,
+            66,
+            61,
+            64
+          ]
+        ],
+        "step_duration_s": 2.73
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/output/execution_srv_PortAuthority.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 431.38,
+      "execution_json": {
+        "replay_trace_count": 4,
+        "trace0_action_count": 9,
+        "action_types": [
+          "LAUNCH",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "PortAuthority",
+      "utg": "utg02",
+      "video_type": "hhv",
+      "log_file": "app_PortAuthority/utg02/gifdroid_20260320_021938_hhv.log",
+      "inputs": {
+        "video_path": "app_PortAuthority/utg02/input/handheld/hhv_app_PortAuthority.mp4",
+        "video_size_mb": 11.47,
+        "artifact_count": 89,
+        "utg_vertices": 88,
+        "utg_edges": 254
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 882,
+        "decode_time_s": 10.45,
+        "similarities_computed": 881,
+        "sim_time_s": 112.83,
+        "keyframes_detected": 22,
+        "keyframe_indices": [
+          50,
+          118,
+          155,
+          181,
+          296,
+          429,
+          465,
+          490,
+          509,
+          577,
+          590,
+          614,
+          639,
+          657,
+          689,
+          720,
+          788,
+          815,
+          820,
+          827,
+          869,
+          874
+        ],
+        "step_duration_s": 124.04,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 88,
+        "load_time_s": 7.8,
+        "confidence_scores": [
+          0.3,
+          0.24,
+          0.241,
+          0.24,
+          0.245,
+          0.241,
+          0.231,
+          0.237,
+          0.227,
+          0.201,
+          0.199,
+          0.219,
+          0.244,
+          0.241,
+          0.255,
+          0.25,
+          0.256,
+          0.219,
+          0.22,
+          0.226,
+          0.291,
+          0.291
+        ],
+        "score_mean": 0.2415,
+        "score_median": 0.2405,
+        "score_min": 0.199,
+        "score_max": 0.3,
+        "score_stdev": 0.0261,
+        "mapped_sequence": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13
+        ],
+        "unique_screens_mapped": 1,
+        "step_duration_s": 291.11
+      },
+      "step3_find_trace": {
+        "candidate_paths": 2,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 5,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            2,
+            3,
+            13
+          ]
+        ],
+        "step_duration_s": 0.46
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg02/output/execution_hhv_PortAuthority.json",
+        "step_duration_s": 0.01
+      },
+      "total_time_s": 415.63,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 4,
+        "action_types": [
+          "LAUNCH",
+          "LONG_PRESS",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "PortAuthority",
+      "utg": "utg03",
+      "video_type": "srv",
+      "log_file": "app_PortAuthority/utg03/gifdroid_20260322_225156_srv.log",
+      "inputs": {
+        "video_path": "app_PortAuthority/utg03/input/screenrec/srv_app_PortAuthority.mp4",
+        "video_size_mb": 9.75,
+        "artifact_count": 63,
+        "utg_vertices": 62,
+        "utg_edges": 154
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 3050,
+        "decode_time_s": 25.9,
+        "similarities_computed": 3049,
+        "sim_time_s": 271.63,
+        "keyframes_detected": 7,
+        "keyframe_indices": [
+          11,
+          40,
+          161,
+          286,
+          2962,
+          3000,
+          3049
+        ],
+        "step_duration_s": 298.2,
+        "saved_keyframe_files": 7
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 63,
+        "load_time_s": 5.67,
+        "confidence_scores": [
+          0.223,
+          0.358,
+          0.562,
+          0.422,
+          0.449,
+          0.453,
+          0.475
+        ],
+        "score_mean": 0.4203,
+        "score_median": 0.449,
+        "score_min": 0.223,
+        "score_max": 0.562,
+        "score_stdev": 0.1063,
+        "mapped_sequence": [
+          12,
+          1,
+          25,
+          25,
+          35,
+          35,
+          35
+        ],
+        "unique_screens_mapped": 4,
+        "step_duration_s": 184.25
+      },
+      "step3_find_trace": {
+        "candidate_paths": 74,
+        "traces_found": 2,
+        "lcs": 3,
+        "trace_length": 11,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            2,
+            3,
+            15,
+            16,
+            24,
+            25,
+            5,
+            34,
+            35
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            15,
+            21,
+            24,
+            25,
+            5,
+            34,
+            35
+          ]
+        ],
+        "step_duration_s": 0.01
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg03/output/execution_srv_PortAuthority.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 482.65,
+      "execution_json": {
+        "replay_trace_count": 2,
+        "trace0_action_count": 10,
+        "action_types": [
+          "LAUNCH",
+          "LONG_PRESS",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "SimpleNotes",
+      "utg": "utg01",
+      "video_type": "hhv",
+      "log_file": "app_SimpleNotes/utg01/gifdroid_20260320_010446_hhv.log",
+      "inputs": {
+        "video_path": "app_SimpleNotes/utg01/input/handheld/hhv_app_SimpleNotes.mp4",
+        "video_size_mb": 12.39,
+        "artifact_count": 48,
+        "utg_vertices": 48,
+        "utg_edges": 190
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 1256,
+        "decode_time_s": 12.79,
+        "similarities_computed": 1255,
+        "sim_time_s": 114.57,
+        "keyframes_detected": 35,
+        "keyframe_indices": [
+          178,
+          220,
+          256,
+          280,
+          300,
+          346,
+          360,
+          406,
+          436,
+          463,
+          473,
+          498,
+          503,
+          512,
+          523,
+          557,
+          627,
+          729,
+          775,
+          915,
+          938,
+          954,
+          968,
+          976,
+          983,
+          997,
+          1015,
+          1035,
+          1069,
+          1082,
+          1108,
+          1143,
+          1236,
+          1242,
+          1255
+        ],
+        "step_duration_s": 127.78,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 47,
+        "load_time_s": 2.63,
+        "confidence_scores": [
+          0.284,
+          0.282,
+          0.28,
+          0.281,
+          0.279,
+          0.263,
+          0.264,
+          0.284,
+          0.294,
+          0.288,
+          0.288,
+          0.277,
+          0.272,
+          0.269,
+          0.269,
+          0.271,
+          0.265,
+          0.288,
+          0.262,
+          0.241,
+          0.267,
+          0.26,
+          0.262,
+          0.26,
+          0.258,
+          0.257,
+          0.258,
+          0.258,
+          0.251,
+          0.254,
+          0.258,
+          0.257,
+          0.256,
+          0.257,
+          0.257
+        ],
+        "score_mean": 0.2677,
+        "score_median": 0.264,
+        "score_min": 0.241,
+        "score_max": 0.294,
+        "score_stdev": 0.0129,
+        "mapped_sequence": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "unique_screens_mapped": 1,
+        "step_duration_s": 171.54
+      },
+      "step3_find_trace": {
+        "candidate_paths": 2,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 2,
+        "trace_sequences": [
+          [
+            0,
+            1
+          ]
+        ],
+        "step_duration_s": 0.0
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg01/output/execution_hhv_SimpleNotes.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 299.32,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 1,
+        "action_types": [
+          "LAUNCH"
+        ]
+      }
+    },
+    {
+      "app": "SimpleNotes",
+      "utg": "utg02",
+      "video_type": "srv",
+      "log_file": "app_SimpleNotes/utg02/gifdroid_20260320_013308_srv.log",
+      "inputs": {
+        "video_path": "app_SimpleNotes/utg02/input/screenrec/srv_app_SimpleNotes.mp4",
+        "video_size_mb": 4.07,
+        "artifact_count": 35,
+        "utg_vertices": 34,
+        "utg_edges": 297
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 473,
+        "decode_time_s": 4.74,
+        "similarities_computed": 472,
+        "sim_time_s": 46.03,
+        "keyframes_detected": 7,
+        "keyframe_indices": [
+          10,
+          46,
+          76,
+          337,
+          343,
+          450,
+          472
+        ],
+        "step_duration_s": 50.94,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 34,
+        "load_time_s": 1.71,
+        "confidence_scores": [
+          0.223,
+          0.509,
+          0.422,
+          0.58,
+          0.493,
+          0.378,
+          0.569
+        ],
+        "score_mean": 0.4534,
+        "score_median": 0.493,
+        "score_min": 0.223,
+        "score_max": 0.58,
+        "score_stdev": 0.125,
+        "mapped_sequence": [
+          1,
+          2,
+          2,
+          26,
+          26,
+          2,
+          2
+        ],
+        "unique_screens_mapped": 3,
+        "step_duration_s": 26.41
+      },
+      "step3_find_trace": {
+        "candidate_paths": 130,
+        "traces_found": 1,
+        "lcs": 2,
+        "trace_length": 3,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "step_duration_s": 0.01
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg02/output/execution_srv_SimpleNotes.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 77.36,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 2,
+        "action_types": [
+          "LAUNCH",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "SimpleNotes",
+      "utg": "utg03",
+      "video_type": "srv",
+      "log_file": "app_SimpleNotes/utg03/gifdroid_20260322_225959_srv.log",
+      "inputs": {
+        "video_path": "app_SimpleNotes/utg03/input/screenrec/srv_app_SimpleNotes.mp4",
+        "video_size_mb": 4.07,
+        "artifact_count": 38,
+        "utg_vertices": 37,
+        "utg_edges": 168
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 473,
+        "decode_time_s": 3.51,
+        "similarities_computed": 472,
+        "sim_time_s": 40.94,
+        "keyframes_detected": 7,
+        "keyframe_indices": [
+          10,
+          46,
+          76,
+          337,
+          343,
+          450,
+          472
+        ],
+        "step_duration_s": 44.59,
+        "saved_keyframe_files": 7
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 38,
+        "load_time_s": 2.82,
+        "confidence_scores": [
+          0.223,
+          0.509,
+          0.422,
+          0.587,
+          0.499,
+          0.377,
+          0.569
+        ],
+        "score_mean": 0.4551,
+        "score_median": 0.499,
+        "score_min": 0.223,
+        "score_max": 0.587,
+        "score_stdev": 0.1267,
+        "mapped_sequence": [
+          12,
+          2,
+          2,
+          35,
+          35,
+          2,
+          2
+        ],
+        "unique_screens_mapped": 3,
+        "step_duration_s": 59.53
+      },
+      "step3_find_trace": {
+        "candidate_paths": 6,
+        "traces_found": 1,
+        "lcs": 1,
+        "trace_length": 3,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "step_duration_s": 0.0
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/output/execution_srv_SimpleNotes.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 104.28,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 2,
+        "action_types": [
+          "LAUNCH",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "WifiAnalyzer",
+      "utg": "utg01",
+      "video_type": "srv",
+      "log_file": "app_WifiAnalyzer/utg01/gifdroid_20260320_013427_srv.log",
+      "inputs": {
+        "video_path": "app_WifiAnalyzer/utg01/input/screenrec/srv_app_WifiAnalyzer.mp4",
+        "video_size_mb": 8.93,
+        "artifact_count": 48,
+        "utg_vertices": 48,
+        "utg_edges": 135
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 877,
+        "decode_time_s": 7.95,
+        "similarities_computed": 876,
+        "sim_time_s": 83.71,
+        "keyframes_detected": 16,
+        "keyframe_indices": [
+          12,
+          36,
+          114,
+          130,
+          211,
+          226,
+          244,
+          370,
+          514,
+          528,
+          623,
+          688,
+          715,
+          726,
+          749,
+          876
+        ],
+        "step_duration_s": 91.88,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 47,
+        "load_time_s": 2.72,
+        "confidence_scores": [
+          0.326,
+          0.321,
+          0.33,
+          0.342,
+          0.289,
+          0.366,
+          0.48,
+          0.49,
+          0.524,
+          0.525,
+          0.381,
+          0.63,
+          0.347,
+          0.371,
+          0.272,
+          0.454
+        ],
+        "score_mean": 0.403,
+        "score_median": 0.3685,
+        "score_min": 0.272,
+        "score_max": 0.63,
+        "score_stdev": 0.1017,
+        "mapped_sequence": [
+          38,
+          31,
+          5,
+          1,
+          31,
+          7,
+          19,
+          22,
+          14,
+          22,
+          10,
+          10,
+          11,
+          38,
+          31,
+          6
+        ],
+        "unique_screens_mapped": 11,
+        "step_duration_s": 89.51
+      },
+      "step3_find_trace": {
+        "candidate_paths": 1,
+        "traces_found": 1,
+        "lcs": 2,
+        "trace_length": 4,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            2,
+            6
+          ]
+        ],
+        "step_duration_s": 0.01
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/output/execution_srv_WifiAnalyzer.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 181.39,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 3,
+        "action_types": [
+          "LAUNCH",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "WifiAnalyzer",
+      "utg": "utg01",
+      "video_type": "hhv",
+      "log_file": "app_WifiAnalyzer/utg01/gifdroid_20260320_010947_hhv.log",
+      "inputs": {
+        "video_path": "app_WifiAnalyzer/utg01/input/handheld/hhv_app_WifiAnalyzer.mp4",
+        "video_size_mb": 8.68,
+        "artifact_count": 48,
+        "utg_vertices": 48,
+        "utg_edges": 135
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 1191,
+        "decode_time_s": 11.7,
+        "similarities_computed": 1190,
+        "sim_time_s": 108.37,
+        "keyframes_detected": 15,
+        "keyframe_indices": [
+          96,
+          131,
+          198,
+          260,
+          379,
+          466,
+          574,
+          599,
+          720,
+          738,
+          900,
+          943,
+          1100,
+          1124,
+          1190
+        ],
+        "step_duration_s": 120.59,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 47,
+        "load_time_s": 2.9,
+        "confidence_scores": [
+          0.222,
+          0.31,
+          0.226,
+          0.224,
+          0.234,
+          0.264,
+          0.241,
+          0.239,
+          0.238,
+          0.24,
+          0.258,
+          0.255,
+          0.268,
+          0.268,
+          0.265
+        ],
+        "score_mean": 0.2501,
+        "score_median": 0.241,
+        "score_min": 0.222,
+        "score_max": 0.31,
+        "score_stdev": 0.0231,
+        "mapped_sequence": [
+          19,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31,
+          31
+        ],
+        "unique_screens_mapped": 2,
+        "step_duration_s": 74.56
+      },
+      "step3_find_trace": {
+        "candidate_paths": 268,
+        "traces_found": 1,
+        "lcs": 2,
+        "trace_length": 14,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            2,
+            6,
+            7,
+            18,
+            19,
+            5,
+            3,
+            4,
+            27,
+            28,
+            29,
+            31
+          ]
+        ],
+        "step_duration_s": 0.04
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/output/execution_hhv_WifiAnalyzer.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 195.19,
+      "execution_json": {
+        "replay_trace_count": 1,
+        "trace0_action_count": 13,
+        "action_types": [
+          "LAUNCH",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "WifiAnalyzer",
+      "utg": "utg02",
+      "video_type": "srv",
+      "log_file": "app_WifiAnalyzer/utg02/gifdroid_20260320_013729_srv.log",
+      "inputs": {
+        "video_path": "app_WifiAnalyzer/utg02/input/screenrec/srv_app_WifiAnalyzer.mp4",
+        "video_size_mb": 8.93,
+        "artifact_count": 51,
+        "utg_vertices": 50,
+        "utg_edges": 232
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 877,
+        "decode_time_s": 9.01,
+        "similarities_computed": 876,
+        "sim_time_s": 87.36,
+        "keyframes_detected": 16,
+        "keyframe_indices": [
+          12,
+          36,
+          114,
+          130,
+          211,
+          226,
+          244,
+          370,
+          514,
+          528,
+          623,
+          688,
+          715,
+          726,
+          749,
+          876
+        ],
+        "step_duration_s": 96.65,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 50,
+        "load_time_s": 2.97,
+        "confidence_scores": [
+          0.244,
+          0.391,
+          0.335,
+          0.343,
+          0.291,
+          0.366,
+          0.471,
+          0.49,
+          0.524,
+          0.525,
+          0.381,
+          0.63,
+          0.35,
+          0.324,
+          0.32,
+          0.454
+        ],
+        "score_mean": 0.4024,
+        "score_median": 0.3735,
+        "score_min": 0.244,
+        "score_max": 0.63,
+        "score_stdev": 0.1032,
+        "mapped_sequence": [
+          23,
+          36,
+          4,
+          3,
+          36,
+          20,
+          19,
+          8,
+          8,
+          8,
+          18,
+          18,
+          12,
+          12,
+          38,
+          20
+        ],
+        "unique_screens_mapped": 10,
+        "step_duration_s": 98.34
+      },
+      "step3_find_trace": {
+        "candidate_paths": 775707,
+        "traces_found": 2,
+        "lcs": 6,
+        "trace_length": 15,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            2,
+            3,
+            9,
+            23,
+            8,
+            5,
+            4,
+            11,
+            14,
+            36,
+            19,
+            38,
+            20
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            9,
+            23,
+            16,
+            5,
+            4,
+            11,
+            14,
+            36,
+            19,
+            38,
+            20
+          ]
+        ],
+        "step_duration_s": 120.92
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg02/output/execution_srv_WifiAnalyzer.json",
+        "step_duration_s": 0.01
+      },
+      "total_time_s": 315.92,
+      "execution_json": {
+        "replay_trace_count": 2,
+        "trace0_action_count": 14,
+        "action_types": [
+          "LAUNCH",
+          "LONG_PRESS",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "WifiAnalyzer",
+      "utg": "utg02",
+      "video_type": "hhv",
+      "log_file": "app_WifiAnalyzer/utg02/gifdroid_20260320_022659_hhv.log",
+      "inputs": {
+        "video_path": "app_WifiAnalyzer/utg02/input/handheld/hhv_app_WifiAnalyzer.mp4",
+        "video_size_mb": 8.68,
+        "artifact_count": 51,
+        "utg_vertices": 50,
+        "utg_edges": 232
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 1191,
+        "decode_time_s": 13.8,
+        "similarities_computed": 1190,
+        "sim_time_s": 160.79,
+        "keyframes_detected": 15,
+        "keyframe_indices": [
+          96,
+          131,
+          198,
+          260,
+          379,
+          466,
+          574,
+          599,
+          720,
+          738,
+          900,
+          943,
+          1100,
+          1124,
+          1190
+        ],
+        "step_duration_s": 175.2,
+        "saved_keyframe_files": 0
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 50,
+        "load_time_s": 5.11,
+        "confidence_scores": [
+          0.281,
+          0.345,
+          0.301,
+          0.3,
+          0.295,
+          0.333,
+          0.309,
+          0.308,
+          0.302,
+          0.305,
+          0.318,
+          0.315,
+          0.331,
+          0.334,
+          0.336
+        ],
+        "score_mean": 0.3142,
+        "score_median": 0.309,
+        "score_min": 0.281,
+        "score_max": 0.345,
+        "score_stdev": 0.0182,
+        "mapped_sequence": [
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36
+        ],
+        "unique_screens_mapped": 1,
+        "step_duration_s": 95.73
+      },
+      "step3_find_trace": {
+        "candidate_paths": 925440,
+        "traces_found": 2,
+        "lcs": 1,
+        "trace_length": 8,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            11,
+            14,
+            36
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            9,
+            11,
+            14,
+            36
+          ]
+        ],
+        "step_duration_s": 162.44
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg02/output/execution_hhv_WifiAnalyzer.json",
+        "step_duration_s": 0.1
+      },
+      "total_time_s": 433.48,
+      "execution_json": {
+        "replay_trace_count": 2,
+        "trace0_action_count": 7,
+        "action_types": [
+          "LAUNCH",
+          "LONG_PRESS",
+          "TAP"
+        ]
+      }
+    },
+    {
+      "app": "WifiAnalyzer",
+      "utg": "utg03",
+      "video_type": "srv",
+      "log_file": "app_WifiAnalyzer/utg03/gifdroid_20260322_230144_srv.log",
+      "inputs": {
+        "video_path": "app_WifiAnalyzer/utg03/input/screenrec/srv_app_WifiAnalyzer.mp4",
+        "video_size_mb": 8.93,
+        "artifact_count": 33,
+        "utg_vertices": 32,
+        "utg_edges": 119
+      },
+      "step1_keyframe_location": {
+        "frames_decoded": 877,
+        "decode_time_s": 6.93,
+        "similarities_computed": 876,
+        "sim_time_s": 76.06,
+        "keyframes_detected": 16,
+        "keyframe_indices": [
+          12,
+          36,
+          114,
+          130,
+          211,
+          226,
+          244,
+          370,
+          514,
+          528,
+          623,
+          688,
+          715,
+          726,
+          749,
+          876
+        ],
+        "step_duration_s": 83.2,
+        "saved_keyframe_files": 16
+      },
+      "step2_gui_mapping": {
+        "screenshots_loaded": 33,
+        "load_time_s": 2.84,
+        "confidence_scores": [
+          0.244,
+          0.349,
+          0.335,
+          0.343,
+          0.284,
+          0.366,
+          0.471,
+          0.491,
+          0.525,
+          0.525,
+          0.381,
+          0.632,
+          0.35,
+          0.324,
+          0.294,
+          0.454
+        ],
+        "score_mean": 0.398,
+        "score_median": 0.358,
+        "score_min": 0.244,
+        "score_max": 0.632,
+        "score_stdev": 0.1065,
+        "mapped_sequence": [
+          23,
+          33,
+          4,
+          3,
+          33,
+          17,
+          19,
+          8,
+          28,
+          8,
+          18,
+          18,
+          12,
+          12,
+          33,
+          20
+        ],
+        "unique_screens_mapped": 11,
+        "step_duration_s": 143.78
+      },
+      "step3_find_trace": {
+        "candidate_paths": 607,
+        "traces_found": 3,
+        "lcs": 3,
+        "trace_length": 9,
+        "trace_sequences": [
+          [
+            0,
+            1,
+            2,
+            3,
+            9,
+            7,
+            8,
+            5,
+            20
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            9,
+            23,
+            8,
+            5,
+            20
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            9,
+            23,
+            11,
+            4,
+            20
+          ]
+        ],
+        "step_duration_s": 0.06
+      },
+      "step4_store": {
+        "output_file": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg03/output/execution_srv_WifiAnalyzer.json",
+        "step_duration_s": 0.0
+      },
+      "total_time_s": 227.49,
+      "execution_json": {
+        "replay_trace_count": 3,
+        "trace0_action_count": 8,
+        "action_types": [
+          "LAUNCH",
+          "TAP"
+        ]
+      }
+    }
+  ]
+}
