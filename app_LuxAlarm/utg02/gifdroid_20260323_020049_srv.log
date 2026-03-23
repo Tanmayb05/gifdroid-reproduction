@@ -1,0 +1,41 @@
+2026-03-23 02:00:49  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/gifdroid_20260323_020049_srv.log
+2026-03-23 02:00:49  INFO      GIFdroid started
+2026-03-23 02:00:49  INFO        --video          : app_LuxAlarm/utg02/input/screenrec/srv_app_LuxAlarm.mp4
+2026-03-23 02:00:49  INFO        --utg            : app_LuxAlarm/utg02/input/utg.json
+2026-03-23 02:00:49  INFO        --artifact       : app_LuxAlarm/utg02/input/artifacts
+2026-03-23 02:00:49  INFO        --out            : app_LuxAlarm/utg02/output/execution_srv_LuxAlarm.json
+2026-03-23 02:00:49  INFO        --log-dir        : None
+2026-03-23 02:00:49  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/output/keyframes
+2026-03-23 02:00:49  INFO      ==================================================
+2026-03-23 02:00:49  INFO      STEP 1: Keyframe Location
+2026-03-23 02:00:49  INFO        Input video : app_LuxAlarm/utg02/input/screenrec/srv_app_LuxAlarm.mp4
+2026-03-23 02:00:49  INFO      keyframe_location: starting on video "app_LuxAlarm/utg02/input/screenrec/srv_app_LuxAlarm.mp4"
+2026-03-23 02:00:55  DEBUG     read_frames_from_video: 714 frames decoded in 5.23s
+2026-03-23 02:01:57  DEBUG     calculate_sim_seq: 713 similarities computed in 61.91s
+2026-03-23 02:01:57  DEBUG     detect_keyframes: 8 keyframes detected from 713 frames in 0.00s
+2026-03-23 02:01:57  INFO      keyframe_location: done — 8 keyframes at indices [3, 40, 81, 433, 477, 555, 682, 713] (67.18s total)
+2026-03-23 02:01:57  INFO        Keyframes found   : 8
+2026-03-23 02:01:57  INFO        Keyframe indices  : [3, 40, 81, 433, 477, 555, 682, 713]
+2026-03-23 02:01:57  INFO        Duration          : 67.37s
+2026-03-23 02:01:57  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/output/keyframes (8 files)
+2026-03-23 02:01:57  INFO      ==================================================
+2026-03-23 02:01:57  INFO      STEP 2: GUI Mapping
+2026-03-23 02:01:57  INFO        Screenshots dir : app_LuxAlarm/utg02/input/artifacts
+2026-03-23 02:01:57  INFO      gui_mapping: matching 8 keyframes against screenshots in "app_LuxAlarm/utg02/input/artifacts"
+2026-03-23 02:01:58  DEBUG     load_screenshots: 25 screenshots loaded in 1.20s from "app_LuxAlarm/utg02/input/artifacts"
+2026-03-23 02:02:01  DEBUG     mapping: best match "artifacts_6.png" (score=0.223)
+2026-03-23 02:02:03  DEBUG     mapping: best match "artifacts_6.png" (score=0.226)
+2026-03-23 02:02:06  DEBUG     mapping: best match "artifacts_6.png" (score=0.224)
+2026-03-23 02:02:08  DEBUG     mapping: best match "artifacts_10.png" (score=0.605)
+2026-03-23 02:02:11  DEBUG     mapping: best match "artifacts_2.png" (score=0.456)
+2026-03-23 02:02:13  DEBUG     mapping: best match "artifacts_2.png" (score=0.453)
+2026-03-23 02:02:15  DEBUG     mapping: best match "artifacts_2.png" (score=0.461)
+2026-03-23 02:02:18  DEBUG     mapping: best match "artifacts_17.png" (score=0.599)
+2026-03-23 02:02:18  INFO      gui_mapping: done — index sequence [6, 6, 6, 10, 2, 2, 2, 17] (20.93s)
+2026-03-23 02:02:18  INFO        Mapped index sequence : [6, 6, 6, 10, 2, 2, 2, 17]
+2026-03-23 02:02:18  INFO        Duration              : 20.93s
+2026-03-23 02:02:18  INFO      ==================================================
+2026-03-23 02:02:18  INFO      STEP 3: Find Execution Trace
+2026-03-23 02:02:18  INFO        UTG file : app_LuxAlarm/utg02/input/utg.json
+2026-03-23 02:02:18  INFO      find_execution_trace: target sequence [6, 6, 6, 10, 2, 2, 2, 17]
+2026-03-23 02:02:18  DEBUG     read_graph: 331 edges, 25 vertices loaded in 0.00s

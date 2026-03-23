@@ -1,0 +1,60 @@
+2026-03-23 10:52:10  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/gifdroid_20260323_105210_hhv.log
+2026-03-23 10:52:10  INFO      GIFdroid started
+2026-03-23 10:52:10  INFO        --video          : app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4
+2026-03-23 10:52:10  INFO        --utg            : app_Jigsaw/utg03/input/utg.json
+2026-03-23 10:52:10  INFO        --artifact       : app_Jigsaw/utg03/input/artifacts
+2026-03-23 10:52:10  INFO        --out            : app_Jigsaw/utg03/output/execution_hhv_Jigsaw.json
+2026-03-23 10:52:10  INFO        --log-dir        : None
+2026-03-23 10:52:10  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes
+2026-03-23 10:52:10  INFO      ==================================================
+2026-03-23 10:52:10  INFO      STEP 1: Keyframe Location
+2026-03-23 10:52:10  INFO        Input video : app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4
+2026-03-23 10:52:10  INFO      keyframe_location: starting on video "app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4"
+2026-03-23 10:52:15  DEBUG     read_frames_from_video: 563 frames decoded in 4.68s
+2026-03-23 10:53:07  DEBUG     calculate_sim_seq: 562 similarities computed in 52.54s
+2026-03-23 10:53:07  DEBUG     detect_keyframes: 16 keyframes detected from 562 frames in 0.00s
+2026-03-23 10:53:07  INFO      keyframe_location: done — 16 keyframes at indices [114, 229, 236, 267, 329, 350, 384, 403, 410, 448, 470, 492, 536, 545, 552, 562] (57.32s total)
+2026-03-23 10:53:07  INFO        Keyframes found   : 16
+2026-03-23 10:53:07  INFO        Keyframe indices  : [114, 229, 236, 267, 329, 350, 384, 403, 410, 448, 470, 492, 536, 545, 552, 562]
+2026-03-23 10:53:07  INFO        Duration          : 57.46s
+2026-03-23 10:53:09  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes (16 files)
+2026-03-23 10:53:09  INFO      ==================================================
+2026-03-23 10:53:09  INFO      STEP 2: GUI Mapping
+2026-03-23 10:53:09  INFO        Screenshots dir : app_Jigsaw/utg03/input/artifacts
+2026-03-23 10:53:09  INFO      gui_mapping: matching 16 keyframes against screenshots in "app_Jigsaw/utg03/input/artifacts"
+2026-03-23 10:53:10  DEBUG     load_screenshots: 3 screenshots loaded in 0.68s from "app_Jigsaw/utg03/input/artifacts"
+2026-03-23 10:53:10  DEBUG     mapping: best match "artifacts_2.png" (score=0.264)
+2026-03-23 10:53:10  DEBUG     mapping: best match "artifacts_2.png" (score=0.260)
+2026-03-23 10:53:11  DEBUG     mapping: best match "artifacts_2.png" (score=0.258)
+2026-03-23 10:53:11  DEBUG     mapping: best match "artifacts_2.png" (score=0.261)
+2026-03-23 10:53:11  DEBUG     mapping: best match "artifacts_2.png" (score=0.259)
+2026-03-23 10:53:11  DEBUG     mapping: best match "artifacts_2.png" (score=0.257)
+2026-03-23 10:53:12  DEBUG     mapping: best match "artifacts_2.png" (score=0.262)
+2026-03-23 10:53:12  DEBUG     mapping: best match "artifacts_2.png" (score=0.259)
+2026-03-23 10:53:12  DEBUG     mapping: best match "artifacts_2.png" (score=0.259)
+2026-03-23 10:53:12  DEBUG     mapping: best match "artifacts_2.png" (score=0.258)
+2026-03-23 10:53:13  DEBUG     mapping: best match "artifacts_2.png" (score=0.272)
+2026-03-23 10:53:13  DEBUG     mapping: best match "artifacts_2.png" (score=0.270)
+2026-03-23 10:53:13  DEBUG     mapping: best match "artifacts_2.png" (score=0.275)
+2026-03-23 10:53:13  DEBUG     mapping: best match "artifacts_2.png" (score=0.276)
+2026-03-23 10:53:14  DEBUG     mapping: best match "artifacts_2.png" (score=0.277)
+2026-03-23 10:53:14  DEBUG     mapping: best match "artifacts_2.png" (score=0.277)
+2026-03-23 10:53:14  INFO      gui_mapping: done — index sequence [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] (5.01s)
+2026-03-23 10:53:14  INFO        Mapped index sequence : [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+2026-03-23 10:53:14  INFO        Duration              : 5.01s
+2026-03-23 10:53:14  INFO      ==================================================
+2026-03-23 10:53:14  INFO      STEP 3: Find Execution Trace
+2026-03-23 10:53:14  INFO        UTG file : app_Jigsaw/utg03/input/utg.json
+2026-03-23 10:53:14  INFO      find_execution_trace: target sequence [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+2026-03-23 10:53:14  DEBUG     read_graph: 2 edges, 2 vertices loaded in 0.00s
+2026-03-23 10:53:14  DEBUG     find_execution_trace: 0 candidate paths found in 0.00s
+2026-03-23 10:53:14  WARNING   find_execution_trace: no paths found from node 0 to screen 2 in the UTG (sequence=[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]). Returning empty trace. (0.00s)
+2026-03-23 10:53:14  INFO        Candidate traces found : 0
+2026-03-23 10:53:14  INFO        Duration : 0.00s
+2026-03-23 10:53:14  INFO      ==================================================
+2026-03-23 10:53:14  INFO      STEP 4: Store Execution Trace
+2026-03-23 10:53:14  INFO      Execution trace written to: app_Jigsaw/utg03/output/execution_hhv_Jigsaw.json
+2026-03-23 10:53:14  INFO        Duration : 0.00s
+2026-03-23 10:53:14  INFO      ==================================================
+2026-03-23 10:53:14  INFO      Pipeline complete.  Total time: 63.93s
+2026-03-23 10:53:14  INFO      ==================================================

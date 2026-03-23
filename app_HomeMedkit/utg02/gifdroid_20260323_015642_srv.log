@@ -1,0 +1,53 @@
+2026-03-23 01:56:42  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/gifdroid_20260323_015642_srv.log
+2026-03-23 01:56:42  INFO      GIFdroid started
+2026-03-23 01:56:42  INFO        --video          : app_HomeMedkit/utg02/input/screenrec/srv_app_HomeMedkit.mp4
+2026-03-23 01:56:42  INFO        --utg            : app_HomeMedkit/utg02/input/utg.json
+2026-03-23 01:56:42  INFO        --artifact       : app_HomeMedkit/utg02/input/artifacts
+2026-03-23 01:56:42  INFO        --out            : app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+2026-03-23 01:56:42  INFO        --log-dir        : None
+2026-03-23 01:56:42  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/output/keyframes
+2026-03-23 01:56:42  INFO      ==================================================
+2026-03-23 01:56:42  INFO      STEP 1: Keyframe Location
+2026-03-23 01:56:42  INFO        Input video : app_HomeMedkit/utg02/input/screenrec/srv_app_HomeMedkit.mp4
+2026-03-23 01:56:42  INFO      keyframe_location: starting on video "app_HomeMedkit/utg02/input/screenrec/srv_app_HomeMedkit.mp4"
+2026-03-23 01:56:49  DEBUG     read_frames_from_video: 777 frames decoded in 7.23s
+2026-03-23 01:57:57  DEBUG     calculate_sim_seq: 776 similarities computed in 67.23s
+2026-03-23 01:57:57  DEBUG     detect_keyframes: 8 keyframes detected from 776 frames in 0.00s
+2026-03-23 01:57:57  INFO      keyframe_location: done — 8 keyframes at indices [15, 47, 281, 371, 400, 517, 585, 776] (74.49s total)
+2026-03-23 01:57:57  INFO        Keyframes found   : 8
+2026-03-23 01:57:57  INFO        Keyframe indices  : [15, 47, 281, 371, 400, 517, 585, 776]
+2026-03-23 01:57:57  INFO        Duration          : 74.74s
+2026-03-23 01:57:57  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/output/keyframes (8 files)
+2026-03-23 01:57:57  INFO      ==================================================
+2026-03-23 01:57:57  INFO      STEP 2: GUI Mapping
+2026-03-23 01:57:57  INFO        Screenshots dir : app_HomeMedkit/utg02/input/artifacts
+2026-03-23 01:57:57  INFO      gui_mapping: matching 8 keyframes against screenshots in "app_HomeMedkit/utg02/input/artifacts"
+2026-03-23 01:58:01  DEBUG     load_screenshots: 80 screenshots loaded in 3.79s from "app_HomeMedkit/utg02/input/artifacts"
+2026-03-23 01:58:09  DEBUG     mapping: best match "artifacts_75.png" (score=0.275)
+2026-03-23 01:58:16  DEBUG     mapping: best match "artifacts_18.png" (score=0.371)
+2026-03-23 01:58:24  DEBUG     mapping: best match "artifacts_19.png" (score=0.433)
+2026-03-23 01:58:32  DEBUG     mapping: best match "artifacts_18.png" (score=0.437)
+2026-03-23 01:58:40  DEBUG     mapping: best match "artifacts_19.png" (score=0.442)
+2026-03-23 01:58:48  DEBUG     mapping: best match "artifacts_19.png" (score=0.439)
+2026-03-23 01:58:55  DEBUG     mapping: best match "artifacts_26.png" (score=0.470)
+2026-03-23 01:59:03  DEBUG     mapping: best match "artifacts_3.png" (score=0.486)
+2026-03-23 01:59:03  INFO      gui_mapping: done — index sequence [75, 18, 19, 18, 19, 19, 26, 3] (65.80s)
+2026-03-23 01:59:03  INFO        Mapped index sequence : [75, 18, 19, 18, 19, 19, 26, 3]
+2026-03-23 01:59:03  INFO        Duration              : 65.80s
+2026-03-23 01:59:03  INFO      ==================================================
+2026-03-23 01:59:03  INFO      STEP 3: Find Execution Trace
+2026-03-23 01:59:03  INFO        UTG file : app_HomeMedkit/utg02/input/utg.json
+2026-03-23 01:59:03  INFO      find_execution_trace: target sequence [75, 18, 19, 18, 19, 19, 26, 3]
+2026-03-23 01:59:03  DEBUG     read_graph: 298 edges, 80 vertices loaded in 0.00s
+2026-03-23 01:59:05  DEBUG     find_execution_trace: 52482 candidate paths found in 1.77s
+2026-03-23 01:59:10  INFO      find_execution_trace: 1 trace(s) found (LCS=3, length=15) in 7.15s
+2026-03-23 01:59:10  INFO        Candidate traces found : 1
+2026-03-23 01:59:10  INFO          Trace 0: [0, 1, 2, 34, 35, 65, 74, 75, 58, 49, 20, 19, 21, 4, 3]
+2026-03-23 01:59:10  INFO        Duration : 7.15s
+2026-03-23 01:59:10  INFO      ==================================================
+2026-03-23 01:59:10  INFO      STEP 4: Store Execution Trace
+2026-03-23 01:59:10  INFO      Execution trace written to: app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+2026-03-23 01:59:10  INFO        Duration : 0.00s
+2026-03-23 01:59:10  INFO      ==================================================
+2026-03-23 01:59:10  INFO      Pipeline complete.  Total time: 147.91s
+2026-03-23 01:59:10  INFO      ==================================================

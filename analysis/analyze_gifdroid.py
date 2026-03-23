@@ -24,7 +24,7 @@ import sys
 import statistics
 from datetime import datetime
 from pathlib import Path
-from typing import Optional, List, Dict, Any
+from typing import Optional, List, Dict, Any, Tuple
 
 # ── paths ──────────────────────────────────────────────────────────────────────
 ROOT = Path(__file__).parent.parent          # gifdroid-reproduction/
@@ -46,17 +46,23 @@ CSV_SUMMARY    = TABLES_DIR / "table6_summary.csv"
 # EXTRACT
 # ══════════════════════════════════════════════════════════════════════════════
 
-def find_latest_log(utg_dir: Path, video_type: str) -> Optional[Path]:
-    """Return the most recent gifdroid_*_{video_type}.log in utg_dir."""
+def find_latest_log(utg_dir: Path, video_type: str) -> Tuple[Optional[Path], bool]:
+    """Return (most_recent_log, pipeline_complete) for the given video_type in utg_dir.
+
+    Prefers the most recent log that contains 'Pipeline complete'. If none are
+    complete, falls back to the most recent log of any kind (flagged incomplete).
+    Returns (None, False) when no log files exist at all.
+    """
     pattern = f"gifdroid_*_{video_type}.log"
     logs = sorted(utg_dir.glob(pattern))  # lexicographic = chronological (YYYYMMDD_HHMMSS)
-    # Filter out logs that were just "Output already exists, skipping"
-    valid = []
-    for log in logs:
-        text = log.read_text(errors="replace")
-        if "Pipeline complete" in text:
-            valid.append(log)
-    return valid[-1] if valid else None
+    if not logs:
+        return None, False
+
+    complete = [log for log in logs if "Pipeline complete" in log.read_text(errors="replace")]
+    if complete:
+        return complete[-1], True
+    # No complete log — return the most recent one, flagged as incomplete
+    return logs[-1], False
 
 
 def parse_log(log_path: Path) -> dict:
@@ -248,9 +254,9 @@ def extract_all() -> dict:
             utg_json = utg_dir / "input" / "utg.json"
 
             for video_type in ("srv", "hhv"):
-                log_path = find_latest_log(utg_dir, video_type)
+                log_path, pipeline_complete = find_latest_log(utg_dir, video_type)
                 if log_path is None:
-                    continue  # no valid run for this type
+                    continue  # no log files at all for this type
 
                 # Video file
                 if video_type == "srv":
@@ -278,6 +284,7 @@ def extract_all() -> dict:
                     "app": app_name,
                     "utg": utg_name,
                     "video_type": video_type,
+                    "pipeline_complete": pipeline_complete,
                     "log_file": str(log_path.relative_to(ROOT)),
                     "inputs": {
                         "video_path": str(vid_glob[0].relative_to(ROOT)) if vid_glob else None,
@@ -352,7 +359,7 @@ def build_csvs(data: dict):
 
     # ── Table 1: Master ────────────────────────────────────────────────────
     headers1 = [
-        "App", "UTG", "Type",
+        "App", "UTG", "Type", "Pipeline_Complete",
         "Video_MB", "Artifacts", "UTG_Vertices", "UTG_Edges",
         "Frames", "Keyframes", "KF_Ratio",
         "Score_Mean", "Score_Median", "Score_Min", "Score_Max",
@@ -371,6 +378,7 @@ def build_csvs(data: dict):
         kf_ratio = round(frames / kf, 2) if frames and kf else ""
         rows1.append([
             r["app"], r["utg"], r["video_type"].upper(),
+            r.get("pipeline_complete", True),
             inp.get("video_size_mb", ""), inp.get("artifact_count", ""),
             inp.get("utg_vertices", ""), inp.get("utg_edges", ""),
             frames or "", kf or "", kf_ratio,

@@ -1,0 +1,54 @@
+2026-03-23 02:30:19  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg03/gifdroid_20260323_023019_hhv.log
+2026-03-23 02:30:19  INFO      GIFdroid started
+2026-03-23 02:30:19  INFO        --video          : app_AntennaPod/utg03/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-23 02:30:19  INFO        --utg            : app_AntennaPod/utg03/input/utg.json
+2026-03-23 02:30:19  INFO        --artifact       : app_AntennaPod/utg03/input/artifacts
+2026-03-23 02:30:19  INFO        --out            : app_AntennaPod/utg03/output/execution_hhv_AntennaPod.json
+2026-03-23 02:30:19  INFO        --log-dir        : None
+2026-03-23 02:30:19  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg03/output/keyframes
+2026-03-23 02:30:19  INFO      ==================================================
+2026-03-23 02:30:19  INFO      STEP 1: Keyframe Location
+2026-03-23 02:30:19  INFO        Input video : app_AntennaPod/utg03/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-23 02:30:19  INFO      keyframe_location: starting on video "app_AntennaPod/utg03/input/handheld/hhv_app_AntennaPod.mp4"
+2026-03-23 02:30:58  DEBUG     read_frames_from_video: 2025 frames decoded in 38.56s
+2026-03-23 02:34:42  DEBUG     calculate_sim_seq: 2024 similarities computed in 223.26s
+2026-03-23 02:34:42  DEBUG     detect_keyframes: 10 keyframes detected from 2024 frames in 0.01s
+2026-03-23 02:34:42  INFO      keyframe_location: done — 10 keyframes at indices [4, 9, 115, 172, 930, 1019, 1430, 1679, 1988, 2024] (262.78s total)
+2026-03-23 02:34:43  INFO        Keyframes found   : 10
+2026-03-23 02:34:43  INFO        Keyframe indices  : [4, 9, 115, 172, 930, 1019, 1430, 1679, 1988, 2024]
+2026-03-23 02:34:43  INFO        Duration          : 263.64s
+2026-03-23 02:34:44  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg03/output/keyframes (10 files)
+2026-03-23 02:34:44  INFO      ==================================================
+2026-03-23 02:34:44  INFO      STEP 2: GUI Mapping
+2026-03-23 02:34:44  INFO        Screenshots dir : app_AntennaPod/utg03/input/artifacts
+2026-03-23 02:34:44  INFO      gui_mapping: matching 10 keyframes against screenshots in "app_AntennaPod/utg03/input/artifacts"
+2026-03-23 02:34:55  DEBUG     load_screenshots: 85 screenshots loaded in 10.93s from "app_AntennaPod/utg03/input/artifacts"
+2026-03-23 04:12:33  DEBUG     mapping: best match "artifacts_85.png" (score=0.326)
+2026-03-23 04:29:08  DEBUG     mapping: best match "artifacts_85.png" (score=0.326)
+2026-03-23 05:52:20  DEBUG     mapping: best match "artifacts_85.png" (score=0.322)
+2026-03-23 07:00:03  DEBUG     mapping: best match "artifacts_85.png" (score=0.334)
+2026-03-23 07:38:44  DEBUG     mapping: best match "artifacts_85.png" (score=0.341)
+2026-03-23 07:39:17  DEBUG     mapping: best match "artifacts_85.png" (score=0.339)
+2026-03-23 09:06:52  DEBUG     mapping: best match "artifacts_85.png" (score=0.338)
+2026-03-23 09:40:40  DEBUG     mapping: best match "artifacts_85.png" (score=0.332)
+2026-03-23 10:07:55  DEBUG     mapping: best match "artifacts_85.png" (score=0.337)
+2026-03-23 10:08:55  DEBUG     mapping: best match "artifacts_85.png" (score=0.337)
+2026-03-23 10:08:55  INFO      gui_mapping: done — index sequence [85, 85, 85, 85, 85, 85, 85, 85, 85, 85] (27251.24s)
+2026-03-23 10:08:55  INFO        Mapped index sequence : [85, 85, 85, 85, 85, 85, 85, 85, 85, 85]
+2026-03-23 10:08:55  INFO        Duration              : 27251.25s
+2026-03-23 10:08:55  INFO      ==================================================
+2026-03-23 10:08:55  INFO      STEP 3: Find Execution Trace
+2026-03-23 10:08:55  INFO        UTG file : app_AntennaPod/utg03/input/utg.json
+2026-03-23 10:08:55  INFO      find_execution_trace: target sequence [85, 85, 85, 85, 85, 85, 85, 85, 85, 85]
+2026-03-23 10:08:55  DEBUG     read_graph: 214 edges, 84 vertices loaded in 0.01s
+2026-03-23 10:08:56  DEBUG     find_execution_trace: 0 candidate paths found in 0.19s
+2026-03-23 10:08:56  WARNING   find_execution_trace: no paths found from node 0 to screen 85 in the UTG (sequence=[85, 85, 85, 85, 85, 85, 85, 85, 85, 85]). Returning empty trace. (0.20s)
+2026-03-23 10:08:56  INFO        Candidate traces found : 0
+2026-03-23 10:08:56  INFO        Duration : 0.20s
+2026-03-23 10:08:56  INFO      ==================================================
+2026-03-23 10:08:56  INFO      STEP 4: Store Execution Trace
+2026-03-23 10:08:56  INFO      Execution trace written to: app_AntennaPod/utg03/output/execution_hhv_AntennaPod.json
+2026-03-23 10:08:56  INFO        Duration : 0.00s
+2026-03-23 10:08:56  INFO      ==================================================
+2026-03-23 10:08:56  INFO      Pipeline complete.  Total time: 27516.53s
+2026-03-23 10:08:56  INFO      ==================================================

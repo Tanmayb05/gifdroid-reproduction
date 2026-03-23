@@ -1,0 +1,482 @@
+=== Run started: Mon Mar 23 02:27:06 EDT 2026 ===
+[1/10] AdAway utg03 HHV
+2026-03-23 02:27:07  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/gifdroid_20260323_022707_hhv.log
+2026-03-23 02:27:07  INFO      GIFdroid started
+2026-03-23 02:27:07  INFO        --video          : app_AdAway/utg03/input/handheld/hhv_app_AdAway.mp4
+2026-03-23 02:27:07  INFO        --utg            : app_AdAway/utg03/input/utg.json
+2026-03-23 02:27:07  INFO        --artifact       : app_AdAway/utg03/input/artifacts
+2026-03-23 02:27:07  INFO        --out            : app_AdAway/utg03/output/execution_hhv_AdAway.json
+2026-03-23 02:27:07  INFO        --log-dir        : None
+2026-03-23 02:27:07  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/output/keyframes
+2026-03-23 02:27:07  INFO      ==================================================
+2026-03-23 02:27:07  INFO      STEP 1: Keyframe Location
+2026-03-23 02:27:07  INFO        Input video : app_AdAway/utg03/input/handheld/hhv_app_AdAway.mp4
+2026-03-23 02:27:07  INFO      keyframe_location: starting on video "app_AdAway/utg03/input/handheld/hhv_app_AdAway.mp4"
+2026-03-23 02:27:18  DEBUG     read_frames_from_video: 1331 frames decoded in 11.07s
+2026-03-23 02:29:45  DEBUG     calculate_sim_seq: 1330 similarities computed in 146.91s
+2026-03-23 02:29:45  DEBUG     detect_keyframes: 39 keyframes detected from 1330 frames in 0.00s
+2026-03-23 02:29:45  INFO      keyframe_location: done — 39 keyframes at indices [11, 21, 74, 168, 231, 245, 366, 421, 428, 454, 550, 608, 626, 643, 677, 683, 689, 718, 745, 764, 792, 802, 812, 819, 827, 858, 880, 943, 1017, 1097, 1126, 1161, 1174, 1187, 1221, 1227, 1262, 1270, 1330] (158.06s total)
+2026-03-23 02:29:46  INFO        Keyframes found   : 39
+2026-03-23 02:29:46  INFO        Keyframe indices  : [11, 21, 74, 168, 231, 245, 366, 421, 428, 454, 550, 608, 626, 643, 677, 683, 689, 718, 745, 764, 792, 802, 812, 819, 827, 858, 880, 943, 1017, 1097, 1126, 1161, 1174, 1187, 1221, 1227, 1262, 1270, 1330]
+2026-03-23 02:29:46  INFO        Duration          : 158.47s
+2026-03-23 02:29:50  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/output/keyframes (39 files)
+2026-03-23 02:29:50  INFO      ==================================================
+2026-03-23 02:29:50  INFO      STEP 2: GUI Mapping
+2026-03-23 02:29:50  INFO        Screenshots dir : app_AdAway/utg03/input/artifacts
+2026-03-23 02:29:50  INFO      gui_mapping: matching 39 keyframes against screenshots in "app_AdAway/utg03/input/artifacts"
+2026-03-23 02:29:51  DEBUG     load_screenshots: 5 screenshots loaded in 1.16s from "app_AdAway/utg03/input/artifacts"
+2026-03-23 02:29:53  DEBUG     mapping: best match "artifacts_2.png" (score=0.271)
+2026-03-23 02:29:54  DEBUG     mapping: best match "artifacts_2.png" (score=0.283)
+2026-03-23 02:29:54  DEBUG     mapping: best match "artifacts_2.png" (score=0.285)
+2026-03-23 02:29:57  DEBUG     mapping: best match "artifacts_2.png" (score=0.265)
+2026-03-23 02:29:58  DEBUG     mapping: best match "artifacts_2.png" (score=0.276)
+2026-03-23 02:29:59  DEBUG     mapping: best match "artifacts_2.png" (score=0.289)
+2026-03-23 02:29:59  DEBUG     mapping: best match "artifacts_2.png" (score=0.287)
+2026-03-23 02:30:00  DEBUG     mapping: best match "artifacts_2.png" (score=0.251)
+2026-03-23 02:30:01  DEBUG     mapping: best match "artifacts_2.png" (score=0.256)
+2026-03-23 02:30:01  DEBUG     mapping: best match "artifacts_2.png" (score=0.265)
+2026-03-23 02:30:02  DEBUG     mapping: best match "artifacts_2.png" (score=0.276)
+2026-03-23 02:30:02  DEBUG     mapping: best match "artifacts_2.png" (score=0.276)
+2026-03-23 02:30:03  DEBUG     mapping: best match "artifacts_2.png" (score=0.269)
+2026-03-23 02:30:04  DEBUG     mapping: best match "artifacts_2.png" (score=0.272)
+2026-03-23 02:30:04  DEBUG     mapping: best match "artifacts_2.png" (score=0.272)
+2026-03-23 02:30:05  DEBUG     mapping: best match "artifacts_2.png" (score=0.272)
+2026-03-23 02:30:05  DEBUG     mapping: best match "artifacts_2.png" (score=0.272)
+2026-03-23 02:30:06  DEBUG     mapping: best match "artifacts_2.png" (score=0.274)
+2026-03-23 02:30:06  DEBUG     mapping: best match "artifacts_2.png" (score=0.275)
+2026-03-23 02:30:07  DEBUG     mapping: best match "artifacts_2.png" (score=0.275)
+2026-03-23 02:30:08  DEBUG     mapping: best match "artifacts_2.png" (score=0.276)
+2026-03-23 02:30:08  DEBUG     mapping: best match "artifacts_2.png" (score=0.276)
+2026-03-23 02:30:09  DEBUG     mapping: best match "artifacts_2.png" (score=0.280)
+2026-03-23 02:30:10  DEBUG     mapping: best match "artifacts_2.png" (score=0.285)
+2026-03-23 02:30:10  DEBUG     mapping: best match "artifacts_2.png" (score=0.282)
+2026-03-23 02:30:11  DEBUG     mapping: best match "artifacts_2.png" (score=0.285)
+2026-03-23 02:30:11  DEBUG     mapping: best match "artifacts_2.png" (score=0.289)
+2026-03-23 02:30:12  DEBUG     mapping: best match "artifacts_2.png" (score=0.294)
+2026-03-23 02:30:12  DEBUG     mapping: best match "artifacts_2.png" (score=0.352)
+2026-03-23 02:30:13  DEBUG     mapping: best match "artifacts_2.png" (score=0.333)
+2026-03-23 02:30:14  DEBUG     mapping: best match "artifacts_2.png" (score=0.297)
+2026-03-23 02:30:14  DEBUG     mapping: best match "artifacts_2.png" (score=0.336)
+2026-03-23 02:30:15  DEBUG     mapping: best match "artifacts_2.png" (score=0.337)
+2026-03-23 02:30:15  DEBUG     mapping: best match "artifacts_2.png" (score=0.303)
+2026-03-23 02:30:16  DEBUG     mapping: best match "artifacts_2.png" (score=0.312)
+2026-03-23 02:30:16  DEBUG     mapping: best match "artifacts_2.png" (score=0.306)
+2026-03-23 02:30:17  DEBUG     mapping: best match "artifacts_2.png" (score=0.290)
+2026-03-23 02:30:17  DEBUG     mapping: best match "artifacts_2.png" (score=0.292)
+2026-03-23 02:30:18  DEBUG     mapping: best match "artifacts_2.png" (score=0.275)
+2026-03-23 02:30:18  INFO      gui_mapping: done — index sequence [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] (27.28s)
+2026-03-23 02:30:18  INFO        Mapped index sequence : [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+2026-03-23 02:30:18  INFO        Duration              : 27.28s
+2026-03-23 02:30:18  INFO      ==================================================
+2026-03-23 02:30:18  INFO      STEP 3: Find Execution Trace
+2026-03-23 02:30:18  INFO        UTG file : app_AdAway/utg03/input/utg.json
+2026-03-23 02:30:18  INFO      find_execution_trace: target sequence [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+2026-03-23 02:30:18  DEBUG     read_graph: 5 edges, 4 vertices loaded in 0.00s
+2026-03-23 02:30:18  DEBUG     find_execution_trace: 1 candidate paths found in 0.00s
+2026-03-23 02:30:18  INFO      find_execution_trace: 1 trace(s) found (LCS=1, length=3) in 0.00s
+2026-03-23 02:30:18  INFO        Candidate traces found : 1
+2026-03-23 02:30:18  INFO          Trace 0: [0, 1, 2]
+2026-03-23 02:30:18  INFO        Duration : 0.00s
+2026-03-23 02:30:18  INFO      ==================================================
+2026-03-23 02:30:18  INFO      STEP 4: Store Execution Trace
+2026-03-23 02:30:18  INFO      Execution trace written to: app_AdAway/utg03/output/execution_hhv_AdAway.json
+2026-03-23 02:30:18  INFO        Duration : 0.01s
+2026-03-23 02:30:18  INFO      ==================================================
+2026-03-23 02:30:18  INFO      Pipeline complete.  Total time: 190.41s
+2026-03-23 02:30:18  INFO      ==================================================
+[2/10] AntennaPod utg02 HHV
+2026-03-23 02:30:19  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/gifdroid_20260323_023019_hhv.log
+2026-03-23 02:30:19  INFO      GIFdroid started
+2026-03-23 02:30:19  INFO        --video          : app_AntennaPod/utg02/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-23 02:30:19  INFO        --utg            : app_AntennaPod/utg02/input/utg.json
+2026-03-23 02:30:19  INFO        --artifact       : app_AntennaPod/utg02/input/artifacts
+2026-03-23 02:30:19  INFO        --out            : app_AntennaPod/utg02/output/execution_hhv_AntennaPod.json
+2026-03-23 02:30:19  INFO        --log-dir        : None
+2026-03-23 02:30:19  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/output/keyframes
+2026-03-23 02:30:19  INFO      Output already exists, skipping: app_AntennaPod/utg02/output/execution_hhv_AntennaPod.json
+[3/10] AntennaPod utg03 HHV
+2026-03-23 02:30:19  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg03/gifdroid_20260323_023019_hhv.log
+2026-03-23 02:30:19  INFO      GIFdroid started
+2026-03-23 02:30:19  INFO        --video          : app_AntennaPod/utg03/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-23 02:30:19  INFO        --utg            : app_AntennaPod/utg03/input/utg.json
+2026-03-23 02:30:19  INFO        --artifact       : app_AntennaPod/utg03/input/artifacts
+2026-03-23 02:30:19  INFO        --out            : app_AntennaPod/utg03/output/execution_hhv_AntennaPod.json
+2026-03-23 02:30:19  INFO        --log-dir        : None
+2026-03-23 02:30:19  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg03/output/keyframes
+2026-03-23 02:30:19  INFO      ==================================================
+2026-03-23 02:30:19  INFO      STEP 1: Keyframe Location
+2026-03-23 02:30:19  INFO        Input video : app_AntennaPod/utg03/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-23 02:30:19  INFO      keyframe_location: starting on video "app_AntennaPod/utg03/input/handheld/hhv_app_AntennaPod.mp4"
+2026-03-23 02:30:58  DEBUG     read_frames_from_video: 2025 frames decoded in 38.56s
+2026-03-23 02:34:42  DEBUG     calculate_sim_seq: 2024 similarities computed in 223.26s
+2026-03-23 02:34:42  DEBUG     detect_keyframes: 10 keyframes detected from 2024 frames in 0.01s
+2026-03-23 02:34:42  INFO      keyframe_location: done — 10 keyframes at indices [4, 9, 115, 172, 930, 1019, 1430, 1679, 1988, 2024] (262.78s total)
+2026-03-23 02:34:43  INFO        Keyframes found   : 10
+2026-03-23 02:34:43  INFO        Keyframe indices  : [4, 9, 115, 172, 930, 1019, 1430, 1679, 1988, 2024]
+2026-03-23 02:34:43  INFO        Duration          : 263.64s
+2026-03-23 02:34:44  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg03/output/keyframes (10 files)
+2026-03-23 02:34:44  INFO      ==================================================
+2026-03-23 02:34:44  INFO      STEP 2: GUI Mapping
+2026-03-23 02:34:44  INFO        Screenshots dir : app_AntennaPod/utg03/input/artifacts
+2026-03-23 02:34:44  INFO      gui_mapping: matching 10 keyframes against screenshots in "app_AntennaPod/utg03/input/artifacts"
+2026-03-23 02:34:55  DEBUG     load_screenshots: 85 screenshots loaded in 10.93s from "app_AntennaPod/utg03/input/artifacts"
+2026-03-23 04:12:33  DEBUG     mapping: best match "artifacts_85.png" (score=0.326)
+2026-03-23 04:29:08  DEBUG     mapping: best match "artifacts_85.png" (score=0.326)
+2026-03-23 05:52:20  DEBUG     mapping: best match "artifacts_85.png" (score=0.322)
+2026-03-23 07:00:03  DEBUG     mapping: best match "artifacts_85.png" (score=0.334)
+2026-03-23 07:38:44  DEBUG     mapping: best match "artifacts_85.png" (score=0.341)
+2026-03-23 07:39:17  DEBUG     mapping: best match "artifacts_85.png" (score=0.339)
+2026-03-23 09:06:52  DEBUG     mapping: best match "artifacts_85.png" (score=0.338)
+2026-03-23 09:40:40  DEBUG     mapping: best match "artifacts_85.png" (score=0.332)
+2026-03-23 10:07:55  DEBUG     mapping: best match "artifacts_85.png" (score=0.337)
+2026-03-23 10:08:55  DEBUG     mapping: best match "artifacts_85.png" (score=0.337)
+2026-03-23 10:08:55  INFO      gui_mapping: done — index sequence [85, 85, 85, 85, 85, 85, 85, 85, 85, 85] (27251.24s)
+2026-03-23 10:08:55  INFO        Mapped index sequence : [85, 85, 85, 85, 85, 85, 85, 85, 85, 85]
+2026-03-23 10:08:55  INFO        Duration              : 27251.25s
+2026-03-23 10:08:55  INFO      ==================================================
+2026-03-23 10:08:55  INFO      STEP 3: Find Execution Trace
+2026-03-23 10:08:55  INFO        UTG file : app_AntennaPod/utg03/input/utg.json
+2026-03-23 10:08:55  INFO      find_execution_trace: target sequence [85, 85, 85, 85, 85, 85, 85, 85, 85, 85]
+2026-03-23 10:08:55  DEBUG     read_graph: 214 edges, 84 vertices loaded in 0.01s
+2026-03-23 10:08:56  DEBUG     find_execution_trace: 0 candidate paths found in 0.19s
+2026-03-23 10:08:56  WARNING   find_execution_trace: no paths found from node 0 to screen 85 in the UTG (sequence=[85, 85, 85, 85, 85, 85, 85, 85, 85, 85]). Returning empty trace. (0.20s)
+2026-03-23 10:08:56  INFO        Candidate traces found : 0
+2026-03-23 10:08:56  INFO        Duration : 0.20s
+2026-03-23 10:08:56  INFO      ==================================================
+2026-03-23 10:08:56  INFO      STEP 4: Store Execution Trace
+2026-03-23 10:08:56  INFO      Execution trace written to: app_AntennaPod/utg03/output/execution_hhv_AntennaPod.json
+2026-03-23 10:08:56  INFO        Duration : 0.00s
+2026-03-23 10:08:56  INFO      ==================================================
+2026-03-23 10:08:56  INFO      Pipeline complete.  Total time: 27516.53s
+2026-03-23 10:08:56  INFO      ==================================================
+[4/10] HomeMedkit utg03 HHV
+2026-03-23 10:08:58  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/gifdroid_20260323_100858_hhv.log
+2026-03-23 10:08:58  INFO      GIFdroid started
+2026-03-23 10:08:58  INFO        --video          : app_HomeMedkit/utg03/input/handheld/hhv_app_HomeMedkit.mp4
+2026-03-23 10:08:58  INFO        --utg            : app_HomeMedkit/utg03/input/utg.json
+2026-03-23 10:08:58  INFO        --artifact       : app_HomeMedkit/utg03/input/artifacts
+2026-03-23 10:08:58  INFO        --out            : app_HomeMedkit/utg03/output/execution_hhv_HomeMedkit.json
+2026-03-23 10:08:58  INFO        --log-dir        : None
+2026-03-23 10:08:58  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/output/keyframes
+2026-03-23 10:08:58  INFO      ==================================================
+2026-03-23 10:08:58  INFO      STEP 1: Keyframe Location
+2026-03-23 10:08:58  INFO        Input video : app_HomeMedkit/utg03/input/handheld/hhv_app_HomeMedkit.mp4
+2026-03-23 10:08:58  INFO      keyframe_location: starting on video "app_HomeMedkit/utg03/input/handheld/hhv_app_HomeMedkit.mp4"
+2026-03-23 10:09:09  DEBUG     read_frames_from_video: 1359 frames decoded in 10.72s
+2026-03-23 10:22:07  DEBUG     calculate_sim_seq: 1358 similarities computed in 778.05s
+2026-03-23 10:22:07  DEBUG     detect_keyframes: 54 keyframes detected from 1358 frames in 0.02s
+2026-03-23 10:22:07  INFO      keyframe_location: done — 54 keyframes at indices [129, 281, 379, 400, 434, 454, 465, 492, 497, 515, 520, 526, 543, 558, 591, 604, 615, 640, 649, 676, 688, 707, 768, 775, 786, 807, 838, 849, 918, 928, 945, 957, 967, 1015, 1023, 1033, 1043, 1052, 1061, 1082, 1118, 1134, 1144, 1150, 1158, 1181, 1201, 1207, 1240, 1248, 1265, 1271, 1297, 1358] (788.85s total)
+2026-03-23 10:22:07  INFO        Keyframes found   : 54
+2026-03-23 10:22:07  INFO        Keyframe indices  : [129, 281, 379, 400, 434, 454, 465, 492, 497, 515, 520, 526, 543, 558, 591, 604, 615, 640, 649, 676, 688, 707, 768, 775, 786, 807, 838, 849, 918, 928, 945, 957, 967, 1015, 1023, 1033, 1043, 1052, 1061, 1082, 1118, 1134, 1144, 1150, 1158, 1181, 1201, 1207, 1240, 1248, 1265, 1271, 1297, 1358]
+2026-03-23 10:22:07  INFO        Duration          : 789.18s
+2026-03-23 10:22:14  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/output/keyframes (54 files)
+2026-03-23 10:22:14  INFO      ==================================================
+2026-03-23 10:22:14  INFO      STEP 2: GUI Mapping
+2026-03-23 10:22:14  INFO        Screenshots dir : app_HomeMedkit/utg03/input/artifacts
+2026-03-23 10:22:14  INFO      gui_mapping: matching 54 keyframes against screenshots in "app_HomeMedkit/utg03/input/artifacts"
+2026-03-23 10:22:21  DEBUG     load_screenshots: 53 screenshots loaded in 6.15s from "app_HomeMedkit/utg03/input/artifacts"
+2026-03-23 10:29:21  DEBUG     mapping: best match "artifacts_53.png" (score=0.311)
+2026-03-23 10:32:27  DEBUG     mapping: best match "artifacts_30.png" (score=0.341)
+2026-03-23 10:32:50  DEBUG     mapping: best match "artifacts_30.png" (score=0.338)
+2026-03-23 10:33:16  DEBUG     mapping: best match "artifacts_30.png" (score=0.340)
+2026-03-23 10:33:43  DEBUG     mapping: best match "artifacts_30.png" (score=0.305)
+2026-03-23 10:34:06  DEBUG     mapping: best match "artifacts_30.png" (score=0.309)
+2026-03-23 10:34:30  DEBUG     mapping: best match "artifacts_30.png" (score=0.308)
+2026-03-23 10:34:54  DEBUG     mapping: best match "artifacts_53.png" (score=0.320)
+2026-03-23 10:35:16  DEBUG     mapping: best match "artifacts_53.png" (score=0.319)
+2026-03-23 10:35:39  DEBUG     mapping: best match "artifacts_53.png" (score=0.318)
+2026-03-23 10:36:03  DEBUG     mapping: best match "artifacts_53.png" (score=0.325)
+2026-03-23 10:36:27  DEBUG     mapping: best match "artifacts_53.png" (score=0.329)
+2026-03-23 10:36:49  DEBUG     mapping: best match "artifacts_53.png" (score=0.321)
+2026-03-23 10:37:13  DEBUG     mapping: best match "artifacts_53.png" (score=0.315)
+2026-03-23 10:37:37  DEBUG     mapping: best match "artifacts_53.png" (score=0.308)
+2026-03-23 10:38:01  DEBUG     mapping: best match "artifacts_53.png" (score=0.312)
+2026-03-23 10:38:25  DEBUG     mapping: best match "artifacts_30.png" (score=0.284)
+2026-03-23 10:38:48  DEBUG     mapping: best match "artifacts_30.png" (score=0.300)
+2026-03-23 10:39:13  DEBUG     mapping: best match "artifacts_30.png" (score=0.295)
+2026-03-23 10:39:37  DEBUG     mapping: best match "artifacts_30.png" (score=0.307)
+2026-03-23 10:40:01  DEBUG     mapping: best match "artifacts_30.png" (score=0.308)
+2026-03-23 10:40:16  DEBUG     mapping: best match "artifacts_30.png" (score=0.315)
+2026-03-23 10:40:31  DEBUG     mapping: best match "artifacts_30.png" (score=0.316)
+2026-03-23 10:40:47  DEBUG     mapping: best match "artifacts_30.png" (score=0.315)
+2026-03-23 10:41:01  DEBUG     mapping: best match "artifacts_30.png" (score=0.316)
+2026-03-23 10:41:16  DEBUG     mapping: best match "artifacts_30.png" (score=0.311)
+2026-03-23 10:41:30  DEBUG     mapping: best match "artifacts_30.png" (score=0.320)
+2026-03-23 10:41:45  DEBUG     mapping: best match "artifacts_53.png" (score=0.326)
+2026-03-23 10:42:00  DEBUG     mapping: best match "artifacts_53.png" (score=0.337)
+2026-03-23 10:42:15  DEBUG     mapping: best match "artifacts_53.png" (score=0.339)
+2026-03-23 10:42:29  DEBUG     mapping: best match "artifacts_53.png" (score=0.331)
+2026-03-23 10:42:51  DEBUG     mapping: best match "artifacts_53.png" (score=0.330)
+2026-03-23 10:43:17  DEBUG     mapping: best match "artifacts_53.png" (score=0.325)
+2026-03-23 10:43:42  DEBUG     mapping: best match "artifacts_53.png" (score=0.317)
+2026-03-23 10:44:06  DEBUG     mapping: best match "artifacts_53.png" (score=0.315)
+2026-03-23 10:44:29  DEBUG     mapping: best match "artifacts_53.png" (score=0.313)
+2026-03-23 10:44:52  DEBUG     mapping: best match "artifacts_53.png" (score=0.315)
+2026-03-23 10:45:15  DEBUG     mapping: best match "artifacts_53.png" (score=0.316)
+2026-03-23 10:45:43  DEBUG     mapping: best match "artifacts_53.png" (score=0.313)
+2026-03-23 10:46:09  DEBUG     mapping: best match "artifacts_53.png" (score=0.305)
+2026-03-23 10:46:33  DEBUG     mapping: best match "artifacts_53.png" (score=0.322)
+2026-03-23 10:46:58  DEBUG     mapping: best match "artifacts_53.png" (score=0.320)
+2026-03-23 10:47:23  DEBUG     mapping: best match "artifacts_53.png" (score=0.322)
+2026-03-23 10:47:47  DEBUG     mapping: best match "artifacts_53.png" (score=0.319)
+2026-03-23 10:48:05  DEBUG     mapping: best match "artifacts_53.png" (score=0.316)
+2026-03-23 10:48:32  DEBUG     mapping: best match "artifacts_53.png" (score=0.306)
+2026-03-23 10:48:58  DEBUG     mapping: best match "artifacts_53.png" (score=0.308)
+2026-03-23 10:49:20  DEBUG     mapping: best match "artifacts_53.png" (score=0.314)
+2026-03-23 10:49:45  DEBUG     mapping: best match "artifacts_30.png" (score=0.323)
+2026-03-23 10:50:11  DEBUG     mapping: best match "artifacts_30.png" (score=0.324)
+2026-03-23 10:50:33  DEBUG     mapping: best match "artifacts_30.png" (score=0.347)
+2026-03-23 10:50:57  DEBUG     mapping: best match "artifacts_30.png" (score=0.348)
+2026-03-23 10:51:24  DEBUG     mapping: best match "artifacts_30.png" (score=0.332)
+2026-03-23 10:51:53  DEBUG     mapping: best match "artifacts_30.png" (score=0.352)
+2026-03-23 10:51:53  INFO      gui_mapping: done — index sequence [53, 30, 30, 30, 30, 30, 30, 53, 53, 53, 53, 53, 53, 53, 53, 53, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 30, 30, 30, 30, 30, 30] (1779.07s)
+2026-03-23 10:51:53  INFO        Mapped index sequence : [53, 30, 30, 30, 30, 30, 30, 53, 53, 53, 53, 53, 53, 53, 53, 53, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 30, 30, 30, 30, 30, 30]
+2026-03-23 10:51:53  INFO        Duration              : 1779.08s
+2026-03-23 10:51:53  INFO      ==================================================
+2026-03-23 10:51:53  INFO      STEP 3: Find Execution Trace
+2026-03-23 10:51:53  INFO        UTG file : app_HomeMedkit/utg03/input/utg.json
+2026-03-23 10:51:53  INFO      find_execution_trace: target sequence [53, 30, 30, 30, 30, 30, 30, 53, 53, 53, 53, 53, 53, 53, 53, 53, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 30, 30, 30, 30, 30, 30]
+2026-03-23 10:51:53  DEBUG     read_graph: 210 edges, 52 vertices loaded in 0.01s
+2026-03-23 10:51:54  DEBUG     find_execution_trace: 41031 candidate paths found in 0.90s
+2026-03-23 10:52:07  INFO      find_execution_trace: 1 trace(s) found (LCS=1, length=4) in 13.21s
+2026-03-23 10:52:07  INFO        Candidate traces found : 1
+2026-03-23 10:52:07  INFO          Trace 0: [0, 1, 31, 30]
+2026-03-23 10:52:07  INFO        Duration : 13.22s
+2026-03-23 10:52:07  INFO      ==================================================
+2026-03-23 10:52:07  INFO      STEP 4: Store Execution Trace
+2026-03-23 10:52:07  INFO      Execution trace written to: app_HomeMedkit/utg03/output/execution_hhv_HomeMedkit.json
+2026-03-23 10:52:07  INFO        Duration : 0.01s
+2026-03-23 10:52:07  INFO      ==================================================
+2026-03-23 10:52:07  INFO      Pipeline complete.  Total time: 2588.57s
+2026-03-23 10:52:07  INFO      ==================================================
+[5/10] Jigsaw utg03 HHV
+2026-03-23 10:52:10  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/gifdroid_20260323_105210_hhv.log
+2026-03-23 10:52:10  INFO      GIFdroid started
+2026-03-23 10:52:10  INFO        --video          : app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4
+2026-03-23 10:52:10  INFO        --utg            : app_Jigsaw/utg03/input/utg.json
+2026-03-23 10:52:10  INFO        --artifact       : app_Jigsaw/utg03/input/artifacts
+2026-03-23 10:52:10  INFO        --out            : app_Jigsaw/utg03/output/execution_hhv_Jigsaw.json
+2026-03-23 10:52:10  INFO        --log-dir        : None
+2026-03-23 10:52:10  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes
+2026-03-23 10:52:10  INFO      ==================================================
+2026-03-23 10:52:10  INFO      STEP 1: Keyframe Location
+2026-03-23 10:52:10  INFO        Input video : app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4
+2026-03-23 10:52:10  INFO      keyframe_location: starting on video "app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4"
+2026-03-23 10:52:15  DEBUG     read_frames_from_video: 563 frames decoded in 4.68s
+2026-03-23 10:53:07  DEBUG     calculate_sim_seq: 562 similarities computed in 52.54s
+2026-03-23 10:53:07  DEBUG     detect_keyframes: 16 keyframes detected from 562 frames in 0.00s
+2026-03-23 10:53:07  INFO      keyframe_location: done — 16 keyframes at indices [114, 229, 236, 267, 329, 350, 384, 403, 410, 448, 470, 492, 536, 545, 552, 562] (57.32s total)
+2026-03-23 10:53:07  INFO        Keyframes found   : 16
+2026-03-23 10:53:07  INFO        Keyframe indices  : [114, 229, 236, 267, 329, 350, 384, 403, 410, 448, 470, 492, 536, 545, 552, 562]
+2026-03-23 10:53:07  INFO        Duration          : 57.46s
+2026-03-23 10:53:09  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes (16 files)
+2026-03-23 10:53:09  INFO      ==================================================
+2026-03-23 10:53:09  INFO      STEP 2: GUI Mapping
+2026-03-23 10:53:09  INFO        Screenshots dir : app_Jigsaw/utg03/input/artifacts
+2026-03-23 10:53:09  INFO      gui_mapping: matching 16 keyframes against screenshots in "app_Jigsaw/utg03/input/artifacts"
+2026-03-23 10:53:10  DEBUG     load_screenshots: 3 screenshots loaded in 0.68s from "app_Jigsaw/utg03/input/artifacts"
+2026-03-23 10:53:10  DEBUG     mapping: best match "artifacts_2.png" (score=0.264)
+2026-03-23 10:53:10  DEBUG     mapping: best match "artifacts_2.png" (score=0.260)
+2026-03-23 10:53:11  DEBUG     mapping: best match "artifacts_2.png" (score=0.258)
+2026-03-23 10:53:11  DEBUG     mapping: best match "artifacts_2.png" (score=0.261)
+2026-03-23 10:53:11  DEBUG     mapping: best match "artifacts_2.png" (score=0.259)
+2026-03-23 10:53:11  DEBUG     mapping: best match "artifacts_2.png" (score=0.257)
+2026-03-23 10:53:12  DEBUG     mapping: best match "artifacts_2.png" (score=0.262)
+2026-03-23 10:53:12  DEBUG     mapping: best match "artifacts_2.png" (score=0.259)
+2026-03-23 10:53:12  DEBUG     mapping: best match "artifacts_2.png" (score=0.259)
+2026-03-23 10:53:12  DEBUG     mapping: best match "artifacts_2.png" (score=0.258)
+2026-03-23 10:53:13  DEBUG     mapping: best match "artifacts_2.png" (score=0.272)
+2026-03-23 10:53:13  DEBUG     mapping: best match "artifacts_2.png" (score=0.270)
+2026-03-23 10:53:13  DEBUG     mapping: best match "artifacts_2.png" (score=0.275)
+2026-03-23 10:53:13  DEBUG     mapping: best match "artifacts_2.png" (score=0.276)
+2026-03-23 10:53:14  DEBUG     mapping: best match "artifacts_2.png" (score=0.277)
+2026-03-23 10:53:14  DEBUG     mapping: best match "artifacts_2.png" (score=0.277)
+2026-03-23 10:53:14  INFO      gui_mapping: done — index sequence [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] (5.01s)
+2026-03-23 10:53:14  INFO        Mapped index sequence : [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+2026-03-23 10:53:14  INFO        Duration              : 5.01s
+2026-03-23 10:53:14  INFO      ==================================================
+2026-03-23 10:53:14  INFO      STEP 3: Find Execution Trace
+2026-03-23 10:53:14  INFO        UTG file : app_Jigsaw/utg03/input/utg.json
+2026-03-23 10:53:14  INFO      find_execution_trace: target sequence [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+2026-03-23 10:53:14  DEBUG     read_graph: 2 edges, 2 vertices loaded in 0.00s
+2026-03-23 10:53:14  DEBUG     find_execution_trace: 0 candidate paths found in 0.00s
+2026-03-23 10:53:14  WARNING   find_execution_trace: no paths found from node 0 to screen 2 in the UTG (sequence=[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]). Returning empty trace. (0.00s)
+2026-03-23 10:53:14  INFO        Candidate traces found : 0
+2026-03-23 10:53:14  INFO        Duration : 0.00s
+2026-03-23 10:53:14  INFO      ==================================================
+2026-03-23 10:53:14  INFO      STEP 4: Store Execution Trace
+2026-03-23 10:53:14  INFO      Execution trace written to: app_Jigsaw/utg03/output/execution_hhv_Jigsaw.json
+2026-03-23 10:53:14  INFO        Duration : 0.00s
+2026-03-23 10:53:14  INFO      ==================================================
+2026-03-23 10:53:14  INFO      Pipeline complete.  Total time: 63.93s
+2026-03-23 10:53:14  INFO      ==================================================
+[6/10] LuxAlarm utg02 HHV
+2026-03-23 10:53:15  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/gifdroid_20260323_105315_hhv.log
+2026-03-23 10:53:15  INFO      GIFdroid started
+2026-03-23 10:53:15  INFO        --video          : app_LuxAlarm/utg02/input/handheld/hhv_app_LuxAlarm.mp4
+2026-03-23 10:53:15  INFO        --utg            : app_LuxAlarm/utg02/input/utg.json
+2026-03-23 10:53:15  INFO        --artifact       : app_LuxAlarm/utg02/input/artifacts
+2026-03-23 10:53:15  INFO        --out            : app_LuxAlarm/utg02/output/execution_hhv_LuxAlarm.json
+2026-03-23 10:53:15  INFO        --log-dir        : None
+2026-03-23 10:53:15  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/output/keyframes
+2026-03-23 10:53:15  INFO      ==================================================
+2026-03-23 10:53:15  INFO      STEP 1: Keyframe Location
+2026-03-23 10:53:15  INFO        Input video : app_LuxAlarm/utg02/input/handheld/hhv_app_LuxAlarm.mp4
+2026-03-23 10:53:15  INFO      keyframe_location: starting on video "app_LuxAlarm/utg02/input/handheld/hhv_app_LuxAlarm.mp4"
+2026-03-23 10:53:22  DEBUG     read_frames_from_video: 818 frames decoded in 7.30s
+2026-03-23 10:54:42  DEBUG     calculate_sim_seq: 817 similarities computed in 79.07s
+2026-03-23 10:54:42  DEBUG     detect_keyframes: 11 keyframes detected from 817 frames in 0.01s
+2026-03-23 10:54:42  INFO      keyframe_location: done — 11 keyframes at indices [107, 179, 229, 254, 262, 438, 626, 721, 733, 801, 809] (86.80s total)
+2026-03-23 10:54:42  INFO        Keyframes found   : 11
+2026-03-23 10:54:42  INFO        Keyframe indices  : [107, 179, 229, 254, 262, 438, 626, 721, 733, 801, 809]
+2026-03-23 10:54:42  INFO        Duration          : 87.02s
+2026-03-23 10:54:44  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/output/keyframes (11 files)
+2026-03-23 10:54:44  INFO      ==================================================
+2026-03-23 10:54:44  INFO      STEP 2: GUI Mapping
+2026-03-23 10:54:44  INFO        Screenshots dir : app_LuxAlarm/utg02/input/artifacts
+2026-03-23 10:54:44  INFO      gui_mapping: matching 11 keyframes against screenshots in "app_LuxAlarm/utg02/input/artifacts"
+2026-03-23 10:54:46  DEBUG     load_screenshots: 25 screenshots loaded in 2.09s from "app_LuxAlarm/utg02/input/artifacts"
+2026-03-23 10:54:48  DEBUG     mapping: best match "artifacts_7.png" (score=0.306)
+2026-03-23 10:54:51  DEBUG     mapping: best match "artifacts_7.png" (score=0.324)
+2026-03-23 10:54:53  DEBUG     mapping: best match "artifacts_7.png" (score=0.320)
+2026-03-23 10:54:56  DEBUG     mapping: best match "artifacts_7.png" (score=0.312)
+2026-03-23 10:54:59  DEBUG     mapping: best match "artifacts_7.png" (score=0.310)
+2026-03-23 10:55:01  DEBUG     mapping: best match "artifacts_7.png" (score=0.311)
+2026-03-23 10:55:04  DEBUG     mapping: best match "artifacts_7.png" (score=0.342)
+2026-03-23 10:55:06  DEBUG     mapping: best match "artifacts_7.png" (score=0.312)
+2026-03-23 10:55:09  DEBUG     mapping: best match "artifacts_7.png" (score=0.310)
+2026-03-23 10:55:11  DEBUG     mapping: best match "artifacts_7.png" (score=0.319)
+2026-03-23 10:55:14  DEBUG     mapping: best match "artifacts_7.png" (score=0.319)
+2026-03-23 10:55:14  INFO      gui_mapping: done — index sequence [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7] (30.29s)
+2026-03-23 10:55:14  INFO        Mapped index sequence : [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7]
+2026-03-23 10:55:14  INFO        Duration              : 30.29s
+2026-03-23 10:55:14  INFO      ==================================================
+2026-03-23 10:55:14  INFO      STEP 3: Find Execution Trace
+2026-03-23 10:55:14  INFO        UTG file : app_LuxAlarm/utg02/input/utg.json
+2026-03-23 10:55:14  INFO      find_execution_trace: target sequence [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7]
+2026-03-23 10:55:14  DEBUG     read_graph: 331 edges, 25 vertices loaded in 0.00s
+=== Run started: Mon Mar 23 12:55:56 EDT 2026 ===
+[1/10] AdAway utg03 HHV
+2026-03-23 12:55:57  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/gifdroid_20260323_125557_hhv.log
+2026-03-23 12:55:57  INFO      GIFdroid started
+2026-03-23 12:55:57  INFO        --video          : app_AdAway/utg03/input/handheld/hhv_app_AdAway.mp4
+2026-03-23 12:55:57  INFO        --utg            : app_AdAway/utg03/input/utg.json
+2026-03-23 12:55:57  INFO        --artifact       : app_AdAway/utg03/input/artifacts
+2026-03-23 12:55:57  INFO        --out            : app_AdAway/utg03/output/execution_hhv_AdAway.json
+2026-03-23 12:55:57  INFO        --log-dir        : None
+2026-03-23 12:55:57  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/output/keyframes
+2026-03-23 12:55:57  INFO      Output already exists, skipping: app_AdAway/utg03/output/execution_hhv_AdAway.json
+[2/10] AntennaPod utg02 HHV
+2026-03-23 12:55:59  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/gifdroid_20260323_125559_hhv.log
+2026-03-23 12:55:59  INFO      GIFdroid started
+2026-03-23 12:55:59  INFO        --video          : app_AntennaPod/utg02/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-23 12:55:59  INFO        --utg            : app_AntennaPod/utg02/input/utg.json
+2026-03-23 12:55:59  INFO        --artifact       : app_AntennaPod/utg02/input/artifacts
+2026-03-23 12:55:59  INFO        --out            : app_AntennaPod/utg02/output/execution_hhv_AntennaPod.json
+2026-03-23 12:55:59  INFO        --log-dir        : None
+2026-03-23 12:55:59  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/output/keyframes
+2026-03-23 12:55:59  INFO      Output already exists, skipping: app_AntennaPod/utg02/output/execution_hhv_AntennaPod.json
+[3/10] AntennaPod utg03 HHV
+2026-03-23 12:56:01  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg03/gifdroid_20260323_125601_hhv.log
+2026-03-23 12:56:01  INFO      GIFdroid started
+2026-03-23 12:56:01  INFO        --video          : app_AntennaPod/utg03/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-23 12:56:01  INFO        --utg            : app_AntennaPod/utg03/input/utg.json
+2026-03-23 12:56:01  INFO        --artifact       : app_AntennaPod/utg03/input/artifacts
+2026-03-23 12:56:01  INFO        --out            : app_AntennaPod/utg03/output/execution_hhv_AntennaPod.json
+2026-03-23 12:56:01  INFO        --log-dir        : None
+2026-03-23 12:56:01  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg03/output/keyframes
+2026-03-23 12:56:01  INFO      Output already exists, skipping: app_AntennaPod/utg03/output/execution_hhv_AntennaPod.json
+[4/10] HomeMedkit utg03 HHV
+=== Run started: Mon Mar 23 13:06:38 EDT 2026 ===
+[1/10] AdAway utg03 HHV
+2026-03-23 13:06:39  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/gifdroid_20260323_130639_hhv.log
+2026-03-23 13:06:39  INFO      GIFdroid started
+2026-03-23 13:06:39  INFO        --video          : app_AdAway/utg03/input/handheld/hhv_app_AdAway.mp4
+2026-03-23 13:06:39  INFO        --utg            : app_AdAway/utg03/input/utg.json
+2026-03-23 13:06:39  INFO        --artifact       : app_AdAway/utg03/input/artifacts
+2026-03-23 13:06:39  INFO        --out            : app_AdAway/utg03/output/execution_hhv_AdAway.json
+2026-03-23 13:06:39  INFO        --log-dir        : None
+2026-03-23 13:06:39  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/output/keyframes
+2026-03-23 13:06:39  INFO      Output already exists, skipping: app_AdAway/utg03/output/execution_hhv_AdAway.json
+[2/10] AntennaPod utg02 HHV
+2026-03-23 13:06:39  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/gifdroid_20260323_130639_hhv.log
+2026-03-23 13:06:39  INFO      GIFdroid started
+2026-03-23 13:06:39  INFO        --video          : app_AntennaPod/utg02/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-23 13:06:39  INFO        --utg            : app_AntennaPod/utg02/input/utg.json
+2026-03-23 13:06:39  INFO        --artifact       : app_AntennaPod/utg02/input/artifacts
+2026-03-23 13:06:39  INFO        --out            : app_AntennaPod/utg02/output/execution_hhv_AntennaPod.json
+2026-03-23 13:06:39  INFO        --log-dir        : None
+2026-03-23 13:06:39  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/output/keyframes
+2026-03-23 13:06:39  INFO      Output already exists, skipping: app_AntennaPod/utg02/output/execution_hhv_AntennaPod.json
+[3/10] AntennaPod utg03 HHV
+2026-03-23 13:06:40  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg03/gifdroid_20260323_130640_hhv.log
+2026-03-23 13:06:40  INFO      GIFdroid started
+2026-03-23 13:06:40  INFO        --video          : app_AntennaPod/utg03/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-23 13:06:40  INFO        --utg            : app_AntennaPod/utg03/input/utg.json
+2026-03-23 13:06:40  INFO        --artifact       : app_AntennaPod/utg03/input/artifacts
+2026-03-23 13:06:40  INFO        --out            : app_AntennaPod/utg03/output/execution_hhv_AntennaPod.json
+2026-03-23 13:06:40  INFO        --log-dir        : None
+2026-03-23 13:06:40  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg03/output/keyframes
+2026-03-23 13:06:40  INFO      Output already exists, skipping: app_AntennaPod/utg03/output/execution_hhv_AntennaPod.json
+[4/10] HomeMedkit utg03 HHV
+2026-03-23 13:06:41  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/gifdroid_20260323_130641_hhv.log
+2026-03-23 13:06:41  INFO      GIFdroid started
+2026-03-23 13:06:41  INFO        --video          : app_HomeMedkit/utg03/input/handheld/hhv_app_HomeMedkit.mp4
+2026-03-23 13:06:41  INFO        --utg            : app_HomeMedkit/utg03/input/utg.json
+2026-03-23 13:06:41  INFO        --artifact       : app_HomeMedkit/utg03/input/artifacts
+2026-03-23 13:06:41  INFO        --out            : app_HomeMedkit/utg03/output/execution_hhv_HomeMedkit.json
+2026-03-23 13:06:41  INFO        --log-dir        : None
+2026-03-23 13:06:41  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/output/keyframes
+2026-03-23 13:06:41  INFO      Output already exists, skipping: app_HomeMedkit/utg03/output/execution_hhv_HomeMedkit.json
+[5/10] Jigsaw utg03 HHV
+2026-03-23 13:06:41  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/gifdroid_20260323_130641_hhv.log
+2026-03-23 13:06:41  INFO      GIFdroid started
+2026-03-23 13:06:41  INFO        --video          : app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4
+2026-03-23 13:06:41  INFO        --utg            : app_Jigsaw/utg03/input/utg.json
+2026-03-23 13:06:41  INFO        --artifact       : app_Jigsaw/utg03/input/artifacts
+2026-03-23 13:06:41  INFO        --out            : app_Jigsaw/utg03/output/execution_hhv_Jigsaw.json
+2026-03-23 13:06:41  INFO        --log-dir        : None
+2026-03-23 13:06:41  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes
+2026-03-23 13:06:41  INFO      Output already exists, skipping: app_Jigsaw/utg03/output/execution_hhv_Jigsaw.json
+[8/10] PortAuthority utg03 HHV
+2026-03-23 13:06:42  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg03/gifdroid_20260323_130642_hhv.log
+2026-03-23 13:06:42  INFO      GIFdroid started
+2026-03-23 13:06:42  INFO        --video          : app_PortAuthority/utg03/input/handheld/hhv_app_PortAuthority.mp4
+2026-03-23 13:06:42  INFO        --utg            : app_PortAuthority/utg03/input/utg.json
+2026-03-23 13:06:42  INFO        --artifact       : app_PortAuthority/utg03/input/artifacts
+2026-03-23 13:06:42  INFO        --out            : app_PortAuthority/utg03/output/execution_hhv_PortAuthority.json
+2026-03-23 13:06:42  INFO        --log-dir        : None
+2026-03-23 13:06:42  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg03/output/keyframes
+2026-03-23 13:06:42  INFO      ==================================================
+2026-03-23 13:06:42  INFO      STEP 1: Keyframe Location
+2026-03-23 13:06:42  INFO        Input video : app_PortAuthority/utg03/input/handheld/hhv_app_PortAuthority.mp4
+2026-03-23 13:06:42  INFO      keyframe_location: starting on video "app_PortAuthority/utg03/input/handheld/hhv_app_PortAuthority.mp4"
+2026-03-23 13:06:48  DEBUG     read_frames_from_video: 882 frames decoded in 6.39s
+2026-03-23 13:08:07  DEBUG     calculate_sim_seq: 881 similarities computed in 79.02s
+2026-03-23 13:08:07  DEBUG     detect_keyframes: 22 keyframes detected from 881 frames in 0.00s
+2026-03-23 13:08:07  INFO      keyframe_location: done — 22 keyframes at indices [50, 118, 155, 181, 296, 429, 465, 490, 509, 577, 590, 614, 639, 657, 689, 720, 788, 815, 820, 827, 869, 874] (85.44s total)
+2026-03-23 13:08:07  INFO        Keyframes found   : 22
+2026-03-23 13:08:07  INFO        Keyframe indices  : [50, 118, 155, 181, 296, 429, 465, 490, 509, 577, 590, 614, 639, 657, 689, 720, 788, 815, 820, 827, 869, 874]
+2026-03-23 13:08:07  INFO        Duration          : 85.67s
+2026-03-23 13:08:09  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg03/output/keyframes (22 files)
+2026-03-23 13:08:09  INFO      ==================================================
+2026-03-23 13:08:09  INFO      STEP 2: GUI Mapping
+2026-03-23 13:08:09  INFO        Screenshots dir : app_PortAuthority/utg03/input/artifacts
+2026-03-23 13:08:09  INFO      gui_mapping: matching 22 keyframes against screenshots in "app_PortAuthority/utg03/input/artifacts"
+2026-03-23 13:08:14  DEBUG     load_screenshots: 63 screenshots loaded in 5.26s from "app_PortAuthority/utg03/input/artifacts"
+2026-03-23 13:08:36  DEBUG     mapping: best match "artifacts_13.png" (score=0.300)
+2026-03-23 13:09:01  DEBUG     mapping: best match "artifacts_63.png" (score=0.252)
+2026-03-23 13:09:29  DEBUG     mapping: best match "artifacts_63.png" (score=0.257)
+2026-03-23 13:09:50  DEBUG     mapping: best match "artifacts_63.png" (score=0.258)
+2026-03-23 13:10:10  DEBUG     mapping: best match "artifacts_63.png" (score=0.248)
+2026-03-23 13:10:32  DEBUG     mapping: best match "artifacts_63.png" (score=0.249)
+2026-03-23 13:10:54  DEBUG     mapping: best match "artifacts_63.png" (score=0.241)
+2026-03-23 13:11:16  DEBUG     mapping: best match "artifacts_63.png" (score=0.241)
+2026-03-23 13:11:40  DEBUG     mapping: best match "artifacts_63.png" (score=0.232)
+2026-03-23 13:12:04  DEBUG     mapping: best match "artifacts_63.png" (score=0.225)
+2026-03-23 13:12:27  DEBUG     mapping: best match "artifacts_63.png" (score=0.228)
+2026-03-23 13:12:48  DEBUG     mapping: best match "artifacts_63.png" (score=0.232)
+2026-03-23 13:13:11  DEBUG     mapping: best match "artifacts_63.png" (score=0.246)
+2026-03-23 13:13:35  DEBUG     mapping: best match "artifacts_63.png" (score=0.246)
+2026-03-23 13:13:58  DEBUG     mapping: best match "artifacts_63.png" (score=0.255)
+2026-03-23 13:14:19  DEBUG     mapping: best match "artifacts_63.png" (score=0.253)

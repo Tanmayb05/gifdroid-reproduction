@@ -1,0 +1,41 @@
+2026-03-23 13:06:42  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg03/gifdroid_20260323_130642_hhv.log
+2026-03-23 13:06:42  INFO      GIFdroid started
+2026-03-23 13:06:42  INFO        --video          : app_PortAuthority/utg03/input/handheld/hhv_app_PortAuthority.mp4
+2026-03-23 13:06:42  INFO        --utg            : app_PortAuthority/utg03/input/utg.json
+2026-03-23 13:06:42  INFO        --artifact       : app_PortAuthority/utg03/input/artifacts
+2026-03-23 13:06:42  INFO        --out            : app_PortAuthority/utg03/output/execution_hhv_PortAuthority.json
+2026-03-23 13:06:42  INFO        --log-dir        : None
+2026-03-23 13:06:42  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg03/output/keyframes
+2026-03-23 13:06:42  INFO      ==================================================
+2026-03-23 13:06:42  INFO      STEP 1: Keyframe Location
+2026-03-23 13:06:42  INFO        Input video : app_PortAuthority/utg03/input/handheld/hhv_app_PortAuthority.mp4
+2026-03-23 13:06:42  INFO      keyframe_location: starting on video "app_PortAuthority/utg03/input/handheld/hhv_app_PortAuthority.mp4"
+2026-03-23 13:06:48  DEBUG     read_frames_from_video: 882 frames decoded in 6.39s
+2026-03-23 13:08:07  DEBUG     calculate_sim_seq: 881 similarities computed in 79.02s
+2026-03-23 13:08:07  DEBUG     detect_keyframes: 22 keyframes detected from 881 frames in 0.00s
+2026-03-23 13:08:07  INFO      keyframe_location: done — 22 keyframes at indices [50, 118, 155, 181, 296, 429, 465, 490, 509, 577, 590, 614, 639, 657, 689, 720, 788, 815, 820, 827, 869, 874] (85.44s total)
+2026-03-23 13:08:07  INFO        Keyframes found   : 22
+2026-03-23 13:08:07  INFO        Keyframe indices  : [50, 118, 155, 181, 296, 429, 465, 490, 509, 577, 590, 614, 639, 657, 689, 720, 788, 815, 820, 827, 869, 874]
+2026-03-23 13:08:07  INFO        Duration          : 85.67s
+2026-03-23 13:08:09  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_PortAuthority/utg03/output/keyframes (22 files)
+2026-03-23 13:08:09  INFO      ==================================================
+2026-03-23 13:08:09  INFO      STEP 2: GUI Mapping
+2026-03-23 13:08:09  INFO        Screenshots dir : app_PortAuthority/utg03/input/artifacts
+2026-03-23 13:08:09  INFO      gui_mapping: matching 22 keyframes against screenshots in "app_PortAuthority/utg03/input/artifacts"
+2026-03-23 13:08:14  DEBUG     load_screenshots: 63 screenshots loaded in 5.26s from "app_PortAuthority/utg03/input/artifacts"
+2026-03-23 13:08:36  DEBUG     mapping: best match "artifacts_13.png" (score=0.300)
+2026-03-23 13:09:01  DEBUG     mapping: best match "artifacts_63.png" (score=0.252)
+2026-03-23 13:09:29  DEBUG     mapping: best match "artifacts_63.png" (score=0.257)
+2026-03-23 13:09:50  DEBUG     mapping: best match "artifacts_63.png" (score=0.258)
+2026-03-23 13:10:10  DEBUG     mapping: best match "artifacts_63.png" (score=0.248)
+2026-03-23 13:10:32  DEBUG     mapping: best match "artifacts_63.png" (score=0.249)
+2026-03-23 13:10:54  DEBUG     mapping: best match "artifacts_63.png" (score=0.241)
+2026-03-23 13:11:16  DEBUG     mapping: best match "artifacts_63.png" (score=0.241)
+2026-03-23 13:11:40  DEBUG     mapping: best match "artifacts_63.png" (score=0.232)
+2026-03-23 13:12:04  DEBUG     mapping: best match "artifacts_63.png" (score=0.225)
+2026-03-23 13:12:27  DEBUG     mapping: best match "artifacts_63.png" (score=0.228)
+2026-03-23 13:12:48  DEBUG     mapping: best match "artifacts_63.png" (score=0.232)
+2026-03-23 13:13:11  DEBUG     mapping: best match "artifacts_63.png" (score=0.246)
+2026-03-23 13:13:35  DEBUG     mapping: best match "artifacts_63.png" (score=0.246)
+2026-03-23 13:13:58  DEBUG     mapping: best match "artifacts_63.png" (score=0.255)
+2026-03-23 13:14:19  DEBUG     mapping: best match "artifacts_63.png" (score=0.253)

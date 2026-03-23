@@ -1,0 +1,48 @@
+2026-03-23 01:35:18  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg02/gifdroid_20260323_013518_srv.log
+2026-03-23 01:35:18  INFO      GIFdroid started
+2026-03-23 01:35:18  INFO        --video          : app_AdAway/utg02/input/screenrec/srv_app_AdAway.mp4
+2026-03-23 01:35:18  INFO        --utg            : app_AdAway/utg02/input/utg.json
+2026-03-23 01:35:18  INFO        --artifact       : app_AdAway/utg02/input/artifacts
+2026-03-23 01:35:18  INFO        --out            : app_AdAway/utg02/output/execution_srv_AdAway.json
+2026-03-23 01:35:18  INFO        --log-dir        : None
+2026-03-23 01:35:18  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg02/output/keyframes
+2026-03-23 01:35:18  INFO      ==================================================
+2026-03-23 01:35:18  INFO      STEP 1: Keyframe Location
+2026-03-23 01:35:18  INFO        Input video : app_AdAway/utg02/input/screenrec/srv_app_AdAway.mp4
+2026-03-23 01:35:18  INFO      keyframe_location: starting on video "app_AdAway/utg02/input/screenrec/srv_app_AdAway.mp4"
+2026-03-23 01:35:26  DEBUG     read_frames_from_video: 772 frames decoded in 7.37s
+2026-03-23 01:36:34  DEBUG     calculate_sim_seq: 771 similarities computed in 68.51s
+2026-03-23 01:36:34  DEBUG     detect_keyframes: 3 keyframes detected from 771 frames in 0.00s
+2026-03-23 01:36:34  INFO      keyframe_location: done — 3 keyframes at indices [11, 52, 771] (75.93s total)
+2026-03-23 01:36:34  INFO        Keyframes found   : 3
+2026-03-23 01:36:34  INFO        Keyframe indices  : [11, 52, 771]
+2026-03-23 01:36:34  INFO        Duration          : 76.16s
+2026-03-23 01:36:34  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg02/output/keyframes (3 files)
+2026-03-23 01:36:34  INFO      ==================================================
+2026-03-23 01:36:34  INFO      STEP 2: GUI Mapping
+2026-03-23 01:36:34  INFO        Screenshots dir : app_AdAway/utg02/input/artifacts
+2026-03-23 01:36:34  INFO      gui_mapping: matching 3 keyframes against screenshots in "app_AdAway/utg02/input/artifacts"
+2026-03-23 01:36:35  DEBUG     load_screenshots: 4 screenshots loaded in 0.54s from "app_AdAway/utg02/input/artifacts"
+2026-03-23 01:36:36  DEBUG     mapping: best match "artifacts_1.png" (score=0.223)
+2026-03-23 01:36:36  DEBUG     mapping: best match "artifacts_3.png" (score=0.332)
+2026-03-23 01:36:36  DEBUG     mapping: best match "artifacts_1.png" (score=0.283)
+2026-03-23 01:36:36  INFO      gui_mapping: done — index sequence [1, 3, 1] (1.91s)
+2026-03-23 01:36:36  INFO        Mapped index sequence : [1, 3, 1]
+2026-03-23 01:36:36  INFO        Duration              : 1.91s
+2026-03-23 01:36:36  INFO      ==================================================
+2026-03-23 01:36:36  INFO      STEP 3: Find Execution Trace
+2026-03-23 01:36:36  INFO        UTG file : app_AdAway/utg02/input/utg.json
+2026-03-23 01:36:36  INFO      find_execution_trace: target sequence [1, 3, 1]
+2026-03-23 01:36:36  DEBUG     read_graph: 5 edges, 4 vertices loaded in 0.00s
+2026-03-23 01:36:36  DEBUG     find_execution_trace: 1 candidate paths found in 0.00s
+2026-03-23 01:36:36  INFO      find_execution_trace: 1 trace(s) found (LCS=1, length=2) in 0.00s
+2026-03-23 01:36:36  INFO        Candidate traces found : 1
+2026-03-23 01:36:36  INFO          Trace 0: [0, 1]
+2026-03-23 01:36:36  INFO        Duration : 0.00s
+2026-03-23 01:36:36  INFO      ==================================================
+2026-03-23 01:36:36  INFO      STEP 4: Store Execution Trace
+2026-03-23 01:36:36  INFO      Execution trace written to: app_AdAway/utg02/output/execution_srv_AdAway.json
+2026-03-23 01:36:36  INFO        Duration : 0.00s
+2026-03-23 01:36:36  INFO      ==================================================
+2026-03-23 01:36:36  INFO      Pipeline complete.  Total time: 78.17s
+2026-03-23 01:36:36  INFO      ==================================================

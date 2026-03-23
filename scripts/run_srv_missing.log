@@ -1,0 +1,437 @@
+=== Run started: Mon Mar 23 01:55:03 EDT 2026 ===
+[1/5] HomeMedkit utg02 SRV
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid/main.py", line 9, in <module>
+    import cv2
+ModuleNotFoundError: No module named 'cv2'
+=== Run started: Mon Mar 23 01:56:41 EDT 2026 ===
+[1/5] HomeMedkit utg02 SRV
+2026-03-23 01:56:42  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/gifdroid_20260323_015642_srv.log
+2026-03-23 01:56:42  INFO      GIFdroid started
+2026-03-23 01:56:42  INFO        --video          : app_HomeMedkit/utg02/input/screenrec/srv_app_HomeMedkit.mp4
+2026-03-23 01:56:42  INFO        --utg            : app_HomeMedkit/utg02/input/utg.json
+2026-03-23 01:56:42  INFO        --artifact       : app_HomeMedkit/utg02/input/artifacts
+2026-03-23 01:56:42  INFO        --out            : app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+2026-03-23 01:56:42  INFO        --log-dir        : None
+2026-03-23 01:56:42  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/output/keyframes
+2026-03-23 01:56:42  INFO      ==================================================
+2026-03-23 01:56:42  INFO      STEP 1: Keyframe Location
+2026-03-23 01:56:42  INFO        Input video : app_HomeMedkit/utg02/input/screenrec/srv_app_HomeMedkit.mp4
+2026-03-23 01:56:42  INFO      keyframe_location: starting on video "app_HomeMedkit/utg02/input/screenrec/srv_app_HomeMedkit.mp4"
+2026-03-23 01:56:49  DEBUG     read_frames_from_video: 777 frames decoded in 7.23s
+2026-03-23 01:57:57  DEBUG     calculate_sim_seq: 776 similarities computed in 67.23s
+2026-03-23 01:57:57  DEBUG     detect_keyframes: 8 keyframes detected from 776 frames in 0.00s
+2026-03-23 01:57:57  INFO      keyframe_location: done — 8 keyframes at indices [15, 47, 281, 371, 400, 517, 585, 776] (74.49s total)
+2026-03-23 01:57:57  INFO        Keyframes found   : 8
+2026-03-23 01:57:57  INFO        Keyframe indices  : [15, 47, 281, 371, 400, 517, 585, 776]
+2026-03-23 01:57:57  INFO        Duration          : 74.74s
+2026-03-23 01:57:57  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/output/keyframes (8 files)
+2026-03-23 01:57:57  INFO      ==================================================
+2026-03-23 01:57:57  INFO      STEP 2: GUI Mapping
+2026-03-23 01:57:57  INFO        Screenshots dir : app_HomeMedkit/utg02/input/artifacts
+2026-03-23 01:57:57  INFO      gui_mapping: matching 8 keyframes against screenshots in "app_HomeMedkit/utg02/input/artifacts"
+2026-03-23 01:58:01  DEBUG     load_screenshots: 80 screenshots loaded in 3.79s from "app_HomeMedkit/utg02/input/artifacts"
+2026-03-23 01:58:09  DEBUG     mapping: best match "artifacts_75.png" (score=0.275)
+2026-03-23 01:58:16  DEBUG     mapping: best match "artifacts_18.png" (score=0.371)
+2026-03-23 01:58:24  DEBUG     mapping: best match "artifacts_19.png" (score=0.433)
+2026-03-23 01:58:32  DEBUG     mapping: best match "artifacts_18.png" (score=0.437)
+2026-03-23 01:58:40  DEBUG     mapping: best match "artifacts_19.png" (score=0.442)
+2026-03-23 01:58:48  DEBUG     mapping: best match "artifacts_19.png" (score=0.439)
+2026-03-23 01:58:55  DEBUG     mapping: best match "artifacts_26.png" (score=0.470)
+2026-03-23 01:59:03  DEBUG     mapping: best match "artifacts_3.png" (score=0.486)
+2026-03-23 01:59:03  INFO      gui_mapping: done — index sequence [75, 18, 19, 18, 19, 19, 26, 3] (65.80s)
+2026-03-23 01:59:03  INFO        Mapped index sequence : [75, 18, 19, 18, 19, 19, 26, 3]
+2026-03-23 01:59:03  INFO        Duration              : 65.80s
+2026-03-23 01:59:03  INFO      ==================================================
+2026-03-23 01:59:03  INFO      STEP 3: Find Execution Trace
+2026-03-23 01:59:03  INFO        UTG file : app_HomeMedkit/utg02/input/utg.json
+2026-03-23 01:59:03  INFO      find_execution_trace: target sequence [75, 18, 19, 18, 19, 19, 26, 3]
+2026-03-23 01:59:03  DEBUG     read_graph: 298 edges, 80 vertices loaded in 0.00s
+2026-03-23 01:59:05  DEBUG     find_execution_trace: 52482 candidate paths found in 1.77s
+2026-03-23 01:59:10  INFO      find_execution_trace: 1 trace(s) found (LCS=3, length=15) in 7.15s
+2026-03-23 01:59:10  INFO        Candidate traces found : 1
+2026-03-23 01:59:10  INFO          Trace 0: [0, 1, 2, 34, 35, 65, 74, 75, 58, 49, 20, 19, 21, 4, 3]
+2026-03-23 01:59:10  INFO        Duration : 7.15s
+2026-03-23 01:59:10  INFO      ==================================================
+2026-03-23 01:59:10  INFO      STEP 4: Store Execution Trace
+2026-03-23 01:59:10  INFO      Execution trace written to: app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+2026-03-23 01:59:10  INFO        Duration : 0.00s
+2026-03-23 01:59:10  INFO      ==================================================
+2026-03-23 01:59:10  INFO      Pipeline complete.  Total time: 147.91s
+2026-03-23 01:59:10  INFO      ==================================================
+[2/5] Jigsaw utg03 SRV
+2026-03-23 01:59:11  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/gifdroid_20260323_015911_srv.log
+2026-03-23 01:59:11  INFO      GIFdroid started
+2026-03-23 01:59:11  INFO        --video          : app_Jigsaw/utg03/input/screenrec/srv_app_Jigsaw.mp4
+2026-03-23 01:59:11  INFO        --utg            : app_Jigsaw/utg03/input/utg.json
+2026-03-23 01:59:11  INFO        --artifact       : app_Jigsaw/utg03/input/artifacts
+2026-03-23 01:59:11  INFO        --out            : app_Jigsaw/utg03/output/execution_srv_Jigsaw.json
+2026-03-23 01:59:11  INFO        --log-dir        : None
+2026-03-23 01:59:11  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes
+2026-03-23 01:59:11  INFO      ==================================================
+2026-03-23 01:59:11  INFO      STEP 1: Keyframe Location
+2026-03-23 01:59:11  INFO        Input video : app_Jigsaw/utg03/input/screenrec/srv_app_Jigsaw.mp4
+2026-03-23 01:59:11  INFO      keyframe_location: starting on video "app_Jigsaw/utg03/input/screenrec/srv_app_Jigsaw.mp4"
+2026-03-23 01:59:19  DEBUG     read_frames_from_video: 1025 frames decoded in 7.94s
+2026-03-23 02:00:46  DEBUG     calculate_sim_seq: 1024 similarities computed in 87.65s
+2026-03-23 02:00:46  DEBUG     detect_keyframes: 6 keyframes detected from 1024 frames in 0.00s
+2026-03-23 02:00:46  INFO      keyframe_location: done — 6 keyframes at indices [15, 31, 67, 97, 470, 1024] (95.63s total)
+2026-03-23 02:00:47  INFO        Keyframes found   : 6
+2026-03-23 02:00:47  INFO        Keyframe indices  : [15, 31, 67, 97, 470, 1024]
+2026-03-23 02:00:47  INFO        Duration          : 95.93s
+2026-03-23 02:00:47  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes (6 files)
+2026-03-23 02:00:47  INFO      ==================================================
+2026-03-23 02:00:47  INFO      STEP 2: GUI Mapping
+2026-03-23 02:00:47  INFO        Screenshots dir : app_Jigsaw/utg03/input/artifacts
+2026-03-23 02:00:47  INFO      gui_mapping: matching 6 keyframes against screenshots in "app_Jigsaw/utg03/input/artifacts"
+2026-03-23 02:00:47  DEBUG     load_screenshots: 3 screenshots loaded in 0.22s from "app_Jigsaw/utg03/input/artifacts"
+2026-03-23 02:00:47  DEBUG     mapping: best match "artifacts_1.png" (score=0.224)
+2026-03-23 02:00:48  DEBUG     mapping: best match "artifacts_2.png" (score=0.391)
+2026-03-23 02:00:48  DEBUG     mapping: best match "artifacts_1.png" (score=0.360)
+2026-03-23 02:00:48  DEBUG     mapping: best match "artifacts_1.png" (score=0.389)
+2026-03-23 02:00:48  DEBUG     mapping: best match "artifacts_2.png" (score=0.428)
+2026-03-23 02:00:49  DEBUG     mapping: best match "artifacts_2.png" (score=0.410)
+2026-03-23 02:00:49  INFO      gui_mapping: done — index sequence [1, 2, 1, 1, 2, 2] (1.68s)
+2026-03-23 02:00:49  INFO        Mapped index sequence : [1, 2, 1, 1, 2, 2]
+2026-03-23 02:00:49  INFO        Duration              : 1.68s
+2026-03-23 02:00:49  INFO      ==================================================
+2026-03-23 02:00:49  INFO      STEP 3: Find Execution Trace
+2026-03-23 02:00:49  INFO        UTG file : app_Jigsaw/utg03/input/utg.json
+2026-03-23 02:00:49  INFO      find_execution_trace: target sequence [1, 2, 1, 1, 2, 2]
+2026-03-23 02:00:49  DEBUG     read_graph: 2 edges, 2 vertices loaded in 0.00s
+2026-03-23 02:00:49  DEBUG     find_execution_trace: 0 candidate paths found in 0.00s
+2026-03-23 02:00:49  WARNING   find_execution_trace: no paths found from node 0 to screen 2 in the UTG (sequence=[1, 2, 1, 1, 2, 2]). Returning empty trace. (0.00s)
+2026-03-23 02:00:49  INFO        Candidate traces found : 0
+2026-03-23 02:00:49  INFO        Duration : 0.00s
+2026-03-23 02:00:49  INFO      ==================================================
+2026-03-23 02:00:49  INFO      STEP 4: Store Execution Trace
+2026-03-23 02:00:49  INFO      Execution trace written to: app_Jigsaw/utg03/output/execution_srv_Jigsaw.json
+2026-03-23 02:00:49  INFO        Duration : 0.00s
+2026-03-23 02:00:49  INFO      ==================================================
+2026-03-23 02:00:49  INFO      Pipeline complete.  Total time: 97.76s
+2026-03-23 02:00:49  INFO      ==================================================
+[3/5] LuxAlarm utg02 SRV
+2026-03-23 02:00:49  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/gifdroid_20260323_020049_srv.log
+2026-03-23 02:00:49  INFO      GIFdroid started
+2026-03-23 02:00:49  INFO        --video          : app_LuxAlarm/utg02/input/screenrec/srv_app_LuxAlarm.mp4
+2026-03-23 02:00:49  INFO        --utg            : app_LuxAlarm/utg02/input/utg.json
+2026-03-23 02:00:49  INFO        --artifact       : app_LuxAlarm/utg02/input/artifacts
+2026-03-23 02:00:49  INFO        --out            : app_LuxAlarm/utg02/output/execution_srv_LuxAlarm.json
+2026-03-23 02:00:49  INFO        --log-dir        : None
+2026-03-23 02:00:49  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/output/keyframes
+2026-03-23 02:00:49  INFO      ==================================================
+2026-03-23 02:00:49  INFO      STEP 1: Keyframe Location
+2026-03-23 02:00:49  INFO        Input video : app_LuxAlarm/utg02/input/screenrec/srv_app_LuxAlarm.mp4
+2026-03-23 02:00:49  INFO      keyframe_location: starting on video "app_LuxAlarm/utg02/input/screenrec/srv_app_LuxAlarm.mp4"
+2026-03-23 02:00:55  DEBUG     read_frames_from_video: 714 frames decoded in 5.23s
+2026-03-23 02:01:57  DEBUG     calculate_sim_seq: 713 similarities computed in 61.91s
+2026-03-23 02:01:57  DEBUG     detect_keyframes: 8 keyframes detected from 713 frames in 0.00s
+2026-03-23 02:01:57  INFO      keyframe_location: done — 8 keyframes at indices [3, 40, 81, 433, 477, 555, 682, 713] (67.18s total)
+2026-03-23 02:01:57  INFO        Keyframes found   : 8
+2026-03-23 02:01:57  INFO        Keyframe indices  : [3, 40, 81, 433, 477, 555, 682, 713]
+2026-03-23 02:01:57  INFO        Duration          : 67.37s
+2026-03-23 02:01:57  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/output/keyframes (8 files)
+2026-03-23 02:01:57  INFO      ==================================================
+2026-03-23 02:01:57  INFO      STEP 2: GUI Mapping
+2026-03-23 02:01:57  INFO        Screenshots dir : app_LuxAlarm/utg02/input/artifacts
+2026-03-23 02:01:57  INFO      gui_mapping: matching 8 keyframes against screenshots in "app_LuxAlarm/utg02/input/artifacts"
+2026-03-23 02:01:58  DEBUG     load_screenshots: 25 screenshots loaded in 1.20s from "app_LuxAlarm/utg02/input/artifacts"
+2026-03-23 02:02:01  DEBUG     mapping: best match "artifacts_6.png" (score=0.223)
+2026-03-23 02:02:03  DEBUG     mapping: best match "artifacts_6.png" (score=0.226)
+2026-03-23 02:02:06  DEBUG     mapping: best match "artifacts_6.png" (score=0.224)
+2026-03-23 02:02:08  DEBUG     mapping: best match "artifacts_10.png" (score=0.605)
+2026-03-23 02:02:11  DEBUG     mapping: best match "artifacts_2.png" (score=0.456)
+2026-03-23 02:02:13  DEBUG     mapping: best match "artifacts_2.png" (score=0.453)
+2026-03-23 02:02:15  DEBUG     mapping: best match "artifacts_2.png" (score=0.461)
+2026-03-23 02:02:18  DEBUG     mapping: best match "artifacts_17.png" (score=0.599)
+2026-03-23 02:02:18  INFO      gui_mapping: done — index sequence [6, 6, 6, 10, 2, 2, 2, 17] (20.93s)
+2026-03-23 02:02:18  INFO        Mapped index sequence : [6, 6, 6, 10, 2, 2, 2, 17]
+2026-03-23 02:02:18  INFO        Duration              : 20.93s
+2026-03-23 02:02:18  INFO      ==================================================
+2026-03-23 02:02:18  INFO      STEP 3: Find Execution Trace
+2026-03-23 02:02:18  INFO        UTG file : app_LuxAlarm/utg02/input/utg.json
+2026-03-23 02:02:18  INFO      find_execution_trace: target sequence [6, 6, 6, 10, 2, 2, 2, 17]
+2026-03-23 02:02:18  DEBUG     read_graph: 331 edges, 25 vertices loaded in 0.00s
+scripts/run_srv_missing.sh: line 31: 46088 Killed: 9               python -m gifdroid.main --video app_LuxAlarm/utg02/input/screenrec/srv_app_LuxAlarm.mp4 --utg app_LuxAlarm/utg02/input/utg.json --artifact app_LuxAlarm/utg02/input/artifacts --out app_LuxAlarm/utg02/output/execution_srv_LuxAlarm.json
+=== Run started: Mon Mar 23 12:20:49 EDT 2026 ===
+[1/5] HomeMedkit utg02 SRV
+2026-03-23 12:20:51  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/gifdroid_20260323_122051_srv.log
+2026-03-23 12:20:51  INFO      GIFdroid started
+2026-03-23 12:20:51  INFO        --video          : app_HomeMedkit/utg02/input/screenrec/srv_app_HomeMedkit.mp4
+2026-03-23 12:20:51  INFO        --utg            : app_HomeMedkit/utg02/input/utg.json
+2026-03-23 12:20:51  INFO        --artifact       : app_HomeMedkit/utg02/input/artifacts
+2026-03-23 12:20:51  INFO        --out            : app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+2026-03-23 12:20:51  INFO        --log-dir        : None
+2026-03-23 12:20:51  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/output/keyframes
+2026-03-23 12:20:51  INFO      Output already exists, skipping: app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+[2/5] Jigsaw utg03 SRV
+2026-03-23 12:20:52  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/gifdroid_20260323_122052_srv.log
+2026-03-23 12:20:52  INFO      GIFdroid started
+2026-03-23 12:20:52  INFO        --video          : app_Jigsaw/utg03/input/screenrec/srv_app_Jigsaw.mp4
+2026-03-23 12:20:52  INFO        --utg            : app_Jigsaw/utg03/input/utg.json
+2026-03-23 12:20:52  INFO        --artifact       : app_Jigsaw/utg03/input/artifacts
+2026-03-23 12:20:52  INFO        --out            : app_Jigsaw/utg03/output/execution_srv_Jigsaw.json
+2026-03-23 12:20:52  INFO        --log-dir        : None
+2026-03-23 12:20:52  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes
+2026-03-23 12:20:52  INFO      Output already exists, skipping: app_Jigsaw/utg03/output/execution_srv_Jigsaw.json
+[3/5] LuxAlarm utg02 SRV
+2026-03-23 12:20:52  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/gifdroid_20260323_122052_srv.log
+2026-03-23 12:20:52  INFO      GIFdroid started
+2026-03-23 12:20:52  INFO        --video          : app_LuxAlarm/utg02/input/screenrec/srv_app_LuxAlarm.mp4
+2026-03-23 12:20:52  INFO        --utg            : app_LuxAlarm/utg02/input/utg.json
+2026-03-23 12:20:52  INFO        --artifact       : app_LuxAlarm/utg02/input/artifacts
+2026-03-23 12:20:52  INFO        --out            : app_LuxAlarm/utg02/output/execution_srv_LuxAlarm.json
+2026-03-23 12:20:52  INFO        --log-dir        : None
+2026-03-23 12:20:52  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg02/output/keyframes
+2026-03-23 12:20:52  INFO      ==================================================
+2026-03-23 12:20:52  INFO      STEP 1: Keyframe Location
+2026-03-23 12:20:52  INFO        Input video : app_LuxAlarm/utg02/input/screenrec/srv_app_LuxAlarm.mp4
+2026-03-23 12:20:52  INFO      keyframe_location: starting on video "app_LuxAlarm/utg02/input/screenrec/srv_app_LuxAlarm.mp4"
+2026-03-23 12:20:58  DEBUG     read_frames_from_video: 714 frames decoded in 5.51s
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/gifdroid/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/gifdroid/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid/main.py", line 268, in <module>
+    main(args.video, args.artifact, args.utg, logger, keyframes_dir=keyframes_dir, keyframes_prefix=keyframes_prefix)
+  File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid/main.py", line 156, in main
+    keyframe_sequence, keyframe_index = keyframe_location(video)
+  File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid/location.py", line 115, in keyframe_location
+    sim_list = calculate_sim_seq(y_frames)
+  File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid/location.py", line 50, in calculate_sim_seq
+    sim = ssim(frame_list[i], frame_list[i + 1])
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/gifdroid/lib/python3.6/site-packages/skimage/metrics/_structural_similarity.py", line 206, in structural_similarity
+    vx + vy + C2))
+KeyboardInterrupt
+=== Run started: Mon Mar 23 12:21:49 EDT 2026 ===
+[1/5] HomeMedkit utg02 SRV
+2026-03-23 12:21:49  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/gifdroid_20260323_122149_srv.log
+2026-03-23 12:21:49  INFO      GIFdroid started
+2026-03-23 12:21:49  INFO        --video          : app_HomeMedkit/utg02/input/screenrec/srv_app_HomeMedkit.mp4
+2026-03-23 12:21:49  INFO        --utg            : app_HomeMedkit/utg02/input/utg.json
+2026-03-23 12:21:49  INFO        --artifact       : app_HomeMedkit/utg02/input/artifacts
+2026-03-23 12:21:49  INFO        --out            : app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+2026-03-23 12:21:49  INFO        --log-dir        : None
+2026-03-23 12:21:49  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/output/keyframes
+2026-03-23 12:21:49  INFO      Output already exists, skipping: app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+[2/5] Jigsaw utg03 SRV
+2026-03-23 12:21:50  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/gifdroid_20260323_122150_srv.log
+2026-03-23 12:21:50  INFO      GIFdroid started
+2026-03-23 12:21:50  INFO        --video          : app_Jigsaw/utg03/input/screenrec/srv_app_Jigsaw.mp4
+2026-03-23 12:21:50  INFO        --utg            : app_Jigsaw/utg03/input/utg.json
+2026-03-23 12:21:50  INFO        --artifact       : app_Jigsaw/utg03/input/artifacts
+2026-03-23 12:21:50  INFO        --out            : app_Jigsaw/utg03/output/execution_srv_Jigsaw.json
+2026-03-23 12:21:50  INFO        --log-dir        : None
+2026-03-23 12:21:50  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes
+2026-03-23 12:21:50  INFO      Output already exists, skipping: app_Jigsaw/utg03/output/execution_srv_Jigsaw.json
+[4/5] LuxAlarm utg03 SRV
+2026-03-23 12:21:51  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg03/gifdroid_20260323_122151_srv.log
+2026-03-23 12:21:51  INFO      GIFdroid started
+2026-03-23 12:21:51  INFO        --video          : app_LuxAlarm/utg03/input/screenrec/srv_app_LuxAlarm.mp4
+2026-03-23 12:21:51  INFO        --utg            : app_LuxAlarm/utg03/input/utg.json
+2026-03-23 12:21:51  INFO        --artifact       : app_LuxAlarm/utg03/input/artifacts
+2026-03-23 12:21:51  INFO        --out            : app_LuxAlarm/utg03/output/execution_srv_LuxAlarm.json
+2026-03-23 12:21:51  INFO        --log-dir        : None
+2026-03-23 12:21:51  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg03/output/keyframes
+2026-03-23 12:21:51  INFO      ==================================================
+2026-03-23 12:21:51  INFO      STEP 1: Keyframe Location
+2026-03-23 12:21:51  INFO        Input video : app_LuxAlarm/utg03/input/screenrec/srv_app_LuxAlarm.mp4
+2026-03-23 12:21:51  INFO      keyframe_location: starting on video "app_LuxAlarm/utg03/input/screenrec/srv_app_LuxAlarm.mp4"
+2026-03-23 12:21:56  DEBUG     read_frames_from_video: 714 frames decoded in 5.84s
+2026-03-23 12:22:58  DEBUG     calculate_sim_seq: 713 similarities computed in 61.50s
+2026-03-23 12:22:58  DEBUG     detect_keyframes: 8 keyframes detected from 713 frames in 0.00s
+2026-03-23 12:22:58  INFO      keyframe_location: done — 8 keyframes at indices [3, 40, 81, 433, 477, 555, 682, 713] (67.38s total)
+2026-03-23 12:22:58  INFO        Keyframes found   : 8
+2026-03-23 12:22:58  INFO        Keyframe indices  : [3, 40, 81, 433, 477, 555, 682, 713]
+2026-03-23 12:22:58  INFO        Duration          : 67.55s
+2026-03-23 12:22:58  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_LuxAlarm/utg03/output/keyframes (8 files)
+2026-03-23 12:22:58  INFO      ==================================================
+2026-03-23 12:22:58  INFO      STEP 2: GUI Mapping
+2026-03-23 12:22:58  INFO        Screenshots dir : app_LuxAlarm/utg03/input/artifacts
+2026-03-23 12:22:58  INFO      gui_mapping: matching 8 keyframes against screenshots in "app_LuxAlarm/utg03/input/artifacts"
+2026-03-23 12:23:01  DEBUG     load_screenshots: 23 screenshots loaded in 2.40s from "app_LuxAlarm/utg03/input/artifacts"
+2026-03-23 12:23:09  DEBUG     mapping: best match "artifacts_6.png" (score=0.223)
+2026-03-23 12:23:17  DEBUG     mapping: best match "artifacts_6.png" (score=0.226)
+2026-03-23 12:23:25  DEBUG     mapping: best match "artifacts_6.png" (score=0.224)
+2026-03-23 12:23:32  DEBUG     mapping: best match "artifacts_17.png" (score=0.616)
+2026-03-23 12:23:41  DEBUG     mapping: best match "artifacts_2.png" (score=0.456)
+2026-03-23 12:23:49  DEBUG     mapping: best match "artifacts_2.png" (score=0.453)
+2026-03-23 12:23:59  DEBUG     mapping: best match "artifacts_2.png" (score=0.461)
+2026-03-23 12:24:12  DEBUG     mapping: best match "artifacts_17.png" (score=0.611)
+2026-03-23 12:24:12  INFO      gui_mapping: done — index sequence [6, 6, 6, 17, 2, 2, 2, 17] (73.24s)
+2026-03-23 12:24:12  INFO        Mapped index sequence : [6, 6, 6, 17, 2, 2, 2, 17]
+2026-03-23 12:24:12  INFO        Duration              : 73.25s
+2026-03-23 12:24:12  INFO      ==================================================
+2026-03-23 12:24:12  INFO      STEP 3: Find Execution Trace
+2026-03-23 12:24:12  INFO        UTG file : app_LuxAlarm/utg03/input/utg.json
+2026-03-23 12:24:12  INFO      find_execution_trace: target sequence [6, 6, 6, 17, 2, 2, 2, 17]
+2026-03-23 12:24:12  DEBUG     read_graph: 273 edges, 22 vertices loaded in 0.00s
+=== Run started: Mon Mar 23 12:55:51 EDT 2026 ===
+[1/5] HomeMedkit utg02 SRV
+2026-03-23 12:55:52  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/gifdroid_20260323_125552_srv.log
+2026-03-23 12:55:52  INFO      GIFdroid started
+2026-03-23 12:55:52  INFO        --video          : app_HomeMedkit/utg02/input/screenrec/srv_app_HomeMedkit.mp4
+2026-03-23 12:55:52  INFO        --utg            : app_HomeMedkit/utg02/input/utg.json
+2026-03-23 12:55:52  INFO        --artifact       : app_HomeMedkit/utg02/input/artifacts
+2026-03-23 12:55:52  INFO        --out            : app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+2026-03-23 12:55:52  INFO        --log-dir        : None
+2026-03-23 12:55:52  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/output/keyframes
+2026-03-23 12:55:52  INFO      Output already exists, skipping: app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+[2/5] Jigsaw utg03 SRV
+2026-03-23 12:55:53  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/gifdroid_20260323_125553_srv.log
+2026-03-23 12:55:53  INFO      GIFdroid started
+2026-03-23 12:55:53  INFO        --video          : app_Jigsaw/utg03/input/screenrec/srv_app_Jigsaw.mp4
+2026-03-23 12:55:53  INFO        --utg            : app_Jigsaw/utg03/input/utg.json
+2026-03-23 12:55:53  INFO        --artifact       : app_Jigsaw/utg03/input/artifacts
+2026-03-23 12:55:53  INFO        --out            : app_Jigsaw/utg03/output/execution_srv_Jigsaw.json
+2026-03-23 12:55:53  INFO        --log-dir        : None
+2026-03-23 12:55:53  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes
+2026-03-23 12:55:53  INFO      Output already exists, skipping: app_Jigsaw/utg03/output/execution_srv_Jigsaw.json
+[5/5] SimpleNotes utg01 SRV
+2026-03-23 12:55:53  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg01/gifdroid_20260323_125553_srv.log
+2026-03-23 12:55:53  INFO      GIFdroid started
+2026-03-23 12:55:53  INFO        --video          : app_SimpleNotes/utg01/input/screenrec/srv_app_SimpleNotes.mp4
+2026-03-23 12:55:53  INFO        --utg            : app_SimpleNotes/utg01/input/utg.json
+2026-03-23 12:55:53  INFO        --artifact       : app_SimpleNotes/utg01/input/artifacts
+2026-03-23 12:55:53  INFO        --out            : app_SimpleNotes/utg01/output/execution_srv_SimpleNotes.json
+2026-03-23 12:55:53  INFO        --log-dir        : None
+2026-03-23 12:55:53  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg01/output/keyframes
+2026-03-23 12:55:53  INFO      ==================================================
+2026-03-23 12:55:53  INFO      STEP 1: Keyframe Location
+2026-03-23 12:55:53  INFO        Input video : app_SimpleNotes/utg01/input/screenrec/srv_app_SimpleNotes.mp4
+2026-03-23 12:55:53  INFO      keyframe_location: starting on video "app_SimpleNotes/utg01/input/screenrec/srv_app_SimpleNotes.mp4"
+2026-03-23 12:55:59  DEBUG     read_frames_from_video: 473 frames decoded in 5.53s
+=== Run started: Mon Mar 23 13:00:40 EDT 2026 ===
+[1/5] HomeMedkit utg02 SRV
+2026-03-23 13:00:41  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/gifdroid_20260323_130041_srv.log
+2026-03-23 13:00:41  INFO      GIFdroid started
+2026-03-23 13:00:41  INFO        --video          : app_HomeMedkit/utg02/input/screenrec/srv_app_HomeMedkit.mp4
+2026-03-23 13:00:41  INFO        --utg            : app_HomeMedkit/utg02/input/utg.json
+2026-03-23 13:00:41  INFO        --artifact       : app_HomeMedkit/utg02/input/artifacts
+2026-03-23 13:00:41  INFO        --out            : app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+2026-03-23 13:00:41  INFO        --log-dir        : None
+2026-03-23 13:00:41  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/output/keyframes
+2026-03-23 13:00:41  INFO      Output already exists, skipping: app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+[2/5] Jigsaw utg03 SRV
+2026-03-23 13:00:42  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/gifdroid_20260323_130042_srv.log
+2026-03-23 13:00:42  INFO      GIFdroid started
+2026-03-23 13:00:42  INFO        --video          : app_Jigsaw/utg03/input/screenrec/srv_app_Jigsaw.mp4
+2026-03-23 13:00:42  INFO        --utg            : app_Jigsaw/utg03/input/utg.json
+2026-03-23 13:00:42  INFO        --artifact       : app_Jigsaw/utg03/input/artifacts
+2026-03-23 13:00:42  INFO        --out            : app_Jigsaw/utg03/output/execution_srv_Jigsaw.json
+2026-03-23 13:00:42  INFO        --log-dir        : None
+2026-03-23 13:00:42  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes
+2026-03-23 13:00:42  INFO      Output already exists, skipping: app_Jigsaw/utg03/output/execution_srv_Jigsaw.json
+[5/5] SimpleNotes utg01 SRV
+2026-03-23 13:00:43  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg01/gifdroid_20260323_130043_srv.log
+2026-03-23 13:00:43  INFO      GIFdroid started
+2026-03-23 13:00:43  INFO        --video          : app_SimpleNotes/utg01/input/screenrec/srv_app_SimpleNotes.mp4
+2026-03-23 13:00:43  INFO        --utg            : app_SimpleNotes/utg01/input/utg.json
+2026-03-23 13:00:43  INFO        --artifact       : app_SimpleNotes/utg01/input/artifacts
+2026-03-23 13:00:43  INFO        --out            : app_SimpleNotes/utg01/output/execution_srv_SimpleNotes.json
+2026-03-23 13:00:43  INFO        --log-dir        : None
+2026-03-23 13:00:43  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg01/output/keyframes
+2026-03-23 13:00:43  INFO      ==================================================
+2026-03-23 13:00:43  INFO      STEP 1: Keyframe Location
+2026-03-23 13:00:43  INFO        Input video : app_SimpleNotes/utg01/input/screenrec/srv_app_SimpleNotes.mp4
+2026-03-23 13:00:43  INFO      keyframe_location: starting on video "app_SimpleNotes/utg01/input/screenrec/srv_app_SimpleNotes.mp4"
+2026-03-23 13:00:46  DEBUG     read_frames_from_video: 473 frames decoded in 3.54s
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/gifdroid/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/gifdroid/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid/main.py", line 268, in <module>
+    main(args.video, args.artifact, args.utg, logger, keyframes_dir=keyframes_dir, keyframes_prefix=keyframes_prefix)
+  File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid/main.py", line 156, in main
+    keyframe_sequence, keyframe_index = keyframe_location(video)
+  File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid/location.py", line 115, in keyframe_location
+    sim_list = calculate_sim_seq(y_frames)
+  File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid/location.py", line 50, in calculate_sim_seq
+    sim = ssim(frame_list[i], frame_list[i + 1])
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/gifdroid/lib/python3.6/site-packages/skimage/metrics/_structural_similarity.py", line 192, in structural_similarity
+    uxx = filter_func(im1 * im1, **filter_args)
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/gifdroid/lib/python3.6/site-packages/scipy/ndimage/filters.py", line 900, in uniform_filter
+    cval, origin)
+  File "/opt/homebrew/Caskroom/miniforge/base/envs/gifdroid/lib/python3.6/site-packages/scipy/ndimage/filters.py", line 841, in uniform_filter1d
+    origin)
+KeyboardInterrupt
+=== Run started: Mon Mar 23 13:01:47 EDT 2026 ===
+[1/5] HomeMedkit utg02 SRV
+2026-03-23 13:01:48  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/gifdroid_20260323_130148_srv.log
+2026-03-23 13:01:48  INFO      GIFdroid started
+2026-03-23 13:01:48  INFO        --video          : app_HomeMedkit/utg02/input/screenrec/srv_app_HomeMedkit.mp4
+2026-03-23 13:01:48  INFO        --utg            : app_HomeMedkit/utg02/input/utg.json
+2026-03-23 13:01:48  INFO        --artifact       : app_HomeMedkit/utg02/input/artifacts
+2026-03-23 13:01:48  INFO        --out            : app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+2026-03-23 13:01:48  INFO        --log-dir        : None
+2026-03-23 13:01:48  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/output/keyframes
+2026-03-23 13:01:48  INFO      Output already exists, skipping: app_HomeMedkit/utg02/output/execution_srv_HomeMedkit.json
+[2/5] Jigsaw utg03 SRV
+2026-03-23 13:01:48  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/gifdroid_20260323_130148_srv.log
+2026-03-23 13:01:48  INFO      GIFdroid started
+2026-03-23 13:01:48  INFO        --video          : app_Jigsaw/utg03/input/screenrec/srv_app_Jigsaw.mp4
+2026-03-23 13:01:48  INFO        --utg            : app_Jigsaw/utg03/input/utg.json
+2026-03-23 13:01:48  INFO        --artifact       : app_Jigsaw/utg03/input/artifacts
+2026-03-23 13:01:48  INFO        --out            : app_Jigsaw/utg03/output/execution_srv_Jigsaw.json
+2026-03-23 13:01:48  INFO        --log-dir        : None
+2026-03-23 13:01:48  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes
+2026-03-23 13:01:48  INFO      Output already exists, skipping: app_Jigsaw/utg03/output/execution_srv_Jigsaw.json
+[5/5] SimpleNotes utg01 SRV
+2026-03-23 13:01:49  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg01/gifdroid_20260323_130149_srv.log
+2026-03-23 13:01:49  INFO      GIFdroid started
+2026-03-23 13:01:49  INFO        --video          : app_SimpleNotes/utg01/input/screenrec/srv_app_SimpleNotes.mp4
+2026-03-23 13:01:49  INFO        --utg            : app_SimpleNotes/utg01/input/utg.json
+2026-03-23 13:01:49  INFO        --artifact       : app_SimpleNotes/utg01/input/artifacts
+2026-03-23 13:01:49  INFO        --out            : app_SimpleNotes/utg01/output/execution_srv_SimpleNotes.json
+2026-03-23 13:01:49  INFO        --log-dir        : None
+2026-03-23 13:01:49  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg01/output/keyframes
+2026-03-23 13:01:49  INFO      ==================================================
+2026-03-23 13:01:49  INFO      STEP 1: Keyframe Location
+2026-03-23 13:01:49  INFO        Input video : app_SimpleNotes/utg01/input/screenrec/srv_app_SimpleNotes.mp4
+2026-03-23 13:01:49  INFO      keyframe_location: starting on video "app_SimpleNotes/utg01/input/screenrec/srv_app_SimpleNotes.mp4"
+2026-03-23 13:01:52  DEBUG     read_frames_from_video: 473 frames decoded in 3.33s
+2026-03-23 13:02:33  DEBUG     calculate_sim_seq: 472 similarities computed in 41.13s
+2026-03-23 13:02:33  DEBUG     detect_keyframes: 7 keyframes detected from 472 frames in 0.00s
+2026-03-23 13:02:33  INFO      keyframe_location: done — 7 keyframes at indices [10, 46, 76, 337, 343, 450, 472] (44.48s total)
+2026-03-23 13:02:33  INFO        Keyframes found   : 7
+2026-03-23 13:02:33  INFO        Keyframe indices  : [10, 46, 76, 337, 343, 450, 472]
+2026-03-23 13:02:33  INFO        Duration          : 44.57s
+2026-03-23 13:02:34  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg01/output/keyframes (7 files)
+2026-03-23 13:02:34  INFO      ==================================================
+2026-03-23 13:02:34  INFO      STEP 2: GUI Mapping
+2026-03-23 13:02:34  INFO        Screenshots dir : app_SimpleNotes/utg01/input/artifacts
+2026-03-23 13:02:34  INFO      gui_mapping: matching 7 keyframes against screenshots in "app_SimpleNotes/utg01/input/artifacts"
+2026-03-23 13:02:37  DEBUG     load_screenshots: 47 screenshots loaded in 3.79s from "app_SimpleNotes/utg01/input/artifacts"
+2026-03-23 13:02:42  DEBUG     mapping: best match "artifacts_45.png" (score=0.223)
+2026-03-23 13:02:47  DEBUG     mapping: best match "artifacts_1.png" (score=0.509)
+2026-03-23 13:02:51  DEBUG     mapping: best match "artifacts_1.png" (score=0.422)
+2026-03-23 13:02:56  DEBUG     mapping: best match "artifacts_6.png" (score=0.522)
+2026-03-23 13:03:00  DEBUG     mapping: best match "artifacts_4.png" (score=0.487)
+2026-03-23 13:03:05  DEBUG     mapping: best match "artifacts_1.png" (score=0.378)
+2026-03-23 13:03:09  DEBUG     mapping: best match "artifacts_1.png" (score=0.569)
+2026-03-23 13:03:09  INFO      gui_mapping: done — index sequence [45, 1, 1, 6, 4, 1, 1] (35.65s)
+2026-03-23 13:03:09  INFO        Mapped index sequence : [45, 1, 1, 6, 4, 1, 1]
+2026-03-23 13:03:09  INFO        Duration              : 35.65s
+2026-03-23 13:03:09  INFO      ==================================================
+2026-03-23 13:03:09  INFO      STEP 3: Find Execution Trace
+2026-03-23 13:03:09  INFO        UTG file : app_SimpleNotes/utg01/input/utg.json
+2026-03-23 13:03:09  INFO      find_execution_trace: target sequence [45, 1, 1, 6, 4, 1, 1]
+2026-03-23 13:03:09  DEBUG     read_graph: 190 edges, 48 vertices loaded in 0.00s
+2026-03-23 13:03:09  DEBUG     find_execution_trace: 2 candidate paths found in 0.00s
+2026-03-23 13:03:09  INFO      find_execution_trace: 1 trace(s) found (LCS=1, length=2) in 0.00s
+2026-03-23 13:03:09  INFO        Candidate traces found : 1
+2026-03-23 13:03:09  INFO          Trace 0: [0, 1]
+2026-03-23 13:03:09  INFO        Duration : 0.00s
+2026-03-23 13:03:09  INFO      ==================================================
+2026-03-23 13:03:09  INFO      STEP 4: Store Execution Trace
+2026-03-23 13:03:09  INFO      Execution trace written to: app_SimpleNotes/utg01/output/execution_srv_SimpleNotes.json
+2026-03-23 13:03:09  INFO        Duration : 0.00s
+2026-03-23 13:03:09  INFO      ==================================================
+2026-03-23 13:03:09  INFO      Pipeline complete.  Total time: 80.37s
+2026-03-23 13:03:09  INFO      ==================================================
+Done.
+=== Run finished: Mon Mar 23 13:03:09 EDT 2026 ===
