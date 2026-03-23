@@ -15,6 +15,8 @@ Usage:
 """
 
 import argparse
+import csv
+import io
 import json
 import os
 import re
@@ -28,8 +30,16 @@ from typing import Optional, List, Dict, Any
 ROOT = Path(__file__).parent.parent          # gifdroid-reproduction/
 ANALYSIS_DIR = Path(__file__).parent         # gifdroid-reproduction/analysis/
 DATA_FILE = ANALYSIS_DIR / "gifdroid_data.json"
-REPORT_FILE = ANALYSIS_DIR / "report.md"
-PLOTS_DIR = ANALYSIS_DIR / "plots"
+PLOTS_DIR  = ANALYSIS_DIR / "plots"
+TABLES_DIR = ANALYSIS_DIR / "tables"
+
+# CSV output files (one per table)
+CSV_MASTER     = TABLES_DIR / "table1_master.csv"
+CSV_TIMING     = TABLES_DIR / "table2_timing.csv"
+CSV_SIDEBYSIDE = TABLES_DIR / "table3_sidebyside.csv"
+CSV_CONFIDENCE = TABLES_DIR / "table4_confidence.csv"
+CSV_EXECUTION  = TABLES_DIR / "table5_execution.csv"
+CSV_SUMMARY    = TABLES_DIR / "table6_summary.csv"
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -318,28 +328,39 @@ def fmt(val, fmt_str="{}", fallback="—"):
         return str(val)
 
 
-def build_report(data: dict) -> str:
+def write_csv(path: Path, headers: list, rows: list):
+    path.parent.mkdir(exist_ok=True)
+    with open(path, "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(headers)
+        w.writerows(rows)
+    print(f"Written: {path}")
+
+
+def build_csvs(data: dict):
     runs = data["runs"]
-    lines = []
 
-    lines.append(f"# GIFdroid Analysis Report")
-    lines.append(f"Generated: {data['generated_at']}")
-    lines.append(f"Total runs: {data['run_count']}\n")
+    def get_val(run, *keys):
+        if run is None:
+            return ""
+        obj = run
+        for k in keys:
+            if not isinstance(obj, dict):
+                return ""
+            obj = obj.get(k)
+        return "" if obj is None else obj
 
-    # ── Table 1: Master comparison ─────────────────────────────────────────
-    lines.append("## Table 1: Master Comparison (all runs)\n")
-    headers = [
+    # ── Table 1: Master ────────────────────────────────────────────────────
+    headers1 = [
         "App", "UTG", "Type",
-        "Video MB", "Artifacts", "UTG V", "UTG E",
-        "Frames", "Keyframes", "KF Ratio",
-        "Score Mean", "Score Median", "Score Min", "Score Max",
-        "Unique Screens",
-        "Cand Paths", "Traces", "LCS", "Trace Len",
-        "Total Time (s)",
+        "Video_MB", "Artifacts", "UTG_Vertices", "UTG_Edges",
+        "Frames", "Keyframes", "KF_Ratio",
+        "Score_Mean", "Score_Median", "Score_Min", "Score_Max",
+        "Unique_Screens",
+        "Candidate_Paths", "Traces_Found", "LCS", "Trace_Length",
+        "Total_Time_s",
     ]
-    lines.append("| " + " | ".join(headers) + " |")
-    lines.append("| " + " | ".join(["---"] * len(headers)) + " |")
-
+    rows1 = []
     for r in runs:
         s1 = r["step1_keyframe_location"]
         s2 = r["step2_gui_mapping"]
@@ -347,154 +368,98 @@ def build_report(data: dict) -> str:
         inp = r["inputs"]
         frames = s1.get("frames_decoded")
         kf = s1.get("keyframes_detected")
-        kf_ratio = round(frames / kf, 1) if frames and kf else None
-
-        row = [
+        kf_ratio = round(frames / kf, 2) if frames and kf else ""
+        rows1.append([
             r["app"], r["utg"], r["video_type"].upper(),
-            fmt(inp.get("video_size_mb"), "{:.1f}"),
-            fmt(inp.get("artifact_count"), "{}"),
-            fmt(inp.get("utg_vertices"), "{}"),
-            fmt(inp.get("utg_edges"), "{}"),
-            fmt(frames, "{}"),
-            fmt(kf, "{}"),
-            fmt(kf_ratio, "{:.1f}"),
-            fmt(s2.get("score_mean"), "{:.3f}"),
-            fmt(s2.get("score_median"), "{:.3f}"),
-            fmt(s2.get("score_min"), "{:.3f}"),
-            fmt(s2.get("score_max"), "{:.3f}"),
-            fmt(s2.get("unique_screens_mapped"), "{}"),
-            fmt(s3.get("candidate_paths"), "{}"),
-            fmt(s3.get("traces_found"), "{}"),
-            fmt(s3.get("lcs"), "{}"),
-            fmt(s3.get("trace_length"), "{}"),
-            fmt(r.get("total_time_s"), "{:.1f}"),
-        ]
-        lines.append("| " + " | ".join(row) + " |")
+            inp.get("video_size_mb", ""), inp.get("artifact_count", ""),
+            inp.get("utg_vertices", ""), inp.get("utg_edges", ""),
+            frames or "", kf or "", kf_ratio,
+            s2.get("score_mean", ""), s2.get("score_median", ""),
+            s2.get("score_min", ""), s2.get("score_max", ""),
+            s2.get("unique_screens_mapped", ""),
+            s3.get("candidate_paths", ""), s3.get("traces_found", ""),
+            s3.get("lcs", ""), s3.get("trace_length", ""),
+            r.get("total_time_s", ""),
+        ])
+    write_csv(CSV_MASTER, headers1, rows1)
 
-    lines.append("")
-
-    # ── Table 2: Timing breakdown ──────────────────────────────────────────
-    lines.append("## Table 2: Timing Breakdown per Step (seconds)\n")
-    headers2 = ["App", "UTG", "Type", "Step1 (s)", "Step2 (s)", "Step3 (s)", "Step4 (s)", "Total (s)"]
-    lines.append("| " + " | ".join(headers2) + " |")
-    lines.append("| " + " | ".join(["---"] * len(headers2)) + " |")
-
+    # ── Table 2: Timing ────────────────────────────────────────────────────
+    headers2 = ["App", "UTG", "Type", "Step1_s", "Step2_s", "Step3_s", "Step4_s", "Total_s"]
+    rows2 = []
     for r in runs:
-        s1 = r["step1_keyframe_location"]
-        s2 = r["step2_gui_mapping"]
-        s3 = r["step3_find_trace"]
-        s4 = r["step4_store"]
-        row = [
+        rows2.append([
             r["app"], r["utg"], r["video_type"].upper(),
-            fmt(s1.get("step_duration_s"), "{:.1f}"),
-            fmt(s2.get("step_duration_s"), "{:.1f}"),
-            fmt(s3.get("step_duration_s"), "{:.3f}"),
-            fmt(s4.get("step_duration_s"), "{:.3f}"),
-            fmt(r.get("total_time_s"), "{:.1f}"),
-        ]
-        lines.append("| " + " | ".join(row) + " |")
+            r["step1_keyframe_location"].get("step_duration_s", ""),
+            r["step2_gui_mapping"].get("step_duration_s", ""),
+            r["step3_find_trace"].get("step_duration_s", ""),
+            r["step4_store"].get("step_duration_s", ""),
+            r.get("total_time_s", ""),
+        ])
+    write_csv(CSV_TIMING, headers2, rows2)
 
-    lines.append("")
-
-    # ── Table 3: SRV vs HHV side-by-side per (app, utg) ──────────────────
-    lines.append("## Table 3: SRV vs HHV Side-by-Side\n")
+    # ── Table 3: SRV vs HHV side-by-side ──────────────────────────────────
     headers3 = [
         "App", "UTG",
-        "SRV MB", "HHV MB", "MB Ratio (HHV/SRV)",
-        "SRV Frames", "HHV Frames",
-        "SRV KF", "HHV KF",
-        "SRV Score Mean", "HHV Score Mean",
-        "SRV Trace Len", "HHV Trace Len",
-        "SRV Time (s)", "HHV Time (s)",
+        "SRV_MB", "HHV_MB", "MB_Ratio_HHV_SRV",
+        "SRV_Frames", "HHV_Frames",
+        "SRV_Keyframes", "HHV_Keyframes",
+        "SRV_Score_Mean", "HHV_Score_Mean",
+        "SRV_Trace_Length", "HHV_Trace_Length",
+        "SRV_Time_s", "HHV_Time_s",
     ]
-    lines.append("| " + " | ".join(headers3) + " |")
-    lines.append("| " + " | ".join(["---"] * len(headers3)) + " |")
-
-    # Build lookup: (app, utg, type) -> run
     lookup = {(r["app"], r["utg"], r["video_type"]): r for r in runs}
     pairs = sorted(set((r["app"], r["utg"]) for r in runs))
-
+    rows3 = []
     for app, utg in pairs:
         srv = lookup.get((app, utg, "srv"))
         hhv = lookup.get((app, utg, "hhv"))
-
-        def get_val(run, *keys):
-            if run is None:
-                return None
-            obj = run
-            for k in keys:
-                if not isinstance(obj, dict):
-                    return None
-                obj = obj.get(k)
-            return obj
-
         srv_mb = get_val(srv, "inputs", "video_size_mb")
         hhv_mb = get_val(hhv, "inputs", "video_size_mb")
-        ratio = round(hhv_mb / srv_mb, 1) if hhv_mb and srv_mb else None
-
-        row = [
+        ratio = round(hhv_mb / srv_mb, 2) if hhv_mb and srv_mb else ""
+        rows3.append([
             app, utg,
-            fmt(srv_mb, "{:.1f}"),
-            fmt(hhv_mb, "{:.1f}"),
-            fmt(ratio, "{:.1f}x"),
-            fmt(get_val(srv, "step1_keyframe_location", "frames_decoded"), "{}"),
-            fmt(get_val(hhv, "step1_keyframe_location", "frames_decoded"), "{}"),
-            fmt(get_val(srv, "step1_keyframe_location", "keyframes_detected"), "{}"),
-            fmt(get_val(hhv, "step1_keyframe_location", "keyframes_detected"), "{}"),
-            fmt(get_val(srv, "step2_gui_mapping", "score_mean"), "{:.3f}"),
-            fmt(get_val(hhv, "step2_gui_mapping", "score_mean"), "{:.3f}"),
-            fmt(get_val(srv, "step3_find_trace", "trace_length"), "{}"),
-            fmt(get_val(hhv, "step3_find_trace", "trace_length"), "{}"),
-            fmt(get_val(srv, "total_time_s"), "{:.1f}"),
-            fmt(get_val(hhv, "total_time_s"), "{:.1f}"),
-        ]
-        lines.append("| " + " | ".join(row) + " |")
+            srv_mb, hhv_mb, ratio,
+            get_val(srv, "step1_keyframe_location", "frames_decoded"),
+            get_val(hhv, "step1_keyframe_location", "frames_decoded"),
+            get_val(srv, "step1_keyframe_location", "keyframes_detected"),
+            get_val(hhv, "step1_keyframe_location", "keyframes_detected"),
+            get_val(srv, "step2_gui_mapping", "score_mean"),
+            get_val(hhv, "step2_gui_mapping", "score_mean"),
+            get_val(srv, "step3_find_trace", "trace_length"),
+            get_val(hhv, "step3_find_trace", "trace_length"),
+            get_val(srv, "total_time_s"),
+            get_val(hhv, "total_time_s"),
+        ])
+    write_csv(CSV_SIDEBYSIDE, headers3, rows3)
 
-    lines.append("")
-
-    # ── Table 4: Confidence score stats ───────────────────────────────────
-    lines.append("## Table 4: Confidence Score Statistics\n")
-    headers4 = ["App", "UTG", "Type", "N Scores", "Mean", "Median", "Stdev", "Min", "Max"]
-    lines.append("| " + " | ".join(headers4) + " |")
-    lines.append("| " + " | ".join(["---"] * len(headers4)) + " |")
-
+    # ── Table 4: Confidence stats ──────────────────────────────────────────
+    headers4 = ["App", "UTG", "Type", "N_Scores", "Mean", "Median", "Stdev", "Min", "Max"]
+    rows4 = []
     for r in runs:
         s2 = r["step2_gui_mapping"]
         scores = s2.get("confidence_scores", [])
-        row = [
+        rows4.append([
             r["app"], r["utg"], r["video_type"].upper(),
-            str(len(scores)),
-            fmt(s2.get("score_mean"), "{:.4f}"),
-            fmt(s2.get("score_median"), "{:.4f}"),
-            fmt(s2.get("score_stdev"), "{:.4f}"),
-            fmt(s2.get("score_min"), "{:.4f}"),
-            fmt(s2.get("score_max"), "{:.4f}"),
-        ]
-        lines.append("| " + " | ".join(row) + " |")
+            len(scores),
+            s2.get("score_mean", ""), s2.get("score_median", ""),
+            s2.get("score_stdev", ""), s2.get("score_min", ""), s2.get("score_max", ""),
+        ])
+    write_csv(CSV_CONFIDENCE, headers4, rows4)
 
-    lines.append("")
-
-    # ── Table 5: Execution trace output ───────────────────────────────────
-    lines.append("## Table 5: Execution JSON Output\n")
-    headers5 = ["App", "UTG", "Type", "Replay Traces", "Actions in Trace[0]", "Action Types"]
-    lines.append("| " + " | ".join(headers5) + " |")
-    lines.append("| " + " | ".join(["---"] * len(headers5)) + " |")
-
+    # ── Table 5: Execution JSON ────────────────────────────────────────────
+    headers5 = ["App", "UTG", "Type", "Replay_Traces", "Actions_Trace0", "Action_Types"]
+    rows5 = []
     for r in runs:
         ej = r.get("execution_json", {})
-        row = [
+        rows5.append([
             r["app"], r["utg"], r["video_type"].upper(),
-            fmt(ej.get("replay_trace_count"), "{}"),
-            fmt(ej.get("trace0_action_count"), "{}"),
-            ", ".join(ej.get("action_types", [])) or "—",
-        ]
-        lines.append("| " + " | ".join(row) + " |")
+            ej.get("replay_trace_count", ""),
+            ej.get("trace0_action_count", ""),
+            "|".join(ej.get("action_types", [])),
+        ])
+    write_csv(CSV_EXECUTION, headers5, rows5)
 
-    lines.append("")
-
-    # ── Summary stats ──────────────────────────────────────────────────────
-    lines.append("## Summary Statistics\n")
-
+    # ── Table 6: Summary stats ─────────────────────────────────────────────
     srv_runs = [r for r in runs if r["video_type"] == "srv"]
     hhv_runs = [r for r in runs if r["video_type"] == "hhv"]
 
@@ -503,49 +468,43 @@ def build_report(data: dict) -> str:
         for r in run_list:
             obj = r
             for k in keys:
-                if isinstance(obj, dict):
-                    obj = obj.get(k)
-                else:
-                    obj = None
-                    break
+                obj = obj.get(k) if isinstance(obj, dict) else None
             if obj is not None:
                 vals.append(obj)
         if not vals:
-            return None, None, None
-        return round(statistics.mean(vals), 2), round(min(vals), 2), round(max(vals), 2)
+            return "", "", "", ""
+        return (round(statistics.mean(vals), 3), round(statistics.median(vals), 3),
+                round(min(vals), 3), round(max(vals), 3))
 
-    lines.append("### Total Pipeline Time")
-    srv_mean, srv_min, srv_max = agg_key(srv_runs, "total_time_s")
-    hhv_mean, hhv_min, hhv_max = agg_key(hhv_runs, "total_time_s")
-    lines.append(f"- SRV: mean={srv_mean}s, min={srv_min}s, max={srv_max}s")
-    lines.append(f"- HHV: mean={hhv_mean}s, min={hhv_min}s, max={hhv_max}s\n")
+    headers6 = ["Metric", "Type", "Mean", "Median", "Min", "Max"]
+    rows6 = []
+    for label, keys in [
+        ("Total_Time_s",  ("total_time_s",)),
+        ("Keyframes",     ("step1_keyframe_location", "keyframes_detected")),
+        ("Frames",        ("step1_keyframe_location", "frames_decoded")),
+        ("Score_Mean",    ("step2_gui_mapping", "score_mean")),
+        ("Trace_Length",  ("step3_find_trace", "trace_length")),
+        ("LCS",           ("step3_find_trace", "lcs")),
+        ("Candidate_Paths", ("step3_find_trace", "candidate_paths")),
+    ]:
+        for type_label, run_list in [("SRV", srv_runs), ("HHV", hhv_runs)]:
+            mean, median, mn, mx = agg_key(run_list, *keys)
+            rows6.append([label, type_label, mean, median, mn, mx])
 
-    lines.append("### Keyframes Detected")
-    srv_mean, srv_min, srv_max = agg_key(srv_runs, "step1_keyframe_location", "keyframes_detected")
-    hhv_mean, hhv_min, hhv_max = agg_key(hhv_runs, "step1_keyframe_location", "keyframes_detected")
-    lines.append(f"- SRV: mean={srv_mean}, min={srv_min}, max={srv_max}")
-    lines.append(f"- HHV: mean={hhv_mean}, min={hhv_min}, max={hhv_max}\n")
-
-    lines.append("### Confidence Score Mean (across all runs)")
+    # Also add pooled confidence score row
     all_srv_scores = [s for r in srv_runs for s in r["step2_gui_mapping"].get("confidence_scores", [])]
     all_hhv_scores = [s for r in hhv_runs for s in r["step2_gui_mapping"].get("confidence_scores", [])]
-    if all_srv_scores:
-        lines.append(f"- SRV: mean={round(statistics.mean(all_srv_scores),4)}, "
-                     f"median={round(statistics.median(all_srv_scores),4)}, "
-                     f"stdev={round(statistics.stdev(all_srv_scores),4)}")
-    if all_hhv_scores:
-        lines.append(f"- HHV: mean={round(statistics.mean(all_hhv_scores),4)}, "
-                     f"median={round(statistics.median(all_hhv_scores),4)}, "
-                     f"stdev={round(statistics.stdev(all_hhv_scores),4)}")
-    lines.append("")
+    for type_label, scores in [("SRV", all_srv_scores), ("HHV", all_hhv_scores)]:
+        if scores:
+            rows6.append([
+                "Confidence_Score_Pooled", type_label,
+                round(statistics.mean(scores), 4),
+                round(statistics.median(scores), 4),
+                round(min(scores), 4),
+                round(max(scores), 4),
+            ])
 
-    lines.append("### Trace Length")
-    srv_mean, srv_min, srv_max = agg_key(srv_runs, "step3_find_trace", "trace_length")
-    hhv_mean, hhv_min, hhv_max = agg_key(hhv_runs, "step3_find_trace", "trace_length")
-    lines.append(f"- SRV: mean={srv_mean}, min={srv_min}, max={srv_max}")
-    lines.append(f"- HHV: mean={hhv_mean}, min={hhv_min}, max={hhv_max}\n")
-
-    return "\n".join(lines)
+    write_csv(CSV_SUMMARY, headers6, rows6)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -713,10 +672,7 @@ def main():
 
     if args.report:
         data = load_data()
-        report = build_report(data)
-        REPORT_FILE.write_text(report)
-        print(report)
-        print(f"\nReport written: {REPORT_FILE}")
+        build_csvs(data)
 
     if args.plot:
         data = load_data()
