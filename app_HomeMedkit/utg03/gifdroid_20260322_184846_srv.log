@@ -1,0 +1,54 @@
+2026-03-22 18:48:46  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/gifdroid_20260322_184846_srv.log
+2026-03-22 18:48:46  INFO      GIFdroid started
+2026-03-22 18:48:46  INFO        --video          : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/input/screenrec/srv_app_HomeMedkit.mp4
+2026-03-22 18:48:46  INFO        --utg            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/input/utg.json
+2026-03-22 18:48:46  INFO        --artifact       : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/input/artifacts
+2026-03-22 18:48:46  INFO        --out            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/output/execution_srv_HomeMedkit.json
+2026-03-22 18:48:46  INFO        --log-dir        : None
+2026-03-22 18:48:46  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/output/keyframes
+2026-03-22 18:48:46  INFO      ==================================================
+2026-03-22 18:48:46  INFO      STEP 1: Keyframe Location
+2026-03-22 18:48:46  INFO        Input video : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/input/screenrec/srv_app_HomeMedkit.mp4
+2026-03-22 18:48:46  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/input/screenrec/srv_app_HomeMedkit.mp4"
+2026-03-22 18:48:54  DEBUG     read_frames_from_video: 777 frames decoded in 7.61s
+2026-03-22 18:50:08  DEBUG     calculate_sim_seq: 776 similarities computed in 73.72s
+2026-03-22 18:50:08  DEBUG     detect_keyframes: 8 keyframes detected from 776 frames in 0.00s
+2026-03-22 18:50:08  INFO      keyframe_location: done — 8 keyframes at indices [15, 47, 281, 371, 400, 517, 585, 776] (81.37s total)
+2026-03-22 18:50:08  INFO        Keyframes found   : 8
+2026-03-22 18:50:08  INFO        Keyframe indices  : [15, 47, 281, 371, 400, 517, 585, 776]
+2026-03-22 18:50:08  INFO        Duration          : 81.59s
+2026-03-22 18:50:08  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/output/keyframes (8 files)
+2026-03-22 18:50:08  INFO      ==================================================
+2026-03-22 18:50:08  INFO      STEP 2: GUI Mapping
+2026-03-22 18:50:08  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/input/artifacts
+2026-03-22 18:50:08  INFO      gui_mapping: matching 8 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/input/artifacts"
+2026-03-22 18:50:13  DEBUG     load_screenshots: 53 screenshots loaded in 5.39s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/input/artifacts"
+2026-03-22 18:50:45  DEBUG     mapping: best match "artifacts_46.png" (score=0.339)
+2026-03-22 18:51:10  DEBUG     mapping: best match "artifacts_25.png" (score=0.373)
+2026-03-22 18:51:32  DEBUG     mapping: best match "artifacts_53.png" (score=0.435)
+2026-03-22 18:51:55  DEBUG     mapping: best match "artifacts_18.png" (score=0.438)
+2026-03-22 18:52:17  DEBUG     mapping: best match "artifacts_19.png" (score=0.442)
+2026-03-22 18:52:41  DEBUG     mapping: best match "artifacts_19.png" (score=0.439)
+2026-03-22 18:53:03  DEBUG     mapping: best match "artifacts_9.png" (score=0.466)
+2026-03-22 18:53:25  DEBUG     mapping: best match "artifacts_3.png" (score=0.485)
+2026-03-22 18:53:25  INFO      gui_mapping: done — index sequence [46, 25, 53, 18, 19, 19, 9, 3] (197.30s)
+2026-03-22 18:53:25  INFO        Mapped index sequence : [46, 25, 53, 18, 19, 19, 9, 3]
+2026-03-22 18:53:25  INFO        Duration              : 197.31s
+2026-03-22 18:53:25  INFO      ==================================================
+2026-03-22 18:53:25  INFO      STEP 3: Find Execution Trace
+2026-03-22 18:53:25  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/input/utg.json
+2026-03-22 18:53:25  INFO      find_execution_trace: target sequence [46, 25, 53, 18, 19, 19, 9, 3]
+2026-03-22 18:53:25  DEBUG     read_graph: 210 edges, 52 vertices loaded in 0.00s
+2026-03-22 18:53:25  DEBUG     find_execution_trace: 9995 candidate paths found in 0.08s
+2026-03-22 18:53:26  INFO      find_execution_trace: 2 trace(s) found (LCS=3, length=8) in 0.57s
+2026-03-22 18:53:26  INFO        Candidate traces found : 2
+2026-03-22 18:53:26  INFO          Trace 0: [0, 1, 31, 19, 37, 9, 2, 3]
+2026-03-22 18:53:26  INFO          Trace 1: [0, 1, 31, 19, 37, 9, 7, 3]
+2026-03-22 18:53:26  INFO        Duration : 0.57s
+2026-03-22 18:53:26  INFO      ==================================================
+2026-03-22 18:53:26  INFO      STEP 4: Store Execution Trace
+2026-03-22 18:53:26  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg03/output/execution_srv_HomeMedkit.json
+2026-03-22 18:53:26  INFO        Duration : 0.00s
+2026-03-22 18:53:26  INFO      ==================================================
+2026-03-22 18:53:26  INFO      Pipeline complete.  Total time: 279.70s
+2026-03-22 18:53:26  INFO      ==================================================

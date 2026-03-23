@@ -1,0 +1,25 @@
+2026-03-22 17:58:06  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/gifdroid_20260322_175806_srv.log
+2026-03-22 17:58:06  INFO      GIFdroid started
+2026-03-22 17:58:06  INFO        --video          : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/screenrec/srv_app_Jigsaw.mp4
+2026-03-22 17:58:06  INFO        --utg            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/utg.json
+2026-03-22 17:58:06  INFO        --artifact       : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts
+2026-03-22 17:58:06  INFO        --out            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/execution_srv_Jigsaw.json
+2026-03-22 17:58:06  INFO        --log-dir        : None
+2026-03-22 17:58:06  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes
+2026-03-22 17:58:06  INFO      ==================================================
+2026-03-22 17:58:06  INFO      STEP 1: Keyframe Location
+2026-03-22 17:58:06  INFO        Input video : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/screenrec/srv_app_Jigsaw.mp4
+2026-03-22 17:58:06  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/screenrec/srv_app_Jigsaw.mp4"
+2026-03-22 17:58:16  DEBUG     read_frames_from_video: 1025 frames decoded in 9.59s
+2026-03-22 17:59:58  DEBUG     calculate_sim_seq: 1024 similarities computed in 101.98s
+2026-03-22 17:59:58  DEBUG     detect_keyframes: 6 keyframes detected from 1024 frames in 0.00s
+2026-03-22 17:59:58  INFO      keyframe_location: done — 6 keyframes at indices [15, 31, 67, 97, 470, 1024] (111.61s total)
+2026-03-22 17:59:58  INFO        Keyframes found   : 6
+2026-03-22 17:59:58  INFO        Keyframe indices  : [15, 31, 67, 97, 470, 1024]
+2026-03-22 17:59:58  INFO        Duration          : 111.82s
+2026-03-22 17:59:58  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes (6 files)
+2026-03-22 17:59:58  INFO      ==================================================
+2026-03-22 17:59:58  INFO      STEP 2: GUI Mapping
+2026-03-22 17:59:58  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts
+2026-03-22 17:59:58  INFO      gui_mapping: matching 6 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts"
+2026-03-22 17:59:58  DEBUG     load_screenshots: 3 screenshots loaded in 0.26s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts"

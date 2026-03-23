@@ -259,7 +259,7 @@ def generate_commands(utg_dirs, root, include_handheld):
                 lines.append(f"# {name} [{utg_id}] — handheld: hhv_app_{name}.MOV not found, skipped")
                 lines.append("")
 
-    commands_path = os.path.join(root, "commands.txt")
+    commands_path = os.path.join(root, "gifdroid_analyse", "commands.txt")
     with open(commands_path, "w") as f:
         f.write("\n".join(lines) + "\n")
     print(f"\n[OK] commands.txt written to: {commands_path}")

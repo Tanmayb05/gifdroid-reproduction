@@ -26,7 +26,7 @@ import glob
 import shutil
 import sys
 
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def _numeric_sort_key(p):

@@ -27,9 +27,9 @@ from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APPS_DIR = os.path.join(PROJECT_ROOT, "apps")
-RESULT_BUCKETS_FILE = os.path.join(PROJECT_ROOT, "result_buckets.json")
+RESULT_BUCKETS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "result_buckets.json")
 DOWNLOAD_DIR = os.path.join(PROJECT_ROOT, "firebase_downloads")
 LOGS_DIR = os.path.join(PROJECT_ROOT, "logs")
 

@@ -13,6 +13,7 @@ def load_screenshots(screenshots):
     """Load all artifact PNGs, extract ORB descriptors and grayscale images for matching."""
     t0 = time.time()
     index = {}
+    size = None
     orb = cv2.ORB_create(nfeatures=1500)
     for imagePath in glob.glob(os.path.join(screenshots, '*.png')):
         filename = imagePath[imagePath.rfind("/") + 1:]
@@ -23,7 +24,7 @@ def load_screenshots(screenshots):
         size = image.shape
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         _, des = orb.detectAndCompute(image, None)
-        index[filename] = {'ssim': image, 'orb': des}
+        index[filename] = {'ssim': image, 'orb': des, 'size': image.shape}
     elapsed = time.time() - t0
     logger.debug(f'load_screenshots: {len(index)} screenshots loaded in {elapsed:.2f}s from "{screenshots}"')
     return index, size
@@ -57,10 +58,12 @@ def mapping(image, index, size):
     orb = cv2.ORB_create(nfeatures=1500)
     results = {}
     image = cv2.resize(image, (size[1], size[0]))
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    _, des = orb.detectAndCompute(image, None)
+    image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    _, des = orb.detectAndCompute(image_gray, None)
     for (k, v) in index.items():
-        sim_ssim = ssim(image, v['ssim'])
+        scr_h, scr_w = v['size']
+        kf_resized = cv2.resize(image_gray, (scr_w, scr_h))
+        sim_ssim = ssim(kf_resized, v['ssim'])
         sim_orb = match_bfmatcher(des, v['orb'])
         results[k] = alpha * sim_ssim + (1 - alpha) * sim_orb
     results = sorted([(v, k) for (k, v) in results.items()], reverse=True)
@@ -79,10 +82,12 @@ def mapping_with_scores(image, index, size):
     orb = cv2.ORB_create(nfeatures=1500)
     results = {}
     image = cv2.resize(image, (size[1], size[0]))
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    _, des = orb.detectAndCompute(image, None)
+    image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    _, des = orb.detectAndCompute(image_gray, None)
     for (k, v) in index.items():
-        sim_ssim = ssim(image, v['ssim'])
+        scr_h, scr_w = v['size']
+        kf_resized = cv2.resize(image_gray, (scr_w, scr_h))
+        sim_ssim = ssim(kf_resized, v['ssim'])
         sim_orb = match_bfmatcher(des, v['orb'])
         results[k] = alpha * sim_ssim + (1 - alpha) * sim_orb
     sorted_results = sorted([(v, k) for (k, v) in results.items()], reverse=True)

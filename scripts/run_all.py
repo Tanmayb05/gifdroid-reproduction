@@ -1,10 +1,10 @@
 """
-run_all.py — Execute all GIFdroid commands from commands.txt
+run_all.py — Execute all GIFdroid commands from gifdroid_analyse/commands.txt
 
 Usage:
-    python run_all.py                        # run all commands sequentially
-    python run_all.py --commands commands.txt  # specify a different commands file
-    python run_all.py --dry-run              # print commands without executing
+    python scripts/run_all.py                                              # run all commands sequentially
+    python scripts/run_all.py --commands gifdroid_analyse/commands.txt    # specify a different commands file
+    python scripts/run_all.py --dry-run                                   # print commands without executing
 
 Each non-comment, non-empty line in commands.txt is treated as a shell command.
 Already-completed runs are skipped automatically (idempotency is handled by main.py).
@@ -17,6 +17,8 @@ import sys
 import time
 from datetime import datetime
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -24,8 +26,8 @@ from datetime import datetime
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Run all GIFdroid commands from commands.txt')
-    parser.add_argument('--commands', default='commands.txt',
-                        help='Path to commands file (default: commands.txt)')
+    parser.add_argument('--commands', default=os.path.join(PROJECT_ROOT, 'gifdroid_analyse', 'commands.txt'),
+                        help='Path to commands file (default: <project_root>/gifdroid_analyse/commands.txt)')
     parser.add_argument('--dry-run', action='store_true',
                         help='Print commands without executing them')
     return parser.parse_args()

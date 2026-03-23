@@ -39,7 +39,7 @@ import sys
 import cv2
 
 # Allow importing from gifdroid/ subfolder
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'gifdroid'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'gifdroid'))
 
 from location import keyframe_location
 from mapping import load_screenshots, mapping_with_scores

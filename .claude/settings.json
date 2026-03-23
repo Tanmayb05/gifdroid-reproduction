@@ -3,7 +3,11 @@
     "allow": [
       "Bash(python3 -c \"from uiautomator import device as d; xml = d.dump\\(\\); print\\(''OK, length:'', len\\(xml\\)\\)\")",
       "Bash(ls -la /Users/tanmaybhuskute/Documents/gifdroid-reproduction/*.py)",
-      "Bash(ls -la /Users/tanmaybhuskute/Documents/gifdroid-reproduction/*.md)"
+      "Bash(ls -la /Users/tanmaybhuskute/Documents/gifdroid-reproduction/*.md)",
+      "Bash(ls /Users/tanmaybhuskute/Documents/gifdroid-reproduction/result_buckets*)"
+    ],
+    "additionalDirectories": [
+      "/Users/tanmaybhuskute/Documents/gifdroid-reproduction"
     ]
   }
 }

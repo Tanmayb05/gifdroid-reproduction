@@ -1,0 +1,25 @@
+2026-03-22 17:54:06  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/gifdroid_20260322_175406_srv.log
+2026-03-22 17:54:06  INFO      GIFdroid started
+2026-03-22 17:54:06  INFO        --video          : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/screenrec/srv_app_AdAway.mp4
+2026-03-22 17:54:06  INFO        --utg            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/utg.json
+2026-03-22 17:54:06  INFO        --artifact       : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/artifacts
+2026-03-22 17:54:06  INFO        --out            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/output/execution_srv_AdAway.json
+2026-03-22 17:54:06  INFO        --log-dir        : None
+2026-03-22 17:54:06  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/output/keyframes
+2026-03-22 17:54:06  INFO      ==================================================
+2026-03-22 17:54:06  INFO      STEP 1: Keyframe Location
+2026-03-22 17:54:06  INFO        Input video : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/screenrec/srv_app_AdAway.mp4
+2026-03-22 17:54:06  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/screenrec/srv_app_AdAway.mp4"
+2026-03-22 17:54:14  DEBUG     read_frames_from_video: 772 frames decoded in 7.54s
+2026-03-22 17:55:25  DEBUG     calculate_sim_seq: 771 similarities computed in 71.49s
+2026-03-22 17:55:25  DEBUG     detect_keyframes: 3 keyframes detected from 771 frames in 0.00s
+2026-03-22 17:55:25  INFO      keyframe_location: done — 3 keyframes at indices [11, 52, 771] (79.08s total)
+2026-03-22 17:55:25  INFO        Keyframes found   : 3
+2026-03-22 17:55:25  INFO        Keyframe indices  : [11, 52, 771]
+2026-03-22 17:55:25  INFO        Duration          : 79.26s
+2026-03-22 17:55:25  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/output/keyframes (3 files)
+2026-03-22 17:55:25  INFO      ==================================================
+2026-03-22 17:55:25  INFO      STEP 2: GUI Mapping
+2026-03-22 17:55:25  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/artifacts
+2026-03-22 17:55:25  INFO      gui_mapping: matching 3 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/artifacts"
+2026-03-22 17:55:26  DEBUG     load_screenshots: 5 screenshots loaded in 0.61s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/artifacts"

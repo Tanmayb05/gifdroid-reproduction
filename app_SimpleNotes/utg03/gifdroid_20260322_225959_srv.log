@@ -1,0 +1,52 @@
+2026-03-22 22:59:59  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/gifdroid_20260322_225959_srv.log
+2026-03-22 22:59:59  INFO      GIFdroid started
+2026-03-22 22:59:59  INFO        --video          : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/screenrec/srv_app_SimpleNotes.mp4
+2026-03-22 22:59:59  INFO        --utg            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/utg.json
+2026-03-22 22:59:59  INFO        --artifact       : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/artifacts
+2026-03-22 22:59:59  INFO        --out            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/output/execution_srv_SimpleNotes.json
+2026-03-22 22:59:59  INFO        --log-dir        : None
+2026-03-22 22:59:59  INFO        --save-keyframes : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/output/keyframes
+2026-03-22 22:59:59  INFO      ==================================================
+2026-03-22 22:59:59  INFO      STEP 1: Keyframe Location
+2026-03-22 22:59:59  INFO        Input video : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/screenrec/srv_app_SimpleNotes.mp4
+2026-03-22 22:59:59  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/screenrec/srv_app_SimpleNotes.mp4"
+2026-03-22 23:00:03  DEBUG     read_frames_from_video: 473 frames decoded in 3.51s
+2026-03-22 23:00:44  DEBUG     calculate_sim_seq: 472 similarities computed in 40.94s
+2026-03-22 23:00:44  DEBUG     detect_keyframes: 7 keyframes detected from 472 frames in 0.00s
+2026-03-22 23:00:44  INFO      keyframe_location: done — 7 keyframes at indices [10, 46, 76, 337, 343, 450, 472] (44.48s total)
+2026-03-22 23:00:44  INFO        Keyframes found   : 7
+2026-03-22 23:00:44  INFO        Keyframe indices  : [10, 46, 76, 337, 343, 450, 472]
+2026-03-22 23:00:44  INFO        Duration          : 44.59s
+2026-03-22 23:00:44  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/output/keyframes (7 files)
+2026-03-22 23:00:44  INFO      ==================================================
+2026-03-22 23:00:44  INFO      STEP 2: GUI Mapping
+2026-03-22 23:00:44  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/artifacts
+2026-03-22 23:00:44  INFO      gui_mapping: matching 7 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/artifacts"
+2026-03-22 23:00:47  DEBUG     load_screenshots: 38 screenshots loaded in 2.82s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/artifacts"
+2026-03-22 23:00:55  DEBUG     mapping: best match "artifacts_12.png" (score=0.223)
+2026-03-22 23:01:03  DEBUG     mapping: best match "artifacts_2.png" (score=0.509)
+2026-03-22 23:01:11  DEBUG     mapping: best match "artifacts_2.png" (score=0.422)
+2026-03-22 23:01:20  DEBUG     mapping: best match "artifacts_35.png" (score=0.587)
+2026-03-22 23:01:28  DEBUG     mapping: best match "artifacts_35.png" (score=0.499)
+2026-03-22 23:01:35  DEBUG     mapping: best match "artifacts_2.png" (score=0.377)
+2026-03-22 23:01:43  DEBUG     mapping: best match "artifacts_2.png" (score=0.569)
+2026-03-22 23:01:43  INFO      gui_mapping: done — index sequence [12, 2, 2, 35, 35, 2, 2] (59.53s)
+2026-03-22 23:01:43  INFO        Mapped index sequence : [12, 2, 2, 35, 35, 2, 2]
+2026-03-22 23:01:43  INFO        Duration              : 59.53s
+2026-03-22 23:01:43  INFO      ==================================================
+2026-03-22 23:01:43  INFO      STEP 3: Find Execution Trace
+2026-03-22 23:01:43  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/utg.json
+2026-03-22 23:01:43  INFO      find_execution_trace: target sequence [12, 2, 2, 35, 35, 2, 2]
+2026-03-22 23:01:43  DEBUG     read_graph: 168 edges, 37 vertices loaded in 0.00s
+2026-03-22 23:01:43  DEBUG     find_execution_trace: 6 candidate paths found in 0.00s
+2026-03-22 23:01:43  INFO      find_execution_trace: 1 trace(s) found (LCS=1, length=3) in 0.00s
+2026-03-22 23:01:43  INFO        Candidate traces found : 1
+2026-03-22 23:01:43  INFO          Trace 0: [0, 1, 2]
+2026-03-22 23:01:43  INFO        Duration : 0.00s
+2026-03-22 23:01:43  INFO      ==================================================
+2026-03-22 23:01:43  INFO      STEP 4: Store Execution Trace
+2026-03-22 23:01:43  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/output/execution_srv_SimpleNotes.json
+2026-03-22 23:01:43  INFO        Duration : 0.00s
+2026-03-22 23:01:43  INFO      ==================================================
+2026-03-22 23:01:43  INFO      Pipeline complete.  Total time: 104.28s
+2026-03-22 23:01:43  INFO      ==================================================
