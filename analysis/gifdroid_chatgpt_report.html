@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIFdroid HHV vs SRV Report</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --panel: rgba(255, 252, 245, 0.82);
+      --panel-strong: #fff9ef;
+      --ink: #1d231f;
+      --muted: #58635d;
+      --line: rgba(43, 63, 53, 0.14);
+      --accent: #126a52;
+      --accent-soft: rgba(18, 106, 82, 0.12);
+      --warn: #b85c1e;
+      --warn-soft: rgba(184, 92, 30, 0.12);
+      --bad: #9f2e2e;
+      --bad-soft: rgba(159, 46, 46, 0.12);
+      --shadow: 0 18px 50px rgba(49, 41, 24, 0.12);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(18, 106, 82, 0.18), transparent 34%),
+        radial-gradient(circle at top right, rgba(184, 92, 30, 0.16), transparent 30%),
+        linear-gradient(180deg, #efe7d8 0%, #f7f3eb 24%, #f4efe6 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(29, 35, 31, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(29, 35, 31, 0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 88%);
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+      position: relative;
+    }
+
+    .hero {
+      padding: 36px;
+      border-radius: calc(var(--radius) + 6px);
+      background:
+        linear-gradient(135deg, rgba(255, 249, 239, 0.96), rgba(251, 244, 231, 0.88)),
+        linear-gradient(120deg, rgba(18, 106, 82, 0.08), rgba(184, 92, 30, 0.08));
+      border: 1px solid rgba(43, 63, 53, 0.12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      top: -30px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(18, 106, 82, 0.16), transparent 68%);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.05;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      max-width: 12ch;
+    }
+
+    .hero p {
+      max-width: 72ch;
+      font-size: 1.03rem;
+      line-height: 1.72;
+      color: var(--muted);
+      margin: 18px 0 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .meta {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .meta span {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(43, 63, 53, 0.12);
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .section {
+      margin-top: 24px;
+      padding: 26px;
+      border-radius: var(--radius);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 32px rgba(49, 41, 24, 0.08);
+    }
+
+    .section h2 {
+      font-size: 1.55rem;
+      margin-bottom: 14px;
+    }
+
+    .section h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .lede {
+      color: var(--muted);
+      line-height: 1.72;
+      margin: 0 0 16px;
+      max-width: 84ch;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .kpi {
+      padding: 18px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(250, 245, 236, 0.96));
+      border: 1px solid rgba(43, 63, 53, 0.1);
+    }
+
+    .kpi .label {
+      display: block;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .kpi .value {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .kpi .sub {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .card {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(43, 63, 53, 0.1);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(251, 246, 236, 0.95));
+    }
+
+    .card.good {
+      border-color: rgba(18, 106, 82, 0.22);
+      background: linear-gradient(180deg, rgba(239, 249, 244, 0.9), rgba(251, 246, 236, 0.96));
+    }
+
+    .card.warn {
+      border-color: rgba(184, 92, 30, 0.24);
+      background: linear-gradient(180deg, rgba(255, 244, 233, 0.92), rgba(251, 246, 236, 0.96));
+    }
+
+    .card.bad {
+      border-color: rgba(159, 46, 46, 0.24);
+      background: linear-gradient(180deg, rgba(255, 237, 237, 0.92), rgba(251, 246, 236, 0.96));
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.66;
+    }
+
+    .card .title {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.03em;
+    }
+
+    .table-wrap {
+      margin-top: 18px;
+      overflow-x: auto;
+      border-radius: 18px;
+      border: 1px solid rgba(43, 63, 53, 0.1);
+      background: rgba(255, 253, 249, 0.92);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 860px;
+    }
+
+    th, td {
+      padding: 14px 14px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(43, 63, 53, 0.08);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: #f9f1e1;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .pill.good {
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .pill.warn {
+      color: var(--warn);
+      background: var(--warn-soft);
+    }
+
+    .pill.bad {
+      color: var(--bad);
+      background: var(--bad-soft);
+    }
+
+    .callout {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border-left: 4px solid var(--warn);
+      background: rgba(255, 247, 238, 0.94);
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li {
+      margin: 8px 0;
+      line-height: 1.66;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .source-list a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .source-list a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      margin-top: 26px;
+      padding: 20px 24px;
+      border-radius: 20px;
+      background: rgba(255, 250, 241, 0.85);
+      border: 1px solid rgba(43, 63, 53, 0.1);
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 18px, 1180px);
+        padding-top: 18px;
+      }
+
+      .hero, .section {
+        padding: 20px;
+      }
+
+      h1 {
+        max-width: none;
+      }
+
+      th, td {
+        padding: 12px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <span class="eyebrow">GIFdroid Comparative Report</span>
+      <h1>How GIFdroid breaks on HHV compared to SRV</h1>
+      <p>
+        This report summarizes the behavior of GIFdroid on handheld video (<strong>hhv</strong>)
+        versus screen recording (<strong>srv</strong>) using the extracted results in
+        <code>analysis/gifdroid_data.json</code>. The headline result is not a large raw failure-rate
+        gap. The deeper issue is that <strong>hhv completes with substantially worse reconstruction quality</strong>:
+        more spurious keyframes, weaker GUI mapping, shallower traces, and dramatically worse runtime.
+      </p>
+      <div class="meta">
+        <span>Dataset date: 2026-03-23</span>
+        <span>Runs analyzed: 44</span>
+        <span>Apps present in JSON: 8 of 10</span>
+        <span>Missing apps: DeadHash, Pomodorot</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <p class="lede">
+        If you only look at <code>pipeline_complete</code>, <strong>hhv</strong> and <strong>srv</strong> appear similar.
+        That metric hides the actual limitation. GIFdroid is much less robust on handheld recordings, where the
+        pipeline often still finishes but reconstructs a poorer execution trace from noisier visual evidence.
+      </p>
+      <div class="kpi-grid">
+        <article class="kpi">
+          <span class="label">Completion Rate</span>
+          <span class="value">90.0%</span>
+          <span class="sub">HHV: 18 of 20 runs marked complete</span>
+        </article>
+        <article class="kpi">
+          <span class="label">Completion Rate</span>
+          <span class="value">91.7%</span>
+          <span class="sub">SRV: 22 of 24 runs marked complete</span>
+        </article>
+        <article class="kpi">
+          <span class="label">Avg Keyframes</span>
+          <span class="value">25.5</span>
+          <span class="sub">HHV greatly over-segments compared to SRV</span>
+        </article>
+        <article class="kpi">
+          <span class="label">Avg Keyframes</span>
+          <span class="value">8.0</span>
+          <span class="sub">SRV is much more stable for state changes</span>
+        </article>
+        <article class="kpi">
+          <span class="label">Avg Mapping Score</span>
+          <span class="value">0.281</span>
+          <span class="sub">HHV GUI matching is weaker</span>
+        </article>
+        <article class="kpi">
+          <span class="label">Avg Mapping Score</span>
+          <span class="value">0.396</span>
+          <span class="sub">SRV matches screenshots more reliably</span>
+        </article>
+        <article class="kpi">
+          <span class="label">Avg Unique Screens</span>
+          <span class="value">1.15</span>
+          <span class="sub">HHV often collapses many keyframes to one screen</span>
+        </article>
+        <article class="kpi">
+          <span class="label">Avg Unique Screens</span>
+          <span class="value">4.42</span>
+          <span class="sub">SRV preserves much richer state sequences</span>
+        </article>
+        <article class="kpi">
+          <span class="label">Avg Total Time</span>
+          <span class="value">1922s</span>
+          <span class="sub">HHV runtime is heavily inflated by noisy inputs</span>
+        </article>
+        <article class="kpi">
+          <span class="label">Avg Total Time</span>
+          <span class="value">218s</span>
+          <span class="sub">SRV completes far faster on average</span>
+        </article>
+      </div>
+      <div class="cards">
+        <article class="card good">
+          <span class="title">Completion counts are similar</span>
+          <p>
+            On the surface, HHV does not fail much more often than SRV. Completion alone is not a strong enough metric
+            to judge practical utility.
+          </p>
+        </article>
+        <article class="card warn">
+          <span class="title">Quality gap is the real story</span>
+          <p>
+            HHV systematically lowers mapping confidence, reduces unique mapped states, and weakens downstream trace quality.
+          </p>
+        </article>
+        <article class="card bad">
+          <span class="title">Handheld robustness is the limitation</span>
+          <p>
+            GIFdroid appears sensitive to camera motion, framing changes, blur, and compression noise. Those factors distort
+            the visual signal before the trace search even begins.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Dataset Scope</h2>
+      <p class="lede">
+        The repository contains 10 app directories, but the JSON only includes 8 apps. Any cross-app claim must acknowledge
+        that the experiment coverage is incomplete.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>App</th>
+              <th>In JSON?</th>
+              <th>HHV runs</th>
+              <th>SRV runs</th>
+              <th>Coverage note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AdAway</td>
+              <td><span class="pill good">Yes</span></td>
+              <td>3</td>
+              <td>3</td>
+              <td>Fully paired</td>
+            </tr>
+            <tr>
+              <td>AntennaPod</td>
+              <td><span class="pill good">Yes</span></td>
+              <td>3</td>
+              <td>3</td>
+              <td>Fully paired</td>
+            </tr>
+            <tr>
+              <td>HomeMedkit</td>
+              <td><span class="pill good">Yes</span></td>
+              <td>3</td>
+              <td>3</td>
+              <td>Fully paired</td>
+            </tr>
+            <tr>
+              <td>Jigsaw</td>
+              <td><span class="pill good">Yes</span></td>
+              <td>3</td>
+              <td>3</td>
+              <td>Fully paired</td>
+            </tr>
+            <tr>
+              <td>LuxAlarm</td>
+              <td><span class="pill good">Yes</span></td>
+              <td>2</td>
+              <td>3</td>
+              <td>Uneven HHV coverage</td>
+            </tr>
+            <tr>
+              <td>PortAuthority</td>
+              <td><span class="pill good">Yes</span></td>
+              <td>3</td>
+              <td>3</td>
+              <td>Fully paired</td>
+            </tr>
+            <tr>
+              <td>SimpleNotes</td>
+              <td><span class="pill good">Yes</span></td>
+              <td>1</td>
+              <td>3</td>
+              <td>Very limited HHV evidence</td>
+            </tr>
+            <tr>
+              <td>WifiAnalyzer</td>
+              <td><span class="pill good">Yes</span></td>
+              <td>2</td>
+              <td>3</td>
+              <td>Uneven HHV coverage</td>
+            </tr>
+            <tr>
+              <td>DeadHash</td>
+              <td><span class="pill bad">No</span></td>
+              <td>0</td>
+              <td>0</td>
+              <td>Missing from the analyzed JSON</td>
+            </tr>
+            <tr>
+              <td>Pomodorot</td>
+              <td><span class="pill bad">No</span></td>
+              <td>0</td>
+              <td>0</td>
+              <td>Missing from the analyzed JSON</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        The report below compares all 10 apps in the repo, but only 8 contribute data. That is enough to identify strong
+        HHV-vs-SRV trends, but not enough to claim full experimental coverage.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Core Trends</h2>
+      <div class="cards">
+        <article class="card warn">
+          <span class="title">1. HHV over-detects keyframes</span>
+          <p>
+            The strongest recurring pattern is excessive keyframe detection on handheld video. In several apps, HHV reports
+            many more state changes than SRV even when the actual UI flow should be similar.
+          </p>
+        </article>
+        <article class="card warn">
+          <span class="title">2. GUI mapping collapses</span>
+          <p>
+            After those extra HHV keyframes are generated, many of them map back to the same screenshot. This means the added
+            keyframes are usually not informative state transitions.
+          </p>
+        </article>
+        <article class="card bad">
+          <span class="title">3. Trace quality drops</span>
+          <p>
+            Lower mapping quality leads to lower LCS and weaker recovered traces. In practice, HHV completes more often than
+            it succeeds meaningfully.
+          </p>
+        </article>
+        <article class="card bad">
+          <span class="title">4. Runtime can explode</span>
+          <p>
+            Noisy visual inputs create a much heavier search problem. The most extreme example is AntennaPod, where HHV takes
+            roughly 26 times longer than SRV.
+          </p>
+        </article>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <span class="title">Key global ratios</span>
+          <ul>
+            <li>Average LCS: HHV <strong>1.07</strong> vs SRV <strong>2.32</strong></li>
+            <li>Average trace length: HHV <strong>5.27</strong> vs SRV <strong>7.47</strong></li>
+            <li>Median total time: HHV <strong>257s</strong> vs SRV <strong>149s</strong></li>
+            <li>Mean unique screens per keyframe: HHV <strong>0.064</strong> vs SRV <strong>0.565</strong></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="title">Interpretation</span>
+          <ul>
+            <li>HHV introduces visual instability that keyframe detection treats as app-state changes.</li>
+            <li>The mapping stage then compresses those noisy frames into repeated screenshot matches.</li>
+            <li>The trace finder receives a low-information target sequence and recovers shallower paths.</li>
+            <li>Even “successful” HHV runs therefore often produce weaker replay traces than SRV.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Per-App Comparison</h2>
+      <p class="lede">
+        The app-by-app view shows that the HHV problem is not confined to one outlier. The exact severity varies by app, but
+        the direction is highly consistent: more keyframes, lower mapping quality, fewer distinct mapped states, and weaker traces.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>App</th>
+              <th>Status</th>
+              <th>Keyframes</th>
+              <th>Map score</th>
+              <th>Unique screens</th>
+              <th>LCS</th>
+              <th>Avg time</th>
+              <th>Summary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AdAway</td>
+              <td><span class="pill warn">HHV worse</span></td>
+              <td>HHV 39.0 vs SRV 3.0</td>
+              <td>0.290 vs 0.314</td>
+              <td>1.0 vs 2.33</td>
+              <td>1.0 vs 1.33</td>
+              <td>195s vs 89s</td>
+              <td>HHV produces 13x more keyframes and collapses to one mapped screen.</td>
+            </tr>
+            <tr>
+              <td>AntennaPod</td>
+              <td><span class="pill bad">HHV much worse</span></td>
+              <td>10.0 vs 9.0</td>
+              <td>0.322 vs 0.467</td>
+              <td>1.0 vs 6.33</td>
+              <td>1.0 vs 3.5</td>
+              <td>9497s vs 363s</td>
+              <td>Largest runtime blow-up in the dataset; HHV quality degrades sharply despite similar keyframe counts.</td>
+            </tr>
+            <tr>
+              <td>HomeMedkit</td>
+              <td><span class="pill bad">HHV much worse</span></td>
+              <td>54.0 vs 8.0</td>
+              <td>0.304 vs 0.433</td>
+              <td>1.33 vs 5.33</td>
+              <td>1.0 vs 2.33</td>
+              <td>1200s vs 181s</td>
+              <td>Severe HHV over-segmentation plus much weaker trace recovery.</td>
+            </tr>
+            <tr>
+              <td>Jigsaw</td>
+              <td><span class="pill warn">Both weak</span></td>
+              <td>16.0 vs 6.0</td>
+              <td>0.250 vs 0.304</td>
+              <td>1.0 vs 1.33</td>
+              <td>1.0 vs 1.0</td>
+              <td>66s vs 107s</td>
+              <td>Hard app for both modes, but HHV still over-detects transitions and maps more weakly.</td>
+            </tr>
+            <tr>
+              <td>LuxAlarm</td>
+              <td><span class="pill bad">Both fail</span></td>
+              <td>11.0 vs 8.0</td>
+              <td>0.295 vs 0.396</td>
+              <td>1.5 vs 2.33</td>
+              <td>1.0 vs 3.0</td>
+              <td>195s vs 165s</td>
+              <td>Real runtime failures appear in both HHV and SRV, but HHV still shows repeated-screen collapse.</td>
+            </tr>
+            <tr>
+              <td>PortAuthority</td>
+              <td><span class="pill warn">HHV worse</span></td>
+              <td>22.0 vs 7.0</td>
+              <td>0.233 vs 0.404</td>
+              <td>1.0 vs 3.67</td>
+              <td>1.0 vs 2.33</td>
+              <td>300s vs 477s</td>
+              <td>HHV quality is clearly worse; one HHV run also appears mis-labeled as failed by the JSON parser.</td>
+            </tr>
+            <tr>
+              <td>SimpleNotes</td>
+              <td><span class="pill warn">HHV worse</span></td>
+              <td>35.0 vs 7.0</td>
+              <td>0.268 vs 0.451</td>
+              <td>1.0 vs 3.33</td>
+              <td>1.0 vs 1.33</td>
+              <td>299s vs 87s</td>
+              <td>Only one HHV run exists, but it strongly matches the broader HHV degradation pattern.</td>
+            </tr>
+            <tr>
+              <td>WifiAnalyzer</td>
+              <td><span class="pill warn">HHV worse</span></td>
+              <td>15.0 vs 16.0</td>
+              <td>0.282 vs 0.401</td>
+              <td>1.5 vs 10.67</td>
+              <td>1.5 vs 3.67</td>
+              <td>314s vs 242s</td>
+              <td>Keyframe counts are similar, but HHV loses most of the state diversity during GUI mapping.</td>
+            </tr>
+            <tr>
+              <td>DeadHash</td>
+              <td><span class="pill bad">Missing</span></td>
+              <td colspan="6">No data in <code>gifdroid_data.json</code></td>
+            </tr>
+            <tr>
+              <td>Pomodorot</td>
+              <td><span class="pill bad">Missing</span></td>
+              <td colspan="6">No data in <code>gifdroid_data.json</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Observed Failure Modes</h2>
+      <p class="lede">
+        The incomplete runs reveal that GIFdroid does not fail in only one way. The logs suggest a mix of true runtime failures,
+        stalled trace search, and analysis-extraction inconsistencies.
+      </p>
+      <div class="cards">
+        <article class="card bad">
+          <span class="title">Hard early termination</span>
+          <p>
+            In <code>LuxAlarm utg02 srv</code>, the log stops right after frame decoding in Step 1. The JSON has no meaningful
+            Step 2 or Step 3 outputs, which points to a real pipeline failure during early processing.
+          </p>
+        </article>
+        <article class="card bad">
+          <span class="title">Trace search stall after mapping</span>
+          <p>
+            In <code>LuxAlarm utg02 hhv</code> and <code>LuxAlarm utg03 srv</code>, keyframe detection and mapping finish,
+            but the run stops after the UTG is read. That suggests trace search can fail or hang even when upstream stages succeed.
+          </p>
+        </article>
+        <article class="card warn">
+          <span class="title">Parser or extraction inconsistency</span>
+          <p>
+            In <code>PortAuthority utg03 hhv</code>, the raw log clearly says the pipeline completed, but the JSON marks the
+            run incomplete and drops final metrics. At least one observed “failure” is therefore a report-generation issue.
+          </p>
+        </article>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <span class="title">LuxAlarm HHV failure signature</span>
+          <ul>
+            <li>11 keyframes detected</li>
+            <li>All 11 mapped to the same screen index <code>7</code></li>
+            <li>Trace search begins with a repeated target sequence</li>
+            <li>Run stops after UTG load with no recovered trace</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="title">Why this matters</span>
+          <ul>
+            <li>Not every bad run is a crash; many are low-information reconstructions.</li>
+            <li>Repeated-screen mapping is a strong predictor of downstream trace weakness.</li>
+            <li>Some JSON failure counts should be treated carefully because of parser inconsistencies.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>GIFdroid Limitations Exposed by HHV</h2>
+      <div class="two-col">
+        <div class="card">
+          <span class="title">Input robustness limitation</span>
+          <p>
+            GIFdroid appears highly sensitive to the visual instability of handheld capture. Camera movement, reframing,
+            compression variation, blur, and lighting differences likely create enough local change to trigger spurious keyframes.
+          </p>
+        </div>
+        <div class="card">
+          <span class="title">Mapping brittleness</span>
+          <p>
+            The GUI-mapping stage struggles to preserve state diversity on HHV inputs. Even when many keyframes are detected,
+            they frequently collapse back to one screenshot match with modest confidence scores.
+          </p>
+        </div>
+        <div class="card">
+          <span class="title">Trace dependency on clean sequences</span>
+          <p>
+            The trace finder depends on a meaningful mapped sequence. Once the sequence becomes repetitive or low-confidence,
+            the search either returns very shallow traces or fails to complete.
+          </p>
+        </div>
+        <div class="card">
+          <span class="title">Performance limitation</span>
+          <p>
+            Runtime becomes impractical on some HHV runs. That makes the system fragile not just in correctness terms, but also
+            in scalability and operational cost.
+          </p>
+        </div>
+      </div>
+      <div class="callout">
+        The main limitation is not that HHV always crashes. It is that HHV frequently converts GIFdroid from a trace-recovery
+        tool into a noisy, low-fidelity approximation of the app’s execution.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Bottom Line</h2>
+      <p class="lede">
+        If the question is “Does HHV fail more than SRV?”, the strict completion-rate answer is: <strong>not by much</strong>.
+        If the question is “Which mode gives a usable reconstruction?”, the answer is much clearer: <strong>SRV is consistently
+        more reliable, more informative, and far more efficient</strong>.
+      </p>
+      <ul>
+        <li>HHV is not dramatically worse in raw completion count.</li>
+        <li>HHV is much worse in reconstruction quality.</li>
+        <li>HHV generates more spurious keyframes and fewer distinct mapped states.</li>
+        <li>HHV leads to lower LCS, shorter traces, and much higher runtime.</li>
+        <li>At least one reported failure is caused by analysis extraction, not GIFdroid itself.</li>
+      </ul>
+      <div class="footer source-list">
+        Source data:
+        <a href="./gifdroid_data.json">gifdroid_data.json</a>,
+        <a href="../app_LuxAlarm/utg02/gifdroid_20260323_105315_hhv.log">LuxAlarm utg02 HHV log</a>,
+        <a href="../app_LuxAlarm/utg02/gifdroid_20260323_122052_srv.log">LuxAlarm utg02 SRV log</a>,
+        <a href="../app_LuxAlarm/utg03/gifdroid_20260323_122151_srv.log">LuxAlarm utg03 SRV log</a>,
+        <a href="../app_PortAuthority/utg03/gifdroid_20260323_130642_hhv.log">PortAuthority utg03 HHV log</a>.
+      </div>
+    </section>
+  </main>
+</body>
+</html>

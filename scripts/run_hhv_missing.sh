@@ -51,12 +51,12 @@ python -m gifdroid.main \
 #   --artifact app_LuxAlarm/utg02/input/artifacts \
 #   --out app_LuxAlarm/utg02/output/execution_hhv_LuxAlarm.json
 
-# echo "[7/10] LuxAlarm utg03 HHV"
-# python -m gifdroid.main \
-#   --video app_LuxAlarm/utg03/input/handheld/hhv_app_LuxAlarm.mp4 \
-#   --utg app_LuxAlarm/utg03/input/utg.json \
-#   --artifact app_LuxAlarm/utg03/input/artifacts \
-#   --out app_LuxAlarm/utg03/output/execution_hhv_LuxAlarm.json
+echo "[7/10] LuxAlarm utg03 HHV"
+python -m gifdroid.main \
+  --video app_LuxAlarm/utg03/input/handheld/hhv_app_LuxAlarm.mp4 \
+  --utg app_LuxAlarm/utg03/input/utg.json \
+  --artifact app_LuxAlarm/utg03/input/artifacts \
+  --out app_LuxAlarm/utg03/output/execution_hhv_LuxAlarm.json
 
 echo "[8/10] PortAuthority utg03 HHV"
 python -m gifdroid.main \

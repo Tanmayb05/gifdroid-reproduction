@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIFdroid HHV vs SRV Analysis Report</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #222638;
+      --border: #2e3347;
+      --accent: #6c8ef7;
+      --accent2: #a78bfa;
+      --green: #34d399;
+      --red: #f87171;
+      --yellow: #fbbf24;
+      --orange: #fb923c;
+      --text: #e2e8f0;
+      --muted: #8892a4;
+      --tag-srv: #1e3a5f;
+      --tag-srv-text: #93c5fd;
+      --tag-hhv: #3b1f5e;
+      --tag-hhv-text: #c4b5fd;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #12151f 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 0 40px;
+      text-align: center;
+    }
+    header .badge {
+      display: inline-block;
+      background: rgba(108,142,247,0.15);
+      border: 1px solid rgba(108,142,247,0.3);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #e2e8f0 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+    header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    header .meta {
+      margin-top: 20px;
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    header .meta-item {
+      text-align: center;
+    }
+    header .meta-item .val {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    header .meta-item .lbl {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Section ── */
+    section {
+      margin-top: 56px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .section-header .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .icon-blue { background: rgba(108,142,247,0.15); }
+    .icon-purple { background: rgba(167,139,250,0.15); }
+    .icon-green { background: rgba(52,211,153,0.15); }
+    .icon-red { background: rgba(248,113,113,0.15); }
+    .icon-yellow { background: rgba(251,191,36,0.15); }
+    .icon-orange { background: rgba(251,146,60,0.15); }
+
+    .section-header h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .section-header p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ── Cards ── */
+    .cards {
+      display: grid;
+      gap: 16px;
+    }
+    .cards-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .cards-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .cards-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+    .card-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .card-value {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .card-sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .green { color: var(--green); }
+    .red { color: var(--red); }
+    .yellow { color: var(--yellow); }
+    .orange { color: var(--orange); }
+    .accent { color: var(--accent); }
+    .purple { color: var(--accent2); }
+
+    /* ── Tables ── */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+    thead th {
+      background: var(--surface2);
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      padding: 12px 16px;
+      text-align: left;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--border);
+    }
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--surface2); }
+    tbody td {
+      padding: 11px 16px;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .badge-srv {
+      background: var(--tag-srv);
+      color: var(--tag-srv-text);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+    .badge-hhv {
+      background: var(--tag-hhv);
+      color: var(--tag-hhv-text);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+    .badge-ok {
+      color: var(--green);
+      font-size: 15px;
+    }
+    .badge-fail {
+      color: var(--red);
+      font-size: 15px;
+    }
+
+    /* ── Progress bars ── */
+    .bar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .bar-item {}
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      margin-bottom: 6px;
+    }
+    .bar-label .name { color: var(--text); }
+    .bar-label .vals { color: var(--muted); font-size: 0.78rem; }
+    .bar-track {
+      height: 8px;
+      background: var(--surface2);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      gap: 2px;
+    }
+    .bar-fill-srv {
+      background: linear-gradient(90deg, #3b82f6, #6c8ef7);
+      border-radius: 4px 0 0 4px;
+      transition: width 0.3s;
+    }
+    .bar-fill-hhv {
+      background: linear-gradient(90deg, #7c3aed, #a78bfa);
+      border-radius: 0 4px 4px 0;
+      transition: width 0.3s;
+    }
+
+    /* ── Highlight boxes ── */
+    .highlight-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .highlight-box.red-box { border-left-color: var(--red); }
+    .highlight-box.yellow-box { border-left-color: var(--yellow); }
+    .highlight-box.green-box { border-left-color: var(--green); }
+    .highlight-box.blue-box { border-left-color: var(--accent); }
+    .highlight-box h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+    .highlight-box p, .highlight-box ul { font-size: 0.83rem; color: var(--muted); }
+    .highlight-box ul { padding-left: 16px; margin-top: 6px; }
+    .highlight-box li { margin-bottom: 3px; }
+    code {
+      background: var(--surface2);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 0.82em;
+      color: var(--accent2);
+    }
+
+    /* ── Comparison grid ── */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 640px) {
+      .compare-grid { grid-template-columns: 1fr; }
+      header h1 { font-size: 1.6rem; }
+    }
+    .compare-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .compare-card h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-card.srv-card h3 { color: var(--tag-srv-text); }
+    .compare-card.hhv-card h3 { color: var(--tag-hhv-text); }
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.84rem;
+    }
+    .stat-row:last-child { border-bottom: none; }
+    .stat-row .label { color: var(--muted); }
+    .stat-row .value { font-weight: 600; }
+
+    /* ── Limitation cards ── */
+    .limit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .limit-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .limit-card .limit-icon {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .limit-card h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .limit-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .limit-card .impact {
+      margin-top: 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    .impact-critical { background: rgba(248,113,113,0.15); color: var(--red); }
+    .impact-high { background: rgba(251,146,60,0.15); color: var(--orange); }
+    .impact-medium { background: rgba(251,191,36,0.15); color: var(--yellow); }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 80px;
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* Inline number highlight */
+    .num { font-weight: 600; }
+    .num-bad { color: var(--red); font-weight: 600; }
+    .num-good { color: var(--green); font-weight: 600; }
+    .num-warn { color: var(--yellow); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="badge">Research Analysis · 2026-03-23</div>
+  <h1>GIFdroid HHV vs SRV Analysis</h1>
+  <p>Pipeline failure patterns, confidence degradation, and limitations when running on handheld video</p>
+  <div class="meta">
+    <div class="meta-item"><span class="val">44</span><span class="lbl">Total Runs</span></div>
+    <div class="meta-item"><span class="val" style="color:var(--green)">40</span><span class="lbl">Completed</span></div>
+    <div class="meta-item"><span class="val" style="color:var(--red)">4</span><span class="lbl">Failed</span></div>
+    <div class="meta-item"><span class="val">8</span><span class="lbl">Apps</span></div>
+    <div class="meta-item"><span class="val">3</span><span class="lbl">UTGs per App</span></div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ── 1. SUCCESS RATE ── -->
+  <section>
+    <div class="section-header">
+      <div class="icon icon-green">📊</div>
+      <div>
+        <h2>Overall Success Rate</h2>
+        <p>Pipeline completion across both video types</p>
+      </div>
+    </div>
+    <div class="cards cards-4">
+      <div class="card">
+        <div class="card-title">SRV Runs</div>
+        <div class="card-value green">20 / 22</div>
+        <div class="card-sub">91% success rate</div>
+      </div>
+      <div class="card">
+        <div class="card-title">HHV Runs</div>
+        <div class="card-value green">20 / 22</div>
+        <div class="card-sub">91% success rate</div>
+      </div>
+      <div class="card">
+        <div class="card-title">SRV Failures</div>
+        <div class="card-value red">2</div>
+        <div class="card-sub">LuxAlarm utg02 &amp; utg03</div>
+      </div>
+      <div class="card">
+        <div class="card-title">HHV Failures</div>
+        <div class="card-value red">2</div>
+        <div class="card-sub">LuxAlarm utg02, PortAuthority utg03</div>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="highlight-box blue-box">
+        <h4>Equal failure rates — but different failure modes</h4>
+        <p>Both SRV and HHV fail at 9%, but the <strong>reasons</strong> differ. SRV failures are caused by unmappable UTG paths. HHV failures cascade from low confidence scores collapsing all screens to a single match, leading to degenerate target sequences that can't be traced.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 2. FAILURE CASES ── -->
+  <section>
+    <div class="section-header">
+      <div class="icon icon-red">🔴</div>
+      <div>
+        <h2>Failure Cases</h2>
+        <p>4 failed runs — root cause analysis</p>
+      </div>
+    </div>
+
+    <div class="highlight-box red-box">
+      <h4>LuxAlarm utg02 — SRV — Failed at Step 1</h4>
+      <ul>
+        <li>714 frames decoded successfully in 5.51s</li>
+        <li>Log ends abruptly — similarity computation never started</li>
+        <li>Steps 2 and 3 never executed</li>
+        <li><strong>Root cause:</strong> Premature process termination during similarity computation</li>
+      </ul>
+    </div>
+
+    <div class="highlight-box red-box">
+      <h4>LuxAlarm utg02 — HHV — Failed at Step 3</h4>
+      <ul>
+        <li>Step 1 complete: 818 frames, 11 keyframes detected</li>
+        <li>Step 2 complete: all 11 keyframes mapped to <strong>same screen</strong></li>
+        <li>Target sequence: <code>[7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7]</code> — monotonous, non-traversable in UTG</li>
+        <li><strong>Root cause:</strong> HHV confidence collapse → all frames look identical → degenerate sequence</li>
+      </ul>
+    </div>
+
+    <div class="highlight-box red-box">
+      <h4>LuxAlarm utg03 — SRV — Failed at Step 3</h4>
+      <ul>
+        <li>Step 1 &amp; 2 complete: 8 keyframes, 3 unique screens mapped</li>
+        <li>Target sequence <code>[6, 6, 6, 17, 2, 2, 2, 17]</code> not traversable in UTG (22 vertices, 273 edges)</li>
+        <li><strong>Root cause:</strong> GUI mapping produced a sequence with no valid execution path in the graph</li>
+      </ul>
+    </div>
+
+    <div class="highlight-box yellow-box">
+      <h4>PortAuthority utg03 — HHV — Data Inconsistency</h4>
+      <ul>
+        <li>Log file shows pipeline completed successfully: <code>Pipeline complete. Total time: 581.89s</code></li>
+        <li>JSON data marks <code>pipeline_complete = False</code> with <code>utg_vertices = None</code></li>
+        <li><strong>Root cause:</strong> Data extraction / post-processing script failed to parse completed run correctly</li>
+        <li>This is a <strong>tooling bug</strong>, not a GIFdroid failure</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── 3. UNIQUE SCREENS COLLAPSE ── -->
+  <section>
+    <div class="section-header">
+      <div class="icon icon-red">📉</div>
+      <div>
+        <h2>Key Limitation: Screen Mapping Collapse</h2>
+        <p>HHV consistently maps multiple keyframes to only 1 unique screen — even in "successful" runs</p>
+      </div>
+    </div>
+
+    <div class="highlight-box red-box" style="margin-bottom:20px">
+      <h4>The dominant HHV failure pattern — not a crash, but silent quality loss</h4>
+      <p>When all keyframes map to 1 screen, the resulting trace covers fewer app states. The pipeline still "succeeds" but produces a weaker, incomplete replay trace.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>App / UTG</th>
+            <th>Type</th>
+            <th>Keyframes</th>
+            <th>Unique Screens Mapped</th>
+            <th>LCS</th>
+            <th>Trace Length</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>AdAway / utg01</td><td><span class="badge-srv">SRV</span></td><td>3</td><td class="green num">3</td><td>2</td><td>9</td><td>8</td></tr>
+          <tr><td>AdAway / utg01</td><td><span class="badge-hhv">HHV</span></td><td>39</td><td class="red num">1</td><td>1</td><td>4</td><td>3</td></tr>
+          <tr><td>AntennaPod / utg01</td><td><span class="badge-srv">SRV</span></td><td>9</td><td class="green num">7</td><td>3</td><td>11</td><td>10</td></tr>
+          <tr><td>AntennaPod / utg01</td><td><span class="badge-hhv">HHV</span></td><td>10</td><td class="red num">1</td><td>1</td><td>11</td><td>10</td></tr>
+          <tr><td>AntennaPod / utg02</td><td><span class="badge-srv">SRV</span></td><td>9</td><td class="green num">7</td><td>4</td><td>10</td><td>9</td></tr>
+          <tr><td>AntennaPod / utg02</td><td><span class="badge-hhv">HHV</span></td><td>10</td><td class="red num">1</td><td>1</td><td>4</td><td>3</td></tr>
+          <tr><td>HomeMedkit / utg01</td><td><span class="badge-srv">SRV</span></td><td>8</td><td class="green num">4</td><td>1</td><td>2</td><td>1</td></tr>
+          <tr><td>HomeMedkit / utg01</td><td><span class="badge-hhv">HHV</span></td><td>54</td><td class="red num">1</td><td>1</td><td>3</td><td>2</td></tr>
+          <tr><td>HomeMedkit / utg02</td><td><span class="badge-srv">SRV</span></td><td>8</td><td class="green num">5</td><td>3</td><td>15</td><td>14</td></tr>
+          <tr><td>HomeMedkit / utg02</td><td><span class="badge-hhv">HHV</span></td><td>54</td><td class="red num">1</td><td>1</td><td>5</td><td>4</td></tr>
+          <tr><td>SimpleNotes / utg01</td><td><span class="badge-srv">SRV</span></td><td>7</td><td class="green num">4</td><td>1</td><td>2</td><td>1</td></tr>
+          <tr><td>SimpleNotes / utg01</td><td><span class="badge-hhv">HHV</span></td><td>35</td><td class="red num">1</td><td>1</td><td>2</td><td>1</td></tr>
+          <tr><td>WifiAnalyzer / utg01</td><td><span class="badge-srv">SRV</span></td><td>16</td><td class="green num">11</td><td>2</td><td>4</td><td>3</td></tr>
+          <tr><td>WifiAnalyzer / utg01</td><td><span class="badge-hhv">HHV</span></td><td>15</td><td class="yellow num">2</td><td>2</td><td>14</td><td>13</td></tr>
+          <tr><td>PortAuthority / utg01</td><td><span class="badge-srv">SRV</span></td><td>7</td><td class="green num">3</td><td>2</td><td>11</td><td>10</td></tr>
+          <tr><td>PortAuthority / utg01</td><td><span class="badge-hhv">HHV</span></td><td>22</td><td class="yellow num">2</td><td>1</td><td>9</td><td>8</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 4. CONFIDENCE SCORES ── -->
+  <section>
+    <div class="section-header">
+      <div class="icon icon-yellow">🎯</div>
+      <div>
+        <h2>Confidence Score Degradation</h2>
+        <p>HHV produces lower, tightly-clustered scores — the GUI matcher can't distinguish between screens</p>
+      </div>
+    </div>
+
+    <div class="cards cards-3" style="margin-bottom:20px">
+      <div class="card">
+        <div class="card-title">Avg Score Mean</div>
+        <div style="display:flex;gap:16px;align-items:flex-end;margin-top:4px">
+          <div><div class="card-value green" style="font-size:1.5rem">0.39</div><div class="card-sub">SRV</div></div>
+          <div><div class="card-value red" style="font-size:1.5rem">0.28</div><div class="card-sub">HHV</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Avg Score Max</div>
+        <div style="display:flex;gap:16px;align-items:flex-end;margin-top:4px">
+          <div><div class="card-value green" style="font-size:1.5rem">0.55</div><div class="card-sub">SRV</div></div>
+          <div><div class="card-value red" style="font-size:1.5rem">0.32</div><div class="card-sub">HHV</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Avg Spread (max−min)</div>
+        <div style="display:flex;gap:16px;align-items:flex-end;margin-top:4px">
+          <div><div class="card-value green" style="font-size:1.5rem">0.35</div><div class="card-sub">SRV</div></div>
+          <div><div class="card-value red" style="font-size:1.5rem">0.07</div><div class="card-sub">HHV — 5× less spread</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box yellow-box">
+      <h4>Why low spread matters</h4>
+      <p>GIFdroid uses confidence scores to differentiate which keyframe matches which UI screenshot. When all scores cluster near the same value (low spread), the algorithm cannot tell screens apart — all keyframes get assigned the same best match, collapsing multi-step interactions into single-screen traces.</p>
+    </div>
+
+    <div class="table-wrap" style="margin-top:20px">
+      <table>
+        <thead>
+          <tr>
+            <th>App / UTG</th>
+            <th>Type</th>
+            <th>Score Mean</th>
+            <th>Score Median</th>
+            <th>Score Min</th>
+            <th>Score Max</th>
+            <th>Spread</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>AdAway / utg01</td><td><span class="badge-srv">SRV</span></td><td>0.382</td><td>0.410</td><td>0.323</td><td>0.414</td><td class="green">0.091</td></tr>
+          <tr><td>AdAway / utg01</td><td><span class="badge-hhv">HHV</span></td><td>0.298</td><td>0.290</td><td>0.258</td><td>0.370</td><td class="red">0.112</td></tr>
+          <tr><td>AntennaPod / utg01</td><td><span class="badge-srv">SRV</span></td><td>0.464</td><td>0.430</td><td>0.179</td><td>0.670</td><td class="green">0.491</td></tr>
+          <tr><td>AntennaPod / utg01</td><td><span class="badge-hhv">HHV</span></td><td>0.317</td><td>0.318</td><td>0.301</td><td>0.331</td><td class="red">0.030</td></tr>
+          <tr><td>HomeMedkit / utg01</td><td><span class="badge-srv">SRV</span></td><td>0.453</td><td>0.490</td><td>0.164</td><td>0.553</td><td class="green">0.389</td></tr>
+          <tr><td>HomeMedkit / utg01</td><td><span class="badge-hhv">HHV</span></td><td>0.293</td><td>0.294</td><td>0.255</td><td>0.321</td><td class="red">0.066</td></tr>
+          <tr><td>LuxAlarm / utg01</td><td><span class="badge-srv">SRV</span></td><td>0.383</td><td>0.455</td><td>0.147</td><td>0.618</td><td class="green">0.471</td></tr>
+          <tr><td>LuxAlarm / utg01</td><td><span class="badge-hhv">HHV</span></td><td>0.273</td><td>0.270</td><td>0.262</td><td>0.286</td><td class="red">0.024</td></tr>
+          <tr><td>WifiAnalyzer / utg01</td><td><span class="badge-srv">SRV</span></td><td>0.403</td><td>0.369</td><td>0.272</td><td>0.630</td><td class="green">0.358</td></tr>
+          <tr><td>WifiAnalyzer / utg01</td><td><span class="badge-hhv">HHV</span></td><td>0.250</td><td>0.241</td><td>0.222</td><td>0.310</td><td class="red">0.088</td></tr>
+          <tr><td>PortAuthority / utg01</td><td><span class="badge-srv">SRV</span></td><td>0.394</td><td>0.396</td><td>0.214</td><td>0.586</td><td class="green">0.372</td></tr>
+          <tr><td>PortAuthority / utg01</td><td><span class="badge-hhv">HHV</span></td><td>0.212</td><td>0.215</td><td>0.184</td><td>0.242</td><td class="red">0.058</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 5. KEYFRAME OVER-DETECTION ── -->
+  <section>
+    <div class="section-header">
+      <div class="icon icon-orange">🔑</div>
+      <div>
+        <h2>Keyframe Over-Detection</h2>
+        <p>HHV produces 5–18× more keyframes than SRV for most apps — mostly hand-motion noise</p>
+      </div>
+    </div>
+
+    <div class="bar-row">
+      <!-- AdAway -->
+      <div class="bar-item">
+        <div class="bar-label">
+          <span class="name">AdAway (utg01)</span>
+          <span class="vals"><span style="color:var(--tag-srv-text)">SRV: 3</span> &nbsp;|&nbsp; <span style="color:var(--tag-hhv-text)">HHV: 39</span> &nbsp;(13× more)</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill-srv" style="width:7%"></div>
+          <div class="bar-fill-hhv" style="width:93%"></div>
+        </div>
+      </div>
+      <!-- HomeMedkit -->
+      <div class="bar-item">
+        <div class="bar-label">
+          <span class="name">HomeMedkit (utg01)</span>
+          <span class="vals"><span style="color:var(--tag-srv-text)">SRV: 8</span> &nbsp;|&nbsp; <span style="color:var(--tag-hhv-text)">HHV: 54</span> &nbsp;(7× more)</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill-srv" style="width:13%"></div>
+          <div class="bar-fill-hhv" style="width:87%"></div>
+        </div>
+      </div>
+      <!-- SimpleNotes -->
+      <div class="bar-item">
+        <div class="bar-label">
+          <span class="name">SimpleNotes (utg01)</span>
+          <span class="vals"><span style="color:var(--tag-srv-text)">SRV: 7</span> &nbsp;|&nbsp; <span style="color:var(--tag-hhv-text)">HHV: 35</span> &nbsp;(5× more)</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill-srv" style="width:17%"></div>
+          <div class="bar-fill-hhv" style="width:83%"></div>
+        </div>
+      </div>
+      <!-- PortAuthority -->
+      <div class="bar-item">
+        <div class="bar-label">
+          <span class="name">PortAuthority (utg01)</span>
+          <span class="vals"><span style="color:var(--tag-srv-text)">SRV: 7</span> &nbsp;|&nbsp; <span style="color:var(--tag-hhv-text)">HHV: 22</span> &nbsp;(3× more)</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill-srv" style="width:24%"></div>
+          <div class="bar-fill-hhv" style="width:76%"></div>
+        </div>
+      </div>
+      <!-- WifiAnalyzer -->
+      <div class="bar-item">
+        <div class="bar-label">
+          <span class="name">WifiAnalyzer (utg01)</span>
+          <span class="vals"><span style="color:var(--tag-srv-text)">SRV: 16</span> &nbsp;|&nbsp; <span style="color:var(--tag-hhv-text)">HHV: 15</span> &nbsp;(similar)</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill-srv" style="width:52%"></div>
+          <div class="bar-fill-hhv" style="width:48%"></div>
+        </div>
+      </div>
+      <!-- AntennaPod -->
+      <div class="bar-item">
+        <div class="bar-label">
+          <span class="name">AntennaPod (utg01)</span>
+          <span class="vals"><span style="color:var(--tag-srv-text)">SRV: 9</span> &nbsp;|&nbsp; <span style="color:var(--tag-hhv-text)">HHV: 10</span> &nbsp;(similar)</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill-srv" style="width:47%"></div>
+          <div class="bar-fill-hhv" style="width:53%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box orange-box" style="margin-top:20px;border-left-color:var(--orange)">
+      <h4>Noise vs. real transitions</h4>
+      <p>HHV keyframe over-detection is caused by scene changes triggered by hand movement and camera instability — not genuine UI state transitions. These fake keyframes flood Step 2 with invalid candidates, inflating runtime and degrading mapping accuracy.</p>
+    </div>
+  </section>
+
+  <!-- ── 6. RUNTIME ── -->
+  <section>
+    <div class="section-header">
+      <div class="icon icon-purple">⏱</div>
+      <div>
+        <h2>Performance Cost</h2>
+        <p>HHV is generally slower — and catastrophically slow in edge cases</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>App / UTG</th>
+            <th>SRV Total (s)</th>
+            <th>HHV Total (s)</th>
+            <th>Slowdown</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>AntennaPod / utg03</td><td>375</td><td class="red num">27,517</td><td class="red num">73×</td><td>7.6 hours — pathological Step 2 exhaustion</td></tr>
+          <tr><td>HomeMedkit / utg03</td><td>280</td><td class="red num">2,589</td><td class="red num">9×</td><td>Large UTG + many fake keyframes</td></tr>
+          <tr><td>HomeMedkit / utg01</td><td>115</td><td class="yellow num">409</td><td class="yellow num">4×</td><td></td></tr>
+          <tr><td>HomeMedkit / utg02</td><td>148</td><td class="yellow num">600</td><td class="yellow num">4×</td><td></td></tr>
+          <tr><td>SimpleNotes / utg01</td><td>80</td><td class="yellow num">299</td><td class="yellow num">4×</td><td></td></tr>
+          <tr><td>AdAway / utg01</td><td>110</td><td class="yellow num">215</td><td class="yellow num">2×</td><td></td></tr>
+          <tr><td>AntennaPod / utg01</td><td>150</td><td class="yellow num">383</td><td class="yellow num">3×</td><td></td></tr>
+          <tr><td>WifiAnalyzer / utg02</td><td>316</td><td class="yellow num">433</td><td class="yellow num">1.4×</td><td></td></tr>
+          <tr><td>PortAuthority / utg01</td><td>518</td><td class="green num">183</td><td class="green num">0.4×</td><td>PortAuthority SRV has 3050 frames vs HHV 882 — HHV actually faster</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:16px" class="highlight-box red-box">
+      <h4>AntennaPod utg03 HHV — 7.6 hours (27,516s)</h4>
+      <p>All 2025 frames mapped to 1 unique screen during Step 2. The GUI matcher still exhaustively compared every frame × every artifact (85 screenshots) despite getting the same result. This is a combinatorial blowup: <code>2025 frames × 85 artifacts = 172,125 comparisons</code>. No early-exit logic exists in GIFdroid for degenerate single-screen scenarios.</p>
+    </div>
+  </section>
+
+  <!-- ── 7. TRACE QUALITY ── -->
+  <section>
+    <div class="section-header">
+      <div class="icon icon-blue">🔗</div>
+      <div>
+        <h2>Trace Quality Degradation</h2>
+        <p>Even "successful" HHV runs produce shorter, weaker traces with lower LCS alignment</p>
+      </div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card srv-card">
+        <h3>SRV — Screen Recording</h3>
+        <div class="stat-row"><span class="label">Avg unique screens mapped</span><span class="value green">4.8</span></div>
+        <div class="stat-row"><span class="label">Avg LCS</span><span class="value green">2.5</span></div>
+        <div class="stat-row"><span class="label">Avg trace length</span><span class="value green">8.1</span></div>
+        <div class="stat-row"><span class="label">Avg actions per trace</span><span class="value green">7.0</span></div>
+        <div class="stat-row"><span class="label">0-candidate runs</span><span class="value yellow">5 / 22</span></div>
+      </div>
+      <div class="compare-card hhv-card">
+        <h3>HHV — Handheld Video</h3>
+        <div class="stat-row"><span class="label">Avg unique screens mapped</span><span class="value red">1.3</span></div>
+        <div class="stat-row"><span class="label">Avg LCS</span><span class="value red">1.0</span></div>
+        <div class="stat-row"><span class="label">Avg trace length</span><span class="value red">5.5</span></div>
+        <div class="stat-row"><span class="label">Avg actions per trace</span><span class="value red">4.6</span></div>
+        <div class="stat-row"><span class="label">0-candidate runs</span><span class="value yellow">2 / 22</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px" class="highlight-box blue-box">
+      <h4>What lower LCS means</h4>
+      <p>LCS (Longest Common Subsequence) measures how many GUI states in the detected trace align with the actual UI graph. An LCS of 1 means GIFdroid found only 1 matching state — it essentially produces a minimal stub trace rather than a rich interaction sequence. For test replay, this means coverage is severely reduced.</p>
+    </div>
+  </section>
+
+  <!-- ── 8. LIMITATIONS SUMMARY ── -->
+  <section>
+    <div class="section-header">
+      <div class="icon icon-red">⚠️</div>
+      <div>
+        <h2>GIFdroid Limitations with Handheld Video</h2>
+        <p>Five root-cause limitations identified from this dataset</p>
+      </div>
+    </div>
+
+    <div class="limit-grid">
+      <div class="limit-card">
+        <div class="limit-icon">📉</div>
+        <h4>Low &amp; Uniform Confidence Scores</h4>
+        <p>Motion blur, variable lighting, and perspective distortion from handheld recording makes all frames appear equally similar to all screenshot artifacts. The GUI matcher cannot discriminate between distinct screens.</p>
+        <span class="impact impact-critical">Critical</span>
+      </div>
+      <div class="limit-card">
+        <div class="limit-icon">🔑</div>
+        <h4>Keyframe Over-Detection</h4>
+        <p>The scene-change detector fires on camera/hand movement, not just UI transitions. Results in 5–18× more keyframes than SRV for the same session, flooding the pipeline with false positives.</p>
+        <span class="impact impact-critical">Critical</span>
+      </div>
+      <div class="limit-card">
+        <div class="limit-icon">🗺</div>
+        <h4>Degenerate Single-Screen Mapping</h4>
+        <p>Low score spread causes all keyframes to map to the same best-match screen. The resulting sequence (e.g., <code>[7,7,7,7,7,7]</code>) cannot be traced through the UTG, leading to pipeline failure or trivial traces.</p>
+        <span class="impact impact-critical">Critical</span>
+      </div>
+      <div class="limit-card">
+        <div class="limit-icon">⏱</div>
+        <h4>No Early-Exit for Degenerate Cases</h4>
+        <p>When all frames map to 1 screen, GIFdroid still runs exhaustive frame × artifact comparisons. AntennaPod utg03 took <strong>7.6 hours</strong> with no meaningful output. No timeout or degenerate-state detection exists.</p>
+        <span class="impact impact-high">High Impact</span>
+      </div>
+      <div class="limit-card">
+        <div class="limit-icon">🎨</div>
+        <h4>No HHV-Specific Preprocessing</h4>
+        <p>GIFdroid was designed for clean ADB screen recordings. No video stabilization, motion deblur, color normalization, or perspective correction is applied before feature extraction. All HHV degradation flows from this single design assumption.</p>
+        <span class="impact impact-high">High Impact</span>
+      </div>
+      <div class="limit-card">
+        <div class="limit-icon">🔗</div>
+        <h4>Reduced Trace Coverage</h4>
+        <p>Even when HHV runs succeed, they produce traces with lower LCS, fewer unique screens, and fewer actions. The replay traces are not equivalent to SRV traces — they cover a smaller subset of the tested interaction.</p>
+        <span class="impact impact-medium">Medium</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 9. FULL DATA TABLE ── -->
+  <section>
+    <div class="section-header">
+      <div class="icon icon-blue">📋</div>
+      <div>
+        <h2>Full Run Data</h2>
+        <p>All 44 runs — key metrics</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>App</th>
+            <th>UTG</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Video (MB)</th>
+            <th>Frames</th>
+            <th>Keyframes</th>
+            <th>Unique Screens</th>
+            <th>Score Mean</th>
+            <th>Score Max</th>
+            <th>Spread</th>
+            <th>Candidates</th>
+            <th>LCS</th>
+            <th>Trace Len</th>
+            <th>Actions</th>
+            <th>Total (s)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>AdAway</td><td>utg01</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>2.96</td><td>772</td><td>3</td><td>3</td><td>0.382</td><td>0.414</td><td>0.091</td><td>2</td><td>2</td><td>9</td><td>8</td><td>110</td></tr>
+          <tr><td>AdAway</td><td>utg01</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>13.94</td><td>1331</td><td>39</td><td class="red">1</td><td class="red">0.298</td><td class="red">0.370</td><td class="red">0.112</td><td>2</td><td>1</td><td>4</td><td>3</td><td>215</td></tr>
+          <tr><td>AdAway</td><td>utg02</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>2.96</td><td>772</td><td>3</td><td>2</td><td>0.279</td><td>0.332</td><td>0.109</td><td>1</td><td>1</td><td>2</td><td>1</td><td>78</td></tr>
+          <tr><td>AdAway</td><td>utg02</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>14.19</td><td>1331</td><td>39</td><td class="red">1</td><td class="red">0.286</td><td class="red">0.351</td><td>0.100</td><td>1</td><td>1</td><td>3</td><td>2</td><td>181</td></tr>
+          <tr><td>AdAway</td><td>utg03</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>2.96</td><td>772</td><td>3</td><td>2</td><td>0.279</td><td>0.332</td><td>0.109</td><td>1</td><td>1</td><td>2</td><td>1</td><td>78</td></tr>
+          <tr><td>AdAway</td><td>utg03</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>13.94</td><td>1331</td><td>39</td><td class="red">1</td><td class="red">0.286</td><td class="red">0.352</td><td>0.101</td><td>1</td><td>1</td><td>3</td><td>2</td><td>190</td></tr>
+          <tr><td>AntennaPod</td><td>utg01</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>5.08</td><td>583</td><td>9</td><td class="green">7</td><td>0.464</td><td>0.670</td><td class="green">0.491</td><td>208</td><td>3</td><td>11</td><td>10</td><td>150</td></tr>
+          <tr><td>AntennaPod</td><td>utg01</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>12.82</td><td>2025</td><td>10</td><td class="red">1</td><td class="red">0.317</td><td class="red">0.331</td><td class="red">0.030</td><td>62</td><td>1</td><td>11</td><td>10</td><td>383</td></tr>
+          <tr><td>AntennaPod</td><td>utg02</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>5.08</td><td>583</td><td>9</td><td class="green">7</td><td>0.463</td><td>0.670</td><td class="green">0.446</td><td>850306</td><td>4</td><td>10</td><td>9</td><td>563</td></tr>
+          <tr><td>AntennaPod</td><td>utg02</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>12.82</td><td>2025</td><td>10</td><td class="red">1</td><td class="red">0.316</td><td class="red">0.331</td><td class="red">0.030</td><td>257</td><td>1</td><td>4</td><td>3</td><td>592</td></tr>
+          <tr><td>AntennaPod</td><td>utg03</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>5.08</td><td>583</td><td>9</td><td class="green">5</td><td>0.473</td><td>0.670</td><td class="green">0.446</td><td>0</td><td>—</td><td>—</td><td>0</td><td>375</td></tr>
+          <tr><td>AntennaPod</td><td>utg03</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>12.82</td><td>2025</td><td>10</td><td class="red">1</td><td class="red">0.333</td><td class="red">0.341</td><td class="red">0.019</td><td>0</td><td>—</td><td>—</td><td>0</td><td class="red">27517</td></tr>
+          <tr><td>HomeMedkit</td><td>utg01</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>7.15</td><td>777</td><td>8</td><td class="green">4</td><td>0.453</td><td>0.553</td><td class="green">0.389</td><td>1</td><td>1</td><td>2</td><td>1</td><td>115</td></tr>
+          <tr><td>HomeMedkit</td><td>utg01</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>14.67</td><td>1359</td><td>54</td><td class="red">1</td><td class="red">0.293</td><td class="red">0.321</td><td class="red">0.066</td><td>1</td><td>1</td><td>3</td><td>2</td><td>409</td></tr>
+          <tr><td>HomeMedkit</td><td>utg02</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>7.15</td><td>777</td><td>8</td><td class="green">5</td><td>0.419</td><td>0.486</td><td class="green">0.211</td><td>52482</td><td>3</td><td>15</td><td>14</td><td>148</td></tr>
+          <tr><td>HomeMedkit</td><td>utg02</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>14.67</td><td>1359</td><td>54</td><td class="red">1</td><td class="red">0.300</td><td class="red">0.330</td><td class="red">0.068</td><td>52482</td><td>1</td><td>5</td><td>4</td><td>600</td></tr>
+          <tr><td>HomeMedkit</td><td>utg03</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>7.15</td><td>777</td><td>8</td><td class="green">7</td><td>0.427</td><td>0.485</td><td class="green">0.146</td><td>9995</td><td>3</td><td>8</td><td>7</td><td>280</td></tr>
+          <tr><td>HomeMedkit</td><td>utg03</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>14.67</td><td>1359</td><td>54</td><td class="yellow">2</td><td class="red">0.319</td><td class="red">0.352</td><td class="red">0.068</td><td>41031</td><td>1</td><td>4</td><td>3</td><td class="red">2589</td></tr>
+          <tr><td>Jigsaw</td><td>utg01</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>2.34</td><td>1025</td><td>6</td><td>1</td><td>0.278</td><td>0.428</td><td>0.308</td><td>1</td><td>1</td><td>2</td><td>1</td><td>109</td></tr>
+          <tr><td>Jigsaw</td><td>utg01</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>5.59</td><td>563</td><td>16</td><td>1</td><td>0.265</td><td>0.277</td><td>0.020</td><td>1</td><td>1</td><td>2</td><td>1</td><td>57</td></tr>
+          <tr><td>Jigsaw</td><td>utg02</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>2.34</td><td>1025</td><td>6</td><td>1</td><td>0.268</td><td>0.477</td><td>0.337</td><td>0</td><td>—</td><td>—</td><td>0</td><td>114</td></tr>
+          <tr><td>Jigsaw</td><td>utg02</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>5.59</td><td>563</td><td>16</td><td>1</td><td>0.220</td><td>0.225</td><td>0.016</td><td>0</td><td>—</td><td>—</td><td>0</td><td>78</td></tr>
+          <tr><td>Jigsaw</td><td>utg03</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>2.34</td><td>1025</td><td>6</td><td>2</td><td>0.367</td><td>0.428</td><td>0.204</td><td>0</td><td>—</td><td>—</td><td>0</td><td>98</td></tr>
+          <tr><td>Jigsaw</td><td>utg03</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>5.59</td><td>563</td><td>16</td><td>1</td><td>0.265</td><td>0.277</td><td>0.020</td><td>0</td><td>—</td><td>—</td><td>0</td><td>64</td></tr>
+          <tr><td>LuxAlarm</td><td>utg01</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>6.38</td><td>714</td><td>8</td><td class="green">4</td><td>0.383</td><td>0.618</td><td class="green">0.471</td><td>602</td><td>3</td><td>13</td><td>12</td><td>165</td></tr>
+          <tr><td>LuxAlarm</td><td>utg01</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>7.50</td><td>818</td><td>11</td><td class="yellow">2</td><td class="red">0.273</td><td class="red">0.286</td><td class="red">0.024</td><td>1</td><td>1</td><td>2</td><td>1</td><td>195</td></tr>
+          <tr><td>LuxAlarm</td><td>utg02</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-fail">✗</span></td><td>6.38</td><td>714</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="red">—</td></tr>
+          <tr><td>LuxAlarm</td><td>utg02</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-fail">✗</span></td><td>7.50</td><td>818</td><td>11</td><td class="red">1</td><td class="red">0.317</td><td class="red">0.342</td><td>0.036</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="red">—</td></tr>
+          <tr><td>LuxAlarm</td><td>utg03</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-fail">✗</span></td><td>6.38</td><td>714</td><td>8</td><td>3</td><td>0.409</td><td>0.616</td><td>0.393</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="red">—</td></tr>
+          <tr><td>PortAuthority</td><td>utg01</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>9.75</td><td>3050</td><td>7</td><td class="green">3</td><td>0.394</td><td>0.586</td><td class="green">0.372</td><td>553</td><td>2</td><td>11</td><td>10</td><td>518</td></tr>
+          <tr><td>PortAuthority</td><td>utg01</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>11.47</td><td>882</td><td>22</td><td class="yellow">2</td><td class="red">0.212</td><td class="red">0.242</td><td class="red">0.058</td><td>1076</td><td>1</td><td>9</td><td>8</td><td>183</td></tr>
+          <tr><td>PortAuthority</td><td>utg02</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>9.75</td><td>3050</td><td>7</td><td class="green">4</td><td>0.397</td><td>0.562</td><td class="green">0.339</td><td>27134</td><td>2</td><td>10</td><td>9</td><td>431</td></tr>
+          <tr><td>PortAuthority</td><td>utg02</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>11.47</td><td>882</td><td>22</td><td class="red">1</td><td class="red">0.242</td><td class="red">0.300</td><td class="red">0.101</td><td>2</td><td>1</td><td>5</td><td>4</td><td>416</td></tr>
+          <tr><td>PortAuthority</td><td>utg03</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>9.75</td><td>3050</td><td>7</td><td class="green">4</td><td>0.420</td><td>0.562</td><td class="green">0.339</td><td>74</td><td>3</td><td>11</td><td>10</td><td>483</td></tr>
+          <tr><td>PortAuthority</td><td>utg03</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-fail">✗</span></td><td>11.47</td><td>882</td><td>22</td><td class="red">0</td><td class="red">0.247</td><td class="red">0.300</td><td>0.075</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="yellow">—</td></tr>
+          <tr><td>SimpleNotes</td><td>utg01</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>4.07</td><td>473</td><td>7</td><td class="green">4</td><td>0.444</td><td>0.569</td><td class="green">0.346</td><td>2</td><td>1</td><td>2</td><td>1</td><td>80</td></tr>
+          <tr><td>SimpleNotes</td><td>utg01</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>12.39</td><td>1256</td><td>35</td><td class="red">1</td><td class="red">0.268</td><td class="red">0.294</td><td class="red">0.053</td><td>2</td><td>1</td><td>2</td><td>1</td><td>299</td></tr>
+          <tr><td>SimpleNotes</td><td>utg02</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>4.07</td><td>473</td><td>7</td><td class="green">3</td><td>0.453</td><td>0.580</td><td class="green">0.357</td><td>130</td><td>2</td><td>3</td><td>2</td><td>77</td></tr>
+          <tr><td>SimpleNotes</td><td>utg03</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>4.07</td><td>473</td><td>7</td><td class="green">3</td><td>0.455</td><td>0.587</td><td class="green">0.364</td><td>6</td><td>1</td><td>3</td><td>2</td><td>104</td></tr>
+          <tr><td>WifiAnalyzer</td><td>utg01</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>8.93</td><td>877</td><td>16</td><td class="green">11</td><td>0.403</td><td>0.630</td><td class="green">0.358</td><td>1</td><td>2</td><td>4</td><td>3</td><td>181</td></tr>
+          <tr><td>WifiAnalyzer</td><td>utg01</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>8.68</td><td>1191</td><td>15</td><td class="yellow">2</td><td class="red">0.250</td><td class="red">0.310</td><td class="red">0.088</td><td>268</td><td>2</td><td>14</td><td>13</td><td>195</td></tr>
+          <tr><td>WifiAnalyzer</td><td>utg02</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>8.93</td><td>877</td><td>16</td><td class="green">10</td><td>0.402</td><td>0.630</td><td class="green">0.386</td><td>775707</td><td>6</td><td>15</td><td>14</td><td>316</td></tr>
+          <tr><td>WifiAnalyzer</td><td>utg02</td><td><span class="badge-hhv">HHV</span></td><td><span class="badge-ok">✓</span></td><td>8.68</td><td>1191</td><td>15</td><td class="red">1</td><td class="red">0.314</td><td class="red">0.345</td><td class="red">0.064</td><td>925440</td><td>1</td><td>8</td><td>7</td><td>433</td></tr>
+          <tr><td>WifiAnalyzer</td><td>utg03</td><td><span class="badge-srv">SRV</span></td><td><span class="badge-ok">✓</span></td><td>8.93</td><td>877</td><td>16</td><td class="green">11</td><td>0.398</td><td>0.632</td><td class="green">0.388</td><td>607</td><td>3</td><td>9</td><td>8</td><td>227</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Generated by Claude · GIFdroid Reproduction Analysis · 2026-03-23</p>
+  <p style="margin-top:6px">Dataset: 44 runs · 8 apps · SRV (screen recording) vs HHV (handheld video)</p>
+</footer>
+
+</body>
+</html>

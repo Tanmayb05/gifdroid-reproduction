@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>GIFdroid Data Explorer</title>
+<style>
+/* ── Reset & base ── */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#222638;--surface3:#2a2f44;
+  --border:#2e3347;--border2:#3a4060;
+  --accent:#6c8ef7;--accent2:#a78bfa;
+  --green:#34d399;--red:#f87171;--yellow:#fbbf24;--orange:#fb923c;
+  --text:#e2e8f0;--muted:#8892a4;--muted2:#5a6280;
+  --srv:#1e3a5f;--srv-text:#93c5fd;
+  --hhv:#3b1f5e;--hhv-text:#c4b5fd;
+  --row-h:36px;
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:13px;min-height:100vh}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--surface)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+
+/* ── Header ── */
+.app-header{background:linear-gradient(135deg,#1a1d27,#12151f);border-bottom:1px solid var(--border);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.app-header h1{font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,#e2e8f0,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.app-header p{font-size:0.78rem;color:var(--muted);margin-top:2px}
+.header-right{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+/* ── Tabs ── */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--border);background:var(--surface);padding:0 24px;overflow-x:auto;flex-shrink:0}
+.tab-btn{padding:12px 18px;background:none;border:none;color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;letter-spacing:.3px}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* ── Tab panels ── */
+.tab-panel{display:none;padding:16px 24px 24px}
+.tab-panel.active{display:block}
+
+/* ── Toolbar ── */
+.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.toolbar input[type=text]{background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text);padding:7px 12px;font-size:12px;width:220px;outline:none}
+.toolbar input[type=text]:focus{border-color:var(--accent)}
+.toolbar input[type=text]::placeholder{color:var(--muted2)}
+
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:7px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;transition:all .15s;outline:none}
+.btn:hover{background:var(--surface3);border-color:var(--border2)}
+.btn.active{background:rgba(108,142,247,.15);border-color:var(--accent);color:var(--accent)}
+.btn-srv{background:var(--srv);border-color:var(--srv-text);color:var(--srv-text)}
+.btn-srv.active,.btn-srv:hover{background:rgba(147,197,253,.25)}
+.btn-hhv{background:var(--hhv);border-color:var(--hhv-text);color:var(--hhv-text)}
+.btn-hhv.active,.btn-hhv:hover{background:rgba(196,181,253,.25)}
+.btn-danger{border-color:var(--red);color:var(--red)}
+.btn-danger:hover{background:rgba(248,113,113,.1)}
+.btn-green{border-color:var(--green);color:var(--green)}
+.btn-green:hover{background:rgba(52,211,153,.1)}
+
+.sep{width:1px;height:24px;background:var(--border);flex-shrink:0}
+
+/* ── Column picker ── */
+.col-picker-wrap{position:relative}
+.col-picker{display:none;position:absolute;top:calc(100% + 6px);left:0;background:var(--surface);border:1px solid var(--border2);border-radius:10px;padding:12px;z-index:200;min-width:220px;max-height:340px;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.col-picker.open{display:block}
+.col-picker-title{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin-bottom:8px}
+.col-picker label{display:flex;align-items:center;gap:8px;padding:5px 6px;border-radius:5px;cursor:pointer;font-size:12px;color:var(--text)}
+.col-picker label:hover{background:var(--surface2)}
+.col-picker input[type=checkbox]{accent-color:var(--accent);width:13px;height:13px}
+
+/* ── Table wrapper ── */
+.table-outer{border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.table-scroll{overflow:auto;max-height:calc(100vh - 280px)}
+
+/* ── Table ── */
+table{border-collapse:collapse;width:max-content;min-width:100%}
+thead{position:sticky;top:0;z-index:10}
+th{background:var(--surface2);color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;padding:10px 12px;text-align:left;white-space:nowrap;border-bottom:1px solid var(--border);user-select:none;cursor:pointer;position:relative}
+th:hover .th-label{color:var(--text)}
+th.sort-asc .sort-icon::after{content:'↑';color:var(--accent);margin-left:4px;font-size:11px}
+th.sort-desc .sort-icon::after{content:'↓';color:var(--accent);margin-left:4px;font-size:11px}
+th.sort-none .sort-icon::after{content:'⇅';color:var(--muted2);margin-left:4px;font-size:10px;opacity:.6}
+th .th-inner{display:flex;align-items:center;gap:2px}
+th .th-label{transition:color .15s}
+
+/* Group headers */
+.group-header-row th{padding:5px 12px;font-size:10px;background:var(--surface);border-bottom:1px solid var(--border);color:var(--muted2);letter-spacing:.8px;cursor:default}
+.group-header-row th:hover .th-label{color:var(--muted2)}
+
+/* Column drag handle in header */
+.col-drag-handle{position:absolute;right:0;top:0;width:5px;height:100%;cursor:col-resize;background:transparent}
+.col-drag-handle:hover{background:var(--border2)}
+.col-dragging{opacity:.5;background:var(--surface3)!important}
+.col-drag-over{border-left:2px solid var(--accent)!important}
+
+tbody tr{border-bottom:1px solid rgba(46,51,71,.6);transition:background .1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:rgba(108,142,247,.06)}
+tbody tr.pinned{background:rgba(251,191,36,.06)!important;border-left:3px solid var(--yellow)}
+tbody tr.pinned:hover{background:rgba(251,191,36,.1)!important}
+
+td{padding:8px 12px;white-space:nowrap;vertical-align:middle}
+
+/* Type badges */
+.badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;letter-spacing:.4px}
+.badge-srv{background:var(--srv);color:var(--srv-text)}
+.badge-hhv{background:var(--hhv);color:var(--hhv-text)}
+.badge-ok{color:var(--green)}
+.badge-fail{color:var(--red)}
+
+/* Heatmap cell */
+.heat-cell{display:inline-block;width:100%;padding:2px 6px;border-radius:4px;font-weight:600;text-align:right}
+
+/* Sparkline bar */
+.spark-bar-wrap{display:flex;align-items:center;gap:7px}
+.spark-bar-track{height:6px;width:80px;background:var(--surface3);border-radius:3px;overflow:hidden;flex-shrink:0}
+.spark-bar-fill{height:100%;border-radius:3px;transition:width .3s}
+.spark-val{min-width:52px;text-align:right;font-size:12px}
+
+/* Delta cell */
+.delta-pos{color:var(--red)}/* HHV-SRV positive = worse for most metrics? shown red */
+.delta-neg{color:var(--green)}
+.delta-zero{color:var(--muted2)}
+
+/* Row drag handle */
+.row-drag{cursor:grab;color:var(--muted2);padding:0 4px;font-size:14px;user-select:none}
+.row-drag:active{cursor:grabbing}
+tr.row-dragging{opacity:.4}
+tr.row-drop-target{border-top:2px solid var(--accent)!important}
+
+/* Pin toggle */
+.pin-btn{background:none;border:none;cursor:pointer;color:var(--muted2);font-size:13px;padding:0;line-height:1;transition:color .15s}
+.pin-btn:hover,.pin-btn.pinned{color:var(--yellow)}
+
+/* ── Stats bar ── */
+.stats-bar{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:10px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:11px;color:var(--muted)}
+.stats-bar span b{color:var(--text);font-weight:600}
+
+/* ── Summary table (T6) ── */
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.summary-grid{grid-template-columns:1fr}}
+.summary-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.summary-card-title{padding:10px 14px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);background:var(--surface2);border-bottom:1px solid var(--border)}
+
+/* ── Tooltip ── */
+.tooltip{position:fixed;background:var(--surface);border:1px solid var(--border2);border-radius:7px;padding:8px 12px;font-size:12px;color:var(--text);pointer-events:none;z-index:1000;max-width:260px;box-shadow:0 4px 20px rgba(0,0,0,.5);display:none}
+
+/* ── Legend ── */
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-bottom:10px}
+.legend-item{display:flex;align-items:center;gap:6px}
+.legend-swatch{width:12px;height:12px;border-radius:3px}
+
+/* ── Table description ── */
+.table-desc{font-size:12px;color:var(--muted);margin-bottom:12px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;line-height:1.5}
+.table-desc strong{color:var(--text)}
+
+/* ── Column group header colors ── */
+.grp-input{color:#7dd3fc!important}
+.grp-step1{color:#86efac!important}
+.grp-step2{color:#fcd34d!important}
+.grp-step3{color:#fb923c!important}
+.grp-output{color:#c4b5fd!important}
+
+/* ── Heatmap toggle notice ── */
+.heatmap-active th.heatmap-col .th-label::after{content:' ◆';font-size:9px;color:var(--accent2)}
+
+/* ── Empty state ── */
+.empty-state{padding:40px;text-align:center;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <div>
+    <h1>GIFdroid Data Explorer</h1>
+    <p>6 tables · 31 runs · HHV vs SRV comparison · interactive sort, filter, reorder, heatmap</p>
+  </div>
+  <div class="header-right">
+    <div style="font-size:11px;color:var(--muted)">
+      <span style="color:var(--srv-text);font-weight:700">■ SRV</span> &nbsp;
+      <span style="color:var(--hhv-text);font-weight:700">■ HHV</span>
+    </div>
+  </div>
+</div>
+
+<div class="tabs" id="tabs">
+  <button class="tab-btn active" data-tab="t1">T1 · Master</button>
+  <button class="tab-btn" data-tab="t2">T2 · Timing</button>
+  <button class="tab-btn" data-tab="t3">T3 · Side-by-Side</button>
+  <button class="tab-btn" data-tab="t4">T4 · Confidence</button>
+  <button class="tab-btn" data-tab="t5">T5 · Execution</button>
+  <button class="tab-btn" data-tab="t6">T6 · Summary</button>
+</div>
+
+<!-- ═══════════════ TAB 1: MASTER ═══════════════ -->
+<div class="tab-panel active" id="tab-t1">
+  <div class="table-desc">
+    <strong>Master table</strong> — all 31 runs with full pipeline metrics. Columns grouped by pipeline stage.
+    Heatmap colors numeric cells: <strong style="color:var(--green)">green = better</strong>, <strong style="color:var(--red)">red = worse</strong> (direction depends on metric).
+  </div>
+  <div class="toolbar">
+    <input type="text" id="t1-search" placeholder="🔍  Search any column…" oninput="filterTable('t1')">
+    <div class="sep"></div>
+    <button class="btn btn-srv active" id="t1-srv-btn" onclick="toggleTypeFilter('t1','SRV')">SRV</button>
+    <button class="btn btn-hhv active" id="t1-hhv-btn" onclick="toggleTypeFilter('t1','HHV')">HHV</button>
+    <div class="sep"></div>
+    <button class="btn active" id="t1-heatmap-btn" onclick="toggleHeatmap('t1')">🌡 Heatmap</button>
+    <button class="btn active" id="t1-sparkline-btn" onclick="toggleSparklines('t1')">▬ Sparklines</button>
+    <div class="sep"></div>
+    <div class="col-picker-wrap">
+      <button class="btn" onclick="toggleColPicker('t1')">⚙ Columns</button>
+      <div class="col-picker" id="t1-col-picker"></div>
+    </div>
+    <button class="btn btn-green" onclick="exportCSV('t1')">↓ Export</button>
+    <button class="btn btn-danger" onclick="resetTable('t1')">↺ Reset</button>
+  </div>
+  <div class="stats-bar" id="t1-stats"></div>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-swatch" style="background:rgba(52,211,153,.25)"></span>High / good value</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:rgba(248,113,113,.25)"></span>Low / bad value</span>
+    <span class="legend-item"><span class="legend-swatch" style="background:rgba(251,191,36,.15);border:1px solid var(--yellow)"></span>Pinned row</span>
+    <span class="legend-item">⠿ Drag row handle to reorder &nbsp;|&nbsp; Drag column header to reorder &nbsp;|&nbsp; Click header to sort</span>
+  </div>
+  <div class="table-outer">
+    <div class="table-scroll">
+      <table id="t1-table"></table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TAB 2: TIMING ═══════════════ -->
+<div class="tab-panel" id="tab-t2">
+  <div class="table-desc">
+    <strong>Timing breakdown</strong> — time spent in each of the 4 pipeline steps per run. Step 2 (GUI Mapping) dominates for HHV.
+    Sparklines show each step's proportion of total time.
+  </div>
+  <div class="toolbar">
+    <input type="text" id="t2-search" placeholder="🔍  Search…" oninput="filterTable('t2')">
+    <div class="sep"></div>
+    <button class="btn btn-srv active" id="t2-srv-btn" onclick="toggleTypeFilter('t2','SRV')">SRV</button>
+    <button class="btn btn-hhv active" id="t2-hhv-btn" onclick="toggleTypeFilter('t2','HHV')">HHV</button>
+    <div class="sep"></div>
+    <button class="btn active" id="t2-heatmap-btn" onclick="toggleHeatmap('t2')">🌡 Heatmap</button>
+    <button class="btn active" id="t2-sparkline-btn" onclick="toggleSparklines('t2')">▬ Sparklines</button>
+    <div class="sep"></div>
+    <div class="col-picker-wrap">
+      <button class="btn" onclick="toggleColPicker('t2')">⚙ Columns</button>
+      <div class="col-picker" id="t2-col-picker"></div>
+    </div>
+    <button class="btn btn-green" onclick="exportCSV('t2')">↓ Export</button>
+    <button class="btn btn-danger" onclick="resetTable('t2')">↺ Reset</button>
+  </div>
+  <div class="stats-bar" id="t2-stats"></div>
+  <div class="table-outer">
+    <div class="table-scroll">
+      <table id="t2-table"></table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TAB 3: SIDE-BY-SIDE ═══════════════ -->
+<div class="tab-panel" id="tab-t3">
+  <div class="table-desc">
+    <strong>Side-by-side comparison</strong> — SRV and HHV values paired per (App, UTG). Delta columns (Δ = HHV − SRV) show direction of change.
+    <span style="color:var(--red)">Red Δ</span> = HHV is worse, <span style="color:var(--green)">Green Δ</span> = HHV is better.
+  </div>
+  <div class="toolbar">
+    <input type="text" id="t3-search" placeholder="🔍  Search…" oninput="filterTable('t3')">
+    <div class="sep"></div>
+    <button class="btn active" id="t3-delta-btn" onclick="toggleDelta('t3')">Δ Delta cols</button>
+    <button class="btn active" id="t3-heatmap-btn" onclick="toggleHeatmap('t3')">🌡 Heatmap</button>
+    <div class="sep"></div>
+    <div class="col-picker-wrap">
+      <button class="btn" onclick="toggleColPicker('t3')">⚙ Columns</button>
+      <div class="col-picker" id="t3-col-picker"></div>
+    </div>
+    <button class="btn btn-green" onclick="exportCSV('t3')">↓ Export</button>
+    <button class="btn btn-danger" onclick="resetTable('t3')">↺ Reset</button>
+  </div>
+  <div class="stats-bar" id="t3-stats"></div>
+  <div class="table-outer">
+    <div class="table-scroll">
+      <table id="t3-table"></table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TAB 4: CONFIDENCE ═══════════════ -->
+<div class="tab-panel" id="tab-t4">
+  <div class="table-desc">
+    <strong>Confidence scores</strong> — GUI mapping confidence statistics per run. Low spread (Max−Min) means the matcher couldn't distinguish screens.
+    A computed <em>Spread</em> column (Max−Min) is added automatically.
+  </div>
+  <div class="toolbar">
+    <input type="text" id="t4-search" placeholder="🔍  Search…" oninput="filterTable('t4')">
+    <div class="sep"></div>
+    <button class="btn btn-srv active" id="t4-srv-btn" onclick="toggleTypeFilter('t4','SRV')">SRV</button>
+    <button class="btn btn-hhv active" id="t4-hhv-btn" onclick="toggleTypeFilter('t4','HHV')">HHV</button>
+    <div class="sep"></div>
+    <button class="btn active" id="t4-heatmap-btn" onclick="toggleHeatmap('t4')">🌡 Heatmap</button>
+    <button class="btn active" id="t4-sparkline-btn" onclick="toggleSparklines('t4')">▬ Sparklines</button>
+    <div class="sep"></div>
+    <div class="col-picker-wrap">
+      <button class="btn" onclick="toggleColPicker('t4')">⚙ Columns</button>
+      <div class="col-picker" id="t4-col-picker"></div>
+    </div>
+    <button class="btn btn-green" onclick="exportCSV('t4')">↓ Export</button>
+    <button class="btn btn-danger" onclick="resetTable('t4')">↺ Reset</button>
+  </div>
+  <div class="stats-bar" id="t4-stats"></div>
+  <div class="table-outer">
+    <div class="table-scroll">
+      <table id="t4-table"></table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TAB 5: EXECUTION ═══════════════ -->
+<div class="tab-panel" id="tab-t5">
+  <div class="table-desc">
+    <strong>Execution output</strong> — replay traces, actions, and action types produced per run.
+    Action type pills are shown per action kind.
+  </div>
+  <div class="toolbar">
+    <input type="text" id="t5-search" placeholder="🔍  Search…" oninput="filterTable('t5')">
+    <div class="sep"></div>
+    <button class="btn btn-srv active" id="t5-srv-btn" onclick="toggleTypeFilter('t5','SRV')">SRV</button>
+    <button class="btn btn-hhv active" id="t5-hhv-btn" onclick="toggleTypeFilter('t5','HHV')">HHV</button>
+    <div class="sep"></div>
+    <button class="btn active" id="t5-heatmap-btn" onclick="toggleHeatmap('t5')">🌡 Heatmap</button>
+    <div class="sep"></div>
+    <div class="col-picker-wrap">
+      <button class="btn" onclick="toggleColPicker('t5')">⚙ Columns</button>
+      <div class="col-picker" id="t5-col-picker"></div>
+    </div>
+    <button class="btn btn-green" onclick="exportCSV('t5')">↓ Export</button>
+    <button class="btn btn-danger" onclick="resetTable('t5')">↺ Reset</button>
+  </div>
+  <div class="stats-bar" id="t5-stats"></div>
+  <div class="table-outer">
+    <div class="table-scroll">
+      <table id="t5-table"></table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TAB 6: SUMMARY ═══════════════ -->
+<div class="tab-panel" id="tab-t6">
+  <div class="table-desc">
+    <strong>Aggregate summary</strong> — SRV vs HHV statistics across all runs. Sparklines show Mean relative to Min/Max range.
+    Sort, search, and export as usual.
+  </div>
+  <div class="toolbar">
+    <input type="text" id="t6-search" placeholder="🔍  Search…" oninput="filterTable('t6')">
+    <div class="sep"></div>
+    <button class="btn active" id="t6-heatmap-btn" onclick="toggleHeatmap('t6')">🌡 Heatmap</button>
+    <button class="btn active" id="t6-sparkline-btn" onclick="toggleSparklines('t6')">▬ Sparklines</button>
+    <div class="sep"></div>
+    <button class="btn btn-green" onclick="exportCSV('t6')">↓ Export</button>
+    <button class="btn btn-danger" onclick="resetTable('t6')">↺ Reset</button>
+  </div>
+  <div class="stats-bar" id="t6-stats"></div>
+  <div class="table-outer">
+    <div class="table-scroll">
+      <table id="t6-table"></table>
+    </div>
+  </div>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+/* ═══════════════════════════════════════════════
+   DATA
+═══════════════════════════════════════════════ */
+const RAW = {
+
+t1: {
+  desc: 'Master',
+  groups: [
+    {label:'',cols:['','','','']}, // pin, drag, App, UTG handled separately
+  ],
+  colGroups: {
+    'App':'',       'UTG':'',         'Type':'',
+    'Video_MB':'INPUT',   'Artifacts':'INPUT','UTG_Vertices':'INPUT','UTG_Edges':'INPUT',
+    'Frames':'STEP 1',    'Keyframes':'STEP 1','KF_Ratio':'STEP 1',
+    'Score_Mean':'STEP 2','Score_Median':'STEP 2','Score_Min':'STEP 2','Score_Max':'STEP 2','Unique_Screens':'STEP 2',
+    'Candidate_Paths':'STEP 3','Traces_Found':'STEP 3','LCS':'STEP 3','Trace_Length':'STEP 3',
+    'Total_Time_s':'OUTPUT'
+  },
+  // direction: +1 = higher is better (green), -1 = lower is better (green)
+  heatDir: {
+    'Video_MB':-1,'Artifacts':1,'UTG_Vertices':1,'UTG_Edges':1,
+    'Frames':0,'Keyframes':-1,'KF_Ratio':1,
+    'Score_Mean':1,'Score_Median':1,'Score_Min':1,'Score_Max':1,'Unique_Screens':1,
+    'Candidate_Paths':0,'Traces_Found':1,'LCS':1,'Trace_Length':1,
+    'Total_Time_s':-1
+  },
+  sparklineCols: ['Score_Mean','LCS','Trace_Length','Total_Time_s'],
+  pinnedRows: [10], // AntennaPod utg03 HHV (0-indexed after parse)
+  rows: [
+    ['AdAway','utg01','SRV',2.96,20,20,50,772,3,257.33,0.3823,0.41,0.323,0.414,3,2,1,2,9,110.33],
+    ['AdAway','utg01','HHV',13.94,20,20,50,1331,39,34.13,0.2975,0.29,0.258,0.37,1,2,1,1,4,214.8],
+    ['AdAway','utg02','HHV',14.19,5,4,5,1331,39,34.13,0.2857,0.276,0.251,0.351,1,1,1,1,3,180.89],
+    ['AdAway','utg03','SRV',2.96,5,4,5,772,3,257.33,0.2793,0.283,0.223,0.332,2,1,1,1,2,78.12],
+    ['AntennaPod','utg01','SRV',5.08,97,96,217,583,9,64.78,0.4638,0.43,0.179,0.67,7,208,1,3,11,150.44],
+    ['AntennaPod','utg01','HHV',12.82,97,96,217,2025,10,202.5,0.3166,0.3175,0.301,0.331,1,62,1,1,11,383.25],
+    ['AntennaPod','utg02','HHV',12.82,152,151,403,2025,10,202.5,0.3163,0.317,0.301,0.331,1,257,1,1,4,591.5],
+    ['AntennaPod','utg03','SRV',5.08,85,84,214,583,9,64.78,0.4732,0.425,0.224,0.67,5,0,'',null,'',375.03],
+    ['AntennaPod','utg03','HHV',12.82,85,84,214,2025,10,202.5,0.333,0.336,0.322,0.341,1,0,'',null,'',27516.53],
+    ['HomeMedkit','utg01','SRV',7.15,49,49,127,777,8,97.12,0.4529,0.4895,0.164,0.553,4,1,1,1,2,115.14],
+    ['HomeMedkit','utg01','HHV',14.67,49,49,127,1359,54,25.17,0.2928,0.2935,0.255,0.321,1,1,1,1,3,409.47],
+    ['HomeMedkit','utg02','HHV',14.67,81,80,298,1359,54,25.17,0.2996,0.3,0.262,0.33,1,52482,1,1,5,600.49],
+    ['HomeMedkit','utg03','SRV',7.15,53,52,210,777,8,97.12,0.4271,0.4385,0.339,0.485,7,9995,2,3,8,279.7],
+    ['Jigsaw','utg01','SRV',2.34,2,2,3,1025,6,170.83,0.2778,0.2825,0.12,0.428,1,1,1,1,2,109.23],
+    ['Jigsaw','utg01','HHV',5.59,2,2,3,563,16,35.19,0.2653,0.2615,0.257,0.277,1,1,1,1,2,56.77],
+    ['Jigsaw','utg02','SRV',2.34,3,2,2,1025,6,170.83,0.2682,0.2085,0.14,0.477,1,0,'',null,'',113.59],
+    ['Jigsaw','utg02','HHV',5.59,3,2,2,563,16,35.19,0.2199,0.22,0.209,0.225,1,0,'',null,'',78.41],
+    ['LuxAlarm','utg01','SRV',6.38,96,96,298,714,8,89.25,0.383,0.4545,0.147,0.618,4,602,1,3,13,165.41],
+    ['LuxAlarm','utg01','HHV',7.5,96,96,298,818,11,74.36,0.2725,0.27,0.262,0.286,2,1,1,1,2,195.2],
+    ['PortAuthority','utg01','SRV',9.75,42,41,206,3050,7,435.71,0.394,0.396,0.214,0.586,3,553,1,2,11,517.52],
+    ['PortAuthority','utg01','HHV',11.47,42,41,206,882,22,40.09,0.2118,0.2145,0.184,0.242,2,1076,4,1,9,183.47],
+    ['PortAuthority','utg02','SRV',9.75,89,88,254,3050,7,435.71,0.3969,0.396,0.223,0.562,4,27134,4,2,10,431.38],
+    ['PortAuthority','utg02','HHV',11.47,89,88,254,882,22,40.09,0.2415,0.2405,0.199,0.3,1,2,1,1,5,415.63],
+    ['PortAuthority','utg03','SRV',9.75,63,62,154,3050,7,435.71,0.4203,0.449,0.223,0.562,4,74,2,3,11,482.65],
+    ['SimpleNotes','utg01','HHV',12.39,48,48,190,1256,35,35.89,0.2677,0.264,0.241,0.294,1,2,1,1,2,299.32],
+    ['SimpleNotes','utg02','SRV',4.07,35,34,297,473,7,67.57,0.4534,0.493,0.223,0.58,3,130,1,2,3,77.36],
+    ['SimpleNotes','utg03','SRV',4.07,38,37,168,473,7,67.57,0.4551,0.499,0.223,0.587,3,6,1,1,3,104.28],
+    ['WifiAnalyzer','utg01','SRV',8.93,48,48,135,877,16,54.81,0.403,0.3685,0.272,0.63,11,1,1,2,4,181.39],
+    ['WifiAnalyzer','utg01','HHV',8.68,48,48,135,1191,15,79.4,0.2501,0.241,0.222,0.31,2,268,1,2,14,195.19],
+    ['WifiAnalyzer','utg02','SRV',8.93,51,50,232,877,16,54.81,0.4024,0.3735,0.244,0.63,10,775707,2,6,15,315.92],
+    ['WifiAnalyzer','utg02','HHV',8.68,51,50,232,1191,15,79.4,0.3142,0.309,0.281,0.345,1,925440,2,1,8,433.48],
+    ['WifiAnalyzer','utg03','SRV',8.93,33,32,119,877,16,54.81,0.398,0.358,0.244,0.632,11,607,3,3,9,227.49],
+  ],
+  headers: ['App','UTG','Type','Video_MB','Artifacts','UTG_Vertices','UTG_Edges','Frames','Keyframes','KF_Ratio','Score_Mean','Score_Median','Score_Min','Score_Max','Unique_Screens','Candidate_Paths','Traces_Found','LCS','Trace_Length','Total_Time_s'],
+},
+
+t2: {
+  desc: 'Timing',
+  heatDir: {'Step1_s':-1,'Step2_s':-1,'Step3_s':-1,'Step4_s':-1,'Total_s':-1},
+  sparklineCols: ['Step1_s','Step2_s','Step3_s','Total_s'],
+  headers: ['App','UTG','Type','Step1_s','Step2_s','Step3_s','Step4_s','Total_s'],
+  rows: [
+    ['AdAway','utg01','SRV',101.87,8.45,0.0,0.0,110.33],
+    ['AdAway','utg01','HHV',135.64,79.16,0.0,0.0,214.8],
+    ['AdAway','utg02','HHV',160.15,20.73,0.01,0.0,180.89],
+    ['AdAway','utg03','SRV',75.77,2.24,0.0,0.0,78.12],
+    ['AntennaPod','utg01','SRV',57.71,92.67,0.05,0.0,150.44],
+    ['AntennaPod','utg01','HHV',274.53,108.67,0.04,0.01,383.25],
+    ['AntennaPod','utg02','HHV',219.88,157.78,213.83,0.0,591.5],
+    ['AntennaPod','utg03','SRV',57.82,316.64,0.19,0.0,375.03],
+    ['AntennaPod','utg03','HHV',null,null,null,null,27516.53],
+    ['HomeMedkit','utg01','SRV',74.62,40.52,0.0,0.0,115.14],
+    ['HomeMedkit','utg01','HHV',141.84,263.26,0.0,0.0,409.47],
+    ['HomeMedkit','utg02','HHV',132.45,425.44,42.6,0.0,600.49],
+    ['HomeMedkit','utg03','SRV',81.59,197.31,0.57,0.0,279.7],
+    ['Jigsaw','utg01','SRV',107.99,1.23,0.0,0.0,109.23],
+    ['Jigsaw','utg01','HHV',54.4,2.37,0.0,0.0,56.77],
+    ['Jigsaw','utg02','SRV',111.74,1.84,0.0,0.0,113.59],
+    ['Jigsaw','utg02','HHV',72.88,5.53,0.0,0.0,78.41],
+    ['LuxAlarm','utg01','SRV',76.48,88.83,0.1,0.0,165.41],
+    ['LuxAlarm','utg01','HHV',83.11,112.09,0.0,0.0,195.2],
+    ['PortAuthority','utg01','SRV',472.97,44.5,0.04,0.01,517.52],
+    ['PortAuthority','utg01','HHV',89.07,94.28,0.13,0.0,183.47],
+    ['PortAuthority','utg02','SRV',345.28,83.37,2.73,0.0,431.38],
+    ['PortAuthority','utg02','HHV',124.04,291.11,0.46,0.01,415.63],
+    ['PortAuthority','utg03','SRV',298.2,184.25,0.01,0.0,482.65],
+    ['SimpleNotes','utg01','HHV',127.78,171.54,0.0,0.0,299.32],
+    ['SimpleNotes','utg02','SRV',50.94,26.41,0.01,0.0,77.36],
+    ['SimpleNotes','utg03','SRV',44.59,59.53,0.0,0.0,104.28],
+    ['WifiAnalyzer','utg01','SRV',91.88,89.51,0.01,0.0,181.39],
+    ['WifiAnalyzer','utg01','HHV',120.59,74.56,0.04,0.0,195.19],
+    ['WifiAnalyzer','utg02','SRV',96.65,98.34,120.92,0.01,315.92],
+    ['WifiAnalyzer','utg02','HHV',175.2,95.73,162.44,0.1,433.48],
+    ['WifiAnalyzer','utg03','SRV',83.2,143.78,0.06,0.0,227.49],
+  ],
+},
+
+t3: {
+  desc: 'Side-by-Side',
+  heatDir: {
+    'SRV_MB':-1,'HHV_MB':-1,'MB_Ratio':0,
+    'SRV_Frames':0,'HHV_Frames':0,
+    'SRV_Keyframes':-1,'HHV_Keyframes':-1,
+    'SRV_Score_Mean':1,'HHV_Score_Mean':1,
+    'SRV_Trace_Length':1,'HHV_Trace_Length':1,
+    'SRV_Time_s':-1,'HHV_Time_s':-1,
+  },
+  deltaMetrics: ['Score_Mean','Trace_Length','Time_s'],
+  headers: ['App','UTG','SRV_MB','HHV_MB','MB_Ratio','SRV_Frames','HHV_Frames','SRV_Keyframes','HHV_Keyframes','SRV_Score_Mean','HHV_Score_Mean','SRV_Trace_Length','HHV_Trace_Length','SRV_Time_s','HHV_Time_s'],
+  rows: [
+    ['AdAway','utg01',2.96,13.94,4.71,772,1331,3,39,0.3823,0.2975,9,4,110.33,214.8],
+    ['AdAway','utg02',null,14.19,null,null,1331,null,39,null,0.2857,null,3,null,180.89],
+    ['AdAway','utg03',2.96,null,null,772,null,3,null,0.2793,null,2,null,78.12,null],
+    ['AntennaPod','utg01',5.08,12.82,2.52,583,2025,9,10,0.4638,0.3166,11,11,150.44,383.25],
+    ['AntennaPod','utg02',null,12.82,null,null,2025,null,10,null,0.3163,null,4,null,591.5],
+    ['AntennaPod','utg03',5.08,null,null,583,null,9,null,0.4732,null,null,null,375.03,null],
+    ['HomeMedkit','utg01',7.15,14.67,2.05,777,1359,8,54,0.4529,0.2928,2,3,115.14,409.47],
+    ['HomeMedkit','utg02',null,14.67,null,null,1359,null,54,null,0.2996,null,5,null,600.49],
+    ['HomeMedkit','utg03',7.15,null,null,777,null,8,null,0.4271,null,8,null,279.7,null],
+    ['Jigsaw','utg01',2.34,5.59,2.39,1025,563,6,16,0.2778,0.2653,2,2,109.23,56.77],
+    ['Jigsaw','utg02',2.34,5.59,2.39,1025,563,6,16,0.2682,0.2199,null,null,113.59,78.41],
+    ['LuxAlarm','utg01',6.38,7.5,1.18,714,818,8,11,0.383,0.2725,13,2,165.41,195.2],
+    ['PortAuthority','utg01',9.75,11.47,1.18,3050,882,7,22,0.394,0.2118,11,9,517.52,183.47],
+    ['PortAuthority','utg02',9.75,11.47,1.18,3050,882,7,22,0.3969,0.2415,10,5,431.38,415.63],
+    ['PortAuthority','utg03',9.75,null,null,3050,null,7,null,0.4203,null,11,null,482.65,null],
+    ['SimpleNotes','utg01',null,12.39,null,null,1256,null,35,null,0.2677,null,2,null,299.32],
+    ['SimpleNotes','utg02',4.07,null,null,473,null,7,null,0.4534,null,3,null,77.36,null],
+    ['SimpleNotes','utg03',4.07,null,null,473,null,7,null,0.4551,null,3,null,104.28,null],
+    ['WifiAnalyzer','utg01',8.93,8.68,0.97,877,1191,16,15,0.403,0.2501,4,14,181.39,195.19],
+    ['WifiAnalyzer','utg02',8.93,8.68,0.97,877,1191,16,15,0.4024,0.3142,15,8,315.92,433.48],
+    ['WifiAnalyzer','utg03',8.93,null,null,877,null,16,null,0.398,null,9,null,227.49,null],
+  ],
+},
+
+t4: {
+  desc: 'Confidence',
+  heatDir: {'N_Scores':0,'Mean':1,'Median':1,'Stdev':-1,'Min':1,'Max':1},
+  sparklineCols: ['Mean','Max'],
+  headers: ['App','UTG','Type','N_Scores','Mean','Median','Stdev','Min','Max'],
+  rows: [
+    ['AdAway','utg01','SRV',3,0.3823,0.41,0.0514,0.323,0.414],
+    ['AdAway','utg01','HHV',39,0.2975,0.29,0.0245,0.258,0.37],
+    ['AdAway','utg02','HHV',39,0.2857,0.276,0.0222,0.251,0.351],
+    ['AdAway','utg03','SRV',3,0.2793,0.283,0.0546,0.223,0.332],
+    ['AntennaPod','utg01','SRV',9,0.4638,0.43,0.1299,0.179,0.67],
+    ['AntennaPod','utg01','HHV',10,0.3166,0.3175,0.0085,0.301,0.331],
+    ['AntennaPod','utg02','HHV',10,0.3163,0.317,0.0094,0.301,0.331],
+    ['AntennaPod','utg03','SRV',9,0.4732,0.425,0.1312,0.224,0.67],
+    ['AntennaPod','utg03','HHV',10,0.333,0.336,0.0064,0.322,0.341],
+    ['HomeMedkit','utg01','SRV',8,0.4529,0.4895,0.1162,0.164,0.553],
+    ['HomeMedkit','utg01','HHV',54,0.2928,0.2935,0.0161,0.255,0.321],
+    ['HomeMedkit','utg02','HHV',54,0.2996,0.3,0.0174,0.262,0.33],
+    ['HomeMedkit','utg03','SRV',8,0.4271,0.4385,0.0481,0.339,0.485],
+    ['Jigsaw','utg01','SRV',6,0.2778,0.2825,0.1032,0.12,0.428],
+    ['Jigsaw','utg01','HHV',16,0.2653,0.2615,0.0058,0.257,0.277],
+    ['Jigsaw','utg02','SRV',6,0.2682,0.2085,0.1249,0.14,0.477],
+    ['Jigsaw','utg02','HHV',16,0.2199,0.22,0.0056,0.209,0.225],
+    ['LuxAlarm','utg01','SRV',8,0.383,0.4545,0.1651,0.147,0.618],
+    ['LuxAlarm','utg01','HHV',11,0.2725,0.27,0.0065,0.262,0.286],
+    ['PortAuthority','utg01','SRV',7,0.394,0.396,0.1206,0.214,0.586],
+    ['PortAuthority','utg01','HHV',22,0.2118,0.2145,0.0161,0.184,0.242],
+    ['PortAuthority','utg02','SRV',7,0.3969,0.396,0.1116,0.223,0.562],
+    ['PortAuthority','utg02','HHV',22,0.2415,0.2405,0.0252,0.199,0.3],
+    ['PortAuthority','utg03','SRV',7,0.4203,0.449,0.1103,0.223,0.562],
+    ['SimpleNotes','utg01','HHV',35,0.2677,0.264,0.0122,0.241,0.294],
+    ['SimpleNotes','utg02','SRV',7,0.4534,0.493,0.1185,0.223,0.58],
+    ['SimpleNotes','utg03','SRV',7,0.4551,0.499,0.1226,0.223,0.587],
+    ['WifiAnalyzer','utg01','SRV',16,0.403,0.3685,0.1116,0.272,0.63],
+    ['WifiAnalyzer','utg01','HHV',15,0.2501,0.241,0.0253,0.222,0.31],
+    ['WifiAnalyzer','utg02','SRV',16,0.4024,0.3735,0.1092,0.244,0.63],
+    ['WifiAnalyzer','utg02','HHV',15,0.3142,0.309,0.0198,0.281,0.345],
+    ['WifiAnalyzer','utg03','SRV',16,0.398,0.358,0.1189,0.244,0.632],
+  ],
+},
+
+t5: {
+  desc: 'Execution',
+  heatDir: {'Replay_Traces':1,'Actions_Trace0':1},
+  headers: ['App','UTG','Type','Replay_Traces','Actions_Trace0','Action_Types'],
+  rows: [
+    ['AdAway','utg01','SRV',1,8,'LAUNCH|TAP|TYPE_TEXT'],
+    ['AdAway','utg01','HHV',1,3,'LAUNCH|TAP'],
+    ['AdAway','utg02','HHV',1,2,'LAUNCH|TAP'],
+    ['AdAway','utg03','SRV',1,1,'LAUNCH'],
+    ['AntennaPod','utg01','SRV',1,10,'LAUNCH|SWIPE|TAP'],
+    ['AntennaPod','utg01','HHV',1,10,'LAUNCH|SWIPE|TAP'],
+    ['AntennaPod','utg02','HHV',1,3,'LAUNCH|TAP'],
+    ['AntennaPod','utg03','SRV',0,0,''],
+    ['HomeMedkit','utg01','SRV',1,1,'LAUNCH'],
+    ['HomeMedkit','utg01','HHV',1,2,'LAUNCH|TAP'],
+    ['HomeMedkit','utg02','HHV',1,4,'LAUNCH|TAP'],
+    ['HomeMedkit','utg03','SRV',2,7,'LAUNCH|SWIPE|TAP'],
+    ['Jigsaw','utg01','SRV',1,1,'LAUNCH'],
+    ['Jigsaw','utg01','HHV',1,1,'LAUNCH'],
+    ['Jigsaw','utg02','SRV',0,0,''],
+    ['Jigsaw','utg02','HHV',0,0,''],
+    ['LuxAlarm','utg01','SRV',1,12,'LAUNCH|TAP'],
+    ['LuxAlarm','utg01','HHV',1,1,'LAUNCH'],
+    ['PortAuthority','utg01','SRV',1,10,'LAUNCH|LONG_PRESS|TAP'],
+    ['PortAuthority','utg01','HHV',4,8,'LAUNCH|LONG_PRESS|TAP'],
+    ['PortAuthority','utg02','SRV',4,9,'LAUNCH|TAP'],
+    ['PortAuthority','utg02','HHV',1,4,'LAUNCH|LONG_PRESS|TAP'],
+    ['PortAuthority','utg03','SRV',2,10,'LAUNCH|LONG_PRESS|TAP'],
+    ['SimpleNotes','utg01','HHV',1,1,'LAUNCH'],
+    ['SimpleNotes','utg02','SRV',1,2,'LAUNCH|TAP'],
+    ['SimpleNotes','utg03','SRV',1,2,'LAUNCH|TAP'],
+    ['WifiAnalyzer','utg01','SRV',1,3,'LAUNCH|TAP'],
+    ['WifiAnalyzer','utg01','HHV',1,13,'LAUNCH|TAP'],
+    ['WifiAnalyzer','utg02','SRV',2,14,'LAUNCH|LONG_PRESS|TAP'],
+    ['WifiAnalyzer','utg02','HHV',2,7,'LAUNCH|LONG_PRESS|TAP'],
+    ['WifiAnalyzer','utg03','SRV',3,8,'LAUNCH|TAP'],
+  ],
+},
+
+t6: {
+  desc: 'Summary',
+  heatDir: {'Mean':0,'Median':0,'Min':0,'Max':0},
+  sparklineCols: ['Mean'],
+  headers: ['Metric','Type','Mean','Median','Min','Max'],
+  rows: [
+    ['Total_Time_s','SRV',225.587,165.41,77.36,517.52],
+    ['Total_Time_s','HHV',302.705,257.06,56.77,600.49],
+    ['Keyframes','SRV',8.412,7,3,16],
+    ['Keyframes','HHV',25.571,19.0,10,54],
+    ['Frames','SRV',1162.059,777,473,3050],
+    ['Frames','HHV',1198.286,1223.5,563,2025],
+    ['Score_Mean','SRV',0.396,0.402,0.268,0.473],
+    ['Score_Mean','HHV',0.275,0.279,0.212,0.317],
+    ['Trace_Length','SRV',7.533,9,2,15],
+    ['Trace_Length','HHV',5.538,4,2,14],
+    ['LCS','SRV',2.333,2,1,6],
+    ['LCS','HHV',1.077,1,1,2],
+    ['Candidate_Paths','SRV',47942.471,74,0,775707],
+    ['Candidate_Paths','HHV',69971.071,2.0,0,925440],
+    ['Confidence_Score_Pooled','SRV',0.4048,0.41,0.12,0.67],
+    ['Confidence_Score_Pooled','HHV',0.2783,0.2835,0.184,0.37],
+  ],
+},
+
+};
+
+/* ═══════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════ */
+const STATE = {};
+['t1','t2','t3','t4','t5','t6'].forEach(id => {
+  STATE[id] = {
+    colOrder: null,   // array of col indices in display order
+    hiddenCols: new Set(),
+    sortCol: null,
+    sortDir: 'none',  // 'asc'|'desc'|'none'
+    heatmap: true,
+    sparklines: true,
+    showDelta: true,
+    typeFilter: {SRV: true, HHV: true},
+    pinnedRows: new Set(RAW[id].pinnedRows || []),
+    rowOrder: null,   // array of original row indices
+    dragCol: null,
+    dragRow: null,
+  };
+});
+
+/* ═══════════════════════════════════════════════
+   COLOUR HELPERS
+═══════════════════════════════════════════════ */
+function lerp(a,b,t){return a+(b-a)*t}
+function heatColor(norm, dir){
+  // dir: +1 high=good(green), -1 low=good(green), 0 = neutral blue
+  if(dir===0) return `rgba(108,142,247,${norm*0.35+0.05})`;
+  const t = dir===1 ? norm : 1-norm;
+  if(t>0.5){
+    const s=(t-0.5)*2;
+    return `rgba(52,211,153,${s*0.4+0.05})`;
+  } else {
+    const s=(0.5-t)*2;
+    return `rgba(248,113,113,${s*0.4+0.05})`;
+  }
+}
+function sparkColor(norm){
+  if(norm>0.7) return '#34d399';
+  if(norm>0.4) return '#fbbf24';
+  return '#f87171';
+}
+
+/* ═══════════════════════════════════════════════
+   COLUMN RANGE CACHE (for heatmap normalization)
+═══════════════════════════════════════════════ */
+const COL_RANGES = {};
+function getColRange(tid, colIdx){
+  const key = `${tid}_${colIdx}`;
+  if(COL_RANGES[key]) return COL_RANGES[key];
+  const vals = RAW[tid].rows.map(r=>r[colIdx]).filter(v=>v!=null && v!=='' && !isNaN(Number(v))).map(Number);
+  const mn = Math.min(...vals), mx = Math.max(...vals);
+  COL_RANGES[key] = {min:mn, max:mx};
+  return COL_RANGES[key];
+}
+function normalize(v, min, max){ if(max===min) return 0.5; return (v-min)/(max-min); }
+
+/* ═══════════════════════════════════════════════
+   TAB SWITCHING
+═══════════════════════════════════════════════ */
+document.getElementById('tabs').addEventListener('click', e=>{
+  const btn = e.target.closest('.tab-btn');
+  if(!btn) return;
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  const tid = btn.dataset.tab;
+  document.getElementById(`tab-${tid}`).classList.add('active');
+});
+
+/* ═══════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════ */
+function initState(tid){
+  const s = STATE[tid];
+  const ncols = RAW[tid].headers.length;
+  if(!s.colOrder) s.colOrder = Array.from({length:ncols},(_,i)=>i);
+  if(!s.rowOrder) s.rowOrder = Array.from({length:RAW[tid].rows.length},(_,i)=>i);
+}
+
+/* ═══════════════════════════════════════════════
+   RENDER TABLE
+═══════════════════════════════════════════════ */
+function renderTable(tid){
+  initState(tid);
+  const s = STATE[tid];
+  const raw = RAW[tid];
+  const headers = raw.headers;
+  const table = document.getElementById(`${tid}-table`);
+
+  // Compute visible col order
+  const visCols = s.colOrder.filter(ci => !s.hiddenCols.has(ci));
+
+  // Build group header row (T1 only)
+  let groupRowHTML = '';
+  if(tid==='t1' && raw.colGroups){
+    const groupCols = visCols.map(ci=>raw.colGroups[headers[ci]]||'');
+    // merge consecutive same groups
+    let cells = '';
+    cells += `<th style="width:24px"></th>`; // pin
+    cells += `<th style="width:20px"></th>`; // drag
+    let i=0;
+    while(i<groupCols.length){
+      const g=groupCols[i];
+      let span=1;
+      while(i+span<groupCols.length && groupCols[i+span]===g) span++;
+      const cls = g?`grp-${g.toLowerCase().replace(' ','')}`:'' ;
+      cells+=`<th colspan="${span}" class="${cls}" style="text-align:center;cursor:default"><span class="th-label">${g}</span></th>`;
+      i+=span;
+    }
+    groupRowHTML = `<tr class="group-header-row">${cells}</tr>`;
+  } else {
+    groupRowHTML = `<tr class="group-header-row"><th></th><th></th>${visCols.map(()=>'<th></th>').join('')}</tr>`;
+  }
+
+  // Build header row
+  let hHTML = `<th style="width:24px;cursor:default"></th>`; // pin col
+  hHTML += `<th style="width:20px;cursor:default"></th>`;   // drag col
+  visCols.forEach(ci=>{
+    const col = headers[ci];
+    const sortState = (s.sortCol===ci) ? s.sortDir : 'none';
+    const sortCls = `sort-${sortState}`;
+    hHTML += `<th class="${sortCls}" draggable="true" data-ci="${ci}"
+      ondragstart="colDragStart(event,'${tid}',${ci})"
+      ondragover="colDragOver(event,'${tid}',${ci})"
+      ondrop="colDrop(event,'${tid}',${ci})"
+      ondragleave="colDragLeave(event)"
+      onclick="sortBy('${tid}',${ci})"
+    >
+      <div class="th-inner">
+        <span class="th-label">${col}</span>
+        <span class="sort-icon"></span>
+      </div>
+      <div class="col-drag-handle"></div>
+    </th>`;
+  });
+
+  // Compute col stats for delta (T3)
+  let deltaColPairs = {};
+  if(tid==='t3' && s.showDelta){
+    // pairs: Score_Mean, Trace_Length, Time_s
+    deltaColPairs = {
+      'SRV_Score_Mean': {partner:'HHV_Score_Mean', dir:1},
+      'SRV_Trace_Length': {partner:'HHV_Trace_Length', dir:1},
+      'SRV_Time_s': {partner:'HHV_Time_s', dir:-1},
+    };
+  }
+
+  // Filter & sort rows
+  const searchQ = (document.getElementById(`${tid}-search`)||{}).value||'';
+  let rowIdxs = [...s.rowOrder];
+
+  // type filter
+  const typeColIdx = headers.indexOf('Type');
+  if(typeColIdx>=0){
+    rowIdxs = rowIdxs.filter(ri=>{
+      const type = raw.rows[ri][typeColIdx];
+      if(!type) return true;
+      return s.typeFilter[type]!==false;
+    });
+  }
+  // search
+  if(searchQ.trim()){
+    const q = searchQ.trim().toLowerCase();
+    rowIdxs = rowIdxs.filter(ri=>
+      raw.rows[ri].some(v=> v!=null && String(v).toLowerCase().includes(q))
+    );
+  }
+  // sort
+  if(s.sortCol!==null && s.sortDir!=='none'){
+    const asc = s.sortDir==='asc';
+    rowIdxs.sort((a,b)=>{
+      const va = raw.rows[a][s.sortCol], vb = raw.rows[b][s.sortCol];
+      if(va==null||va==='') return 1;
+      if(vb==null||vb==='') return -1;
+      const na=Number(va), nb=Number(vb);
+      if(!isNaN(na)&&!isNaN(nb)) return asc ? na-nb : nb-na;
+      return asc ? String(va).localeCompare(String(vb)) : String(vb).localeCompare(String(va));
+    });
+  }
+  // pinned rows float to top
+  const pinned = rowIdxs.filter(ri=>s.pinnedRows.has(ri));
+  const unpinned = rowIdxs.filter(ri=>!s.pinnedRows.has(ri));
+  const finalRows = [...pinned, ...unpinned];
+
+  // Build tbody
+  let tbHTML = '';
+  finalRows.forEach(ri=>{
+    const row = raw.rows[ri];
+    const isPinned = s.pinnedRows.has(ri);
+    const typeVal = typeColIdx>=0 ? row[typeColIdx] : null;
+    const rowCls = isPinned ? 'pinned' : '';
+
+    let cells = '';
+    // pin button
+    cells += `<td style="text-align:center;padding:4px 6px"><button class="pin-btn ${isPinned?'pinned':''}" onclick="togglePin('${tid}',${ri})" title="${isPinned?'Unpin':'Pin row'}">⊙</button></td>`;
+    // drag handle
+    cells += `<td style="text-align:center;padding:4px 2px"><span class="row-drag" draggable="true"
+      ondragstart="rowDragStart(event,'${tid}',${ri})"
+      ondragover="rowDragOver(event,'${tid}',${ri})"
+      ondrop="rowDrop(event,'${tid}',${ri})"
+      ondragleave="rowDragLeave(event)"
+    >⠿</span></td>`;
+
+    visCols.forEach(ci=>{
+      const col = headers[ci];
+      const val = row[ci];
+      let cellHTML = '';
+      const isNum = val!=null && val!=='' && !isNaN(Number(val));
+      const numVal = isNum ? Number(val) : null;
+
+      // Type badge
+      if(col==='Type'){
+        const cls = val==='SRV'?'badge-srv':'badge-hhv';
+        cellHTML = `<span class="badge ${cls}">${val||''}</span>`;
+      }
+      // Action types (T5) — pills
+      else if(col==='Action_Types' && typeof val==='string' && val.includes('|')){
+        const colors={LAUNCH:'#1e40af',TAP:'#065f46',SWIPE:'#78350f',TYPE_TEXT:'#4c1d95',LONG_PRESS:'#7c2d12'};
+        cellHTML = val.split('|').map(a=>{
+          const c=colors[a]||'#374151';
+          return `<span style="background:${c};color:#e2e8f0;font-size:10px;padding:1px 6px;border-radius:4px;margin-right:3px;font-weight:600">${a}</span>`;
+        }).join('');
+      }
+      // Numeric with heatmap
+      else if(isNum && s.heatmap && raw.heatDir && raw.heatDir[col]!==undefined){
+        const {min,max} = getColRange(tid,ci);
+        const norm = normalize(numVal, min, max);
+        const dir = raw.heatDir[col];
+        const bg = heatColor(norm, dir);
+        const disp = numVal>=1000 ? numVal.toLocaleString() : numVal;
+        cellHTML = `<span class="heat-cell" style="background:${bg}">${disp}</span>`;
+      }
+      // Null / empty
+      else if(val==null||val===''){
+        cellHTML = `<span style="color:var(--muted2)">—</span>`;
+      }
+      else {
+        const disp = isNum && numVal>=1000 ? numVal.toLocaleString() : val;
+        cellHTML = String(disp);
+      }
+
+      // Sparkline overlay for selected cols
+      if(s.sparklines && raw.sparklineCols && raw.sparklineCols.includes(col) && isNum){
+        const {min,max} = getColRange(tid,ci);
+        const norm = normalize(numVal, min, max);
+        const pct = Math.round(norm*100);
+        const sc = sparkColor(norm);
+        cellHTML = `<div class="spark-bar-wrap">
+          <div class="spark-bar-track"><div class="spark-bar-fill" style="width:${pct}%;background:${sc}"></div></div>
+          <span class="spark-val">${isNum&&numVal>=1000?numVal.toLocaleString():numVal}</span>
+        </div>`;
+      }
+
+      cells += `<td>${cellHTML}</td>`;
+
+      // Delta column after SRV col in T3
+      if(tid==='t3' && s.showDelta && deltaColPairs[col]){
+        const pair = deltaColPairs[col];
+        const partnerIdx = headers.indexOf(pair.partner);
+        if(partnerIdx>=0 && !s.hiddenCols.has(partnerIdx)){
+          const hhvVal = row[partnerIdx];
+          const hhvNum = (hhvVal!=null&&hhvVal!==''&&!isNaN(Number(hhvVal)))?Number(hhvVal):null;
+          if(numVal!=null && hhvNum!=null){
+            const delta = hhvNum - numVal;
+            const sign = delta>0?'+':'';
+            // positive delta: for score & trace = bad (red), for time = good (green)
+            const bad = (pair.dir===1 && delta<0) || (pair.dir===-1 && delta>0);
+            const good = (pair.dir===1 && delta>0) || (pair.dir===-1 && delta<0);
+            const cls = bad?'delta-pos':good?'delta-neg':'delta-zero';
+            const disp = Math.abs(delta)>=100?delta.toFixed(0):delta.toFixed(3);
+            cells += `<td><span class="${cls}" style="font-weight:600">${sign}${disp}</span></td>`;
+          } else {
+            cells += `<td><span style="color:var(--muted2)">—</span></td>`;
+          }
+        }
+      }
+    });
+
+    tbHTML += `<tr class="${rowCls}" data-ri="${ri}">${cells}</tr>`;
+  });
+
+  if(!tbHTML) tbHTML = `<tr><td colspan="99" class="empty-state">No rows match current filters</td></tr>`;
+
+  // Delta extra headers for T3
+  let extraDeltaHeaders = '';
+  if(tid==='t3' && s.showDelta){
+    const deltaInsert = {
+      'SRV_Score_Mean': 'Δ Score_Mean',
+      'SRV_Trace_Length': 'Δ Trace_Length',
+      'SRV_Time_s': 'Δ Time_s',
+    };
+    let dh = '';
+    visCols.forEach(ci=>{
+      const col = headers[ci];
+      if(deltaInsert[col] && !s.hiddenCols.has(headers.indexOf(Object.keys(deltaInsert).find(k=>k===col)))){
+        dh += `<th style="color:var(--accent2);font-size:10px">${deltaInsert[col]}</th>`;
+      }
+    });
+    extraDeltaHeaders = dh;
+  }
+
+  table.innerHTML = `
+    <thead>
+      ${groupRowHTML}
+      <tr><th></th><th></th>${hHTML}${extraDeltaHeaders}</tr>
+    </thead>
+    <tbody>${tbHTML}</tbody>`;
+
+  updateStats(tid, finalRows);
+  buildColPicker(tid);
+}
+
+/* ═══════════════════════════════════════════════
+   STATS BAR
+═══════════════════════════════════════════════ */
+function updateStats(tid, visRows){
+  const raw = RAW[tid];
+  const el = document.getElementById(`${tid}-stats`);
+  if(!el) return;
+  const total = raw.rows.length;
+  const shown = visRows.length;
+  const typeIdx = raw.headers.indexOf('Type');
+  let srv=0,hhv=0;
+  visRows.forEach(ri=>{
+    const t = typeIdx>=0?raw.rows[ri][typeIdx]:null;
+    if(t==='SRV') srv++;
+    if(t==='HHV') hhv++;
+  });
+  el.innerHTML = `<span>Showing <b>${shown}</b> of <b>${total}</b> rows</span>
+    ${typeIdx>=0?`<span><b style="color:var(--srv-text)">${srv}</b> SRV &nbsp; <b style="color:var(--hhv-text)">${hhv}</b> HHV</span>`:''}
+    <span style="margin-left:auto;color:var(--muted2);font-size:10px">Click header to sort · Drag ⠿ to reorder rows · Drag column header to reorder columns</span>`;
+}
+
+/* ═══════════════════════════════════════════════
+   COL PICKER
+═══════════════════════════════════════════════ */
+function buildColPicker(tid){
+  const picker = document.getElementById(`${tid}-col-picker`);
+  if(!picker) return;
+  const headers = RAW[tid].headers;
+  const s = STATE[tid];
+  picker.innerHTML = `<div class="col-picker-title">Show / Hide Columns</div>` +
+    headers.map((h,ci)=>`
+      <label>
+        <input type="checkbox" ${s.hiddenCols.has(ci)?'':'checked'}
+          onchange="toggleCol('${tid}',${ci},this.checked)">
+        ${h}
+      </label>`).join('');
+}
+function toggleColPicker(tid){
+  document.getElementById(`${tid}-col-picker`).classList.toggle('open');
+}
+function toggleCol(tid,ci,show){
+  const s = STATE[tid];
+  if(show) s.hiddenCols.delete(ci);
+  else s.hiddenCols.add(ci);
+  renderTable(tid);
+}
+document.addEventListener('click', e=>{
+  document.querySelectorAll('.col-picker').forEach(p=>{
+    if(!p.parentElement.contains(e.target)) p.classList.remove('open');
+  });
+});
+
+/* ═══════════════════════════════════════════════
+   SORT
+═══════════════════════════════════════════════ */
+function sortBy(tid, ci){
+  const s = STATE[tid];
+  if(s.sortCol===ci){
+    s.sortDir = s.sortDir==='none'?'asc':s.sortDir==='asc'?'desc':'none';
+  } else {
+    s.sortCol = ci;
+    s.sortDir = 'asc';
+  }
+  renderTable(tid);
+}
+
+/* ═══════════════════════════════════════════════
+   TYPE FILTER
+═══════════════════════════════════════════════ */
+function toggleTypeFilter(tid, type){
+  const s = STATE[tid];
+  s.typeFilter[type] = !s.typeFilter[type];
+  const btn = document.getElementById(`${tid}-${type.toLowerCase()}-btn`);
+  if(btn) btn.classList.toggle('active', s.typeFilter[type]);
+  renderTable(tid);
+}
+
+/* ═══════════════════════════════════════════════
+   HEATMAP
+═══════════════════════════════════════════════ */
+function toggleHeatmap(tid){
+  STATE[tid].heatmap = !STATE[tid].heatmap;
+  const btn = document.getElementById(`${tid}-heatmap-btn`);
+  if(btn) btn.classList.toggle('active', STATE[tid].heatmap);
+  renderTable(tid);
+}
+
+/* ═══════════════════════════════════════════════
+   SPARKLINES
+═══════════════════════════════════════════════ */
+function toggleSparklines(tid){
+  STATE[tid].sparklines = !STATE[tid].sparklines;
+  const btn = document.getElementById(`${tid}-sparkline-btn`);
+  if(btn) btn.classList.toggle('active', STATE[tid].sparklines);
+  renderTable(tid);
+}
+
+/* ═══════════════════════════════════════════════
+   DELTA (T3)
+═══════════════════════════════════════════════ */
+function toggleDelta(tid){
+  STATE[tid].showDelta = !STATE[tid].showDelta;
+  const btn = document.getElementById(`${tid}-delta-btn`);
+  if(btn) btn.classList.toggle('active', STATE[tid].showDelta);
+  renderTable(tid);
+}
+
+/* ═══════════════════════════════════════════════
+   PIN ROWS
+═══════════════════════════════════════════════ */
+function togglePin(tid, ri){
+  const s = STATE[tid];
+  if(s.pinnedRows.has(ri)) s.pinnedRows.delete(ri);
+  else s.pinnedRows.add(ri);
+  renderTable(tid);
+}
+
+/* ═══════════════════════════════════════════════
+   COLUMN DRAG & DROP (reorder)
+═══════════════════════════════════════════════ */
+function colDragStart(e, tid, ci){
+  STATE[tid].dragCol = ci;
+  e.dataTransfer.effectAllowed = 'move';
+  setTimeout(()=> e.target.closest('th').classList.add('col-dragging'), 0);
+}
+function colDragOver(e, tid, ci){
+  e.preventDefault();
+  e.dataTransfer.dropEffect='move';
+  document.querySelectorAll(`#t${tid.slice(1)}-table th`).forEach(th=>th.classList.remove('col-drag-over'));
+  e.target.closest('th')?.classList.add('col-drag-over');
+}
+function colDragLeave(e){
+  e.target.closest('th')?.classList.remove('col-drag-over');
+}
+function colDrop(e, tid, targetCi){
+  e.preventDefault();
+  const s = STATE[tid];
+  const fromCi = s.dragCol;
+  if(fromCi===null || fromCi===targetCi) return;
+  const order = [...s.colOrder];
+  const fromPos = order.indexOf(fromCi);
+  const toPos = order.indexOf(targetCi);
+  order.splice(fromPos, 1);
+  order.splice(toPos, 0, fromCi);
+  s.colOrder = order;
+  s.dragCol = null;
+  renderTable(tid);
+}
+
+/* ═══════════════════════════════════════════════
+   ROW DRAG & DROP (reorder)
+═══════════════════════════════════════════════ */
+function rowDragStart(e, tid, ri){
+  STATE[tid].dragRow = ri;
+  e.dataTransfer.effectAllowed='move';
+  setTimeout(()=>e.target.closest('tr').classList.add('row-dragging'),0);
+}
+function rowDragOver(e, tid, ri){
+  e.preventDefault();
+  e.dataTransfer.dropEffect='move';
+  // highlight target row
+  document.querySelectorAll(`#${tid}-table tbody tr`).forEach(tr=>tr.classList.remove('row-drop-target'));
+  e.target.closest('tr')?.classList.add('row-drop-target');
+}
+function rowDragLeave(e){
+  e.target.closest('tr')?.classList.remove('row-drop-target');
+}
+function rowDrop(e, tid, targetRi){
+  e.preventDefault();
+  const s = STATE[tid];
+  const fromRi = s.dragRow;
+  if(fromRi===null || fromRi===targetRi){ s.dragRow=null; return; }
+  const order = [...s.rowOrder];
+  const fromPos = order.indexOf(fromRi);
+  const toPos = order.indexOf(targetRi);
+  order.splice(fromPos,1);
+  order.splice(toPos,0,fromRi);
+  s.rowOrder = order;
+  s.dragRow = null;
+  renderTable(tid);
+}
+
+/* ═══════════════════════════════════════════════
+   FILTER (search)
+═══════════════════════════════════════════════ */
+function filterTable(tid){ renderTable(tid); }
+
+/* ═══════════════════════════════════════════════
+   EXPORT CSV
+═══════════════════════════════════════════════ */
+function exportCSV(tid){
+  const raw = RAW[tid];
+  const s = STATE[tid];
+  const visCols = s.colOrder.filter(ci=>!s.hiddenCols.has(ci));
+  const headers = visCols.map(ci=>raw.headers[ci]);
+  const searchQ = (document.getElementById(`${tid}-search`)||{}).value||'';
+  const typeIdx = raw.headers.indexOf('Type');
+  let rowIdxs = [...s.rowOrder];
+  if(typeIdx>=0) rowIdxs=rowIdxs.filter(ri=>{
+    const t=raw.rows[ri][typeIdx]; if(!t) return true; return s.typeFilter[t]!==false;
+  });
+  if(searchQ.trim()){
+    const q=searchQ.trim().toLowerCase();
+    rowIdxs=rowIdxs.filter(ri=>raw.rows[ri].some(v=>v!=null&&String(v).toLowerCase().includes(q)));
+  }
+  const lines = [headers.join(','), ...rowIdxs.map(ri=>visCols.map(ci=>{
+    const v=raw.rows[ri][ci];
+    if(v==null||v==='') return '';
+    return String(v).includes(',')?`"${v}"`:v;
+  }).join(','))];
+  const blob = new Blob([lines.join('\n')],{type:'text/csv'});
+  const a = document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`gifdroid_${tid}_export.csv`;
+  a.click();
+}
+
+/* ═══════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════ */
+function resetTable(tid){
+  const raw = RAW[tid];
+  const ncols = raw.headers.length;
+  STATE[tid].colOrder = Array.from({length:ncols},(_,i)=>i);
+  STATE[tid].hiddenCols = new Set();
+  STATE[tid].sortCol = null;
+  STATE[tid].sortDir = 'none';
+  STATE[tid].heatmap = true;
+  STATE[tid].sparklines = true;
+  STATE[tid].showDelta = true;
+  STATE[tid].typeFilter = {SRV:true,HHV:true};
+  STATE[tid].pinnedRows = new Set(raw.pinnedRows||[]);
+  STATE[tid].rowOrder = Array.from({length:raw.rows.length},(_,i)=>i);
+  // reset buttons
+  ['srv','hhv'].forEach(t=>{
+    const b=document.getElementById(`${tid}-${t}-btn`);
+    if(b) b.classList.add('active');
+  });
+  ['heatmap','sparkline','delta'].forEach(f=>{
+    const b=document.getElementById(`${tid}-${f}-btn`);
+    if(b) b.classList.add('active');
+  });
+  const srch=document.getElementById(`${tid}-search`);
+  if(srch) srch.value='';
+  renderTable(tid);
+}
+
+/* ═══════════════════════════════════════════════
+   INIT ALL TABLES
+═══════════════════════════════════════════════ */
+['t1','t2','t3','t4','t5','t6'].forEach(tid=>{
+  // Add computed Spread column to T4
+  if(tid==='t4'){
+    const r = RAW.t4;
+    if(!r.headers.includes('Spread')){
+      r.headers.push('Spread');
+      r.heatDir['Spread'] = 1;
+      r.sparklineCols = r.sparklineCols||[];
+      r.rows.forEach(row=>{
+        const min=row[7], max=row[8];
+        row.push( (min!=null&&max!=null) ? Math.round((max-min)*10000)/10000 : null );
+      });
+    }
+  }
+  renderTable(tid);
+});
+</script>
+</body>
+</html>
