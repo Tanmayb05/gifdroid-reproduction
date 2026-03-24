@@ -607,7 +607,7 @@ def build_plots(data: dict):
         score_data = [r["step2_gui_mapping"].get("confidence_scores", []) for r in run_list]
         score_data = [s if s else [0] for s in score_data]
         lbls = [f"{r['app'][:6]}/{r['utg']}" for r in run_list]
-        ax.boxplot(score_data, tick_labels=lbls, vert=True)
+        ax.boxplot(score_data, labels=lbls, vert=True)
         ax.set_title(f"Confidence Score Distribution — {title}")
         ax.set_ylabel("Confidence Score")
         ax.tick_params(axis="x", rotation=45, labelsize=7)

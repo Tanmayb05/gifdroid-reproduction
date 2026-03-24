@@ -1,0 +1,100 @@
+{
+    "video": "app_LuxAlarm/utg03/input/handheld/hhv_app_LuxAlarm.mp4",
+    "utg": "app_LuxAlarm/utg03/input/utg.json",
+    "artifact": "app_LuxAlarm/utg03/input/artifacts",
+    "replay_traces": [
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 3,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.view.View",
+                            "androidClassName": "android.view.View"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 3,
+                    "destinationScreenId": 7,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                }
+            ]
+        },
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 4,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.view.View",
+                            "androidClassName": "android.view.View"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 4,
+                    "destinationScreenId": 7,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.view.View",
+                            "androidClassName": "android.view.View"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 6,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 6,
+                    "destinationScreenId": 7,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                }
+            ]
+        }
+    ]
+}
