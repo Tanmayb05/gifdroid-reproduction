@@ -1,0 +1,45 @@
+{
+    "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg01/input/handheld/hhv_app_AdAway.mp4",
+    "utg": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg01/input/utg.json",
+    "artifact": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg01/input/artifacts",
+    "replay_traces": [
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 4,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "org.adaway:id/vpnCardView",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 4,
+                    "destinationScreenId": 5,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "org.adaway:id/next_button",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "textLabel": "NEXT"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

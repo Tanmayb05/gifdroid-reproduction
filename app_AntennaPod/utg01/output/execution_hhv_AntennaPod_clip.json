@@ -1,0 +1,129 @@
+{
+    "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/input/handheld/hhv_app_AntennaPod.mp4",
+    "utg": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/input/utg.json",
+    "artifact": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/input/artifacts",
+    "replay_traces": [
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 11,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "de.danoeh.antennapod:id/bottom_navigation_subscriptions",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout",
+                            "contentDescription": "Subscriptions"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 11,
+                    "destinationScreenId": 13,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "de.danoeh.antennapod:id/bottom_navigation_more",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout",
+                            "contentDescription": "More"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 13,
+                    "destinationScreenId": 14,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.LinearLayout",
+                            "androidClassName": "android.widget.LinearLayout"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 14,
+                    "destinationScreenId": 24,
+                    "action": {
+                        "type": "SWIPE",
+                        "targetDetails": {
+                            "resourceName": "de.danoeh.antennapod:id/recycler_view",
+                            "className": "androidx.recyclerview.widget.RecyclerView",
+                            "androidClassName": "androidx.recyclerview.widget.RecyclerView"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 24,
+                    "destinationScreenId": 57,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.ImageButton",
+                            "androidClassName": "android.widget.ImageButton",
+                            "contentDescription": "Navigate up"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 57,
+                    "destinationScreenId": 58,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "de.danoeh.antennapod:id/action_search",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "contentDescription": "Search"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 58,
+                    "destinationScreenId": 69,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.ImageButton",
+                            "androidClassName": "android.widget.ImageButton",
+                            "contentDescription": "Collapse"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 69,
+                    "destinationScreenId": 70,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.ImageView",
+                            "androidClassName": "android.widget.ImageView",
+                            "contentDescription": "\u200e\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200f\u200f\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200e\u200f\u200e\u200e\u200e\u200e\u200f\u200f\u200f\u200f\u200f\u200e\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200e\u200f\u200f\u200e\u200f\u200f\u200f\u200f\u200e\u200f\u200e\u200e\u200e\u200f\u200f\u200e\u200f\u200f\u200f\u200e\u200f\u200f\u200e\u200f\u200e\u200f\u200e\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200e\u200e\u200f\u200f\u200f\u200e\u200f\u200f\u200f\u200f\u200e\u200e\u200e\u200f\u200e\u200e\u200e\u200f\u200e\u200f\u200eMore options\u200e\u200f\u200e\u200e\u200f\u200e"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 70,
+                    "destinationScreenId": 71,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.LinearLayout",
+                            "androidClassName": "android.widget.LinearLayout"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

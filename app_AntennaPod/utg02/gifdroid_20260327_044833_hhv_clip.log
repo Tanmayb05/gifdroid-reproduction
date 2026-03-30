@@ -1,0 +1,60 @@
+2026-03-27 04:48:33  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/gifdroid_20260327_044833_hhv_clip.log
+2026-03-27 04:48:33  INFO      GIFdroid started
+2026-03-27 04:48:33  INFO        --video            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-27 04:48:33  INFO        --utg              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/utg.json
+2026-03-27 04:48:33  INFO        --artifact         : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/artifacts
+2026-03-27 04:48:33  INFO        --out              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/output/execution_hhv_AntennaPod_clip.json
+2026-03-27 04:48:33  INFO        --log-dir          : None
+2026-03-27 04:48:33  INFO        --save-keyframes   : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/output/keyframes_clip
+2026-03-27 04:48:33  INFO        --keyframe-method  : clip
+2026-03-27 04:48:33  INFO      ==================================================
+2026-03-27 04:48:33  INFO      STEP 1: Keyframe Location
+2026-03-27 04:48:33  INFO        Input video      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-27 04:48:33  INFO        Keyframe method  : clip
+2026-03-27 04:48:33  INFO      keyframe_location_clip_cluster: starting on "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/handheld/hhv_app_AntennaPod.mp4" (threshold=0.85)
+2026-03-27 04:48:33  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/handheld/hhv_app_AntennaPod.mp4"
+2026-03-27 04:48:52  DEBUG     read_frames_from_video: 2025 frames decoded in 18.61s
+2026-03-27 04:52:21  DEBUG     calculate_sim_seq: 2024 similarities computed in 207.99s
+2026-03-27 04:52:21  DEBUG     detect_keyframes: 10 keyframes detected from 2024 frames in 0.00s
+2026-03-27 04:52:21  INFO      keyframe_location: done — 10 keyframes at indices [4, 9, 115, 172, 930, 1019, 1430, 1679, 1988, 2024] (227.09s total)
+2026-03-27 04:52:21  INFO      keyframe_location_clip_cluster: baseline produced 10 keyframes
+2026-03-27 04:52:23  WARNING   keyframe_location_clip_cluster: missing dependency (No module named 'transformers'); returning baseline result. Install with: pip install transformers torch scikit-learn
+2026-03-27 04:52:23  INFO        Keyframes found   : 10
+2026-03-27 04:52:23  INFO        Keyframe indices  : [4, 9, 115, 172, 930, 1019, 1430, 1679, 1988, 2024]
+2026-03-27 04:52:23  INFO        Duration          : 229.44s
+2026-03-27 04:52:24  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/output/keyframes_clip (10 files)
+2026-03-27 04:52:24  INFO      ==================================================
+2026-03-27 04:52:24  INFO      STEP 2: GUI Mapping
+2026-03-27 04:52:24  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/artifacts
+2026-03-27 04:52:24  INFO      gui_mapping: matching 10 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/artifacts"
+2026-03-27 04:52:34  DEBUG     load_screenshots: 151 screenshots loaded in 9.19s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/artifacts"
+2026-03-27 04:52:49  DEBUG     mapping: best match "artifacts_29.png" (score=0.304)
+2026-03-27 04:53:04  DEBUG     mapping: best match "artifacts_29.png" (score=0.304)
+2026-03-27 04:53:19  DEBUG     mapping: best match "artifacts_29.png" (score=0.301)
+2026-03-27 04:53:35  DEBUG     mapping: best match "artifacts_29.png" (score=0.310)
+2026-03-27 04:53:50  DEBUG     mapping: best match "artifacts_29.png" (score=0.324)
+2026-03-27 04:54:05  DEBUG     mapping: best match "artifacts_29.png" (score=0.324)
+2026-03-27 04:54:20  DEBUG     mapping: best match "artifacts_29.png" (score=0.326)
+2026-03-27 04:54:35  DEBUG     mapping: best match "artifacts_29.png" (score=0.310)
+2026-03-27 04:54:50  DEBUG     mapping: best match "artifacts_29.png" (score=0.329)
+2026-03-27 04:55:05  DEBUG     mapping: best match "artifacts_29.png" (score=0.331)
+2026-03-27 04:55:05  INFO      gui_mapping: done — index sequence [29, 29, 29, 29, 29, 29, 29, 29, 29, 29] (161.03s)
+2026-03-27 04:55:05  INFO        Mapped index sequence : [29, 29, 29, 29, 29, 29, 29, 29, 29, 29]
+2026-03-27 04:55:05  INFO        Duration              : 161.03s
+2026-03-27 04:55:05  INFO      ==================================================
+2026-03-27 04:55:05  INFO      STEP 3: Find Execution Trace
+2026-03-27 04:55:05  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/utg.json
+2026-03-27 04:55:05  INFO      find_execution_trace: target sequence [29, 29, 29, 29, 29, 29, 29, 29, 29, 29]
+2026-03-27 04:55:05  DEBUG     read_graph: 403 edges, 151 vertices loaded in 0.00s
+2026-03-27 04:58:58  DEBUG     find_execution_trace: 257 candidate paths found in 232.10s
+2026-03-27 04:58:58  INFO      find_execution_trace: 1 trace(s) found (LCS=1, length=4) in 232.13s
+2026-03-27 04:58:58  INFO        Candidate traces found : 1
+2026-03-27 04:58:58  INFO          Trace 0: [0, 1, 7, 29]
+2026-03-27 04:58:58  INFO        Duration : 232.14s
+2026-03-27 04:58:58  INFO      ==================================================
+2026-03-27 04:58:58  INFO      STEP 4: Store Execution Trace
+2026-03-27 04:58:58  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/output/execution_hhv_AntennaPod_clip.json
+2026-03-27 04:58:58  INFO        Duration : 0.05s
+2026-03-27 04:58:58  INFO      ==================================================
+2026-03-27 04:58:58  INFO      Pipeline complete.  Total time: 624.16s
+2026-03-27 04:58:58  INFO      ==================================================

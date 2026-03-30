@@ -1,0 +1,104 @@
+2026-03-27 03:48:35  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/gifdroid_20260327_034835_hhv_vlm.log
+2026-03-27 03:48:35  INFO      GIFdroid started
+2026-03-27 03:48:35  INFO        --video            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/input/handheld/hhv_app_HomeMedkit.mp4
+2026-03-27 03:48:35  INFO        --utg              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/input/utg.json
+2026-03-27 03:48:35  INFO        --artifact         : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/input/artifacts
+2026-03-27 03:48:35  INFO        --out              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/output/execution_hhv_HomeMedkit_vlm.json
+2026-03-27 03:48:35  INFO        --log-dir          : None
+2026-03-27 03:48:35  INFO        --save-keyframes   : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/output/keyframes_vlm
+2026-03-27 03:48:35  INFO        --keyframe-method  : vlm
+2026-03-27 03:48:35  INFO      ==================================================
+2026-03-27 03:48:35  INFO      STEP 1: Keyframe Location
+2026-03-27 03:48:35  INFO        Input video      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/input/handheld/hhv_app_HomeMedkit.mp4
+2026-03-27 03:48:35  INFO        Keyframe method  : vlm
+2026-03-27 03:48:35  INFO      keyframe_location_vlm: starting on "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/input/handheld/hhv_app_HomeMedkit.mp4" (model=llama3.2-vision)
+2026-03-27 03:48:35  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/input/handheld/hhv_app_HomeMedkit.mp4"
+2026-03-27 03:48:48  DEBUG     read_frames_from_video: 1359 frames decoded in 12.72s
+2026-03-27 03:50:55  DEBUG     calculate_sim_seq: 1358 similarities computed in 126.92s
+2026-03-27 03:50:55  DEBUG     detect_keyframes: 54 keyframes detected from 1358 frames in 0.00s
+2026-03-27 03:50:55  INFO      keyframe_location: done — 54 keyframes at indices [129, 281, 379, 400, 434, 454, 465, 492, 497, 515, 520, 526, 543, 558, 591, 604, 615, 640, 649, 676, 688, 707, 768, 775, 786, 807, 838, 849, 918, 928, 945, 957, 967, 1015, 1023, 1033, 1043, 1052, 1061, 1082, 1118, 1134, 1144, 1150, 1158, 1181, 1201, 1207, 1240, 1248, 1265, 1271, 1297, 1358] (139.67s total)
+2026-03-27 03:50:55  INFO      keyframe_location_vlm: baseline produced 54 keyframes
+2026-03-27 03:50:55  WARNING   keyframe_location_vlm: ollama package not installed; returning baseline result. Install with: pip install ollama
+2026-03-27 03:50:55  INFO        Keyframes found   : 54
+2026-03-27 03:50:55  INFO        Keyframe indices  : [129, 281, 379, 400, 434, 454, 465, 492, 497, 515, 520, 526, 543, 558, 591, 604, 615, 640, 649, 676, 688, 707, 768, 775, 786, 807, 838, 849, 918, 928, 945, 957, 967, 1015, 1023, 1033, 1043, 1052, 1061, 1082, 1118, 1134, 1144, 1150, 1158, 1181, 1201, 1207, 1240, 1248, 1265, 1271, 1297, 1358]
+2026-03-27 03:50:55  INFO        Duration          : 140.03s
+2026-03-27 03:50:59  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/output/keyframes_vlm (54 files)
+2026-03-27 03:50:59  INFO      ==================================================
+2026-03-27 03:50:59  INFO      STEP 2: GUI Mapping
+2026-03-27 03:50:59  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/input/artifacts
+2026-03-27 03:50:59  INFO      gui_mapping: matching 54 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/input/artifacts"
+2026-03-27 03:51:04  DEBUG     load_screenshots: 80 screenshots loaded in 4.15s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/input/artifacts"
+2026-03-27 03:51:12  DEBUG     mapping: best match "artifacts_18.png" (score=0.290)
+2026-03-27 03:51:20  DEBUG     mapping: best match "artifacts_18.png" (score=0.326)
+2026-03-27 03:51:27  DEBUG     mapping: best match "artifacts_18.png" (score=0.322)
+2026-03-27 03:51:35  DEBUG     mapping: best match "artifacts_18.png" (score=0.315)
+2026-03-27 03:51:43  DEBUG     mapping: best match "artifacts_18.png" (score=0.281)
+2026-03-27 03:51:51  DEBUG     mapping: best match "artifacts_18.png" (score=0.282)
+2026-03-27 03:51:59  DEBUG     mapping: best match "artifacts_18.png" (score=0.281)
+2026-03-27 03:52:06  DEBUG     mapping: best match "artifacts_18.png" (score=0.304)
+2026-03-27 03:52:15  DEBUG     mapping: best match "artifacts_18.png" (score=0.303)
+2026-03-27 03:52:23  DEBUG     mapping: best match "artifacts_18.png" (score=0.300)
+2026-03-27 03:52:31  DEBUG     mapping: best match "artifacts_18.png" (score=0.303)
+2026-03-27 03:52:39  DEBUG     mapping: best match "artifacts_18.png" (score=0.307)
+2026-03-27 03:52:47  DEBUG     mapping: best match "artifacts_18.png" (score=0.300)
+2026-03-27 03:52:55  DEBUG     mapping: best match "artifacts_18.png" (score=0.296)
+2026-03-27 03:53:03  DEBUG     mapping: best match "artifacts_18.png" (score=0.290)
+2026-03-27 03:53:11  DEBUG     mapping: best match "artifacts_18.png" (score=0.291)
+2026-03-27 03:53:19  DEBUG     mapping: best match "artifacts_18.png" (score=0.262)
+2026-03-27 03:53:27  DEBUG     mapping: best match "artifacts_18.png" (score=0.275)
+2026-03-27 03:53:35  DEBUG     mapping: best match "artifacts_18.png" (score=0.270)
+2026-03-27 03:53:43  DEBUG     mapping: best match "artifacts_18.png" (score=0.280)
+2026-03-27 03:53:51  DEBUG     mapping: best match "artifacts_18.png" (score=0.280)
+2026-03-27 03:54:00  DEBUG     mapping: best match "artifacts_18.png" (score=0.293)
+2026-03-27 03:54:07  DEBUG     mapping: best match "artifacts_18.png" (score=0.291)
+2026-03-27 03:54:14  DEBUG     mapping: best match "artifacts_18.png" (score=0.290)
+2026-03-27 03:54:20  DEBUG     mapping: best match "artifacts_18.png" (score=0.287)
+2026-03-27 03:54:27  DEBUG     mapping: best match "artifacts_18.png" (score=0.285)
+2026-03-27 03:54:34  DEBUG     mapping: best match "artifacts_18.png" (score=0.293)
+2026-03-27 03:54:40  DEBUG     mapping: best match "artifacts_18.png" (score=0.311)
+2026-03-27 03:54:47  DEBUG     mapping: best match "artifacts_18.png" (score=0.314)
+2026-03-27 03:54:54  DEBUG     mapping: best match "artifacts_18.png" (score=0.314)
+2026-03-27 03:55:00  DEBUG     mapping: best match "artifacts_18.png" (score=0.309)
+2026-03-27 03:55:07  DEBUG     mapping: best match "artifacts_18.png" (score=0.314)
+2026-03-27 03:55:14  DEBUG     mapping: best match "artifacts_18.png" (score=0.314)
+2026-03-27 03:55:20  DEBUG     mapping: best match "artifacts_18.png" (score=0.304)
+2026-03-27 03:55:27  DEBUG     mapping: best match "artifacts_18.png" (score=0.298)
+2026-03-27 03:55:34  DEBUG     mapping: best match "artifacts_18.png" (score=0.295)
+2026-03-27 03:55:41  DEBUG     mapping: best match "artifacts_18.png" (score=0.300)
+2026-03-27 03:55:48  DEBUG     mapping: best match "artifacts_18.png" (score=0.302)
+2026-03-27 03:55:54  DEBUG     mapping: best match "artifacts_18.png" (score=0.301)
+2026-03-27 03:56:02  DEBUG     mapping: best match "artifacts_18.png" (score=0.295)
+2026-03-27 03:56:08  DEBUG     mapping: best match "artifacts_18.png" (score=0.313)
+2026-03-27 03:56:15  DEBUG     mapping: best match "artifacts_18.png" (score=0.311)
+2026-03-27 03:56:22  DEBUG     mapping: best match "artifacts_18.png" (score=0.309)
+2026-03-27 03:56:29  DEBUG     mapping: best match "artifacts_18.png" (score=0.307)
+2026-03-27 03:56:36  DEBUG     mapping: best match "artifacts_18.png" (score=0.303)
+2026-03-27 03:56:42  DEBUG     mapping: best match "artifacts_18.png" (score=0.294)
+2026-03-27 03:56:49  DEBUG     mapping: best match "artifacts_18.png" (score=0.294)
+2026-03-27 03:56:56  DEBUG     mapping: best match "artifacts_18.png" (score=0.306)
+2026-03-27 03:57:03  DEBUG     mapping: best match "artifacts_18.png" (score=0.300)
+2026-03-27 03:57:10  DEBUG     mapping: best match "artifacts_18.png" (score=0.299)
+2026-03-27 03:57:17  DEBUG     mapping: best match "artifacts_18.png" (score=0.315)
+2026-03-27 03:57:23  DEBUG     mapping: best match "artifacts_18.png" (score=0.317)
+2026-03-27 03:57:30  DEBUG     mapping: best match "artifacts_18.png" (score=0.315)
+2026-03-27 03:57:37  DEBUG     mapping: best match "artifacts_18.png" (score=0.330)
+2026-03-27 03:57:37  INFO      gui_mapping: done — index sequence [18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18] (397.91s)
+2026-03-27 03:57:37  INFO        Mapped index sequence : [18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18]
+2026-03-27 03:57:37  INFO        Duration              : 397.91s
+2026-03-27 03:57:37  INFO      ==================================================
+2026-03-27 03:57:37  INFO      STEP 3: Find Execution Trace
+2026-03-27 03:57:37  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/input/utg.json
+2026-03-27 03:57:37  INFO      find_execution_trace: target sequence [18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18]
+2026-03-27 03:57:37  DEBUG     read_graph: 298 edges, 80 vertices loaded in 0.00s
+2026-03-27 03:57:49  DEBUG     find_execution_trace: 52482 candidate paths found in 11.89s
+2026-03-27 03:58:20  INFO      find_execution_trace: 1 trace(s) found (LCS=1, length=5) in 42.41s
+2026-03-27 03:58:20  INFO        Candidate traces found : 1
+2026-03-27 03:58:20  INFO          Trace 0: [0, 1, 3, 16, 18]
+2026-03-27 03:58:20  INFO        Duration : 42.41s
+2026-03-27 03:58:20  INFO      ==================================================
+2026-03-27 03:58:20  INFO      STEP 4: Store Execution Trace
+2026-03-27 03:58:20  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_HomeMedkit/utg02/output/execution_hhv_HomeMedkit_vlm.json
+2026-03-27 03:58:20  INFO        Duration : 0.00s
+2026-03-27 03:58:20  INFO      ==================================================
+2026-03-27 03:58:20  INFO      Pipeline complete.  Total time: 584.67s
+2026-03-27 03:58:20  INFO      ==================================================

@@ -1,0 +1,82 @@
+2026-03-27 17:03:17  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/gifdroid_20260327_170317_hhv_baseline.log
+2026-03-27 17:03:17  INFO      GIFdroid started
+2026-03-27 17:03:17  INFO        --video            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/handheld/hhv_app_SimpleNotes.mp4
+2026-03-27 17:03:17  INFO        --utg              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/utg.json
+2026-03-27 17:03:17  INFO        --artifact         : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/artifacts
+2026-03-27 17:03:17  INFO        --out              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/output/execution_hhv_SimpleNotes_baseline.json
+2026-03-27 17:03:17  INFO        --log-dir          : None
+2026-03-27 17:03:17  INFO        --save-keyframes   : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/output/keyframes_baseline
+2026-03-27 17:03:17  INFO        --keyframe-method  : baseline
+2026-03-27 17:03:17  INFO      ==================================================
+2026-03-27 17:03:17  INFO      STEP 1: Keyframe Location
+2026-03-27 17:03:17  INFO        Input video      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/handheld/hhv_app_SimpleNotes.mp4
+2026-03-27 17:03:17  INFO        Keyframe method  : baseline
+2026-03-27 17:03:17  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/handheld/hhv_app_SimpleNotes.mp4"
+2026-03-27 17:03:28  DEBUG     read_frames_from_video: 1256 frames decoded in 10.69s
+2026-03-27 17:05:20  DEBUG     calculate_sim_seq: 1255 similarities computed in 111.88s
+2026-03-27 17:05:20  DEBUG     detect_keyframes: 35 keyframes detected from 1255 frames in 0.00s
+2026-03-27 17:05:20  INFO      keyframe_location: done — 35 keyframes at indices [178, 220, 256, 280, 300, 346, 360, 406, 436, 463, 473, 498, 503, 512, 523, 557, 627, 729, 775, 915, 938, 954, 968, 976, 983, 997, 1015, 1035, 1069, 1082, 1108, 1143, 1236, 1242, 1255] (122.59s total)
+2026-03-27 17:05:20  INFO        Keyframes found   : 35
+2026-03-27 17:05:20  INFO        Keyframe indices  : [178, 220, 256, 280, 300, 346, 360, 406, 436, 463, 473, 498, 503, 512, 523, 557, 627, 729, 775, 915, 938, 954, 968, 976, 983, 997, 1015, 1035, 1069, 1082, 1108, 1143, 1236, 1242, 1255]
+2026-03-27 17:05:20  INFO        Duration          : 122.97s
+2026-03-27 17:05:23  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/output/keyframes_baseline (35 files)
+2026-03-27 17:05:23  INFO      ==================================================
+2026-03-27 17:05:23  INFO      STEP 2: GUI Mapping
+2026-03-27 17:05:23  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/artifacts
+2026-03-27 17:05:23  INFO      gui_mapping: matching 35 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/artifacts"
+2026-03-27 17:05:26  DEBUG     load_screenshots: 38 screenshots loaded in 2.88s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/artifacts"
+2026-03-27 17:05:35  DEBUG     mapping: best match "artifacts_13.png" (score=0.324)
+2026-03-27 17:05:43  DEBUG     mapping: best match "artifacts_13.png" (score=0.321)
+2026-03-27 17:05:51  DEBUG     mapping: best match "artifacts_13.png" (score=0.319)
+2026-03-27 17:05:59  DEBUG     mapping: best match "artifacts_13.png" (score=0.322)
+2026-03-27 17:06:07  DEBUG     mapping: best match "artifacts_13.png" (score=0.320)
+2026-03-27 17:06:15  DEBUG     mapping: best match "artifacts_13.png" (score=0.287)
+2026-03-27 17:06:24  DEBUG     mapping: best match "artifacts_13.png" (score=0.287)
+2026-03-27 17:06:32  DEBUG     mapping: best match "artifacts_38.png" (score=0.303)
+2026-03-27 17:06:40  DEBUG     mapping: best match "artifacts_13.png" (score=0.315)
+2026-03-27 17:06:48  DEBUG     mapping: best match "artifacts_13.png" (score=0.309)
+2026-03-27 17:06:57  DEBUG     mapping: best match "artifacts_13.png" (score=0.309)
+2026-03-27 17:07:05  DEBUG     mapping: best match "artifacts_38.png" (score=0.298)
+2026-03-27 17:07:13  DEBUG     mapping: best match "artifacts_38.png" (score=0.295)
+2026-03-27 17:07:22  DEBUG     mapping: best match "artifacts_38.png" (score=0.293)
+2026-03-27 17:07:31  DEBUG     mapping: best match "artifacts_38.png" (score=0.292)
+2026-03-27 17:07:40  DEBUG     mapping: best match "artifacts_13.png" (score=0.295)
+2026-03-27 17:07:48  DEBUG     mapping: best match "artifacts_38.png" (score=0.291)
+2026-03-27 17:07:56  DEBUG     mapping: best match "artifacts_13.png" (score=0.310)
+2026-03-27 17:08:05  DEBUG     mapping: best match "artifacts_13.png" (score=0.282)
+2026-03-27 17:08:16  DEBUG     mapping: best match "artifacts_13.png" (score=0.271)
+2026-03-27 17:08:26  DEBUG     mapping: best match "artifacts_13.png" (score=0.296)
+2026-03-27 17:08:35  DEBUG     mapping: best match "artifacts_13.png" (score=0.286)
+2026-03-27 17:08:45  DEBUG     mapping: best match "artifacts_13.png" (score=0.287)
+2026-03-27 17:08:55  DEBUG     mapping: best match "artifacts_13.png" (score=0.286)
+2026-03-27 17:09:03  DEBUG     mapping: best match "artifacts_13.png" (score=0.286)
+2026-03-27 17:09:11  DEBUG     mapping: best match "artifacts_13.png" (score=0.291)
+2026-03-27 17:09:20  DEBUG     mapping: best match "artifacts_13.png" (score=0.286)
+2026-03-27 17:09:29  DEBUG     mapping: best match "artifacts_13.png" (score=0.285)
+2026-03-27 17:09:37  DEBUG     mapping: best match "artifacts_13.png" (score=0.282)
+2026-03-27 17:09:45  DEBUG     mapping: best match "artifacts_13.png" (score=0.285)
+2026-03-27 17:09:53  DEBUG     mapping: best match "artifacts_13.png" (score=0.293)
+2026-03-27 17:10:02  DEBUG     mapping: best match "artifacts_13.png" (score=0.283)
+2026-03-27 17:10:11  DEBUG     mapping: best match "artifacts_13.png" (score=0.298)
+2026-03-27 17:10:21  DEBUG     mapping: best match "artifacts_13.png" (score=0.300)
+2026-03-27 17:10:29  DEBUG     mapping: best match "artifacts_13.png" (score=0.298)
+2026-03-27 17:10:29  INFO      gui_mapping: done — index sequence [13, 13, 13, 13, 13, 13, 13, 38, 13, 13, 13, 38, 38, 38, 38, 13, 38, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13] (305.91s)
+2026-03-27 17:10:29  INFO        Mapped index sequence : [13, 13, 13, 13, 13, 13, 13, 38, 13, 13, 13, 38, 38, 38, 38, 13, 38, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13]
+2026-03-27 17:10:29  INFO        Duration              : 305.91s
+2026-03-27 17:10:29  INFO      ==================================================
+2026-03-27 17:10:29  INFO      STEP 3: Find Execution Trace
+2026-03-27 17:10:29  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/input/utg.json
+2026-03-27 17:10:29  INFO      find_execution_trace: target sequence [13, 13, 13, 13, 13, 13, 13, 38, 13, 13, 13, 38, 38, 38, 38, 13, 38, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13]
+2026-03-27 17:10:29  DEBUG     read_graph: 168 edges, 37 vertices loaded in 0.01s
+2026-03-27 17:10:29  DEBUG     find_execution_trace: 8 candidate paths found in 0.00s
+2026-03-27 17:10:29  INFO      find_execution_trace: 1 trace(s) found (LCS=1, length=4) in 0.01s
+2026-03-27 17:10:29  INFO        Candidate traces found : 1
+2026-03-27 17:10:29  INFO          Trace 0: [0, 1, 7, 13]
+2026-03-27 17:10:29  INFO        Duration : 0.01s
+2026-03-27 17:10:29  INFO      ==================================================
+2026-03-27 17:10:29  INFO      STEP 4: Store Execution Trace
+2026-03-27 17:10:29  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_SimpleNotes/utg03/output/execution_hhv_SimpleNotes_baseline.json
+2026-03-27 17:10:29  INFO        Duration : 0.00s
+2026-03-27 17:10:29  INFO      ==================================================
+2026-03-27 17:10:29  INFO      Pipeline complete.  Total time: 431.88s
+2026-03-27 17:10:29  INFO      ==================================================

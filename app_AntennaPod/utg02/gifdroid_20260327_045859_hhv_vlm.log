@@ -1,0 +1,60 @@
+2026-03-27 04:58:59  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/gifdroid_20260327_045859_hhv_vlm.log
+2026-03-27 04:58:59  INFO      GIFdroid started
+2026-03-27 04:58:59  INFO        --video            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-27 04:58:59  INFO        --utg              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/utg.json
+2026-03-27 04:58:59  INFO        --artifact         : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/artifacts
+2026-03-27 04:58:59  INFO        --out              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/output/execution_hhv_AntennaPod_vlm.json
+2026-03-27 04:58:59  INFO        --log-dir          : None
+2026-03-27 04:58:59  INFO        --save-keyframes   : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/output/keyframes_vlm
+2026-03-27 04:58:59  INFO        --keyframe-method  : vlm
+2026-03-27 04:58:59  INFO      ==================================================
+2026-03-27 04:58:59  INFO      STEP 1: Keyframe Location
+2026-03-27 04:58:59  INFO        Input video      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-27 04:58:59  INFO        Keyframe method  : vlm
+2026-03-27 04:58:59  INFO      keyframe_location_vlm: starting on "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/handheld/hhv_app_AntennaPod.mp4" (model=llama3.2-vision)
+2026-03-27 04:58:59  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/handheld/hhv_app_AntennaPod.mp4"
+2026-03-27 04:59:18  DEBUG     read_frames_from_video: 2025 frames decoded in 18.91s
+2026-03-27 05:02:26  DEBUG     calculate_sim_seq: 2024 similarities computed in 187.46s
+2026-03-27 05:02:26  DEBUG     detect_keyframes: 10 keyframes detected from 2024 frames in 0.00s
+2026-03-27 05:02:26  INFO      keyframe_location: done — 10 keyframes at indices [4, 9, 115, 172, 930, 1019, 1430, 1679, 1988, 2024] (206.46s total)
+2026-03-27 05:02:26  INFO      keyframe_location_vlm: baseline produced 10 keyframes
+2026-03-27 05:02:26  WARNING   keyframe_location_vlm: ollama package not installed; returning baseline result. Install with: pip install ollama
+2026-03-27 05:02:26  INFO        Keyframes found   : 10
+2026-03-27 05:02:26  INFO        Keyframe indices  : [4, 9, 115, 172, 930, 1019, 1430, 1679, 1988, 2024]
+2026-03-27 05:02:26  INFO        Duration          : 207.10s
+2026-03-27 05:02:27  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/output/keyframes_vlm (10 files)
+2026-03-27 05:02:27  INFO      ==================================================
+2026-03-27 05:02:27  INFO      STEP 2: GUI Mapping
+2026-03-27 05:02:27  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/artifacts
+2026-03-27 05:02:27  INFO      gui_mapping: matching 10 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/artifacts"
+2026-03-27 05:02:37  DEBUG     load_screenshots: 151 screenshots loaded in 9.33s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/artifacts"
+2026-03-27 05:02:52  DEBUG     mapping: best match "artifacts_29.png" (score=0.304)
+2026-03-27 05:03:07  DEBUG     mapping: best match "artifacts_29.png" (score=0.304)
+2026-03-27 05:03:22  DEBUG     mapping: best match "artifacts_29.png" (score=0.301)
+2026-03-27 05:03:37  DEBUG     mapping: best match "artifacts_29.png" (score=0.310)
+2026-03-27 05:03:51  DEBUG     mapping: best match "artifacts_29.png" (score=0.324)
+2026-03-27 05:04:06  DEBUG     mapping: best match "artifacts_29.png" (score=0.324)
+2026-03-27 05:04:21  DEBUG     mapping: best match "artifacts_29.png" (score=0.326)
+2026-03-27 05:04:35  DEBUG     mapping: best match "artifacts_29.png" (score=0.310)
+2026-03-27 05:04:50  DEBUG     mapping: best match "artifacts_29.png" (score=0.329)
+2026-03-27 05:05:05  DEBUG     mapping: best match "artifacts_29.png" (score=0.331)
+2026-03-27 05:05:05  INFO      gui_mapping: done — index sequence [29, 29, 29, 29, 29, 29, 29, 29, 29, 29] (157.49s)
+2026-03-27 05:05:05  INFO        Mapped index sequence : [29, 29, 29, 29, 29, 29, 29, 29, 29, 29]
+2026-03-27 05:05:05  INFO        Duration              : 157.49s
+2026-03-27 05:05:05  INFO      ==================================================
+2026-03-27 05:05:05  INFO      STEP 3: Find Execution Trace
+2026-03-27 05:05:05  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/utg.json
+2026-03-27 05:05:05  INFO      find_execution_trace: target sequence [29, 29, 29, 29, 29, 29, 29, 29, 29, 29]
+2026-03-27 05:05:05  DEBUG     read_graph: 403 edges, 151 vertices loaded in 0.00s
+2026-03-27 05:08:48  DEBUG     find_execution_trace: 257 candidate paths found in 223.57s
+2026-03-27 05:08:48  INFO      find_execution_trace: 1 trace(s) found (LCS=1, length=4) in 223.59s
+2026-03-27 05:08:48  INFO        Candidate traces found : 1
+2026-03-27 05:08:48  INFO          Trace 0: [0, 1, 7, 29]
+2026-03-27 05:08:48  INFO        Duration : 223.59s
+2026-03-27 05:08:48  INFO      ==================================================
+2026-03-27 05:08:48  INFO      STEP 4: Store Execution Trace
+2026-03-27 05:08:48  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/output/execution_hhv_AntennaPod_vlm.json
+2026-03-27 05:08:48  INFO        Duration : 0.00s
+2026-03-27 05:08:48  INFO      ==================================================
+2026-03-27 05:08:48  INFO      Pipeline complete.  Total time: 589.27s
+2026-03-27 05:08:48  INFO      ==================================================

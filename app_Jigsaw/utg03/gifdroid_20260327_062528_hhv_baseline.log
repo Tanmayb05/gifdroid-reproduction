@@ -1,0 +1,62 @@
+2026-03-27 06:25:28  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/gifdroid_20260327_062528_hhv_baseline.log
+2026-03-27 06:25:28  INFO      GIFdroid started
+2026-03-27 06:25:28  INFO        --video            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4
+2026-03-27 06:25:28  INFO        --utg              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/utg.json
+2026-03-27 06:25:28  INFO        --artifact         : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts
+2026-03-27 06:25:28  INFO        --out              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/execution_hhv_Jigsaw_baseline.json
+2026-03-27 06:25:28  INFO        --log-dir          : None
+2026-03-27 06:25:28  INFO        --save-keyframes   : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes_baseline
+2026-03-27 06:25:28  INFO        --keyframe-method  : baseline
+2026-03-27 06:25:28  INFO      ==================================================
+2026-03-27 06:25:28  INFO      STEP 1: Keyframe Location
+2026-03-27 06:25:28  INFO        Input video      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4
+2026-03-27 06:25:28  INFO        Keyframe method  : baseline
+2026-03-27 06:25:28  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4"
+2026-03-27 06:25:32  DEBUG     read_frames_from_video: 563 frames decoded in 4.11s
+2026-03-27 06:26:21  DEBUG     calculate_sim_seq: 562 similarities computed in 48.98s
+2026-03-27 06:26:21  DEBUG     detect_keyframes: 16 keyframes detected from 562 frames in 0.00s
+2026-03-27 06:26:21  INFO      keyframe_location: done — 16 keyframes at indices [114, 229, 236, 267, 329, 350, 384, 403, 410, 448, 470, 492, 536, 545, 552, 562] (53.11s total)
+2026-03-27 06:26:21  INFO        Keyframes found   : 16
+2026-03-27 06:26:21  INFO        Keyframe indices  : [114, 229, 236, 267, 329, 350, 384, 403, 410, 448, 470, 492, 536, 545, 552, 562]
+2026-03-27 06:26:21  INFO        Duration          : 53.21s
+2026-03-27 06:26:23  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes_baseline (16 files)
+2026-03-27 06:26:23  INFO      ==================================================
+2026-03-27 06:26:23  INFO      STEP 2: GUI Mapping
+2026-03-27 06:26:23  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts
+2026-03-27 06:26:23  INFO      gui_mapping: matching 16 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts"
+2026-03-27 06:26:23  DEBUG     load_screenshots: 3 screenshots loaded in 0.20s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts"
+2026-03-27 06:26:23  DEBUG     mapping: best match "artifacts_2.png" (score=0.264)
+2026-03-27 06:26:23  DEBUG     mapping: best match "artifacts_2.png" (score=0.260)
+2026-03-27 06:26:24  DEBUG     mapping: best match "artifacts_2.png" (score=0.258)
+2026-03-27 06:26:24  DEBUG     mapping: best match "artifacts_2.png" (score=0.261)
+2026-03-27 06:26:24  DEBUG     mapping: best match "artifacts_2.png" (score=0.259)
+2026-03-27 06:26:24  DEBUG     mapping: best match "artifacts_2.png" (score=0.257)
+2026-03-27 06:26:24  DEBUG     mapping: best match "artifacts_2.png" (score=0.262)
+2026-03-27 06:26:25  DEBUG     mapping: best match "artifacts_2.png" (score=0.259)
+2026-03-27 06:26:25  DEBUG     mapping: best match "artifacts_2.png" (score=0.259)
+2026-03-27 06:26:25  DEBUG     mapping: best match "artifacts_2.png" (score=0.258)
+2026-03-27 06:26:25  DEBUG     mapping: best match "artifacts_2.png" (score=0.272)
+2026-03-27 06:26:26  DEBUG     mapping: best match "artifacts_2.png" (score=0.270)
+2026-03-27 06:26:26  DEBUG     mapping: best match "artifacts_2.png" (score=0.275)
+2026-03-27 06:26:26  DEBUG     mapping: best match "artifacts_2.png" (score=0.276)
+2026-03-27 06:26:26  DEBUG     mapping: best match "artifacts_2.png" (score=0.277)
+2026-03-27 06:26:27  DEBUG     mapping: best match "artifacts_2.png" (score=0.277)
+2026-03-27 06:26:27  INFO      gui_mapping: done — index sequence [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] (4.12s)
+2026-03-27 06:26:27  INFO        Mapped index sequence : [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+2026-03-27 06:26:27  INFO        Duration              : 4.12s
+2026-03-27 06:26:27  INFO      ==================================================
+2026-03-27 06:26:27  INFO      STEP 3: Find Execution Trace
+2026-03-27 06:26:27  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/utg.json
+2026-03-27 06:26:27  INFO      find_execution_trace: target sequence [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+2026-03-27 06:26:27  DEBUG     read_graph: 2 edges, 2 vertices loaded in 0.00s
+2026-03-27 06:26:27  DEBUG     find_execution_trace: 0 candidate paths found in 0.00s
+2026-03-27 06:26:27  WARNING   find_execution_trace: no paths found from node 0 to screen 2 in the UTG (sequence=[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]). Returning empty trace. (0.00s)
+2026-03-27 06:26:27  INFO        Candidate traces found : 0
+2026-03-27 06:26:27  INFO        Duration : 0.00s
+2026-03-27 06:26:27  INFO      ==================================================
+2026-03-27 06:26:27  INFO      STEP 4: Store Execution Trace
+2026-03-27 06:26:27  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/execution_hhv_Jigsaw_baseline.json
+2026-03-27 06:26:27  INFO        Duration : 0.00s
+2026-03-27 06:26:27  INFO      ==================================================
+2026-03-27 06:26:27  INFO      Pipeline complete.  Total time: 58.53s
+2026-03-27 06:26:27  INFO      ==================================================

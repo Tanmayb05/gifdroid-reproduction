@@ -1,0 +1,39 @@
+# keyframe_runs.yml — Input config for run_keyframe_variants.py
+#
+# Specify which app/utg pairs to process.
+# Each entry needs:
+#   app: <AppName>   (must match the folder name app_<AppName>/)
+#   utg: <utg slot>  (utg01 | utg02 | utg03, or a list of slots)
+#
+# Run:
+#   python scripts/run_keyframe_variants.py
+#   python scripts/run_keyframe_variants.py --methods baseline stabilize
+#   python scripts/run_keyframe_variants.py --dry-run
+
+
+# apps = [AdAway, AntennaPod, DeadHash, HomeMedkit, Jigsaw, LuxAlarm, Pomodorot, PortAuthority, SimpleNotes, WifiAnalyzer]
+
+runs:
+  - app: AdAway
+    utg: [utg01, utg03]
+
+  - app: AntennaPod
+    utg: [utg01, utg02, utg03]
+
+  # - app: HomeMedkit
+  #   utg: [utg01, utg02, utg03]
+
+  # - app: Jigsaw
+  #   utg: [utg01, utg02, utg03]
+
+  # - app: LuxAlarm
+  #   utg: [utg01, utg02, utg03]
+
+  # - app: PortAuthority
+  #   utg: [utg01, utg02, utg03]
+
+  # - app: SimpleNotes
+  #   utg: [utg01, utg02, utg03]
+
+  # - app: WifiAnalyzer
+  #   utg: [utg01, utg02, utg03]

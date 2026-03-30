@@ -1,0 +1,55 @@
+2026-03-27 06:26:27  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/gifdroid_20260327_062627_hhv_stabilize.log
+2026-03-27 06:26:27  INFO      GIFdroid started
+2026-03-27 06:26:27  INFO        --video            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4
+2026-03-27 06:26:27  INFO        --utg              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/utg.json
+2026-03-27 06:26:27  INFO        --artifact         : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts
+2026-03-27 06:26:27  INFO        --out              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/execution_hhv_Jigsaw_stabilize.json
+2026-03-27 06:26:27  INFO        --log-dir          : None
+2026-03-27 06:26:27  INFO        --save-keyframes   : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes_stabilize
+2026-03-27 06:26:27  INFO        --keyframe-method  : stabilize
+2026-03-27 06:26:27  INFO      ==================================================
+2026-03-27 06:26:27  INFO      STEP 1: Keyframe Location
+2026-03-27 06:26:27  INFO        Input video      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4
+2026-03-27 06:26:27  INFO        Keyframe method  : stabilize
+2026-03-27 06:26:27  INFO      keyframe_location_stabilized: starting on "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4"
+2026-03-27 06:27:25  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw_stabilized.mp4"
+2026-03-27 06:27:29  DEBUG     read_frames_from_video: 563 frames decoded in 4.04s
+2026-03-27 06:28:17  DEBUG     calculate_sim_seq: 562 similarities computed in 48.19s
+2026-03-27 06:28:17  DEBUG     detect_keyframes: 7 keyframes detected from 562 frames in 0.00s
+2026-03-27 06:28:17  INFO      keyframe_location: done — 7 keyframes at indices [114, 329, 354, 384, 448, 493, 562] (52.26s total)
+2026-03-27 06:28:17  INFO      keyframe_location_stabilized: done — 7 keyframes at indices [114, 329, 354, 384, 448, 493, 562] (109.79s)
+2026-03-27 06:28:17  INFO        Keyframes found   : 7
+2026-03-27 06:28:17  INFO        Keyframe indices  : [114, 329, 354, 384, 448, 493, 562]
+2026-03-27 06:28:17  INFO        Duration          : 109.79s
+2026-03-27 06:28:18  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes_stabilize (7 files)
+2026-03-27 06:28:18  INFO      ==================================================
+2026-03-27 06:28:18  INFO      STEP 2: GUI Mapping
+2026-03-27 06:28:18  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts
+2026-03-27 06:28:18  INFO      gui_mapping: matching 7 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts"
+2026-03-27 06:28:18  DEBUG     load_screenshots: 3 screenshots loaded in 0.18s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts"
+2026-03-27 06:28:18  DEBUG     mapping: best match "artifacts_2.png" (score=0.268)
+2026-03-27 06:28:18  DEBUG     mapping: best match "artifacts_2.png" (score=0.264)
+2026-03-27 06:28:19  DEBUG     mapping: best match "artifacts_2.png" (score=0.262)
+2026-03-27 06:28:19  DEBUG     mapping: best match "artifacts_2.png" (score=0.267)
+2026-03-27 06:28:19  DEBUG     mapping: best match "artifacts_2.png" (score=0.263)
+2026-03-27 06:28:19  DEBUG     mapping: best match "artifacts_2.png" (score=0.275)
+2026-03-27 06:28:19  DEBUG     mapping: best match "artifacts_2.png" (score=0.281)
+2026-03-27 06:28:19  INFO      gui_mapping: done — index sequence [2, 2, 2, 2, 2, 2, 2] (1.83s)
+2026-03-27 06:28:19  INFO        Mapped index sequence : [2, 2, 2, 2, 2, 2, 2]
+2026-03-27 06:28:19  INFO        Duration              : 1.83s
+2026-03-27 06:28:19  INFO      ==================================================
+2026-03-27 06:28:19  INFO      STEP 3: Find Execution Trace
+2026-03-27 06:28:19  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/utg.json
+2026-03-27 06:28:19  INFO      find_execution_trace: target sequence [2, 2, 2, 2, 2, 2, 2]
+2026-03-27 06:28:19  DEBUG     read_graph: 2 edges, 2 vertices loaded in 0.00s
+2026-03-27 06:28:19  DEBUG     find_execution_trace: 0 candidate paths found in 0.00s
+2026-03-27 06:28:19  WARNING   find_execution_trace: no paths found from node 0 to screen 2 in the UTG (sequence=[2, 2, 2, 2, 2, 2, 2]). Returning empty trace. (0.00s)
+2026-03-27 06:28:19  INFO        Candidate traces found : 0
+2026-03-27 06:28:19  INFO        Duration : 0.00s
+2026-03-27 06:28:19  INFO      ==================================================
+2026-03-27 06:28:19  INFO      STEP 4: Store Execution Trace
+2026-03-27 06:28:19  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/execution_hhv_Jigsaw_stabilize.json
+2026-03-27 06:28:19  INFO        Duration : 0.00s
+2026-03-27 06:28:19  INFO      ==================================================
+2026-03-27 06:28:19  INFO      Pipeline complete.  Total time: 112.11s
+2026-03-27 06:28:19  INFO      ==================================================

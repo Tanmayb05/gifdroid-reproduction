@@ -1,0 +1,65 @@
+2026-03-27 06:34:54  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/gifdroid_20260327_063454_hhv_vlm.log
+2026-03-27 06:34:54  INFO      GIFdroid started
+2026-03-27 06:34:54  INFO        --video            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4
+2026-03-27 06:34:54  INFO        --utg              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/utg.json
+2026-03-27 06:34:54  INFO        --artifact         : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts
+2026-03-27 06:34:54  INFO        --out              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/execution_hhv_Jigsaw_vlm.json
+2026-03-27 06:34:54  INFO        --log-dir          : None
+2026-03-27 06:34:54  INFO        --save-keyframes   : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes_vlm
+2026-03-27 06:34:54  INFO        --keyframe-method  : vlm
+2026-03-27 06:34:54  INFO      ==================================================
+2026-03-27 06:34:54  INFO      STEP 1: Keyframe Location
+2026-03-27 06:34:54  INFO        Input video      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4
+2026-03-27 06:34:54  INFO        Keyframe method  : vlm
+2026-03-27 06:34:54  INFO      keyframe_location_vlm: starting on "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4" (model=llama3.2-vision)
+2026-03-27 06:34:54  INFO      keyframe_location: starting on video "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/handheld/hhv_app_Jigsaw.mp4"
+2026-03-27 06:34:58  DEBUG     read_frames_from_video: 563 frames decoded in 4.17s
+2026-03-27 06:35:47  DEBUG     calculate_sim_seq: 562 similarities computed in 48.78s
+2026-03-27 06:35:47  DEBUG     detect_keyframes: 16 keyframes detected from 562 frames in 0.00s
+2026-03-27 06:35:47  INFO      keyframe_location: done — 16 keyframes at indices [114, 229, 236, 267, 329, 350, 384, 403, 410, 448, 470, 492, 536, 545, 552, 562] (52.98s total)
+2026-03-27 06:35:47  INFO      keyframe_location_vlm: baseline produced 16 keyframes
+2026-03-27 06:35:47  WARNING   keyframe_location_vlm: ollama package not installed; returning baseline result. Install with: pip install ollama
+2026-03-27 06:35:47  INFO        Keyframes found   : 16
+2026-03-27 06:35:47  INFO        Keyframe indices  : [114, 229, 236, 267, 329, 350, 384, 403, 410, 448, 470, 492, 536, 545, 552, 562]
+2026-03-27 06:35:47  INFO        Duration          : 53.06s
+2026-03-27 06:35:48  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/keyframes_vlm (16 files)
+2026-03-27 06:35:48  INFO      ==================================================
+2026-03-27 06:35:48  INFO      STEP 2: GUI Mapping
+2026-03-27 06:35:48  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts
+2026-03-27 06:35:48  INFO      gui_mapping: matching 16 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts"
+2026-03-27 06:35:48  DEBUG     load_screenshots: 3 screenshots loaded in 0.21s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/artifacts"
+2026-03-27 06:35:49  DEBUG     mapping: best match "artifacts_2.png" (score=0.264)
+2026-03-27 06:35:49  DEBUG     mapping: best match "artifacts_2.png" (score=0.260)
+2026-03-27 06:35:49  DEBUG     mapping: best match "artifacts_2.png" (score=0.258)
+2026-03-27 06:35:50  DEBUG     mapping: best match "artifacts_2.png" (score=0.261)
+2026-03-27 06:35:50  DEBUG     mapping: best match "artifacts_2.png" (score=0.259)
+2026-03-27 06:35:50  DEBUG     mapping: best match "artifacts_2.png" (score=0.257)
+2026-03-27 06:35:50  DEBUG     mapping: best match "artifacts_2.png" (score=0.262)
+2026-03-27 06:35:50  DEBUG     mapping: best match "artifacts_2.png" (score=0.259)
+2026-03-27 06:35:51  DEBUG     mapping: best match "artifacts_2.png" (score=0.259)
+2026-03-27 06:35:51  DEBUG     mapping: best match "artifacts_2.png" (score=0.258)
+2026-03-27 06:35:51  DEBUG     mapping: best match "artifacts_2.png" (score=0.272)
+2026-03-27 06:35:51  DEBUG     mapping: best match "artifacts_2.png" (score=0.270)
+2026-03-27 06:35:52  DEBUG     mapping: best match "artifacts_2.png" (score=0.275)
+2026-03-27 06:35:52  DEBUG     mapping: best match "artifacts_2.png" (score=0.276)
+2026-03-27 06:35:52  DEBUG     mapping: best match "artifacts_2.png" (score=0.277)
+2026-03-27 06:35:52  DEBUG     mapping: best match "artifacts_2.png" (score=0.277)
+2026-03-27 06:35:52  INFO      gui_mapping: done — index sequence [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] (4.14s)
+2026-03-27 06:35:52  INFO        Mapped index sequence : [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+2026-03-27 06:35:52  INFO        Duration              : 4.14s
+2026-03-27 06:35:52  INFO      ==================================================
+2026-03-27 06:35:52  INFO      STEP 3: Find Execution Trace
+2026-03-27 06:35:52  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/input/utg.json
+2026-03-27 06:35:52  INFO      find_execution_trace: target sequence [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+2026-03-27 06:35:52  DEBUG     read_graph: 2 edges, 2 vertices loaded in 0.00s
+2026-03-27 06:35:52  DEBUG     find_execution_trace: 0 candidate paths found in 0.00s
+2026-03-27 06:35:52  WARNING   find_execution_trace: no paths found from node 0 to screen 2 in the UTG (sequence=[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]). Returning empty trace. (0.00s)
+2026-03-27 06:35:52  INFO        Candidate traces found : 0
+2026-03-27 06:35:52  INFO        Duration : 0.00s
+2026-03-27 06:35:52  INFO      ==================================================
+2026-03-27 06:35:52  INFO      STEP 4: Store Execution Trace
+2026-03-27 06:35:52  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_Jigsaw/utg03/output/execution_hhv_Jigsaw_vlm.json
+2026-03-27 06:35:52  INFO        Duration : 0.00s
+2026-03-27 06:35:52  INFO      ==================================================
+2026-03-27 06:35:52  INFO      Pipeline complete.  Total time: 58.40s
+2026-03-27 06:35:52  INFO      ==================================================

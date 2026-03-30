@@ -1,0 +1,61 @@
+2026-03-27 18:16:46  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/gifdroid_20260327_181646_hhv_hysteresis.log
+2026-03-27 18:16:46  INFO      GIFdroid started
+2026-03-27 18:16:46  INFO        --video            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/handheld/hhv_app_WifiAnalyzer.mp4
+2026-03-27 18:16:46  INFO        --utg              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/utg.json
+2026-03-27 18:16:46  INFO        --artifact         : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/artifacts
+2026-03-27 18:16:46  INFO        --out              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/output/execution_hhv_WifiAnalyzer_hysteresis.json
+2026-03-27 18:16:46  INFO        --log-dir          : None
+2026-03-27 18:16:46  INFO        --save-keyframes   : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/output/keyframes_hysteresis
+2026-03-27 18:16:46  INFO        --keyframe-method  : hysteresis
+2026-03-27 18:16:46  INFO      ==================================================
+2026-03-27 18:16:46  INFO      STEP 1: Keyframe Location
+2026-03-27 18:16:46  INFO        Input video      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/handheld/hhv_app_WifiAnalyzer.mp4
+2026-03-27 18:16:46  INFO        Keyframe method  : hysteresis
+2026-03-27 18:16:46  INFO      keyframe_location_hysteresis: starting on "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/handheld/hhv_app_WifiAnalyzer.mp4" (k=3)
+2026-03-27 18:16:56  DEBUG     read_frames_from_video: 1191 frames decoded in 10.37s
+2026-03-27 18:18:42  DEBUG     calculate_sim_seq: 1190 similarities computed in 105.51s
+2026-03-27 18:18:42  INFO      keyframe_location_hysteresis: done — 15 keyframes at indices [95, 130, 197, 259, 378, 465, 573, 598, 719, 737, 899, 942, 1099, 1123, 1190] (115.93s)
+2026-03-27 18:18:42  INFO        Keyframes found   : 15
+2026-03-27 18:18:42  INFO        Keyframe indices  : [95, 130, 197, 259, 378, 465, 573, 598, 719, 737, 899, 942, 1099, 1123, 1190]
+2026-03-27 18:18:42  INFO        Duration          : 116.36s
+2026-03-27 18:18:43  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/output/keyframes_hysteresis (15 files)
+2026-03-27 18:18:43  INFO      ==================================================
+2026-03-27 18:18:43  INFO      STEP 2: GUI Mapping
+2026-03-27 18:18:43  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/artifacts
+2026-03-27 18:18:43  INFO      gui_mapping: matching 15 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/artifacts"
+2026-03-27 18:18:46  DEBUG     load_screenshots: 47 screenshots loaded in 2.55s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/artifacts"
+2026-03-27 18:18:51  DEBUG     mapping: best match "artifacts_19.png" (score=0.223)
+2026-03-27 18:18:55  DEBUG     mapping: best match "artifacts_31.png" (score=0.320)
+2026-03-27 18:19:00  DEBUG     mapping: best match "artifacts_31.png" (score=0.226)
+2026-03-27 18:19:04  DEBUG     mapping: best match "artifacts_31.png" (score=0.223)
+2026-03-27 18:19:09  DEBUG     mapping: best match "artifacts_31.png" (score=0.234)
+2026-03-27 18:19:13  DEBUG     mapping: best match "artifacts_31.png" (score=0.264)
+2026-03-27 18:19:18  DEBUG     mapping: best match "artifacts_31.png" (score=0.241)
+2026-03-27 18:19:22  DEBUG     mapping: best match "artifacts_31.png" (score=0.239)
+2026-03-27 18:19:27  DEBUG     mapping: best match "artifacts_31.png" (score=0.239)
+2026-03-27 18:19:32  DEBUG     mapping: best match "artifacts_31.png" (score=0.240)
+2026-03-27 18:19:37  DEBUG     mapping: best match "artifacts_31.png" (score=0.258)
+2026-03-27 18:19:41  DEBUG     mapping: best match "artifacts_31.png" (score=0.255)
+2026-03-27 18:19:46  DEBUG     mapping: best match "artifacts_31.png" (score=0.268)
+2026-03-27 18:19:50  DEBUG     mapping: best match "artifacts_31.png" (score=0.268)
+2026-03-27 18:19:55  DEBUG     mapping: best match "artifacts_31.png" (score=0.265)
+2026-03-27 18:19:55  INFO      gui_mapping: done — index sequence [19, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31] (71.52s)
+2026-03-27 18:19:55  INFO        Mapped index sequence : [19, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31]
+2026-03-27 18:19:55  INFO        Duration              : 71.52s
+2026-03-27 18:19:55  INFO      ==================================================
+2026-03-27 18:19:55  INFO      STEP 3: Find Execution Trace
+2026-03-27 18:19:55  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/utg.json
+2026-03-27 18:19:55  INFO      find_execution_trace: target sequence [19, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31]
+2026-03-27 18:19:55  DEBUG     read_graph: 135 edges, 48 vertices loaded in 0.00s
+2026-03-27 18:19:55  DEBUG     find_execution_trace: 268 candidate paths found in 0.01s
+2026-03-27 18:19:55  INFO      find_execution_trace: 1 trace(s) found (LCS=2, length=14) in 0.04s
+2026-03-27 18:19:55  INFO        Candidate traces found : 1
+2026-03-27 18:19:55  INFO          Trace 0: [0, 1, 2, 6, 7, 18, 19, 5, 3, 4, 27, 28, 29, 31]
+2026-03-27 18:19:55  INFO        Duration : 0.04s
+2026-03-27 18:19:55  INFO      ==================================================
+2026-03-27 18:19:55  INFO      STEP 4: Store Execution Trace
+2026-03-27 18:19:55  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/output/execution_hhv_WifiAnalyzer_hysteresis.json
+2026-03-27 18:19:55  INFO        Duration : 0.00s
+2026-03-27 18:19:55  INFO      ==================================================
+2026-03-27 18:19:55  INFO      Pipeline complete.  Total time: 189.23s
+2026-03-27 18:19:55  INFO      ==================================================

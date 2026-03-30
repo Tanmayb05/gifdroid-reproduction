@@ -1,0 +1,88 @@
+2026-03-27 02:23:41  INFO      Log file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/gifdroid_20260327_022341_hhv_hysteresis.log
+2026-03-27 02:23:41  INFO      GIFdroid started
+2026-03-27 02:23:41  INFO        --video            : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/handheld/hhv_app_AdAway.mp4
+2026-03-27 02:23:41  INFO        --utg              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/utg.json
+2026-03-27 02:23:41  INFO        --artifact         : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/artifacts
+2026-03-27 02:23:41  INFO        --out              : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/output/execution_hhv_AdAway_hysteresis.json
+2026-03-27 02:23:41  INFO        --log-dir          : None
+2026-03-27 02:23:41  INFO        --save-keyframes   : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/output/keyframes_hysteresis
+2026-03-27 02:23:41  INFO        --keyframe-method  : hysteresis
+2026-03-27 02:23:41  INFO      ==================================================
+2026-03-27 02:23:41  INFO      STEP 1: Keyframe Location
+2026-03-27 02:23:41  INFO        Input video      : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/handheld/hhv_app_AdAway.mp4
+2026-03-27 02:23:41  INFO        Keyframe method  : hysteresis
+2026-03-27 02:23:41  INFO      keyframe_location_hysteresis: starting on "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/handheld/hhv_app_AdAway.mp4" (k=3)
+2026-03-27 02:23:55  DEBUG     read_frames_from_video: 1331 frames decoded in 13.65s
+2026-03-27 02:26:14  DEBUG     calculate_sim_seq: 1330 similarities computed in 138.73s
+2026-03-27 02:26:14  INFO      keyframe_location_hysteresis: done — 42 keyframes at indices [10, 20, 27, 73, 167, 230, 244, 365, 420, 427, 453, 549, 607, 625, 635, 642, 676, 682, 688, 717, 744, 763, 791, 801, 811, 818, 826, 833, 857, 879, 942, 1016, 1096, 1125, 1160, 1173, 1186, 1220, 1226, 1261, 1269, 1330] (152.41s)
+2026-03-27 02:26:14  INFO        Keyframes found   : 42
+2026-03-27 02:26:14  INFO        Keyframe indices  : [10, 20, 27, 73, 167, 230, 244, 365, 420, 427, 453, 549, 607, 625, 635, 642, 676, 682, 688, 717, 744, 763, 791, 801, 811, 818, 826, 833, 857, 879, 942, 1016, 1096, 1125, 1160, 1173, 1186, 1220, 1226, 1261, 1269, 1330]
+2026-03-27 02:26:14  INFO        Duration          : 152.78s
+2026-03-27 02:26:17  INFO        Keyframes saved to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/output/keyframes_hysteresis (42 files)
+2026-03-27 02:26:17  INFO      ==================================================
+2026-03-27 02:26:17  INFO      STEP 2: GUI Mapping
+2026-03-27 02:26:17  INFO        Screenshots dir : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/artifacts
+2026-03-27 02:26:17  INFO      gui_mapping: matching 42 keyframes against screenshots in "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/artifacts"
+2026-03-27 02:26:18  DEBUG     load_screenshots: 5 screenshots loaded in 0.43s from "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/artifacts"
+2026-03-27 02:26:19  DEBUG     mapping: best match "artifacts_2.png" (score=0.271)
+2026-03-27 02:26:19  DEBUG     mapping: best match "artifacts_2.png" (score=0.279)
+2026-03-27 02:26:20  DEBUG     mapping: best match "artifacts_2.png" (score=0.296)
+2026-03-27 02:26:20  DEBUG     mapping: best match "artifacts_2.png" (score=0.286)
+2026-03-27 02:26:21  DEBUG     mapping: best match "artifacts_2.png" (score=0.265)
+2026-03-27 02:26:22  DEBUG     mapping: best match "artifacts_2.png" (score=0.273)
+2026-03-27 02:26:22  DEBUG     mapping: best match "artifacts_2.png" (score=0.291)
+2026-03-27 02:26:23  DEBUG     mapping: best match "artifacts_2.png" (score=0.287)
+2026-03-27 02:26:23  DEBUG     mapping: best match "artifacts_2.png" (score=0.251)
+2026-03-27 02:26:24  DEBUG     mapping: best match "artifacts_2.png" (score=0.254)
+2026-03-27 02:26:24  DEBUG     mapping: best match "artifacts_2.png" (score=0.265)
+2026-03-27 02:26:25  DEBUG     mapping: best match "artifacts_2.png" (score=0.276)
+2026-03-27 02:26:26  DEBUG     mapping: best match "artifacts_2.png" (score=0.276)
+2026-03-27 02:26:26  DEBUG     mapping: best match "artifacts_2.png" (score=0.269)
+2026-03-27 02:26:27  DEBUG     mapping: best match "artifacts_2.png" (score=0.272)
+2026-03-27 02:26:27  DEBUG     mapping: best match "artifacts_2.png" (score=0.272)
+2026-03-27 02:26:28  DEBUG     mapping: best match "artifacts_2.png" (score=0.272)
+2026-03-27 02:26:28  DEBUG     mapping: best match "artifacts_2.png" (score=0.272)
+2026-03-27 02:26:29  DEBUG     mapping: best match "artifacts_2.png" (score=0.272)
+2026-03-27 02:26:30  DEBUG     mapping: best match "artifacts_2.png" (score=0.274)
+2026-03-27 02:26:30  DEBUG     mapping: best match "artifacts_2.png" (score=0.275)
+2026-03-27 02:26:31  DEBUG     mapping: best match "artifacts_2.png" (score=0.275)
+2026-03-27 02:26:31  DEBUG     mapping: best match "artifacts_2.png" (score=0.276)
+2026-03-27 02:26:32  DEBUG     mapping: best match "artifacts_2.png" (score=0.275)
+2026-03-27 02:26:32  DEBUG     mapping: best match "artifacts_2.png" (score=0.279)
+2026-03-27 02:26:33  DEBUG     mapping: best match "artifacts_2.png" (score=0.284)
+2026-03-27 02:26:33  DEBUG     mapping: best match "artifacts_2.png" (score=0.281)
+2026-03-27 02:26:34  DEBUG     mapping: best match "artifacts_2.png" (score=0.282)
+2026-03-27 02:26:35  DEBUG     mapping: best match "artifacts_2.png" (score=0.286)
+2026-03-27 02:26:35  DEBUG     mapping: best match "artifacts_2.png" (score=0.288)
+2026-03-27 02:26:36  DEBUG     mapping: best match "artifacts_2.png" (score=0.292)
+2026-03-27 02:26:36  DEBUG     mapping: best match "artifacts_2.png" (score=0.352)
+2026-03-27 02:26:37  DEBUG     mapping: best match "artifacts_2.png" (score=0.336)
+2026-03-27 02:26:37  DEBUG     mapping: best match "artifacts_2.png" (score=0.296)
+2026-03-27 02:26:38  DEBUG     mapping: best match "artifacts_2.png" (score=0.337)
+2026-03-27 02:26:38  DEBUG     mapping: best match "artifacts_2.png" (score=0.338)
+2026-03-27 02:26:39  DEBUG     mapping: best match "artifacts_2.png" (score=0.303)
+2026-03-27 02:26:39  DEBUG     mapping: best match "artifacts_2.png" (score=0.311)
+2026-03-27 02:26:40  DEBUG     mapping: best match "artifacts_2.png" (score=0.307)
+2026-03-27 02:26:41  DEBUG     mapping: best match "artifacts_2.png" (score=0.289)
+2026-03-27 02:26:41  DEBUG     mapping: best match "artifacts_2.png" (score=0.291)
+2026-03-27 02:26:42  DEBUG     mapping: best match "artifacts_2.png" (score=0.275)
+2026-03-27 02:26:42  INFO      gui_mapping: done — index sequence [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] (24.25s)
+2026-03-27 02:26:42  INFO        Mapped index sequence : [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+2026-03-27 02:26:42  INFO        Duration              : 24.25s
+2026-03-27 02:26:42  INFO      ==================================================
+2026-03-27 02:26:42  INFO      STEP 3: Find Execution Trace
+2026-03-27 02:26:42  INFO        UTG file : /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/utg.json
+2026-03-27 02:26:42  INFO      find_execution_trace: target sequence [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+2026-03-27 02:26:42  DEBUG     read_graph: 5 edges, 4 vertices loaded in 0.00s
+2026-03-27 02:26:42  DEBUG     find_execution_trace: 1 candidate paths found in 0.00s
+2026-03-27 02:26:42  INFO      find_execution_trace: 1 trace(s) found (LCS=1, length=3) in 0.00s
+2026-03-27 02:26:42  INFO        Candidate traces found : 1
+2026-03-27 02:26:42  INFO          Trace 0: [0, 1, 2]
+2026-03-27 02:26:42  INFO        Duration : 0.00s
+2026-03-27 02:26:42  INFO      ==================================================
+2026-03-27 02:26:42  INFO      STEP 4: Store Execution Trace
+2026-03-27 02:26:42  INFO      Execution trace written to: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/output/execution_hhv_AdAway_hysteresis.json
+2026-03-27 02:26:42  INFO        Duration : 0.00s
+2026-03-27 02:26:42  INFO      ==================================================
+2026-03-27 02:26:42  INFO      Pipeline complete.  Total time: 180.45s
+2026-03-27 02:26:42  INFO      ==================================================

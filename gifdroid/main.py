@@ -9,6 +9,7 @@ from datetime import datetime
 import cv2
 
 from gifdroid.location import keyframe_location
+from gifdroid.hhv_keyframe import get_keyframe_fn
 from gifdroid.mapping import gui_mapping
 from gifdroid.trace import find_execution_trace
 
@@ -16,10 +17,11 @@ from gifdroid.trace import find_execution_trace
 # Logging setup
 # ---------------------------------------------------------------------------
 
-def setup_logger(log_dir, video_type=''):
+def setup_logger(log_dir, video_type='', method=''):
     os.makedirs(log_dir, exist_ok=True)
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
     suffix = f'_{video_type}' if video_type else ''
+    suffix += f'_{method}' if method else ''
     log_file = os.path.join(log_dir, f'gifdroid_{timestamp}{suffix}.log')
 
     fmt = '%(asctime)s  %(levelname)-8s  %(message)s'
@@ -65,6 +67,10 @@ def parse_args():
     parser.add_argument('--save-keyframes', dest='save_keyframes',
                         help='directory to save extracted keyframe PNGs (default: <out_dir>/keyframes)',
                         default=None, type=str)
+    parser.add_argument('--keyframe-method', dest='keyframe_method',
+                        choices=['baseline', 'stabilize', 'hysteresis', 'homography', 'clip', 'vlm'],
+                        default='baseline',
+                        help='Keyframe detection method (default: baseline)')
     return parser.parse_args()
 
 
@@ -142,7 +148,7 @@ def save_keyframes(keyframes, keyframe_indices, save_dir, prefix, logger):
     logger.info(f'  Keyframes saved to: {save_dir} ({len(keyframes)} files)')
 
 
-def main(video, screenshots, utg, logger, keyframes_dir=None, keyframes_prefix='keyframe'):
+def main(video, screenshots, utg, logger, keyframes_dir=None, keyframes_prefix='keyframe', keyframe_method='baseline'):
     total_start = time.time()
 
     # ------------------------------------------------------------------
@@ -150,10 +156,12 @@ def main(video, screenshots, utg, logger, keyframes_dir=None, keyframes_prefix='
     # ------------------------------------------------------------------
     logger.info('=' * 50)
     logger.info('STEP 1: Keyframe Location')
-    logger.info(f'  Input video : {video}')
+    logger.info(f'  Input video      : {video}')
+    logger.info(f'  Keyframe method  : {keyframe_method}')
     step_start = time.time()
 
-    keyframe_sequence, keyframe_index = keyframe_location(video)
+    keyframe_fn = get_keyframe_fn(keyframe_method)
+    keyframe_sequence, keyframe_index = keyframe_fn(video)
 
     elapsed = time.time() - step_start
     logger.info(f'  Keyframes found   : {len(keyframe_index)}')
@@ -239,22 +247,23 @@ if __name__ == '__main__':
     else:
         video_type = ''
 
-    logger = setup_logger(log_dir, video_type)
+    logger = setup_logger(log_dir, video_type, args.keyframe_method)
 
     keyframes_dir = args.save_keyframes if args.save_keyframes else \
-        os.path.join(os.path.dirname(os.path.abspath(args.out)), 'keyframes')
+        os.path.join(os.path.dirname(os.path.abspath(args.out)), f'keyframes_{args.keyframe_method}')
 
     # e.g. "utg01_hhv" derived from the utg directory name and video type
     utg_dirname = os.path.basename(os.path.dirname(os.path.dirname(os.path.abspath(args.utg))))
     keyframes_prefix = f'{utg_dirname}_{video_type}' if video_type else utg_dirname
 
     logger.info('GIFdroid started')
-    logger.info(f'  --video          : {args.video}')
-    logger.info(f'  --utg            : {args.utg}')
-    logger.info(f'  --artifact       : {args.artifact}')
-    logger.info(f'  --out            : {args.out}')
-    logger.info(f'  --log-dir        : {args.log_dir}')
-    logger.info(f'  --save-keyframes : {keyframes_dir}')
+    logger.info(f'  --video            : {args.video}')
+    logger.info(f'  --utg              : {args.utg}')
+    logger.info(f'  --artifact         : {args.artifact}')
+    logger.info(f'  --out              : {args.out}')
+    logger.info(f'  --log-dir          : {args.log_dir}')
+    logger.info(f'  --save-keyframes   : {keyframes_dir}')
+    logger.info(f'  --keyframe-method  : {args.keyframe_method}')
 
     if args.video is None or args.utg is None or args.artifact is None:
         logger.error('Missing required arguments. Run with -h for usage.')
@@ -265,4 +274,5 @@ if __name__ == '__main__':
         logger.info(f'Output already exists, skipping: {args.out}')
         exit(0)
 
-    main(args.video, args.artifact, args.utg, logger, keyframes_dir=keyframes_dir, keyframes_prefix=keyframes_prefix)
+    main(args.video, args.artifact, args.utg, logger, keyframes_dir=keyframes_dir,
+         keyframes_prefix=keyframes_prefix, keyframe_method=args.keyframe_method)
