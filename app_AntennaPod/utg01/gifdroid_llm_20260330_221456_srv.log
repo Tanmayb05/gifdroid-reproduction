@@ -1,0 +1,18 @@
+2026-03-30 18:14:56 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Starting gifdroid_llm_trace pipeline
+2026-03-30 18:14:56 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/input/screenrec/srv_app_AntennaPod.mp4
+2026-03-30 18:14:56 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Environment validated for llm=gemini model=gemini-2.5-pro
+2026-03-30 18:14:56 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Running Gemini API preflight before trace generation
+2026-03-30 18:14:56 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Gemini preflight started | model=gemini-2.5-pro | validating API key and endpoint access
+2026-03-30 18:14:56 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Gemini API request sent | kind=preflight | model=gemini-2.5-pro | waiting for response
+2026-03-30 18:14:59 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Gemini API response received | kind=preflight | elapsed_sec=3.00
+2026-03-30 18:14:59 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Gemini preflight successful | model=gemini-2.5-pro
+2026-03-30 18:14:59 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Starting frame extraction | native_fps=15.803 target_fps=1.500 stride=11 total_frames=583
+2026-03-30 18:15:00 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Frame extraction complete | sampled_frames=53
+2026-03-30 18:15:00 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Keyframe selection complete | method=llm_assisted threshold=10.589 selected=10 sampled=53
+2026-03-30 18:15:00 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Sending Gemini inference request | model=gemini-2.5-pro | keyframes=10
+2026-03-30 18:15:00 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Gemini API request sent | kind=action_inference | model=gemini-2.5-pro | waiting for response
+2026-03-30 18:15:26 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Gemini API response received | kind=action_inference | elapsed_sec=25.83
+2026-03-30 18:15:26 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Gemini inference parsed successfully | parsed_actions=10
+2026-03-30 18:15:26 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/output/llm_gemini/execution_trace_llm_srv_app_AntennaPod.json
+2026-03-30 18:15:26 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/output/llm_gemini/frames_manifest_srv.json
+2026-03-30 18:15:26 | INFO | gifdroid_llm_trace.gifdroid_llm_20260330_221456_srv | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/output/llm_gemini/execution_trace_llm_srv_keyframes

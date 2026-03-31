@@ -1,0 +1,22 @@
+2026-03-30 20:27:48 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Starting gifdroid_llm_trace pipeline
+2026-03-30 20:27:48 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/input/handheld/hhv_app_AntennaPod.mp4
+2026-03-30 20:27:48 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Environment validated for llm=gemini model=gemini-2.5-flash
+2026-03-30 20:27:48 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Running Gemini API preflight before trace generation
+2026-03-30 20:27:48 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Gemini preflight started | model=gemini-2.5-flash | validating API key and endpoint access
+2026-03-30 20:27:49 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Gemini ADC default credentials loaded | adc_project=gifdroid-reproduction | runtime_project=project-1edeecda-ad08-47a7-867 | token_present=True
+2026-03-30 20:27:49 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Gemini auth route selected | route=adc_default | endpoint=vertex_ai
+2026-03-30 20:27:49 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Gemini API request sent | kind=preflight | model=gemini-2.5-flash | auth=adc_default | endpoint=vertex_ai | waiting for response
+2026-03-30 20:27:50 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Gemini API response received | kind=preflight | elapsed_sec=0.75
+2026-03-30 20:27:50 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Gemini preflight successful | model=gemini-2.5-flash
+2026-03-30 20:27:50 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Starting frame extraction | native_fps=59.094 target_fps=1.500 stride=39 total_frames=2025
+2026-03-30 20:27:53 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Frame extraction complete | sampled_frames=52
+2026-03-30 20:27:53 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Keyframe selection complete | method=llm_assisted threshold=14.342 selected=12 sampled=52
+2026-03-30 20:27:53 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Sending Gemini inference request | model=gemini-2.5-flash | keyframes=12
+2026-03-30 20:27:54 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Gemini ADC default credentials loaded | adc_project=gifdroid-reproduction | runtime_project=project-1edeecda-ad08-47a7-867 | token_present=True
+2026-03-30 20:27:54 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Gemini auth route selected | route=adc_default | endpoint=vertex_ai
+2026-03-30 20:27:54 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Gemini API request sent | kind=action_inference | model=gemini-2.5-flash | auth=adc_default | endpoint=vertex_ai | waiting for response
+2026-03-30 20:28:13 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Gemini API response received | kind=action_inference | elapsed_sec=19.29
+2026-03-30 20:28:13 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Gemini inference parsed successfully | parsed_actions=12
+2026-03-30 20:28:13 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/output/llm_gemini/execution_trace_llm_hhv_app_AntennaPod_gemini-2.5-flash_20260331_002748.json
+2026-03-30 20:28:13 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/output/llm_gemini/frames_manifest_hhv.json
+2026-03-30 20:28:13 | INFO | gifdroid_llm_trace.gifdroid_llm_20260331_002748_hhv | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg01/output/llm_gemini/execution_trace_llm_hhv_keyframes

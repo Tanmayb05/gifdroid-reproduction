@@ -1,0 +1,42 @@
+# gifdroid_llm_trace
+
+`gifdroid_llm_trace` generates an LLM-based bug reproducibility execution trace directly from a video path and model selection, including explicit model IDs like `gemini-1.5-flash`.
+
+## What It Produces
+- Execution trace JSON:
+  - `app_<app_name>/utg<utg_number>/output/llm_<llm_name>/execution_trace_llm_hhv_app_<app_name>_<model>_<datetime>.json`
+  - `app_<app_name>/utg<utg_number>/output/llm_<llm_name>/execution_trace_llm_srv_app_<app_name>_<model>_<datetime>.json`
+- Keyframes directory:
+  - `app_<app_name>/utg<utg_number>/output/llm_<llm_name>/execution_trace_llm_hhv_keyframes/`
+  - `app_<app_name>/utg<utg_number>/output/llm_<llm_name>/execution_trace_llm_srv_keyframes/`
+- Log file:
+  - `app_<app_name>/utg<utg_number>/gifdroid_llm_<datetime>_hhv.log`
+  - `app_<app_name>/utg<utg_number>/gifdroid_llm_<datetime>_srv.log`
+- Intermediate manifest JSON:
+  - `app_<app_name>/utg<utg_number>/output/llm_<llm_name>/frames_manifest_<video_type>.json`
+
+## Install
+```bash
+pip install -r gifdroid_llm_trace/requirements.txt
+```
+
+## Configure
+1. Copy `.env.local.example` to `.env.local` and fill credentials (for Gemini, use one of: `GOOGLE_GENERATIVE_AI_API_KEY` or Application Default Credentials via `google.auth.default()`. For ADC/Vertex routing, set `GEMINI_VERTEX_PROJECT_ID` (preferred) and optionally `GEMINI_VERTEX_LOCATION`).
+2. Edit `gifdroid_llm_trace/input/config.yml` and set both `llm` and `llm_model`. `video_path` can be `"hhv"` or `"srv"` (auto-resolved), or a full explicit path.
+
+## Run
+```bash
+python -m gifdroid_llm_trace.main \
+  --config gifdroid_llm_trace/input/config.yml \
+  --env-file .env.local
+```
+
+Optional dry-run:
+```bash
+python -m gifdroid_llm_trace.main --dry-run
+```
+
+## Notes
+- Provider adapters are implemented with a common interface.
+- Gemini now performs a real API preflight check at startup and logs request/wait/response timings (supports API key or ADC/default creds), and logs the selected auth route (`api_key` or `adc_default`) and both ADC project vs runtime Vertex project; Sonnet/Llama/Qwen remain adapter stubs.
+- Video type is auto-detected from the path (`handheld`/`hhv_` => `hhv`, `screenrec`/`srv_` => `srv`).
