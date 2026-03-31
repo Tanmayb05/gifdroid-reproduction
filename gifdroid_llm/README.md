@@ -1,6 +1,6 @@
-# gifdroid_llm_trace
+# gifdroid_llm
 
-`gifdroid_llm_trace` generates an LLM-based bug reproducibility execution trace directly from a video path and model selection, including explicit model IDs like `gemini-1.5-flash`.
+`gifdroid_llm` generates an LLM-based bug reproducibility execution trace directly from a video path and model selection, including explicit model IDs like `gemini-1.5-flash`.
 
 ## What It Produces
 - Execution trace JSON:
@@ -17,23 +17,23 @@
 
 ## Install
 ```bash
-pip install -r gifdroid_llm_trace/requirements.txt
+pip install -r gifdroid_llm/requirements.txt
 ```
 
 ## Configure
 1. Copy `.env.local.example` to `.env.local` and fill credentials (for Gemini, use one of: `GOOGLE_GENERATIVE_AI_API_KEY` or Application Default Credentials via `google.auth.default()`. For ADC/Vertex routing, set `GEMINI_VERTEX_PROJECT_ID` (preferred) and optionally `GEMINI_VERTEX_LOCATION`).
-2. Edit `gifdroid_llm_trace/input/config.yml` and set both `llm` and `llm_model`. `video_path` can be `"hhv"` or `"srv"` (auto-resolved), or a full explicit path.
+2. Edit `gifdroid_llm/input/config.yml` and set both `llm` and `llm_model`. `video_path` can be `"hhv"` or `"srv"` (auto-resolved), or a full explicit path.
 
 ## Run
 ```bash
-python -m gifdroid_llm_trace.main \
-  --config gifdroid_llm_trace/input/config.yml \
+python -m gifdroid_llm.main \
+  --config gifdroid_llm/input/config.yml \
   --env-file .env.local
 ```
 
 Optional dry-run:
 ```bash
-python -m gifdroid_llm_trace.main --dry-run
+python -m gifdroid_llm.main --dry-run
 ```
 
 ## Notes

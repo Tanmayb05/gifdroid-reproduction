@@ -9,7 +9,7 @@ from typing import Dict, List
 from urllib import error as url_error
 from urllib import request as url_request
 
-from gifdroid_llm_trace.keyframes import Keyframe
+from gifdroid_llm.keyframes import Keyframe
 
 
 @dataclass(frozen=True)
@@ -251,7 +251,7 @@ class GeminiProvider(BaseLLMProvider):
         except ImportError as exc:
             raise ProviderError(
                 "google-auth is required for ADC auth. "
-                "Install dependencies from gifdroid_llm_trace/requirements.txt"
+                "Install dependencies from gifdroid_llm/requirements.txt"
             ) from exc
 
         try:

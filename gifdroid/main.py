@@ -17,12 +17,16 @@ from gifdroid.trace import find_execution_trace
 # Logging setup
 # ---------------------------------------------------------------------------
 
-def setup_logger(log_dir, video_type='', method=''):
+def setup_logger(log_dir, video_type='', method='', run_id=None):
     os.makedirs(log_dir, exist_ok=True)
-    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    suffix = f'_{video_type}' if video_type else ''
-    suffix += f'_{method}' if method else ''
-    log_file = os.path.join(log_dir, f'gifdroid_{timestamp}{suffix}.log')
+    timestamp = datetime.now().strftime('%Y-%m-%dT%H-%M-%S')
+    if run_id:
+        run_num = run_id[len('run-'):] if run_id.startswith('run-') else run_id
+        log_file = os.path.join(log_dir, f'{timestamp}__run-{run_num}__pipeline__started.log')
+    else:
+        suffix = f'_{video_type}' if video_type else ''
+        suffix += f'_{method}' if method else ''
+        log_file = os.path.join(log_dir, f'gifdroid_{timestamp}{suffix}.log')
 
     fmt = '%(asctime)s  %(levelname)-8s  %(message)s'
     datefmt = '%Y-%m-%d %H:%M:%S'
@@ -140,15 +144,15 @@ def store_trace(utg, traces, out, logger):
 # Main pipeline
 # ---------------------------------------------------------------------------
 
-def save_keyframes(keyframes, keyframe_indices, save_dir, prefix, logger):
+def save_keyframes(keyframes, keyframe_indices, save_dir, logger):
     os.makedirs(save_dir, exist_ok=True)
     for i, (frame, idx) in enumerate(zip(keyframes, keyframe_indices)):
-        path = os.path.join(save_dir, f'{prefix}_keyframe_{i+1:03d}_frame{idx:06d}.png')
+        path = os.path.join(save_dir, f'kf-{i+1:04d}.png')
         cv2.imwrite(path, frame)
     logger.info(f'  Keyframes saved to: {save_dir} ({len(keyframes)} files)')
 
 
-def main(video, screenshots, utg, logger, keyframes_dir=None, keyframes_prefix='keyframe', keyframe_method='baseline'):
+def main(video, screenshots, utg, logger, execution_out=None, keyframes_dir=None, keyframe_method='baseline'):
     total_start = time.time()
 
     # ------------------------------------------------------------------
@@ -172,7 +176,7 @@ def main(video, screenshots, utg, logger, keyframes_dir=None, keyframes_prefix='
     # Save keyframes to disk
     # ------------------------------------------------------------------
     if keyframes_dir is not None:
-        save_keyframes(keyframe_sequence, keyframe_index, keyframes_dir, keyframes_prefix, logger)
+        save_keyframes(keyframe_sequence, keyframe_index, keyframes_dir, logger)
 
     # ------------------------------------------------------------------
     # Step 2: GUI mapping
@@ -211,7 +215,7 @@ def main(video, screenshots, utg, logger, keyframes_dir=None, keyframes_prefix='
     logger.info('STEP 4: Store Execution Trace')
     step_start = time.time()
 
-    store_trace(utg, traces, args.out, logger)
+    store_trace(utg, traces, execution_out or 'execution_trace.json', logger)
 
     elapsed = time.time() - step_start
     logger.info(f'  Duration : {elapsed:.2f}s')
@@ -234,11 +238,21 @@ def main(video, screenshots, utg, logger, keyframes_dir=None, keyframes_prefix='
 if __name__ == '__main__':
     args = parse_args()
 
-    if args.log_dir:
-        log_dir = args.log_dir
+    # Determine run directory and execution trace output path.
+    # --out can be either:
+    #   a) a directory path (new structure): run_dir/execution_trace.json is written inside
+    #   b) a .json file path (legacy): used directly, run_dir derived as its parent
+    out_path = os.path.abspath(args.out)
+    if out_path.endswith('.json'):
+        execution_out = out_path
+        run_dir = os.path.dirname(out_path)
     else:
-        log_dir = os.path.dirname(os.path.dirname(os.path.abspath(args.out)))
+        run_dir = out_path
+        execution_out = os.path.join(run_dir, 'execution_trace.json')
 
+    log_dir = args.log_dir if args.log_dir else os.path.join(run_dir, 'logs')
+
+    # Detect video type from filename
     video_basename = os.path.basename(args.video) if args.video else ''
     if 'hhv' in video_basename:
         video_type = 'hhv'
@@ -247,14 +261,14 @@ if __name__ == '__main__':
     else:
         video_type = ''
 
-    logger = setup_logger(log_dir, video_type, args.keyframe_method)
+    # Determine run_id from the run directory name if it matches run-NNN pattern
+    run_dir_name = os.path.basename(run_dir)
+    run_id = run_dir_name if run_dir_name.startswith('run-') else None
+
+    logger = setup_logger(log_dir, video_type, args.keyframe_method, run_id=run_id)
 
     keyframes_dir = args.save_keyframes if args.save_keyframes else \
-        os.path.join(os.path.dirname(os.path.abspath(args.out)), f'keyframes_{args.keyframe_method}')
-
-    # e.g. "utg01_hhv" derived from the utg directory name and video type
-    utg_dirname = os.path.basename(os.path.dirname(os.path.dirname(os.path.abspath(args.utg))))
-    keyframes_prefix = f'{utg_dirname}_{video_type}' if video_type else utg_dirname
+        os.path.join(run_dir, 'keyframes')
 
     logger.info('GIFdroid started')
     logger.info(f'  --video            : {args.video}')
@@ -270,9 +284,9 @@ if __name__ == '__main__':
         exit(1)
 
     # Idempotency check: skip if the output trace already exists
-    if os.path.isfile(args.out):
-        logger.info(f'Output already exists, skipping: {args.out}')
+    if os.path.isfile(execution_out):
+        logger.info(f'Output already exists, skipping: {execution_out}')
         exit(0)
 
-    main(args.video, args.artifact, args.utg, logger, keyframes_dir=keyframes_dir,
-         keyframes_prefix=keyframes_prefix, keyframe_method=args.keyframe_method)
+    main(args.video, args.artifact, args.utg, logger, execution_out=execution_out,
+         keyframes_dir=keyframes_dir, keyframe_method=args.keyframe_method)

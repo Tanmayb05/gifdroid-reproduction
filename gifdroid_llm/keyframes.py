@@ -8,8 +8,8 @@ from typing import Any, Dict, List
 import cv2
 import numpy as np
 
-from gifdroid_llm_trace.config import KeyframeSelectionConfig
-from gifdroid_llm_trace.video import SampledFrame
+from gifdroid_llm.config import KeyframeSelectionConfig
+from gifdroid_llm.video import SampledFrame
 
 
 @dataclass
@@ -75,10 +75,7 @@ class KeyframeSelector:
     def save_keyframes(self, keyframes: List[Keyframe], keyframes_dir: Path, video_type: str) -> None:
         keyframes_dir.mkdir(parents=True, exist_ok=True)
         for idx, keyframe in enumerate(keyframes, start=1):
-            file_name = (
-                f"execution_trace_llm_{video_type}_keyframe_{idx:03d}_"
-                f"frame{keyframe.frame_number:06d}.png"
-            )
+            file_name = f"kf-{idx:04d}.png"
             keyframe.file_name = file_name
             out_path = keyframes_dir / file_name
             cv2.imwrite(str(out_path), keyframe.image_bgr)

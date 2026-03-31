@@ -1,23 +1,22 @@
 """
-Prepares app_<name>/<utg_id>/ directories for GIFdroid.
+Prepares apps/<name>/utgs/<utg-id>/ directories for GIFdroid.
 
 Expected final structure per UTG slot:
 
-  app_<name>/<utg_id>/input/utg.json
-  app_<name>/<utg_id>/input/artifacts/artifacts_<N>.png  (1-based)
-  app_<name>/<utg_id>/input/screenrec/
-  app_<name>/<utg_id>/input/handheld/
-  app_<name>/<utg_id>/output/
+  apps/<name>/videos/handheld/hhv-001.mp4
+  apps/<name>/videos/screenrec/srv-001.mp4
+  apps/<name>/utgs/<utg-id>/input/utg.json
+  apps/<name>/utgs/<utg-id>/input/artifacts/artifact-001.png
 
 Handles:
-  - Files dropped directly in <utg_id>/ (utg.json, artifacts/) — migrates into input/
-  - Files already under <utg_id>/input/ — validates and renames unprefixed PNGs in place
+  - Renames unprefixed PNGs in artifacts/ to artifact-NNN.png (1-based, 3-digit)
+  - Ensures all required subdirs exist
 
 Usage:
-    python prepare_app_dirs.py                        # all apps, all utg slots
-    python prepare_app_dirs.py --app HomeMedkit       # single app, all utg slots
-    python prepare_app_dirs.py --utg utg02            # all apps, specific utg slot
-    python prepare_app_dirs.py --app HomeMedkit --utg utg02
+    python scripts/prepare_app_dirs.py                        # all apps, all utg slots
+    python scripts/prepare_app_dirs.py --app homemedkit       # single app, all utg slots
+    python scripts/prepare_app_dirs.py --utg utg-02           # all apps, specific utg slot
+    python scripts/prepare_app_dirs.py --app homemedkit --utg utg-02
 """
 
 import argparse
@@ -31,124 +30,67 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def _numeric_sort_key(p):
     name = os.path.splitext(os.path.basename(p))[0]
+    # Strip any non-numeric prefix (e.g. "artifact-", "artifacts_")
+    import re
+    m = re.search(r"(\d+)$", name)
     try:
-        return (0, int(name))
-    except ValueError:
+        return (0, int(m.group(1))) if m else (1, name)
+    except (ValueError, AttributeError):
         return (1, name)
 
 
 def prepare_utg_dir(utg_dir):
-    app_name = os.path.basename(os.path.dirname(utg_dir))
+    # utg_dir = apps/<name>/utgs/<utg-id>
+    app_name = os.path.basename(os.path.dirname(os.path.dirname(utg_dir)))
     utg_id = os.path.basename(utg_dir)
     label = f"{app_name}/{utg_id}"
     print(f"\n[{label}]")
 
     input_dir = os.path.join(utg_dir, "input")
-    artifacts_input_dir = os.path.join(input_dir, "artifacts")
-    screenrec_dir = os.path.join(input_dir, "screenrec")
-    handheld_dir = os.path.join(input_dir, "handheld")
-    output_dir = os.path.join(utg_dir, "output")
+    artifacts_dir = os.path.join(input_dir, "artifacts")
+    app_root = os.path.dirname(os.path.dirname(utg_dir))  # apps/<name>
+    handheld_dir = os.path.join(app_root, "videos", "handheld")
+    screenrec_dir = os.path.join(app_root, "videos", "screenrec")
 
-    # --- Detect files dropped directly in utg_dir (without input/ sub-folder) ---
-    old_utg = os.path.join(utg_dir, "utg.json")
-    old_artifacts_dir = os.path.join(utg_dir, "artifacts")
-    has_old_utg = os.path.exists(old_utg)
-    has_old_artifacts = os.path.isdir(old_artifacts_dir)
-
-    if has_old_utg or has_old_artifacts:
-        print(f"  Detected files directly in {utg_id}/. Migrating into input/...")
-        os.makedirs(artifacts_input_dir, exist_ok=True)
-
-        # Migrate utg.json
-        if has_old_utg:
-            dest_utg = os.path.join(input_dir, "utg.json")
-            if os.path.exists(dest_utg):
-                print(f"  utg.json: already exists in input/, skipping migration")
-            else:
-                shutil.move(old_utg, dest_utg)
-                print(f"  utg.json: moved {utg_id}/utg.json -> {utg_id}/input/utg.json")
-
-        # Migrate artifacts
-        if has_old_artifacts:
-            png_files = glob.glob(os.path.join(old_artifacts_dir, "*.png"))
-            prefixed = sorted([f for f in png_files if os.path.basename(f).startswith("artifacts_")])
-            unprefixed = sorted(
-                [f for f in png_files if not os.path.basename(f).startswith("artifacts_")],
-                key=_numeric_sort_key,
-            )
-
-            moved = 0
-            renamed = 0
-
-            for f in prefixed:
-                dest = os.path.join(artifacts_input_dir, os.path.basename(f))
-                shutil.move(f, dest)
-                moved += 1
-
-            for f in unprefixed:
-                name = os.path.splitext(os.path.basename(f))[0]
-                try:
-                    new_num = int(name) + 1
-                except ValueError:
-                    new_num = None
-                new_name = f"artifacts_{new_num}.png" if new_num is not None else f"artifacts_{os.path.basename(f)}"
-                shutil.move(f, os.path.join(artifacts_input_dir, new_name))
-                renamed += 1
-
-            if renamed > 0:
-                print(f"  artifacts: renamed and moved {renamed} file(s) to input/artifacts/artifacts_<N>.png")
-            if moved > 0:
-                print(f"  artifacts: moved {moved} already-prefixed file(s) to input/artifacts/")
-
-            if not os.listdir(old_artifacts_dir):
-                os.rmdir(old_artifacts_dir)
-                print(f"  artifacts: removed empty artifacts/ directory")
-            else:
-                print(f"  artifacts: WARNING — artifacts/ not empty after migration: {os.listdir(old_artifacts_dir)}")
-
-    # --- Ensure all required subdirs exist ---
-    os.makedirs(artifacts_input_dir, exist_ok=True)
-    os.makedirs(screenrec_dir, exist_ok=True)
+    # Ensure required directories exist
+    os.makedirs(artifacts_dir, exist_ok=True)
     os.makedirs(handheld_dir, exist_ok=True)
-    os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(screenrec_dir, exist_ok=True)
 
-    # --- Rename any unprefixed PNGs already in input/artifacts/ ---
-    existing_pngs = glob.glob(os.path.join(artifacts_input_dir, "*.png"))
-    unprefixed_in_input = sorted(
-        [f for f in existing_pngs if not os.path.basename(f).startswith("artifacts_")],
-        key=_numeric_sort_key,
-    )
-    if unprefixed_in_input:
+    # Rename artifacts to artifact-NNN.png format
+    existing_pngs = glob.glob(os.path.join(artifacts_dir, "*.png"))
+    import re
+    already_named = [f for f in existing_pngs if re.match(r"artifact-\d{3}\.png$", os.path.basename(f))]
+    needs_rename = [f for f in existing_pngs if f not in already_named]
+
+    if needs_rename:
+        needs_rename_sorted = sorted(needs_rename, key=_numeric_sort_key)
         renamed = 0
-        for f in unprefixed_in_input:
-            name = os.path.splitext(os.path.basename(f))[0]
-            try:
-                new_num = int(name) + 1
-            except ValueError:
-                new_num = None
-            new_name = f"artifacts_{new_num}.png" if new_num is not None else f"artifacts_{os.path.basename(f)}"
-            os.rename(f, os.path.join(artifacts_input_dir, new_name))
-            renamed += 1
-        print(f"  input/artifacts: renamed {renamed} unprefixed file(s) to artifacts_<N>.png format")
+        for i, f in enumerate(needs_rename_sorted, start=len(already_named) + 1):
+            new_name = f"artifact-{i:03d}.png"
+            new_path = os.path.join(artifacts_dir, new_name)
+            if not os.path.exists(new_path):
+                os.rename(f, new_path)
+                renamed += 1
+        if renamed:
+            print(f"  input/artifacts: renamed {renamed} file(s) to artifact-NNN.png format")
     else:
-        skipped = len([f for f in existing_pngs if os.path.basename(f).startswith("artifacts_")])
+        skipped = len(already_named)
         if skipped > 0:
             print(f"  input/artifacts: {skipped} file(s) already correctly named, skipped")
-        elif not has_old_artifacts:
+        elif not existing_pngs:
             print(f"  input/artifacts: WARNING — no .png files found")
 
-    # --- Final validation ---
+    # Final validation
     missing = []
     if not os.path.exists(os.path.join(input_dir, "utg.json")):
         missing.append("input/utg.json")
-    if not os.path.isdir(artifacts_input_dir):
+    if not os.path.isdir(artifacts_dir):
         missing.append("input/artifacts/")
-    if not os.path.isdir(screenrec_dir):
-        missing.append("input/screenrec/")
     if not os.path.isdir(handheld_dir):
-        missing.append("input/handheld/")
-    if not os.path.isdir(output_dir):
-        missing.append("output/")
+        missing.append("videos/handheld/")
+    if not os.path.isdir(screenrec_dir):
+        missing.append("videos/screenrec/")
 
     if missing:
         print(f"  VALIDATION FAILED — missing: {', '.join(missing)}")
@@ -157,14 +99,17 @@ def prepare_utg_dir(utg_dir):
 
 
 def find_utg_dirs(root, app_filter=None, utg_filter=None):
-    """Return sorted list of app_*/utg*/ dirs under root."""
+    """Return sorted list of apps/*/utgs/utg-*/ dirs under root."""
     utg_dirs = []
-    for app_dir in sorted(glob.glob(os.path.join(root, "app_*"))):
+    apps_root = os.path.join(root, "apps")
+    for app_dir in sorted(glob.glob(os.path.join(apps_root, "*"))):
         if not os.path.isdir(app_dir):
             continue
-        if app_filter and os.path.basename(app_dir) != f"app_{app_filter}":
+        app_basename = os.path.basename(app_dir)
+        if app_filter and app_basename.lower() != app_filter.lower():
             continue
-        for utg_dir in sorted(glob.glob(os.path.join(app_dir, "utg*"))):
+        utgs_dir = os.path.join(app_dir, "utgs")
+        for utg_dir in sorted(glob.glob(os.path.join(utgs_dir, "utg-*"))):
             if not os.path.isdir(utg_dir):
                 continue
             if utg_filter and os.path.basename(utg_dir) != utg_filter:
@@ -174,11 +119,11 @@ def find_utg_dirs(root, app_filter=None, utg_filter=None):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Prepare app_*/utg*/ directories for GIFdroid")
+    parser = argparse.ArgumentParser(description="Prepare apps/*/utgs/utg-*/ directories for GIFdroid")
     parser.add_argument("--app", type=str, default=None,
-                        help="Process a single app by name (e.g. HomeMedkit)")
+                        help="Process a single app by name (e.g. homemedkit)")
     parser.add_argument("--utg", type=str, default=None,
-                        help="Process a single UTG slot (e.g. utg01 or utg02)")
+                        help="Process a single UTG slot (e.g. utg-01 or utg-02)")
     return parser.parse_args()
 
 
@@ -187,7 +132,7 @@ def main():
     utg_dirs = find_utg_dirs(ROOT_DIR, app_filter=args.app, utg_filter=args.utg)
 
     if not utg_dirs:
-        print("No app_*/utg*/ directories found matching filters.")
+        print("No apps/*/utgs/utg-*/ directories found matching filters.")
         sys.exit(1)
 
     print(f"Found {len(utg_dirs)} utg slot(s):")

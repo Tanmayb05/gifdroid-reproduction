@@ -23,14 +23,17 @@ import time
 # ---------------------------------------------------------------------------
 
 def find_utg_dirs(root, app_filter=None, utg_filter=None):
-    """Return sorted list of app_*/utg*/ directories under root."""
+    """Return sorted list of apps/*/utgs/utg-*/ directories under root."""
     utg_dirs = []
-    for app_dir in sorted(glob.glob(os.path.join(root, "app_*"))):
+    apps_root = os.path.join(root, "apps")
+    for app_dir in sorted(glob.glob(os.path.join(apps_root, "*"))):
         if not os.path.isdir(app_dir):
             continue
-        if app_filter and os.path.basename(app_dir) != f"app_{app_filter}":
+        app_basename = os.path.basename(app_dir)
+        if app_filter and app_basename.lower() != app_filter.lower():
             continue
-        for utg_dir in sorted(glob.glob(os.path.join(app_dir, "utg*"))):
+        utgs_dir = os.path.join(app_dir, "utgs")
+        for utg_dir in sorted(glob.glob(os.path.join(utgs_dir, "utg-*"))):
             if not os.path.isdir(utg_dir):
                 continue
             if utg_filter and os.path.basename(utg_dir) != utg_filter:
@@ -44,16 +47,16 @@ def find_utg_dirs(root, app_filter=None, utg_filter=None):
         if utg_filter:
             filters.append(f"utg={utg_filter}")
         desc = ", ".join(filters) if filters else "any"
-        print(f"[ERROR] No app_*/utg*/ directories found matching: {desc}")
+        print(f"[ERROR] No apps/*/utgs/utg-*/ directories found matching: {desc}")
         sys.exit(1)
 
     return utg_dirs
 
 
 def app_name_from_utg_dir(utg_dir):
-    """Extract app name from app_<name>/utg<NN> path."""
-    basename = os.path.basename(os.path.dirname(utg_dir))
-    return basename[len("app_"):] if basename.startswith("app_") else basename
+    """Extract app name from apps/<name>/utgs/<utg-id> path."""
+    # utg_dir = apps/adaway/utgs/utg-01 -> dirname -> apps/adaway/utgs -> dirname -> apps/adaway -> basename -> adaway
+    return os.path.basename(os.path.dirname(os.path.dirname(utg_dir)))
 
 
 def utg_id_from_dir(utg_dir):
@@ -112,21 +115,17 @@ def check_utg_structure(utg_dirs):
 
         utg_json = os.path.join(utg_dir, "input", "utg.json")
         artifacts = os.path.join(utg_dir, "input", "artifacts")
-        output_dir = os.path.join(utg_dir, "output")
-
         issues = []
         if not os.path.isfile(utg_json):
             issues.append("missing input/utg.json")
         if not os.path.isdir(artifacts) or not glob.glob(os.path.join(artifacts, "*.png")):
             issues.append("missing or empty input/artifacts/")
 
-        os.makedirs(output_dir, exist_ok=True)
-
         if issues:
             print(f"[WARNING] {label}: {', '.join(issues)}")
             all_ok = False
         else:
-            print(f"[OK] {label}: structure valid, output dir ready ({output_dir})")
+            print(f"[OK] {label}: structure valid")
 
     return all_ok
 
@@ -162,12 +161,14 @@ def convert_handheld(utg_dirs):
         name = app_name_from_utg_dir(utg_dir)
         utg_id = utg_id_from_dir(utg_dir)
         label = f"{name} [{utg_id}]"
-        handheld_dir = os.path.join(utg_dir, "input", "handheld")
-        mov_path = os.path.join(handheld_dir, f"hhv_app_{name}.MOV")
-        mp4_path = os.path.join(handheld_dir, f"hhv_app_{name}.mp4")
+        # In new structure, videos live at apps/<app>/videos/handheld/
+        app_root_dir = os.path.dirname(os.path.dirname(utg_dir))  # apps/<app>
+        handheld_dir = os.path.join(app_root_dir, "videos", "handheld")
+        mov_path = os.path.join(handheld_dir, "hhv-001.MOV")
+        mp4_path = os.path.join(handheld_dir, "hhv-001.mp4")
 
         if not os.path.isfile(mov_path):
-            print(f"[SKIP] {label}: hhv_app_{name}.MOV not found, skipping handheld conversion.")
+            print(f"[SKIP] {label}: hhv-001.MOV not found in {handheld_dir}, skipping handheld conversion.")
             continue
 
         if os.path.isfile(mp4_path) and os.path.getmtime(mp4_path) >= os.path.getmtime(mov_path):
@@ -219,47 +220,49 @@ def generate_commands(utg_dirs, root, include_handheld):
         utg_id = utg_id_from_dir(utg_dir)
         utg_json = os.path.join(utg_dir, "input", "utg.json")
         artifacts = os.path.join(utg_dir, "input", "artifacts")
+        app_root_dir = os.path.dirname(os.path.dirname(utg_dir))  # apps/<app>
 
         # Screen-recorded video
-        srv_path = os.path.join(utg_dir, "input", "screenrec", f"srv_app_{name}.mp4")
+        srv_path = os.path.join(app_root_dir, "videos", "screenrec", "srv-001.mp4")
         if os.path.isfile(srv_path):
-            out = os.path.join(utg_dir, "output", f"execution_srv_{name}.json")
+            out_dir = os.path.join(utg_dir, "runs", "baseline", "screenrec", "run-001")
             lines.append(f"# {name} [{utg_id}] — screen recording")
             lines.append(
                 f"python -m gifdroid.main"
                 f" --video {srv_path}"
                 f" --utg {utg_json}"
                 f" --artifact {artifacts}"
-                f" --out {out}"
+                f" --out {out_dir}"
             )
             lines.append("")
         else:
-            lines.append(f"# {name} [{utg_id}] — screen recording: srv_app_{name}.mp4 not found, skipped")
+            lines.append(f"# {name} [{utg_id}] — screen recording: srv-001.mp4 not found, skipped")
             lines.append("")
 
         # Handheld video
         if include_handheld:
-            mp4_path = os.path.join(utg_dir, "input", "handheld", f"hhv_app_{name}.mp4")
-            mov_path = os.path.join(utg_dir, "input", "handheld", f"hhv_app_{name}.MOV")
+            mp4_path = os.path.join(app_root_dir, "videos", "handheld", "hhv-001.mp4")
+            mov_path = os.path.join(app_root_dir, "videos", "handheld", "hhv-001.MOV")
             if os.path.isfile(mp4_path):
-                out = os.path.join(utg_dir, "output", f"execution_hhv_{name}.json")
+                out_dir = os.path.join(utg_dir, "runs", "baseline", "handheld", "run-001")
                 lines.append(f"# {name} [{utg_id}] — handheld")
                 lines.append(
                     f"python -m gifdroid.main"
                     f" --video {mp4_path}"
                     f" --utg {utg_json}"
                     f" --artifact {artifacts}"
-                    f" --out {out}"
+                    f" --out {out_dir}"
                 )
                 lines.append("")
             elif os.path.isfile(mov_path):
                 lines.append(f"# {name} [{utg_id}] — handheld: MOV found but not yet converted to mp4, skipped")
                 lines.append("")
             else:
-                lines.append(f"# {name} [{utg_id}] — handheld: hhv_app_{name}.MOV not found, skipped")
+                lines.append(f"# {name} [{utg_id}] — handheld: hhv-001.MOV not found, skipped")
                 lines.append("")
 
     commands_path = os.path.join(root, "gifdroid_analyse", "commands.txt")
+    os.makedirs(os.path.dirname(commands_path), exist_ok=True)
     with open(commands_path, "w") as f:
         f.write("\n".join(lines) + "\n")
     print(f"\n[OK] commands.txt written to: {commands_path}")

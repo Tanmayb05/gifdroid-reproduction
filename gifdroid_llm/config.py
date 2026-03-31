@@ -37,7 +37,7 @@ class LoggingConfig:
 @dataclass(frozen=True)
 class AppConfig:
     app_name: str
-    utg_number: str
+    utg_id: str
     video_path: Path
     llm: str
     llm_model: str
@@ -91,12 +91,18 @@ def _require_int(data: Dict[str, Any], key: str) -> int:
 
 
 def _normalize_utg_number(value: Union[str, int]) -> str:
+    """Normalize utg_number input to canonical 'utg-NN' slug."""
+    import re as _re
     if isinstance(value, int):
         if value < 0:
             raise ConfigError("Field 'utg_number' must be non-negative")
-        return str(value)
+        return f"utg-{value:02d}"
     if isinstance(value, str) and value.strip():
-        return value.strip()
+        s = value.strip().lower()
+        m = _re.match(r"^(?:utg-?)?(\d+)$", s)
+        if not m:
+            raise ConfigError(f"Field 'utg_number' cannot be parsed: {value!r}")
+        return f"utg-{int(m.group(1)):02d}"
     raise ConfigError("Field 'utg_number' must be a non-empty string or integer")
 
 
@@ -152,7 +158,7 @@ def load_config(config_path: Path) -> AppConfig:
         root = root_obj
 
     app_name = _require_str(root, "app_name")
-    utg_number = _normalize_utg_number(root.get("utg_number"))
+    utg_id = _normalize_utg_number(root.get("utg_number"))
     video_path = Path(_require_str(root, "video_path"))
     llm = _require_str(root, "llm").lower()
     llm_model = _optional_str(root, "llm_model")
@@ -172,7 +178,7 @@ def load_config(config_path: Path) -> AppConfig:
 
     return AppConfig(
         app_name=app_name,
-        utg_number=utg_number,
+        utg_id=utg_id,
         video_path=video_path,
         llm=llm,
         llm_model=llm_model,

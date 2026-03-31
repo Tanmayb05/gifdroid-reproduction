@@ -31,11 +31,14 @@
       "Bash(for f:*)",
       "Bash(do echo:*)",
       "Bash(wc -l /Users/tanmaybhuskute/Documents/gifdroid-reproduction/analysis/tables/*.csv)",
-      "Bash(grep -r \"0.95\" /Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid/*.py)"
+      "Bash(grep -r \"0.95\" /Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid/*.py)",
+      "Bash(find /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts -type f -name *.sh -o -name *.py)",
+      "Bash(grep -l \"gifdroid_llm_trace\\\\|gifdroid_llm\" /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts/*.py /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts/*.sh)"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",
-      "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/analysis"
+      "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/analysis",
+      "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid_llm_trace"
     ]
   }
 }

@@ -16,16 +16,17 @@ Input YAML format:
         utg: [utg01, utg02]   # list form also accepted
 
 Each app/utg must have:
-    app_<app>/
-        <utg>/
+    apps/<app>/
+        videos/handheld/hhv-001.mp4
+        utgs/<utg>/
             input/
-                handheld/hhv_app_<app>.mp4
                 utg.json
                 artifacts/
 
 Output is written to:
-    app_<app>/<utg>/output/execution_hhv_<app>_<method>.json
-    app_<app>/<utg>/output/keyframes_<method>/
+    apps/<app>/utgs/<utg>/runs/baseline/handheld/run-NNN/execution_trace.json
+    apps/<app>/utgs/<utg>/runs/keyframe-fixes/<method>/handheld/run-NNN/execution_trace.json
+    apps/<app>/utgs/<utg>/runs/.../run-NNN/keyframes/kf-NNNN.png
 """
 
 import argparse
@@ -102,32 +103,46 @@ def load_config(config_path):
 def build_command(app, utg, method, force=False):
     """
     Build the python -m gifdroid.main command for a given app/utg/method.
-    Returns (cmd_str, out_path, skip_reason) where skip_reason is None if the run should proceed.
+    Returns (cmd_str, out_dir, skip_reason) where skip_reason is None if the run should proceed.
     """
-    app_dir   = os.path.join(PROJECT_ROOT, f'app_{app}', utg)
-    video     = os.path.join(app_dir, 'input', 'handheld', f'hhv_app_{app}.mp4')
-    utg_json  = os.path.join(app_dir, 'input', 'utg.json')
-    artifacts = os.path.join(app_dir, 'input', 'artifacts')
-    out_json  = os.path.join(app_dir, 'output', f'execution_hhv_{app}_{method}.json')
+    app_slug = app.lower()
+    # Normalize utg id: accept "utg01" -> "utg-01", "01" -> "utg-01"
+    import re as _re
+    m = _re.match(r"^(?:utg-?)?(\d+)$", str(utg).strip().lower())
+    utg_slug = f"utg-{int(m.group(1)):02d}" if m else str(utg)
+
+    app_root = os.path.join(PROJECT_ROOT, 'apps', app_slug)
+    utg_root = os.path.join(app_root, 'utgs', utg_slug)
+    video = os.path.join(app_root, 'videos', 'handheld', 'hhv-001.mp4')
+    utg_json = os.path.join(utg_root, 'input', 'utg.json')
+    artifacts = os.path.join(utg_root, 'input', 'artifacts')
+
+    if method == 'baseline':
+        method_path = 'baseline'
+    else:
+        method_path = f'keyframe-fixes/{method}'
+
+    out_dir = os.path.join(utg_root, 'runs', method_path, 'handheld', 'run-001')
+    out_trace = os.path.join(out_dir, 'execution_trace.json')
 
     # Validate inputs
     missing = [p for p in [video, utg_json, artifacts] if not os.path.exists(p)]
     if missing:
-        return None, out_json, f'missing inputs: {", ".join(os.path.relpath(p, PROJECT_ROOT) for p in missing)}'
+        return None, out_dir, f'missing inputs: {", ".join(os.path.relpath(p, PROJECT_ROOT) for p in missing)}'
 
     # Skip if already done (unless --force)
-    if not force and os.path.isfile(out_json):
-        return None, out_json, 'output already exists (use --force to re-run)'
+    if not force and os.path.isfile(out_trace):
+        return None, out_dir, 'output already exists (use --force to re-run)'
 
     cmd = (
         f'python -m gifdroid.main'
         f' --video "{video}"'
         f' --utg "{utg_json}"'
         f' --artifact "{artifacts}"'
-        f' --out "{out_json}"'
+        f' --out "{out_dir}"'
         f' --keyframe-method {method}'
     )
-    return cmd, out_json, None
+    return cmd, out_dir, None
 
 
 def fmt_elapsed(seconds):
@@ -164,7 +179,7 @@ def run_variants(pairs, methods, dry_run=False, force=False):
                 continue
 
             out_rel = os.path.relpath(out_path, PROJECT_ROOT)
-            print(f'  [{method}] -> {out_rel}')
+            print(f'  [{method}] -> {out_rel}/execution_trace.json')
             if dry_run:
                 print(f'    CMD: {cmd}')
                 print(f'    [SKIPPED — dry run]')

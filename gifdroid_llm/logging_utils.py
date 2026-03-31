@@ -8,7 +8,7 @@ def setup_logger(log_path: Path, level: str) -> logging.Logger:
     """Create a structured file logger and return it."""
     log_path.parent.mkdir(parents=True, exist_ok=True)
 
-    logger_name = f"gifdroid_llm_trace.{log_path.stem}"
+    logger_name = f"gifdroid_llm.{log_path.stem}"
     logger = logging.getLogger(logger_name)
     logger.setLevel(getattr(logging, level.upper(), logging.INFO))
     logger.propagate = False
@@ -30,3 +30,12 @@ def setup_logger(log_path: Path, level: str) -> logging.Logger:
     logger.addHandler(stream_handler)
 
     return logger
+
+
+def finalize_log_file(log_path: Path, final_status: str) -> Path:
+    """Rename the log file from __started to the final status."""
+    new_name = log_path.name.replace("__started", f"__{final_status}")
+    new_path = log_path.parent / new_name
+    if log_path.exists() and not new_path.exists():
+        log_path.rename(new_path)
+    return new_path
