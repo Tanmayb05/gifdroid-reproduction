@@ -1,0 +1,53 @@
+{
+    "video": "app_HomeMedkit/utg02/input/handheld/hhv_app_HomeMedkit.mp4",
+    "utg": "app_HomeMedkit/utg02/input/utg.json",
+    "artifact": "app_HomeMedkit/utg02/input/artifacts",
+    "replay_traces": [
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 3,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.view.View",
+                            "androidClassName": "android.view.View"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 3,
+                    "destinationScreenId": 16,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.view.View",
+                            "androidClassName": "android.view.View"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 16,
+                    "destinationScreenId": 18,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

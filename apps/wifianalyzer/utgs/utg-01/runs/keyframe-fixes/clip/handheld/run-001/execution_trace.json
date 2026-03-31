@@ -1,0 +1,170 @@
+{
+    "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/handheld/hhv_app_WifiAnalyzer.mp4",
+    "utg": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/utg.json",
+    "artifact": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_WifiAnalyzer/utg01/input/artifacts",
+    "replay_traces": [
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 2,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 2,
+                    "destinationScreenId": 6,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_channel_graph",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout",
+                            "contentDescription": "Channel Graph"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 6,
+                    "destinationScreenId": 7,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "com.vrem.wifianalyzer:id/action_scanner",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "contentDescription": "Pause"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 7,
+                    "destinationScreenId": 18,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_channel_rating",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout",
+                            "contentDescription": "Channel Rating"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 18,
+                    "destinationScreenId": 19,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "com.vrem.wifianalyzer:id/nav_bottom_access_points",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout",
+                            "contentDescription": "Access Points"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 19,
+                    "destinationScreenId": 5,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "com.vrem.wifianalyzer:id/action_filter",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "contentDescription": "Filter"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 5,
+                    "destinationScreenId": 3,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "android:id/button2",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "textLabel": "RESET"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 3,
+                    "destinationScreenId": 4,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.LinearLayout",
+                            "androidClassName": "android.widget.LinearLayout"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 4,
+                    "destinationScreenId": 27,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "android:id/button1",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "textLabel": "\u200e\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200f\u200f\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200e\u200f\u200e\u200e\u200e\u200e\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200f\u200f\u200e\u200f\u200f\u200e\u200e\u200f\u200f\u200f\u200f\u200e\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200f\u200f\u200e\u200e\u200f\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200f\u200f\u200e\u200f\u200f\u200f\u200f\u200f\u200f\u200e\u200f\u200f\u200f\u200e\u200f\u200f\u200f\u200e\u200eOK\u200e\u200f\u200e\u200e\u200f\u200e"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 27,
+                    "destinationScreenId": 28,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.ImageButton",
+                            "androidClassName": "android.widget.ImageButton",
+                            "contentDescription": "Open navigation drawer"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 28,
+                    "destinationScreenId": 29,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "com.vrem.wifianalyzer:id/nav_drawer_about",
+                            "className": "androidx.appcompat.widget.LinearLayoutCompat",
+                            "androidClassName": "androidx.appcompat.widget.LinearLayoutCompat"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 29,
+                    "destinationScreenId": 31,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.TextView",
+                            "androidClassName": "android.widget.TextView",
+                            "textLabel": "http://www.gnu.org/licenses/gpl-3.0.html"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

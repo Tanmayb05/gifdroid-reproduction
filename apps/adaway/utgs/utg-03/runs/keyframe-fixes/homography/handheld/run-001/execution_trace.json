@@ -1,0 +1,31 @@
+{
+    "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/handheld/hhv_app_AdAway.mp4",
+    "utg": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/utg.json",
+    "artifact": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AdAway/utg03/input/artifacts",
+    "replay_traces": [
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 2,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "org.adaway:id/rootCardView",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

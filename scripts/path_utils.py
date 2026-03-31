@@ -2,6 +2,7 @@
 path_utils.py — Shared path-building utilities for GIFdroid new directory structure.
 
 New layout:
+  apps/<app>/apk/<app>.apk
   apps/<app>/videos/handheld/hhv-001.mp4
   apps/<app>/videos/screenrec/srv-001.mp4
   apps/<app>/utgs/<utg-id>/input/utg.json
@@ -133,3 +134,15 @@ def log_path(run_dir: Path, run_id: str, stage: str, status: str, timestamp: str
 
 def manifest_path(project_root: Path, app_name: str, utg_id: str) -> Path:
     return utg_root(project_root, app_name, utg_id) / "manifest.json"
+
+
+def apk_path(project_root: Path, app_name: str) -> Path:
+    """Canonical APK path: apps/<app>/apk/<app>.apk"""
+    slug = normalize_app_name(app_name)
+    return app_root(project_root, app_name) / "apk" / f"{slug}.apk"
+
+
+def find_apk(project_root: Path, app_name: str) -> Path | None:
+    """Find the APK for an app. Returns Path if found, None otherwise."""
+    candidate = apk_path(project_root, app_name)
+    return candidate if candidate.exists() else None

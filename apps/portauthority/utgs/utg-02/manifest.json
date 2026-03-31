@@ -1,0 +1,31 @@
+{
+  "app": "portauthority",
+  "utg": "utg-02",
+  "videos": {
+    "handheld": [
+      "hhv-001.mp4"
+    ],
+    "screenrec": [
+      "srv-001.mp4"
+    ]
+  },
+  "runs": [
+    {
+      "id": "run-001",
+      "method": "baseline",
+      "source": "handheld",
+      "status": "migrated",
+      "path": "runs/baseline/handheld/run-001/"
+    },
+    {
+      "id": "run-002",
+      "method": "baseline",
+      "source": "screenrec",
+      "status": "migrated",
+      "path": "runs/baseline/screenrec/run-002/"
+    }
+  ],
+  "latest": {
+    "baseline": "run-002"
+  }
+}

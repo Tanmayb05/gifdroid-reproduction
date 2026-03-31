@@ -1,0 +1,44 @@
+{
+    "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/handheld/hhv_app_AntennaPod.mp4",
+    "utg": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/utg.json",
+    "artifact": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/app_AntennaPod/utg02/input/artifacts",
+    "replay_traces": [
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 7,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "resourceName": "de.danoeh.antennapod:id/bottom_navigation_queue",
+                            "className": "android.widget.FrameLayout",
+                            "androidClassName": "android.widget.FrameLayout",
+                            "contentDescription": "Queue"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 7,
+                    "destinationScreenId": 29,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "className": "android.widget.ImageView",
+                            "androidClassName": "android.widget.ImageView",
+                            "contentDescription": "\u200e\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200f\u200f\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200e\u200f\u200e\u200e\u200e\u200e\u200f\u200f\u200f\u200f\u200f\u200e\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200e\u200f\u200f\u200e\u200f\u200f\u200f\u200f\u200e\u200f\u200e\u200e\u200e\u200f\u200f\u200e\u200f\u200f\u200f\u200e\u200f\u200f\u200e\u200f\u200e\u200f\u200e\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200e\u200e\u200f\u200f\u200f\u200e\u200f\u200f\u200f\u200f\u200e\u200e\u200e\u200f\u200e\u200e\u200e\u200f\u200e\u200f\u200eMore options\u200e\u200f\u200e\u200e\u200f\u200e"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

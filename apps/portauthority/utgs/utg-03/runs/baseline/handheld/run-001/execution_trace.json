@@ -1,0 +1,60 @@
+{
+    "video": "app_PortAuthority/utg03/input/handheld/hhv_app_PortAuthority.mp4",
+    "utg": "app_PortAuthority/utg03/input/utg.json",
+    "artifact": "app_PortAuthority/utg03/input/artifacts",
+    "replay_traces": [
+        {
+            "trace": [
+                {
+                    "sourceScreenId": 0,
+                    "destinationScreenId": 1,
+                    "action": {
+                        "type": "LAUNCH",
+                        "targetDetails": "app"
+                    }
+                },
+                {
+                    "sourceScreenId": 1,
+                    "destinationScreenId": 2,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "android:id/button1",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "textLabel": "\u200e\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200f\u200f\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200e\u200f\u200e\u200e\u200e\u200e\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200f\u200f\u200e\u200f\u200f\u200e\u200e\u200f\u200f\u200f\u200f\u200e\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200f\u200f\u200e\u200e\u200f\u200f\u200e\u200f\u200e\u200e\u200f\u200e\u200f\u200f\u200e\u200f\u200f\u200f\u200f\u200f\u200f\u200e\u200f\u200f\u200f\u200e\u200f\u200f\u200f\u200e\u200eOK\u200e\u200f\u200e\u200e\u200f\u200e"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 2,
+                    "destinationScreenId": 3,
+                    "action": {
+                        "type": "TAP",
+                        "targetDetails": {
+                            "componentType": "BUTTON",
+                            "resourceName": "android:id/button2",
+                            "className": "android.widget.Button",
+                            "androidClassName": "android.widget.Button",
+                            "textLabel": "\u200e\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200f\u200f\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200e\u200e\u200f\u200e\u200e\u200e\u200e\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200f\u200e\u200e\u200e\u200f\u200f\u200f\u200e\u200f\u200e\u200f\u200f\u200e\u200f\u200e\u200e\u200f\u200f\u200e\u200e\u200e\u200f\u200f\u200e\u200e\u200f\u200f\u200f\u200f\u200f\u200e\u200f\u200e\u200e\u200e\u200f\u200f\u200f\u200f\u200e\u200e\u200e\u200e\u200e\u200f\u200f\u200e\u200f\u200e\u200f\u200e\u200e\u200e\u200f\u200e\u200f\u200f\u200f\u200f\u200f\u200e\u200e\u200f\u200eCANCEL\u200e\u200f\u200e\u200e\u200f\u200e"
+                        }
+                    }
+                },
+                {
+                    "sourceScreenId": 3,
+                    "destinationScreenId": 13,
+                    "action": {
+                        "type": "LONG_PRESS",
+                        "targetDetails": {
+                            "resourceName": "com.aaronjwood.portauthority:id/deviceMacVendor",
+                            "className": "android.widget.TextView",
+                            "androidClassName": "android.widget.TextView",
+                            "textLabel": "Vendor not in database"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

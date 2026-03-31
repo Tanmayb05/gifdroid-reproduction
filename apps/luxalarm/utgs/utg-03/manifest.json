@@ -1,0 +1,22 @@
+{
+  "app": "luxalarm",
+  "utg": "utg-03",
+  "videos": {
+    "handheld": [
+      "hhv-001.mp4"
+    ],
+    "screenrec": []
+  },
+  "runs": [
+    {
+      "id": "run-001",
+      "method": "baseline",
+      "source": "handheld",
+      "status": "migrated",
+      "path": "runs/baseline/handheld/run-001/"
+    }
+  ],
+  "latest": {
+    "baseline": "run-001"
+  }
+}

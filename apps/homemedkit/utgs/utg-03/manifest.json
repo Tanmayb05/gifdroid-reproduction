@@ -1,0 +1,43 @@
+{
+  "app": "homemedkit",
+  "utg": "utg-03",
+  "videos": {
+    "handheld": [
+      "hhv-001.mp4"
+    ],
+    "screenrec": [
+      "srv-001.mp4"
+    ]
+  },
+  "runs": [
+    {
+      "id": "run-001",
+      "method": "baseline",
+      "source": "handheld",
+      "status": "migrated",
+      "path": "runs/baseline/handheld/run-001/"
+    },
+    {
+      "id": "run-002",
+      "method": "baseline",
+      "source": "handheld",
+      "status": "migrated",
+      "path": "runs/baseline/handheld/run-002/"
+    },
+    {
+      "id": "run-003",
+      "method": "baseline",
+      "source": "screenrec",
+      "status": "migrated",
+      "path": "runs/baseline/screenrec/run-003/"
+    }
+  ],
+  "latest": {
+    "baseline": "run-003",
+    "clip": "run-001",
+    "homography": "run-001",
+    "hysteresis": "run-001",
+    "stabilize": "run-001",
+    "vlm": "run-001"
+  }
+}
