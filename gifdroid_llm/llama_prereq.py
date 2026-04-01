@@ -33,7 +33,7 @@ def assert_llama_accessible(
     base_url: str,
     model: str,
     api_key: str = "",
-    timeout_sec: int = 20,
+    timeout_sec: int | None = 20,
 ) -> None:
     if not str(model).strip():
         raise LlamaPrereqError("Missing llama model id.")
@@ -128,12 +128,21 @@ def main() -> int:
         base_url = args.base_url or str(env.get("LLAMA_BASE_URL", "")).strip()
         model = args.model or str(env.get("LLAMA_MODEL", "")).strip() or DEFAULT_LLAMA_MODEL
         api_key = str(env.get("LLAMA_API_KEY", "")).strip()
+        timeout_raw = str(env.get("LLAMA_PREREQ_TIMEOUT_SEC", "")).strip()
+        if timeout_raw:
+            try:
+                parsed = int(timeout_raw)
+                timeout_sec: int | None = parsed if parsed > 0 else None
+            except ValueError:
+                timeout_sec = args.timeout_sec
+        else:
+            timeout_sec = None
 
         assert_llama_accessible(
             base_url=base_url,
             model=model,
             api_key=api_key,
-            timeout_sec=args.timeout_sec,
+            timeout_sec=timeout_sec,
         )
         print(f"[llama_prereq] OK | model={model} | base_url={base_url}")
         return 0

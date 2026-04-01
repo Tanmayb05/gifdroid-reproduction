@@ -2,20 +2,12 @@
 # .venv/bin/python -m gifdroid_llm.reset_runs --config gifdroid_llm/input/reset_runs.example.yml --dry-run
 # .venv/bin/python -m gifdroid_llm.reset_runs --config gifdroid_llm/input/reset_runs.example.yml --apply
 #
-# If you create gifdroid_llm/input/reset_runs.yml, use:
-# .venv/bin/python -m gifdroid_llm.reset_runs --config gifdroid_llm/input/reset_runs.yml --dry-run
-# .venv/bin/python -m gifdroid_llm.reset_runs --config gifdroid_llm/input/reset_runs.yml --apply
-#
-# Reset config for wiping runs from selected UTGs.
-#
-# Defaults to dry-run for safety. Use `--apply` on CLI or set dry_run: false
-# after verifying the preview.
+# Wipes apps/{app}/llm/ run directories for selected apps.
+# Defaults to dry-run for safety. Use --apply to actually delete.
+
 dry_run: true
 
 targets:
   - app_name: "AdAway"
-    # Supports single value or list.
-    utg_number: [01, 02, 03]
 
   # - app_name: "AntennaPod"
-  #   utg_number: "utg-03"

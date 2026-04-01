@@ -33,7 +33,6 @@ class TraceBuilder:
         llm_name: str,
         video_type: str,
         app_name: str,
-        utg_number: str,
         generated_at: datetime,
         steps: List[TraceStep],
     ) -> Dict[str, Any]:
@@ -59,7 +58,6 @@ class TraceBuilder:
             "llm": llm_name,
             "video_type": video_type,
             "app_name": app_name,
-            "utg_number": utg_number,
             "generated_at": generated_at_iso,
             "replay_trace": replay_trace,
         }

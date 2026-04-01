@@ -26,7 +26,6 @@ class OutputLayout:
     metadata_path: Path
     log_file_path: Path
     run_id: str
-    utg_manifest_path: Path
 
 
 def detect_video_type(video_path: Path) -> VideoType:
@@ -82,7 +81,7 @@ def create_output_layout(
     video_type: VideoType,
     run_dt: datetime,
 ) -> OutputLayout:
-    """Build all output paths using the new run-based directory structure."""
+    """Build all output paths under apps/{app}/llm/{provider}/{model}/{source}/run-NNN/."""
     provider = cfg.llm.lower()
     model_slug = re.sub(r"[^a-z0-9-]+", "-", cfg.llm_model.lower()).strip("-")
     if not model_slug:
@@ -93,9 +92,6 @@ def create_output_layout(
         project_root
         / "apps"
         / cfg.app_name.lower()
-        / "utgs"
-        / cfg.utg_id
-        / "runs"
         / "llm"
         / provider
         / model_slug
@@ -108,15 +104,6 @@ def create_output_layout(
     run_num = run_id[len("run-"):]
     log_file = run_dir / "logs" / f"{ts_file}__run-{run_num}__pipeline__started.log"
 
-    utg_manifest = (
-        project_root
-        / "apps"
-        / cfg.app_name.lower()
-        / "utgs"
-        / cfg.utg_id
-        / "manifest.json"
-    )
-
     return OutputLayout(
         run_dir=run_dir,
         keyframes_dir=run_dir / "keyframes",
@@ -125,7 +112,6 @@ def create_output_layout(
         metadata_path=run_dir / "metadata.json",
         log_file_path=log_file,
         run_id=run_id,
-        utg_manifest_path=utg_manifest,
     )
 
 
@@ -139,7 +125,6 @@ def write_json(path: Path, payload: Dict[str, Any]) -> None:
 def write_run_metadata(
     path: Path,
     app_name: str,
-    utg_id: str,
     method: str,
     variant: str,
     source: str,
@@ -153,7 +138,6 @@ def write_run_metadata(
     """Write metadata.json for a completed run."""
     payload = {
         "app": app_name.lower(),
-        "utg": utg_id,
         "method": method,
         "variant": variant,
         "source": source,
@@ -167,50 +151,3 @@ def write_run_metadata(
         "status": status,
     }
     write_json(path, payload)
-
-
-def update_utg_manifest(
-    manifest_path: Path,
-    app_name: str,
-    utg_id: str,
-    run_id: str,
-    method: str,
-    variant: str,
-    source: str,
-    status: str,
-    run_relative_path: str,
-    video_file: str,
-    video_type: VideoType,
-) -> None:
-    """Read-modify-write the UTG-level manifest.json."""
-    if manifest_path.exists():
-        with manifest_path.open("r", encoding="utf-8") as f:
-            data = json.load(f)
-    else:
-        data = {
-            "app": app_name.lower(),
-            "utg": utg_id,
-            "videos": {"handheld": [], "screenrec": []},
-            "runs": [],
-            "latest": {},
-        }
-
-    vid_source = "handheld" if video_type == "hhv" else "screenrec"
-    if video_file not in data["videos"][vid_source]:
-        data["videos"][vid_source].append(video_file)
-
-    entry: Dict[str, Any] = {
-        "id": run_id,
-        "method": method,
-        "source": source,
-        "status": status,
-        "path": run_relative_path,
-    }
-    if variant:
-        entry["variant"] = variant
-    data["runs"].append(entry)
-
-    latest_key = method if not variant else f"{method}_{variant.replace('-', '_')}"
-    data["latest"][latest_key] = run_id
-
-    write_json(manifest_path, data)

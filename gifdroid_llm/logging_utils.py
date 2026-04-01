@@ -17,7 +17,7 @@ def setup_logger(log_path: Path, level: str) -> logging.Logger:
         logger.removeHandler(handler)
 
     formatter = logging.Formatter(
-        fmt="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+        fmt="%(asctime)s | %(levelname)s | %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
     )
 
@@ -28,6 +28,8 @@ def setup_logger(log_path: Path, level: str) -> logging.Logger:
     stream_handler = logging.StreamHandler()
     stream_handler.setFormatter(formatter)
     logger.addHandler(stream_handler)
+
+    logger.info("=== %s ===", logger_name)
 
     return logger
 

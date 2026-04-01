@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Sequence, Union
+from typing import Any, Dict, List
 
 import yaml
 
@@ -37,7 +37,6 @@ class LoggingConfig:
 @dataclass(frozen=True)
 class AppConfig:
     app_name: str
-    utg_id: str
     video_path: Path
     llm: str
     llm_model: str
@@ -95,21 +94,6 @@ def _require_int(data: Dict[str, Any], key: str) -> int:
         raise ConfigError(f"Field '{key}' must be an integer")
     return value
 
-
-def _normalize_utg_number(value: Union[str, int]) -> str:
-    """Normalize utg_number input to canonical 'utg-NN' slug."""
-    import re as _re
-    if isinstance(value, int):
-        if value < 0:
-            raise ConfigError("Field 'utg_number' must be non-negative")
-        return f"utg-{value:02d}"
-    if isinstance(value, str) and value.strip():
-        s = value.strip().lower()
-        m = _re.match(r"^(?:utg-?)?(\d+)$", s)
-        if not m:
-            raise ConfigError(f"Field 'utg_number' cannot be parsed: {value!r}")
-        return f"utg-{int(m.group(1)):02d}"
-    raise ConfigError("Field 'utg_number' must be a non-empty string or integer")
 
 
 def _validate_frame_sampling(raw: Dict[str, Any]) -> FrameSamplingConfig:
@@ -173,15 +157,6 @@ def _parse_shared(root: Dict[str, Any]) -> tuple:
     return llm, llm_model, frame_sampling, keyframe_selection, output_cfg, logging_cfg
 
 
-def _parse_utg_numbers(value: Any) -> List[str]:
-    """Parse utg_number as scalar or list and return normalized utg ids."""
-    if isinstance(value, list):
-        if len(value) == 0:
-            raise ConfigError("Field 'utg_number' list must be non-empty")
-        return [_normalize_utg_number(v) for v in value]
-    return [_normalize_utg_number(value)]
-
-
 def _parse_video_paths(value: Any) -> List[Path]:
     """Parse video_path as scalar or list and return Path values."""
     if isinstance(value, list):
@@ -200,33 +175,16 @@ def _parse_video_paths(value: Any) -> List[Path]:
     return [Path(value.strip())]
 
 
-def _pair_values(utg_ids: Sequence[str], video_paths: Sequence[Path], run_label: str) -> List[tuple[str, Path]]:
-    """Pair utg ids and video paths using zip-or-broadcast semantics."""
-    if len(utg_ids) == len(video_paths):
-        return list(zip(utg_ids, video_paths))
-    if len(utg_ids) == 1:
-        return [(utg_ids[0], p) for p in video_paths]
-    if len(video_paths) == 1:
-        return [(u, video_paths[0]) for u in utg_ids]
-    raise ConfigError(
-        f"{run_label}: 'utg_number' and 'video_path' list lengths are incompatible "
-        f"({len(utg_ids)} vs {len(video_paths)}). Use equal-length lists, or set one side to a single value."
-    )
-
-
 def _parse_run_entry(entry: Any, idx: int, shared: tuple) -> List[AppConfig]:
-    """Parse one run entry and expand list inputs into one or more AppConfig rows."""
+    """Parse one run entry and expand video_path list into one AppConfig per video."""
     if not isinstance(entry, dict):
         raise ConfigError(f"runs[{idx}] must be a mapping")
     llm, llm_model, frame_sampling, keyframe_selection, output_cfg, logging_cfg = shared
     app_name = _require_str(entry, "app_name")
-    utg_ids = _parse_utg_numbers(entry.get("utg_number"))
     video_paths = _parse_video_paths(entry.get("video_path"))
-    pairs = _pair_values(utg_ids, video_paths, run_label=f"runs[{idx}]")
     return [
         AppConfig(
             app_name=app_name,
-            utg_id=utg_id,
             video_path=video_path,
             llm=llm,
             llm_model=llm_model,
@@ -235,7 +193,7 @@ def _parse_run_entry(entry: Any, idx: int, shared: tuple) -> List[AppConfig]:
             output=output_cfg,
             logging=logging_cfg,
         )
-        for utg_id, video_path in pairs
+        for video_path in video_paths
     ]
 
 
@@ -272,12 +230,10 @@ def load_config(config_path: Path) -> PipelineConfig:
     else:
         # Legacy single-run format
         app_name = _require_str(root, "app_name")
-        utg_id = _normalize_utg_number(root.get("utg_number"))
         video_path = Path(_require_str(root, "video_path"))
         llm, llm_model, frame_sampling, keyframe_selection, output_cfg, logging_cfg = shared
         runs = [AppConfig(
             app_name=app_name,
-            utg_id=utg_id,
             video_path=video_path,
             llm=llm,
             llm_model=llm_model,

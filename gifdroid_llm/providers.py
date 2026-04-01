@@ -399,11 +399,17 @@ class LlamaProvider(BaseLLMProvider):
             len(keyframes),
         )
         prompt = self._build_action_prompt(keyframes)
+        raw_timeout = str(self.env.get("LLAMA_TIMEOUT_SEC", "")).strip()
+        try:
+            timeout_sec = int(raw_timeout) if raw_timeout else 180
+        except ValueError:
+            timeout_sec = 180
+        self.logger.info("Llama inference timeout | timeout_sec=%d", timeout_sec)
         try:
             raw_text = self._call_llama(
                 prompt=prompt,
                 keyframes=keyframes,
-                timeout_sec=90,
+                timeout_sec=timeout_sec,
                 request_kind="action_inference",
             )
             parsed = self._parse_actions(raw_text, keyframes)
@@ -434,15 +440,34 @@ class LlamaProvider(BaseLLMProvider):
         ]
         joined = "\n".join(keyframe_lines)
         return (
-            "You are inferring a mobile bug reproduction trace from keyframe timeline + screenshots.\n"
-            "Return ONLY valid JSON (no markdown) as an array with EXACTLY one object per keyframe.\n"
-            "Each object must contain keys: screen_description, action_type, target, details, confidence.\n"
-            "Allowed action_type values: launch, tap, type, swipe, scroll, wait, long_press, back, open_menu, select.\n"
-            "Forbidden placeholder values in any field: None, N/A, unknown, null, empty strings.\n"
-            "For launch, target may be app_entrypoint.\n"
-            "confidence must be a number between 0 and 1.\n"
-            "Use concrete UI nouns in target and short causal details.\n"
-            "Keyframes:\n"
+            "You are a mobile QA engineer analysing screenshots from an Android app recording.\n"
+            "Each screenshot image is a keyframe extracted from the video at the listed timestamp.\n"
+            "Your task: describe what is visible on each screen and what user action caused the transition.\n"
+            "\n"
+            "Rules:\n"
+            "- Look at the actual screenshot image to write screen_description. Describe the visible UI: "
+            "screen title, main content area, buttons, dialogs, lists — be specific.\n"
+            "- action_type must be one of: launch, tap, type, swipe, scroll, wait, long_press, back, open_menu, select.\n"
+            "- target must name the concrete UI element the user interacted with (e.g. 'Enable AdAway button', "
+            "'Hosts sources list', 'OK dialog button'). Never use None, N/A, unknown, or null.\n"
+            "- details must explain in one sentence why that action was taken or what changed.\n"
+            "- confidence is a float 0-1 reflecting how certain you are from the visual evidence.\n"
+            "- motion_score hints at transition magnitude (0=static, high=large visual change); use it as a "
+            "secondary signal only — the screenshot is primary.\n"
+            "- Return ONLY a valid JSON array, no markdown fences, no extra text.\n"
+            "- The array must have EXACTLY one object per keyframe, in order.\n"
+            "\n"
+            "Example output format (2 keyframes):\n"
+            '[\n'
+            '  {"screen_description": "AdAway home screen showing Enable button and status disabled",'
+            ' "action_type": "launch", "target": "app_entrypoint",'
+            ' "details": "App launched and showing initial disabled state.", "confidence": 0.92},\n'
+            '  {"screen_description": "Hosts sources list with three entries and a refresh icon in toolbar",'
+            ' "action_type": "tap", "target": "Hosts sources menu item",'
+            ' "details": "User opened hosts sources to review blocklist entries.", "confidence": 0.85}\n'
+            ']\n'
+            "\n"
+            "Keyframes to analyse:\n"
             f"{joined}\n"
         )
 
@@ -629,8 +654,10 @@ class LlamaProvider(BaseLLMProvider):
                 {
                     "type": "text",
                     "text": (
-                        f"Keyframe {idx}: timestamp_sec={frame.timestamp_sec:.3f}, "
-                        f"motion_score={frame.motion_score:.3f}"
+                        f"Screenshot for keyframe {idx} (idx={idx}, "
+                        f"timestamp_sec={frame.timestamp_sec:.3f}, "
+                        f"motion_score={frame.motion_score:.3f}). "
+                        f"Describe exactly what you see on this Android screen:"
                     ),
                 }
             )

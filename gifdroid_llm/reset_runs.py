@@ -1,24 +1,21 @@
 from __future__ import annotations
 
 import argparse
-import json
 import shutil
 import sys
 from dataclasses import dataclass
-from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List
 
 import yaml
 
-from gifdroid_llm.config import ConfigError, _normalize_utg_number
+from gifdroid_llm.config import ConfigError
 from gifdroid_llm.io_utils import write_json
 
 
 @dataclass(frozen=True)
 class ResetTarget:
     app_name: str
-    utg_id: str
 
 
 @dataclass(frozen=True)
@@ -29,10 +26,7 @@ class ResetConfig:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description=(
-            "Wipe run directories and reset UTG manifest run info "
-            "for selected app/UTG targets."
-        )
+        description="Wipe apps/{app}/llm/ run directories for selected apps."
     )
     parser.add_argument(
         "--config",
@@ -44,7 +38,7 @@ def parse_args() -> argparse.Namespace:
     mode.add_argument(
         "--dry-run",
         action="store_true",
-        help="Preview only; do not delete files or modify manifests.",
+        help="Preview only; do not delete files.",
     )
     mode.add_argument(
         "--apply",
@@ -67,16 +61,11 @@ def _require_non_empty_str(data: Dict[str, Any], key: str) -> str:
     return value.strip()
 
 
-def _parse_target_entry(entry: Any, idx: int) -> List[ResetTarget]:
+def _parse_target_entry(entry: Any, idx: int) -> ResetTarget:
     if not isinstance(entry, dict):
         raise ConfigError(f"targets[{idx}] must be a mapping")
     app_name = _require_non_empty_str(entry, "app_name")
-    utg_raw = entry.get("utg_number")
-    if isinstance(utg_raw, list):
-        if len(utg_raw) == 0:
-            raise ConfigError(f"targets[{idx}].utg_number list must be non-empty")
-        return [ResetTarget(app_name=app_name, utg_id=_normalize_utg_number(v)) for v in utg_raw]
-    return [ResetTarget(app_name=app_name, utg_id=_normalize_utg_number(utg_raw))]
+    return ResetTarget(app_name=app_name)
 
 
 def load_reset_config(path: Path) -> ResetConfig:
@@ -97,98 +86,40 @@ def load_reset_config(path: Path) -> ResetConfig:
     if not isinstance(targets_raw, list) or len(targets_raw) == 0:
         raise ConfigError("Field 'targets' must be a non-empty list")
 
-    targets: List[ResetTarget] = []
-    for i, entry in enumerate(targets_raw):
-        targets.extend(_parse_target_entry(entry, i))
-
+    targets = [_parse_target_entry(entry, i) for i, entry in enumerate(targets_raw)]
     return ResetConfig(dry_run=dry_run_raw, targets=targets)
 
 
-def _is_within(path: Path, root: Path) -> bool:
-    try:
-        path.resolve(strict=False).relative_to(root.resolve(strict=False))
-        return True
-    except ValueError:
-        return False
-
-
-def _collect_run_paths(utg_root: Path, manifest_data: Dict[str, Any]) -> List[Path]:
-    run_paths: List[Path] = []
-    runs = manifest_data.get("runs", [])
-    if not isinstance(runs, list):
-        raise ConfigError(f"Invalid manifest at {utg_root / 'manifest.json'}: 'runs' must be a list")
-
-    for i, entry in enumerate(runs):
-        if not isinstance(entry, dict):
-            raise ConfigError(
-                f"Invalid manifest at {utg_root / 'manifest.json'}: runs[{i}] must be an object"
-            )
-        rel_path = entry.get("path")
-        if not isinstance(rel_path, str) or not rel_path.strip():
-            raise ConfigError(
-                f"Invalid manifest at {utg_root / 'manifest.json'}: runs[{i}].path must be a non-empty string"
-            )
-        candidate = (utg_root / rel_path).resolve(strict=False)
-        if not _is_within(candidate, utg_root):
-            raise ConfigError(
-                f"Unsafe run path in manifest ({rel_path!r}) escapes UTG root: {utg_root}"
-            )
-        run_paths.append(candidate)
-    return run_paths
-
-
-def _write_manifest_backup(manifest_path: Path) -> Path:
-    ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H-%M-%SZ")
-    backup_path = manifest_path.with_name(f"manifest.backup.{ts}.json")
-    shutil.copy2(manifest_path, backup_path)
-    return backup_path
-
-
-def _reset_target(project_root: Path, target: ResetTarget, dry_run: bool) -> Tuple[int, bool]:
+def _reset_target(project_root: Path, target: ResetTarget, dry_run: bool) -> int:
     app_slug = target.app_name.lower()
-    utg_root = project_root / "apps" / app_slug / "utgs" / target.utg_id
-    manifest_path = utg_root / "manifest.json"
+    llm_dir = project_root / "apps" / app_slug / "llm"
 
-    if not utg_root.exists():
-        print(f"[reset_runs] SKIP {app_slug}/{target.utg_id}: UTG directory not found")
-        return 0, False
-    if not manifest_path.exists():
-        print(f"[reset_runs] SKIP {app_slug}/{target.utg_id}: manifest.json not found")
-        return 0, False
+    if not llm_dir.exists():
+        print(f"[reset_runs] SKIP {app_slug}: no llm/ directory found at {llm_dir}")
+        return 0
 
-    with manifest_path.open("r", encoding="utf-8") as f:
-        manifest_data = json.load(f)
-    if not isinstance(manifest_data, dict):
-        raise ConfigError(f"Invalid manifest at {manifest_path}: root must be an object")
+    run_dirs = sorted(llm_dir.rglob("run-[0-9][0-9][0-9]"))
+    run_count = len(run_dirs)
 
-    run_paths = _collect_run_paths(utg_root, manifest_data)
-    run_count = len(run_paths)
-
-    print(f"[reset_runs] Target {app_slug}/{target.utg_id}: {run_count} run(s)")
-    for p in run_paths:
+    print(f"[reset_runs] Target {app_slug}: {run_count} run(s) under {llm_dir}")
+    for p in run_dirs:
         if dry_run:
             print(f"[reset_runs]   would delete: {p}")
         else:
             if p.exists():
-                if p.is_dir():
-                    shutil.rmtree(p)
-                else:
-                    p.unlink()
+                shutil.rmtree(p)
                 print(f"[reset_runs]   deleted: {p}")
-            else:
-                print(f"[reset_runs]   missing (already absent): {p}")
 
-    if dry_run:
-        print(f"[reset_runs]   would update manifest: {manifest_path}")
-        return run_count, False
+    if not dry_run and run_count > 0:
+        # Remove any empty provider/model/source dirs left behind
+        for d in sorted(llm_dir.rglob("*"), reverse=True):
+            if d.is_dir():
+                try:
+                    d.rmdir()  # only removes if empty
+                except OSError:
+                    pass
 
-    backup_path = _write_manifest_backup(manifest_path)
-    manifest_data["runs"] = []
-    manifest_data["latest"] = {}
-    write_json(manifest_path, manifest_data)
-    print(f"[reset_runs]   backup: {backup_path}")
-    print(f"[reset_runs]   updated manifest: {manifest_path}")
-    return run_count, True
+    return run_count
 
 
 def main() -> int:
@@ -203,8 +134,8 @@ def main() -> int:
         dry_run = cfg.dry_run
 
     unique_targets = sorted(
-        {(t.app_name.lower(), t.utg_id): t for t in cfg.targets}.values(),
-        key=lambda t: (t.app_name.lower(), t.utg_id),
+        {t.app_name.lower(): t for t in cfg.targets}.values(),
+        key=lambda t: t.app_name.lower(),
     )
     print(
         f"[reset_runs] mode={'DRY-RUN' if dry_run else 'APPLY'} "
@@ -213,16 +144,12 @@ def main() -> int:
 
     project_root = Path.cwd()
     total_runs = 0
-    manifests_updated = 0
     for target in unique_targets:
-        runs_removed, manifest_updated = _reset_target(project_root, target, dry_run=dry_run)
-        total_runs += runs_removed
-        manifests_updated += 1 if manifest_updated else 0
+        total_runs += _reset_target(project_root, target, dry_run=dry_run)
 
     print(
         f"[reset_runs] done: targets={len(unique_targets)} "
-        f"runs={'would_remove' if dry_run else 'removed'}={total_runs} "
-        f"manifests={'would_update' if dry_run else 'updated'}={manifests_updated if not dry_run else len(unique_targets)}"
+        f"runs={'would_remove' if dry_run else 'removed'}={total_runs}"
     )
     return 0
 

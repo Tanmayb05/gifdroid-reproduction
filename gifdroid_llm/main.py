@@ -12,7 +12,6 @@ from gifdroid_llm.io_utils import (
     PathError,
     create_output_layout,
     resolve_video_path,
-    update_utg_manifest,
     write_json,
     write_run_metadata,
 )
@@ -61,6 +60,17 @@ def ensure_write_policy(cfg: AppConfig, execution_json_path: Path, keyframes_dir
         )
 
 
+def _env_timeout_sec(env: dict, key: str, default: int) -> int:
+    raw = str(env.get(key, "")).strip()
+    if not raw:
+        return default
+    try:
+        value = int(raw)
+    except ValueError:
+        return default
+    return value if value > 0 else default
+
+
 def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
     project_root = Path.cwd()
 
@@ -100,12 +110,23 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
         logger.info("Environment validated for llm=%s model=%s", cfg.llm, cfg.llm_model)
 
         if cfg.llm == "llama":
-            logger.info("Running llama prerequisite check before trace generation")
+            raw_prereq = str(env.get("LLAMA_PREREQ_TIMEOUT_SEC", "")).strip()
+            prereq_timeout_sec: int | None = None
+            if raw_prereq:
+                try:
+                    parsed = int(raw_prereq)
+                    prereq_timeout_sec = parsed if parsed > 0 else None
+                except ValueError:
+                    pass
+            logger.info(
+                "Running llama prerequisite check before trace generation | timeout=%s",
+                prereq_timeout_sec if prereq_timeout_sec is not None else "unlimited",
+            )
             assert_llama_accessible(
                 base_url=str(env.get("LLAMA_BASE_URL", "")),
                 model=cfg.llm_model,
                 api_key=str(env.get("LLAMA_API_KEY", "")),
-                timeout_sec=20,
+                timeout_sec=prereq_timeout_sec,
             )
 
         provider = create_provider(cfg.llm, cfg.llm_model, env, logger)
@@ -146,7 +167,6 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
             llm_name=cfg.llm,
             video_type=video_type,
             app_name=cfg.app_name,
-            utg_number=cfg.utg_id,
             generated_at=run_dt,
             steps=steps,
         )
@@ -176,7 +196,6 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
         write_run_metadata(
             path=layout.metadata_path,
             app_name=cfg.app_name,
-            utg_id=cfg.utg_id,
             method="llm",
             variant=model_slug,
             source=source,
@@ -186,24 +205,6 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
             run_dt=run_dt,
             duration_sec=duration_sec,
             status="success",
-        )
-
-        # Compute relative path from utg root to run dir
-        utg_root = layout.utg_manifest_path.parent
-        run_relative_path = str(layout.run_dir.relative_to(utg_root)) + "/"
-
-        update_utg_manifest(
-            manifest_path=layout.utg_manifest_path,
-            app_name=cfg.app_name,
-            utg_id=cfg.utg_id,
-            run_id=layout.run_id,
-            method="llm",
-            variant=model_slug,
-            source=source,
-            status="success",
-            run_relative_path=run_relative_path,
-            video_file=video_file,
-            video_type=video_type,
         )
 
         pipeline_status = "success"
@@ -224,7 +225,7 @@ def run_pipeline(args: argparse.Namespace) -> int:
     exit_code = 0
     for i, cfg in enumerate(runs, start=1):
         if len(runs) > 1:
-            print(f"[gifdroid_llm] --- Run {i}/{len(runs)}: {cfg.app_name} {cfg.utg_id} ({cfg.video_path}) ---")
+            print(f"[gifdroid_llm] --- Run {i}/{len(runs)}: {cfg.app_name} ({cfg.video_path}) ---")
         code = run_single(args, cfg)
         if code != 0:
             exit_code = code

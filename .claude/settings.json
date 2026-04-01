@@ -33,7 +33,9 @@
       "Bash(wc -l /Users/tanmaybhuskute/Documents/gifdroid-reproduction/analysis/tables/*.csv)",
       "Bash(grep -r \"0.95\" /Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid/*.py)",
       "Bash(find /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts -type f -name *.sh -o -name *.py)",
-      "Bash(grep -l \"gifdroid_llm_trace\\\\|gifdroid_llm\" /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts/*.py /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts/*.sh)"
+      "Bash(grep -l \"gifdroid_llm_trace\\\\|gifdroid_llm\" /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts/*.py /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts/*.sh)",
+      "Bash(xargs rm:*)",
+      "Bash(find /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps -name \"manifest.backup.*.json\" -delete)"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",
