@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import List
 
-from gifdroid_llm.config import AppConfig, ConfigError, load_config
+from gifdroid_llm.config import AppConfig, ConfigError, PipelineConfig, load_config
 from gifdroid_llm.env_loader import EnvError, load_and_validate_env
 from gifdroid_llm.io_utils import (
     PathError,
@@ -60,10 +60,9 @@ def ensure_write_policy(cfg: AppConfig, execution_json_path: Path, keyframes_dir
         )
 
 
-def run_pipeline(args: argparse.Namespace) -> int:
+def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
     project_root = Path.cwd()
 
-    cfg = load_config(args.config)
     resolved_video_path, video_type = resolve_video_path(project_root, cfg)
     if not resolved_video_path.exists():
         raise VideoError(
@@ -91,7 +90,12 @@ def run_pipeline(args: argparse.Namespace) -> int:
             logger.info("Running Gemini API preflight before trace generation")
             provider.validate_connection()
 
-        ensure_write_policy(cfg, layout.execution_trace_json_path, layout.keyframes_dir)
+        try:
+            ensure_write_policy(cfg, layout.execution_trace_json_path, layout.keyframes_dir)
+        except FileExistsError as exc:
+            logger.warning("RUN SKIPPED — execution trace already present: %s", exc)
+            pipeline_status = "skipped"
+            return 0
 
         if args.dry_run:
             logger.info("Dry-run completed successfully")
@@ -201,11 +205,26 @@ def run_pipeline(args: argparse.Namespace) -> int:
         finalize_log_file(layout.log_file_path, pipeline_status)
 
 
+def run_pipeline(args: argparse.Namespace) -> int:
+    pipeline_cfg = load_config(args.config)
+    runs = pipeline_cfg.runs
+    if len(runs) > 1:
+        print(f"[gifdroid_llm] Running {len(runs)} configured runs")
+    exit_code = 0
+    for i, cfg in enumerate(runs, start=1):
+        if len(runs) > 1:
+            print(f"[gifdroid_llm] --- Run {i}/{len(runs)}: {cfg.app_name} {cfg.utg_id} ({cfg.video_path}) ---")
+        code = run_single(args, cfg)
+        if code != 0:
+            exit_code = code
+    return exit_code
+
+
 def main() -> int:
     args = parse_args()
     try:
         return run_pipeline(args)
-    except (ConfigError, EnvError, PathError, VideoError, FileExistsError, ProviderError) as exc:
+    except (ConfigError, EnvError, PathError, VideoError, ProviderError) as exc:
         print(f"[gifdroid_llm] ERROR: {exc}", file=sys.stderr)
         return 1
     except Exception as exc:  # pragma: no cover

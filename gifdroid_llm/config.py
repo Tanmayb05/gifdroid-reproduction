@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, Union
+from typing import Any, Dict, List, Union
 
 import yaml
 
@@ -45,6 +45,12 @@ class AppConfig:
     keyframe_selection: KeyframeSelectionConfig
     output: OutputConfig
     logging: LoggingConfig
+
+
+@dataclass(frozen=True)
+class PipelineConfig:
+    """Top-level config holding shared settings and one or more runs."""
+    runs: List[AppConfig]
 
 
 def _require_mapping(data: Any, section: str) -> Dict[str, Any]:
@@ -142,24 +148,8 @@ def _validate_logging(raw: Dict[str, Any]) -> LoggingConfig:
     return LoggingConfig(level=level)
 
 
-def load_config(config_path: Path) -> AppConfig:
-    """Load and validate pipeline config from YAML."""
-    if not config_path.exists():
-        raise ConfigError(f"Config file not found: {config_path}")
-
-    with config_path.open("r", encoding="utf-8") as f:
-        raw = yaml.safe_load(f)
-
-    root_obj = _require_mapping(raw, "config")
-    # Support both top-level schema and optional nested "config" wrapper.
-    if "config" in root_obj and isinstance(root_obj["config"], dict):
-        root = root_obj["config"]
-    else:
-        root = root_obj
-
-    app_name = _require_str(root, "app_name")
-    utg_id = _normalize_utg_number(root.get("utg_number"))
-    video_path = Path(_require_str(root, "video_path"))
+def _parse_shared(root: Dict[str, Any]) -> tuple:
+    """Parse shared settings (llm, frame_sampling, etc.) from root mapping."""
     llm = _require_str(root, "llm").lower()
     llm_model = _optional_str(root, "llm_model")
     if llm_model is None:
@@ -175,7 +165,17 @@ def load_config(config_path: Path) -> AppConfig:
         overwrite=_require_bool(_require_mapping(root.get("output"), "output"), "overwrite")
     )
     logging_cfg = _validate_logging(_require_mapping(root.get("logging"), "logging"))
+    return llm, llm_model, frame_sampling, keyframe_selection, output_cfg, logging_cfg
 
+
+def _parse_run_entry(entry: Any, idx: int, shared: tuple) -> AppConfig:
+    """Parse a single run entry dict into an AppConfig using shared settings."""
+    if not isinstance(entry, dict):
+        raise ConfigError(f"runs[{idx}] must be a mapping")
+    llm, llm_model, frame_sampling, keyframe_selection, output_cfg, logging_cfg = shared
+    app_name = _require_str(entry, "app_name")
+    utg_id = _normalize_utg_number(entry.get("utg_number"))
+    video_path = Path(_require_str(entry, "video_path"))
     return AppConfig(
         app_name=app_name,
         utg_id=utg_id,
@@ -187,3 +187,51 @@ def load_config(config_path: Path) -> AppConfig:
         output=output_cfg,
         logging=logging_cfg,
     )
+
+
+def load_config(config_path: Path) -> PipelineConfig:
+    """Load and validate pipeline config from YAML.
+
+    Supports two formats:
+    - Single-run: top-level app_name / utg_number / video_path fields (legacy).
+    - Multi-run: top-level ``runs`` list, each entry with app_name / utg_number / video_path.
+    """
+    if not config_path.exists():
+        raise ConfigError(f"Config file not found: {config_path}")
+
+    with config_path.open("r", encoding="utf-8") as f:
+        raw = yaml.safe_load(f)
+
+    root_obj = _require_mapping(raw, "config")
+    # Support optional nested "config" wrapper.
+    if "config" in root_obj and isinstance(root_obj["config"], dict):
+        root = root_obj["config"]
+    else:
+        root = root_obj
+
+    shared = _parse_shared(root)
+
+    if "runs" in root:
+        runs_raw = root["runs"]
+        if not isinstance(runs_raw, list) or len(runs_raw) == 0:
+            raise ConfigError("'runs' must be a non-empty list")
+        runs = [_parse_run_entry(entry, i, shared) for i, entry in enumerate(runs_raw)]
+    else:
+        # Legacy single-run format
+        app_name = _require_str(root, "app_name")
+        utg_id = _normalize_utg_number(root.get("utg_number"))
+        video_path = Path(_require_str(root, "video_path"))
+        llm, llm_model, frame_sampling, keyframe_selection, output_cfg, logging_cfg = shared
+        runs = [AppConfig(
+            app_name=app_name,
+            utg_id=utg_id,
+            video_path=video_path,
+            llm=llm,
+            llm_model=llm_model,
+            frame_sampling=frame_sampling,
+            keyframe_selection=keyframe_selection,
+            output=output_cfg,
+            logging=logging_cfg,
+        )]
+
+    return PipelineConfig(runs=runs)
