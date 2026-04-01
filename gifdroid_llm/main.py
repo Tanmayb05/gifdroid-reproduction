@@ -82,14 +82,6 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
     pipeline_status = "failed"
     pipeline_start = datetime.now(timezone.utc)
     try:
-        env = load_and_validate_env(args.env_file, cfg.llm)
-        logger.info("Environment validated for llm=%s model=%s", cfg.llm, cfg.llm_model)
-        provider = create_provider(cfg.llm, cfg.llm_model, env, logger)
-
-        if cfg.llm == "gemini":
-            logger.info("Running Gemini API preflight before trace generation")
-            provider.validate_connection()
-
         try:
             ensure_write_policy(cfg, layout.execution_trace_json_path, layout.keyframes_dir)
         except FileExistsError as exc:
@@ -98,10 +90,18 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
             return 0
 
         if args.dry_run:
-            logger.info("Dry-run completed successfully")
+            logger.info("Dry-run completed successfully (provider/API preflight skipped)")
             print("Dry-run OK")
             pipeline_status = "success"
             return 0
+
+        env = load_and_validate_env(args.env_file, cfg.llm)
+        logger.info("Environment validated for llm=%s model=%s", cfg.llm, cfg.llm_model)
+        provider = create_provider(cfg.llm, cfg.llm_model, env, logger)
+
+        if cfg.llm == "gemini":
+            logger.info("Running Gemini API preflight before trace generation")
+            provider.validate_connection()
 
         extractor = VideoFrameExtractor()
         sampled_frames, metadata = extractor.extract(resolved_video_path, cfg.frame_sampling, logger)

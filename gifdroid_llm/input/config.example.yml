@@ -14,7 +14,7 @@
 llm: "gemini"
 # Optional: specify a particular model. If not provided, a default is used.
 # e.g., "gemini-1.5-flash", "gpt-4o", "claude-3-opus-20240229"
-llm_model: "gemini-2.5-flash"
+llm_model: "gemini-1.5-flash"
 
 # Frame sampling configuration
 # Defines how frames are extracted from the input video.
@@ -25,7 +25,7 @@ frame_sampling:
   strategy: "uniform"
 
   # Frames per second to sample from the video.
-  fps: 1.5
+  fps: 1.0
 
   # Maximum number of frames to extract.
   max_frames: 100
@@ -36,16 +36,16 @@ keyframe_selection:
   # Method for selecting keyframes.
   # "heuristic": Uses a simple time-based gap to select frames.
   # "llm_assisted": (Not yet implemented) Uses the LLM to select frames.
-  method: "llm_assisted"
+  method: "heuristic"
 
   # The minimum time gap (in seconds) between selected keyframes.
-  min_gap_seconds: 1.0
+  min_gap_seconds: 2.0
 
 # Output configuration
 output:
   # If true, overwrite existing output files. If false, skip processing
   # if the output file already exists.
-  overwrite: true
+  overwrite: false
 
 # Logging configuration
 logging:
@@ -61,10 +61,22 @@ logging:
 # processed sequentially using the shared settings defined above.
 runs:
   - app_name: "AdAway"
-    utg_number: [01, 02, 03]
-    video_path:
-      - "apps/adaway/videos/handheld/hhv-001.mp4"
+    # utg_number can be:
+    # - a single integer/string (e.g. 1 or "utg-01")
+    # - a list (e.g. [1, 2, 3]) to expand into multiple runs
+    utg_number: [1, 2, 3]
+    # video_path can be:
+    # - a single path/shorthand ("hhv"/"srv"), which will be reused for every utg_number
+    # - a list with the same length as utg_number for one-to-one pairing
+    video_path: "apps/adaway/videos/adaway_hhv.mp4"
 
-  # - app_name: "AntennaPod"
-  #   utg_number: [2, 3]
-  #   video_path: "apps/antennapod/videos/antennapod_utg02.mp4"
+  - app_name: "AntennaPod"
+    utg_number: [2, 3]
+    video_path:
+      - "apps/antennapod/videos/antennapod_utg02.mp4"
+      - "apps/antennapod/videos/antennapod_utg03.mp4"
+
+# You can add more runs below, following the same format.
+# - app_name: "AppName"
+#   utg_number: 3
+#   video_path: "path/to/your/video.mp4"

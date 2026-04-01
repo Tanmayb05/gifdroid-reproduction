@@ -22,7 +22,10 @@ pip install -r gifdroid_llm/requirements.txt
 
 ## Configure
 1. Copy `.env.local.example` to `.env.local` and fill credentials (for Gemini, use one of: `GOOGLE_GENERATIVE_AI_API_KEY` or Application Default Credentials via `google.auth.default()`. For ADC/Vertex routing, set `GEMINI_VERTEX_PROJECT_ID` (preferred) and optionally `GEMINI_VERTEX_LOCATION`).
-2. Edit `gifdroid_llm/input/config.yml` and set both `llm` and `llm_model`. `video_path` can be `"hhv"` or `"srv"` (auto-resolved), or a full explicit path.
+2. Edit `gifdroid_llm/input/config.yml` and set both `llm` and `llm_model`.
+   - `utg_number` supports a single value or a list.
+   - `video_path` supports a single value (`"hhv"`, `"srv"`, or explicit path) or a list.
+   - When both are lists in a run entry, they are paired by index (same length required). If one side is a single value, it is reused for all values on the other side.
 
 ## Run
 ```bash
