@@ -14,7 +14,7 @@ REQUIRED_ENV_BY_LLM: Dict[str, List[str]] = {
     "gemini": [],
     "sonnet": ["ANTHROPIC_API_KEY"],
     "claude": ["ANTHROPIC_API_KEY"],
-    "llama": ["LLAMA_API_KEY", "LLAMA_BASE_URL", "LLAMA_MODEL"],
+    "llama": ["LLAMA_BASE_URL"],
     "qwen": ["QWEN_API_KEY", "QWEN_BASE_URL", "QWEN_MODEL"],
 }
 

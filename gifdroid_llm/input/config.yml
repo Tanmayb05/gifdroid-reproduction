@@ -14,11 +14,11 @@
 # -----------------
 
 # LLM provider configuration
-# Supported providers: "gemini", "openai", "claude"
-llm: "gemini"
+# Supported providers: "gemini", "llama", "qwen", "sonnet"/"claude"
+llm: "llama"
 # Optional: specify a particular model. If not provided, a default is used.
-# e.g., "gemini-1.5-flash", "gpt-4o", "claude-3-opus-20240229"
-llm_model: "gemini-2.5-pro"
+# e.g., "gemini-2.5-pro", "llama3.2-vision:latest", "qwen2.5-vl-72b-instruct"
+llm_model: "llama3.2-vision"
 
 # Frame sampling configuration
 # Defines how frames are extracted from the input video.

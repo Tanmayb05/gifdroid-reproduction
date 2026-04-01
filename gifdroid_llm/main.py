@@ -17,6 +17,7 @@ from gifdroid_llm.io_utils import (
     write_run_metadata,
 )
 from gifdroid_llm.keyframes import KeyframeSelector
+from gifdroid_llm.llama_prereq import LlamaPrereqError, assert_llama_accessible
 from gifdroid_llm.logging_utils import finalize_log_file, setup_logger
 from gifdroid_llm.providers import ProviderError, create_provider
 from gifdroid_llm.trace import TraceAction, TraceBuilder, TraceStep
@@ -97,10 +98,20 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
 
         env = load_and_validate_env(args.env_file, cfg.llm)
         logger.info("Environment validated for llm=%s model=%s", cfg.llm, cfg.llm_model)
+
+        if cfg.llm == "llama":
+            logger.info("Running llama prerequisite check before trace generation")
+            assert_llama_accessible(
+                base_url=str(env.get("LLAMA_BASE_URL", "")),
+                model=cfg.llm_model,
+                api_key=str(env.get("LLAMA_API_KEY", "")),
+                timeout_sec=20,
+            )
+
         provider = create_provider(cfg.llm, cfg.llm_model, env, logger)
 
         if cfg.llm == "gemini":
-            logger.info("Running Gemini API preflight before trace generation")
+            logger.info("Running %s API preflight before trace generation", cfg.llm)
             provider.validate_connection()
 
         extractor = VideoFrameExtractor()
@@ -224,7 +235,7 @@ def main() -> int:
     args = parse_args()
     try:
         return run_pipeline(args)
-    except (ConfigError, EnvError, PathError, VideoError, ProviderError) as exc:
+    except (ConfigError, EnvError, PathError, VideoError, ProviderError, LlamaPrereqError) as exc:
         print(f"[gifdroid_llm] ERROR: {exc}", file=sys.stderr)
         return 1
     except Exception as exc:  # pragma: no cover

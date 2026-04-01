@@ -10,10 +10,10 @@
 # -----------------
 
 # LLM provider configuration
-# Supported providers: "gemini", "openai", "claude"
+# Supported providers: "gemini", "llama", "qwen", "sonnet"/"claude"
 llm: "gemini"
 # Optional: specify a particular model. If not provided, a default is used.
-# e.g., "gemini-1.5-flash", "gpt-4o", "claude-3-opus-20240229"
+# e.g., "gemini-1.5-flash", "llama3.2-vision:latest", "qwen2.5-vl-72b-instruct"
 llm_model: "gemini-1.5-flash"
 
 # Frame sampling configuration

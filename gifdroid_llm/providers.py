@@ -1,15 +1,19 @@
 from __future__ import annotations
 
+import base64
 import json
 import logging
 import time
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import Dict, List
+from typing import Any, Dict, List
 from urllib import error as url_error
 from urllib import request as url_request
 
+import cv2
+
 from gifdroid_llm.keyframes import Keyframe
+from gifdroid_llm.llama_prereq import LlamaPrereqError, assert_llama_accessible
 
 
 @dataclass(frozen=True)
@@ -374,13 +378,317 @@ class SonnetProvider(BaseLLMProvider):
 
 
 class LlamaProvider(BaseLLMProvider):
+    def validate_connection(self) -> None:
+        try:
+            assert_llama_accessible(
+                base_url=str(self.env.get("LLAMA_BASE_URL", "")),
+                model=self.llm_model,
+                api_key=str(self.env.get("LLAMA_API_KEY", "")),
+                timeout_sec=30,
+            )
+        except LlamaPrereqError as exc:
+            raise ProviderError(str(exc)) from exc
+
     def infer_actions(self, keyframes: List[Keyframe]) -> List[ProviderAction]:
-        # TODO: Integrate OpenAI-compatible or vLLM-compatible endpoint for Llama.
-        self.logger.warning(
-            "Llama provider running in stub mode (TODO API integration). model=%s",
+        if not keyframes:
+            return []
+
+        self.logger.info(
+            "Sending Llama inference request | model=%s | keyframes=%d",
             self.llm_model,
+            len(keyframes),
         )
-        return self._deterministic_fallback(keyframes, source="llama_stub")
+        prompt = self._build_action_prompt(keyframes)
+        try:
+            raw_text = self._call_llama(
+                prompt=prompt,
+                keyframes=keyframes,
+                timeout_sec=90,
+                request_kind="action_inference",
+            )
+            parsed = self._parse_actions(raw_text, keyframes)
+            if parsed:
+                self.logger.info(
+                    "Llama inference parsed successfully | parsed_actions=%d",
+                    len(parsed),
+                )
+                return parsed
+            self.logger.warning(
+                "Llama response could not be parsed into actions; falling back to deterministic heuristic."
+            )
+        except ProviderError as exc:
+            self.logger.warning(
+                "Llama inference request failed (%s); falling back to deterministic heuristic.",
+                exc,
+            )
+
+        return self._deterministic_fallback(keyframes, source="llama_fallback")
+
+    def _build_action_prompt(self, keyframes: List[Keyframe]) -> str:
+        keyframe_lines = [
+            (
+                f"- idx={idx + 1}, timestamp_sec={frame.timestamp_sec:.3f}, "
+                f"motion_score={frame.motion_score:.3f}"
+            )
+            for idx, frame in enumerate(keyframes)
+        ]
+        joined = "\n".join(keyframe_lines)
+        return (
+            "You are inferring a mobile bug reproduction trace from keyframe timeline + screenshots.\n"
+            "Return ONLY valid JSON (no markdown) as an array with EXACTLY one object per keyframe.\n"
+            "Each object must contain keys: screen_description, action_type, target, details, confidence.\n"
+            "Allowed action_type values: launch, tap, type, swipe, scroll, wait, long_press, back, open_menu, select.\n"
+            "Forbidden placeholder values in any field: None, N/A, unknown, null, empty strings.\n"
+            "For launch, target may be app_entrypoint.\n"
+            "confidence must be a number between 0 and 1.\n"
+            "Use concrete UI nouns in target and short causal details.\n"
+            "Keyframes:\n"
+            f"{joined}\n"
+        )
+
+    def _call_llama(
+        self,
+        prompt: str,
+        keyframes: List[Keyframe] | None,
+        timeout_sec: int,
+        request_kind: str,
+    ) -> str:
+        base_url = str(self.env.get("LLAMA_BASE_URL", "")).strip()
+        if not base_url:
+            raise ProviderError("Missing LLAMA_BASE_URL for llama provider.")
+
+        normalized_base = base_url.rstrip("/")
+        if normalized_base.endswith("/v1/chat/completions"):
+            url = normalized_base
+        elif normalized_base.endswith("/v1"):
+            url = f"{normalized_base}/chat/completions"
+        else:
+            url = f"{normalized_base}/v1/chat/completions"
+
+        headers = {"Content-Type": "application/json"}
+        api_key = str(self.env.get("LLAMA_API_KEY", "")).strip()
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+
+        payload: Dict[str, Any] = {
+            "model": self.llm_model,
+            "temperature": 0.1,
+        }
+        if self._supports_vision() and keyframes:
+            payload["messages"] = [
+                {
+                    "role": "user",
+                    "content": self._build_multimodal_content(prompt, keyframes),
+                }
+            ]
+        else:
+            payload["messages"] = [{"role": "user", "content": prompt}]
+
+        payload_bytes = json.dumps(payload).encode("utf-8")
+        req = url_request.Request(
+            url=url,
+            data=payload_bytes,
+            headers=headers,
+            method="POST",
+        )
+
+        self.logger.info(
+            "Llama API request sent | kind=%s | model=%s | endpoint=%s | waiting for response",
+            request_kind,
+            self.llm_model,
+            url,
+        )
+        start = time.perf_counter()
+        try:
+            with url_request.urlopen(req, timeout=timeout_sec) as response:
+                response_text = response.read().decode("utf-8")
+        except url_error.HTTPError as exc:
+            err_body = exc.read().decode("utf-8", errors="replace")
+            raise ProviderError(
+                f"Llama HTTP error {exc.code} during {request_kind}: {err_body[:300]}"
+            ) from exc
+        except url_error.URLError as exc:
+            raise ProviderError(f"Llama URL error during {request_kind}: {exc}") from exc
+        except TimeoutError as exc:
+            raise ProviderError(
+                f"Llama request timed out during {request_kind} after {timeout_sec}s"
+            ) from exc
+
+        elapsed = time.perf_counter() - start
+        self.logger.info(
+            "Llama API response received | kind=%s | elapsed_sec=%.2f",
+            request_kind,
+            elapsed,
+        )
+
+        try:
+            data = json.loads(response_text)
+            return self._extract_text(data)
+        except (json.JSONDecodeError, KeyError, TypeError) as exc:
+            raise ProviderError(f"Invalid Llama response format during {request_kind}") from exc
+
+    def _extract_text(self, response_data: Dict[str, object]) -> str:
+        choices = response_data.get("choices")
+        if not isinstance(choices, list) or not choices:
+            raise ProviderError("Llama response missing choices")
+
+        first = choices[0]
+        if not isinstance(first, dict):
+            raise ProviderError("Llama choice payload has invalid structure")
+
+        message = first.get("message")
+        if not isinstance(message, dict):
+            raise ProviderError("Llama response missing message")
+
+        content = message.get("content")
+        if not isinstance(content, str) or not content.strip():
+            raise ProviderError("Llama response contained empty content")
+        return content.strip()
+
+    def _parse_actions(
+        self,
+        raw_text: str,
+        keyframes: List[Keyframe],
+    ) -> List[ProviderAction] | None:
+        text = raw_text.strip()
+        if "```" in text:
+            chunks = text.split("```")
+            for chunk in chunks:
+                cleaned = chunk.strip()
+                if cleaned.startswith("json"):
+                    cleaned = cleaned[4:].strip()
+                if cleaned.startswith("["):
+                    text = cleaned
+                    break
+        if not text.startswith("["):
+            return None
+
+        try:
+            parsed = json.loads(text)
+        except json.JSONDecodeError:
+            return None
+        if not isinstance(parsed, list):
+            return None
+
+        actions: List[ProviderAction] = []
+        for idx, item in enumerate(parsed):
+            if idx >= len(keyframes):
+                break
+            if not isinstance(item, dict):
+                return None
+            screen_description = str(item.get("screen_description", "")).strip()
+            action_type = self._normalize_action_type(str(item.get("action_type", "")).strip())
+            target = str(item.get("target", "")).strip()
+            details = str(item.get("details", "")).strip()
+            confidence_raw = item.get("confidence", 0.5)
+            try:
+                confidence = float(confidence_raw)
+            except (TypeError, ValueError):
+                confidence = 0.5
+
+            if not action_type:
+                return None
+            if self._is_placeholder_text(screen_description):
+                return None
+            if self._is_placeholder_text(details):
+                return None
+            if self._is_placeholder_text(target) and action_type != "launch":
+                return None
+            actions.append(
+                ProviderAction(
+                    screen_description=screen_description
+                    or f"Llama-inferred state for keyframe {idx + 1}",
+                    action_type=action_type,
+                    target=target or f"ui_target_{idx + 1}",
+                    details=details or "No additional details provided by Llama.",
+                    confidence=max(0.0, min(1.0, confidence)),
+                )
+            )
+
+        if not actions:
+            return None
+        while len(actions) < len(keyframes):
+            fallback = self._deterministic_fallback(
+                [keyframes[len(actions)]], source="llama_partial_fallback"
+            )[0]
+            actions.append(fallback)
+        return actions
+
+    def _supports_vision(self) -> bool:
+        model = self.llm_model.lower()
+        return "vision" in model or "vl" in model
+
+    def _build_multimodal_content(
+        self,
+        prompt: str,
+        keyframes: List[Keyframe],
+    ) -> List[Dict[str, Any]]:
+        content: List[Dict[str, Any]] = [{"type": "text", "text": prompt}]
+        for idx, frame in enumerate(keyframes, start=1):
+            content.append(
+                {
+                    "type": "text",
+                    "text": (
+                        f"Keyframe {idx}: timestamp_sec={frame.timestamp_sec:.3f}, "
+                        f"motion_score={frame.motion_score:.3f}"
+                    ),
+                }
+            )
+            content.append(
+                {
+                    "type": "image_url",
+                    "image_url": {"url": self._encode_keyframe_data_url(frame)},
+                }
+            )
+        return content
+
+    def _encode_keyframe_data_url(self, frame: Keyframe) -> str:
+        image = frame.image_bgr
+        h, w = image.shape[:2]
+        max_dim = 768
+        if max(h, w) > max_dim:
+            scale = max_dim / float(max(h, w))
+            image = cv2.resize(image, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
+
+        ok, encoded = cv2.imencode(".jpg", image, [int(cv2.IMWRITE_JPEG_QUALITY), 80])
+        if not ok:
+            raise ProviderError("Failed to encode keyframe image for Llama vision request.")
+        data_b64 = base64.b64encode(encoded.tobytes()).decode("ascii")
+        return f"data:image/jpeg;base64,{data_b64}"
+
+    def _normalize_action_type(self, action_type: str) -> str:
+        lowered = action_type.strip().lower().replace(" ", "_")
+        mapping = {
+            "click": "tap",
+            "press": "tap",
+            "input": "type",
+            "enter_text": "type",
+            "scroll_down": "scroll",
+            "swipe_up": "swipe",
+            "swipe_down": "swipe",
+            "app_launch": "launch",
+            "launch_app": "launch",
+        }
+        normalized = mapping.get(lowered, lowered)
+        allowed = {
+            "launch",
+            "tap",
+            "type",
+            "swipe",
+            "scroll",
+            "wait",
+            "long_press",
+            "back",
+            "open_menu",
+            "select",
+        }
+        if normalized not in allowed:
+            return ""
+        return normalized
+
+    def _is_placeholder_text(self, value: str) -> bool:
+        lowered = value.strip().lower()
+        return lowered in {"", "none", "n/a", "na", "unknown", "null"}
 
 
 class QwenProvider(BaseLLMProvider):

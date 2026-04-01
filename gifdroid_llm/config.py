@@ -153,7 +153,12 @@ def _parse_shared(root: Dict[str, Any]) -> tuple:
     llm = _require_str(root, "llm").lower()
     llm_model = _optional_str(root, "llm_model")
     if llm_model is None:
-        llm_model = "gemini-1.5-flash" if llm == "gemini" else llm
+        default_models = {
+            "gemini": "gemini-1.5-flash",
+            "llama": "llama3.2-vision:latest",
+            "qwen": "qwen2.5-vl-72b-instruct",
+        }
+        llm_model = default_models.get(llm, llm)
 
     frame_sampling = _validate_frame_sampling(
         _require_mapping(root.get("frame_sampling"), "frame_sampling")
