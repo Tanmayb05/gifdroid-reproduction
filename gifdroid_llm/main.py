@@ -129,7 +129,13 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
                 timeout_sec=prereq_timeout_sec,
             )
 
-        provider = create_provider(cfg.llm, cfg.llm_model, env, logger)
+        provider = create_provider(
+            cfg.llm,
+            cfg.llm_model,
+            env,
+            logger,
+            llama_action_prompt_file=cfg.llama_action_prompt_file,
+        )
 
         if cfg.llm == "gemini":
             logger.info("Running %s API preflight before trace generation", cfg.llm)

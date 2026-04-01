@@ -10,6 +10,10 @@ llm: "gemini"
 # Optional: specify a particular model. If not provided, a default is used.
 # e.g., "gemini-2.5-flash", "llama3.2-vision:latest", "qwen2.5-vl-72b-instruct"
 llm_model: "gemini-2.5-flash"
+# Optional: external prompt template file for llama action inference.
+# Use {KEYFRAMES} placeholder where keyframe lines should be inserted.
+# If omitted, defaults to gifdroid_llm/input/prompts/llama_action_prompt.txt
+# llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt.txt"
 
 frame_sampling:
   # "uniform": fixed rate (fps). "adaptive": not yet implemented.

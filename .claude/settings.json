@@ -35,7 +35,8 @@
       "Bash(find /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts -type f -name *.sh -o -name *.py)",
       "Bash(grep -l \"gifdroid_llm_trace\\\\|gifdroid_llm\" /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts/*.py /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts/*.sh)",
       "Bash(xargs rm:*)",
-      "Bash(find /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps -name \"manifest.backup.*.json\" -delete)"
+      "Bash(find /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps -name \"manifest.backup.*.json\" -delete)",
+      "Bash(grep -l ^---- /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/*/llm/llama/llama3-2-vision/*/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/llm_raw_response.txt)"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",

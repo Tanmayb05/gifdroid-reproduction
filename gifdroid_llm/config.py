@@ -42,6 +42,7 @@ class AppConfig:
     video_path: Path
     llm: str
     llm_model: str
+    llama_action_prompt_file: Path | None
     frame_sampling: FrameSamplingConfig
     keyframe_selection: KeyframeSelectionConfig
     output: OutputConfig
@@ -158,6 +159,10 @@ def _parse_shared(root: Dict[str, Any]) -> tuple:
     """Parse shared settings (llm, frame_sampling, etc.) from root mapping."""
     llm = _require_str(root, "llm").lower()
     llm_model = _optional_str(root, "llm_model")
+    llama_action_prompt_file_raw = _optional_str(root, "llama_action_prompt_file")
+    llama_action_prompt_file = (
+        Path(llama_action_prompt_file_raw) if llama_action_prompt_file_raw else None
+    )
     if llm_model is None:
         default_models = {
             "gemini": "gemini-1.5-flash",
@@ -176,7 +181,15 @@ def _parse_shared(root: Dict[str, Any]) -> tuple:
         overwrite=_require_bool(_require_mapping(root.get("output"), "output"), "overwrite")
     )
     logging_cfg = _validate_logging(_require_mapping(root.get("logging"), "logging"))
-    return llm, llm_model, frame_sampling, keyframe_selection, output_cfg, logging_cfg
+    return (
+        llm,
+        llm_model,
+        llama_action_prompt_file,
+        frame_sampling,
+        keyframe_selection,
+        output_cfg,
+        logging_cfg,
+    )
 
 
 def _parse_video_paths(value: Any) -> List[Path]:
@@ -201,7 +214,15 @@ def _parse_run_entry(entry: Any, idx: int, shared: tuple) -> List[AppConfig]:
     """Parse one run entry and expand video_path list into one AppConfig per video."""
     if not isinstance(entry, dict):
         raise ConfigError(f"runs[{idx}] must be a mapping")
-    llm, llm_model, frame_sampling, keyframe_selection, output_cfg, logging_cfg = shared
+    (
+        llm,
+        llm_model,
+        llama_action_prompt_file,
+        frame_sampling,
+        keyframe_selection,
+        output_cfg,
+        logging_cfg,
+    ) = shared
     app_name = _require_str(entry, "app_name")
     video_paths = _parse_video_paths(entry.get("video_path"))
     return [
@@ -210,6 +231,7 @@ def _parse_run_entry(entry: Any, idx: int, shared: tuple) -> List[AppConfig]:
             video_path=video_path,
             llm=llm,
             llm_model=llm_model,
+            llama_action_prompt_file=llama_action_prompt_file,
             frame_sampling=frame_sampling,
             keyframe_selection=keyframe_selection,
             output=output_cfg,
@@ -253,12 +275,21 @@ def load_config(config_path: Path) -> PipelineConfig:
         # Legacy single-run format
         app_name = _require_str(root, "app_name")
         video_path = Path(_require_str(root, "video_path"))
-        llm, llm_model, frame_sampling, keyframe_selection, output_cfg, logging_cfg = shared
+        (
+            llm,
+            llm_model,
+            llama_action_prompt_file,
+            frame_sampling,
+            keyframe_selection,
+            output_cfg,
+            logging_cfg,
+        ) = shared
         runs = [AppConfig(
             app_name=app_name,
             video_path=video_path,
             llm=llm,
             llm_model=llm_model,
+            llama_action_prompt_file=llama_action_prompt_file,
             frame_sampling=frame_sampling,
             keyframe_selection=keyframe_selection,
             output=output_cfg,

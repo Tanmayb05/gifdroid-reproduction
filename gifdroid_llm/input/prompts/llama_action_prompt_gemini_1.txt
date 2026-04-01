@@ -1,0 +1,44 @@
+To ensure an LLM generates the exact JSON structure you need for your **GifDroid** reproduction workflow, you should use a "Schema-First" prompt. This tells the model not only what to look for, but exactly how to encode it.
+
+Here is the refined, detailed prompt in Markdown format:
+
+***
+
+# Prompt: High-Fidelity Video Trace Extraction (JSON)
+
+**Role:** You are an expert Android QA Automation Engineer specializing in bug reproducibility and UI state mapping.
+**Task:** Analyze the provided screen recording and generate a structured `replay_trace` in the exact JSON format specified below.
+
+### 1. Analysis Requirements
+* **Identify App:** Determine the app name from the launcher or header.
+* **Trace Every Transition:** Every tap, swipe, or system dialog must be captured as a `step_index`.
+* **Extract Metadata:** You must extract specific signal values, SSIDs, and timestamps from the UI.
+* **Heuristic Action Mapping:** If a visual transition occurs (e.g., a menu slides in), map it to the most likely user `action` (tap, scroll, wait, launch_app).
+
+### 2. Mandatory JSON Schema
+Your output must be a single JSON object. Do not include conversational text. Use the following keys:
+
+* `video`: The full local path to the source file.
+* `llm`: Your model identifier.
+* `video_type`: Set to "srv".
+* `app_name`: The identified application name.
+* `generated_at`: Current ISO 8601 timestamp.
+* `replay_trace`: An array of objects, each containing:
+    * `step_index`: Integer starting at 1.
+    * `timestamp_sec`: The float timestamp where the action occurs.
+    * `frame_file`: Naming convention `kf-000X.png` corresponding to the step.
+    * `screen_description`: A technical summary of the UI state and motion.
+    * `action`: Object with `type` (tap/scroll/wait/launch_app), `target` (UI element ID or name), and `details` (description of user intent).
+    * `confidence`: Float (0.0 to 1.0) representing your certainty of the action.
+
+### 3. Contextual Data (Variable)
+* **File Path:** `/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4`
+* **Target App:** WiFiAnalyzer (Open-Source)
+
+---
+**Constraint:** Return ONLY the JSON object. Ensure the `details` field mentions visual transitions or specific data points (e.g., "-50dBm", "Export selected") observed in the frames.
+
+***
+
+### Pro-Tip for Implementation:
+If you are using this in a script, you can replace the **File Path** and **Target App** sections with variables. This prompt forces the LLM to act as a "vision-to-json" parser rather than a chat assistant, which is critical for your `gifdroid-reproduction` pipeline.

@@ -7,6 +7,7 @@ import threading
 import time
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, Dict, List
 from urllib import error as url_error
 from urllib import request as url_request
@@ -380,6 +381,17 @@ class SonnetProvider(BaseLLMProvider):
 
 
 class LlamaProvider(BaseLLMProvider):
+    def __init__(
+        self,
+        llm_name: str,
+        llm_model: str,
+        env: Dict[str, str],
+        logger: logging.Logger,
+        action_prompt_path: Path,
+    ) -> None:
+        super().__init__(llm_name, llm_model, env, logger)
+        self.action_prompt_path = action_prompt_path
+
     def validate_connection(self) -> None:
         try:
             assert_llama_accessible(
@@ -448,37 +460,20 @@ class LlamaProvider(BaseLLMProvider):
             for idx, frame in enumerate(keyframes)
         ]
         joined = "\n".join(keyframe_lines)
-        return (
-            "You are a mobile QA engineer analysing screenshots from an Android app recording.\n"
-            "Each screenshot image is a keyframe extracted from the video at the listed timestamp.\n"
-            "Your task: describe what is visible on each screen and what user action caused the transition.\n"
-            "\n"
-            "Rules:\n"
-            "- Look at the actual screenshot image to write screen_description. Describe the visible UI: "
-            "screen title, main content area, buttons, dialogs, lists — be specific.\n"
-            "- action_type must be one of: launch, tap, type, swipe, scroll, wait, long_press, back, open_menu, select.\n"
-            "- target must name the concrete UI element the user interacted with (e.g. 'Enable AdAway button', "
-            "'Hosts sources list', 'OK dialog button'). Never use None, N/A, unknown, or null.\n"
-            "- details must explain in one sentence why that action was taken or what changed.\n"
-            "- confidence is a float 0-1 reflecting how certain you are from the visual evidence.\n"
-            "- motion_score hints at transition magnitude (0=static, high=large visual change); use it as a "
-            "secondary signal only — the screenshot is primary.\n"
-            "- Return ONLY a valid JSON array, no markdown fences, no extra text.\n"
-            "- The array must have EXACTLY one object per keyframe, in order.\n"
-            "\n"
-            "Example output format (2 keyframes):\n"
-            '[\n'
-            '  {"screen_description": "AdAway home screen showing Enable button and status disabled",'
-            ' "action_type": "launch", "target": "app_entrypoint",'
-            ' "details": "App launched and showing initial disabled state.", "confidence": 0.92},\n'
-            '  {"screen_description": "Hosts sources list with three entries and a refresh icon in toolbar",'
-            ' "action_type": "tap", "target": "Hosts sources menu item",'
-            ' "details": "User opened hosts sources to review blocklist entries.", "confidence": 0.85}\n'
-            ']\n'
-            "\n"
-            "Keyframes to analyse:\n"
-            f"{joined}\n"
-        )
+        try:
+            template = self.action_prompt_path.read_text(encoding="utf-8")
+        except OSError as exc:
+            raise ProviderError(
+                f"Failed to read llama_action_prompt_file: {self.action_prompt_path}"
+            ) from exc
+
+        if "{KEYFRAMES}" in template:
+            return template.replace("{KEYFRAMES}", joined)
+        if "{keyframes}" in template:
+            return template.replace("{keyframes}", joined)
+        if not template.endswith("\n"):
+            template += "\n"
+        return f"{template}\nKeyframes to analyse:\n{joined}\n"
 
     def _call_llama(
         self,
@@ -507,6 +502,7 @@ class LlamaProvider(BaseLLMProvider):
         payload: Dict[str, Any] = {
             "model": self.llm_model,
             "temperature": 0.1,
+            "repeat_penalty": 1.3,
             "stream": True,
         }
         if self._supports_vision() and keyframes:
@@ -781,6 +777,7 @@ def create_provider(
     llm_model: str,
     env: Dict[str, str],
     logger: logging.Logger,
+    llama_action_prompt_file: Path | None = None,
 ) -> BaseLLMProvider:
     provider_key = llm_name.lower()
     if provider_key == "gemini":
@@ -788,7 +785,10 @@ def create_provider(
     if provider_key in {"sonnet", "claude"}:
         return SonnetProvider(provider_key, llm_model, env, logger)
     if provider_key == "llama":
-        return LlamaProvider(provider_key, llm_model, env, logger)
+        prompt_path = llama_action_prompt_file or Path(
+            "gifdroid_llm/input/prompts/llama_action_prompt.txt"
+        )
+        return LlamaProvider(provider_key, llm_model, env, logger, prompt_path)
     if provider_key == "qwen":
         return QwenProvider(provider_key, llm_model, env, logger)
 
