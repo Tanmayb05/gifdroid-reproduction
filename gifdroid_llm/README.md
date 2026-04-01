@@ -39,6 +39,23 @@ Optional dry-run:
 python -m gifdroid_llm.main --dry-run
 ```
 
+## Reset Existing Runs
+Use this to wipe run directories for selected app/UTG targets and reset each target's `manifest.json` (`runs` and `latest` are cleared; `videos` remain unchanged).
+
+Preview first:
+```bash
+python -m gifdroid_llm.reset_runs \
+  --config gifdroid_llm/input/reset_runs.example.yml \
+  --dry-run
+```
+
+Apply:
+```bash
+python -m gifdroid_llm.reset_runs \
+  --config gifdroid_llm/input/reset_runs.example.yml \
+  --apply
+```
+
 ## Notes
 - Provider adapters are implemented with a common interface.
 - Gemini now performs a real API preflight check at startup and logs request/wait/response timings (supports API key or ADC/default creds), and logs the selected auth route (`api_key` or `adc_default`) and both ADC project vs runtime Vertex project; Sonnet/Llama/Qwen remain adapter stubs.

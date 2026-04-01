@@ -30,6 +30,14 @@
       "source": "screenrec",
       "status": "migrated",
       "path": "runs/baseline/screenrec/run-003/"
+    },
+    {
+      "id": "run-004",
+      "method": "llm",
+      "source": "handheld",
+      "status": "success",
+      "path": "runs/llm/gemini/gemini-2-5-flash/handheld/run-004/",
+      "variant": "gemini-2-5-flash"
     }
   ],
   "latest": {
@@ -38,6 +46,7 @@
     "homography": "run-001",
     "hysteresis": "run-001",
     "stabilize": "run-001",
-    "vlm": "run-001"
+    "vlm": "run-001",
+    "llm_gemini_2_5_flash": "run-004"
   }
 }

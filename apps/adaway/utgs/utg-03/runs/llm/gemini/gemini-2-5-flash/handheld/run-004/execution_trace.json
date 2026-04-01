@@ -1,0 +1,190 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/handheld/hhv-001.mp4",
+  "llm": "gemini",
+  "video_type": "hhv",
+  "app_name": "AdAway",
+  "utg_number": "utg-03",
+  "generated_at": "2026-04-01T01:04:00.430763+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "App home screen",
+      "action": {
+        "type": "Launch app",
+        "target": "Application",
+        "details": "User opens the application and lands on the home screen."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.333,
+      "frame_file": "kf-0002.png",
+      "screen_description": "Main navigation screen",
+      "action": {
+        "type": "Tap",
+        "target": "Navigation item",
+        "details": "User taps on a navigation item to proceed to a new section."
+      },
+      "confidence": 0.75
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 2.667,
+      "frame_file": "kf-0003.png",
+      "screen_description": "Content list screen",
+      "action": {
+        "type": "Scroll",
+        "target": "Scrollable list",
+        "details": "User scrolls down a list to browse available content."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 6.0,
+      "frame_file": "kf-0004.png",
+      "screen_description": "Content list screen",
+      "action": {
+        "type": "Scroll",
+        "target": "Scrollable list",
+        "details": "User continues scrolling through the content list."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 8.0,
+      "frame_file": "kf-0005.png",
+      "screen_description": "Content list screen",
+      "action": {
+        "type": "Tap",
+        "target": "List item",
+        "details": "User taps on a specific item within the list to view its details."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 15.333,
+      "frame_file": "kf-0006.png",
+      "screen_description": "Item detail screen",
+      "action": {
+        "type": "Navigate",
+        "target": "Detail view",
+        "details": "The application navigates to the detailed view of the selected item."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 27.333,
+      "frame_file": "kf-0007.png",
+      "screen_description": "Item detail screen",
+      "action": {
+        "type": "Tap",
+        "target": "Action button",
+        "details": "User taps on an action button (e.g., 'Edit', 'Add to Cart') on the detail screen."
+      },
+      "confidence": 0.75
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 28.667,
+      "frame_file": "kf-0008.png",
+      "screen_description": "Item detail screen",
+      "action": {
+        "type": "Scroll",
+        "target": "Detail content area",
+        "details": "User scrolls to view more details or options on the item's page."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 9,
+      "timestamp_sec": 32.0,
+      "frame_file": "kf-0009.png",
+      "screen_description": "Configuration/Form screen",
+      "action": {
+        "type": "Navigate",
+        "target": "New screen/modal",
+        "details": "User navigates to a new screen or modal for configuration or form input."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 10,
+      "timestamp_sec": 34.667,
+      "frame_file": "kf-0010.png",
+      "screen_description": "Processing/Confirmation screen",
+      "action": {
+        "type": "Submit form",
+        "target": "Submit button",
+        "details": "User submits a form or confirms an action, leading to a significant screen update or transition."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 11,
+      "timestamp_sec": 36.667,
+      "frame_file": "kf-0011.png",
+      "screen_description": "Result/Confirmation screen",
+      "action": {
+        "type": "Tap",
+        "target": "Dismiss button",
+        "details": "User taps to dismiss a confirmation message or acknowledge a result."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 12,
+      "timestamp_sec": 38.0,
+      "frame_file": "kf-0012.png",
+      "screen_description": "Previous screen or updated screen",
+      "action": {
+        "type": "Scroll",
+        "target": "Content area",
+        "details": "User scrolls through the updated content or a previous screen after an action."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 13,
+      "timestamp_sec": 39.333,
+      "frame_file": "kf-0013.png",
+      "screen_description": "Another section of the app",
+      "action": {
+        "type": "Navigate",
+        "target": "New section",
+        "details": "User navigates to a different section of the application."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 14,
+      "timestamp_sec": 41.333,
+      "frame_file": "kf-0014.png",
+      "screen_description": "New section screen",
+      "action": {
+        "type": "Tap",
+        "target": "Interactive element",
+        "details": "User interacts with an element on the current screen in the new section."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 15,
+      "timestamp_sec": 43.333,
+      "frame_file": "kf-0015.png",
+      "screen_description": "Final screen state",
+      "action": {
+        "type": "Observe",
+        "target": "Screen content",
+        "details": "User observes the final state of the application, potentially where the bug is visible."
+      },
+      "confidence": 0.85
+    }
+  ]
+}
