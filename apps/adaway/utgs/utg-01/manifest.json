@@ -11,42 +11,23 @@
   },
   "runs": [
     {
-      "id": "run-001",
-      "method": "baseline",
-      "source": "handheld",
-      "status": "migrated",
-      "path": "runs/baseline/handheld/run-001/"
-    },
-    {
       "id": "run-002",
-      "method": "baseline",
-      "source": "handheld",
-      "status": "migrated",
-      "path": "runs/baseline/handheld/run-002/"
-    },
-    {
-      "id": "run-003",
-      "method": "baseline",
-      "source": "screenrec",
-      "status": "migrated",
-      "path": "runs/baseline/screenrec/run-003/"
-    },
-    {
-      "id": "run-004",
       "method": "llm",
       "source": "handheld",
       "status": "success",
-      "path": "runs/llm/gemini/gemini-2-5-flash/handheld/run-004/",
+      "path": "runs/llm/gemini/gemini-2-5-flash/handheld/run-002/",
+      "variant": "gemini-2-5-flash"
+    },
+    {
+      "id": "run-002",
+      "method": "llm",
+      "source": "screenrec",
+      "status": "success",
+      "path": "runs/llm/gemini/gemini-2-5-flash/screenrec/run-002/",
       "variant": "gemini-2-5-flash"
     }
   ],
   "latest": {
-    "baseline": "run-003",
-    "clip": "run-001",
-    "homography": "run-001",
-    "hysteresis": "run-001",
-    "stabilize": "run-001",
-    "vlm": "run-001",
-    "llm_gemini_2_5_flash": "run-004"
+    "llm_gemini_2_5_flash": "run-002"
   }
 }

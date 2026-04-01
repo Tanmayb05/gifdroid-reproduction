@@ -1,0 +1,106 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4",
+  "llm": "gemini",
+  "video_type": "srv",
+  "app_name": "AdAway",
+  "utg_number": "utg-02",
+  "generated_at": "2026-04-01T01:24:07.070953+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "Initial app state or home screen.",
+      "action": {
+        "type": "App Launch",
+        "target": "Application",
+        "details": "The application is launched or is at its initial state."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.311,
+      "frame_file": "kf-0002.png",
+      "screen_description": "Navigating to a new section or feature.",
+      "action": {
+        "type": "Tap",
+        "target": "Interactive element (e.g., button, list item)",
+        "details": "User interacts with the screen, likely tapping an element to proceed to a new view."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 2.622,
+      "frame_file": "kf-0003.png",
+      "screen_description": "Displaying a new screen or loading content.",
+      "action": {
+        "type": "Screen Transition",
+        "target": "New screen content",
+        "details": "The app transitions to a new view, possibly with some dynamic content or loading animation."
+      },
+      "confidence": 0.75
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 5.244,
+      "frame_file": "kf-0004.png",
+      "screen_description": "Viewing content on a specific screen.",
+      "action": {
+        "type": "View",
+        "target": "Screen content",
+        "details": "User is observing the content on the current screen, with minimal interaction."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 6.555,
+      "frame_file": "kf-0005.png",
+      "screen_description": "Continued viewing or minor interaction on the same screen.",
+      "action": {
+        "type": "View / Minor Scroll",
+        "target": "Screen content",
+        "details": "User continues to observe the screen, possibly with a slight scroll or subtle interaction."
+      },
+      "confidence": 0.7
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 7.866,
+      "frame_file": "kf-0006.png",
+      "screen_description": "User is paused or waiting on the current screen.",
+      "action": {
+        "type": "Wait / Idle",
+        "target": "Screen",
+        "details": "The screen is mostly static, indicating the user is waiting or has paused interaction."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 12.454,
+      "frame_file": "kf-0007.png",
+      "screen_description": "User performs another interaction, potentially triggering an issue.",
+      "action": {
+        "type": "Tap / Interact",
+        "target": "Interactive element (e.g., button, input field)",
+        "details": "After a period of inactivity, the user performs a significant action that might lead to the bug."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 29.497,
+      "frame_file": "kf-0008.png",
+      "screen_description": "Application is unresponsive or crashed.",
+      "action": {
+        "type": "App Freeze / Crash",
+        "target": "Application",
+        "details": "The application has become unresponsive or crashed, indicated by a very low motion score over a long duration. This is the likely bug manifestation."
+      },
+      "confidence": 0.95
+    }
+  ]
+}

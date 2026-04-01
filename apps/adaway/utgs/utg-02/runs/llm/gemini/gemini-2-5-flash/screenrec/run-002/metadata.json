@@ -1,0 +1,22 @@
+{
+  "app": "adaway",
+  "utg": "utg-02",
+  "method": "llm",
+  "variant": "gemini-2-5-flash",
+  "source": "screenrec",
+  "video": "srv-001.mp4",
+  "config": {
+    "frame_sampling": {
+      "strategy": "uniform",
+      "fps": 1.5,
+      "max_frames": 100
+    },
+    "keyframe_selection": {
+      "method": "llm_assisted",
+      "min_gap_seconds": 1.0
+    }
+  },
+  "timestamp": "2026-04-01T01:24:07",
+  "duration_sec": 14.3,
+  "status": "success"
+}
