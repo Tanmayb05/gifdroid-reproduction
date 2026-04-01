@@ -3,6 +3,7 @@ from __future__ import annotations
 import base64
 import json
 import logging
+import threading
 import time
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
@@ -43,6 +44,7 @@ class BaseLLMProvider(ABC):
         self.llm_model = llm_model
         self.env = env
         self.logger = logger
+        self.raw_llm_response: str | None = None
 
     @abstractmethod
     def infer_actions(self, keyframes: List[Keyframe]) -> List[ProviderAction]:
@@ -400,11 +402,17 @@ class LlamaProvider(BaseLLMProvider):
         )
         prompt = self._build_action_prompt(keyframes)
         raw_timeout = str(self.env.get("LLAMA_TIMEOUT_SEC", "")).strip()
-        try:
-            timeout_sec = int(raw_timeout) if raw_timeout else 180
-        except ValueError:
-            timeout_sec = 180
-        self.logger.info("Llama inference timeout | timeout_sec=%d", timeout_sec)
+        timeout_sec: int | None = None
+        if raw_timeout:
+            try:
+                parsed = int(raw_timeout)
+                timeout_sec = parsed if parsed > 0 else None
+            except ValueError:
+                pass
+        self.logger.info(
+            "Llama inference timeout | timeout_sec=%s",
+            timeout_sec if timeout_sec is not None else "unlimited",
+        )
         try:
             raw_text = self._call_llama(
                 prompt=prompt,
@@ -412,6 +420,7 @@ class LlamaProvider(BaseLLMProvider):
                 timeout_sec=timeout_sec,
                 request_kind="action_inference",
             )
+            self.raw_llm_response = raw_text
             parsed = self._parse_actions(raw_text, keyframes)
             if parsed:
                 self.logger.info(
@@ -475,7 +484,7 @@ class LlamaProvider(BaseLLMProvider):
         self,
         prompt: str,
         keyframes: List[Keyframe] | None,
-        timeout_sec: int,
+        timeout_sec: int | None,
         request_kind: str,
     ) -> str:
         base_url = str(self.env.get("LLAMA_BASE_URL", "")).strip()
@@ -498,6 +507,7 @@ class LlamaProvider(BaseLLMProvider):
         payload: Dict[str, Any] = {
             "model": self.llm_model,
             "temperature": 0.1,
+            "stream": True,
         }
         if self._supports_vision() and keyframes:
             payload["messages"] = [
@@ -524,51 +534,80 @@ class LlamaProvider(BaseLLMProvider):
             url,
         )
         start = time.perf_counter()
+
+        # Heartbeat: log every 2 min while waiting so the log shows the model is still working
+        heartbeat_stop = threading.Event()
+        def _heartbeat() -> None:
+            interval = 120
+            elapsed_hb = 0
+            while not heartbeat_stop.wait(timeout=interval):
+                elapsed_hb += interval
+                self.logger.info(
+                    "Llama still processing | kind=%s | elapsed_sec=%d | tokens_so_far=%d",
+                    request_kind,
+                    elapsed_hb,
+                    len(accumulated_tokens),
+                )
+        accumulated_tokens: List[str] = []
+        hb_thread = threading.Thread(target=_heartbeat, daemon=True)
+        hb_thread.start()
+
         try:
             with url_request.urlopen(req, timeout=timeout_sec) as response:
-                response_text = response.read().decode("utf-8")
+                for raw_line in response:
+                    line = raw_line.decode("utf-8").strip()
+                    if not line:
+                        continue
+                    # Strip SSE "data: " prefix if present
+                    if line.startswith("data:"):
+                        line = line[len("data:"):].strip()
+                    if line in ("[DONE]", ""):
+                        continue
+                    try:
+                        chunk = json.loads(line)
+                    except json.JSONDecodeError:
+                        continue
+                    delta = ""
+                    choices = chunk.get("choices")
+                    if isinstance(choices, list) and choices:
+                        delta = str(choices[0].get("delta", {}).get("content") or "")
+                    if delta:
+                        accumulated_tokens.append(delta)
+                        self.logger.debug("Llama token chunk | chars=%d | content=%r", len(delta), delta[:80])
         except url_error.HTTPError as exc:
+            heartbeat_stop.set()
             err_body = exc.read().decode("utf-8", errors="replace")
             raise ProviderError(
                 f"Llama HTTP error {exc.code} during {request_kind}: {err_body[:300]}"
             ) from exc
         except url_error.URLError as exc:
+            heartbeat_stop.set()
             raise ProviderError(f"Llama URL error during {request_kind}: {exc}") from exc
         except TimeoutError as exc:
+            heartbeat_stop.set()
+            partial = "".join(accumulated_tokens)
+            self.logger.warning(
+                "Llama request timed out during %s after %ss | partial_chars=%d | partial_preview=%r",
+                request_kind,
+                timeout_sec,
+                len(partial),
+                partial[:200],
+            )
             raise ProviderError(
                 f"Llama request timed out during {request_kind} after {timeout_sec}s"
             ) from exc
+        finally:
+            heartbeat_stop.set()
 
         elapsed = time.perf_counter() - start
+        full_text = "".join(accumulated_tokens)
         self.logger.info(
-            "Llama API response received | kind=%s | elapsed_sec=%.2f",
+            "Llama API response complete | kind=%s | elapsed_sec=%.2f | total_chars=%d",
             request_kind,
             elapsed,
+            len(full_text),
         )
-
-        try:
-            data = json.loads(response_text)
-            return self._extract_text(data)
-        except (json.JSONDecodeError, KeyError, TypeError) as exc:
-            raise ProviderError(f"Invalid Llama response format during {request_kind}") from exc
-
-    def _extract_text(self, response_data: Dict[str, object]) -> str:
-        choices = response_data.get("choices")
-        if not isinstance(choices, list) or not choices:
-            raise ProviderError("Llama response missing choices")
-
-        first = choices[0]
-        if not isinstance(first, dict):
-            raise ProviderError("Llama choice payload has invalid structure")
-
-        message = first.get("message")
-        if not isinstance(message, dict):
-            raise ProviderError("Llama response missing message")
-
-        content = message.get("content")
-        if not isinstance(content, str) or not content.strip():
-            raise ProviderError("Llama response contained empty content")
-        return content.strip()
+        return full_text
 
     def _parse_actions(
         self,
@@ -586,7 +625,16 @@ class LlamaProvider(BaseLLMProvider):
                     text = cleaned
                     break
         if not text.startswith("["):
-            return None
+            bracket_idx = text.find("\n[")
+            if bracket_idx != -1:
+                text = text[bracket_idx:].strip()
+            else:
+                return None
+
+        # Strip any trailing prose after the JSON array (e.g. "Note: ..." lines)
+        bracket_end = text.rfind("]")
+        if bracket_end != -1:
+            text = text[: bracket_end + 1]
 
         try:
             parsed = json.loads(text)

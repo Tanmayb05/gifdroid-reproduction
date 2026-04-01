@@ -26,6 +26,7 @@ class OutputLayout:
     metadata_path: Path
     log_file_path: Path
     run_id: str
+    llm_raw_response_path: Path
 
 
 def detect_video_type(video_path: Path) -> VideoType:
@@ -75,18 +76,31 @@ def _next_run_id(run_parent_dir: Path) -> str:
     return f"run-{max_num + 1:03d}"
 
 
+def _build_cfg_slug(fs: FrameSamplingConfig, ks: KeyframeSelectionConfig) -> str:
+    """Build a human-readable slug encoding all four sampling config fields.
+
+    Example: fps1-5__max100__llm-assisted__gap1-0
+    """
+    fps_str = f"fps{fs.fps:.10g}".replace(".", "-")
+    max_str = f"max{fs.max_frames}"
+    method_str = re.sub(r"[^a-z0-9-]+", "-", ks.method.lower()).strip("-")
+    gap_str = f"gap{ks.min_gap_seconds:.10g}".replace(".", "-")
+    return f"{fps_str}__{max_str}__{method_str}__{gap_str}"
+
+
 def create_output_layout(
     project_root: Path,
     cfg: AppConfig,
     video_type: VideoType,
     run_dt: datetime,
 ) -> OutputLayout:
-    """Build all output paths under apps/{app}/llm/{provider}/{model}/{source}/run-NNN/."""
+    """Build all output paths under apps/{app}/llm/{provider}/{model}/{source}/{cfg_slug}/run-NNN/."""
     provider = cfg.llm.lower()
     model_slug = re.sub(r"[^a-z0-9-]+", "-", cfg.llm_model.lower()).strip("-")
     if not model_slug:
         model_slug = "model"
     source = "handheld" if video_type == "hhv" else "screenrec"
+    cfg_slug = _build_cfg_slug(cfg.frame_sampling, cfg.keyframe_selection)
 
     run_parent = (
         project_root
@@ -96,6 +110,7 @@ def create_output_layout(
         / provider
         / model_slug
         / source
+        / cfg_slug
     )
     run_id = _next_run_id(run_parent)
     run_dir = run_parent / run_id
@@ -112,6 +127,7 @@ def create_output_layout(
         metadata_path=run_dir / "metadata.json",
         log_file_path=log_file,
         run_id=run_id,
+        llm_raw_response_path=run_dir / "llm_raw_response.txt",
     )
 
 

@@ -1,0 +1,15 @@
+2026-04-01 01:04:26 | INFO | === gifdroid_llm.2026-04-01T05-04-26__run-002__pipeline__started ===
+2026-04-01 01:04:26 | INFO | Starting gifdroid_llm pipeline
+2026-04-01 01:04:26 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4
+2026-04-01 01:04:26 | INFO | Environment validated for llm=llama model=llama3.2-vision
+2026-04-01 01:04:26 | INFO | Running llama prerequisite check before trace generation | timeout=unlimited
+2026-04-01 01:06:11 | INFO | Starting frame extraction | native_fps=25.935 target_fps=1.500 stride=17 total_frames=772
+2026-04-01 01:06:12 | INFO | Frame extraction complete | sampled_frames=46
+2026-04-01 01:06:12 | INFO | Keyframe selection complete | method=llm_assisted threshold=4.514 selected=8 sampled=46
+2026-04-01 01:06:12 | INFO | Sending Llama inference request | model=llama3.2-vision | keyframes=8
+2026-04-01 01:06:12 | INFO | Llama inference timeout | timeout_sec=180
+2026-04-01 01:06:12 | INFO | Llama API request sent | kind=action_inference | model=llama3.2-vision | endpoint=http://localhost:11434/v1/chat/completions | waiting for response
+2026-04-01 01:09:12 | WARNING | Llama inference request failed (Llama request timed out during action_inference after 180s); falling back to deterministic heuristic.
+2026-04-01 01:09:12 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/llama/llama3-2-vision/screenrec/fps1-5__max100__llm-assisted__gap1/run-002/execution_trace.json
+2026-04-01 01:09:12 | INFO | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/llama/llama3-2-vision/screenrec/fps1-5__max100__llm-assisted__gap1/run-002/frames_manifest.json
+2026-04-01 01:09:12 | INFO | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/llama/llama3-2-vision/screenrec/fps1-5__max100__llm-assisted__gap1/run-002/keyframes

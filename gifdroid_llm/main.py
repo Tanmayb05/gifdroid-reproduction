@@ -182,6 +182,11 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
         write_json(layout.execution_trace_json_path, trace_payload)
         write_json(layout.frames_manifest_path, manifest_payload)
 
+        if provider.raw_llm_response is not None:
+            layout.llm_raw_response_path.parent.mkdir(parents=True, exist_ok=True)
+            layout.llm_raw_response_path.write_text(provider.raw_llm_response, encoding="utf-8")
+            logger.info("LLM raw response written: %s", layout.llm_raw_response_path)
+
         logger.info("Execution trace written: %s", layout.execution_trace_json_path)
         logger.info("Frames manifest written: %s", layout.frames_manifest_path)
         logger.info("Saved keyframes: %s", layout.keyframes_dir)
