@@ -25,9 +25,26 @@
       "status": "success",
       "path": "runs/llm/gemini/gemini-2-5-flash/screenrec/run-002/",
       "variant": "gemini-2-5-flash"
+    },
+    {
+      "id": "run-002",
+      "method": "llm",
+      "source": "handheld",
+      "status": "success",
+      "path": "runs/llm/gemini/gemini-2-5-pro/handheld/run-002/",
+      "variant": "gemini-2-5-pro"
+    },
+    {
+      "id": "run-002",
+      "method": "llm",
+      "source": "screenrec",
+      "status": "success",
+      "path": "runs/llm/gemini/gemini-2-5-pro/screenrec/run-002/",
+      "variant": "gemini-2-5-pro"
     }
   ],
   "latest": {
-    "llm_gemini_2_5_flash": "run-002"
+    "llm_gemini_2_5_flash": "run-002",
+    "llm_gemini_2_5_pro": "run-002"
   }
 }

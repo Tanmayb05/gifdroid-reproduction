@@ -1,0 +1,106 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4",
+  "llm": "gemini",
+  "video_type": "srv",
+  "app_name": "AdAway",
+  "utg_number": "utg-02",
+  "generated_at": "2026-04-01T01:28:35.875520+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "Initial screen of the application is loaded.",
+      "action": {
+        "type": "LAUNCH",
+        "target": "Application",
+        "details": "The application is launched and the first screen is displayed. No user interaction has occurred yet."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.311,
+      "frame_file": "kf-0002.png",
+      "screen_description": "A screen transition occurs, possibly to a login or main menu page.",
+      "action": {
+        "type": "TAP",
+        "target": "A button or interactive element on the initial screen.",
+        "details": "A tap action is inferred due to the high motion score, causing a significant change in the UI."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 2.622,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The new screen finishes loading or animating.",
+      "action": {
+        "type": "WAIT",
+        "target": "N/A",
+        "details": "The moderate motion score suggests the end of a screen transition or loading animation from the previous action."
+      },
+      "confidence": 0.75
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 5.244,
+      "frame_file": "kf-0004.png",
+      "screen_description": "User is observing the screen, possibly reading content or deciding on the next action.",
+      "action": {
+        "type": "WAIT",
+        "target": "N/A",
+        "details": "The low motion score over a 2.6-second interval indicates a pause in user interaction."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 6.555,
+      "frame_file": "kf-0005.png",
+      "screen_description": "User continues to observe the screen.",
+      "action": {
+        "type": "WAIT",
+        "target": "N/A",
+        "details": "Continued low motion suggests the user is still observing the same screen without interaction."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 7.866,
+      "frame_file": "kf-0006.png",
+      "screen_description": "User continues to observe the screen before taking an action.",
+      "action": {
+        "type": "WAIT",
+        "target": "N/A",
+        "details": "The user remains on the same screen, likely preparing for the next interaction."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 12.454,
+      "frame_file": "kf-0007.png",
+      "screen_description": "A new UI element appears or a screen transition begins.",
+      "action": {
+        "type": "TAP",
+        "target": "A button or list item.",
+        "details": "After a long pause, the moderate motion score strongly suggests a user tap on an interactive element."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 29.497,
+      "frame_file": "kf-0008.png",
+      "screen_description": "The application is in a static state, possibly frozen or on a final confirmation screen.",
+      "action": {
+        "type": "WAIT",
+        "target": "N/A",
+        "details": "The very long delay (17 seconds) followed by almost no motion suggests the user is observing the result of the last action, which may be the bug itself (e.g., an unresponsive screen)."
+      },
+      "confidence": 0.8
+    }
+  ]
+}
