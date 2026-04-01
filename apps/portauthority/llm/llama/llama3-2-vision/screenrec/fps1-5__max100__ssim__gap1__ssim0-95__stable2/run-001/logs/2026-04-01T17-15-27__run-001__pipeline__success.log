@@ -1,0 +1,35 @@
+2026-04-01 13:15:27 | INFO | === gifdroid_llm.2026-04-01T17-15-27__run-001__pipeline__started ===
+2026-04-01 13:15:27 | INFO | Starting gifdroid_llm pipeline
+2026-04-01 13:15:27 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/portauthority/videos/screenrec/srv-001.mp4
+2026-04-01 13:15:27 | INFO | Environment validated for llm=llama model=llama3.2-vision
+2026-04-01 13:15:27 | INFO | Running llama prerequisite check before trace generation | timeout=unlimited
+2026-04-01 13:15:27 | INFO | Starting frame extraction | native_fps=26.556 target_fps=1.500 stride=18 total_frames=3050
+2026-04-01 13:15:31 | INFO | Applied max_frames constraint | before=170 after=100
+2026-04-01 13:15:31 | INFO | Frame extraction complete | sampled_frames=100
+2026-04-01 13:15:39 | INFO | Keyframe selection complete | method=ssim ssim_threshold=0.950 stable_threshold=2 selected=8 sampled=100
+2026-04-01 13:15:39 | INFO | Sending Llama inference request | model=llama3.2-vision | keyframes=8
+2026-04-01 13:15:39 | INFO | Llama inference timeout | timeout_sec=unlimited
+2026-04-01 13:15:39 | INFO | Llama API request sent | kind=action_inference | model=llama3.2-vision | endpoint=http://localhost:11434/v1/chat/completions | waiting for response
+2026-04-01 13:17:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=120 | tokens_so_far=0
+2026-04-01 13:19:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=240 | tokens_so_far=1330
+2026-04-01 13:21:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=360 | tokens_so_far=2821
+2026-04-01 13:23:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=480 | tokens_so_far=5193
+2026-04-01 13:25:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=600 | tokens_so_far=7948
+2026-04-01 13:27:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=720 | tokens_so_far=10691
+2026-04-01 13:29:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=840 | tokens_so_far=13422
+2026-04-01 13:31:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=960 | tokens_so_far=16179
+2026-04-01 13:33:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=1080 | tokens_so_far=18919
+2026-04-01 13:35:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=1200 | tokens_so_far=21650
+2026-04-01 13:37:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=1320 | tokens_so_far=24409
+2026-04-01 13:39:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=1440 | tokens_so_far=27153
+2026-04-01 13:41:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=1560 | tokens_so_far=29885
+2026-04-01 13:43:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=1680 | tokens_so_far=32642
+2026-04-01 13:45:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=1800 | tokens_so_far=35386
+2026-04-01 13:47:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=1920 | tokens_so_far=38115
+2026-04-01 13:49:39 | INFO | Llama still processing | kind=action_inference | elapsed_sec=2040 | tokens_so_far=40870
+2026-04-01 13:49:43 | INFO | Llama API response complete | kind=action_inference | elapsed_sec=2044.09 | total_chars=41097
+2026-04-01 13:49:43 | WARNING | Llama response could not be parsed into actions; falling back to deterministic heuristic.
+2026-04-01 13:49:43 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/portauthority/llm/llama/llama3-2-vision/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/llm_raw_response.txt
+2026-04-01 13:49:43 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/portauthority/llm/llama/llama3-2-vision/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/execution_trace.json
+2026-04-01 13:49:43 | INFO | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/portauthority/llm/llama/llama3-2-vision/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/frames_manifest.json
+2026-04-01 13:49:43 | INFO | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/portauthority/llm/llama/llama3-2-vision/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/keyframes

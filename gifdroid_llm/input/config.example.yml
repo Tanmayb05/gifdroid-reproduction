@@ -18,9 +18,14 @@ frame_sampling:
   max_frames: 100
 
 keyframe_selection:
-  # "heuristic": time-gap based. "llm_assisted": motion-score assisted.
+  # "heuristic": motion-threshold based.
+  # "llm_assisted": currently same behavior as heuristic.
+  # "ssim": GIFdroid-style stable-screen detection via consecutive-frame SSIM.
   method: "heuristic"
   min_gap_seconds: 2.0
+  # Used only by method="ssim"
+  ssim_threshold: 0.95
+  stable_threshold: 2
 
 output:
   # If false, skip runs where execution_trace.json already exists.

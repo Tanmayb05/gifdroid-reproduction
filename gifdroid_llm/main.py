@@ -231,7 +231,11 @@ def run_pipeline(args: argparse.Namespace) -> int:
     for i, cfg in enumerate(runs, start=1):
         if len(runs) > 1:
             print(f"[gifdroid_llm] --- Run {i}/{len(runs)}: {cfg.app_name} ({cfg.video_path}) ---")
-        code = run_single(args, cfg)
+        try:
+            code = run_single(args, cfg)
+        except VideoError as exc:
+            print(f"[gifdroid_llm] SKIP run {i}/{len(runs)}: {exc}")
+            continue
         if code != 0:
             exit_code = code
     return exit_code

@@ -1,10 +1,5 @@
-# CLI (run with this config):
+# CLI:
 # .venv/bin/python -m gifdroid_llm.main --config gifdroid_llm/input/config.yml --env-file .env.local
-# .venv/bin/python -m gifdroid_llm.main --config gifdroid_llm/input/config.yml --env-file .env.local --dry-run
-
-# -----------------
-# Shared Settings
-# -----------------
 
 llm: "llama"
 llm_model: "llama3.2-vision"
@@ -15,8 +10,11 @@ frame_sampling:
   max_frames: 100
 
 keyframe_selection:
-  method: "llm_assisted"
+  # Options: "heuristic", "llm_assisted", "ssim"
+  method: "ssim"
   min_gap_seconds: 1.0
+  ssim_threshold: 0.95
+  stable_threshold: 2
 
 output:
   overwrite: true
@@ -24,15 +22,53 @@ output:
 logging:
   level: "INFO"
 
-# -----------------
-# Run Definitions
-# -----------------
-
 runs:
-  - app_name: "AdAway"
-    video_path:
-      - "apps/adaway/videos/handheld/hhv-001.mp4"
-      # - "apps/adaway/videos/screenrec/srv-001.mp4"
+  # - app_name: "adaway"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  # - app_name: "AntennaPod"
-  #   video_path: "apps/antennapod/videos/handheld/hhv-001.mp4"
+  # - app_name: "antennapod"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  - app_name: "deadhash"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "homemedkit"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "jigsaw"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "luxalarm"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "pomodorot"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "portauthority"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "simplenotes"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "wifianalyzer"
+    video_path:
+      - "hhv"
+      - "srv"

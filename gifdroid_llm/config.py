@@ -22,6 +22,8 @@ class FrameSamplingConfig:
 class KeyframeSelectionConfig:
     method: str
     min_gap_seconds: float
+    stable_threshold: int
+    ssim_threshold: float
 
 
 @dataclass(frozen=True)
@@ -114,14 +116,34 @@ def _validate_frame_sampling(raw: Dict[str, Any]) -> FrameSamplingConfig:
 
 def _validate_keyframe_selection(raw: Dict[str, Any]) -> KeyframeSelectionConfig:
     method = _require_str(raw, "method").lower()
-    if method not in {"heuristic", "llm_assisted"}:
-        raise ConfigError("keyframe_selection.method must be 'heuristic' or 'llm_assisted'")
+    if method not in {"heuristic", "llm_assisted", "ssim"}:
+        raise ConfigError(
+            "keyframe_selection.method must be 'heuristic', 'llm_assisted', or 'ssim'"
+        )
 
     min_gap = _require_number(raw, "min_gap_seconds")
     if min_gap < 0:
         raise ConfigError("keyframe_selection.min_gap_seconds must be >= 0")
 
-    return KeyframeSelectionConfig(method=method, min_gap_seconds=min_gap)
+    stable_threshold_raw = raw.get("stable_threshold", 2)
+    if not isinstance(stable_threshold_raw, int):
+        raise ConfigError("keyframe_selection.stable_threshold must be an integer when provided")
+    if stable_threshold_raw < 0:
+        raise ConfigError("keyframe_selection.stable_threshold must be >= 0")
+
+    ssim_threshold_raw = raw.get("ssim_threshold", 0.95)
+    if not isinstance(ssim_threshold_raw, (int, float)):
+        raise ConfigError("keyframe_selection.ssim_threshold must be a number when provided")
+    ssim_threshold = float(ssim_threshold_raw)
+    if ssim_threshold <= 0 or ssim_threshold > 1:
+        raise ConfigError("keyframe_selection.ssim_threshold must be in (0, 1]")
+
+    return KeyframeSelectionConfig(
+        method=method,
+        min_gap_seconds=min_gap,
+        stable_threshold=stable_threshold_raw,
+        ssim_threshold=ssim_threshold,
+    )
 
 
 def _validate_logging(raw: Dict[str, Any]) -> LoggingConfig:

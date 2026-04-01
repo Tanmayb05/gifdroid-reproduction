@@ -85,6 +85,10 @@ def _build_cfg_slug(fs: FrameSamplingConfig, ks: KeyframeSelectionConfig) -> str
     max_str = f"max{fs.max_frames}"
     method_str = re.sub(r"[^a-z0-9-]+", "-", ks.method.lower()).strip("-")
     gap_str = f"gap{ks.min_gap_seconds:.10g}".replace(".", "-")
+    if ks.method == "ssim":
+        ssim_str = f"ssim{ks.ssim_threshold:.10g}".replace(".", "-")
+        stable_str = f"stable{ks.stable_threshold}"
+        return f"{fps_str}__{max_str}__{method_str}__{gap_str}__{ssim_str}__{stable_str}"
     return f"{fps_str}__{max_str}__{method_str}__{gap_str}"
 
 

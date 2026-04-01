@@ -39,6 +39,10 @@ pip install -r gifdroid_llm/requirements.txt
    - Llama (Ollama): set `LLAMA_BASE_URL` (e.g. `http://localhost:11434/v1`).
 2. Edit `gifdroid_llm/input/config.yml`: set `llm`, `llm_model`, and the `runs` list.
    - `video_path` accepts `"hhv"`, `"srv"`, an explicit path, or a list of paths.
+   - `keyframe_selection.method` supports:
+     - `heuristic` (motion-threshold based)
+     - `llm_assisted` (currently same behavior as `heuristic`)
+     - `ssim` (GIFdroid-style stable-screen SSIM detection; configurable with `ssim_threshold` and `stable_threshold`)
 
 ## Run
 
