@@ -3,9 +3,9 @@
 
 # llm: "llama"
 # llm_model: "llama3.2-vision"
-llm: "minicpm"
+llm: "gemma"
 # llm_model: "qwen2.5vl:7b"
-llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_claude.txt"
+llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt"
 
 frame_sampling:
   strategy: "uniform"

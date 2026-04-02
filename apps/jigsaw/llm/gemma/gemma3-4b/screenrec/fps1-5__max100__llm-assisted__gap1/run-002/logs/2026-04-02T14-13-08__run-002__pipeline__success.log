@@ -1,0 +1,16 @@
+2026-04-02 10:13:08 | INFO | === gifdroid_llm.2026-04-02T14-13-08__run-002__pipeline__started ===
+2026-04-02 10:13:08 | INFO | Starting gifdroid_llm pipeline
+2026-04-02 10:13:08 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/jigsaw/videos/screenrec/srv-001.mp4
+2026-04-02 10:13:08 | INFO | Environment validated for llm=gemma model=gemma3:4b
+2026-04-02 10:13:08 | INFO | Running gemma prerequisite check before trace generation | timeout=unlimited
+2026-04-02 10:13:09 | INFO | Starting frame extraction | native_fps=48.029 target_fps=1.500 stride=32 total_frames=1025
+2026-04-02 10:13:10 | INFO | Frame extraction complete | sampled_frames=33
+2026-04-02 10:13:10 | INFO | Keyframe selection complete | method=llm_assisted threshold=18.420 selected=5 sampled=33
+2026-04-02 10:13:10 | INFO | Sending Gemma inference request | model=gemma3:4b | keyframes=5
+2026-04-02 10:13:10 | INFO | Gemma API request sent | kind=action_inference | model=gemma3:4b | endpoint=http://localhost:11434/v1/chat/completions | waiting for response
+2026-04-02 10:13:42 | INFO | Gemma API response complete | kind=action_inference | elapsed_sec=32.45 | total_chars=1603
+2026-04-02 10:13:42 | WARNING | Gemma response could not be parsed; falling back to deterministic heuristic.
+2026-04-02 10:13:42 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/jigsaw/llm/gemma/gemma3-4b/screenrec/fps1-5__max100__llm-assisted__gap1/run-002/llm_raw_response.txt
+2026-04-02 10:13:42 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/jigsaw/llm/gemma/gemma3-4b/screenrec/fps1-5__max100__llm-assisted__gap1/run-002/execution_trace.json
+2026-04-02 10:13:42 | INFO | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/jigsaw/llm/gemma/gemma3-4b/screenrec/fps1-5__max100__llm-assisted__gap1/run-002/frames_manifest.json
+2026-04-02 10:13:42 | INFO | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/jigsaw/llm/gemma/gemma3-4b/screenrec/fps1-5__max100__llm-assisted__gap1/run-002/keyframes

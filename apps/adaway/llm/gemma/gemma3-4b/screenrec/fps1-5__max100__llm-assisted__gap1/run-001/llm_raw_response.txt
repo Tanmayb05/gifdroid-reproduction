@@ -1,0 +1,60 @@
+```json
+[
+  {
+    "screen_description": "The AdAway app's main screen is displayed, showing a search bar at the top, a plus icon for adding a new host, and a list of blocked and allowed domains. The screen is predominantly dark.",
+    "action_type": "launch",
+    "target": "app_entrypoint",
+    "details": "The AdAway application was launched, presenting the main interface for managing network filtering.",
+    "confidence": 0.98
+  },
+  {
+    "screen_description": "The app displays a dialog with the title 'Add host to whitelist', containing a text field labeled 'Hostname:' and an 'Add' button.",
+    "action_type": "tap",
+    "target": "plus icon",
+    "details": "The user tapped the plus icon to open the dialog for adding a new host to the whitelist.",
+    "confidence": 0.95
+  },
+  {
+    "screen_description": "The dialog is displayed with the text 'The hosts source URL wild card characters * and ? are allowed'.",
+    "action_type": "type",
+    "target": "Hostname: text field",
+    "details": "The user typed 'The hosts source URL wild card characters * and ? are allowed' into the hostname field.",
+    "confidence": 0.99
+  },
+  {
+    "screen_description": "The dialog is displayed with the 'Add' button highlighted.",
+    "action_type": "tap",
+    "target": "Add button",
+    "details": "The user tapped the 'Add' button to add the entered hostname to the whitelist.",
+    "confidence": 0.97
+  },
+  {
+    "screen_description": "The dialog is closed, and the main screen of the AdAway app is displayed again, showing the list of blocked and allowed domains.",
+    "action_type": "close",
+    "target": "Add button",
+    "details": "The user tapped the 'Add' button to close the dialog.",
+    "confidence": 0.90
+  },
+  {
+    "screen_description": "The app displays a confirmation message: 'Your configuration changed. You need to apply it'.",
+    "action_type": "wait",
+    "target": "None",
+    "details": "The app waits for the user to acknowledge the configuration change.",
+    "confidence": 0.85
+  },
+  {
+    "screen_description": "The app displays a confirmation message: 'Your configuration changed. You need to apply it'.",
+    "action_type": "wait",
+    "target": "None",
+    "details": "The app waits for the user to acknowledge the configuration change.",
+    "confidence": 0.85
+  },
+  {
+    "screen_description": "The app displays a confirmation message: 'Your configuration changed. You need to apply it'.",
+    "action_type": "wait",
+    "target": "None",
+    "details": "The app waits for the user to acknowledge the configuration change.",
+    "confidence": 0.85
+  }
+]
+```

@@ -1,0 +1,16 @@
+2026-04-02 09:36:32 | INFO | === gifdroid_llm.2026-04-02T13-36-32__run-001__pipeline__started ===
+2026-04-02 09:36:32 | INFO | Starting gifdroid_llm pipeline
+2026-04-02 09:36:32 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/handheld/hhv-001.mp4
+2026-04-02 09:36:32 | INFO | Environment validated for llm=gemma model=gemma3:4b
+2026-04-02 09:36:32 | INFO | Running gemma prerequisite check before trace generation | timeout=unlimited
+2026-04-02 09:36:36 | INFO | Starting frame extraction | native_fps=30.000 target_fps=1.500 stride=20 total_frames=1331
+2026-04-02 09:36:37 | INFO | Frame extraction complete | sampled_frames=67
+2026-04-02 09:36:37 | INFO | Keyframe selection complete | method=llm_assisted threshold=16.803 selected=15 sampled=67
+2026-04-02 09:36:38 | INFO | Sending Gemma inference request | model=gemma3:4b | keyframes=15
+2026-04-02 09:36:39 | INFO | Gemma API request sent | kind=action_inference | model=gemma3:4b | endpoint=http://localhost:11434/v1/chat/completions | waiting for response
+2026-04-02 09:38:02 | INFO | Gemma API response complete | kind=action_inference | elapsed_sec=83.14 | total_chars=3734
+2026-04-02 09:38:02 | WARNING | Gemma response could not be parsed; falling back to deterministic heuristic.
+2026-04-02 09:38:02 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/gemma/gemma3-4b/handheld/fps1-5__max100__llm-assisted__gap1/run-001/llm_raw_response.txt
+2026-04-02 09:38:02 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/gemma/gemma3-4b/handheld/fps1-5__max100__llm-assisted__gap1/run-001/execution_trace.json
+2026-04-02 09:38:02 | INFO | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/gemma/gemma3-4b/handheld/fps1-5__max100__llm-assisted__gap1/run-001/frames_manifest.json
+2026-04-02 09:38:02 | INFO | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/gemma/gemma3-4b/handheld/fps1-5__max100__llm-assisted__gap1/run-001/keyframes
