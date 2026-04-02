@@ -109,8 +109,11 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
         env = load_and_validate_env(args.env_file, cfg.llm)
         logger.info("Environment validated for llm=%s model=%s", cfg.llm, cfg.llm_model)
 
-        if cfg.llm == "llama":
-            raw_prereq = str(env.get("LLAMA_PREREQ_TIMEOUT_SEC", "")).strip()
+        if cfg.llm in {"llama", "qwen"}:
+            prereq_timeout_key = "LLAMA_PREREQ_TIMEOUT_SEC" if cfg.llm == "llama" else "QWEN_PREREQ_TIMEOUT_SEC"
+            base_url_key = "LLAMA_BASE_URL" if cfg.llm == "llama" else "QWEN_BASE_URL"
+            api_key_key = "LLAMA_API_KEY" if cfg.llm == "llama" else "QWEN_API_KEY"
+            raw_prereq = str(env.get(prereq_timeout_key, "")).strip()
             prereq_timeout_sec: int | None = None
             if raw_prereq:
                 try:
@@ -119,13 +122,14 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
                 except ValueError:
                     pass
             logger.info(
-                "Running llama prerequisite check before trace generation | timeout=%s",
+                "Running %s prerequisite check before trace generation | timeout=%s",
+                cfg.llm,
                 prereq_timeout_sec if prereq_timeout_sec is not None else "unlimited",
             )
             assert_llama_accessible(
-                base_url=str(env.get("LLAMA_BASE_URL", "")),
+                base_url=str(env.get(base_url_key, "")),
                 model=cfg.llm_model,
-                api_key=str(env.get("LLAMA_API_KEY", "")),
+                api_key=str(env.get(api_key_key, "")),
                 timeout_sec=prereq_timeout_sec,
             )
 

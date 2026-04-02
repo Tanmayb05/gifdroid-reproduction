@@ -1,0 +1,16 @@
+2026-04-02 00:55:30 | INFO | === gifdroid_llm.2026-04-02T04-55-30__run-002__pipeline__started ===
+2026-04-02 00:55:30 | INFO | Starting gifdroid_llm pipeline
+2026-04-02 00:55:30 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4
+2026-04-02 00:55:30 | INFO | Environment validated for llm=qwen model=qwen2.5vl:7b
+2026-04-02 00:55:30 | INFO | Running qwen prerequisite check before trace generation | timeout=unlimited
+2026-04-02 00:55:37 | INFO | Starting frame extraction | native_fps=25.935 target_fps=1.500 stride=17 total_frames=772
+2026-04-02 00:55:38 | INFO | Frame extraction complete | sampled_frames=46
+2026-04-02 00:55:41 | INFO | Keyframe selection complete | method=ssim ssim_threshold=0.950 stable_threshold=2 selected=8 sampled=46
+2026-04-02 00:55:42 | INFO | Sending Qwen inference request | model=qwen2.5vl:7b | keyframes=8
+2026-04-02 00:55:42 | INFO | Qwen inference timeout | timeout_sec=unlimited
+2026-04-02 00:55:42 | INFO | Qwen API request sent | kind=action_inference | model=qwen2.5vl:7b | endpoint=http://localhost:11434/v1/chat/completions | waiting for response
+2026-04-02 00:56:08 | WARNING | Qwen inference request failed (Qwen HTTP error 500 during action_inference: {"error":{"message":"model runner has unexpectedly stopped, this may be due to resource limitations or an internal error, check ollama server logs for details","type":"api_error","param":null,"code":null}}
+); falling back to deterministic heuristic.
+2026-04-02 00:56:08 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-002/execution_trace.json
+2026-04-02 00:56:08 | INFO | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-002/frames_manifest.json
+2026-04-02 00:56:08 | INFO | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-002/keyframes

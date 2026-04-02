@@ -1,0 +1,17 @@
+2026-04-02 01:14:38 | INFO | === gifdroid_llm.2026-04-02T05-14-38__run-001__pipeline__started ===
+2026-04-02 01:14:38 | INFO | Starting gifdroid_llm pipeline
+2026-04-02 01:14:38 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/simplenotes/videos/screenrec/srv-001.mp4
+2026-04-02 01:14:38 | INFO | Environment validated for llm=qwen model=qwen2.5vl:7b
+2026-04-02 01:14:38 | INFO | Running qwen prerequisite check before trace generation | timeout=unlimited
+2026-04-02 01:14:39 | INFO | Starting frame extraction | native_fps=24.200 target_fps=1.500 stride=16 total_frames=473
+2026-04-02 01:14:39 | INFO | Frame extraction complete | sampled_frames=30
+2026-04-02 01:14:42 | INFO | Keyframe selection complete | method=ssim ssim_threshold=0.950 stable_threshold=2 selected=8 sampled=30
+2026-04-02 01:14:42 | INFO | Sending Qwen inference request | model=qwen2.5vl:7b | keyframes=8
+2026-04-02 01:14:42 | INFO | Qwen inference timeout | timeout_sec=unlimited
+2026-04-02 01:14:42 | INFO | Qwen API request sent | kind=action_inference | model=qwen2.5vl:7b | endpoint=http://localhost:11434/v1/chat/completions | waiting for response
+2026-04-02 01:15:22 | INFO | Qwen API response complete | kind=action_inference | elapsed_sec=40.21 | total_chars=2580
+2026-04-02 01:15:22 | INFO | Qwen inference parsed successfully | parsed_actions=8
+2026-04-02 01:15:22 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/simplenotes/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/llm_raw_response.txt
+2026-04-02 01:15:22 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/simplenotes/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/execution_trace.json
+2026-04-02 01:15:22 | INFO | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/simplenotes/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/frames_manifest.json
+2026-04-02 01:15:22 | INFO | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/simplenotes/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/keyframes

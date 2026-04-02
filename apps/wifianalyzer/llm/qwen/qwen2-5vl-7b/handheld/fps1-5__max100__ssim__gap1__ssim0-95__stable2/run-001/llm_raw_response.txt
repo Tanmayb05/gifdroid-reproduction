@@ -1,0 +1,53 @@
+```json
+[
+  {
+    "screen_description": "The app's main screen showing the 'WIFIAnalyzer' app with options to 'Uninstall' or 'Open'.",
+    "action_type": "launch",
+    "target": "app_entrypoint",
+    "details": "The application was launched, showing the main screen with options to interact with the app.",
+    "confidence": 0.95
+  },
+  {
+    "screen_description": "The 'Access Points' screen displaying a list of Wi-Fi networks.",
+    "action_type": "tap",
+    "target": "Access Points tab",
+    "details": "The user tapped the 'Access Points' tab to view the list of Wi-Fi networks.",
+    "confidence": 0.90
+  },
+  {
+    "screen_description": "The 'Access Points' screen with a finger pointing at a specific Wi-Fi network.",
+    "action_type": "swipe",
+    "target": "finger",
+    "details": "The user swiped to select a specific Wi-Fi network from the list.",
+    "confidence": 0.85
+  },
+  {
+    "screen_description": "The 'Time Graph' screen displaying a graph of Wi-Fi signal strength over time.",
+    "action_type": "swipe",
+    "target": "finger",
+    "details": "The user swiped to navigate through the time graph to view different time intervals.",
+    "confidence": 0.80
+  },
+  {
+    "screen_description": "The 'Channel Graph' screen displaying a graph of Wi-Fi channel usage.",
+    "action_type": "swipe",
+    "target": "finger",
+    "details": "The user swiped to navigate through the channel graph to view different channels.",
+    "confidence": 0.85
+  },
+  {
+    "screen_description": "The 'Channel Rating' screen displaying a table of Wi-Fi channel ratings.",
+    "action_type": "swipe",
+    "target": "finger",
+    "details": "The user swiped to navigate through the channel rating table to view different channels.",
+    "confidence": 0.80
+  },
+  {
+    "screen_description": "The 'Channel Rating' screen with a finger pointing at a specific channel.",
+    "action_type": "swipe",
+    "target": "finger",
+    "details": "The user swiped to select a specific channel from the channel rating table.",
+    "confidence": 0.85
+  }
+]
+```

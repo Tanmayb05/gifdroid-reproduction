@@ -1,0 +1,46 @@
+```json
+[
+  {
+    "screen_description": "Home screen showing various app icons and the Google search bar.",
+    "action_type": "launch",
+    "target": "AntennaPod app",
+    "details": "The AntennaPod app was launched from the home screen.",
+    "confidence": 0.95
+  },
+  {
+    "screen_description": "Welcome screen of AntennaPod with a message and options to add a podcast.",
+    "action_type": "tap",
+    "target": "Add podcast button",
+    "details": "The user tapped the 'Add podcast' button to start adding a new podcast.",
+    "confidence": 0.90
+  },
+  {
+    "screen_description": "Add podcast screen with various options to search for a podcast.",
+    "action_type": "type",
+    "target": "Search field",
+    "details": "The user typed 'Up First' into the search field to find the podcast.",
+    "confidence": 0.98
+  },
+  {
+    "screen_description": "Podcast details screen showing the podcast 'Up First' from NPR.",
+    "action_type": "click",
+    "target": "Subscribe button",
+    "details": "The user clicked the 'Subscribe' button to subscribe to the podcast.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "Podcast details screen with the podcast 'Up First' from NPR.",
+    "action_type": "click",
+    "target": "Subscribe button",
+    "details": "The user clicked the 'Subscribe' button again to confirm the subscription.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "Podcast details screen with the podcast 'Up First' from NPR.",
+    "action_type": "click",
+    "target": "Subscribe button",
+    "details": "The user clicked the 'Subscribe' button to confirm the subscription.",
+    "confidence": 0.92
+  }
+]
+```

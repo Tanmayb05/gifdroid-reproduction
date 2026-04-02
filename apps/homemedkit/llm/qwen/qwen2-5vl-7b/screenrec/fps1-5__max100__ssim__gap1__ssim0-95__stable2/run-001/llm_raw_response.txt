@@ -1,0 +1,60 @@
+```json
+[
+  {
+    "screen_description": "Home screen of an Android device with various app icons visible.",
+    "action_type": "launch",
+    "target": "app_entrypoint",
+    "details": "The application was launched, showing the main screen with app icons.",
+    "confidence": 0.95
+  },
+  {
+    "screen_description": "Medication intake app showing a list of entries with a search bar and navigation icons.",
+    "action_type": "tap",
+    "target": "Medication intake app",
+    "details": "The user tapped on the Medication intake app to open it.",
+    "confidence": 0.90
+  },
+  {
+    "screen_description": "Medication intake app showing a form to enter a new medication entry with fields for product name, group, exp. date, and package opened.",
+    "action_type": "type",
+    "target": "Product name field",
+    "details": "The user typed 'rt' into the product name field.",
+    "confidence": 0.98
+  },
+  {
+    "screen_description": "Medication intake app showing a confirmation dialog for adding a new medication entry.",
+    "action_type": "click",
+    "target": "Save button",
+    "details": "The user clicked the 'Save' button to save the new medication entry.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "Medication intake app showing a date picker for selecting the expiration date of a medication.",
+    "action_type": "click",
+    "target": "Date picker",
+    "details": "The user clicked on the date picker to select the expiration date.",
+    "confidence": 0.95
+  },
+  {
+    "screen_description": "Medication intake app showing a calendar for selecting a specific date.",
+    "action_type": "click",
+    "target": "Date 31",
+    "details": "The user selected the date '31' in the calendar to set the expiration date.",
+    "confidence": 0.90
+  },
+  {
+    "screen_description": "Medication intake app showing a form to enter a new medication entry with fields for product name, group, exp. date, and package opened.",
+    "action_type": "click",
+    "target": "Save button",
+    "details": "The user clicked the 'Save' button to save the new medication entry.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "Medication intake app showing a list of entries with a search bar and navigation icons.",
+    "action_type": "click",
+    "target": "Add button",
+    "details": "The user clicked the 'Add' button to add a new medication entry.",
+    "confidence": 0.90
+  }
+]
+```

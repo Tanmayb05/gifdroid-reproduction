@@ -15,7 +15,9 @@ REQUIRED_ENV_BY_LLM: Dict[str, List[str]] = {
     "sonnet": ["ANTHROPIC_API_KEY"],
     "claude": ["ANTHROPIC_API_KEY"],
     "llama": ["LLAMA_BASE_URL"],
-    "qwen": ["QWEN_API_KEY", "QWEN_BASE_URL", "QWEN_MODEL"],
+    # QWEN_BASE_URL is required; QWEN_API_KEY is optional (not needed for local Ollama).
+    # Model is set via llm_model in config.yml, so QWEN_MODEL is not required here.
+    "qwen": ["QWEN_BASE_URL"],
 }
 
 

@@ -1,0 +1,60 @@
+```json
+[
+  {
+    "screen_description": "Home screen displaying various app icons and the Google search bar.",
+    "action_type": "launch",
+    "target": "app_entrypoint",
+    "details": "The application was launched, showing the home screen with app icons.",
+    "confidence": 0.95
+  },
+  {
+    "screen_description": "Scanning for open ports on a network interface.",
+    "action_type": "tap",
+    "target": "scan port range button",
+    "details": "The user tapped the 'Scan Port Range' button to initiate a port scan.",
+    "confidence": 0.90
+  },
+  {
+    "screen_description": "Port scanning in progress with a progress bar indicating 48% completion.",
+    "action_type": "wait",
+    "target": "none",
+    "details": "The user is waiting for the port scan to complete.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "Port scanning in progress with a progress bar indicating 65% completion.",
+    "action_type": "wait",
+    "target": "none",
+    "details": "The user is waiting for the port scan to complete.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "Port scanning in progress with a progress bar indicating 80% completion.",
+    "action_type": "wait",
+    "target": "none",
+    "details": "The user is waiting for the port scan to complete.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "Port scanning in progress with a progress bar indicating 90% completion.",
+    "action_type": "wait",
+    "target": "none",
+    "details": "The user is waiting for the port scan to complete.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "Port scanning in progress with a progress bar indicating 97% completion.",
+    "action_type": "wait",
+    "target": "none",
+    "details": "The user is waiting for the port scan to complete.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "Port scanning completed, displaying a list of open ports.",
+    "action_type": "wait",
+    "target": "none",
+    "details": "The user is waiting for the port scan to complete and view the results.",
+    "confidence": 0.92
+  }
+]
+```

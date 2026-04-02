@@ -1,0 +1,17 @@
+2026-04-02 01:10:05 | INFO | === gifdroid_llm.2026-04-02T05-10-05__run-001__pipeline__started ===
+2026-04-02 01:10:05 | INFO | Starting gifdroid_llm pipeline
+2026-04-02 01:10:05 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/jigsaw/videos/screenrec/srv-001.mp4
+2026-04-02 01:10:05 | INFO | Environment validated for llm=qwen model=qwen2.5vl:7b
+2026-04-02 01:10:05 | INFO | Running qwen prerequisite check before trace generation | timeout=unlimited
+2026-04-02 01:10:05 | INFO | Starting frame extraction | native_fps=48.029 target_fps=1.500 stride=32 total_frames=1025
+2026-04-02 01:10:07 | INFO | Frame extraction complete | sampled_frames=33
+2026-04-02 01:10:09 | INFO | Keyframe selection complete | method=ssim ssim_threshold=0.950 stable_threshold=2 selected=8 sampled=33
+2026-04-02 01:10:09 | INFO | Sending Qwen inference request | model=qwen2.5vl:7b | keyframes=8
+2026-04-02 01:10:09 | INFO | Qwen inference timeout | timeout_sec=unlimited
+2026-04-02 01:10:10 | INFO | Qwen API request sent | kind=action_inference | model=qwen2.5vl:7b | endpoint=http://localhost:11434/v1/chat/completions | waiting for response
+2026-04-02 01:10:44 | INFO | Qwen API response complete | kind=action_inference | elapsed_sec=34.59 | total_chars=2205
+2026-04-02 01:10:44 | WARNING | Qwen response could not be parsed into actions; falling back to deterministic heuristic.
+2026-04-02 01:10:44 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/jigsaw/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/llm_raw_response.txt
+2026-04-02 01:10:44 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/jigsaw/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/execution_trace.json
+2026-04-02 01:10:44 | INFO | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/jigsaw/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/frames_manifest.json
+2026-04-02 01:10:44 | INFO | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/jigsaw/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/keyframes

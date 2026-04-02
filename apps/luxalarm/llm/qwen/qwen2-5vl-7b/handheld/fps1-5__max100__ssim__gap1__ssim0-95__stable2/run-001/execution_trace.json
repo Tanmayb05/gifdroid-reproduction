@@ -1,0 +1,105 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/luxalarm/videos/handheld/hhv-001.mp4",
+  "llm": "qwen",
+  "video_type": "hhv",
+  "app_name": "luxalarm",
+  "generated_at": "2026-04-02T05:10:44.653300+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The Google Play Store page for the Lux Alarm app showing the app details and version information.",
+      "action": {
+        "type": "launch",
+        "target": "Lux Alarm app",
+        "details": "The user launched the Lux Alarm app from the Google Play Store."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 3.313,
+      "frame_file": "kf-0002.png",
+      "screen_description": "The Google Play Store page for the Lux Alarm app with the 'Open' button highlighted.",
+      "action": {
+        "type": "tap",
+        "target": "Open button",
+        "details": "The user clicked the 'Open' button to launch the Lux Alarm app."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 6.625,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The Lux Alarm app home screen showing the list of alarms and the toolbar with the plus icon.",
+      "action": {
+        "type": "tap",
+        "target": "plus icon",
+        "details": "The user tapped the plus icon to create a new alarm."
+      },
+      "confidence": 0.92
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 9.938,
+      "frame_file": "kf-0004.png",
+      "screen_description": "The Lux Alarm app showing the alarm time set to 01:20.",
+      "action": {
+        "type": "tap",
+        "target": "alarm time",
+        "details": "The user tapped on the alarm time to adjust it."
+      },
+      "confidence": 0.98
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 13.913,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The Lux Alarm app showing the alarm time set to 01:25.",
+      "action": {
+        "type": "tap",
+        "target": "alarm time",
+        "details": "The user tapped on the alarm time to confirm the new time."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 17.225,
+      "frame_file": "kf-0006.png",
+      "screen_description": "The Lux Alarm app showing the alarm set for tomorrow.",
+      "action": {
+        "type": "tap",
+        "target": "alarm toggle",
+        "details": "The user toggled the alarm to enable it."
+      },
+      "confidence": 0.92
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 20.538,
+      "frame_file": "kf-0007.png",
+      "screen_description": "The Lux Alarm app showing the alarm ringtone selection menu.",
+      "action": {
+        "type": "tap",
+        "target": "ringtone menu",
+        "details": "The user selected a ringtone for the alarm."
+      },
+      "confidence": 0.98
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 24.513,
+      "frame_file": "kf-0008.png",
+      "screen_description": "The Lux Alarm app showing the alarm set for tomorrow with the selected ringtone.",
+      "action": {
+        "type": "tap",
+        "target": "OK button",
+        "details": "The user confirmed the alarm settings and closed the ringtone selection menu."
+      },
+      "confidence": 0.95
+    }
+  ]
+}
