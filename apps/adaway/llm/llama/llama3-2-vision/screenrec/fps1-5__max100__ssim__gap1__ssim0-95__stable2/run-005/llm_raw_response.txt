@@ -1,0 +1,32 @@
+**JSON Response:**
+
+[
+  {
+    "screen_description": "A blank screen with a title 'App Name' and a 'Get Started' button.",
+    "action_type": "launch",
+    "target": "app_entrypoint",
+    "details": "The application was launched, showing the main screen with a title and a 'Get Started' button.",
+    "confidence": 0.95
+  },
+  {
+    "screen_description": "A 'Get Started' screen with a form to input email and password.",
+    "action_type": "tap",
+    "target": "email field",
+    "details": "The user tapped the email field to input their email address.",
+    "confidence": 0.90
+  },
+  {
+    "screen_description": "The same 'Get Started' screen with the email field filled with 'user@example.com'.",
+    "action_type": "type",
+    "target": "email field",
+    "details": "The user typed 'user@example.com' into the email field.",
+    "confidence": 0.98
+  },
+  {
+    "screen_description": "A 'Get Started' screen with a form to input email and password, and a 'Next' button.",
+    "action_type": "tap",
+    "target": "Next button",
+    "details": "The user tapped the 'Next' button to proceed to the next step.",
+    "confidence": 0.92
+  }
+]

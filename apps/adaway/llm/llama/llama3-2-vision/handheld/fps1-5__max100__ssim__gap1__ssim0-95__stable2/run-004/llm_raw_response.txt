@@ -1,0 +1,48 @@
+**Step 1: Analyze the provided keyframe images and their metadata.**
+
+The keyframes show a sequence of screens from an Android app, with timestamps and motion scores indicating changes in the visual content.
+
+**Step 2: Generate a JSON object for each keyframe that matches the schema.**
+
+For each keyframe, create a JSON object with the required fields: `screen_description`, `action_type`, `target`, `details`, and `confidence`.
+
+**Step 3: Combine the JSON objects into a single array.**
+
+Combine the JSON objects for each keyframe into a single JSON array, in the same order as the keyframes.
+
+**Step 4: Output the final JSON array.**
+
+Output the final JSON array as the response.
+
+**JSON Response:**
+
+[
+  {
+    "screen_description": "App home screen showing a list of notes and a toolbar with a plus icon.",
+    "action_type": "launch",
+    "target": "app_entrypoint",
+    "details": "The application was launched, showing the main list of notes.",
+    "confidence": 0.95
+  },
+  {
+    "screen_description": "A new note screen with a title field, a content area, and a 'Save' button.",
+    "action_type": "tap",
+    "target": "plus icon",
+    "details": "The user tapped the plus icon to create a new note.",
+    "confidence": 0.90
+  },
+  {
+    "screen_description": "The new note screen with the text 'My first note' in the title field.",
+    "action_type": "type",
+    "target": "title field",
+    "details": "The user typed 'My first note' into the note's title field.",
+    "confidence": 0.98
+  },
+  {
+    "screen_description": "A confirmation dialog is displayed with the message 'Note saved successfully'.",
+    "action_type": "tap",
+    "target": "'Save' button",
+    "details": "The user tapped the 'Save' button to save the new note.",
+    "confidence": 0.92
+  }
+]

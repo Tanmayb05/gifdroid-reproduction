@@ -1,0 +1,18 @@
+2026-04-01 20:18:41 | INFO | === gifdroid_llm.2026-04-02T00-18-41__run-005__pipeline__started ===
+2026-04-01 20:18:41 | INFO | Starting gifdroid_llm pipeline
+2026-04-01 20:18:41 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4
+2026-04-01 20:18:41 | INFO | Environment validated for llm=llama model=llama3.2-vision
+2026-04-01 20:18:41 | INFO | Running llama prerequisite check before trace generation | timeout=unlimited
+2026-04-01 20:18:41 | INFO | Starting frame extraction | native_fps=25.935 target_fps=1.500 stride=17 total_frames=772
+2026-04-01 20:18:42 | INFO | Frame extraction complete | sampled_frames=46
+2026-04-01 20:18:46 | INFO | Keyframe selection complete | method=ssim ssim_threshold=0.950 stable_threshold=2 selected=8 sampled=46
+2026-04-01 20:18:46 | INFO | Sending Llama inference request | model=llama3.2-vision | keyframes=8
+2026-04-01 20:18:46 | INFO | Llama inference timeout | timeout_sec=unlimited
+2026-04-01 20:18:46 | INFO | Llama API request sent | kind=action_inference | model=llama3.2-vision | endpoint=http://localhost:11434/v1/chat/completions | waiting for response
+2026-04-01 20:20:46 | INFO | Llama still processing | kind=action_inference | elapsed_sec=120 | tokens_so_far=0
+2026-04-01 20:21:30 | INFO | Llama API response complete | kind=action_inference | elapsed_sec=164.34 | total_chars=1140
+2026-04-01 20:21:30 | INFO | Llama inference parsed successfully | parsed_actions=8
+2026-04-01 20:21:30 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/llama/llama3-2-vision/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-005/llm_raw_response.txt
+2026-04-01 20:21:30 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/llama/llama3-2-vision/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-005/execution_trace.json
+2026-04-01 20:21:30 | INFO | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/llama/llama3-2-vision/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-005/frames_manifest.json
+2026-04-01 20:21:30 | INFO | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/llama/llama3-2-vision/screenrec/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-005/keyframes
