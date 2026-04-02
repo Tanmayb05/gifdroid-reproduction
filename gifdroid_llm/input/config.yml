@@ -3,8 +3,8 @@
 
 # llm: "llama"
 # llm_model: "llama3.2-vision"
-llm: "qwen"
-llm_model: "qwen2.5vl:7b"
+llm: "llava"
+# llm_model: "qwen2.5vl:7b"
 llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt"
 
 frame_sampling:
@@ -36,42 +36,42 @@ runs:
       - "hhv"
       - "srv"
 
-  - app_name: "deadhash"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "deadhash"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "homemedkit"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "homemedkit"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "jigsaw"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "jigsaw"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "luxalarm"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "luxalarm"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "pomodorot"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "pomodorot"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "portauthority"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "portauthority"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "simplenotes"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "simplenotes"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "wifianalyzer"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "wifianalyzer"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
