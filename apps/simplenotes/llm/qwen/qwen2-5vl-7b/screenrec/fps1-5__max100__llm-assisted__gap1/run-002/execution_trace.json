@@ -1,0 +1,81 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/simplenotes/videos/screenrec/srv-001.mp4",
+  "llm": "qwen",
+  "video_type": "srv",
+  "app_name": "simplenotes",
+  "generated_at": "2026-04-02T11:46:02.740603+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "Home screen displaying various app icons and the Google search bar.",
+      "action": {
+        "type": "launch",
+        "target": "Simple Notes app",
+        "details": "The Simple Notes app was launched from the home screen."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.322,
+      "frame_file": "kf-0002.png",
+      "screen_description": "Loading screen with a circular icon.",
+      "action": {
+        "type": "wait",
+        "target": "Simple Notes app",
+        "details": "The Simple Notes app is loading."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 2.645,
+      "frame_file": "kf-0003.png",
+      "screen_description": "Simple Notes app showing a note titled 'qwe' with a progress bar and a 'What's New' update message.",
+      "action": {
+        "type": "wait",
+        "target": "Simple Notes app",
+        "details": "The Simple Notes app has loaded and is displaying a note."
+      },
+      "confidence": 0.98
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 3.967,
+      "frame_file": "kf-0004.png",
+      "screen_description": "Simple Notes app showing a note titled 'qwe' with a progress bar and a 'What's New' update message.",
+      "action": {
+        "type": "tap",
+        "target": "plus icon",
+        "details": "The user tapped the plus icon to create a new note."
+      },
+      "confidence": 0.92
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 17.19,
+      "frame_file": "kf-0005.png",
+      "screen_description": "Simple Notes app showing a note titled 'qwe' with a progress bar and a 'What's New' update message.",
+      "action": {
+        "type": "type",
+        "target": "title field",
+        "details": "The user typed 'qwe' into the note's title field."
+      },
+      "confidence": 0.98
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 19.173,
+      "frame_file": "kf-0006.png",
+      "screen_description": "Simple Notes app showing a note titled 'qwe' with a progress bar and a 'What's New' update message.",
+      "action": {
+        "type": "tap",
+        "target": "Save button",
+        "details": "The user tapped the 'Save' button to save the new note."
+      },
+      "confidence": 0.92
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+```json
+[
+  {
+    "screen_description": "The AntennaPod app is displayed on the home screen with the 'Open' button highlighted.",
+    "action_type": "launch",
+    "target": "AntennaPod app",
+    "details": "The application was launched, showing the main screen of the podcast manager.",
+    "confidence": 0.95
+  },
+  {
+    "screen_description": "The 'Open' button is tapped on the AntennaPod app screen.",
+    "action_type": "tap",
+    "target": "Open button",
+    "details": "The user tapped the 'Open' button to launch the AntennaPod app.",
+    "confidence": 0.90
+  },
+  {
+    "screen_description": "The AntennaPod app is now open, displaying the main screen with a list of podcasts.",
+    "action_type": "wait",
+    "target": "AntennaPod app",
+    "details": "The app took some time to load and display the main screen.",
+    "confidence": 0.85
+  },
+  {
+    "screen_description": "The user navigates to the 'Add podcast' section within the AntennaPod app.",
+    "action_type": "swipe",
+    "target": "Add podcast section",
+    "details": "The user swiped to navigate to the 'Add podcast' section in the app.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "The user selects a podcast titled 'Bridge of Lies' from the list.",
+    "action_type": "click",
+    "target": "Bridge of Lies podcast",
+    "details": "The user clicked on the 'Bridge of Lies' podcast to add it to the app.",
+    "confidence": 0.98
+  },
+  {
+    "screen_description": "The podcast

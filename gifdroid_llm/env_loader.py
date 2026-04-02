@@ -14,7 +14,12 @@ REQUIRED_ENV_BY_LLM: Dict[str, List[str]] = {
     "gemini": [],
     "sonnet": ["ANTHROPIC_API_KEY"],
     "claude": ["ANTHROPIC_API_KEY"],
+    # Local Ollama providers — all share LLAMA_BASE_URL (http://localhost:11434/v1).
+    # LLAMA_API_KEY is optional (not needed for local Ollama).
     "llama": ["LLAMA_BASE_URL"],
+    "llava": ["LLAMA_BASE_URL"],
+    "minicpm": ["LLAMA_BASE_URL"],
+    "gemma": ["LLAMA_BASE_URL"],
     # QWEN_BASE_URL is required; QWEN_API_KEY is optional (not needed for local Ollama).
     # Model is set via llm_model in config.yml, so QWEN_MODEL is not required here.
     "qwen": ["QWEN_BASE_URL"],

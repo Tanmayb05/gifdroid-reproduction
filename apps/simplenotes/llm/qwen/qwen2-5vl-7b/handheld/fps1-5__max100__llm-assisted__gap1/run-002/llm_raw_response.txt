@@ -1,0 +1,42 @@
+```json
+[
+  {
+    "screen_description": "Home screen with various app icons and a notification bar.",
+    "action_type": "launch",
+    "target": "app_entrypoint",
+    "details": "The application was launched, showing the main list of notes.",
+    "confidence": 0.95
+  },
+  {
+    "screen_description": "A finger is pointing at the screen, indicating a tap action.",
+    "action_type": "tap",
+    "target": "plus icon",
+    "details": "The user tapped the plus icon to create a new note.",
+    "confidence": 0.90
+  },
+  {
+    "screen_description": "The new note screen with the title field and content area.",
+    "action_type": "type",
+    "target": "title field",
+    "details": "The user typed 'Dog' into the note's title field.",
+    "confidence": 0.98
+  },
+  {
+    "screen_description": "The new note screen with the content area.",
+    "action_type": "type",
+    "target": "content area",
+    "details": "The user typed 'Hhhhh' into the note's content area.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "The new note screen with the title 'Dog' and content 'Hhhhh'.",
+    "action_type": "type",
+    "target": "content area",
+    "details": "The user typed 'Hhhhh' into the note's content area.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "The new note screen with the title 'Dog' and content 'Hhhhh'.",
+    "action_type": "type",
+    "target": "content area",
+    "details": "

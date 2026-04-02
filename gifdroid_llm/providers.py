@@ -685,7 +685,8 @@ class LlamaProvider(BaseLLMProvider):
 
     def _supports_vision(self) -> bool:
         model = self.llm_model.lower()
-        return "vision" in model or "vl" in model
+        _VISION_MARKERS = ("vision", "vl", "llava", "minicpm-v", "minicpmv", "gemma3", "gemma-3")
+        return any(m in model for m in _VISION_MARKERS)
 
     def _build_multimodal_content(
         self,
@@ -1075,7 +1076,8 @@ class QwenProvider(BaseLLMProvider):
 
     def _supports_vision(self) -> bool:
         model = self.llm_model.lower()
-        return "vision" in model or "vl" in model
+        _VISION_MARKERS = ("vision", "vl", "llava", "minicpm-v", "minicpmv", "gemma3", "gemma-3")
+        return any(m in model for m in _VISION_MARKERS)
 
     def _build_multimodal_content(
         self,
@@ -1154,6 +1156,652 @@ class QwenProvider(BaseLLMProvider):
         return lowered in {"", "none", "n/a", "na", "unknown", "null"}
 
 
+class LLaVAProvider(LlamaProvider):
+    """LLaVA 1.6 via Ollama — thin subclass of LlamaProvider.
+
+    LLaVA uses the same OpenAI-compatible endpoint and env vars as Llama (LLAMA_BASE_URL).
+    Registered under llm: "llava" in config.yml.
+    """
+
+    def infer_actions(self, keyframes: List[Keyframe]) -> List[ProviderAction]:
+        if not keyframes:
+            return []
+        self.logger.info(
+            "Sending LLaVA inference request | model=%s | keyframes=%d",
+            self.llm_model,
+            len(keyframes),
+        )
+        prompt = self._build_action_prompt(keyframes)
+        raw_timeout = str(self.env.get("LLAMA_TIMEOUT_SEC", "")).strip()
+        timeout_sec: int | None = None
+        if raw_timeout:
+            try:
+                parsed = int(raw_timeout)
+                timeout_sec = parsed if parsed > 0 else None
+            except ValueError:
+                pass
+        try:
+            raw_text = self._call_llama(
+                prompt=prompt,
+                keyframes=keyframes,
+                timeout_sec=timeout_sec,
+                request_kind="action_inference",
+            )
+            self.raw_llm_response = raw_text
+            parsed = self._parse_actions(raw_text, keyframes)
+            if parsed:
+                self.logger.info(
+                    "LLaVA inference parsed successfully | parsed_actions=%d", len(parsed)
+                )
+                return parsed
+            self.logger.warning(
+                "LLaVA response could not be parsed; falling back to deterministic heuristic."
+            )
+        except ProviderError as exc:
+            self.logger.warning(
+                "LLaVA inference request failed (%s); falling back to deterministic heuristic.", exc
+            )
+        return self._deterministic_fallback(keyframes, source="llava_fallback")
+
+
+class MiniCPMProvider(BaseLLMProvider):
+    """MiniCPM-V 2.6 via Ollama — excellent for dense UI screenshots.
+
+    Uses LLAMA_BASE_URL (same local Ollama endpoint). Registered under llm: "minicpm".
+    Image size capped at 448px — MiniCPM-V uses 448x448 tiles natively.
+    num_ctx capped at 4096 to prevent VRAM over-allocation on Apple Silicon.
+    """
+
+    def __init__(
+        self,
+        llm_name: str,
+        llm_model: str,
+        env: Dict[str, str],
+        logger: logging.Logger,
+        action_prompt_path: Path,
+    ) -> None:
+        super().__init__(llm_name, llm_model, env, logger)
+        self.action_prompt_path = action_prompt_path
+
+    def validate_connection(self) -> None:
+        try:
+            assert_llama_accessible(
+                base_url=str(self.env.get("LLAMA_BASE_URL", "")),
+                model=self.llm_model,
+                api_key=str(self.env.get("LLAMA_API_KEY", "")),
+                timeout_sec=30,
+            )
+        except LlamaPrereqError as exc:
+            raise ProviderError(str(exc)) from exc
+
+    def infer_actions(self, keyframes: List[Keyframe]) -> List[ProviderAction]:
+        if not keyframes:
+            return []
+        self.logger.info(
+            "Sending MiniCPM inference request | model=%s | keyframes=%d",
+            self.llm_model,
+            len(keyframes),
+        )
+        prompt = self._build_action_prompt(keyframes)
+        raw_timeout = str(self.env.get("LLAMA_TIMEOUT_SEC", "")).strip()
+        timeout_sec: int | None = None
+        if raw_timeout:
+            try:
+                parsed = int(raw_timeout)
+                timeout_sec = parsed if parsed > 0 else None
+            except ValueError:
+                pass
+        try:
+            raw_text = self._call_minicpm(
+                prompt=prompt,
+                keyframes=keyframes,
+                timeout_sec=timeout_sec,
+                request_kind="action_inference",
+            )
+            self.raw_llm_response = raw_text
+            parsed = self._parse_actions(raw_text, keyframes)
+            if parsed:
+                self.logger.info(
+                    "MiniCPM inference parsed successfully | parsed_actions=%d", len(parsed)
+                )
+                return parsed
+            self.logger.warning(
+                "MiniCPM response could not be parsed; falling back to deterministic heuristic."
+            )
+        except ProviderError as exc:
+            self.logger.warning(
+                "MiniCPM inference request failed (%s); falling back to deterministic heuristic.", exc
+            )
+        return self._deterministic_fallback(keyframes, source="minicpm_fallback")
+
+    def _build_action_prompt(self, keyframes: List[Keyframe]) -> str:
+        keyframe_lines = [
+            f"- idx={idx + 1}, timestamp_sec={frame.timestamp_sec:.3f}, motion_score={frame.motion_score:.3f}"
+            for idx, frame in enumerate(keyframes)
+        ]
+        joined = "\n".join(keyframe_lines)
+        try:
+            template = self.action_prompt_path.read_text(encoding="utf-8")
+        except OSError as exc:
+            raise ProviderError(f"Failed to read action_prompt_file: {self.action_prompt_path}") from exc
+        if "{KEYFRAMES}" in template:
+            return template.replace("{KEYFRAMES}", joined)
+        if "{keyframes}" in template:
+            return template.replace("{keyframes}", joined)
+        if not template.endswith("\n"):
+            template += "\n"
+        return f"{template}\nKeyframes to analyse:\n{joined}\n"
+
+    def _call_minicpm(
+        self,
+        prompt: str,
+        keyframes: List[Keyframe] | None,
+        timeout_sec: int | None,
+        request_kind: str,
+    ) -> str:
+        base_url = str(self.env.get("LLAMA_BASE_URL", "")).strip()
+        if not base_url:
+            raise ProviderError("Missing LLAMA_BASE_URL for minicpm provider.")
+
+        normalized_base = base_url.rstrip("/")
+        if normalized_base.endswith("/v1/chat/completions"):
+            url = normalized_base
+        elif normalized_base.endswith("/v1"):
+            url = f"{normalized_base}/chat/completions"
+        else:
+            url = f"{normalized_base}/v1/chat/completions"
+
+        headers = {"Content-Type": "application/json"}
+        api_key = str(self.env.get("LLAMA_API_KEY", "")).strip()
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+
+        payload: Dict[str, Any] = {
+            "model": self.llm_model,
+            "temperature": 0.1,
+            "repeat_penalty": 1.3,
+            "stream": True,
+            # MiniCPM-V uses 448x448 tiles; cap context to avoid VRAM over-allocation.
+            "num_ctx": 4096,
+        }
+        if keyframes:
+            payload["messages"] = [
+                {"role": "user", "content": self._build_multimodal_content(prompt, keyframes)}
+            ]
+        else:
+            payload["messages"] = [{"role": "user", "content": prompt}]
+
+        payload_bytes = json.dumps(payload).encode("utf-8")
+        req = url_request.Request(url=url, data=payload_bytes, headers=headers, method="POST")
+
+        self.logger.info(
+            "MiniCPM API request sent | kind=%s | model=%s | endpoint=%s | waiting for response",
+            request_kind, self.llm_model, url,
+        )
+        start = time.perf_counter()
+        heartbeat_stop = threading.Event()
+
+        def _heartbeat() -> None:
+            interval = 120
+            elapsed_hb = 0
+            while not heartbeat_stop.wait(timeout=interval):
+                elapsed_hb += interval
+                self.logger.info(
+                    "MiniCPM still processing | kind=%s | elapsed_sec=%d | tokens_so_far=%d",
+                    request_kind, elapsed_hb, len(accumulated_tokens),
+                )
+
+        accumulated_tokens: List[str] = []
+        hb_thread = threading.Thread(target=_heartbeat, daemon=True)
+        hb_thread.start()
+        try:
+            with url_request.urlopen(req, timeout=timeout_sec) as response:
+                for raw_line in response:
+                    line = raw_line.decode("utf-8").strip()
+                    if not line:
+                        continue
+                    if line.startswith("data:"):
+                        line = line[len("data:"):].strip()
+                    if line in ("[DONE]", ""):
+                        continue
+                    try:
+                        chunk = json.loads(line)
+                    except json.JSONDecodeError:
+                        continue
+                    choices = chunk.get("choices")
+                    if isinstance(choices, list) and choices:
+                        delta = str(choices[0].get("delta", {}).get("content") or "")
+                        if delta:
+                            accumulated_tokens.append(delta)
+        except url_error.HTTPError as exc:
+            heartbeat_stop.set()
+            err_body = exc.read().decode("utf-8", errors="replace")
+            raise ProviderError(f"MiniCPM HTTP error {exc.code} during {request_kind}: {err_body[:300]}") from exc
+        except url_error.URLError as exc:
+            heartbeat_stop.set()
+            raise ProviderError(f"MiniCPM URL error during {request_kind}: {exc}") from exc
+        except TimeoutError as exc:
+            heartbeat_stop.set()
+            raise ProviderError(f"MiniCPM request timed out during {request_kind} after {timeout_sec}s") from exc
+        finally:
+            heartbeat_stop.set()
+
+        elapsed = time.perf_counter() - start
+        full_text = "".join(accumulated_tokens)
+        self.logger.info(
+            "MiniCPM API response complete | kind=%s | elapsed_sec=%.2f | total_chars=%d",
+            request_kind, elapsed, len(full_text),
+        )
+        return full_text
+
+    def _build_multimodal_content(self, prompt: str, keyframes: List[Keyframe]) -> List[Dict[str, Any]]:
+        content: List[Dict[str, Any]] = [{"type": "text", "text": prompt}]
+        for idx, frame in enumerate(keyframes, start=1):
+            content.append({
+                "type": "text",
+                "text": (
+                    f"Screenshot for keyframe {idx} (idx={idx}, "
+                    f"timestamp_sec={frame.timestamp_sec:.3f}, "
+                    f"motion_score={frame.motion_score:.3f}). "
+                    f"Describe exactly what you see on this Android screen:"
+                ),
+            })
+            content.append({
+                "type": "image_url",
+                "image_url": {"url": self._encode_keyframe_data_url(frame)},
+            })
+        return content
+
+    def _encode_keyframe_data_url(self, frame: Keyframe) -> str:
+        image = frame.image_bgr
+        h, w = image.shape[:2]
+        # MiniCPM-V uses 448x448 tiles natively; 448px max keeps one tile per image.
+        max_dim = 448
+        if max(h, w) > max_dim:
+            scale = max_dim / float(max(h, w))
+            image = cv2.resize(image, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
+        ok, encoded = cv2.imencode(".jpg", image, [int(cv2.IMWRITE_JPEG_QUALITY), 80])
+        if not ok:
+            raise ProviderError("Failed to encode keyframe image for MiniCPM vision request.")
+        data_b64 = base64.b64encode(encoded.tobytes()).decode("ascii")
+        return f"data:image/jpeg;base64,{data_b64}"
+
+    def _parse_actions(self, raw_text: str, keyframes: List[Keyframe]) -> List[ProviderAction] | None:
+        text = raw_text.strip()
+        if "```" in text:
+            chunks = text.split("```")
+            for chunk in chunks:
+                cleaned = chunk.strip()
+                if cleaned.startswith("json"):
+                    cleaned = cleaned[4:].strip()
+                if cleaned.startswith("["):
+                    text = cleaned
+                    break
+        if not text.startswith("["):
+            bracket_idx = text.find("\n[")
+            if bracket_idx != -1:
+                text = text[bracket_idx:].strip()
+            else:
+                return None
+        bracket_end = text.rfind("]")
+        if bracket_end != -1:
+            text = text[: bracket_end + 1]
+        try:
+            parsed = json.loads(text)
+        except json.JSONDecodeError:
+            return None
+        if not isinstance(parsed, list):
+            return None
+        actions: List[ProviderAction] = []
+        for idx, item in enumerate(parsed):
+            if idx >= len(keyframes):
+                break
+            if not isinstance(item, dict):
+                return None
+            screen_description = str(item.get("screen_description", "")).strip()
+            action_type = self._normalize_action_type(str(item.get("action_type", "")).strip())
+            target = str(item.get("target", "")).strip()
+            details = str(item.get("details", "")).strip()
+            confidence_raw = item.get("confidence", 0.5)
+            try:
+                confidence = float(confidence_raw)
+            except (TypeError, ValueError):
+                confidence = 0.5
+            if not action_type:
+                return None
+            if self._is_placeholder_text(screen_description):
+                return None
+            if self._is_placeholder_text(details):
+                return None
+            if self._is_placeholder_text(target) and action_type != "launch":
+                return None
+            actions.append(ProviderAction(
+                screen_description=screen_description or f"MiniCPM-inferred state for keyframe {idx + 1}",
+                action_type=action_type,
+                target=target or f"ui_target_{idx + 1}",
+                details=details or "No additional details provided by MiniCPM.",
+                confidence=max(0.0, min(1.0, confidence)),
+            ))
+        if not actions:
+            return None
+        while len(actions) < len(keyframes):
+            fallback = self._deterministic_fallback([keyframes[len(actions)]], source="minicpm_partial_fallback")[0]
+            actions.append(fallback)
+        return actions
+
+    def _normalize_action_type(self, action_type: str) -> str:
+        lowered = action_type.strip().lower().replace(" ", "_")
+        mapping = {
+            "click": "tap", "press": "tap", "input": "type", "enter_text": "type",
+            "scroll_down": "scroll", "swipe_up": "swipe", "swipe_down": "swipe",
+            "app_launch": "launch", "launch_app": "launch",
+        }
+        normalized = mapping.get(lowered, lowered)
+        allowed = {"launch", "tap", "type", "swipe", "scroll", "wait", "long_press", "back", "open_menu", "select"}
+        return normalized if normalized in allowed else ""
+
+    def _is_placeholder_text(self, value: str) -> bool:
+        return value.strip().lower() in {"", "none", "n/a", "na", "unknown", "null"}
+
+
+class GemmaProvider(BaseLLMProvider):
+    """Gemma 3 (vision) via Ollama — Google's multimodal model.
+
+    Uses LLAMA_BASE_URL (same local Ollama endpoint). Registered under llm: "gemma".
+    Image size capped at 512px; num_ctx capped at 4096 for Apple Silicon.
+    """
+
+    def __init__(
+        self,
+        llm_name: str,
+        llm_model: str,
+        env: Dict[str, str],
+        logger: logging.Logger,
+        action_prompt_path: Path,
+    ) -> None:
+        super().__init__(llm_name, llm_model, env, logger)
+        self.action_prompt_path = action_prompt_path
+
+    def validate_connection(self) -> None:
+        try:
+            assert_llama_accessible(
+                base_url=str(self.env.get("LLAMA_BASE_URL", "")),
+                model=self.llm_model,
+                api_key=str(self.env.get("LLAMA_API_KEY", "")),
+                timeout_sec=30,
+            )
+        except LlamaPrereqError as exc:
+            raise ProviderError(str(exc)) from exc
+
+    def infer_actions(self, keyframes: List[Keyframe]) -> List[ProviderAction]:
+        if not keyframes:
+            return []
+        self.logger.info(
+            "Sending Gemma inference request | model=%s | keyframes=%d",
+            self.llm_model,
+            len(keyframes),
+        )
+        prompt = self._build_action_prompt(keyframes)
+        raw_timeout = str(self.env.get("LLAMA_TIMEOUT_SEC", "")).strip()
+        timeout_sec: int | None = None
+        if raw_timeout:
+            try:
+                parsed = int(raw_timeout)
+                timeout_sec = parsed if parsed > 0 else None
+            except ValueError:
+                pass
+        try:
+            raw_text = self._call_gemma(
+                prompt=prompt,
+                keyframes=keyframes,
+                timeout_sec=timeout_sec,
+                request_kind="action_inference",
+            )
+            self.raw_llm_response = raw_text
+            parsed = self._parse_actions(raw_text, keyframes)
+            if parsed:
+                self.logger.info(
+                    "Gemma inference parsed successfully | parsed_actions=%d", len(parsed)
+                )
+                return parsed
+            self.logger.warning(
+                "Gemma response could not be parsed; falling back to deterministic heuristic."
+            )
+        except ProviderError as exc:
+            self.logger.warning(
+                "Gemma inference request failed (%s); falling back to deterministic heuristic.", exc
+            )
+        return self._deterministic_fallback(keyframes, source="gemma_fallback")
+
+    def _build_action_prompt(self, keyframes: List[Keyframe]) -> str:
+        keyframe_lines = [
+            f"- idx={idx + 1}, timestamp_sec={frame.timestamp_sec:.3f}, motion_score={frame.motion_score:.3f}"
+            for idx, frame in enumerate(keyframes)
+        ]
+        joined = "\n".join(keyframe_lines)
+        try:
+            template = self.action_prompt_path.read_text(encoding="utf-8")
+        except OSError as exc:
+            raise ProviderError(f"Failed to read action_prompt_file: {self.action_prompt_path}") from exc
+        if "{KEYFRAMES}" in template:
+            return template.replace("{KEYFRAMES}", joined)
+        if "{keyframes}" in template:
+            return template.replace("{keyframes}", joined)
+        if not template.endswith("\n"):
+            template += "\n"
+        return f"{template}\nKeyframes to analyse:\n{joined}\n"
+
+    def _call_gemma(
+        self,
+        prompt: str,
+        keyframes: List[Keyframe] | None,
+        timeout_sec: int | None,
+        request_kind: str,
+    ) -> str:
+        base_url = str(self.env.get("LLAMA_BASE_URL", "")).strip()
+        if not base_url:
+            raise ProviderError("Missing LLAMA_BASE_URL for gemma provider.")
+
+        normalized_base = base_url.rstrip("/")
+        if normalized_base.endswith("/v1/chat/completions"):
+            url = normalized_base
+        elif normalized_base.endswith("/v1"):
+            url = f"{normalized_base}/chat/completions"
+        else:
+            url = f"{normalized_base}/v1/chat/completions"
+
+        headers = {"Content-Type": "application/json"}
+        api_key = str(self.env.get("LLAMA_API_KEY", "")).strip()
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+
+        payload: Dict[str, Any] = {
+            "model": self.llm_model,
+            "temperature": 0.1,
+            "repeat_penalty": 1.3,
+            "stream": True,
+            # Cap context to avoid VRAM over-allocation on Apple Silicon.
+            "num_ctx": 4096,
+        }
+        if keyframes:
+            payload["messages"] = [
+                {"role": "user", "content": self._build_multimodal_content(prompt, keyframes)}
+            ]
+        else:
+            payload["messages"] = [{"role": "user", "content": prompt}]
+
+        payload_bytes = json.dumps(payload).encode("utf-8")
+        req = url_request.Request(url=url, data=payload_bytes, headers=headers, method="POST")
+
+        self.logger.info(
+            "Gemma API request sent | kind=%s | model=%s | endpoint=%s | waiting for response",
+            request_kind, self.llm_model, url,
+        )
+        start = time.perf_counter()
+        heartbeat_stop = threading.Event()
+
+        def _heartbeat() -> None:
+            interval = 120
+            elapsed_hb = 0
+            while not heartbeat_stop.wait(timeout=interval):
+                elapsed_hb += interval
+                self.logger.info(
+                    "Gemma still processing | kind=%s | elapsed_sec=%d | tokens_so_far=%d",
+                    request_kind, elapsed_hb, len(accumulated_tokens),
+                )
+
+        accumulated_tokens: List[str] = []
+        hb_thread = threading.Thread(target=_heartbeat, daemon=True)
+        hb_thread.start()
+        try:
+            with url_request.urlopen(req, timeout=timeout_sec) as response:
+                for raw_line in response:
+                    line = raw_line.decode("utf-8").strip()
+                    if not line:
+                        continue
+                    if line.startswith("data:"):
+                        line = line[len("data:"):].strip()
+                    if line in ("[DONE]", ""):
+                        continue
+                    try:
+                        chunk = json.loads(line)
+                    except json.JSONDecodeError:
+                        continue
+                    choices = chunk.get("choices")
+                    if isinstance(choices, list) and choices:
+                        delta = str(choices[0].get("delta", {}).get("content") or "")
+                        if delta:
+                            accumulated_tokens.append(delta)
+        except url_error.HTTPError as exc:
+            heartbeat_stop.set()
+            err_body = exc.read().decode("utf-8", errors="replace")
+            raise ProviderError(f"Gemma HTTP error {exc.code} during {request_kind}: {err_body[:300]}") from exc
+        except url_error.URLError as exc:
+            heartbeat_stop.set()
+            raise ProviderError(f"Gemma URL error during {request_kind}: {exc}") from exc
+        except TimeoutError as exc:
+            heartbeat_stop.set()
+            raise ProviderError(f"Gemma request timed out during {request_kind} after {timeout_sec}s") from exc
+        finally:
+            heartbeat_stop.set()
+
+        elapsed = time.perf_counter() - start
+        full_text = "".join(accumulated_tokens)
+        self.logger.info(
+            "Gemma API response complete | kind=%s | elapsed_sec=%.2f | total_chars=%d",
+            request_kind, elapsed, len(full_text),
+        )
+        return full_text
+
+    def _build_multimodal_content(self, prompt: str, keyframes: List[Keyframe]) -> List[Dict[str, Any]]:
+        content: List[Dict[str, Any]] = [{"type": "text", "text": prompt}]
+        for idx, frame in enumerate(keyframes, start=1):
+            content.append({
+                "type": "text",
+                "text": (
+                    f"Screenshot for keyframe {idx} (idx={idx}, "
+                    f"timestamp_sec={frame.timestamp_sec:.3f}, "
+                    f"motion_score={frame.motion_score:.3f}). "
+                    f"Describe exactly what you see on this Android screen:"
+                ),
+            })
+            content.append({
+                "type": "image_url",
+                "image_url": {"url": self._encode_keyframe_data_url(frame)},
+            })
+        return content
+
+    def _encode_keyframe_data_url(self, frame: Keyframe) -> str:
+        image = frame.image_bgr
+        h, w = image.shape[:2]
+        max_dim = 512
+        if max(h, w) > max_dim:
+            scale = max_dim / float(max(h, w))
+            image = cv2.resize(image, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
+        ok, encoded = cv2.imencode(".jpg", image, [int(cv2.IMWRITE_JPEG_QUALITY), 80])
+        if not ok:
+            raise ProviderError("Failed to encode keyframe image for Gemma vision request.")
+        data_b64 = base64.b64encode(encoded.tobytes()).decode("ascii")
+        return f"data:image/jpeg;base64,{data_b64}"
+
+    def _parse_actions(self, raw_text: str, keyframes: List[Keyframe]) -> List[ProviderAction] | None:
+        text = raw_text.strip()
+        if "```" in text:
+            chunks = text.split("```")
+            for chunk in chunks:
+                cleaned = chunk.strip()
+                if cleaned.startswith("json"):
+                    cleaned = cleaned[4:].strip()
+                if cleaned.startswith("["):
+                    text = cleaned
+                    break
+        if not text.startswith("["):
+            bracket_idx = text.find("\n[")
+            if bracket_idx != -1:
+                text = text[bracket_idx:].strip()
+            else:
+                return None
+        bracket_end = text.rfind("]")
+        if bracket_end != -1:
+            text = text[: bracket_end + 1]
+        try:
+            parsed = json.loads(text)
+        except json.JSONDecodeError:
+            return None
+        if not isinstance(parsed, list):
+            return None
+        actions: List[ProviderAction] = []
+        for idx, item in enumerate(parsed):
+            if idx >= len(keyframes):
+                break
+            if not isinstance(item, dict):
+                return None
+            screen_description = str(item.get("screen_description", "")).strip()
+            action_type = self._normalize_action_type(str(item.get("action_type", "")).strip())
+            target = str(item.get("target", "")).strip()
+            details = str(item.get("details", "")).strip()
+            confidence_raw = item.get("confidence", 0.5)
+            try:
+                confidence = float(confidence_raw)
+            except (TypeError, ValueError):
+                confidence = 0.5
+            if not action_type:
+                return None
+            if self._is_placeholder_text(screen_description):
+                return None
+            if self._is_placeholder_text(details):
+                return None
+            if self._is_placeholder_text(target) and action_type != "launch":
+                return None
+            actions.append(ProviderAction(
+                screen_description=screen_description or f"Gemma-inferred state for keyframe {idx + 1}",
+                action_type=action_type,
+                target=target or f"ui_target_{idx + 1}",
+                details=details or "No additional details provided by Gemma.",
+                confidence=max(0.0, min(1.0, confidence)),
+            ))
+        if not actions:
+            return None
+        while len(actions) < len(keyframes):
+            fallback = self._deterministic_fallback([keyframes[len(actions)]], source="gemma_partial_fallback")[0]
+            actions.append(fallback)
+        return actions
+
+    def _normalize_action_type(self, action_type: str) -> str:
+        lowered = action_type.strip().lower().replace(" ", "_")
+        mapping = {
+            "click": "tap", "press": "tap", "input": "type", "enter_text": "type",
+            "scroll_down": "scroll", "swipe_up": "swipe", "swipe_down": "swipe",
+            "app_launch": "launch", "launch_app": "launch",
+        }
+        normalized = mapping.get(lowered, lowered)
+        allowed = {"launch", "tap", "type", "swipe", "scroll", "wait", "long_press", "back", "open_menu", "select"}
+        return normalized if normalized in allowed else ""
+
+    def _is_placeholder_text(self, value: str) -> bool:
+        return value.strip().lower() in {"", "none", "n/a", "na", "unknown", "null"}
+
+
 def create_provider(
     llm_name: str,
     llm_model: str,
@@ -1162,6 +1810,8 @@ def create_provider(
     llama_action_prompt_file: Path | None = None,
 ) -> BaseLLMProvider:
     provider_key = llm_name.lower()
+    default_prompt = Path("gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt")
+
     if provider_key == "gemini":
         return GeminiProvider(provider_key, llm_model, env, logger)
     if provider_key in {"sonnet", "claude"}:
@@ -1171,11 +1821,18 @@ def create_provider(
             "gifdroid_llm/input/prompts/llama_action_prompt.txt"
         )
         return LlamaProvider(provider_key, llm_model, env, logger, prompt_path)
+    if provider_key == "llava":
+        prompt_path = llama_action_prompt_file or default_prompt
+        return LLaVAProvider(provider_key, llm_model, env, logger, prompt_path)
+    if provider_key == "minicpm":
+        prompt_path = llama_action_prompt_file or default_prompt
+        return MiniCPMProvider(provider_key, llm_model, env, logger, prompt_path)
+    if provider_key == "gemma":
+        prompt_path = llama_action_prompt_file or default_prompt
+        return GemmaProvider(provider_key, llm_model, env, logger, prompt_path)
     if provider_key == "qwen":
-        prompt_path = llama_action_prompt_file or Path(
-            "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt"
-        )
+        prompt_path = llama_action_prompt_file or default_prompt
         return QwenProvider(provider_key, llm_model, env, logger, prompt_path)
 
-    supported = "gemini, sonnet/claude, llama, qwen"
+    supported = "gemini, sonnet/claude, llama, llava, minicpm, gemma, qwen"
     raise ValueError(f"Unsupported llm provider '{llm_name}'. Supported: {supported}")

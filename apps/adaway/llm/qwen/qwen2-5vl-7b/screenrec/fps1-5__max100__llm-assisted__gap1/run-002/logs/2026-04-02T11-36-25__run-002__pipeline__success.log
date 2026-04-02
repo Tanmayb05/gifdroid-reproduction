@@ -1,0 +1,17 @@
+2026-04-02 07:36:25 | INFO | === gifdroid_llm.2026-04-02T11-36-25__run-002__pipeline__started ===
+2026-04-02 07:36:25 | INFO | Starting gifdroid_llm pipeline
+2026-04-02 07:36:25 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4
+2026-04-02 07:36:25 | INFO | Environment validated for llm=qwen model=qwen2.5vl:7b
+2026-04-02 07:36:25 | INFO | Running qwen prerequisite check before trace generation | timeout=unlimited
+2026-04-02 07:36:32 | INFO | Starting frame extraction | native_fps=25.935 target_fps=1.500 stride=17 total_frames=772
+2026-04-02 07:36:34 | INFO | Frame extraction complete | sampled_frames=46
+2026-04-02 07:36:34 | INFO | Keyframe selection complete | method=llm_assisted threshold=4.514 selected=8 sampled=46
+2026-04-02 07:36:34 | INFO | Sending Qwen inference request | model=qwen2.5vl:7b | keyframes=8
+2026-04-02 07:36:34 | INFO | Qwen inference timeout | timeout_sec=unlimited
+2026-04-02 07:36:34 | INFO | Qwen API request sent | kind=action_inference | model=qwen2.5vl:7b | endpoint=http://localhost:11434/v1/chat/completions | waiting for response
+2026-04-02 07:37:11 | INFO | Qwen API response complete | kind=action_inference | elapsed_sec=36.76 | total_chars=2111
+2026-04-02 07:37:11 | INFO | Qwen inference parsed successfully | parsed_actions=8
+2026-04-02 07:37:11 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__llm-assisted__gap1/run-002/llm_raw_response.txt
+2026-04-02 07:37:11 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__llm-assisted__gap1/run-002/execution_trace.json
+2026-04-02 07:37:11 | INFO | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__llm-assisted__gap1/run-002/frames_manifest.json
+2026-04-02 07:37:11 | INFO | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/qwen/qwen2-5vl-7b/screenrec/fps1-5__max100__llm-assisted__gap1/run-002/keyframes

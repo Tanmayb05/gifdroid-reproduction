@@ -109,10 +109,12 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
         env = load_and_validate_env(args.env_file, cfg.llm)
         logger.info("Environment validated for llm=%s model=%s", cfg.llm, cfg.llm_model)
 
-        if cfg.llm in {"llama", "qwen"}:
-            prereq_timeout_key = "LLAMA_PREREQ_TIMEOUT_SEC" if cfg.llm == "llama" else "QWEN_PREREQ_TIMEOUT_SEC"
-            base_url_key = "LLAMA_BASE_URL" if cfg.llm == "llama" else "QWEN_BASE_URL"
-            api_key_key = "LLAMA_API_KEY" if cfg.llm == "llama" else "QWEN_API_KEY"
+        _LLAMA_BASE_PROVIDERS = {"llama", "llava", "minicpm", "gemma"}
+        if cfg.llm in _LLAMA_BASE_PROVIDERS or cfg.llm == "qwen":
+            if cfg.llm == "qwen":
+                base_url_key, api_key_key, prereq_timeout_key = "QWEN_BASE_URL", "QWEN_API_KEY", "QWEN_PREREQ_TIMEOUT_SEC"
+            else:
+                base_url_key, api_key_key, prereq_timeout_key = "LLAMA_BASE_URL", "LLAMA_API_KEY", "LLAMA_PREREQ_TIMEOUT_SEC"
             raw_prereq = str(env.get(prereq_timeout_key, "")).strip()
             prereq_timeout_sec: int | None = None
             if raw_prereq:

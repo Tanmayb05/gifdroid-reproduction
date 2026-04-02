@@ -14,7 +14,7 @@ frame_sampling:
 
 keyframe_selection:
   # Options: "heuristic", "llm_assisted", "ssim"
-  method: "ssim"
+  method: "llm_assisted"
   min_gap_seconds: 1.0
   ssim_threshold: 0.95
   stable_threshold: 2
@@ -26,10 +26,10 @@ logging:
   level: "INFO"
 
 runs:
-  # - app_name: "adaway"
-  #   video_path:
-  #     - "hhv"
-  #     - "srv"
+  - app_name: "adaway"
+    video_path:
+      - "hhv"
+      - "srv"
 
   - app_name: "antennapod"
     video_path:

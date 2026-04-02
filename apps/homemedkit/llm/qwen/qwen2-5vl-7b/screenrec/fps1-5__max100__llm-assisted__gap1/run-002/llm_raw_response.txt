@@ -1,0 +1,67 @@
+```json
+[
+  {
+    "screen_description": "The home screen of a mobile app with various icons and a search bar at the top.",
+    "action_type": "launch",
+    "target": "app_entrypoint",
+    "details": "The application was launched, showing the main screen with icons and a search bar.",
+    "confidence": 0.95
+  },
+  {
+    "screen_description": "The app is loading with a loading icon in the center of the screen.",
+    "action_type": "wait",
+    "target": "N/A",
+    "details": "The app is in the process of loading.",
+    "confidence": 0.90
+  },
+  {
+    "screen_description": "The app is showing a medication group selection dialog with a calendar to select an expiration date.",
+    "action_type": "click",
+    "target": "Medication groups dialog",
+    "details": "The user interacted with the medication group selection dialog.",
+    "confidence": 0.98
+  },
+  {
+    "screen_description": "The app is showing a form to enter medication details with fields for product name, group, expiration date, and package opened status.",
+    "action_type": "type",
+    "target": "Product name field",
+    "details": "The user typed 'rt' into the product name field.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "The app is showing a form to enter medication details with fields for product name, group, expiration date, and package opened status.",
+    "action_type": "click",
+    "target": "Group field",
+    "details": "The user tapped on the group field to enter a group name.",
+    "confidence": 0.95
+  },
+  {
+    "screen_description": "The app is showing a form to enter medication details with fields for product name, group, expiration date, and package opened status.",
+    "action_type": "type",
+    "target": "Group field",
+    "details": "The user typed 'Empty' into the group field.",
+    "confidence": 0.98
+  },
+  {
+    "screen_description": "The app is showing a form to enter medication details with fields for product name, group, expiration date, and package opened status.",
+    "action_type": "click",
+    "target": "Exp. date field",
+    "details": "The user tapped on the expiration date field to select a date.",
+    "confidence": 0.92
+  },
+  {
+    "screen_description": "The app is showing a form to enter medication details with fields for product name, group, expiration date, and package opened status.",
+    "action_type": "click",
+    "target": "Save button",
+    "details": "The user tapped the 'Save' button to save the entered medication details.",
+    "confidence": 0.95
+  },
+  {
+    "screen_description": "The app is showing a list of saved medications with details such as product name, group, expiration date, and package opened status.",
+    "action_type": "click",
+    "target": "Add button",
+    "details": "The user tapped the 'Add' button to add a new medication.",
+    "confidence": 0.90
+  }
+]
+```

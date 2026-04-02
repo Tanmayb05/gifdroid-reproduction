@@ -1,0 +1,23 @@
+{
+  "app": "antennapod",
+  "method": "llm",
+  "variant": "qwen2-5vl-7b",
+  "source": "screenrec",
+  "video": "srv-001.mp4",
+  "config": {
+    "frame_sampling": {
+      "strategy": "uniform",
+      "fps": 1.5,
+      "max_frames": 100
+    },
+    "keyframe_selection": {
+      "method": "llm_assisted",
+      "min_gap_seconds": 1.0,
+      "stable_threshold": 2,
+      "ssim_threshold": 0.95
+    }
+  },
+  "timestamp": "2026-04-02T11:37:57",
+  "duration_sec": 54.5,
+  "status": "success"
+}

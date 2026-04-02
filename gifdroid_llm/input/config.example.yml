@@ -4,64 +4,155 @@
 # Shared Settings
 # -----------------
 
-# LLM provider configuration
-# Supported providers: "gemini", "llama", "qwen", "sonnet"/"claude"
+# LLM provider and model configuration.
+#
+# Supported providers and their default models:
+#
+#   Cloud providers (require API keys in .env.local):
+#     "gemini"  -> gemini-1.5-flash        (Google Gemini via API key or ADC)
+#     "sonnet"  -> (stub, not yet implemented)
+#     "claude"  -> (stub, not yet implemented)
+#
+#   Local Ollama providers (require LLAMA_BASE_URL=http://localhost:11434/v1 in .env.local):
+#     "llama"   -> llama3.2-vision:latest  (3B,  7.8 GB) baseline vision model
+#                  llama3.2-vision:11b     (11B, 7.8 GB) stronger reasoning
+#     "llava"   -> llava:7b               (7B,  4.7 GB) fast, good instruction following
+#     "minicpm" -> minicpm-v:latest        (8B,  5.5 GB) excellent for dense UI screenshots
+#     "gemma"   -> gemma3:4b              (4B,  3.3 GB) Google's latest, small footprint
+#     "qwen"    -> qwen2.5vl:7b           (7B,  6.0 GB) strong multimodal, recommended
+#                  (requires QWEN_BASE_URL=http://localhost:11434/v1 in .env.local)
+#
+# Pull models with: ollama pull <model-tag>
+# e.g.: ollama pull qwen2.5vl:7b
+
 llm: "gemini"
-# Optional: specify a particular model. If not provided, a default is used.
-# e.g., "gemini-2.5-flash", "llama3.2-vision:latest", "qwen2.5-vl-72b-instruct"
-llm_model: "gemini-2.5-flash"
-# Optional: external prompt template file for llama action inference.
-# Use {KEYFRAMES} placeholder where keyframe lines should be inserted.
-# If omitted, defaults to gifdroid_llm/input/prompts/llama_action_prompt.txt
-# llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt.txt"
+
+# Optional: override the default model for the selected provider.
+# If omitted, the default for the chosen llm is used (see table above).
+# llm_model: "gemini-1.5-flash"
+# llm_model: "llama3.2-vision:11b"
+# llm_model: "llava:7b"
+# llm_model: "minicpm-v:latest"
+# llm_model: "gemma3:4b"
+# llm_model: "qwen2.5vl:7b"
+
+# Optional: prompt template file for action inference (used by all local Ollama providers).
+# The file must contain a {KEYFRAMES} placeholder where keyframe metadata is injected.
+# If omitted, defaults to gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt
+# llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt"
+
+# -----------------
+# Frame Sampling
+# -----------------
 
 frame_sampling:
-  # "uniform": fixed rate (fps). "adaptive": not yet implemented.
+  # "uniform": extract frames at a fixed rate (fps).
+  # "adaptive": not yet implemented.
   strategy: "uniform"
-  fps: 1.0
+  # Frames per second to sample from the video.
+  fps: 1.5
+  # Hard cap on total sampled frames per video.
   max_frames: 100
 
+# -----------------
+# Keyframe Selection
+# -----------------
+
 keyframe_selection:
-  # "heuristic": motion-threshold based.
-  # "llm_assisted": currently same behavior as heuristic.
-  # "ssim": GIFdroid-style stable-screen detection via consecutive-frame SSIM.
-  method: "heuristic"
-  min_gap_seconds: 2.0
-  # Used only by method="ssim"
+  # "heuristic":    motion-threshold based selection.
+  # "llm_assisted": same behavior as heuristic (reserved for future LLM-guided selection).
+  # "ssim":         GIFdroid-style stable-screen detection via consecutive-frame SSIM.
+  #                 Recommended — produces the cleanest keyframe set.
+  method: "ssim"
+  # Minimum seconds between selected keyframes (avoids duplicate screens).
+  min_gap_seconds: 1.0
+  # Used only by method="ssim": frames with SSIM above this are considered identical.
   ssim_threshold: 0.95
+  # Used only by method="ssim": number of consecutive similar frames required to confirm stability.
   stable_threshold: 2
 
+# -----------------
+# Output
+# -----------------
+
 output:
-  # If false, skip runs where execution_trace.json already exists.
+  # If false, skip runs where execution_trace.json already exists (safe for re-runs).
+  # If true, overwrite existing output.
   overwrite: false
 
+# -----------------
+# Logging
+# -----------------
+
 logging:
+  # One of: DEBUG, INFO, WARNING, ERROR, CRITICAL
   level: "INFO"
 
 # -----------------
 # Run Definitions
 # -----------------
 
-# Available app_name values (from apps/):
-# - "adaway"
-# - "antennapod"
-# - "homemedkit"
-# - "jigsaw"
-# - "luxalarm"
-# - "portauthority"
-# - "simplenotes"
-# - "wifianalyzer"
+# Each entry in `runs` processes one app's video(s).
+#
+# app_name: identifier used for the output directory path.
 #
 # video_path can be:
-# - a shorthand: "hhv" or "srv" (resolves to apps/{app}/videos/handheld/hhv-001.mp4 etc.)
-# - an explicit path: "apps/adaway/videos/handheld/hhv-001.mp4"
-# - a list of paths/shorthands to run multiple videos in one go
+#   - shorthand "hhv" -> resolves to apps/{app}/videos/handheld/hhv-001.mp4
+#   - shorthand "srv" -> resolves to apps/{app}/videos/screenrec/srv-001.mp4
+#   - explicit path:    "apps/adaway/videos/handheld/hhv-001.mp4"
+#   - a list of any of the above to process multiple videos in one run
+#
+# Available app_name values (from apps/):
+#   adaway, antennapod, deadhash, homemedkit, jigsaw,
+#   luxalarm, pomodorot, portauthority, simplenotes, wifianalyzer
 
 runs:
-  - app_name: "AdAway"
+  - app_name: "adaway"
     video_path:
-      - "apps/adaway/videos/handheld/hhv-001.mp4"
-      - "apps/adaway/videos/screenrec/srv-001.mp4"
+      - "hhv"
+      - "srv"
 
-  - app_name: "AntennaPod"
-    video_path: "apps/antennapod/videos/handheld/hhv-001.mp4"
+  # - app_name: "antennapod"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "deadhash"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "homemedkit"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "jigsaw"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "luxalarm"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "pomodorot"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "portauthority"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "simplenotes"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "wifianalyzer"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
