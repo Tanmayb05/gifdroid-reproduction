@@ -1,0 +1,16 @@
+2026-04-02 09:17:34 | INFO | === gifdroid_llm.2026-04-02T13-17-34__run-001__pipeline__started ===
+2026-04-02 09:17:34 | INFO | Starting gifdroid_llm pipeline
+2026-04-02 09:17:34 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/videos/screenrec/srv-001.mp4
+2026-04-02 09:17:34 | INFO | Environment validated for llm=llava model=llava:13b
+2026-04-02 09:17:34 | INFO | Running llava prerequisite check before trace generation | timeout=unlimited
+2026-04-02 09:17:35 | INFO | Starting frame extraction | native_fps=15.803 target_fps=1.500 stride=11 total_frames=583
+2026-04-02 09:17:35 | INFO | Frame extraction complete | sampled_frames=53
+2026-04-02 09:17:35 | INFO | Keyframe selection complete | method=llm_assisted threshold=10.589 selected=10 sampled=53
+2026-04-02 09:17:35 | INFO | Sending LLaVA inference request | model=llava:13b | keyframes=10
+2026-04-02 09:17:35 | INFO | Llama API request sent | kind=action_inference | model=llava:13b | endpoint=http://localhost:11434/v1/chat/completions | waiting for response
+2026-04-02 09:18:12 | INFO | Llama API response complete | kind=action_inference | elapsed_sec=36.27 | total_chars=826
+2026-04-02 09:18:12 | WARNING | LLaVA response could not be parsed; falling back to deterministic heuristic.
+2026-04-02 09:18:12 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/llava/llava-13b/screenrec/fps1-5__max100__llm-assisted__gap1/run-001/llm_raw_response.txt
+2026-04-02 09:18:12 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/llava/llava-13b/screenrec/fps1-5__max100__llm-assisted__gap1/run-001/execution_trace.json
+2026-04-02 09:18:12 | INFO | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/llava/llava-13b/screenrec/fps1-5__max100__llm-assisted__gap1/run-001/frames_manifest.json
+2026-04-02 09:18:12 | INFO | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/llava/llava-13b/screenrec/fps1-5__max100__llm-assisted__gap1/run-001/keyframes

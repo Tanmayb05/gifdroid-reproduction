@@ -167,7 +167,7 @@ def _parse_shared(root: Dict[str, Any]) -> tuple:
         default_models = {
             "gemini": "gemini-1.5-flash",
             "llama": "llama3.2-vision:latest",
-            "llava": "llava:7b",
+            "llava": "llava:13b",
             "minicpm": "minicpm-v:latest",
             "gemma": "gemma3:4b",
             "qwen": "qwen2.5vl:7b",

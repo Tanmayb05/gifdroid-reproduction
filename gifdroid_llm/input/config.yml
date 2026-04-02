@@ -3,7 +3,7 @@
 
 # llm: "llama"
 # llm_model: "llama3.2-vision"
-llm: "llava"
+llm: "minicpm"
 # llm_model: "qwen2.5vl:7b"
 llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt"
 
@@ -36,20 +36,20 @@ runs:
       - "hhv"
       - "srv"
 
-  # - app_name: "deadhash"
-  #   video_path:
-  #     - "hhv"
-  #     - "srv"
+  - app_name: "deadhash"
+    video_path:
+      - "hhv"
+      - "srv"
 
-  # - app_name: "homemedkit"
-  #   video_path:
-  #     - "hhv"
-  #     - "srv"
+  - app_name: "homemedkit"
+    video_path:
+      - "hhv"
+      - "srv"
 
-  # - app_name: "jigsaw"
-  #   video_path:
-  #     - "hhv"
-  #     - "srv"
+  - app_name: "jigsaw"
+    video_path:
+      - "hhv"
+      - "srv"
 
   # - app_name: "luxalarm"
   #   video_path:

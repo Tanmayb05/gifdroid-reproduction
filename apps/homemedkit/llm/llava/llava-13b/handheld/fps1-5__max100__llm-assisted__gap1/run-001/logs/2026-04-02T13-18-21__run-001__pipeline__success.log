@@ -1,0 +1,16 @@
+2026-04-02 09:18:21 | INFO | === gifdroid_llm.2026-04-02T13-18-21__run-001__pipeline__started ===
+2026-04-02 09:18:21 | INFO | Starting gifdroid_llm pipeline
+2026-04-02 09:18:21 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/videos/handheld/hhv-001.mp4
+2026-04-02 09:18:21 | INFO | Environment validated for llm=llava model=llava:13b
+2026-04-02 09:18:21 | INFO | Running llava prerequisite check before trace generation | timeout=unlimited
+2026-04-02 09:18:22 | INFO | Starting frame extraction | native_fps=32.642 target_fps=1.500 stride=22 total_frames=1359
+2026-04-02 09:18:24 | INFO | Frame extraction complete | sampled_frames=62
+2026-04-02 09:18:24 | INFO | Keyframe selection complete | method=llm_assisted threshold=21.379 selected=15 sampled=62
+2026-04-02 09:18:24 | INFO | Sending LLaVA inference request | model=llava:13b | keyframes=15
+2026-04-02 09:18:24 | INFO | Llama API request sent | kind=action_inference | model=llava:13b | endpoint=http://localhost:11434/v1/chat/completions | waiting for response
+2026-04-02 09:19:06 | INFO | Llama API response complete | kind=action_inference | elapsed_sec=41.45 | total_chars=1190
+2026-04-02 09:19:06 | WARNING | LLaVA response could not be parsed; falling back to deterministic heuristic.
+2026-04-02 09:19:06 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/llava/llava-13b/handheld/fps1-5__max100__llm-assisted__gap1/run-001/llm_raw_response.txt
+2026-04-02 09:19:06 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/llava/llava-13b/handheld/fps1-5__max100__llm-assisted__gap1/run-001/execution_trace.json
+2026-04-02 09:19:06 | INFO | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/llava/llava-13b/handheld/fps1-5__max100__llm-assisted__gap1/run-001/frames_manifest.json
+2026-04-02 09:19:06 | INFO | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/llava/llava-13b/handheld/fps1-5__max100__llm-assisted__gap1/run-001/keyframes
