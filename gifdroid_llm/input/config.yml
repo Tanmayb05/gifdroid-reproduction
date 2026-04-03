@@ -9,7 +9,7 @@
 llm: "gemini"
 llm_model: "gemini-2.5-pro"
 
-llm_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_3.txt"
+llm_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_baseline_2.txt"
 # llm_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt"
 # llm_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_claude.txt"
 
@@ -20,7 +20,7 @@ frame_sampling:
 
 keyframe_selection:
   # Options: "heuristic", "llm_assisted", "ssim"
-  method: "ssim"
+  method: "llm_assisted"
   min_gap_seconds: 1.0
   ssim_threshold: 0.95
   stable_threshold: 2

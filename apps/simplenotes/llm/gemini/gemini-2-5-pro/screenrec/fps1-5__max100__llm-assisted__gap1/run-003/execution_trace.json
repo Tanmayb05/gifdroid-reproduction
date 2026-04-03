@@ -1,0 +1,81 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/simplenotes/videos/screenrec/srv-001.mp4",
+  "llm": "gemini",
+  "video_type": "srv",
+  "app_name": "simplenotes",
+  "generated_at": "2026-04-03T05:23:05.250152+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The application is open on a feed screen, displaying a list of posts. Each post has a title, a 'Like' button (heart icon), and a 'Comment' button. The first post is titled 'The Best Title Ever'.",
+      "action": {
+        "type": "START",
+        "target": "None",
+        "details": "None"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.322,
+      "frame_file": "kf-0002.png",
+      "screen_description": "The heart icon for the first post, 'The Best Title Ever', is now filled in, indicating it has been liked. The rest of the screen is unchanged.",
+      "action": {
+        "type": "TAP",
+        "target": "'Like' button (heart icon) on the first post",
+        "details": "The user tapped the 'Like' button for the post titled 'The Best Title Ever'."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 2.645,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The screen remains on the feed, showing the liked post. No visual change is apparent in this keyframe.",
+      "action": {
+        "type": "TAP",
+        "target": "'Comment' button on the first post",
+        "details": "The user tapped the 'Comment' button for the post titled 'The Best Title Ever'."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 3.967,
+      "frame_file": "kf-0004.png",
+      "screen_description": "A new screen or modal has appeared for adding a comment. It contains a text input field with the placeholder 'Add a comment...' and a 'Post' button.",
+      "action": {
+        "type": "WAIT",
+        "target": "None",
+        "details": "The application navigated to the comment input screen."
+      },
+      "confidence": 0.98
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 17.19,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The text 'This is a great post!' is now visible in the comment input field. The on-screen keyboard is likely visible.",
+      "action": {
+        "type": "TYPE",
+        "target": "Comment text input field",
+        "details": "The user typed 'This is a great post!' into the comment field."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 19.173,
+      "frame_file": "kf-0006.png",
+      "screen_description": "The application has returned to the main feed screen. The comment has been posted, and the comment section for the first post might show an updated count.",
+      "action": {
+        "type": "TAP",
+        "target": "'Post' button",
+        "details": "The user tapped the 'Post' button to submit the comment."
+      },
+      "confidence": 0.95
+    }
+  ]
+}

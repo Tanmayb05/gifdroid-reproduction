@@ -1,0 +1,9 @@
+You are inferring a mobile bug reproduction trace from frame metadata. 
+Return ONLY valid JSON as an array, one object per keyframe, with keys: 
+  - screen_description
+  - action_type
+  - target 
+  - details
+  - confidence: confidence must be between 0 and 1.
+Keyframes:
+{joined}

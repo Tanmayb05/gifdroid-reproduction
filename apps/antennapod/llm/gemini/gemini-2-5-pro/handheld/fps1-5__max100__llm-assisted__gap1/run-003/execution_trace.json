@@ -1,0 +1,153 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/videos/handheld/hhv-001.mp4",
+  "llm": "gemini",
+  "video_type": "hhv",
+  "app_name": "antennapod",
+  "generated_at": "2026-04-03T05:17:49.085066+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "Initial screen of the application, likely a list or menu.",
+      "action": {
+        "type": "navigate",
+        "target": "N/A",
+        "details": "The application's initial screen is loaded and displayed."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.32,
+      "frame_file": "kf-0002.png",
+      "screen_description": "A list view is visible on the screen.",
+      "action": {
+        "type": "swipe",
+        "target": "List view",
+        "details": "User performs a downward swipe to scroll through the content."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 2.64,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The list is actively scrolling, showing content in motion.",
+      "action": {
+        "type": "wait",
+        "target": "N/A",
+        "details": "The screen is in a transient state as the scroll animation continues."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 3.96,
+      "frame_file": "kf-0004.png",
+      "screen_description": "The scroll has ended, and the user has likely tapped on a text field.",
+      "action": {
+        "type": "tap",
+        "target": "Text input field",
+        "details": "User likely taps on a search bar or form field to prepare for text entry."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 15.839,
+      "frame_file": "kf-0005.png",
+      "screen_description": "A text field is populated with user-entered text.",
+      "action": {
+        "type": "type",
+        "target": "Text input field",
+        "details": "User spent approximately 12 seconds typing text, which is now visible."
+      },
+      "confidence": 0.98
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 17.819,
+      "frame_file": "kf-0006.png",
+      "screen_description": "Screen shows the entered text and an actionable button.",
+      "action": {
+        "type": "tap",
+        "target": "Button",
+        "details": "User taps a button, likely to 'Search' or 'Submit' the entered text."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 21.119,
+      "frame_file": "kf-0007.png",
+      "screen_description": "A new screen is loading or has loaded, likely showing results.",
+      "action": {
+        "type": "navigate",
+        "target": "N/A",
+        "details": "The application navigates to a new screen, probably displaying search results."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 25.079,
+      "frame_file": "kf-0008.png",
+      "screen_description": "A list of results is displayed on the screen.",
+      "action": {
+        "type": "wait",
+        "target": "N/A",
+        "details": "User pauses for about 4 seconds to observe the results."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 9,
+      "timestamp_sec": 26.399,
+      "frame_file": "kf-0009.png",
+      "screen_description": "The list of results is visible.",
+      "action": {
+        "type": "swipe",
+        "target": "Results list",
+        "details": "User performs another downward swipe to scroll through the results."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 10,
+      "timestamp_sec": 27.719,
+      "frame_file": "kf-0010.png",
+      "screen_description": "The results list is actively scrolling.",
+      "action": {
+        "type": "wait",
+        "target": "N/A",
+        "details": "The screen is in motion from the swipe action."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 11,
+      "timestamp_sec": 29.039,
+      "frame_file": "kf-0011.png",
+      "screen_description": "The scroll action on the results list has completed.",
+      "action": {
+        "type": "wait",
+        "target": "N/A",
+        "details": "User has finished scrolling and is observing the new position in the list."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 12,
+      "timestamp_sec": 33.658,
+      "frame_file": "kf-0012.png",
+      "screen_description": "Final view of the scrolled results list.",
+      "action": {
+        "type": "wait",
+        "target": "N/A",
+        "details": "User is idle, viewing the final state of the screen after all actions."
+      },
+      "confidence": 0.9
+    }
+  ]
+}
