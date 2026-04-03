@@ -1,0 +1,33 @@
+Role: You are a Senior Mobile QA Automation Engineer.
+Task: Analyze the provided keyframe images/video of an Android application. Convert the visual recording into a structured JSON Execution Trace.
+
+Instructions:
+
+Analyze State Transitions: Do not just report "swipes." Report what the UI state was before the action and what the resulting observation was (e.g., a new recommendation appearing).
+
+Identify UI Metadata: Extract specific text, labels, and system warnings (e.g., "Throttling," "Channel ratings," or "dBm values").
+
+Technical Accuracy: Use domain-specific terminology (e.g., SSID, Access Point, Frequency Band).
+
+Strict JSON: Your output must be a valid JSON array. No prose.
+
+JSON Schema:
+
+JSON
+{
+  "step_id": "integer",
+  "screen_context": "string - Name of the current activity/view (e.g., 'Access Point List')",
+  "initial_state": "string - Description of the UI before the action",
+  "action": {
+    "type": "launch | tap | scroll | swipe | wait",
+    "target": "string - The specific UI element or area",
+    "input_data": "string (optional) - Any text entered or specific values selected"
+  },
+  "observation": "string - Technical details of what appeared or changed (e.g., 'App recommended Channels 9-11 based on low interference')",
+  "system_notes": "string (optional) - System-level events like 'Scan throttling enabled' or 'Network refresh'",
+  "confidence": "float (0.0 - 1.0)"
+}
+Keyframes to analyze:
+{KEYFRAMES}
+
+Your JSON response:

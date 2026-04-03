@@ -464,7 +464,7 @@ class LlamaProvider(BaseLLMProvider):
             template = self.action_prompt_path.read_text(encoding="utf-8")
         except OSError as exc:
             raise ProviderError(
-                f"Failed to read llama_action_prompt_file: {self.action_prompt_path}"
+                f"Failed to read llm_prompt_file: {self.action_prompt_path}"
             ) from exc
 
         if "{KEYFRAMES}" in template:
@@ -1807,7 +1807,7 @@ def create_provider(
     llm_model: str,
     env: Dict[str, str],
     logger: logging.Logger,
-    llama_action_prompt_file: Path | None = None,
+    llm_prompt_file: Path | None = None,
 ) -> BaseLLMProvider:
     provider_key = llm_name.lower()
     default_prompt = Path("gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt")
@@ -1817,21 +1817,21 @@ def create_provider(
     if provider_key in {"sonnet", "claude"}:
         return SonnetProvider(provider_key, llm_model, env, logger)
     if provider_key == "llama":
-        prompt_path = llama_action_prompt_file or Path(
+        prompt_path = llm_prompt_file or Path(
             "gifdroid_llm/input/prompts/llama_action_prompt.txt"
         )
         return LlamaProvider(provider_key, llm_model, env, logger, prompt_path)
     if provider_key == "llava":
-        prompt_path = llama_action_prompt_file or default_prompt
+        prompt_path = llm_prompt_file or default_prompt
         return LLaVAProvider(provider_key, llm_model, env, logger, prompt_path)
     if provider_key == "minicpm":
-        prompt_path = llama_action_prompt_file or default_prompt
+        prompt_path = llm_prompt_file or default_prompt
         return MiniCPMProvider(provider_key, llm_model, env, logger, prompt_path)
     if provider_key == "gemma":
-        prompt_path = llama_action_prompt_file or default_prompt
+        prompt_path = llm_prompt_file or default_prompt
         return GemmaProvider(provider_key, llm_model, env, logger, prompt_path)
     if provider_key == "qwen":
-        prompt_path = llama_action_prompt_file or default_prompt
+        prompt_path = llm_prompt_file or default_prompt
         return QwenProvider(provider_key, llm_model, env, logger, prompt_path)
 
     supported = "gemini, sonnet/claude, llama, llava, minicpm, gemma, qwen"

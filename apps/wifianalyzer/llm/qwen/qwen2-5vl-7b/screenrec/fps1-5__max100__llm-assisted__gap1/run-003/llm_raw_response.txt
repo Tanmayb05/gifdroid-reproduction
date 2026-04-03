@@ -1,0 +1,65 @@
+```json
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4",
+  "llm": "GPT-3.5-turbo",
+  "video_type": "srv",
+  "app_name": "WiFiAnalyzer",
+  "generated_at": "2023-10-05T12:34:56Z",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.000,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The home screen of the Android device is displayed, showing various app icons including WiFiAnalyzer, Lux Alarm, Medkit, and AdAway.",
+      "action": {
+        "type": "launch_app",
+        "target": "WiFiAnalyzer",
+        "details": "The user taps on the WiFiAnalyzer app icon to open it."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.315,
+      "frame_file": "kf-0002.png",
+      "screen_description": "The WiFiAnalyzer app is open, displaying a dialog box with information about Wi-Fi scan throttling. The user is prompted to enable location services.",
+      "action": {
+        "type": "wait",
+        "target": "dialog",
+        "details": "The user waits for the dialog box to be dismissed."
+      },
+      "confidence": 0.90
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 3.945,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The WiFiAnalyzer app is open, showing the Channel Graph tab. The app is scanning for Wi-Fi signals.",
+      "action": {
+        "type": "scroll",
+        "target": "Channel Graph",
+        "details": "The user scrolls through the Channel Graph to view the Wi-Fi signal strength and channel information."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 7.233,
+      "frame_file": "kf-0004.png",
+      "screen_description": "The WiFiAnalyzer app is open, displaying the Channel Graph tab. The app shows a Wi-Fi signal strength of -50dBm on channel 8.",
+      "action": {
+        "type": "scroll",
+        "target": "Channel Graph",
+        "details": "The user scrolls through the Channel Graph to view the Wi-Fi signal strength and channel information."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 9.863,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The WiFiAnalyzer app is open, displaying the Access Points tab. The app shows details about the connected Wi-Fi network, including signal strength and channel information.",
+      "action": {
+        "type": "scroll",
+        "target": "Access Points",
+        "details": "The user scrolls through the Access Points to view the Wi-Fi

@@ -1,0 +1,105 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/handheld/hhv-001.mp4",
+  "llm": "gemini",
+  "video_type": "hhv",
+  "app_name": "adaway",
+  "generated_at": "2026-04-03T04:31:59.149474+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The initial screen of the application, likely a login or welcome page.",
+      "action": {
+        "type": "START",
+        "target": "N/A",
+        "details": "The application is launched and is on its initial screen."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 6.0,
+      "frame_file": "kf-0002.png",
+      "screen_description": "A login form is displayed, with fields for username and password.",
+      "action": {
+        "type": "TAP",
+        "target": "Login button",
+        "details": "The user taps a button to navigate to the login screen. The high motion score indicates a full screen transition."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 12.0,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The login form, with the cursor likely in the username or email field.",
+      "action": {
+        "type": "TYPE",
+        "target": "Username text input",
+        "details": "The user is typing their username or email into the text field. The low motion score is characteristic of typing."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 18.667,
+      "frame_file": "kf-0004.png",
+      "screen_description": "The login form, with the cursor likely in the password field.",
+      "action": {
+        "type": "TYPE",
+        "target": "Password text input",
+        "details": "The user is typing their password into the text field. The moderate motion score could be due to keyboard animations or switching fields."
+      },
+      "confidence": 0.75
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 24.667,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The main dashboard or home screen of the application after a successful login.",
+      "action": {
+        "type": "TAP",
+        "target": "Sign In button",
+        "details": "The user taps the 'Sign In' button to submit their credentials and log in."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 31.333,
+      "frame_file": "kf-0006.png",
+      "screen_description": "A user profile or account page is displayed.",
+      "action": {
+        "type": "TAP",
+        "target": "Profile icon or navigation tab",
+        "details": "From the home screen, the user taps on an icon or tab to navigate to their profile page."
+      },
+      "confidence": 0.7
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 37.333,
+      "frame_file": "kf-0007.png",
+      "screen_description": "The application's settings menu is displayed.",
+      "action": {
+        "type": "TAP",
+        "target": "Settings button",
+        "details": "The user taps on a 'Settings' button from the profile page, causing a new screen to load, indicated by the high motion score."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 44.0,
+      "frame_file": "kf-0008.png",
+      "screen_description": "The user is viewing the settings screen.",
+      "action": {
+        "type": "END",
+        "target": "N/A",
+        "details": "The trace ends with the user on the settings screen. The low motion score indicates a static screen."
+      },
+      "confidence": 0.95
+    }
+  ]
+}

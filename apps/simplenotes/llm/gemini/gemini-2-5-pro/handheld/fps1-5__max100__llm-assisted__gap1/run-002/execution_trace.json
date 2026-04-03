@@ -1,0 +1,153 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/simplenotes/videos/handheld/hhv-001.mp4",
+  "llm": "gemini",
+  "video_type": "hhv",
+  "app_name": "simplenotes",
+  "generated_at": "2026-04-03T04:10:23.576724+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The initial screen of the Turo app, presenting options to 'Log in' or 'Sign up' against a backdrop of a car.",
+      "action": {
+        "type": "START",
+        "target": "N/A",
+        "details": "The application is launched, showing the main landing page."
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 3.917,
+      "frame_file": "kf-0002.png",
+      "screen_description": "A login options screen is displayed, offering choices like 'Continue with Google', 'Continue with Apple', 'Continue with Facebook', and 'Continue with email'.",
+      "action": {
+        "type": "TAP",
+        "target": "Log in button",
+        "details": "The user taps the 'Log in' button on the initial screen."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 11.752,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The screen for email-based login, featuring input fields for 'Email address' and 'Password', and a 'Log in' button.",
+      "action": {
+        "type": "TAP",
+        "target": "Continue with email button",
+        "details": "The user selects the option to log in using their email address."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 13.058,
+      "frame_file": "kf-0004.png",
+      "screen_description": "The user is typing into the email address field. The text 'test+' is visible.",
+      "action": {
+        "type": "TYPE",
+        "target": "Email address input field",
+        "details": "The user begins to type their email address."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 14.364,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The user has finished typing their email address, which is now 'test+test@gmail.com'.",
+      "action": {
+        "type": "TYPE",
+        "target": "Email address input field",
+        "details": "The user completes typing 'test+test@gmail.com' into the email field."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 20.24,
+      "frame_file": "kf-0006.png",
+      "screen_description": "The user is typing their password into the password field, indicated by dots.",
+      "action": {
+        "type": "TYPE",
+        "target": "Password input field",
+        "details": "The user taps on the password field and enters their password."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 29.381,
+      "frame_file": "kf-0007.png",
+      "screen_description": "An error message 'We couldn't find an account with that email address and password.' is displayed on the login screen.",
+      "action": {
+        "type": "TAP",
+        "target": "Log in button",
+        "details": "The user taps the 'Log in' button, but the login fails, resulting in an error message."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 30.687,
+      "frame_file": "kf-0008.png",
+      "screen_description": "The user has tapped on the email input field again, preparing to edit the incorrect email address.",
+      "action": {
+        "type": "TAP",
+        "target": "Email address input field",
+        "details": "After the login failure, the user taps on the email field to correct the entry."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 9,
+      "timestamp_sec": 31.992,
+      "frame_file": "kf-0009.png",
+      "screen_description": "The user is deleting the previously entered email address from the input field.",
+      "action": {
+        "type": "TYPE",
+        "target": "Email address input field",
+        "details": "The user deletes the incorrect email address 'test+test@gmail.com'."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 10,
+      "timestamp_sec": 33.951,
+      "frame_file": "kf-0010.png",
+      "screen_description": "The user has entered a new email address, 'test@gmail.com', into the input field.",
+      "action": {
+        "type": "TYPE",
+        "target": "Email address input field",
+        "details": "The user types the corrected email address 'test@gmail.com'."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 11,
+      "timestamp_sec": 35.257,
+      "frame_file": "kf-0011.png",
+      "screen_description": "The login screen is shown, just after the user has tapped the 'Log in' button for the second time.",
+      "action": {
+        "type": "TAP",
+        "target": "Log in button",
+        "details": "The user attempts to log in again with the corrected email address."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 12,
+      "timestamp_sec": 38.521,
+      "frame_file": "kf-0012.png",
+      "screen_description": "The app's home screen is displayed, showing a map and a system pop-up asking for location permissions. This indicates a successful login.",
+      "action": {
+        "type": "WAIT",
+        "target": "N/A",
+        "details": "The login is successful, and the user is navigated to the main screen of the application."
+      },
+      "confidence": 0.9
+    }
+  ]
+}

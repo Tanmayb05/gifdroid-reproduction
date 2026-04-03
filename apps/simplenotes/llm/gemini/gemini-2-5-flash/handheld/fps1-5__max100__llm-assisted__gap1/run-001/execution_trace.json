@@ -1,0 +1,153 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/simplenotes/videos/handheld/hhv-001.mp4",
+  "llm": "gemini",
+  "video_type": "hhv",
+  "app_name": "simplenotes",
+  "generated_at": "2026-04-03T03:17:56.129746+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "App Home Screen",
+      "action": {
+        "type": "Wait",
+        "target": "N/A",
+        "details": "The application has launched and is displaying its initial home screen, awaiting user input."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 3.917,
+      "frame_file": "kf-0002.png",
+      "screen_description": "Content List Screen",
+      "action": {
+        "type": "Tap",
+        "target": "Navigation element or category item",
+        "details": "User tapped an element on the home screen, leading to a new screen displaying a list of content."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 11.752,
+      "frame_file": "kf-0003.png",
+      "screen_description": "Content List Screen",
+      "action": {
+        "type": "Scroll",
+        "target": "Scrollable list",
+        "details": "User scrolled down the list of content to view more items."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 13.058,
+      "frame_file": "kf-0004.png",
+      "screen_description": "Content List Screen",
+      "action": {
+        "type": "Scroll",
+        "target": "Scrollable list",
+        "details": "User continued scrolling through the content list."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 14.364,
+      "frame_file": "kf-0005.png",
+      "screen_description": "Content Detail Screen",
+      "action": {
+        "type": "Tap",
+        "target": "List item",
+        "details": "User tapped on a specific item in the list to view its details."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 20.24,
+      "frame_file": "kf-0006.png",
+      "screen_description": "Content Detail Screen",
+      "action": {
+        "type": "Scroll",
+        "target": "Detail view content",
+        "details": "User scrolled through the details of the selected item."
+      },
+      "confidence": 0.75
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 29.381,
+      "frame_file": "kf-0007.png",
+      "screen_description": "Content Detail Screen",
+      "action": {
+        "type": "Tap",
+        "target": "Action button (e.g., 'Add to Favorites')",
+        "details": "User tapped an action button on the detail screen, such as adding the item to favorites."
+      },
+      "confidence": 0.7
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 30.687,
+      "frame_file": "kf-0008.png",
+      "screen_description": "Content Detail Screen (with confirmation)",
+      "action": {
+        "type": "UI Update",
+        "target": "Confirmation message or icon",
+        "details": "A confirmation message or visual indicator appeared after the previous action."
+      },
+      "confidence": 0.65
+    },
+    {
+      "step_index": 9,
+      "timestamp_sec": 31.992,
+      "frame_file": "kf-0009.png",
+      "screen_description": "Content Detail Screen",
+      "action": {
+        "type": "Dismiss",
+        "target": "Confirmation message",
+        "details": "The confirmation message or temporary UI element was dismissed."
+      },
+      "confidence": 0.6
+    },
+    {
+      "step_index": 10,
+      "timestamp_sec": 33.951,
+      "frame_file": "kf-0010.png",
+      "screen_description": "Content List Screen",
+      "action": {
+        "type": "Tap",
+        "target": "Back button",
+        "details": "User tapped the back button to return to the content list screen."
+      },
+      "confidence": 0.7
+    },
+    {
+      "step_index": 11,
+      "timestamp_sec": 35.257,
+      "frame_file": "kf-0011.png",
+      "screen_description": "Content List Screen",
+      "action": {
+        "type": "Scroll",
+        "target": "Scrollable list",
+        "details": "User performed a minor scroll on the content list screen."
+      },
+      "confidence": 0.55
+    },
+    {
+      "step_index": 12,
+      "timestamp_sec": 38.521,
+      "frame_file": "kf-0012.png",
+      "screen_description": "Content List Screen (Idle)",
+      "action": {
+        "type": "Wait",
+        "target": "N/A",
+        "details": "The application is now idle on the content list screen, awaiting further interaction."
+      },
+      "confidence": 0.9
+    }
+  ]
+}

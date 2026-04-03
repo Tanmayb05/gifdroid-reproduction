@@ -1,0 +1,52 @@
+### Execution Trace
+
+1. **Step Name: Application Launch**
+   - **Initial State:** The home screen of the Android device is displayed, showing various app icons and the status bar with the time, battery level, and connectivity indicators.
+   - **Action:** The user taps on the "AdAway" app icon.
+   - **Observation/Details:** The AdAway app launches, displaying the main screen with statistics about blocked, allowed, and redirected domains.
+   - **Technical Insight:** The app is running smoothly, and there are no visible loading states or system warnings.
+
+2. **Step Name: Navigating to "Your lists"**
+   - **Initial State:** The AdAway app is open, showing the main screen with statistics.
+   - **Action:** The user taps on the menu icon (three horizontal lines) at the bottom left of the screen.
+   - **Observation/Details:** The menu is expanded, revealing options such as "Blocked," "Allowed," and "Redirected."
+   - **Technical Insight:** The menu is responsive, and the user can easily navigate to different sections.
+
+3. **Step Name: Navigating to "Allowed" list**
+   - **Initial State:** The AdAway app is open, showing the main screen with statistics.
+   - **Action:** The user taps on the "Allowed" option in the menu.
+   - **Observation/Details:** The screen transitions to the "Your lists" screen, which is currently empty.
+   - **Technical Insight:** The transition is smooth, and there are no loading states or system warnings.
+
+4. **Step Name: Searching for a hostname**
+   - **Initial State:** The "Your lists" screen is displayed, which is currently empty.
+   - **Action:** The user taps on the search bar at the top of the screen.
+   - **Observation/Details:** The search bar is active, and the user starts typing "edhb."
+   - **Technical Insight:** The search bar is responsive, and the user can easily input text.
+
+5. **Step Name: Adding a hostname to the whitelist**
+   - **Initial State:** The search bar is active, and the user has typed "edhb."
+   - **Action:** The user continues typing "edhb" in the search bar.
+   - **Observation/Details:** The search results show "ygu" and "utl.web," and the user selects "utl.web."
+   - **Technical Insight:** The search results are displayed, and the user can easily select the desired hostname.
+
+6. **Step Name: Applying the configuration change**
+   - **Initial State:** The search results are displayed, and the user has selected "utl.web."
+   - **Action:** The user taps on the "ADD" button at the bottom right of the screen.
+   - **Observation/Details:** A confirmation message appears, stating "Your configuration changed. You need to apply it."
+   - **Technical Insight:** The confirmation message is clear, and the user can easily apply the changes.
+
+7. **Step Name: Applying the configuration change**
+   - **Initial State:** The confirmation message is displayed.
+   - **Action:** The user taps on the "APPLY" button at the bottom right of the screen.
+   - **Observation/Details:** The confirmation message disappears, and the screen returns to the "Your lists" screen.
+   - **Technical Insight:** The application is responsive, and the user can easily apply the changes.
+
+8. **Step Name: N't be determined**
+   - **Initial State:** The "Your lists" screen is displayed, which is currently empty.
+   - **Action:** The user's actions are not clear, as the screen remains the same.
+   - **Observation/Details:** The screen remains the same, with no further actions taken.
+   - **Technical Insight:** The screen is static, and there are no further actions or changes observed.
+
+### Summary
+The user launched the AdAway app, navigated to the "Your lists" section, searched for a hostname, added it to the whitelist, and applied the configuration change. The app responded smoothly throughout the process, and there were no system warnings or loading states observed.

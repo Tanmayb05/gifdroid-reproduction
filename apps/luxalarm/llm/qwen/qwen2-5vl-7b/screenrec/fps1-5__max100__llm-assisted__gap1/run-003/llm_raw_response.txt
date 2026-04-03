@@ -1,0 +1,115 @@
+```json
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4",
+  "llm": "GPT-3.5-turbo",
+  "video_type": "srv",
+  "app_name": "WiFiAnalyzer",
+  "generated_at": "2023-10-05T12:34:56Z",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.000,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The home screen of the Android device is displayed, showing various app icons including WiFiAnalyzer, Lux Alarm, Medkit, Jigsaw, pomodorot, and AdAway.",
+      "action": {
+        "type": "launch_app",
+        "target": "WiFiAnalyzer",
+        "details": "The user is likely intending to open the WiFiAnalyzer app to check network settings or perform a related task."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 2.018,
+      "frame_file": "kf-0002.png",
+      "screen_description": "The WiFiAnalyzer app is now open, displaying the main screen with a message 'No alarms set. Tap '+' to add one.'",
+      "action": {
+        "type": "click",
+        "target": "Lux Alarm",
+        "details": "The user tapped on the Lux Alarm app icon to open it."
+      },
+      "confidence": 0.90
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 4.036,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The Lux Alarm app is open, showing the 'Set Alarm Time' interface with the time set to 20:00.",
+      "action": {
+        "type": "click",
+        "target": "Set",
+        "details": "The user tapped the 'Set' button to confirm the alarm time."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 5.381,
+      "frame_file": "kf-0004.png",
+      "screen_description": "The Lux Alarm app is open, showing the 'Set Alarm Time' interface with the time set to 10:25.",
+      "action": {
+        "type": "click",
+        "target": "Set",
+        "details": "The user tapped the 'Set' button to confirm the alarm time."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 9.417,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The Lux Alarm app is open, showing the 'Set Alarm Time' interface with the time set to 10:25.",
+      "action": {
+        "type": "click",
+        "target": "Set",
+        "details": "The user tapped the 'Set' button to confirm the alarm time."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 18.834,
+      "frame_file": "kf-0006.png",
+      "screen_description": "The Lux Alarm app is open, showing the 'Select ringtone' interface with 'Default (Cesium)' selected.",
+      "action": {
+        "type": "click",
+        "target": "Default (Cesium)",
+        "details": "The user tapped on the 'Default (Cesium)' option to set it as the alarm ringtone."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 20.852,
+      "frame_file": "kf-0007.png",
+      "screen_description": "The Lux Alarm app is open, showing the 'Select ringtone' interface with 'Pixel Sounds' selected.",
+      "action": {
+        "type": "click",
+        "target": "Pixel Sounds",
+        "details": "The user tapped on the 'Pixel Sounds' option to set it as the alarm ringtone."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 24.215,
+      "frame_file": "kf-0008.png",
+      "screen_description": "The Lux Alarm app is open, showing the 'Select an alarm sound' interface with 'Brook' selected.",
+      "action": {
+        "type": "click",
+        "target": "Brook",
+        "details": "The user tapped on the 'Brook' option to set it as the alarm sound."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 9,
+      "timestamp_sec": 28.924,
+      "frame_file": "kf-0009.png",
+      "screen_description": "The Lux Alarm app is open, showing the main screen with the alarm set for 10:25 on Monday and Friday.",
+      "action": {
+        "type": "click",
+        "target": "SAVE",
+        "details": "The user tapped the 'SAVE' button to save the alarm settings."
+      },
+      "confidence":

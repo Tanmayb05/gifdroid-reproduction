@@ -1,0 +1,93 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/wifianalyzer/videos/handheld/hhv-001.mp4",
+  "llm": "gemini",
+  "video_type": "hhv",
+  "app_name": "wifianalyzer",
+  "generated_at": "2026-04-03T03:51:47.881682+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The user is on the main screen of a note-taking application, which displays a list of existing notes titled 'My first note', 'My second note', and 'My third note'. At the bottom of the screen, there is a floating action button to 'Create note'.",
+      "action": {
+        "type": "START",
+        "target": "None",
+        "details": "None"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.998,
+      "frame_file": "kf-0002.png",
+      "screen_description": "The main screen of the note-taking app is visible, with the list of notes.",
+      "action": {
+        "type": "TAP",
+        "target": "'Create note' button",
+        "details": "None"
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 3.995,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The user is on the 'Create note' screen, which has a text field for the title and a larger text area for the note's content.",
+      "action": {
+        "type": "TYPE",
+        "target": "Title text field",
+        "details": "My new note"
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 5.327,
+      "frame_file": "kf-0004.png",
+      "screen_description": "On the 'Create note' screen, the title 'My new note' is entered. The cursor is now in the content area.",
+      "action": {
+        "type": "TYPE",
+        "target": "Content text area",
+        "details": "This is the content of the new note."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 13.318,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The 'Create note' screen is shown with the title and content fields filled out. A 'Save' or checkmark icon is visible in the top app bar.",
+      "action": {
+        "type": "TAP",
+        "target": "Save button",
+        "details": "None"
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 15.982,
+      "frame_file": "kf-0006.png",
+      "screen_description": "The user is back on the main screen, which now displays the newly created note 'My new note' at the top of the list.",
+      "action": {
+        "type": "TAP",
+        "target": "Note with title 'My new note'",
+        "details": "None"
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 19.977,
+      "frame_file": "kf-0007.png",
+      "screen_description": "The user is viewing the details of the note titled 'My new note'. The screen shows the title and the full content that was previously entered.",
+      "action": {
+        "type": "END",
+        "target": "None",
+        "details": "None"
+      },
+      "confidence": 1.0
+    }
+  ]
+}

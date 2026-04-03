@@ -1,0 +1,189 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/handheld/hhv-001.mp4",
+  "llm": "gemini",
+  "video_type": "hhv",
+  "app_name": "adaway",
+  "generated_at": "2026-04-03T04:04:46.954003+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The initial screen of the application, likely a login or search page.",
+      "action": {
+        "type": "LAUNCH",
+        "target": "N/A",
+        "details": "The application is launched and the first screen is displayed."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.333,
+      "frame_file": "kf-0002.png",
+      "screen_description": "The login/search page with a text input field focused.",
+      "action": {
+        "type": "TAP",
+        "target": "Text input field",
+        "details": "User taps on a text input field to begin typing."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 2.667,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The login/search page, with text being entered into the input field.",
+      "action": {
+        "type": "TYPE",
+        "target": "Text input field",
+        "details": "User is typing text into the selected input field."
+      },
+      "confidence": 0.98
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 6.0,
+      "frame_file": "kf-0004.png",
+      "screen_description": "The login/search page, with more text entered into the input field.",
+      "action": {
+        "type": "TYPE",
+        "target": "Text input field",
+        "details": "User continues typing text."
+      },
+      "confidence": 0.98
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 8.0,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The login/search page, with the text input field filled.",
+      "action": {
+        "type": "TYPE",
+        "target": "Text input field",
+        "details": "User finishes typing text into the input field."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 15.333,
+      "frame_file": "kf-0006.png",
+      "screen_description": "The login/search page, just before navigating away.",
+      "action": {
+        "type": "TAP",
+        "target": "Button, likely labeled 'Sign In' or 'Search'",
+        "details": "User taps a button to submit the form or execute a search."
+      },
+      "confidence": 0.92
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 27.333,
+      "frame_file": "kf-0007.png",
+      "screen_description": "A new screen is displayed, possibly a home feed or search results, showing a list of items.",
+      "action": {
+        "type": "SWIPE",
+        "target": "Screen background/list view",
+        "details": "User swipes up to scroll through the content on the new screen."
+      },
+      "confidence": 0.88
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 28.667,
+      "frame_file": "kf-0008.png",
+      "screen_description": "A list of items is visible on the screen.",
+      "action": {
+        "type": "TAP",
+        "target": "An item in the list",
+        "details": "User taps on a specific item in the list to view its details."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 9,
+      "timestamp_sec": 32.0,
+      "frame_file": "kf-0009.png",
+      "screen_description": "A detail view of the selected item is shown.",
+      "action": {
+        "type": "SWIPE",
+        "target": "Screen background/scroll view",
+        "details": "User swipes up to scroll down the detail page."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 10,
+      "timestamp_sec": 34.667,
+      "frame_file": "kf-0010.png",
+      "screen_description": "The detail view, scrolled down.",
+      "action": {
+        "type": "SWIPE",
+        "target": "Screen background/scroll view",
+        "details": "User continues to swipe up, scrolling further down the page."
+      },
+      "confidence": 0.97
+    },
+    {
+      "step_index": 11,
+      "timestamp_sec": 36.667,
+      "frame_file": "kf-0011.png",
+      "screen_description": "The detail view, scrolled to a new section.",
+      "action": {
+        "type": "TAP",
+        "target": "Button or interactive element",
+        "details": "User taps on a button, possibly 'Add to Cart' or 'Like'."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 12,
+      "timestamp_sec": 38.0,
+      "frame_file": "kf-0012.png",
+      "screen_description": "The detail view, after the previous tap action.",
+      "action": {
+        "type": "TAP",
+        "target": "Another button or link",
+        "details": "User taps on another interactive element on the page."
+      },
+      "confidence": 0.87
+    },
+    {
+      "step_index": 13,
+      "timestamp_sec": 39.333,
+      "frame_file": "kf-0013.png",
+      "screen_description": "A new view or modal has appeared after the previous tap.",
+      "action": {
+        "type": "SWIPE",
+        "target": "Modal or new view",
+        "details": "User swipes on a newly appeared element or view."
+      },
+      "confidence": 0.91
+    },
+    {
+      "step_index": 14,
+      "timestamp_sec": 41.333,
+      "frame_file": "kf-0014.png",
+      "screen_description": "The modal/new view is still visible.",
+      "action": {
+        "type": "TAP",
+        "target": "An option or button within the modal/new view",
+        "details": "User taps on an option within the new context."
+      },
+      "confidence": 0.88
+    },
+    {
+      "step_index": 15,
+      "timestamp_sec": 43.333,
+      "frame_file": "kf-0015.png",
+      "screen_description": "The screen after the final interaction.",
+      "action": {
+        "type": "TAP",
+        "target": "Confirmation or close button",
+        "details": "User performs a final tap, possibly to confirm an action or close a modal."
+      },
+      "confidence": 0.85
+    }
+  ]
+}

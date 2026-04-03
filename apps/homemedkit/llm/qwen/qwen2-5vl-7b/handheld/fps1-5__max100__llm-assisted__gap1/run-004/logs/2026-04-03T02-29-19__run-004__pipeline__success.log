@@ -1,0 +1,17 @@
+2026-04-02 22:29:19 | INFO | === gifdroid_llm.2026-04-03T02-29-19__run-004__pipeline__started ===
+2026-04-02 22:29:19 | INFO | Starting gifdroid_llm pipeline
+2026-04-02 22:29:19 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/videos/handheld/hhv-001.mp4
+2026-04-02 22:29:19 | INFO | Environment validated for llm=qwen model=qwen2.5vl:7b
+2026-04-02 22:29:19 | INFO | Running qwen prerequisite check before trace generation | timeout=unlimited
+2026-04-02 22:29:19 | INFO | Starting frame extraction | native_fps=32.642 target_fps=1.500 stride=22 total_frames=1359
+2026-04-02 22:29:21 | INFO | Frame extraction complete | sampled_frames=62
+2026-04-02 22:29:21 | INFO | Keyframe selection complete | method=llm_assisted threshold=21.379 selected=15 sampled=62
+2026-04-02 22:29:22 | INFO | Sending Qwen inference request | model=qwen2.5vl:7b | keyframes=15
+2026-04-02 22:29:22 | INFO | Qwen inference timeout | timeout_sec=unlimited
+2026-04-02 22:29:22 | INFO | Qwen API request sent | kind=action_inference | model=qwen2.5vl:7b | endpoint=http://localhost:11434/v1/chat/completions | waiting for response
+2026-04-02 22:29:48 | INFO | Qwen API response complete | kind=action_inference | elapsed_sec=25.80 | total_chars=237
+2026-04-02 22:29:48 | WARNING | Qwen response could not be parsed into actions; falling back to deterministic heuristic.
+2026-04-02 22:29:48 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/qwen/qwen2-5vl-7b/handheld/fps1-5__max100__llm-assisted__gap1/run-004/llm_raw_response.txt
+2026-04-02 22:29:48 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/qwen/qwen2-5vl-7b/handheld/fps1-5__max100__llm-assisted__gap1/run-004/execution_trace.json
+2026-04-02 22:29:48 | INFO | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/qwen/qwen2-5vl-7b/handheld/fps1-5__max100__llm-assisted__gap1/run-004/frames_manifest.json
+2026-04-02 22:29:48 | INFO | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/qwen/qwen2-5vl-7b/handheld/fps1-5__max100__llm-assisted__gap1/run-004/keyframes

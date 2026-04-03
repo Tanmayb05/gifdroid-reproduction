@@ -133,7 +133,7 @@ Edit `gifdroid_llm/input/config.yml` (see `config.example.yml` for full document
 ```yaml
 llm: "qwen"                  # provider key
 llm_model: "qwen2.5vl:7b"   # optional — uses provider default if omitted
-llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt"
+llm_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt"
 
 frame_sampling:
   strategy: "uniform"
@@ -184,7 +184,7 @@ python -m gifdroid_llm.main --dry-run
 
 ## Prompt Templates
 
-All local Ollama providers use a shared prompt template file specified by `llama_action_prompt_file` in config. The template must contain a `{KEYFRAMES}` placeholder where per-keyframe metadata is injected at runtime.
+All local Ollama providers use a shared prompt template file specified by `llm_prompt_file` in config. The template must contain a `{KEYFRAMES}` placeholder where per-keyframe metadata is injected at runtime.
 
 Available templates in `gifdroid_llm/input/prompts/`:
 
@@ -198,7 +198,7 @@ Available templates in `gifdroid_llm/input/prompts/`:
 To use a different template:
 
 ```yaml
-llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_baseline.txt"
+llm_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_baseline.txt"
 ```
 
 ## Fallback Behavior

@@ -1,0 +1,81 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/videos/screenrec/srv-001.mp4",
+  "llm": "gemini",
+  "video_type": "srv",
+  "app_name": "antennapod",
+  "generated_at": "2026-04-03T04:33:20.901650+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The application is on the 'My Feed' screen, displaying a list of articles. A 'Sign in' button is visible at the top.",
+      "action": {
+        "type": "START",
+        "target": "N/A",
+        "details": "The application is launched and displays the main feed."
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 6.264,
+      "frame_file": "kf-0002.png",
+      "screen_description": "The 'My Feed' screen is visible, showing a list of articles.",
+      "action": {
+        "type": "TAP",
+        "target": "Article in the feed",
+        "details": "The user taps on an article to view its details."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 16.009,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The screen displays the details of an article. A 'Save' icon (bookmark) is visible in the top navigation bar.",
+      "action": {
+        "type": "TAP",
+        "target": "'Save' icon",
+        "details": "The user taps the 'Save' icon, likely to save the article for later."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 21.578,
+      "frame_file": "kf-0004.png",
+      "screen_description": "A 'Sign in to save' modal or pop-up appears over the article content, prompting the user to log in.",
+      "action": {
+        "type": "SWIPE",
+        "target": "Screen",
+        "details": "The user attempts to scroll down the page, but the sign-in prompt is blocking the view."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 34.106,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The 'Sign in to save' pop-up is displayed, with options to 'Sign in' or 'Create account'.",
+      "action": {
+        "type": "TAP",
+        "target": "'Sign in' button",
+        "details": "The user taps the 'Sign in' button on the pop-up."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 36.195,
+      "frame_file": "kf-0006.png",
+      "screen_description": "The screen transitions to the main 'Sign In' page, which contains input fields for email and password.",
+      "action": {
+        "type": "NAVIGATE",
+        "target": "Sign In page",
+        "details": "The application navigates to the full sign-in page after the user initiated the sign-in process."
+      },
+      "confidence": 0.98
+    }
+  ]
+}

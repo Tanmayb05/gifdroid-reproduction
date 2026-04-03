@@ -1,0 +1,69 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/jigsaw/videos/screenrec/srv-001.mp4",
+  "llm": "gemini",
+  "video_type": "srv",
+  "app_name": "jigsaw",
+  "generated_at": "2026-04-03T04:08:23.037875+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The user is on the home screen, which displays various application icons.",
+      "action": {
+        "type": "START",
+        "target": "N/A",
+        "details": "The recording begins, showing the initial state of the device's screen."
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.333,
+      "frame_file": "kf-0002.png",
+      "screen_description": "The screen shows a launch animation for an application, likely the 'Clock' app.",
+      "action": {
+        "type": "TAP",
+        "target": "Clock app icon",
+        "details": "The user taps on the 'Clock' app icon from the home screen, initiating the app launch."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 2.665,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The user is inside the 'Clock' app, likely on the 'Alarm' tab. The screen shows a list of configured alarms.",
+      "action": {
+        "type": "TAP",
+        "target": "Stopwatch tab",
+        "details": "The user taps on the 'Stopwatch' tab at the bottom of the screen to navigate to that section."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 9.994,
+      "frame_file": "kf-0004.png",
+      "screen_description": "The user is on the 'Stopwatch' screen. The interface shows a large 'Start' button and a timer display at zero.",
+      "action": {
+        "type": "TAP",
+        "target": "Start button",
+        "details": "The user taps the 'Start' button to begin the stopwatch."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 21.32,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The stopwatch is running, with the elapsed time displayed on the screen. The user has let it run for several seconds.",
+      "action": {
+        "type": "WAIT",
+        "target": "N/A",
+        "details": "The user waits for approximately 11 seconds while the stopwatch is active."
+      },
+      "confidence": 0.9
+    }
+  ]
+}

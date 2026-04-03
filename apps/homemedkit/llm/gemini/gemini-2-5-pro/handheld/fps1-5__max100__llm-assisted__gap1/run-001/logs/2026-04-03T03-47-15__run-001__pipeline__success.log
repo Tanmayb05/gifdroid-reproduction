@@ -1,0 +1,23 @@
+2026-04-02 23:47:15 | INFO | === gifdroid_llm.2026-04-03T03-47-15__run-001__pipeline__started ===
+2026-04-02 23:47:15 | INFO | Starting gifdroid_llm pipeline
+2026-04-02 23:47:15 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/videos/handheld/hhv-001.mp4
+2026-04-02 23:47:15 | INFO | Environment validated for llm=gemini model=gemini-2.5-pro
+2026-04-02 23:47:15 | INFO | Running gemini API preflight before trace generation
+2026-04-02 23:47:15 | INFO | Gemini preflight started | model=gemini-2.5-pro | validating API key and endpoint access
+2026-04-02 23:47:15 | INFO | Gemini ADC default credentials loaded | adc_project=gifdroid-reproduction | runtime_project=project-1edeecda-ad08-47a7-867 | token_present=True
+2026-04-02 23:47:15 | INFO | Gemini auth route selected | route=adc_default | endpoint=vertex_ai
+2026-04-02 23:47:15 | INFO | Gemini API request sent | kind=preflight | model=gemini-2.5-pro | auth=adc_default | endpoint=vertex_ai | waiting for response
+2026-04-02 23:47:18 | INFO | Gemini API response received | kind=preflight | elapsed_sec=2.56
+2026-04-02 23:47:18 | INFO | Gemini preflight successful | model=gemini-2.5-pro
+2026-04-02 23:47:18 | INFO | Starting frame extraction | native_fps=32.642 target_fps=1.500 stride=22 total_frames=1359
+2026-04-02 23:47:20 | INFO | Frame extraction complete | sampled_frames=62
+2026-04-02 23:47:20 | INFO | Keyframe selection complete | method=llm_assisted threshold=21.379 selected=15 sampled=62
+2026-04-02 23:47:21 | INFO | Sending Gemini inference request | model=gemini-2.5-pro | keyframes=15
+2026-04-02 23:47:22 | INFO | Gemini ADC default credentials loaded | adc_project=gifdroid-reproduction | runtime_project=project-1edeecda-ad08-47a7-867 | token_present=True
+2026-04-02 23:47:22 | INFO | Gemini auth route selected | route=adc_default | endpoint=vertex_ai
+2026-04-02 23:47:22 | INFO | Gemini API request sent | kind=action_inference | model=gemini-2.5-pro | auth=adc_default | endpoint=vertex_ai | waiting for response
+2026-04-02 23:47:54 | INFO | Gemini API response received | kind=action_inference | elapsed_sec=32.80
+2026-04-02 23:47:54 | INFO | Gemini inference parsed successfully | parsed_actions=15
+2026-04-02 23:47:54 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/gemini/gemini-2-5-pro/handheld/fps1-5__max100__llm-assisted__gap1/run-001/execution_trace.json
+2026-04-02 23:47:54 | INFO | Frames manifest written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/gemini/gemini-2-5-pro/handheld/fps1-5__max100__llm-assisted__gap1/run-001/frames_manifest.json
+2026-04-02 23:47:54 | INFO | Saved keyframes: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/gemini/gemini-2-5-pro/handheld/fps1-5__max100__llm-assisted__gap1/run-001/keyframes

@@ -140,7 +140,7 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
             cfg.llm_model,
             env,
             logger,
-            llama_action_prompt_file=cfg.llama_action_prompt_file,
+            llm_prompt_file=cfg.llm_prompt_file,
         )
 
         if cfg.llm == "gemini":
@@ -188,6 +188,7 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
             keyframes=keyframes,
             video_path=resolved_video_path,
             llm=cfg.llm,
+            llm_prompt_file=str(cfg.llm_prompt_file) if cfg.llm_prompt_file is not None else None,
         )
         manifest_payload["video_metadata"] = metadata
 
@@ -217,6 +218,7 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
             variant=model_slug,
             source=source,
             video_file=video_file,
+            llm_prompt_file=str(cfg.llm_prompt_file) if cfg.llm_prompt_file is not None else None,
             frame_sampling_cfg=cfg.frame_sampling,
             keyframe_selection_cfg=cfg.keyframe_selection,
             run_dt=run_dt,

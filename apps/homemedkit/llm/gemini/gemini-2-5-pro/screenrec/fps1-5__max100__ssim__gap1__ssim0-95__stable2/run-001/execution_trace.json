@@ -1,0 +1,105 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/videos/screenrec/srv-001.mp4",
+  "llm": "gemini",
+  "video_type": "srv",
+  "app_name": "homemedkit",
+  "generated_at": "2026-04-03T04:34:19.771767+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The user is on the initial application screen, likely the home page.",
+      "action": {
+        "type": "LAUNCH",
+        "target": "Application",
+        "details": "The application is launched and the first frame is captured."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 3.345,
+      "frame_file": "kf-0002.png",
+      "screen_description": "The user is on the home screen, which contains various navigation elements.",
+      "action": {
+        "type": "TAP",
+        "target": "Settings icon",
+        "details": "The low motion score suggests a precise tap on a small target, likely a settings or menu icon."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 7.359,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The user is on the 'Settings' screen.",
+      "action": {
+        "type": "TAP",
+        "target": "Account button",
+        "details": "The very low motion score indicates another tap on a menu item, likely to navigate deeper into settings like 'Account' or 'Profile'."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 11.372,
+      "frame_file": "kf-0004.png",
+      "screen_description": "The user is on the 'Account' settings screen.",
+      "action": {
+        "type": "TAP",
+        "target": "Toggle switch",
+        "details": "The minimal motion score is characteristic of tapping a toggle switch, for example, 'Enable two-factor authentication'."
+      },
+      "confidence": 0.75
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 14.717,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The user is on the 'Account' settings screen and initiates a swipe gesture.",
+      "action": {
+        "type": "SWIPE",
+        "target": "Screen",
+        "details": "The very high motion score (84.875) strongly indicates a fast swipe gesture, likely a 'swipe back' to return to the previous screen."
+      },
+      "confidence": 0.98
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 18.731,
+      "frame_file": "kf-0006.png",
+      "screen_description": "The user is on the 'Settings' screen and initiates another swipe.",
+      "action": {
+        "type": "SWIPE",
+        "target": "Screen",
+        "details": "The high motion score (63.615) indicates another 'swipe back' gesture to return from the 'Settings' screen to the home screen."
+      },
+      "confidence": 0.97
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 22.745,
+      "frame_file": "kf-0007.png",
+      "screen_description": "The user is back on the home screen, which appears to have a scrollable list.",
+      "action": {
+        "type": "SCROLL",
+        "target": "Feed or list view",
+        "details": "The low motion score suggests a short, slow scroll down the page to view content."
+      },
+      "confidence": 0.7
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 26.759,
+      "frame_file": "kf-0008.png",
+      "screen_description": "The user is on the home screen after scrolling.",
+      "action": {
+        "type": "TAP",
+        "target": "Item in list",
+        "details": "The moderate motion score suggests a tap that causes a noticeable screen update, such as tapping on a post or profile to open a detail view."
+      },
+      "confidence": 0.8
+    }
+  ]
+}

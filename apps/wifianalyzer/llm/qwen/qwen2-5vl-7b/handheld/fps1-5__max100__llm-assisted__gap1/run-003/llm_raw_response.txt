@@ -1,0 +1,95 @@
+```json
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4",
+  "llm": "GPT-3.5-turbo",
+  "video_type": "srv",
+  "app_name": "WiFiAnalyzer",
+  "generated_at": "2023-10-05T12:34:56Z",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.000,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The WiFiAnalyzer app is open, displaying the main screen with options to optimize Wi-Fi network and features like 'More'.",
+      "action": {
+        "type": "launch_app",
+        "target": "WiFiAnalyzer",
+        "details": "The app is launched from the home screen."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.998,
+      "frame_file": "kf-0002.png",
+      "screen_description": "The screen is blank, indicating a transition or a swipe action.",
+      "action": {
+        "type": "swipe",
+        "target": "left",
+        "details": "The user swipes left to navigate through the app."
+      },
+      "confidence": 0.90
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 3.995,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The user is on the 'Access Points' screen, displaying a list of Wi-Fi networks with signal strength indicators.",
+      "action": {
+        "type": "swipe",
+        "target": "down",
+        "details": "The user swipes down to scroll through the list of Wi-Fi networks."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 5.327,
+      "frame_file": "kf-0004.png",
+      "screen_description": "The user continues to scroll through the 'Access Points' screen, focusing on the list of Wi-Fi networks.",
+      "action": {
+        "type": "swipe",
+        "target": "down",
+        "details": "The user swipes down to continue scrolling through the list of Wi-Fi networks."
+      },
+      "confidence": 0.90
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 13.318,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The user is on the 'Channel Graph' screen, displaying a graph of Wi-Fi channel usage.",
+      "action": {
+        "type": "swipe",
+        "target": "left",
+        "details": "The user swipes left to navigate to the 'Channel Graph' screen."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 15.982,
+      "frame_file": "kf-0006.png",
+      "screen_description": "The user continues to interact with the 'Channel Graph' screen, focusing on the graph of Wi-Fi channel usage.",
+      "action": {
+        "type": "swipe",
+        "target": "right",
+        "details": "The user swipes right to navigate back to the 'Access Points' screen."
+      },
+      "confidence": 0.90
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 19.977,
+      "frame_file": "kf-0007.png",
+      "screen_description": "The user is on the 'Channel Rating' screen, displaying a grid of Wi-Fi channel ratings.",
+      "action": {
+        "type": "swipe",
+        "target": "up",
+        "details": "The user swipes up to scroll through the channel ratings."
+      },
+      "confidence": 0.95
+    }
+  ]
+}
+```

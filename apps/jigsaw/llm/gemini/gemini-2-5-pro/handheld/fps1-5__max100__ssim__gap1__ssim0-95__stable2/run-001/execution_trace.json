@@ -1,0 +1,105 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/jigsaw/videos/handheld/hhv-001.mp4",
+  "llm": "gemini",
+  "video_type": "hhv",
+  "app_name": "jigsaw",
+  "generated_at": "2026-04-03T04:34:48.742690+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The application's main screen is displayed, featuring a list of items and a prominent search bar at the top.",
+      "action": {
+        "type": "launch",
+        "target": "N/A",
+        "details": "The application is launched and the initial screen is visible."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 2.027,
+      "frame_file": "kf-0002.png",
+      "screen_description": "The user interacts with the top of the screen, likely tapping the search bar.",
+      "action": {
+        "type": "tap",
+        "target": "Search bar",
+        "details": "The search bar is tapped to initiate a search."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 4.054,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The on-screen keyboard appears, and the user begins typing text into the now-active search bar.",
+      "action": {
+        "type": "type",
+        "target": "Search bar",
+        "details": "User types a search query. The high motion score suggests the keyboard appearing and rapid typing."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 6.081,
+      "frame_file": "kf-0004.png",
+      "screen_description": "After typing, the user taps a button, likely the 'Search' key on the keyboard, to execute the search.",
+      "action": {
+        "type": "tap",
+        "target": "Search button",
+        "details": "The search is initiated."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 8.108,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The screen updates to show a list of search results. The keyboard is no longer visible.",
+      "action": {
+        "type": "wait",
+        "target": "N/A",
+        "details": "The user observes the search results that have loaded on the screen."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 10.135,
+      "frame_file": "kf-0006.png",
+      "screen_description": "The user taps on one of the items presented in the search results list.",
+      "action": {
+        "type": "tap",
+        "target": "Search result item",
+        "details": "The user selects an item to view its details."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 12.163,
+      "frame_file": "kf-0007.png",
+      "screen_description": "A new screen, the detail page for the selected item, animates into view. The high motion score indicates a screen transition.",
+      "action": {
+        "type": "wait",
+        "target": "N/A",
+        "details": "The application navigates to and displays the detail page."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 14.865,
+      "frame_file": "kf-0008.png",
+      "screen_description": "On the detail page, the user performs a vertical swipe gesture to scroll through the content.",
+      "action": {
+        "type": "swipe",
+        "target": "Detail page content",
+        "details": "The user scrolls down to view more information on the page."
+      },
+      "confidence": 0.85
+    }
+  ]
+}

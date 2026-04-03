@@ -227,6 +227,7 @@ class KeyframeSelector:
         keyframes: List[Keyframe],
         video_path: Path,
         llm: str,
+        llm_prompt_file: str | None = None,
     ) -> Dict[str, Any]:
         keyframe_frame_numbers = {kf.frame_number for kf in keyframes}
         sampled_payload = [
@@ -242,6 +243,7 @@ class KeyframeSelector:
         return {
             "video": str(video_path),
             "llm": llm,
+            "llm_prompt_file": llm_prompt_file,
             "sampled_count": len(sampled_frames),
             "keyframe_count": len(keyframes),
             "sampled_frames": sampled_payload,

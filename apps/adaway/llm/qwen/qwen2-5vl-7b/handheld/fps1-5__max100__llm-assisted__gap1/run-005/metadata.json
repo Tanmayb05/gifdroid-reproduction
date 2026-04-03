@@ -1,0 +1,24 @@
+{
+  "app": "adaway",
+  "method": "llm",
+  "variant": "qwen2-5vl-7b",
+  "source": "handheld",
+  "video": "hhv-001.mp4",
+  "config": {
+    "llm_prompt_file": "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt",
+    "frame_sampling": {
+      "strategy": "uniform",
+      "fps": 1.5,
+      "max_frames": 100
+    },
+    "keyframe_selection": {
+      "method": "llm_assisted",
+      "min_gap_seconds": 1.0,
+      "stable_threshold": 2,
+      "ssim_threshold": 0.95
+    }
+  },
+  "timestamp": "2026-04-03T02:25:22",
+  "duration_sec": 39.1,
+  "status": "success"
+}

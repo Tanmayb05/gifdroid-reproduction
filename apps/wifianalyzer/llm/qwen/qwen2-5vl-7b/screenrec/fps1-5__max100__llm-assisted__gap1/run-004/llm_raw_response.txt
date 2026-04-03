@@ -1,0 +1,53 @@
+### Execution Trace
+
+1. **Step Name: Application Launch**
+   - **Initial State:** The home screen of the Android device is displayed, showing various app icons and the status bar at the top. The time is 8:56, and the battery level is visible.
+   - **Action:** The user taps on the "WiFiAnalyzer" app icon to launch the application.
+   - **Observation/Details:** The app opens, displaying a welcome message about Wi-Fi scan throttling and location permissions. The screen shows a "Channel Graph" tab with a message indicating that Wi-Fi scan throttling is enabled.
+   - **Technical Insight:** The app is open, and the user is presented with a message about Wi-Fi scan throttling and location permissions.
+
+2. **Step Name: Wi-Fi Scan Throttling Information**
+   - **Initial State:** The app is open, displaying the welcome message about Wi-Fi scan throttling and location permissions.
+   - **Action:** The user taps on the "OK" button to dismiss the welcome message.
+   - **Observation/Details:** The welcome message is dismissed, and the app returns to the "Channel Graph" tab, which shows a graph with a message indicating that Wi-Fi scan throttling is enabled.
+   - **Technical Insight:** The user has acknowledged the message about Wi-Fi scan throttling and location permissions.
+
+3. **Step Name: Scanning for Wi-Fi Channels**
+   - **Initial State:** The app is open, displaying the "Channel Graph" tab with a message indicating that Wi-Fi scan throttling is enabled.
+   - **Action:** The user taps on the "Channel Graph" tab to view the Wi-Fi channel scanning graph.
+   - **Observation/Details:** The app displays a graph showing the signal strength of the Wi-Fi channel "AndroidWiFi 8" on channel 8 with a signal strength of -3.1mV.
+   - **Technical Insight:** The app is actively scanning and displaying the Wi-Fi channel signal strength.
+
+4. **Step Name: Access Points Information**
+   - **Initial State:** The app is displaying the "Channel Graph" tab with a graph showing the signal strength of the Wi-Fi channel "AndroidWiFi 8" on channel 8.
+   - **Action:** The user taps on the "Access Points" tab to view the list of available Wi-Fi access points.
+   - **Observation/Details:** The app displays a list of Wi-Fi access points, including "AndroidWiFi 8" with details such as signal strength, channel, and vendor information.
+   - **Technical Insight:** The app is displaying detailed information about the Wi-Fi access points.
+
+5. **Step Name: Closing the Access Points Tab**
+   - **Initial State:** The app is displaying the "Access Points" tab with a list of Wi-Fi access points.
+   - **Action:** The user taps on the "Channel Graph" tab to return to the Wi-Fi channel scanning graph.
+   - **Observation/Details:** The app returns to the "Channel Graph" tab, displaying the Wi-Fi channel scanning graph.
+   - **Technical Insight:** The user has navigated back to the Wi-Fi channel scanning graph.
+
+6. **Step Name: Sharing Wi-Fi Information**
+   - **Initial State:** The app is displaying the "Channel Graph" tab with a Wi-Fi channel scanning graph.
+   - **Action:** The user taps on the "Time Graph" tab to view the Wi-Fi channel signal strength over time.
+   - **Observation/Details:** The app displays a graph showing the signal strength of the Wi-Fi channel "AndroidWiFi 8" over time.
+   - **Technical Insight:** The app is displaying the Wi-Fi channel signal strength over time.
+
+7. **Step Name: Sharing Wi-Fi Information**
+   - **Initial State:** The app is displaying the "Time Graph" tab with a graph showing the signal strength of the Wi-Fi channel "AndroidWiFi 8" over time.
+   - **Action:** The user taps on the "Export" option to share the Wi-Fi information.
+   - **Observation/Details:** The app displays a "Sharing text" dialog with the Wi-Fi information, and the user taps on the "Share" button to share the text.
+   - **Technical Insight:** The app is exporting and sharing the Wi-Fi information.
+
+8. **Step Name: Closing the Sharing Dialog**
+   - **Initial State:** The app is displaying the "Time Graph" tab with a graph showing the signal strength of the Wi-Fi channel "AndroidWiFi 8" over time.
+   - **Action:** The user taps on the "Channel Graph" tab to return to the Wi-Fi channel scanning graph.
+   - **Observation/Details:** The app returns to the "Channel Graph" tab, displaying the Wi-Fi channel scanning graph.
+   - **Technical Insight:** The user has navigated back to the Wi-Fi channel scanning graph.
+
+9. **Step Name: Closing the Sharing Dialog**
+   - **Initial State:** The app is displaying the "Channel Graph" tab with a Wi-Fi channel scanning graph.
+   - **Action:** The user taps on the "Channel Graph" tab to return to

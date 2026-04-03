@@ -1,0 +1,117 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/videos/screenrec/srv-001.mp4",
+  "llm": "gemini",
+  "video_type": "srv",
+  "app_name": "homemedkit",
+  "generated_at": "2026-04-03T03:47:54.867490+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "Initial screen of the application, possibly the home page or a login screen.",
+      "action": {
+        "type": "START",
+        "target": "None",
+        "details": "The recording begins on the application's initial screen."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.338,
+      "frame_file": "kf-0002.png",
+      "screen_description": "Initial screen of the application.",
+      "action": {
+        "type": "TAP",
+        "target": "A button or link, possibly 'Log In' or a menu item.",
+        "details": "A tap action is performed to navigate to the next screen."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 10.035,
+      "frame_file": "kf-0003.png",
+      "screen_description": "A screen with a list of items or a form, likely after logging in or performing a search.",
+      "action": {
+        "type": "TAP",
+        "target": "A text input field or a filter button.",
+        "details": "User waits for several seconds, possibly reading or deciding, then taps an element. The long delay might indicate typing, but the motion score is more consistent with a single tap."
+      },
+      "confidence": 0.85
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 13.379,
+      "frame_file": "kf-0004.png",
+      "screen_description": "A screen with a scrollable list of content.",
+      "action": {
+        "type": "SWIPE",
+        "target": "The main content list.",
+        "details": "A fast swipe gesture is performed to scroll the content vertically. The high motion score is indicative of a scroll or swipe."
+      },
+      "confidence": 0.98
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 14.717,
+      "frame_file": "kf-0005.png",
+      "screen_description": "A screen with a scrollable list, after being scrolled down.",
+      "action": {
+        "type": "TAP",
+        "target": "An item in the list that was revealed after scrolling.",
+        "details": "User taps on a specific item in the list to view its details."
+      },
+      "confidence": 0.92
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 17.393,
+      "frame_file": "kf-0006.png",
+      "screen_description": "The item details screen.",
+      "action": {
+        "type": "TAP",
+        "target": "A button on the item details page, such as 'Add to Cart' or 'More Info'.",
+        "details": "User interacts with the item details page by tapping a button."
+      },
+      "confidence": 0.91
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 18.731,
+      "frame_file": "kf-0007.png",
+      "screen_description": "A confirmation or checkout screen.",
+      "action": {
+        "type": "TAP",
+        "target": "A button, likely 'Confirm' or 'Next'.",
+        "details": "User proceeds to the next step in the flow by tapping a button."
+      },
+      "confidence": 0.9
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 20.738,
+      "frame_file": "kf-0008.png",
+      "screen_description": "A screen that appears after a confirmation, possibly a loading screen or a summary page.",
+      "action": {
+        "type": "TAP",
+        "target": "A UI element, possibly a final confirmation or a close button.",
+        "details": "A tap with moderate motion, suggesting a deliberate but less forceful interaction."
+      },
+      "confidence": 0.8
+    },
+    {
+      "step_index": 9,
+      "timestamp_sec": 26.759,
+      "frame_file": "kf-0009.png",
+      "screen_description": "The final screen of the user flow, which may be displaying an error, is frozen, or showing unexpected behavior.",
+      "action": {
+        "type": "OBSERVE",
+        "target": "None",
+        "details": "The user stops interacting for several seconds. The low motion score indicates no significant action is taken, suggesting the user is observing the final state, where the bug is likely visible."
+      },
+      "confidence": 0.75
+    }
+  ]
+}

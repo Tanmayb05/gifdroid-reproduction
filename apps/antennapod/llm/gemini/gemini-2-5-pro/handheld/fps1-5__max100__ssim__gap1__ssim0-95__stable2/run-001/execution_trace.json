@@ -1,0 +1,105 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/videos/handheld/hhv-001.mp4",
+  "llm": "gemini",
+  "video_type": "hhv",
+  "app_name": "antennapod",
+  "generated_at": "2026-04-03T04:32:51.647415+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "Initial application screen, likely a login or home page.",
+      "action": {
+        "type": "launch",
+        "target": "Application",
+        "details": "The application is started, presenting the first view."
+      },
+      "confidence": 0.98
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 4.62,
+      "frame_file": "kf-0002.png",
+      "screen_description": "Login screen with username and password fields.",
+      "action": {
+        "type": "tap",
+        "target": "Username text input field",
+        "details": "User taps on the username field to begin typing."
+      },
+      "confidence": 0.92
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 9.24,
+      "frame_file": "kf-0003.png",
+      "screen_description": "Login screen with the keyboard visible and cursor in the username field.",
+      "action": {
+        "type": "type",
+        "target": "Username text input field",
+        "details": "User types their username into the text field."
+      },
+      "confidence": 0.88
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 13.859,
+      "frame_file": "kf-0004.png",
+      "screen_description": "Login screen with the username field populated.",
+      "action": {
+        "type": "type",
+        "target": "Password text input field",
+        "details": "User types their password into the password field."
+      },
+      "confidence": 0.89
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 19.139,
+      "frame_file": "kf-0005.png",
+      "screen_description": "Login screen with both username and password fields filled.",
+      "action": {
+        "type": "tap",
+        "target": "Button with text 'Sign In'",
+        "details": "User taps the 'Sign In' button to authenticate and proceed."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 23.759,
+      "frame_file": "kf-0006.png",
+      "screen_description": "Main dashboard or home screen after successful login.",
+      "action": {
+        "type": "tap",
+        "target": "Navigation icon for 'Settings'",
+        "details": "User taps on the 'Settings' icon or menu item to access app settings."
+      },
+      "confidence": 0.91
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 28.379,
+      "frame_file": "kf-0007.png",
+      "screen_description": "Settings screen with a list of options like 'Profile', 'Notifications', 'About'.",
+      "action": {
+        "type": "tap",
+        "target": "List item with text 'Notifications'",
+        "details": "User taps on the 'Notifications' option to view or change notification settings."
+      },
+      "confidence": 0.93
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 33.658,
+      "frame_file": "kf-0008.png",
+      "screen_description": "An error message is displayed or the application has crashed.",
+      "action": {
+        "type": "observe",
+        "target": "Application window",
+        "details": "BUG: After tapping 'Notifications', the application becomes unresponsive or displays an error dialog, preventing access to the notification settings."
+      },
+      "confidence": 0.97
+    }
+  ]
+}

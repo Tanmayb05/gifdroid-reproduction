@@ -1,0 +1,71 @@
+```json
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4",
+  "llm": "gpt-3.5-turbo",
+  "video_type": "srv",
+  "app_name": "WiFiAnalyzer",
+  "generated_at": "2023-10-05T12:30:00Z",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.000,
+      "frame_file": "kf-0001.png",
+      "screen_description": "The home screen of an Android device is displayed, showing various app icons including WiFiAnalyzer, Lux Alarm, Medkit, and Jigsaw Puzzle.",
+      "action": {
+        "type": "launch_app",
+        "target": "WiFiAnalyzer",
+        "details": "The user is likely intending to open the WiFiAnalyzer app to check network settings or perform a related task."
+      },
+      "confidence": 0.95
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.333,
+      "frame_file": "kf-0002.png",
+      "screen_description": "The screen is blank, indicating a possible transition or a pause in the video.",
+      "action": {
+        "type": "wait",
+        "target": "none",
+        "details": "The user may be waiting for the app to load or for a specific action to complete."
+      },
+      "confidence": 0.90
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 2.665,
+      "frame_file": "kf-0003.png",
+      "screen_description": "The Jigsaw Puzzle app is open, showing a partially completed puzzle with some pieces in place and others still in the puzzle area.",
+      "action": {
+        "type": "scroll",
+        "target": "puzzle pieces",
+        "details": "The user is likely scrolling through the puzzle pieces to find the correct one to place."
+      },
+      "confidence": 0.98
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 9.994,
+      "frame_file": "kf-0004.png",
+      "screen_description": "The Jigsaw Puzzle app is open, showing a partially completed puzzle with some pieces in place and others still in the puzzle area.",
+      "action": {
+        "type": "click",
+        "target": "puzzle piece",
+        "details": "The user is clicking on a puzzle piece to move it into the correct position."
+      },
+      "confidence": 0.99
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 21.320,
+      "frame_file": "kf-0005.png",
+      "screen_description": "The Jigsaw Puzzle app is open, showing a partially completed puzzle with some pieces in place and others still in the puzzle area.",
+      "action": {
+        "type": "click",
+        "target": "puzzle piece",
+        "details": "The user is clicking on a puzzle piece to move it into the correct position."
+      },
+      "confidence": 0.99
+    }
+  ]
+}
+```

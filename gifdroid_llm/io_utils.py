@@ -149,6 +149,7 @@ def write_run_metadata(
     variant: str,
     source: str,
     video_file: str,
+    llm_prompt_file: str | None,
     frame_sampling_cfg: FrameSamplingConfig,
     keyframe_selection_cfg: KeyframeSelectionConfig,
     run_dt: datetime,
@@ -163,6 +164,7 @@ def write_run_metadata(
         "source": source,
         "video": video_file,
         "config": {
+            "llm_prompt_file": llm_prompt_file,
             "frame_sampling": dataclasses.asdict(frame_sampling_cfg),
             "keyframe_selection": dataclasses.asdict(keyframe_selection_cfg),
         },

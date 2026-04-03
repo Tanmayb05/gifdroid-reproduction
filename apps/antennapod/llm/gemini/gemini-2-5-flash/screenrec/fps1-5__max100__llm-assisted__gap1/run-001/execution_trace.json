@@ -1,0 +1,129 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/videos/screenrec/srv-001.mp4",
+  "llm": "gemini",
+  "video_type": "srv",
+  "app_name": "antennapod",
+  "generated_at": "2026-04-03T03:14:50.374912+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 0.0,
+      "frame_file": "kf-0001.png",
+      "screen_description": "Initial app screen",
+      "action": {
+        "type": "App launch",
+        "target": "Application",
+        "details": "Application started or resumed, no motion detected."
+      },
+      "confidence": 0.2
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 1.392,
+      "frame_file": "kf-0002.png",
+      "screen_description": "Transitioning screen",
+      "action": {
+        "type": "Interaction",
+        "target": "Unknown UI element",
+        "details": "Significant motion detected (motion_score=124.155), likely a tap or swipe causing a screen transition."
+      },
+      "confidence": 0.4
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 4.176,
+      "frame_file": "kf-0003.png",
+      "screen_description": "App screen",
+      "action": {
+        "type": "Screen update",
+        "target": "Screen content",
+        "details": "Moderate motion (motion_score=25.829), possibly a new screen settling or content loading."
+      },
+      "confidence": 0.3
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 17.401,
+      "frame_file": "kf-0004.png",
+      "screen_description": "App screen",
+      "action": {
+        "type": "Viewing",
+        "target": "Screen content",
+        "details": "Low-to-moderate motion (motion_score=24.744), possibly a subtle animation or user viewing content."
+      },
+      "confidence": 0.2
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 18.793,
+      "frame_file": "kf-0005.png",
+      "screen_description": "App screen",
+      "action": {
+        "type": "Viewing",
+        "target": "Screen content",
+        "details": "Low motion (motion_score=16.175), screen is likely static or has very subtle animation."
+      },
+      "confidence": 0.2
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 22.97,
+      "frame_file": "kf-0006.png",
+      "screen_description": "App screen",
+      "action": {
+        "type": "Viewing",
+        "target": "Screen content",
+        "details": "Low motion (motion_score=22.584), screen is likely static or has very subtle animation."
+      },
+      "confidence": 0.2
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 24.362,
+      "frame_file": "kf-0007.png",
+      "screen_description": "App screen",
+      "action": {
+        "type": "Viewing",
+        "target": "Screen content",
+        "details": "Minimal motion (motion_score=10.698), screen is likely static."
+      },
+      "confidence": 0.3
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 26.45,
+      "frame_file": "kf-0008.png",
+      "screen_description": "Transitioning screen",
+      "action": {
+        "type": "Interaction",
+        "target": "Unknown UI element",
+        "details": "Moderate motion detected (motion_score=54.064), likely a tap, scroll, or screen update."
+      },
+      "confidence": 0.4
+    },
+    {
+      "step_index": 9,
+      "timestamp_sec": 29.93,
+      "frame_file": "kf-0009.png",
+      "screen_description": "App screen",
+      "action": {
+        "type": "Screen update",
+        "target": "Screen content",
+        "details": "Moderate motion (motion_score=48.417), possibly a new screen settling or content loading/scrolling."
+      },
+      "confidence": 0.3
+    },
+    {
+      "step_index": 10,
+      "timestamp_sec": 35.499,
+      "frame_file": "kf-0010.png",
+      "screen_description": "Transitioning screen",
+      "action": {
+        "type": "Interaction",
+        "target": "Unknown UI element",
+        "details": "Significant motion detected (motion_score=87.758), likely a tap or swipe causing a screen transition."
+      },
+      "confidence": 0.4
+    }
+  ]
+}

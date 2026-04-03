@@ -1,0 +1,58 @@
+### Execution Trace
+
+1. **Step Name: Application Launch**
+   - **Initial State:** The home screen of an Android device is displayed, showing various app icons such as "WiFiAnalyzer," "Lux Alarm," "Medkit," "Jigsaw," "pomodorot," and "AdAway." The status bar indicates the time as 8:52, and the device is connected to a network with signal strength and battery indicators visible.
+   - **Action:** The user taps on the "WiFiAnalyzer" app icon.
+   - **Observation/Details:** The app launches, and the screen transitions to display network information such as MAC address, Vendor, LAN IP, WAN IP, Signal/Speed, SSID, and BSSID.
+   - **Technical Insight:** The app is likely a network analysis tool, as it provides detailed network information.
+
+2. **Step Name: Network Information Display**
+   - **Initial State:** The "WiFiAnalyzer" app is open, displaying network details.
+   - **Action:** The user scrolls down the screen to view more network information.
+   - **Observation/Details:** The screen shows additional details such as "Scan WAN Host," "Wake Up Host," and "DNS Lookup."
+   - **Technical Insight:** The user is exploring the network scanning capabilities of the app.
+
+3. **Step Name: Scanning for Hosts**
+   - **Initial State:** The user is on the "WiFiAnalyzer" app screen displaying network details.
+   - **Action:** The user taps on the "DISCOVER HOSTS" button.
+   - **Observation/Details:** The screen transitions to show a progress bar indicating "Scanning For Hosts" with a message "254 hosts in your subnet" and a progress indicator at 7%.
+   - **Technical Insight:** The app is actively scanning the network for hosts, and the progress bar provides real-time feedback on the scanning process.
+
+4. **Step Name: Host Discovery Progress**
+   - **Initial State:** The app is scanning for hosts.
+   - **Action:** The user continues to observe the progress bar, which shows the scanning process is ongoing.
+   - **Observation/Details:** The progress bar updates to show the scanning process is at 17/254 hosts.
+   - **Technical Insight:** The app is actively scanning the network, and the user is monitoring the progress.
+
+5. **Step Name: Host Discovery Results**
+   - **Initial State:** The app is displaying the results of the host scan.
+   - **Action:** The user scrolls through the list of discovered hosts.
+   - **Observation/Details:** The screen shows a list of IP addresses with their MAC addresses and vendor information. The user scrolls through the list, viewing details for each host.
+   - **Technical Insight:** The app provides detailed information about each host, including MAC address, vendor, and IP address.
+
+6. **Step Name: Host Details**
+   - **Initial State:** The user is viewing the details of a specific host.
+   - **Action:** The user taps on a specific host in the list.
+   - **Observation/Details:** The screen transitions to show detailed information about the selected host, including its MAC address, vendor, and IP address.
+   - **Technical Insight:** The app provides detailed information about the selected host, including its MAC address, vendor, and IP address.
+
+7. **Step Name: Port Scanning**
+   - **Initial State:** The user is viewing the detailed information of a specific host.
+   - **Action:** The user taps on the "Open Ports" button.
+   - **Observation/Details:** The screen transitions to show a list of open ports for the selected host.
+   - **Technical Insight:** The app provides a list of open ports for the selected host, indicating the user is interested in identifying which ports are open on the selected host.
+
+8. **Step Name: Port Scanning Results**
+   - **Initial State:** The user is viewing the list of open ports for a specific host.
+   - **Action:** The user scrolls through the list of open ports.
+   - **Observation/Details:** The screen shows a list of open ports with their corresponding port numbers and descriptions. The user scrolls through the list, viewing details for each port.
+   - **Technical Insight:** The app provides a list of open ports for the selected host, and the user is monitoring the list to identify which ports are open.
+
+9. **Step Name: Port Scanning Conclusion**
+   - **Initial State:** The user is viewing the list of open ports for a specific host.
+   - **Action:** The user continues to scroll through the list of open ports.
+   - **Observation/Details:** The screen shows a list of open ports with their corresponding port numbers and descriptions. The user scrolls through the list, viewing details for each port.
+   - **Technical Insight:** The app provides a list of open ports for the selected host, and the user is monitoring the list to identify which ports are open.
+
+### Conclusion
+The user launched the "WiFiAnalyzer" app to scan and analyze network information. The user explored the app's network scanning capabilities, discovered hosts, and identified open ports for a specific host. The user's journey through the app was methodical, with each step providing detailed technical insights into the network environment.

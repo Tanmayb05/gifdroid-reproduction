@@ -42,7 +42,7 @@ class AppConfig:
     video_path: Path
     llm: str
     llm_model: str
-    llama_action_prompt_file: Path | None
+    llm_prompt_file: Path | None
     frame_sampling: FrameSamplingConfig
     keyframe_selection: KeyframeSelectionConfig
     output: OutputConfig
@@ -159,9 +159,9 @@ def _parse_shared(root: Dict[str, Any]) -> tuple:
     """Parse shared settings (llm, frame_sampling, etc.) from root mapping."""
     llm = _require_str(root, "llm").lower()
     llm_model = _optional_str(root, "llm_model")
-    llama_action_prompt_file_raw = _optional_str(root, "llama_action_prompt_file")
-    llama_action_prompt_file = (
-        Path(llama_action_prompt_file_raw) if llama_action_prompt_file_raw else None
+    llm_prompt_file_raw = _optional_str(root, "llm_prompt_file")
+    llm_prompt_file = (
+        Path(llm_prompt_file_raw) if llm_prompt_file_raw else None
     )
     if llm_model is None:
         default_models = {
@@ -187,7 +187,7 @@ def _parse_shared(root: Dict[str, Any]) -> tuple:
     return (
         llm,
         llm_model,
-        llama_action_prompt_file,
+        llm_prompt_file,
         frame_sampling,
         keyframe_selection,
         output_cfg,
@@ -220,7 +220,7 @@ def _parse_run_entry(entry: Any, idx: int, shared: tuple) -> List[AppConfig]:
     (
         llm,
         llm_model,
-        llama_action_prompt_file,
+        llm_prompt_file,
         frame_sampling,
         keyframe_selection,
         output_cfg,
@@ -234,7 +234,7 @@ def _parse_run_entry(entry: Any, idx: int, shared: tuple) -> List[AppConfig]:
             video_path=video_path,
             llm=llm,
             llm_model=llm_model,
-            llama_action_prompt_file=llama_action_prompt_file,
+            llm_prompt_file=llm_prompt_file,
             frame_sampling=frame_sampling,
             keyframe_selection=keyframe_selection,
             output=output_cfg,
@@ -281,7 +281,7 @@ def load_config(config_path: Path) -> PipelineConfig:
         (
             llm,
             llm_model,
-            llama_action_prompt_file,
+            llm_prompt_file,
             frame_sampling,
             keyframe_selection,
             output_cfg,
@@ -292,7 +292,7 @@ def load_config(config_path: Path) -> PipelineConfig:
             video_path=video_path,
             llm=llm,
             llm_model=llm_model,
-            llama_action_prompt_file=llama_action_prompt_file,
+            llm_prompt_file=llm_prompt_file,
             frame_sampling=frame_sampling,
             keyframe_selection=keyframe_selection,
             output=output_cfg,
