@@ -54,7 +54,7 @@ def ensure_write_policy(cfg: AppConfig, execution_json_path: Path, keyframes_dir
         raise FileExistsError(
             f"Output exists and overwrite=false: {execution_json_path}"
         )
-    if keyframes_dir.exists() and any(keyframes_dir.iterdir()):
+    if not cfg.video_mode and keyframes_dir.exists() and any(keyframes_dir.iterdir()):
         raise FileExistsError(
             f"Keyframes directory is not empty and overwrite=false: {keyframes_dir}"
         )
@@ -141,59 +141,96 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
             env,
             logger,
             llm_prompt_file=cfg.llm_prompt_file,
+            video_mode=cfg.video_mode,
         )
 
         if cfg.llm == "gemini":
             logger.info("Running %s API preflight before trace generation", cfg.llm)
             provider.validate_connection()
 
-        extractor = VideoFrameExtractor()
-        sampled_frames, metadata = extractor.extract(resolved_video_path, cfg.frame_sampling, logger)
+        if cfg.video_mode:
+            logger.info("Video mode enabled — skipping frame extraction and keyframe selection")
+            provider_actions = provider.infer_actions_from_video(resolved_video_path)
 
-        selector = KeyframeSelector()
-        keyframes = selector.select(sampled_frames, cfg.keyframe_selection, logger)
-        selector.save_keyframes(keyframes, layout.keyframes_dir, video_type)
-
-        provider_actions = provider.infer_actions(keyframes)
-
-        steps: List[TraceStep] = []
-        for idx, (keyframe, action) in enumerate(zip(keyframes, provider_actions), start=1):
-            steps.append(
-                TraceStep(
-                    step_index=idx,
-                    timestamp_sec=keyframe.timestamp_sec,
-                    frame_file=keyframe.file_name,
-                    screen_description=action.screen_description,
-                    action=TraceAction(
-                        action_type=action.action_type,
-                        target=action.target,
-                        details=action.details,
-                    ),
-                    confidence=action.confidence,
+            steps: List[TraceStep] = []
+            for idx, action in enumerate(provider_actions, start=1):
+                ts = getattr(action, "timestamp_sec", 0.0)
+                minutes = int(ts) // 60
+                seconds = int(ts) % 60
+                frame_file = f"video:{minutes:02d}:{seconds:02d}"
+                steps.append(
+                    TraceStep(
+                        step_index=idx,
+                        timestamp_sec=ts,
+                        frame_file=frame_file,
+                        screen_description=action.screen_description,
+                        action=TraceAction(
+                            action_type=action.action_type,
+                            target=action.target,
+                            details=action.details,
+                        ),
+                        confidence=action.confidence,
+                    )
                 )
+
+            trace_builder = TraceBuilder()
+            trace_payload = trace_builder.build(
+                video_path=resolved_video_path,
+                llm_name=cfg.llm,
+                video_type=video_type,
+                app_name=cfg.app_name,
+                generated_at=run_dt,
+                steps=steps,
+            )
+            write_json(layout.execution_trace_json_path, trace_payload)
+        else:
+            extractor = VideoFrameExtractor()
+            sampled_frames, metadata = extractor.extract(resolved_video_path, cfg.frame_sampling, logger)
+
+            selector = KeyframeSelector()
+            keyframes = selector.select(sampled_frames, cfg.keyframe_selection, logger)
+            selector.save_keyframes(keyframes, layout.keyframes_dir, video_type)
+
+            provider_actions = provider.infer_actions(keyframes)
+
+            steps = []
+            for idx, (keyframe, action) in enumerate(zip(keyframes, provider_actions), start=1):
+                steps.append(
+                    TraceStep(
+                        step_index=idx,
+                        timestamp_sec=keyframe.timestamp_sec,
+                        frame_file=keyframe.file_name,
+                        screen_description=action.screen_description,
+                        action=TraceAction(
+                            action_type=action.action_type,
+                            target=action.target,
+                            details=action.details,
+                        ),
+                        confidence=action.confidence,
+                    )
+                )
+
+            trace_builder = TraceBuilder()
+            trace_payload = trace_builder.build(
+                video_path=resolved_video_path,
+                llm_name=cfg.llm,
+                video_type=video_type,
+                app_name=cfg.app_name,
+                generated_at=run_dt,
+                steps=steps,
             )
 
-        trace_builder = TraceBuilder()
-        trace_payload = trace_builder.build(
-            video_path=resolved_video_path,
-            llm_name=cfg.llm,
-            video_type=video_type,
-            app_name=cfg.app_name,
-            generated_at=run_dt,
-            steps=steps,
-        )
+            manifest_payload = selector.build_frames_manifest(
+                sampled_frames=sampled_frames,
+                keyframes=keyframes,
+                video_path=resolved_video_path,
+                llm=cfg.llm,
+                llm_prompt_file=str(cfg.llm_prompt_file) if cfg.llm_prompt_file is not None else None,
+            )
+            manifest_payload["video_metadata"] = metadata
 
-        manifest_payload = selector.build_frames_manifest(
-            sampled_frames=sampled_frames,
-            keyframes=keyframes,
-            video_path=resolved_video_path,
-            llm=cfg.llm,
-            llm_prompt_file=str(cfg.llm_prompt_file) if cfg.llm_prompt_file is not None else None,
-        )
-        manifest_payload["video_metadata"] = metadata
-
-        write_json(layout.execution_trace_json_path, trace_payload)
-        write_json(layout.frames_manifest_path, manifest_payload)
+            write_json(layout.execution_trace_json_path, trace_payload)
+            write_json(layout.frames_manifest_path, manifest_payload)
 
         if provider.raw_llm_response is not None:
             layout.llm_raw_response_path.parent.mkdir(parents=True, exist_ok=True)
@@ -201,8 +238,9 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
             logger.info("LLM raw response written: %s", layout.llm_raw_response_path)
 
         logger.info("Execution trace written: %s", layout.execution_trace_json_path)
-        logger.info("Frames manifest written: %s", layout.frames_manifest_path)
-        logger.info("Saved keyframes: %s", layout.keyframes_dir)
+        if not cfg.video_mode:
+            logger.info("Frames manifest written: %s", layout.frames_manifest_path)
+            logger.info("Saved keyframes: %s", layout.keyframes_dir)
 
         # Write run metadata
         duration_sec = (datetime.now(timezone.utc) - pipeline_start).total_seconds()

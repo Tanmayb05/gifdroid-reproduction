@@ -25,6 +25,7 @@ class ProviderAction:
     target: str
     details: str
     confidence: float
+    timestamp_sec: float = 0.0
 
 
 class ProviderError(RuntimeError):
@@ -50,6 +51,13 @@ class BaseLLMProvider(ABC):
     @abstractmethod
     def infer_actions(self, keyframes: List[Keyframe]) -> List[ProviderAction]:
         """Infer action hypotheses from selected keyframes."""
+
+    def infer_actions_from_video(self, video_path: Path) -> List[ProviderAction]:
+        """Infer actions directly from a video file (video mode). Override in subclasses."""
+        raise NotImplementedError(
+            f"Provider '{self.llm_name}' does not support video_mode. "
+            "Only 'gemini' is currently supported."
+        )
 
     def validate_connection(self) -> None:
         """Optional provider preflight hook."""
@@ -368,6 +376,254 @@ class GeminiProvider(BaseLLMProvider):
             )[0]
             actions.append(fallback)
         return actions
+
+
+class GeminiVideoProvider(GeminiProvider):
+    """Gemini provider that sends an entire video file via the Vertex AI File API."""
+
+    def _get_vertex_base(self) -> tuple[str, str, str]:
+        """Return (token, project_id, location) for Vertex AI calls."""
+        token, adc_project_id = self._build_default_adc_token()
+        project_id = (
+            str(self.env.get("GEMINI_VERTEX_PROJECT_ID", "")).strip() or adc_project_id
+        )
+        if not project_id:
+            raise ProviderError(
+                "ADC did not provide a project_id and GEMINI_VERTEX_PROJECT_ID is not set."
+            )
+        location = str(self.env.get("GEMINI_VERTEX_LOCATION", "us-central1")).strip() or "us-central1"
+        return token, project_id, location
+
+    def _upload_video(self, video_path: Path) -> tuple[str, str]:
+        """Upload video via resumable upload. Returns (file_uri, file_name)."""
+        token, project_id, location = self._get_vertex_base()
+        file_size = video_path.stat().st_size
+        display_name = video_path.name
+
+        initiate_url = (
+            f"https://{location}-aiplatform.googleapis.com/upload/v1beta1/"
+            f"projects/{project_id}/locations/{location}/files"
+            f"?upload_type=resumable"
+        )
+        initiate_headers = {
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json",
+            "X-Goog-Upload-Command": "start",
+            "X-Goog-Upload-Header-Content-Length": str(file_size),
+            "X-Goog-Upload-Header-Content-Type": "video/mp4",
+        }
+        initiate_body = json.dumps({"file": {"display_name": display_name}}).encode("utf-8")
+        req = url_request.Request(
+            url=initiate_url,
+            data=initiate_body,
+            headers=initiate_headers,
+            method="POST",
+        )
+        self.logger.info("Uploading video to Vertex AI File API | file=%s | size=%d bytes", display_name, file_size)
+        try:
+            with url_request.urlopen(req, timeout=30) as resp:
+                upload_url = resp.headers.get("X-Goog-Upload-URL")
+                if not upload_url:
+                    raise ProviderError("Vertex AI File API did not return an upload URL")
+        except url_error.HTTPError as exc:
+            err_body = exc.read().decode("utf-8", errors="replace")
+            raise ProviderError(f"Video upload initiation failed {exc.code}: {err_body[:300]}") from exc
+        except url_error.URLError as exc:
+            raise ProviderError(f"Video upload initiation URL error: {exc}") from exc
+
+        upload_headers = {
+            "Authorization": f"Bearer {token}",
+            "Content-Length": str(file_size),
+            "X-Goog-Upload-Command": "upload, finalize",
+            "X-Goog-Upload-Offset": "0",
+        }
+        with video_path.open("rb") as f:
+            video_data = f.read()
+        upload_req = url_request.Request(
+            url=upload_url,
+            data=video_data,
+            headers=upload_headers,
+            method="POST",
+        )
+        try:
+            with url_request.urlopen(upload_req, timeout=300) as resp:
+                resp_text = resp.read().decode("utf-8")
+                resp_data = json.loads(resp_text)
+        except url_error.HTTPError as exc:
+            err_body = exc.read().decode("utf-8", errors="replace")
+            raise ProviderError(f"Video upload failed {exc.code}: {err_body[:300]}") from exc
+        except url_error.URLError as exc:
+            raise ProviderError(f"Video upload URL error: {exc}") from exc
+
+        file_name = resp_data.get("name", "")
+        file_uri = resp_data.get("uri", "")
+        if not file_name or not file_uri:
+            raise ProviderError(f"Unexpected upload response (missing name/uri): {resp_text[:300]}")
+        self.logger.info("Video uploaded | file_name=%s | uri=%s", file_name, file_uri)
+        return file_uri, file_name
+
+    def _poll_until_active(self, file_name: str, timeout_sec: int = 300) -> None:
+        """Poll file state until ACTIVE. Raises ProviderError on timeout or FAILED state."""
+        token, project_id, location = self._get_vertex_base()
+        poll_url = f"https://{location}-aiplatform.googleapis.com/v1beta1/{file_name}"
+        deadline = time.perf_counter() + timeout_sec
+        self.logger.info("Polling file state | file_name=%s | timeout=%ds", file_name, timeout_sec)
+        while time.perf_counter() < deadline:
+            req = url_request.Request(
+                url=poll_url,
+                headers={"Authorization": f"Bearer {token}"},
+                method="GET",
+            )
+            try:
+                with url_request.urlopen(req, timeout=15) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+            except (url_error.HTTPError, url_error.URLError) as exc:
+                raise ProviderError(f"Polling file state failed: {exc}") from exc
+
+            state = data.get("state", "")
+            self.logger.info("File state | file_name=%s | state=%s", file_name, state)
+            if state == "ACTIVE":
+                return
+            if state == "FAILED":
+                raise ProviderError(f"Vertex AI file processing FAILED: {file_name}")
+            time.sleep(5)
+        raise ProviderError(f"Timed out waiting for file ACTIVE state after {timeout_sec}s: {file_name}")
+
+    def _delete_file(self, file_name: str) -> None:
+        """Best-effort DELETE of uploaded file. Logs warning on failure, does not raise."""
+        try:
+            token, project_id, location = self._get_vertex_base()
+            del_url = f"https://{location}-aiplatform.googleapis.com/v1beta1/{file_name}"
+            req = url_request.Request(
+                url=del_url,
+                headers={"Authorization": f"Bearer {token}"},
+                method="DELETE",
+            )
+            with url_request.urlopen(req, timeout=15):
+                pass
+            self.logger.info("Deleted uploaded file | file_name=%s", file_name)
+        except Exception as exc:
+            self.logger.warning("Failed to delete uploaded file %s: %s", file_name, exc)
+
+    def infer_actions_from_video(self, video_path: Path) -> List[ProviderAction]:
+        """Upload video, run generateContent, parse actions, delete file."""
+        prompt_path = Path("gifdroid_llm/input/prompts/gemini_video_prompt.txt")
+        try:
+            prompt_text = prompt_path.read_text(encoding="utf-8")
+        except OSError as exc:
+            raise ProviderError(f"Failed to read video prompt: {prompt_path}") from exc
+
+        file_uri: str | None = None
+        file_name: str | None = None
+        try:
+            file_uri, file_name = self._upload_video(video_path)
+            self._poll_until_active(file_name)
+
+            token, project_id, location = self._get_vertex_base()
+            url = (
+                f"https://{location}-aiplatform.googleapis.com/v1/"
+                f"projects/{project_id}/locations/{location}/publishers/google/models/"
+                f"{self.llm_model}:generateContent"
+            )
+            payload = {
+                "contents": [{
+                    "role": "user",
+                    "parts": [
+                        {"file_data": {"mime_type": "video/mp4", "file_uri": file_uri}},
+                        {"text": prompt_text},
+                    ],
+                }],
+                "generationConfig": {"temperature": 0.1},
+            }
+            payload_bytes = json.dumps(payload).encode("utf-8")
+            req = url_request.Request(
+                url=url,
+                data=payload_bytes,
+                headers={
+                    "Authorization": f"Bearer {token}",
+                    "Content-Type": "application/json",
+                },
+                method="POST",
+            )
+            self.logger.info(
+                "Sending video inference request | model=%s | video=%s",
+                self.llm_model, video_path.name,
+            )
+            start = time.perf_counter()
+            try:
+                with url_request.urlopen(req, timeout=300) as resp:
+                    response_text = resp.read().decode("utf-8")
+            except url_error.HTTPError as exc:
+                err_body = exc.read().decode("utf-8", errors="replace")
+                raise ProviderError(f"Video generateContent HTTP {exc.code}: {err_body[:300]}") from exc
+            except url_error.URLError as exc:
+                raise ProviderError(f"Video generateContent URL error: {exc}") from exc
+
+            elapsed = time.perf_counter() - start
+            self.logger.info("Video inference response received | elapsed_sec=%.2f", elapsed)
+            self.raw_llm_response = response_text
+
+            try:
+                data = json.loads(response_text)
+                raw_text = self._extract_text(data)
+            except (json.JSONDecodeError, KeyError, TypeError, ProviderError) as exc:
+                raise ProviderError(f"Invalid video generateContent response: {exc}") from exc
+
+            actions = self._parse_video_actions(raw_text)
+            if not actions:
+                raise ProviderError("Video mode: response could not be parsed into actions")
+            self.logger.info("Video inference parsed | actions=%d", len(actions))
+            return actions
+        finally:
+            if file_name:
+                self._delete_file(file_name)
+
+    def _parse_video_actions(self, raw_text: str) -> List[ProviderAction] | None:
+        """Parse JSON array from video mode response (no keyframe count constraint)."""
+        text = raw_text.strip()
+        if "```" in text:
+            for chunk in text.split("```"):
+                cleaned = chunk.strip()
+                if cleaned.startswith("json"):
+                    cleaned = cleaned[4:].strip()
+                if cleaned.startswith("["):
+                    text = cleaned
+                    break
+        if not text.startswith("["):
+            return None
+        try:
+            parsed = json.loads(text)
+        except json.JSONDecodeError:
+            return None
+        if not isinstance(parsed, list) or not parsed:
+            return None
+
+        actions: List[ProviderAction] = []
+        for item in parsed:
+            if not isinstance(item, dict):
+                continue
+            action_type = str(item.get("action_type", "")).strip()
+            if not action_type:
+                continue
+            confidence_raw = item.get("confidence", 0.5)
+            try:
+                confidence = float(confidence_raw)
+            except (TypeError, ValueError):
+                confidence = 0.5
+            ts_raw = item.get("timestamp_sec", 0.0)
+            try:
+                timestamp_sec = float(ts_raw)
+            except (TypeError, ValueError):
+                timestamp_sec = 0.0
+            actions.append(ProviderAction(
+                screen_description=str(item.get("screen_description", "")).strip() or "video frame",
+                action_type=action_type,
+                target=str(item.get("target", "")).strip() or "unknown",
+                details=str(item.get("details", "")).strip(),
+                confidence=max(0.0, min(1.0, confidence)),
+                timestamp_sec=timestamp_sec,
+            ))
+        return actions or None
 
 
 class SonnetProvider(BaseLLMProvider):
@@ -1808,11 +2064,14 @@ def create_provider(
     env: Dict[str, str],
     logger: logging.Logger,
     llm_prompt_file: Path | None = None,
+    video_mode: bool = False,
 ) -> BaseLLMProvider:
     provider_key = llm_name.lower()
     default_prompt = Path("gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt")
 
     if provider_key == "gemini":
+        if video_mode:
+            return GeminiVideoProvider(provider_key, llm_model, env, logger)
         return GeminiProvider(provider_key, llm_model, env, logger)
     if provider_key in {"sonnet", "claude"}:
         return SonnetProvider(provider_key, llm_model, env, logger)

@@ -36,6 +36,9 @@ class LoggingConfig:
     level: str
 
 
+VIDEO_MODE_SUPPORTED_PROVIDERS = {"gemini"}
+
+
 @dataclass(frozen=True)
 class AppConfig:
     app_name: str
@@ -47,6 +50,7 @@ class AppConfig:
     keyframe_selection: KeyframeSelectionConfig
     output: OutputConfig
     logging: LoggingConfig
+    video_mode: bool = False
 
 
 @dataclass(frozen=True)
@@ -174,6 +178,14 @@ def _parse_shared(root: Dict[str, Any]) -> tuple:
         }
         llm_model = default_models.get(llm, llm)
 
+    video_mode = bool(root.get("video_mode", False))
+    if video_mode and llm not in VIDEO_MODE_SUPPORTED_PROVIDERS:
+        supported = ", ".join(sorted(VIDEO_MODE_SUPPORTED_PROVIDERS))
+        raise ConfigError(
+            f"video_mode: true requires a supported provider. "
+            f"Got llm='{llm}', supported: {supported}"
+        )
+
     frame_sampling = _validate_frame_sampling(
         _require_mapping(root.get("frame_sampling"), "frame_sampling")
     )
@@ -192,6 +204,7 @@ def _parse_shared(root: Dict[str, Any]) -> tuple:
         keyframe_selection,
         output_cfg,
         logging_cfg,
+        video_mode,
     )
 
 
@@ -225,6 +238,7 @@ def _parse_run_entry(entry: Any, idx: int, shared: tuple) -> List[AppConfig]:
         keyframe_selection,
         output_cfg,
         logging_cfg,
+        video_mode,
     ) = shared
     app_name = _require_str(entry, "app_name")
     video_paths = _parse_video_paths(entry.get("video_path"))
@@ -239,6 +253,7 @@ def _parse_run_entry(entry: Any, idx: int, shared: tuple) -> List[AppConfig]:
             keyframe_selection=keyframe_selection,
             output=output_cfg,
             logging=logging_cfg,
+            video_mode=video_mode,
         )
         for video_path in video_paths
     ]
@@ -286,6 +301,7 @@ def load_config(config_path: Path) -> PipelineConfig:
             keyframe_selection,
             output_cfg,
             logging_cfg,
+            video_mode,
         ) = shared
         runs = [AppConfig(
             app_name=app_name,
@@ -297,6 +313,7 @@ def load_config(config_path: Path) -> PipelineConfig:
             keyframe_selection=keyframe_selection,
             output=output_cfg,
             logging=logging_cfg,
+            video_mode=video_mode,
         )]
 
     return PipelineConfig(runs=runs)

@@ -104,7 +104,7 @@ def create_output_layout(
     if not model_slug:
         model_slug = "model"
     source = "handheld" if video_type == "hhv" else "screenrec"
-    cfg_slug = _build_cfg_slug(cfg.frame_sampling, cfg.keyframe_selection)
+    cfg_slug = "video-mode" if cfg.video_mode else _build_cfg_slug(cfg.frame_sampling, cfg.keyframe_selection)
 
     run_parent = (
         project_root

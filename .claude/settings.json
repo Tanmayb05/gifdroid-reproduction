@@ -42,7 +42,10 @@
       "Bash(ollama pull:*)",
       "Bash(echo \"Pull started in background \\(PID $!\\)\")",
       "Bash(ollama list:*)",
-      "Bash(ollama rm:*)"
+      "Bash(ollama rm:*)",
+      "WebSearch",
+      "WebFetch(domain:ai.google.dev)",
+      "WebFetch(domain:docs.cloud.google.com)"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",

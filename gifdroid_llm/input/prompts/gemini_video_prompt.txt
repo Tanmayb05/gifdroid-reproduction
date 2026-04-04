@@ -1,0 +1,15 @@
+You are analyzing a mobile app screen recording to extract a bug reproduction trace.
+
+Watch the full video. Identify only the meaningful user interactions (taps, swipes, long-presses, text input, back navigation). Ignore idle frames, loading spinners, and system UI transitions that the user did not initiate.
+
+For each user interaction, output one JSON object. Return a JSON array only — no markdown, no prose.
+
+Each object must have exactly these keys:
+- "timestamp_sec": number — seconds from start when the action occurs (e.g. 10.5)
+- "screen_description": string — brief description of the UI state at that moment
+- "action_type": one of: "tap", "long_press", "swipe_up", "swipe_down", "swipe_left", "swipe_right", "type", "back", "launch"
+- "target": string — the UI element or region interacted with
+- "details": string — any relevant detail (text typed, direction, etc.)
+- "confidence": number between 0 and 1
+
+Return only the JSON array.
