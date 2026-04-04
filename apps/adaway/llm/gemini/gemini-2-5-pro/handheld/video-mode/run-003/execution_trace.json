@@ -1,0 +1,141 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/handheld/hhv-001.mp4",
+  "llm": "gemini",
+  "video_type": "hhv",
+  "app_name": "adaway",
+  "generated_at": "2026-04-04T10:50:11.983844+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 2.0,
+      "frame_file": "video:00:02",
+      "screen_description": "AdAway main screen showing 81186 blocked, 0 allowed, and 0 redirected requests. The app is active.",
+      "action": {
+        "type": "tap",
+        "target": "Allowed count box with value '0'",
+        "details": "None"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 3.5,
+      "frame_file": "video:00:03",
+      "screen_description": "Your lists screen, currently empty, with 'Allowed' selected at the bottom.",
+      "action": {
+        "type": "tap",
+        "target": "Search icon",
+        "details": "None"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 6.5,
+      "frame_file": "video:00:06",
+      "screen_description": "Your lists screen with a 'Search hostname...' text field at the top.",
+      "action": {
+        "type": "tap",
+        "target": "Search hostname... text input",
+        "details": "None"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 10.5,
+      "frame_file": "video:00:10",
+      "screen_description": "Search hostname screen with the keyboard open.",
+      "action": {
+        "type": "type",
+        "target": "Search hostname... text input",
+        "details": "uhkh"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 12.5,
+      "frame_file": "video:00:12",
+      "screen_description": "Search results screen with 'uhkh' in the search bar and the keyboard open.",
+      "action": {
+        "type": "tap",
+        "target": "Orange plus button",
+        "details": "None"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 26.5,
+      "frame_file": "video:00:26",
+      "screen_description": "Add host to whitelist dialog with the keyboard open. The user has typed and deleted several characters.",
+      "action": {
+        "type": "type",
+        "target": "Hostname text input",
+        "details": "pol"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 27.5,
+      "frame_file": "video:00:27",
+      "screen_description": "Add host to whitelist dialog with 'pol' entered in the Hostname field.",
+      "action": {
+        "type": "tap",
+        "target": "ADD button",
+        "details": "None"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 29.5,
+      "frame_file": "video:00:29",
+      "screen_description": "Your lists screen with a banner message 'Your configuration changed. You need to apply it'.",
+      "action": {
+        "type": "tap",
+        "target": "apply button",
+        "details": "None"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 9,
+      "timestamp_sec": 31.5,
+      "frame_file": "video:00:31",
+      "screen_description": "Your lists screen with 'uhkh' in the search bar and the keyboard open.",
+      "action": {
+        "type": "tap",
+        "target": "Back arrow",
+        "details": "None"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 10,
+      "timestamp_sec": 35.5,
+      "frame_file": "video:00:35",
+      "screen_description": "Your lists screen showing the newly added 'pol' entry.",
+      "action": {
+        "type": "tap",
+        "target": "Back arrow",
+        "details": "None"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 11,
+      "timestamp_sec": 39.5,
+      "frame_file": "video:00:39",
+      "screen_description": "AdAway main screen showing 1 allowed request.",
+      "action": {
+        "type": "tap",
+        "target": "Allowed count box with value '1'",
+        "details": "None"
+      },
+      "confidence": 1.0
+    }
+  ]
+}

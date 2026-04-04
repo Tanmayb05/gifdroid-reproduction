@@ -47,17 +47,23 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def ensure_write_policy(cfg: AppConfig, execution_json_path: Path, keyframes_dir: Path) -> None:
+def ensure_write_policy(cfg: AppConfig, execution_json_path: Path, memory_md_path: Path, keyframes_dir: Path) -> None:
     if cfg.output.overwrite:
         return
-    if execution_json_path.exists():
-        raise FileExistsError(
-            f"Output exists and overwrite=false: {execution_json_path}"
-        )
-    if not cfg.video_mode and keyframes_dir.exists() and any(keyframes_dir.iterdir()):
-        raise FileExistsError(
-            f"Keyframes directory is not empty and overwrite=false: {keyframes_dir}"
-        )
+    if cfg.video_mode:
+        if memory_md_path.exists():
+            raise FileExistsError(
+                f"Output exists and overwrite=false: {memory_md_path}"
+            )
+    else:
+        if execution_json_path.exists():
+            raise FileExistsError(
+                f"Output exists and overwrite=false: {execution_json_path}"
+            )
+        if keyframes_dir.exists() and any(keyframes_dir.iterdir()):
+            raise FileExistsError(
+                f"Keyframes directory is not empty and overwrite=false: {keyframes_dir}"
+            )
 
 
 def _env_timeout_sec(env: dict, key: str, default: int) -> int:
@@ -94,9 +100,9 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
     pipeline_start = datetime.now(timezone.utc)
     try:
         try:
-            ensure_write_policy(cfg, layout.execution_trace_json_path, layout.keyframes_dir)
+            ensure_write_policy(cfg, layout.execution_trace_json_path, layout.memory_md_path, layout.keyframes_dir)
         except FileExistsError as exc:
-            logger.warning("RUN SKIPPED — execution trace already present: %s", exc)
+            logger.warning("RUN SKIPPED — output already present: %s", exc)
             pipeline_status = "skipped"
             return 0
 
@@ -150,39 +156,10 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
 
         if cfg.video_mode:
             logger.info("Video mode enabled — skipping frame extraction and keyframe selection")
-            provider_actions = provider.infer_actions_from_video(resolved_video_path)
-
-            steps: List[TraceStep] = []
-            for idx, action in enumerate(provider_actions, start=1):
-                ts = getattr(action, "timestamp_sec", 0.0)
-                minutes = int(ts) // 60
-                seconds = int(ts) % 60
-                frame_file = f"video:{minutes:02d}:{seconds:02d}"
-                steps.append(
-                    TraceStep(
-                        step_index=idx,
-                        timestamp_sec=ts,
-                        frame_file=frame_file,
-                        screen_description=action.screen_description,
-                        action=TraceAction(
-                            action_type=action.action_type,
-                            target=action.target,
-                            details=action.details,
-                        ),
-                        confidence=action.confidence,
-                    )
-                )
-
-            trace_builder = TraceBuilder()
-            trace_payload = trace_builder.build(
-                video_path=resolved_video_path,
-                llm_name=cfg.llm,
-                video_type=video_type,
-                app_name=cfg.app_name,
-                generated_at=run_dt,
-                steps=steps,
-            )
-            write_json(layout.execution_trace_json_path, trace_payload)
+            memory_text = provider.infer_memory_from_video(resolved_video_path)
+            layout.memory_md_path.parent.mkdir(parents=True, exist_ok=True)
+            layout.memory_md_path.write_text(memory_text, encoding="utf-8")
+            logger.info("Memory trace written: %s", layout.memory_md_path)
         else:
             extractor = VideoFrameExtractor()
             sampled_frames, metadata = extractor.extract(resolved_video_path, cfg.frame_sampling, logger)
@@ -237,8 +214,8 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
             layout.llm_raw_response_path.write_text(provider.raw_llm_response, encoding="utf-8")
             logger.info("LLM raw response written: %s", layout.llm_raw_response_path)
 
-        logger.info("Execution trace written: %s", layout.execution_trace_json_path)
         if not cfg.video_mode:
+            logger.info("Execution trace written: %s", layout.execution_trace_json_path)
             logger.info("Frames manifest written: %s", layout.frames_manifest_path)
             logger.info("Saved keyframes: %s", layout.keyframes_dir)
 
@@ -265,7 +242,8 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
         )
 
         pipeline_status = "success"
-        print(str(layout.execution_trace_json_path))
+        output_path = layout.memory_md_path if cfg.video_mode else layout.execution_trace_json_path
+        print(str(output_path))
         return 0
     finally:
         for handler in list(logger.handlers):

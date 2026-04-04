@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "```json\n[\n  {\n    \"timestamp_sec\": 1.5,\n    \"screen_description\": \"AdAway main screen showing statistics for Blocked, Allowed, and Redirected requests.\",\n    \"action_type\": \"tap\",\n    \"target\": \"Allowed count box\",\n    \"details\": \"The box shows '0 Allowed'.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 3.5,\n    \"screen_description\": \"The 'Your lists' screen, with the 'Allowed' tab selected. The list is empty.\",\n    \"action_type\": \"tap\",\n    \"target\": \"Search icon\",\n    \"details\": \"The search icon is in the top right corner.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 6.5,\n    \"screen_description\": \"The 'Your lists' screen with a 'Search hostname...' input field at the top.\",\n    \"action_type\": \"tap\",\n    \"target\": \"Search hostname... text input field\",\n    \"details\": \"The keyboard appears after the tap.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 10.2,\n    \"screen_description\": \"The 'Your lists' screen with the keyboard open and the cursor in the search field.\",\n    \"action_type\": \"type\",\n    \"target\": \"Search hostname... text input field\",\n    \"details\": \"uhkh\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 12.6,\n    \"screen_description\": \"The 'Your lists' screen with 'uhkh' typed in the search bar and the keyboard visible.\",\n    \"action_type\": \"tap\",\n    \"target\": \"Orange plus button\",\n    \"details\": \"This button is for adding a new entry.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 14.5,\n    \"screen_description\": \"An 'Add host to whitelist' dialog is open with a 'Hostname' input field.\",\n    \"action_type\": \"tap\",\n    \"target\": \"Hostname text input field\",\n    \"details\": \"The field contains placeholder text 'The hosts source URL'.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 26.2,\n    \"screen_description\": \"The 'Add host to whitelist' dialog is open with the keyboard visible.\",\n    \"action_type\": \"type\",\n    \"target\": \"Hostname text input field\",\n    \"details\": \"pol\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 27.1,\n    \"screen_description\": \"The 'Add host to whitelist' dialog with 'pol' entered in the Hostname field.\",\n    \"action_type\": \"tap\",\n    \"target\": \"ADD button\",\n    \"details\": \"Confirms adding the host to the whitelist.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 29.5,\n    \"screen_description\": \"The 'Your lists' screen with a banner at the bottom stating 'Your configuration changed. You need to apply it'.\",\n    \"action_type\": \"tap\",\n    \"target\": \"Apply button\",\n    \"details\": \"The button is on the configuration change banner.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 31.8,\n    \"screen_description\": \"The 'Your lists' screen, still in search mode with 'uhkh' in the search bar.\",\n    \"action_type\": \"back\",\n    \"target\": \"Back arrow\",\n    \"details\": \"Exits the search view.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 35.8,\n    \"screen_description\": \"The 'Your lists' screen, showing the newly added 'pol' entry in the allowed list.\",\n    \"action_type\": \"back\",\n    \"target\": \"Back arrow\",\n    \"details\": \"Navigates back to the main screen.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 39.7,\n    \"screen_description\": \"AdAway main screen, where the 'Allowed' count is now '1'.\",\n    \"action_type\": \"tap\",\n    \"target\": \"Allowed count box\",\n    \"details\": \"The box shows '1 Allowed'.\",\n    \"confidence\": 1.0\n  }\n]\n```"
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.16386582800304345
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 12715,
+    "candidatesTokenCount": 1073,
+    "totalTokenCount": 15673,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "VIDEO",
+        "tokenCount": 11352
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 238
+      },
+      {
+        "modality": "AUDIO",
+        "tokenCount": 1125
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1073
+      }
+    ],
+    "thoughtsTokenCount": 1885
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-04-04T06:45:23.339461Z",
+  "responseId": "g7PQaYXcFN_m88APucXykA0"
+}

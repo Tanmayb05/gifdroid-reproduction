@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: AntennaPod\ngoal: The user wants to find and play a podcast episode without subscribing to the podcast.\noutcome: success - The user successfully found, streamed, and paused a podcast episode.\n---\n\n## Session Summary\nThe user launched the AntennaPod app from its Play Store page. After a brief tour of the main navigation tabs, which were mostly empty, they navigated to the \"Add podcast\" screen. From there, they selected a suggested podcast, chose an episode, and began streaming it, confirming that playback is possible without a subscription. The session concluded with the user pausing the episode from the full-screen player.\n\n## Steps\n\n### 1. Launch App — 1s\n- **Screen:** Google Play Store - AntennaPod\n- **Action:** tap → Open button\n- **Details:** The user is on the app's store page and taps \"Open\" to launch it.\n- **Result:** The AntennaPod app opens.\n- **Confidence:** 1.0\n\n### 2. View Queue — 6s\n- **Screen:** Home\n- **Action:** tap → Queue tab\n- **Details:** The home screen shows a \"Welcome to AntennaPod!\" message.\n- **Result:** The app navigates to the \"Queue\" screen.\n- **Confidence:** 1.0\n\n### 3. View Inbox — 8s\n- **Screen:** Queue\n- **Action:** tap → Inbox tab\n- **Details:** The queue screen surprisingly contains two episodes already.\n- **Result:** The app navigates to the \"Inbox\" screen.\n- **Confidence:** 1.0\n\n### 4. View Subscriptions — 11s\n- **Screen:** Inbox\n- **Action:** tap → Subscriptions tab\n- **Details:** The inbox is empty.\n- **Result:** The app navigates to the \"Subscriptions\" screen.\n- **Confidence:** 1.0\n\n### 5. Open Add Podcast Screen — 14s\n- **Screen:** Subscriptions\n- **Action:** tap → Plus (+) icon\n- **Details:** The subscriptions screen is empty, prompting the user to add a podcast.\n- **Result:** The \"Add podcast\" screen appears.\n- **Confidence:** 1.0\n\n### 6. Select Suggested Podcast — 16s\n- **Screen:** Add podcast\n- **Action:** tap → \"Bridge of Lies\" podcast tile\n- **Details:** The user selects a podcast from the \"Suggestions by Apple Podcasts\" grid.\n- **Result:** The app navigates to the details page for the \"Bridge of Lies\" podcast.\n- **Confidence:** 1.0\n\n### 7. Select Episode — 18s\n- **Screen:** Add podcast - Bridge of Lies\n- **Action:** tap → \"The Search\" episode\n- **Details:** The user selects the episode from the \"Episodes preview\" list.\n- **Result:** The app navigates to the episode detail/playback screen.\n- **Confidence:** 1.0\n\n### 8. Stream Episode — 20s\n- **Screen:** Add podcast - The Search\n- **Action:** tap → Stream button\n- **Details:** The user initiates playback for the selected episode.\n- **Result:** The episode begins to play, and the \"Stream\" button changes to a \"Pause\" button. A mini-player appears at the bottom of the screen.\n- **Confidence:** 1.0\n\n### 9. Navigate Back — 25s\n- **Screen:** Add podcast - The Search\n- **Action:** back → Back arrow icon\n- **Details:** The user navigates back while the episode is playing.\n- **Result:** The app returns to the \"Add podcast\" suggestions screen, with the mini-player still active at the bottom.\n- **Confidence:** 1.0\n\n### 10. Expand Mini-Player — 28s\n- **Screen:** Add podcast\n- **Action:** tap → Mini-player bar\n- **Details:** The user taps the mini-player at the bottom of the screen.\n- **Result:** The full-screen player view is displayed.\n- **Confidence:** 1.0\n\n### 11. Pause Playback — 31s\n- **Screen:** Player\n- **Action:** tap → Pause button\n- **Details:** The user taps the central pause button to stop the audio.\n- **Result:** The podcast playback is paused.\n- **Confidence:** 1.0\n\n## Key Observations\n- Even on what appears to be a fresh launch with no subscriptions, the \"Queue\" screen was pre-populated with two episodes: \"#2466 - Francis Foster & Konstantin Kisin\" and \"The Search\".\n- The app allows users to stream individual episodes without requiring them to subscribe to the podcast first.\n- A persistent mini-player appears at the bottom of the screen once playback starts, allowing the user to continue browsing while listening.\n- The selected episode, \"The Search,\" displays a content warning regarding discussions of suicide."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.15925317360122851
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 10203,
+    "candidatesTokenCount": 1076,
+    "totalTokenCount": 12521,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "AUDIO",
+        "tokenCount": 875
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "VIDEO",
+        "tokenCount": 8772
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1076
+      }
+    ],
+    "thoughtsTokenCount": 1242
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-04-04T11:23:28.370275Z",
+  "responseId": "sPTQaePMFuTC29sPt8zdoQY"
+}

@@ -1,0 +1,117 @@
+{
+  "video": "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4",
+  "llm": "gemini",
+  "video_type": "srv",
+  "app_name": "adaway",
+  "generated_at": "2026-04-04T10:50:46.547388+00:00",
+  "replay_trace": [
+    {
+      "step_index": 1,
+      "timestamp_sec": 2.5,
+      "frame_file": "video:00:02",
+      "screen_description": "Android home screen with various app icons, including F-Droid, DeadHash, AntennaPod, and AdAway.",
+      "action": {
+        "type": "tap",
+        "target": "AdAway app icon",
+        "details": "Launches the AdAway application."
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 2,
+      "timestamp_sec": 5.5,
+      "frame_file": "video:00:05",
+      "screen_description": "AdAway main screen showing statistics for Blocked, Allowed, and Redirected requests. A red pause button is at the bottom center.",
+      "action": {
+        "type": "tap",
+        "target": "Hamburger menu icon",
+        "details": "Navigates to the 'Your lists' screen."
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 3,
+      "timestamp_sec": 8.8,
+      "frame_file": "video:00:08",
+      "screen_description": "The 'Your lists' screen with the 'Allowed' tab selected. A single entry 'yguy' is visible.",
+      "action": {
+        "type": "tap",
+        "target": "Search icon",
+        "details": "Activates the search bar."
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 4,
+      "timestamp_sec": 11.8,
+      "frame_file": "video:00:11",
+      "screen_description": "The 'Your lists' screen with an active search bar at the top.",
+      "action": {
+        "type": "type",
+        "target": "Search hostname... text input",
+        "details": "edhb"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 5,
+      "timestamp_sec": 14.5,
+      "frame_file": "video:00:14",
+      "screen_description": "The 'Your lists' screen with 'edhb' typed in the search bar.",
+      "action": {
+        "type": "tap",
+        "target": "Red plus button",
+        "details": "Opens the 'Add host to whitelist' dialog."
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 6,
+      "timestamp_sec": 21.0,
+      "frame_file": "video:00:21",
+      "screen_description": "'Add host to whitelist' dialog with a text field for 'Hostname'.",
+      "action": {
+        "type": "type",
+        "target": "Hostname text input",
+        "details": "utl.web"
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 7,
+      "timestamp_sec": 21.5,
+      "frame_file": "video:00:21",
+      "screen_description": "'Add host to whitelist' dialog with 'utl.web' entered in the hostname field.",
+      "action": {
+        "type": "tap",
+        "target": "ADD button",
+        "details": "Adds the hostname to the whitelist."
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 8,
+      "timestamp_sec": 26.8,
+      "frame_file": "video:00:26",
+      "screen_description": "The 'Your lists' screen under the 'Allowed' tab, now showing 'utl.web' and 'yguy'. A banner at the bottom says 'Your configuration changed. You need to apply it.'",
+      "action": {
+        "type": "tap",
+        "target": "Redirected tab",
+        "details": "Switches to the 'Redirected' list view."
+      },
+      "confidence": 1.0
+    },
+    {
+      "step_index": 9,
+      "timestamp_sec": 28.8,
+      "frame_file": "video:00:28",
+      "screen_description": "The 'Your lists' screen under the 'Redirected' tab, which is empty.",
+      "action": {
+        "type": "tap",
+        "target": "Allowed tab",
+        "details": "Switches back to the 'Allowed' list view."
+      },
+      "confidence": 1.0
+    }
+  ]
+}

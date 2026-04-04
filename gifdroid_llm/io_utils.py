@@ -22,6 +22,7 @@ class OutputLayout:
     run_dir: Path
     keyframes_dir: Path
     execution_trace_json_path: Path
+    memory_md_path: Path
     frames_manifest_path: Path
     metadata_path: Path
     log_file_path: Path
@@ -127,6 +128,7 @@ def create_output_layout(
         run_dir=run_dir,
         keyframes_dir=run_dir / "keyframes",
         execution_trace_json_path=run_dir / "execution_trace.json",
+        memory_md_path=run_dir / "memory.md",
         frames_manifest_path=run_dir / "frames_manifest.json",
         metadata_path=run_dir / "metadata.json",
         log_file_path=log_file,

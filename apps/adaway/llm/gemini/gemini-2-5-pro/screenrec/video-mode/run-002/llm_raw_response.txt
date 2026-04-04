@@ -1,0 +1,42 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "```json\n[\n  {\n    \"timestamp_sec\": 2.5,\n    \"screen_description\": \"Android home screen with various app icons, including F-Droid, DeadHash, AntennaPod, and AdAway.\",\n    \"action_type\": \"tap\",\n    \"target\": \"AdAway app icon\",\n    \"details\": \"Launches the AdAway application.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 5.5,\n    \"screen_description\": \"AdAway main screen showing statistics for Blocked, Allowed, and Redirected requests. A red pause button is at the bottom center.\",\n    \"action_type\": \"tap\",\n    \"target\": \"Hamburger menu icon\",\n    \"details\": \"Navigates to the 'Your lists' screen.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 8.8,\n    \"screen_description\": \"The 'Your lists' screen with the 'Allowed' tab selected. A single entry 'yguy' is visible.\",\n    \"action_type\": \"tap\",\n    \"target\": \"Search icon\",\n    \"details\": \"Activates the search bar.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 11.8,\n    \"screen_description\": \"The 'Your lists' screen with an active search bar at the top.\",\n    \"action_type\": \"type\",\n    \"target\": \"Search hostname... text input\",\n    \"details\": \"edhb\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 14.5,\n    \"screen_description\": \"The 'Your lists' screen with 'edhb' typed in the search bar.\",\n    \"action_type\": \"tap\",\n    \"target\": \"Red plus button\",\n    \"details\": \"Opens the 'Add host to whitelist' dialog.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 21.0,\n    \"screen_description\": \"'Add host to whitelist' dialog with a text field for 'Hostname'.\",\n    \"action_type\": \"type\",\n    \"target\": \"Hostname text input\",\n    \"details\": \"utl.web\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 21.5,\n    \"screen_description\": \"'Add host to whitelist' dialog with 'utl.web' entered in the hostname field.\",\n    \"action_type\": \"tap\",\n    \"target\": \"ADD button\",\n    \"details\": \"Adds the hostname to the whitelist.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 26.8,\n    \"screen_description\": \"The 'Your lists' screen under the 'Allowed' tab, now showing 'utl.web' and 'yguy'. A banner at the bottom says 'Your configuration changed. You need to apply it.'\",\n    \"action_type\": \"tap\",\n    \"target\": \"Redirected tab\",\n    \"details\": \"Switches to the 'Redirected' list view.\",\n    \"confidence\": 1.0\n  },\n  {\n    \"timestamp_sec\": 28.8,\n    \"screen_description\": \"The 'Your lists' screen under the 'Redirected' tab, which is empty.\",\n    \"action_type\": \"tap\",\n    \"target\": \"Allowed tab\",\n    \"details\": \"Switches back to the 'Allowed' list view.\",\n    \"confidence\": 1.0\n  }\n]\n```"
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.5411841287567285
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 7978,
+    "candidatesTokenCount": 836,
+    "totalTokenCount": 12339,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "VIDEO",
+        "tokenCount": 7740
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 238
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 836
+      }
+    ],
+    "thoughtsTokenCount": 3525
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-04-04T10:50:50.922686Z",
+  "responseId": "Cu3Qab6oONTb1dkPuImAKA"
+}

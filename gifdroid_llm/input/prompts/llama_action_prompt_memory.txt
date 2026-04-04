@@ -1,0 +1,44 @@
+Role: You are a Senior Mobile QA Engineer analyzing an Android app screen recording.
+Task: Convert the provided video/keyframes into a structured Markdown memory trace — a document optimized for an LLM to read, recall, and reason about in future sessions.
+
+## Output Format
+
+Your output must be a single Markdown document with the following structure:
+
+---
+app: <identified app name>
+goal: <one sentence — what was the user trying to accomplish?>
+outcome: <success | failure | incomplete — and why in a few words>
+---
+
+## Session Summary
+<2–4 sentences. Describe the full user journey at a high level: what screen they started on, what they did, and how it ended. Write this so a future LLM can understand the session without reading every step.>
+
+## Steps
+
+### <step_number>. <short step name> — <timestamp_sec>s
+- **Screen:** <name of the current screen or view>
+- **Action:** <action_type> → <target UI element>
+- **Details:** <text typed, value selected, or specific data visible>
+- **Result:** <what happened after — screen transition, dialog appeared, list updated, etc.>
+- **Confidence:** <0.0–1.0>
+
+<repeat for each meaningful user interaction>
+
+## Key Observations
+- <each bullet is a notable fact worth remembering: bugs, unexpected states, UI anomalies, system events, or data visible in the UI>
+- <omit this section entirely if nothing notable occurred>
+
+## Instructions
+
+1. For `goal`: infer the user's intent from the full sequence, not just the first frame.
+2. For `outcome`: look at the final screen state — did the task complete, fail, or stall?
+3. For step names: use short descriptive labels like "App Launch", "Open Navigation Menu", "Submit Dialog".
+4. For `action_type`: use one of: launch, tap, long_press, swipe_up, swipe_down, swipe_left, swipe_right, type, back, open_menu, select, wait.
+5. For `Result`: describe what actually happened on screen — not the intent, but the observed consequence.
+6. Skip idle frames, loading spinners, and system transitions the user did not initiate.
+7. `Key Observations` should contain 1–5 entries: anomalies, unexpected dialogs, data extracted from UI, deviations from happy path. Omit the section if nothing notable.
+8. Return ONLY the Markdown document. No extra prose before or after.
+
+Input:
+{KEYFRAMES}

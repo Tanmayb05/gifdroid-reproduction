@@ -1,0 +1,18 @@
+2026-04-04 06:53:53 | INFO | === gifdroid_llm.2026-04-04T10-53-53__run-003__pipeline__started ===
+2026-04-04 06:53:53 | INFO | Starting gifdroid_llm pipeline
+2026-04-04 06:53:53 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4
+2026-04-04 06:53:53 | INFO | Environment validated for llm=gemini model=gemini-2.5-pro
+2026-04-04 06:53:53 | INFO | Running gemini API preflight before trace generation
+2026-04-04 06:53:53 | INFO | Gemini preflight started | model=gemini-2.5-pro | validating API key and endpoint access
+2026-04-04 06:53:54 | INFO | Gemini ADC default credentials loaded | adc_project=gifdroid-reproduction | runtime_project=project-1edeecda-ad08-47a7-867 | token_present=True
+2026-04-04 06:53:54 | INFO | Gemini auth route selected | route=adc_default | endpoint=vertex_ai
+2026-04-04 06:53:54 | INFO | Gemini API request sent | kind=preflight | model=gemini-2.5-pro | auth=adc_default | endpoint=vertex_ai | waiting for response
+2026-04-04 06:53:57 | INFO | Gemini API response received | kind=preflight | elapsed_sec=3.41
+2026-04-04 06:53:57 | INFO | Gemini preflight successful | model=gemini-2.5-pro
+2026-04-04 06:53:57 | INFO | Video mode enabled — skipping frame extraction and keyframe selection
+2026-04-04 06:53:57 | INFO | Encoding video for inline upload | file=srv-001.mp4 | size=3101372 bytes
+2026-04-04 06:53:58 | INFO | Sending video inference request | model=gemini-2.5-pro | video=srv-001.mp4
+2026-04-04 06:54:33 | INFO | Video inference response received | elapsed_sec=35.60
+2026-04-04 06:54:33 | INFO | Video inference parsed | actions=10
+2026-04-04 06:54:33 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/gemini/gemini-2-5-pro/screenrec/video-mode/run-003/llm_raw_response.txt
+2026-04-04 06:54:33 | INFO | Execution trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/gemini/gemini-2-5-pro/screenrec/video-mode/run-003/execution_trace.json
