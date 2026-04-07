@@ -18,6 +18,24 @@ from gifdroid_llm.keyframes import Keyframe
 from gifdroid_llm.llama_prereq import LlamaPrereqError, assert_llama_accessible
 
 
+@dataclass
+class SuggestedAction:
+    type: str  # tap | scroll | type_text | press_back | press_home | wait | done
+    target_description: str = ""
+    resource_id: str | None = None
+    coordinates: list[int] | None = None  # [x, y]
+    text: str | None = None
+
+
+@dataclass
+class ScreenDescription:
+    current_screen: str
+    visible_elements: list[str]
+    suggested_action: SuggestedAction
+    reasoning: str
+    confidence: float
+
+
 @dataclass(frozen=True)
 class ProviderAction:
     screen_description: str
@@ -149,6 +167,164 @@ class GeminiProvider(BaseLLMProvider):
             )
 
         return self._deterministic_fallback(keyframes, source="gemini_fallback")
+
+    def describe_screen(
+        self,
+        screenshot_path: Path,
+        accessibility_tree_xml: str | None = None,
+    ) -> ScreenDescription:
+        """Send a screenshot (and optionally accessibility tree) to Gemini and return structured screen description."""
+        import xml.etree.ElementTree as ET
+
+        # Build clickable elements summary from XML (avoid dumping raw verbose XML)
+        clickable_summary = ""
+        if accessibility_tree_xml:
+            try:
+                tree = ET.fromstring(accessibility_tree_xml)
+                clickable = [
+                    n for n in tree.findall(".//*")
+                    if n.get("clickable") == "true"
+                ][:20]
+                lines = []
+                for el in clickable:
+                    rid = el.get("resource-id", "")
+                    text = el.get("text", "")
+                    bounds = el.get("bounds", "")
+                    lines.append(f"  resource-id={rid!r} text={text!r} bounds={bounds}")
+                if lines:
+                    clickable_summary = "\n\nClickable UI elements from accessibility tree:\n" + "\n".join(lines)
+            except ET.ParseError:
+                pass
+
+        prompt = (
+            "You are an Android UI automation assistant. "
+            "Look at this screenshot of an Android screen and return ONLY a JSON object with these keys:\n"
+            '  "current_screen": short description of what screen/state is shown,\n'
+            '  "visible_elements": array of visible UI element descriptions,\n'
+            '  "suggested_action": object with keys:\n'
+            '    "type": one of tap|scroll|type_text|press_back|press_home|wait|done,\n'
+            '    "target_description": natural language description of target,\n'
+            '    "resource_id": resource-id string or null,\n'
+            '    "coordinates": [x, y] pixel coordinates or null,\n'
+            '    "text": text to type if type_text else null,\n'
+            '  "reasoning": why this action is the logical next step,\n'
+            '  "confidence": float 0.0-1.0\n'
+            "Return ONLY valid JSON, no markdown fences."
+            + clickable_summary
+        )
+
+        # Read screenshot as base64
+        with screenshot_path.open("rb") as f:
+            img_b64 = base64.b64encode(f.read()).decode("ascii")
+
+        # Use Vertex AI if no API key, else Google AI Studio
+        api_key = self.env.get("GOOGLE_GENERATIVE_AI_API_KEY", "").strip()
+        if api_key:
+            url = (
+                "https://generativelanguage.googleapis.com/v1beta/models/"
+                f"{self.llm_model}:generateContent?key={api_key}"
+            )
+            headers = {"Content-Type": "application/json"}
+        else:
+            token, adc_project_id = self._build_default_adc_token()
+            project_id = (
+                str(self.env.get("GEMINI_VERTEX_PROJECT_ID", "")).strip() or adc_project_id
+            )
+            if not project_id:
+                raise ProviderError("No project_id for Vertex AI in describe_screen")
+            location = str(self.env.get("GEMINI_VERTEX_LOCATION", "us-central1")).strip() or "us-central1"
+            url = (
+                f"https://{location}-aiplatform.googleapis.com/v1/"
+                f"projects/{project_id}/locations/{location}/publishers/google/models/"
+                f"{self.llm_model}:generateContent"
+            )
+            headers = {
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+            }
+
+        payload = {
+            "contents": [{
+                "role": "user",
+                "parts": [
+                    {"inlineData": {"mimeType": "image/png", "data": img_b64}},
+                    {"text": prompt},
+                ],
+            }],
+            "generationConfig": {"temperature": 0.1},
+        }
+        payload_bytes = json.dumps(payload).encode("utf-8")
+        req = url_request.Request(url=url, data=payload_bytes, headers=headers, method="POST")
+
+        self.logger.info("describe_screen: sending screenshot to Gemini | model=%s", self.llm_model)
+        start = time.perf_counter()
+        try:
+            with url_request.urlopen(req, timeout=90) as resp:
+                response_text = resp.read().decode("utf-8")
+        except url_error.HTTPError as exc:
+            err_body = exc.read().decode("utf-8", errors="replace")
+            raise ProviderError(f"describe_screen HTTP {exc.code}: {err_body[:300]}") from exc
+        except url_error.URLError as exc:
+            raise ProviderError(f"describe_screen URL error: {exc}") from exc
+
+        elapsed = time.perf_counter() - start
+        self.logger.info("describe_screen: response received | elapsed_sec=%.2f", elapsed)
+
+        try:
+            data = json.loads(response_text)
+            raw_text = self._extract_text(data)
+        except (json.JSONDecodeError, KeyError, TypeError, ProviderError) as exc:
+            raise ProviderError(f"describe_screen: invalid response format: {exc}") from exc
+
+        return self._parse_screen_description(raw_text)
+
+    def _parse_screen_description(self, raw_text: str) -> ScreenDescription:
+        text = raw_text.strip()
+        # Strip markdown fences if present
+        if "```" in text:
+            for chunk in text.split("```"):
+                cleaned = chunk.strip()
+                if cleaned.startswith("json"):
+                    cleaned = cleaned[4:].strip()
+                if cleaned.startswith("{"):
+                    text = cleaned
+                    break
+        try:
+            obj = json.loads(text)
+        except json.JSONDecodeError as exc:
+            raise ProviderError(f"describe_screen: could not parse JSON: {exc}\nRaw: {text[:300]}") from exc
+
+        action_raw = obj.get("suggested_action", {}) or {}
+        coords = action_raw.get("coordinates")
+        if coords and isinstance(coords, list) and len(coords) == 2:
+            try:
+                coords = [int(coords[0]), int(coords[1])]
+            except (TypeError, ValueError):
+                coords = None
+        else:
+            coords = None
+
+        suggested = SuggestedAction(
+            type=str(action_raw.get("type", "wait")).strip() or "wait",
+            target_description=str(action_raw.get("target_description", "")).strip(),
+            resource_id=action_raw.get("resource_id") or None,
+            coordinates=coords,
+            text=action_raw.get("text") or None,
+        )
+
+        confidence_raw = obj.get("confidence", 0.5)
+        try:
+            confidence = float(confidence_raw)
+        except (TypeError, ValueError):
+            confidence = 0.5
+
+        return ScreenDescription(
+            current_screen=str(obj.get("current_screen", "")).strip(),
+            visible_elements=list(obj.get("visible_elements", [])),
+            suggested_action=suggested,
+            reasoning=str(obj.get("reasoning", "")).strip(),
+            confidence=max(0.0, min(1.0, confidence)),
+        )
 
     def _build_action_prompt(self, keyframes: List[Keyframe]) -> str:
         keyframe_lines = [

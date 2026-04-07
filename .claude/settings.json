@@ -46,13 +46,27 @@
       "WebSearch",
       "WebFetch(domain:ai.google.dev)",
       "WebFetch(domain:docs.cloud.google.com)",
-      "Read(//Users/tanmaybhuskute/.continue/**)"
+      "Read(//Users/tanmaybhuskute/.continue/**)",
+      "Read(//Users/tanmaybhuskute/**)",
+      "Skill(gsd:complete-milestone)",
+      "Skill(gsd:complete-milestone:*)",
+      "Bash(.venv/bin/python -c \"import google.auth; creds, proj = google.auth.default\\(\\); print\\(f'Project: {proj}'\\); print\\(f'Creds type: {type\\(creds\\).__name__}'\\)\")",
+      "Bash(.venv/bin/python -c ':*)",
+      "Bash(gcloud config:*)",
+      "Bash(gcloud projects:*)",
+      "Bash(gcloud services:*)",
+      "Bash(tee artifacts/milestone0/v0_3_gemini_vertex_output.txt)",
+      "Bash(tee artifacts/milestone2/v2_1_output.txt)",
+      "Bash(tee artifacts/milestone2/v2_2_output.txt)",
+      "Bash(.venv/bin/python -m gifdroid_llm.main --config gifdroid_llm/input/config.yml --env-file .env.local --dry-run)",
+      "Bash(tee artifacts/milestone2/v2_regression_dry_run.txt)"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/analysis",
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid_llm_trace",
-      "/Users/tanmaybhuskute/.continue"
+      "/Users/tanmaybhuskute/.continue",
+      "/Users/tanmaybhuskute"
     ]
   }
 }
