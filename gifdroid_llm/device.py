@@ -106,6 +106,35 @@ class DeviceController:
                         return part
         return ""
 
+    def execute_action(self, action: "ExecutableAction") -> None:
+        """Execute an ExecutableAction on the device."""
+        from gifdroid_llm.providers import ExecutableAction as _EA  # noqa: F401
+
+        action_type = action.type.lower()
+        if action_type == "tap":
+            if action.resource_id:
+                el = self._device(resourceId=action.resource_id)
+                if el.exists:
+                    el.click()
+                    return
+            if action.coordinates:
+                self.tap(action.coordinates[0], action.coordinates[1])
+        elif action_type == "scroll":
+            direction = action.direction or "down"
+            x, y = (action.coordinates or [540, 960])
+            self.scroll(direction, int(x), int(y))
+        elif action_type == "type_text":
+            if action.text:
+                self.type_text(action.text)
+        elif action_type in ("press_back", "back"):
+            self.press_key("back")
+        elif action_type in ("press_home", "home"):
+            self.press_key("home")
+        elif action_type in ("wait", "done"):
+            pass
+        else:
+            pass
+
     def is_app_running(self, package: str) -> bool:
         """Return True if the package has a running process."""
         adb_args = [_ADB]

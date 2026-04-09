@@ -36,6 +36,24 @@ class ScreenDescription:
     confidence: float
 
 
+@dataclass
+class ExecutableAction:
+    type: str  # tap | scroll | type_text | press_back | press_home | wait | done
+    resource_id: str | None = None
+    coordinates: list[int] | None = None  # [x, y]
+    text: str | None = None
+    direction: str | None = None  # for scroll: up|down|left|right
+    target_description: str = ""
+
+
+@dataclass
+class ActionDecision:
+    continue_automation: bool
+    action: ExecutableAction | None
+    reasoning: str
+    confidence: float
+
+
 @dataclass(frozen=True)
 class ProviderAction:
     screen_description: str
@@ -323,6 +341,188 @@ class GeminiProvider(BaseLLMProvider):
             visible_elements=list(obj.get("visible_elements", [])),
             suggested_action=suggested,
             reasoning=str(obj.get("reasoning", "")).strip(),
+            confidence=max(0.0, min(1.0, confidence)),
+        )
+
+    def decide_next_action(
+        self,
+        history: list,
+        screenshot: "PIL.Image.Image",
+        accessibility_tree: str | None,
+        task_description: str = "",
+    ) -> "ActionDecision":
+        """Given history of turns and current screenshot, decide the next action.
+
+        Returns an ActionDecision with continue_automation flag and action details.
+        """
+        import io
+        import xml.etree.ElementTree as ET
+
+        # Build clickable elements summary
+        clickable_summary = ""
+        if accessibility_tree:
+            try:
+                tree = ET.fromstring(accessibility_tree)
+                clickable = [
+                    n for n in tree.findall(".//*")
+                    if n.get("clickable") == "true"
+                ][:20]
+                lines = []
+                for el in clickable:
+                    rid = el.get("resource-id", "")
+                    text = el.get("text", "")
+                    bounds = el.get("bounds", "")
+                    lines.append(f"  resource-id={rid!r} text={text!r} bounds={bounds}")
+                if lines:
+                    clickable_summary = "\n\nClickable UI elements:\n" + "\n".join(lines)
+            except ET.ParseError:
+                pass
+
+        # Build history summary
+        history_text = ""
+        if history:
+            steps = []
+            for turn in history:
+                action_desc = "initial state"
+                if turn.action_taken:
+                    a = turn.action_taken
+                    action_desc = f"{a.type}"
+                    if a.resource_id:
+                        action_desc += f" on {a.resource_id}"
+                    elif a.coordinates:
+                        action_desc += f" at {a.coordinates}"
+                steps.append(f"  Step {turn.step_index + 1}: {action_desc}")
+            history_text = "\n\nPrevious steps taken:\n" + "\n".join(steps)
+
+        task_line = f"\nTask: {task_description}" if task_description else ""
+
+        prompt = (
+            "You are an Android UI automation assistant driving a live device.{task_line}\n"
+            "Look at the current screenshot and decide the next action.\n"
+            "Return ONLY a JSON object with these keys:\n"
+            '  "continue": true if more actions are needed, false if task is complete,\n'
+            '  "action": object with keys:\n'
+            '    "type": one of tap|scroll|type_text|press_back|press_home|wait|done,\n'
+            '    "resource_id": resource-id string or null,\n'
+            '    "coordinates": [x, y] pixel coordinates or null,\n'
+            '    "text": text string for type_text else null,\n'
+            '    "direction": up|down|left|right for scroll else null,\n'
+            '    "target_description": natural language description of target,\n'
+            '  "reasoning": why this is the right next action,\n'
+            '  "confidence": float 0.0-1.0\n'
+            "If continue=false, action can be null.\n"
+            "Return ONLY valid JSON, no markdown fences."
+        ).format(task_line=task_line) + history_text + clickable_summary
+
+        # Encode current screenshot as base64 PNG
+        buf = io.BytesIO()
+        screenshot.save(buf, format="PNG")
+        img_b64 = base64.b64encode(buf.getvalue()).decode("ascii")
+
+        api_key = self.env.get("GOOGLE_GENERATIVE_AI_API_KEY", "").strip()
+        if api_key:
+            url = (
+                "https://generativelanguage.googleapis.com/v1beta/models/"
+                f"{self.llm_model}:generateContent?key={api_key}"
+            )
+            headers = {"Content-Type": "application/json"}
+        else:
+            token, adc_project_id = self._build_default_adc_token()
+            project_id = (
+                str(self.env.get("GEMINI_VERTEX_PROJECT_ID", "")).strip() or adc_project_id
+            )
+            if not project_id:
+                raise ProviderError("No project_id for Vertex AI in decide_next_action")
+            location = str(self.env.get("GEMINI_VERTEX_LOCATION", "us-central1")).strip() or "us-central1"
+            url = (
+                f"https://{location}-aiplatform.googleapis.com/v1/"
+                f"projects/{project_id}/locations/{location}/publishers/google/models/"
+                f"{self.llm_model}:generateContent"
+            )
+            headers = {
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+            }
+
+        payload = {
+            "contents": [{
+                "role": "user",
+                "parts": [
+                    {"inlineData": {"mimeType": "image/png", "data": img_b64}},
+                    {"text": prompt},
+                ],
+            }],
+            "generationConfig": {"temperature": 0.1},
+        }
+        payload_bytes = json.dumps(payload).encode("utf-8")
+        req = url_request.Request(url=url, data=payload_bytes, headers=headers, method="POST")
+
+        self.logger.info("decide_next_action: calling Gemini | model=%s", self.llm_model)
+        start = time.perf_counter()
+        try:
+            with url_request.urlopen(req, timeout=90) as resp:
+                response_text = resp.read().decode("utf-8")
+        except url_error.HTTPError as exc:
+            err_body = exc.read().decode("utf-8", errors="replace")
+            raise ProviderError(f"decide_next_action HTTP {exc.code}: {err_body[:300]}") from exc
+        except url_error.URLError as exc:
+            raise ProviderError(f"decide_next_action URL error: {exc}") from exc
+
+        elapsed = time.perf_counter() - start
+        self.logger.info("decide_next_action: response received | elapsed_sec=%.2f", elapsed)
+
+        data = json.loads(response_text)
+        raw_text = self._extract_text(data)
+        return self._parse_action_decision(raw_text)
+
+    def _parse_action_decision(self, raw_text: str) -> "ActionDecision":
+        text = raw_text.strip()
+        if "```" in text:
+            for chunk in text.split("```"):
+                cleaned = chunk.strip()
+                if cleaned.startswith("json"):
+                    cleaned = cleaned[4:].strip()
+                if cleaned.startswith("{"):
+                    text = cleaned
+                    break
+        try:
+            obj = json.loads(text)
+        except json.JSONDecodeError as exc:
+            raise ProviderError(f"decide_next_action: could not parse JSON: {exc}\nRaw: {text[:300]}") from exc
+
+        continue_auto = bool(obj.get("continue", True))
+        reasoning = str(obj.get("reasoning", "")).strip()
+        confidence_raw = obj.get("confidence", 0.5)
+        try:
+            confidence = float(confidence_raw)
+        except (TypeError, ValueError):
+            confidence = 0.5
+
+        action_raw = obj.get("action") or {}
+        if not action_raw or not continue_auto:
+            action = None
+        else:
+            coords = action_raw.get("coordinates")
+            if coords and isinstance(coords, list) and len(coords) == 2:
+                try:
+                    coords = [int(coords[0]), int(coords[1])]
+                except (TypeError, ValueError):
+                    coords = None
+            else:
+                coords = None
+            action = ExecutableAction(
+                type=str(action_raw.get("type", "wait")).strip() or "wait",
+                resource_id=action_raw.get("resource_id") or None,
+                coordinates=coords,
+                text=action_raw.get("text") or None,
+                direction=action_raw.get("direction") or None,
+                target_description=str(action_raw.get("target_description", "")).strip(),
+            )
+
+        return ActionDecision(
+            continue_automation=continue_auto,
+            action=action,
+            reasoning=reasoning,
             confidence=max(0.0, min(1.0, confidence)),
         )
 

@@ -983,6 +983,24 @@ Pass condition: assertion passes.
 
 **Milestone 3 gate**: V3.1, V3.2, V3.3 pass. `milestone3_run/` directory with step screenshots and session JSON is the primary deliverable. This demonstrates a working LLM-driven automation loop on a real device — without any video input yet.
 
+### Milestone 3 Check Status (2026-04-08)
+
+- V3.1: **Pass** — Single round-trip: `continue=True`, action `tap org.adaway:id/snackbar_action` at `[954, 1747]`, screenshot saved to `milestone3_after_step1.png`.
+- V3.2: **Pass** — 5-step blind loop ran to completion with `status=done`; LLM navigated AdAway, triggered host sources update, and correctly identified task complete when "VPN configuration successfully updated" appeared.
+- V3.3: **Pass** — Sliding window assertion passes: 5 turns added, `get_history()` returns 3.
+- Regression: **Pass** — existing `gifdroid_llm.main --dry-run` exits 0 across all 20 configured runs.
+
+Milestone 3 gate status: **CLEARED**
+
+New files:
+
+- `gifdroid_llm/session.py` — `AutomationSession`, `ConversationTurn`
+- `gifdroid_llm/automation.py` — `run_blind_loop`
+- `gifdroid_llm/providers.py` — `ExecutableAction`, `ActionDecision` dataclasses; `GeminiProvider.decide_next_action()` method
+- `gifdroid_llm/device.py` — `execute_action()` method
+
+Evidence and logs: `artifacts/milestone3/README.md`.
+
 ---
 
 ## Milestone 4 — Video Context Integration
