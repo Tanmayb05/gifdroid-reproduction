@@ -1,0 +1,26 @@
+# Automation config for video-guided device automation (Milestone 4)
+# CLI:
+#   .venv/bin/python -m gifdroid_llm.automate \
+#     --config gifdroid_llm/input/automation_config.yml \
+#     --env-file .env.local
+
+# LLM provider settings
+llm: "gemini"
+llm_model: "gemini-2.5-pro"
+
+# Video to demonstrate the task
+video_path: "apps/adaway/videos/screenrec/srv-001.mp4"
+
+# APK to install and automate
+apk_path: "apps/adaway/apk/adaway.apk"
+
+# ADB device serial — leave empty or omit to auto-detect the first connected device
+device_serial:
+
+# Automation loop settings
+max_steps: 10
+history_window: 3
+step_delay: 1.5
+
+# Output directory for session trace and screenshots
+output_dir: "artifacts/milestone4/run-001"

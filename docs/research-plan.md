@@ -1130,6 +1130,25 @@ Pass condition: exits 0. Verifies that Milestone 4 changes did not break the exi
 
 **Milestone 4 gate**: V4.1, V4.2, V4.3 pass. The `session_trace.json` and step screenshots from V4.2 are the primary deliverable — a complete end-to-end automation run guided by video context.
 
+### Milestone 4 Check Status (2026-04-09)
+
+- V4.1: **Pass** — 8 keyframes extracted from `apps/adaway/videos/screenrec/srv-001.mp4`; `summarize_video_task()` returned non-empty task description in 21.71s via Vertex AI ADC. Note: Google AI Studio API key (`GOOGLE_GENERATIVE_AI_API_KEY`) is blocked for this project (403 billing required) — Vertex AI ADC used instead.
+- V4.2: **Pass** — Full automation run completed in 8 steps with `status=done`. LLM correctly navigated: home → Allowed list → add dialog → cancel → toggle utl.web checkbox → Redirected tab → Allowed tab → done. Session trace and 8 step screenshots saved to `artifacts/milestone4/run-001/`.
+- V4.3: **Pass** — `gifdroid_llm.main --dry-run` exits 0 across all 20 configured runs. `gifdroid_llm.automate --dry-run` exits 0.
+- Regression: **Pass** — existing pipeline unaffected.
+
+Milestone 4 gate status: **CLEARED**
+
+New files:
+
+- `gifdroid_llm/automate.py` — CLI entry point (`python -m gifdroid_llm.automate`)
+- `gifdroid_llm/automation.py` — extended with `run_automation(video_path, ...)` for video-guided loop
+- `gifdroid_llm/providers.py` — `GeminiProvider.summarize_video_task()` and `decide_next_action_with_video_context()` added
+- `gifdroid_llm/config.py` — `AutomationConfig` dataclass and `load_automation_config()` added
+- `gifdroid_llm/input/automation_config.yml` — automation config template
+
+Evidence and logs: `artifacts/milestone4/README.md`.
+
 ---
 
 ## Milestone 5 — Evaluation & Comparison
@@ -1228,6 +1247,36 @@ Pass condition: image file saved, at least 2 matched step pairs shown.
 ---
 
 **Milestone 5 gate**: V5.1, V5.2, V5.3 pass. The comparison image and results table are the final deliverables. These directly demonstrate both that the system works and how well it performs.
+
+### Milestone 5 Check Status (2026-04-09)
+
+- V5.1: **Pass** — `evaluate_automation.py` produces per-app LCS scores for adaway (0.67), antennapod (0.56), luxalarm (0.75). No errors.
+- V5.2: **Pass** — Batch evaluation across all 3 apps completed. Summary table:
+
+  | App        | GT Steps | Auto Steps | LCS Score |
+  |------------|----------|------------|-----------|
+  | adaway     | 3        | 7          | 0.67      |
+  | antennapod | 9        | 5          | 0.56      |
+  | luxalarm   | 8        | 12         | 0.75      |
+  | **Average**| 6.7      | 8.0        | **0.66**  |
+
+  Note: ground truth = passive Gemini-2.5-Pro execution traces (`execution_trace.json`), not UTG files (no UTG ground truth available in this dataset). LCS computed on meaningful action types only (tap/scroll/input), ignoring START/END/NONE/LAUNCH noise.
+
+- V5.3: **Pass** — `analysis/adaway_comparison.png` saved (812×5912 px), 8 matched step pairs (all adaway automation steps paired with all 8 keyframes).
+- Regression: **Pass** — `gifdroid_llm.main --dry-run` exits 0.
+
+Milestone 5 gate status: **CLEARED** (V5.1, V5.2, V5.3 all pass)
+
+New files:
+
+- `analysis/evaluate_automation.py` — LCS-based evaluation, single-app and batch modes
+- `analysis/visualize_comparison.py` — side-by-side keyframe vs. automation screenshot grid
+- `analysis/automation_results.md` — per-app scores and summary table
+- `analysis/adaway_comparison.png` — 8-step visual comparison grid for adaway
+- `artifacts/milestone5/antennapod/run-001/session_trace.json` — antennapod automation run (6 steps, done)
+- `artifacts/milestone5/luxalarm/run-001/session_trace.json` — luxalarm automation run (12 steps, max_steps_reached)
+
+Evidence and logs: `artifacts/milestone5/` (session traces + step screenshots for all 3 apps).
 
 ---
 

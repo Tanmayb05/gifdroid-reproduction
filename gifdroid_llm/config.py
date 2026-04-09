@@ -40,6 +40,66 @@ VIDEO_MODE_SUPPORTED_PROVIDERS = {"gemini"}
 
 
 @dataclass(frozen=True)
+class AutomationConfig:
+    """Configuration for the video-guided automation loop (Milestone 4)."""
+    video_path: Path
+    apk_path: Path
+    llm: str
+    llm_model: str
+    device_serial: str | None  # None = auto-detect
+    max_steps: int
+    history_window: int
+    step_delay: float
+    output_dir: Path
+
+
+def load_automation_config(config_path: Path) -> "AutomationConfig":
+    """Load and validate automation config from YAML."""
+    if not config_path.exists():
+        raise ConfigError(f"Automation config file not found: {config_path}")
+
+    with config_path.open("r", encoding="utf-8") as f:
+        raw = yaml.safe_load(f)
+
+    root: Dict[str, Any] = _require_mapping(raw, "config")
+
+    video_path = Path(_require_str(root, "video_path"))
+    apk_path = Path(_require_str(root, "apk_path"))
+    llm = _require_str(root, "llm").lower()
+    llm_model = _optional_str(root, "llm_model") or "gemini-2.5-pro"
+    device_serial = _optional_str(root, "device_serial")
+
+    max_steps_raw = root.get("max_steps", 10)
+    if not isinstance(max_steps_raw, int) or max_steps_raw <= 0:
+        raise ConfigError("max_steps must be a positive integer")
+    max_steps = max_steps_raw
+
+    history_window_raw = root.get("history_window", 3)
+    if not isinstance(history_window_raw, int) or history_window_raw <= 0:
+        raise ConfigError("history_window must be a positive integer")
+    history_window = history_window_raw
+
+    step_delay_raw = root.get("step_delay", 1.5)
+    if not isinstance(step_delay_raw, (int, float)) or step_delay_raw < 0:
+        raise ConfigError("step_delay must be a non-negative number")
+    step_delay = float(step_delay_raw)
+
+    output_dir = Path(_require_str(root, "output_dir"))
+
+    return AutomationConfig(
+        video_path=video_path,
+        apk_path=apk_path,
+        llm=llm,
+        llm_model=llm_model,
+        device_serial=device_serial,
+        max_steps=max_steps,
+        history_window=history_window,
+        step_delay=step_delay,
+        output_dir=output_dir,
+    )
+
+
+@dataclass(frozen=True)
 class AppConfig:
     app_name: str
     video_path: Path

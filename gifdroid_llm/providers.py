@@ -526,6 +526,218 @@ class GeminiProvider(BaseLLMProvider):
             confidence=max(0.0, min(1.0, confidence)),
         )
 
+    def summarize_video_task(self, keyframes: List["Keyframe"]) -> str:
+        """Send keyframes to Gemini and get a plain-text summary of the task shown in the video.
+
+        Used as the initial context for the automation loop so the LLM knows
+        what it is trying to reproduce on the live device.
+        """
+        if not keyframes:
+            return ""
+
+        # Build multipart payload: interleave images with timestamp captions
+        parts: list = []
+        for idx, kf in enumerate(keyframes):
+            import cv2 as _cv2
+            success, buf = _cv2.imencode(".png", kf.image_bgr)
+            if not success:
+                continue
+            img_b64 = base64.b64encode(buf.tobytes()).decode("ascii")
+            parts.append({"inlineData": {"mimeType": "image/png", "data": img_b64}})
+            parts.append({"text": f"Frame {idx + 1} at {kf.timestamp_sec:.1f}s"})
+
+        parts.append({
+            "text": (
+                "These are keyframes from a screen recording of an Android app.\n"
+                "Describe in 2-4 sentences what task the user is performing in the video. "
+                "Be specific about the sequence of actions (e.g. 'The user opens AdAway, "
+                "grants root permission by tapping Allow, then enables host blocking.'). "
+                "Return only the plain-text description, no JSON."
+            )
+        })
+
+        api_key = self.env.get("GOOGLE_GENERATIVE_AI_API_KEY", "").strip()
+        if api_key:
+            url = (
+                "https://generativelanguage.googleapis.com/v1beta/models/"
+                f"{self.llm_model}:generateContent?key={api_key}"
+            )
+            headers = {"Content-Type": "application/json"}
+        else:
+            token, adc_project_id = self._build_default_adc_token()
+            project_id = (
+                str(self.env.get("GEMINI_VERTEX_PROJECT_ID", "")).strip() or adc_project_id
+            )
+            if not project_id:
+                raise ProviderError("No project_id for Vertex AI in summarize_video_task")
+            location = str(self.env.get("GEMINI_VERTEX_LOCATION", "us-central1")).strip() or "us-central1"
+            url = (
+                f"https://{location}-aiplatform.googleapis.com/v1/"
+                f"projects/{project_id}/locations/{location}/publishers/google/models/"
+                f"{self.llm_model}:generateContent"
+            )
+            headers = {
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+            }
+
+        payload = {
+            "contents": [{"role": "user", "parts": parts}],
+            "generationConfig": {"temperature": 0.1},
+        }
+        payload_bytes = json.dumps(payload).encode("utf-8")
+        req = url_request.Request(url=url, data=payload_bytes, headers=headers, method="POST")
+
+        self.logger.info(
+            "summarize_video_task: sending %d keyframes to Gemini | model=%s",
+            len(keyframes), self.llm_model,
+        )
+        start = time.perf_counter()
+        try:
+            with url_request.urlopen(req, timeout=120) as resp:
+                response_text = resp.read().decode("utf-8")
+        except url_error.HTTPError as exc:
+            err_body = exc.read().decode("utf-8", errors="replace")
+            raise ProviderError(f"summarize_video_task HTTP {exc.code}: {err_body[:300]}") from exc
+        except url_error.URLError as exc:
+            raise ProviderError(f"summarize_video_task URL error: {exc}") from exc
+
+        elapsed = time.perf_counter() - start
+        self.logger.info("summarize_video_task: response received | elapsed_sec=%.2f", elapsed)
+
+        data = json.loads(response_text)
+        return self._extract_text(data).strip()
+
+    def decide_next_action_with_video_context(
+        self,
+        history: list,
+        screenshot: "PIL.Image.Image",
+        accessibility_tree: str | None,
+        task_description: str,
+        video_summary: str,
+    ) -> "ActionDecision":
+        """Like decide_next_action but includes the video task summary as additional context."""
+        import io
+        import xml.etree.ElementTree as ET
+
+        # Build clickable elements summary
+        clickable_summary = ""
+        if accessibility_tree:
+            try:
+                tree = ET.fromstring(accessibility_tree)
+                clickable = [
+                    n for n in tree.findall(".//*")
+                    if n.get("clickable") == "true"
+                ][:20]
+                lines = []
+                for el in clickable:
+                    rid = el.get("resource-id", "")
+                    text_val = el.get("text", "")
+                    bounds = el.get("bounds", "")
+                    lines.append(f"  resource-id={rid!r} text={text_val!r} bounds={bounds}")
+                if lines:
+                    clickable_summary = "\n\nClickable UI elements:\n" + "\n".join(lines)
+            except ET.ParseError:
+                pass
+
+        # Build history summary
+        history_text = ""
+        if history:
+            steps = []
+            for turn in history:
+                action_desc = "initial state"
+                if turn.action_taken:
+                    a = turn.action_taken
+                    action_desc = f"{a.type}"
+                    if a.resource_id:
+                        action_desc += f" on {a.resource_id}"
+                    elif a.coordinates:
+                        action_desc += f" at {a.coordinates}"
+                steps.append(f"  Step {turn.step_index + 1}: {action_desc}")
+            history_text = "\n\nPrevious steps taken:\n" + "\n".join(steps)
+
+        prompt = (
+            "You are an Android UI automation assistant. "
+            f"You are trying to reproduce the following task on a live device:\n\n"
+            f"TASK: {task_description}\n\n"
+            f"VIDEO SUMMARY: {video_summary}\n\n"
+            "Look at the current screenshot and decide the next action to reproduce the task.\n"
+            "Return ONLY a JSON object with these keys:\n"
+            '  "continue": true if more actions are needed, false if task is complete,\n'
+            '  "action": object with keys:\n'
+            '    "type": one of tap|scroll|type_text|press_back|press_home|wait|done,\n'
+            '    "resource_id": resource-id string or null,\n'
+            '    "coordinates": [x, y] pixel coordinates or null,\n'
+            '    "text": text string for type_text else null,\n'
+            '    "direction": up|down|left|right for scroll else null,\n'
+            '    "target_description": natural language description of target,\n'
+            '  "reasoning": why this is the right next action,\n'
+            '  "confidence": float 0.0-1.0\n'
+            "If continue=false, action can be null.\n"
+            "Return ONLY valid JSON, no markdown fences."
+        ) + history_text + clickable_summary
+
+        import io as _io
+        buf = _io.BytesIO()
+        screenshot.save(buf, format="PNG")
+        img_b64 = base64.b64encode(buf.getvalue()).decode("ascii")
+
+        api_key = self.env.get("GOOGLE_GENERATIVE_AI_API_KEY", "").strip()
+        if api_key:
+            url = (
+                "https://generativelanguage.googleapis.com/v1beta/models/"
+                f"{self.llm_model}:generateContent?key={api_key}"
+            )
+            headers = {"Content-Type": "application/json"}
+        else:
+            token, adc_project_id = self._build_default_adc_token()
+            project_id = (
+                str(self.env.get("GEMINI_VERTEX_PROJECT_ID", "")).strip() or adc_project_id
+            )
+            if not project_id:
+                raise ProviderError("No project_id for Vertex AI in decide_next_action_with_video_context")
+            location = str(self.env.get("GEMINI_VERTEX_LOCATION", "us-central1")).strip() or "us-central1"
+            url = (
+                f"https://{location}-aiplatform.googleapis.com/v1/"
+                f"projects/{project_id}/locations/{location}/publishers/google/models/"
+                f"{self.llm_model}:generateContent"
+            )
+            headers = {
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+            }
+
+        payload = {
+            "contents": [{
+                "role": "user",
+                "parts": [
+                    {"inlineData": {"mimeType": "image/png", "data": img_b64}},
+                    {"text": prompt},
+                ],
+            }],
+            "generationConfig": {"temperature": 0.1},
+        }
+        payload_bytes = json.dumps(payload).encode("utf-8")
+        req = url_request.Request(url=url, data=payload_bytes, headers=headers, method="POST")
+
+        self.logger.info("decide_next_action_with_video_context: calling Gemini | model=%s", self.llm_model)
+        start = time.perf_counter()
+        try:
+            with url_request.urlopen(req, timeout=90) as resp:
+                response_text = resp.read().decode("utf-8")
+        except url_error.HTTPError as exc:
+            err_body = exc.read().decode("utf-8", errors="replace")
+            raise ProviderError(f"decide_next_action_with_video_context HTTP {exc.code}: {err_body[:300]}") from exc
+        except url_error.URLError as exc:
+            raise ProviderError(f"decide_next_action_with_video_context URL error: {exc}") from exc
+
+        elapsed = time.perf_counter() - start
+        self.logger.info("decide_next_action_with_video_context: response received | elapsed_sec=%.2f", elapsed)
+
+        data = json.loads(response_text)
+        raw_text = self._extract_text(data)
+        return self._parse_action_decision(raw_text)
+
     def _build_action_prompt(self, keyframes: List[Keyframe]) -> str:
         keyframe_lines = [
             (
