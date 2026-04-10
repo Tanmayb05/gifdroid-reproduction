@@ -1,0 +1,69 @@
+[INFO] 2026-04-10 02:24:08 --- Run: app=wifianalyzer video_type=handheld video=apps/wifianalyzer/videos/handheld/hhv-001.mp4 ---
+[INFO] 2026-04-10 02:24:08 Output dir: apps/wifianalyzer/llm/gemini/gemini-2.5-pro/handheld/run-001
+[INFO] 2026-04-10 02:24:08 Installing APK: apps/wifianalyzer/apk/wifianalyzer.apk
+[INFO] 2026-04-10 02:24:10 APK installed: com.vrem.wifianalyzer
+[INFO] 2026-04-10 02:24:10 Launching app: com.vrem.wifianalyzer / com.vrem.wifianalyzer.MainActivity
+[INFO] 2026-04-10 02:24:12 App launched: com.vrem.wifianalyzer/.MainActivity
+[INFO] 2026-04-10 02:24:12 Provider supports direct-video summarization — attempting raw-video path | video=apps/wifianalyzer/videos/handheld/hhv-001.mp4
+[INFO] 2026-04-10 02:24:12 summarize_video_task_from_video: sending raw video to Gemini | video=hhv-001.mp4
+[INFO] 2026-04-10 02:24:12 Encoding video for inline upload | file=hhv-001.mp4 | size=9103658 bytes
+[INFO] 2026-04-10 02:24:12 Sending video inference request | model=gemini-2.5-pro | video=hhv-001.mp4
+[INFO] 2026-04-10 02:24:26 Video inference response received | elapsed_sec=13.40
+[INFO] 2026-04-10 02:24:26 Direct-video summary obtained (skipping keyframe extraction) | summary=The user opens the WIFIAnalyzer app from its store page to analyze local Wi-Fi networks. After scrolling through the list of "Access Points," they use the bottom navigation bar to cycle through the "C
+[INFO] 2026-04-10 02:24:26 Video summary saved to apps/wifianalyzer/llm/gemini/gemini-2.5-pro/handheld/run-001/video_summary.txt
+[INFO] 2026-04-10 02:24:26 Step 1/15
+[INFO] 2026-04-10 02:24:27 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:24:33 decide_next_action_with_video_context: response received | elapsed_sec=5.93
+[INFO] 2026-04-10 02:24:33 Step 1: continue=True action_type=tap
+[INFO] 2026-04-10 02:24:34 Step 2/15
+[INFO] 2026-04-10 02:24:35 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:24:46 decide_next_action_with_video_context: response received | elapsed_sec=10.53
+[INFO] 2026-04-10 02:24:46 Step 2: continue=True action_type=tap
+[INFO] 2026-04-10 02:24:48 Step 3/15
+[INFO] 2026-04-10 02:24:48 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:25:08 decide_next_action_with_video_context: response received | elapsed_sec=20.10
+[INFO] 2026-04-10 02:25:08 Step 3: continue=True action_type=tap
+[INFO] 2026-04-10 02:25:10 Step 4/15
+[INFO] 2026-04-10 02:25:11 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:25:20 decide_next_action_with_video_context: response received | elapsed_sec=9.20
+[INFO] 2026-04-10 02:25:20 Step 4: continue=True action_type=tap
+[INFO] 2026-04-10 02:25:22 Step 5/15
+[INFO] 2026-04-10 02:25:23 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:25:28 decide_next_action_with_video_context: response received | elapsed_sec=5.60
+[INFO] 2026-04-10 02:25:28 Step 5: continue=True action_type=tap
+[INFO] 2026-04-10 02:25:30 Step 6/15
+[INFO] 2026-04-10 02:25:31 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:25:43 decide_next_action_with_video_context: response received | elapsed_sec=12.11
+[INFO] 2026-04-10 02:25:43 Step 6: continue=True action_type=tap
+[INFO] 2026-04-10 02:25:45 Step 7/15
+[INFO] 2026-04-10 02:25:45 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:25:55 decide_next_action_with_video_context: response received | elapsed_sec=9.45
+[INFO] 2026-04-10 02:25:55 Step 7: continue=True action_type=tap
+[INFO] 2026-04-10 02:25:57 Step 8/15
+[INFO] 2026-04-10 02:25:57 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:26:06 decide_next_action_with_video_context: response received | elapsed_sec=8.97
+[INFO] 2026-04-10 02:26:06 Step 8: continue=True action_type=tap
+[INFO] 2026-04-10 02:26:08 Step 9/15
+[INFO] 2026-04-10 02:26:09 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:26:18 decide_next_action_with_video_context: response received | elapsed_sec=9.11
+[INFO] 2026-04-10 02:26:18 Step 9: continue=False action_type=none
+[INFO] 2026-04-10 02:26:18 Automation loop complete at step 9
+[INFO] 2026-04-10 02:26:18 Session trace saved to apps/wifianalyzer/llm/gemini/gemini-2.5-pro/handheld/run-001/session_trace.json
+[INFO] 2026-04-10 02:26:18 Run complete: app=wifianalyzer video_type=handheld steps=9 status=done
+[INFO] 2026-04-10 02:26:18 Session trace: apps/wifianalyzer/llm/gemini/gemini-2.5-pro/handheld/run-001/session_trace.json
+[INFO] 2026-04-10 02:26:18 Resetting app state: force-stop + clear data | pkg=com.vrem.wifianalyzer
+[INFO] 2026-04-10 02:26:19 App reset complete: com.vrem.wifianalyzer
+[INFO] 2026-04-10 02:26:19 Replay script: apps/wifianalyzer/llm/gemini/gemini-2.5-pro/handheld/run-001/replay.py
+[INFO] 2026-04-10 02:26:19 ========================================================================
+[INFO] 2026-04-10 02:26:19 RUN SUMMARY
+[INFO] 2026-04-10 02:26:19   App         : wifianalyzer
+[INFO] 2026-04-10 02:26:19   Video type  : handheld
+[INFO] 2026-04-10 02:26:19   Status      : done
+[INFO] 2026-04-10 02:26:19   Steps       : 9
+[INFO] 2026-04-10 02:26:19   Actions     : done=1  tap=8
+[INFO] 2026-04-10 02:26:19   LLM calls   : decide_next_action_with_video_context=9  summarize_video_task_from_video=1
+[INFO] 2026-04-10 02:26:19   LLM latency : min=5.6s  max=20.1s  avg=10.4s  total=104.4s
+[INFO] 2026-04-10 02:26:19   Tokens used : prompt=29,963  output=1,569  total=31,532
+[INFO] 2026-04-10 02:26:19   Wall time   : 2m 10s
+[INFO] 2026-04-10 02:26:19   Output      : apps/wifianalyzer/llm/gemini/gemini-2.5-pro/handheld/run-001
+[INFO] 2026-04-10 02:26:19 ========================================================================
