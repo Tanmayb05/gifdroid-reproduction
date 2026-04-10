@@ -42,11 +42,15 @@ class DeviceController:
         from gifdroid_llm.apk_utils import extract_package_name
 
         pkg = extract_package_name(apk_path)
-        adb_args = [_ADB]
-        if self._serial:
-            adb_args += ["-s", self._serial]
-        adb_args += ["install", "-r", str(apk_path)]
-        subprocess.run(adb_args, capture_output=True, text=True, check=True)
+        serial_args = ["-s", self._serial] if self._serial else []
+
+        # Uninstall first to avoid INSTALL_FAILED_VERSION_DOWNGRADE
+        subprocess.run([_ADB, *serial_args, "uninstall", pkg], capture_output=True, text=True)
+
+        subprocess.run(
+            [_ADB, *serial_args, "install", "-r", str(apk_path)],
+            capture_output=True, text=True, check=True,
+        )
         return pkg
 
     def launch_app(self, package: str, activity: str) -> None:

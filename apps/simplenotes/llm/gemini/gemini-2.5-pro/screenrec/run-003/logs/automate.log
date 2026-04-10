@@ -1,0 +1,39 @@
+[INFO] 2026-04-10 02:09:08 --- Run: app=simplenotes video_type=screenrec video=apps/simplenotes/videos/screenrec/srv-001.mp4 ---
+[INFO] 2026-04-10 02:09:08 Output dir: apps/simplenotes/llm/gemini/gemini-2.5-pro/screenrec/run-003
+[INFO] 2026-04-10 02:09:10 Installing APK: apps/simplenotes/apk/simplenotes.apk
+[INFO] 2026-04-10 02:09:11 APK installed: dev.dettmer.simplenotes
+[INFO] 2026-04-10 02:09:11 Launching app: dev.dettmer.simplenotes / dev.dettmer.simplenotes.ui.main.ComposeMainActivity
+[INFO] 2026-04-10 02:09:13 App launched: com.google.android.permissioncontroller/com.android.permissioncontroller.permission.ui.GrantPermissionsActivity
+[INFO] 2026-04-10 02:09:13 Provider supports direct-video summarization — attempting raw-video path | video=apps/simplenotes/videos/screenrec/srv-001.mp4
+[INFO] 2026-04-10 02:09:13 summarize_video_task_from_video: sending raw video to Gemini | video=srv-001.mp4
+[INFO] 2026-04-10 02:09:13 Encoding video for inline upload | file=srv-001.mp4 | size=4270931 bytes
+[INFO] 2026-04-10 02:09:14 Sending video inference request | model=gemini-2.5-pro | video=srv-001.mp4
+[INFO] 2026-04-10 02:09:24 Video inference response received | elapsed_sec=10.50
+[INFO] 2026-04-10 02:09:24 Direct-video summary obtained (skipping keyframe extraction) | summary=The user opens the Simple Notes app and creates a new text note. They enter "hello" as the title and "hiasdb" as the content before saving it. The user then long-presses the newly created note to sele
+[INFO] 2026-04-10 02:09:24 Video summary saved to apps/simplenotes/llm/gemini/gemini-2.5-pro/screenrec/run-003/video_summary.txt
+[INFO] 2026-04-10 02:09:24 Step 1/15
+[INFO] 2026-04-10 02:09:25 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:09:31 decide_next_action_with_video_context: response received | elapsed_sec=6.27
+[INFO] 2026-04-10 02:09:31 Step 1: continue=True action_type=tap
+[INFO] 2026-04-10 02:09:33 Step 2/15
+[INFO] 2026-04-10 02:09:34 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:09:41 decide_next_action_with_video_context: response received | elapsed_sec=7.49
+[INFO] 2026-04-10 02:09:41 Step 2: continue=True action_type=tap
+[INFO] 2026-04-10 02:09:43 Step 3/15
+[INFO] 2026-04-10 02:09:44 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:09:53 decide_next_action_with_video_context: response received | elapsed_sec=9.36
+[INFO] 2026-04-10 02:09:53 Step 3: continue=True action_type=tap
+[INFO] 2026-04-10 02:09:55 Step 4/15
+[INFO] 2026-04-10 02:09:56 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:10:02 decide_next_action_with_video_context: response received | elapsed_sec=5.63
+[INFO] 2026-04-10 02:10:02 Step 4: continue=True action_type=type_text
+[INFO] 2026-04-10 02:10:03 Step 5/15
+[INFO] 2026-04-10 02:10:04 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:10:13 decide_next_action_with_video_context: response received | elapsed_sec=9.50
+[INFO] 2026-04-10 02:10:13 Step 5: continue=True action_type=type_text
+[INFO] 2026-04-10 02:10:15 Step 6/15
+[INFO] 2026-04-10 02:10:16 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:11:17 decide_next_action_with_video_context: response received | elapsed_sec=61.60
+[INFO] 2026-04-10 02:11:17 Step 6: continue=True action_type=type_text
+[INFO] 2026-04-10 02:11:19 Step 7/15
+[INFO] 2026-04-10 02:11:20 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro

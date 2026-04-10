@@ -1,0 +1,69 @@
+[INFO] 2026-04-10 01:57:57 --- Run: app=portauthority video_type=screenrec video=apps/portauthority/videos/screenrec/srv-001.mp4 ---
+[INFO] 2026-04-10 01:57:57 Output dir: apps/portauthority/llm/gemini/gemini-2.5-pro/screenrec/run-001
+[INFO] 2026-04-10 01:57:59 Installing APK: apps/portauthority/apk/portauthority.apk
+[INFO] 2026-04-10 01:57:59 APK installed: com.aaronjwood.portauthority
+[INFO] 2026-04-10 01:57:59 Launching app: com.aaronjwood.portauthority / com.aaronjwood.portauthority.activity.MainActivity
+[INFO] 2026-04-10 01:58:01 App launched: com.aaronjwood.portauthority/.activity.MainActivity
+[INFO] 2026-04-10 01:58:01 Provider supports direct-video summarization — attempting raw-video path | video=apps/portauthority/videos/screenrec/srv-001.mp4
+[INFO] 2026-04-10 01:58:01 summarize_video_task_from_video: sending raw video to Gemini | video=srv-001.mp4
+[INFO] 2026-04-10 01:58:01 Encoding video for inline upload | file=srv-001.mp4 | size=10224198 bytes
+[INFO] 2026-04-10 01:58:02 Sending video inference request | model=gemini-2.5-pro | video=srv-001.mp4
+[INFO] 2026-04-10 01:58:19 Video inference response received | elapsed_sec=16.07
+[INFO] 2026-04-10 01:58:19 Direct-video summary obtained (skipping keyframe extraction) | summary=The user opens the Port Authority app and scans their local network for hosts. After the scan completes, they select the host with the IP address `fec0::2`. The user then initiates a scan of all ports
+[INFO] 2026-04-10 01:58:19 Video summary saved to apps/portauthority/llm/gemini/gemini-2.5-pro/screenrec/run-001/video_summary.txt
+[INFO] 2026-04-10 01:58:19 Step 1/15
+[INFO] 2026-04-10 01:58:20 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:58:25 decide_next_action_with_video_context: response received | elapsed_sec=5.46
+[INFO] 2026-04-10 01:58:25 Step 1: continue=True action_type=tap
+[INFO] 2026-04-10 01:58:27 Step 2/15
+[INFO] 2026-04-10 01:58:28 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:58:36 decide_next_action_with_video_context: response received | elapsed_sec=8.24
+[INFO] 2026-04-10 01:58:36 Step 2: continue=True action_type=wait
+[INFO] 2026-04-10 01:58:37 Step 3/15
+[INFO] 2026-04-10 01:58:38 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:58:45 decide_next_action_with_video_context: response received | elapsed_sec=6.41
+[INFO] 2026-04-10 01:58:45 Step 3: continue=True action_type=tap
+[INFO] 2026-04-10 01:58:46 Step 4/15
+[INFO] 2026-04-10 01:58:47 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:58:56 decide_next_action_with_video_context: response received | elapsed_sec=9.15
+[INFO] 2026-04-10 01:58:56 Step 4: continue=True action_type=tap
+[INFO] 2026-04-10 01:58:58 Step 5/15
+[INFO] 2026-04-10 01:58:59 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:59:07 decide_next_action_with_video_context: response received | elapsed_sec=8.05
+[INFO] 2026-04-10 01:59:07 Step 5: continue=True action_type=tap
+[INFO] 2026-04-10 01:59:09 Step 6/15
+[INFO] 2026-04-10 01:59:09 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:59:25 decide_next_action_with_video_context: response received | elapsed_sec=15.38
+[INFO] 2026-04-10 01:59:25 Step 6: continue=True action_type=wait
+[INFO] 2026-04-10 01:59:26 Step 7/15
+[INFO] 2026-04-10 01:59:27 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:59:35 decide_next_action_with_video_context: response received | elapsed_sec=8.11
+[INFO] 2026-04-10 01:59:35 Step 7: continue=True action_type=wait
+[INFO] 2026-04-10 01:59:37 Step 8/15
+[INFO] 2026-04-10 01:59:38 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:59:47 decide_next_action_with_video_context: response received | elapsed_sec=9.18
+[INFO] 2026-04-10 01:59:47 Step 8: continue=True action_type=wait
+[INFO] 2026-04-10 01:59:48 Step 9/15
+[INFO] 2026-04-10 01:59:49 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 02:00:01 decide_next_action_with_video_context: response received | elapsed_sec=12.20
+[INFO] 2026-04-10 02:00:01 Step 9: continue=True action_type=wait
+[INFO] 2026-04-10 02:00:01 Stall detected: action ('wait', None, None) repeated 4 times — stopping at step 9
+[INFO] 2026-04-10 02:00:01 Session trace saved to apps/portauthority/llm/gemini/gemini-2.5-pro/screenrec/run-001/session_trace.json
+[INFO] 2026-04-10 02:00:01 Run complete: app=portauthority video_type=screenrec steps=9 status=stalled
+[INFO] 2026-04-10 02:00:01 Session trace: apps/portauthority/llm/gemini/gemini-2.5-pro/screenrec/run-001/session_trace.json
+[INFO] 2026-04-10 02:00:01 Resetting app state: force-stop + clear data | pkg=com.aaronjwood.portauthority
+[INFO] 2026-04-10 02:00:02 App reset complete: com.aaronjwood.portauthority
+[INFO] 2026-04-10 02:00:02 Replay script: apps/portauthority/llm/gemini/gemini-2.5-pro/screenrec/run-001/replay.py
+[INFO] 2026-04-10 02:00:02 ========================================================================
+[INFO] 2026-04-10 02:00:02 RUN SUMMARY
+[INFO] 2026-04-10 02:00:02   App         : portauthority
+[INFO] 2026-04-10 02:00:02   Video type  : screenrec
+[INFO] 2026-04-10 02:00:02   Status      : stalled
+[INFO] 2026-04-10 02:00:02   Steps       : 9
+[INFO] 2026-04-10 02:00:02   Actions     : tap=4  wait=5
+[INFO] 2026-04-10 02:00:02   LLM calls   : decide_next_action_with_video_context=9  summarize_video_task_from_video=1
+[INFO] 2026-04-10 02:00:02   LLM latency : min=5.5s  max=16.1s  avg=9.8s  total=98.2s
+[INFO] 2026-04-10 02:00:02   Tokens used : prompt=50,245  output=1,430  total=51,675
+[INFO] 2026-04-10 02:00:02   Wall time   : 2m 5s
+[INFO] 2026-04-10 02:00:02   Output      : apps/portauthority/llm/gemini/gemini-2.5-pro/screenrec/run-001
+[INFO] 2026-04-10 02:00:02 ========================================================================

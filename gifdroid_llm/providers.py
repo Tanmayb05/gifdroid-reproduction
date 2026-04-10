@@ -17,6 +17,32 @@ import cv2
 from gifdroid_llm.keyframes import Keyframe
 from gifdroid_llm.llama_prereq import LlamaPrereqError, assert_llama_accessible
 
+_RETRY_LOG = logging.getLogger(__name__)
+
+
+def _urlopen_with_retry(
+    req: url_request.Request,
+    timeout: int,
+    max_retries: int = 5,
+    base_delay: float = 10.0,
+) -> str:
+    """Call urlopen, retrying on HTTP 429 with exponential backoff."""
+    for attempt in range(max_retries + 1):
+        try:
+            with url_request.urlopen(req, timeout=timeout) as resp:
+                return resp.read().decode("utf-8")
+        except url_error.HTTPError as exc:
+            if exc.code == 429 and attempt < max_retries:
+                delay = base_delay * (2 ** attempt)
+                _RETRY_LOG.warning(
+                    "HTTP 429 rate limit on attempt %d/%d — retrying in %.0fs",
+                    attempt + 1, max_retries, delay,
+                )
+                time.sleep(delay)
+                continue
+            raise
+    raise RuntimeError("unreachable")
+
 
 @dataclass
 class SuggestedAction:
@@ -279,8 +305,7 @@ class GeminiProvider(BaseLLMProvider):
         self.logger.info("describe_screen: sending screenshot to Gemini | model=%s", self.llm_model)
         start = time.perf_counter()
         try:
-            with url_request.urlopen(req, timeout=180) as resp:
-                response_text = resp.read().decode("utf-8")
+            response_text = _urlopen_with_retry(req, timeout=180)
         except url_error.HTTPError as exc:
             err_body = exc.read().decode("utf-8", errors="replace")
             raise ProviderError(f"describe_screen HTTP {exc.code}: {err_body[:300]}") from exc
@@ -467,8 +492,7 @@ class GeminiProvider(BaseLLMProvider):
         self.logger.info("decide_next_action: calling Gemini | model=%s", self.llm_model)
         start = time.perf_counter()
         try:
-            with url_request.urlopen(req, timeout=180) as resp:
-                response_text = resp.read().decode("utf-8")
+            response_text = _urlopen_with_retry(req, timeout=180)
         except url_error.HTTPError as exc:
             err_body = exc.read().decode("utf-8", errors="replace")
             raise ProviderError(f"decide_next_action HTTP {exc.code}: {err_body[:300]}") from exc
@@ -604,8 +628,7 @@ class GeminiProvider(BaseLLMProvider):
         )
         start = time.perf_counter()
         try:
-            with url_request.urlopen(req, timeout=120) as resp:
-                response_text = resp.read().decode("utf-8")
+            response_text = _urlopen_with_retry(req, timeout=120)
         except url_error.HTTPError as exc:
             err_body = exc.read().decode("utf-8", errors="replace")
             raise ProviderError(f"summarize_video_task HTTP {exc.code}: {err_body[:300]}") from exc
@@ -772,8 +795,7 @@ class GeminiProvider(BaseLLMProvider):
         self.logger.info("decide_next_action_with_video_context: calling Gemini | model=%s", self.llm_model)
         start = time.perf_counter()
         try:
-            with url_request.urlopen(req, timeout=180) as resp:
-                response_text = resp.read().decode("utf-8")
+            response_text = _urlopen_with_retry(req, timeout=180)
         except url_error.HTTPError as exc:
             err_body = exc.read().decode("utf-8", errors="replace")
             raise ProviderError(f"decide_next_action_with_video_context HTTP {exc.code}: {err_body[:300]}") from exc
@@ -882,8 +904,7 @@ class GeminiProvider(BaseLLMProvider):
         )
         start = time.perf_counter()
         try:
-            with url_request.urlopen(req, timeout=timeout_sec) as response:
-                response_text = response.read().decode("utf-8")
+            response_text = _urlopen_with_retry(req, timeout=timeout_sec)
         except url_error.HTTPError as exc:
             err_body = exc.read().decode("utf-8", errors="replace")
             raise ProviderError(
@@ -1097,8 +1118,7 @@ class GeminiVideoProvider(GeminiProvider):
         )
         start = time.perf_counter()
         try:
-            with url_request.urlopen(req, timeout=300) as resp:
-                response_text = resp.read().decode("utf-8")
+            response_text = _urlopen_with_retry(req, timeout=300)
         except url_error.HTTPError as exc:
             err_body = exc.read().decode("utf-8", errors="replace")
             raise ProviderError(f"Video generateContent HTTP {exc.code}: {err_body[:300]}") from exc
