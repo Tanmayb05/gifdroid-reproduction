@@ -1,26 +1,47 @@
-# Automation config for video-guided device automation (Milestone 4)
+# Automation config for video-guided device automation
 # CLI:
-#   .venv/bin/python -m gifdroid_llm.automate \
+#   python -m gifdroid_llm.automate \
 #     --config gifdroid_llm/input/automation_config.yml \
 #     --env-file .env.local
 
-# LLM provider settings
+# ---------------------------------------------------------------------------
+# LLM provider settings (shared across all runs)
+# ---------------------------------------------------------------------------
 llm: "gemini"
 llm_model: "gemini-2.5-pro"
 
-# Video to demonstrate the task
-video_path: "apps/adaway/videos/screenrec/srv-001.mp4"
-
-# APK to install and automate
-apk_path: "apps/adaway/apk/adaway.apk"
-
-# ADB device serial — leave empty or omit to auto-detect the first connected device
+# ---------------------------------------------------------------------------
+# Device settings
+# ---------------------------------------------------------------------------
+# ADB device serial — leave empty to auto-detect the first connected device
 device_serial:
 
-# Automation loop settings
+# ---------------------------------------------------------------------------
+# Automation loop settings (shared defaults, overridable per run)
+# ---------------------------------------------------------------------------
 max_steps: 10
 history_window: 3
 step_delay: 1.5
 
-# Output directory for session trace and screenshots
-output_dir: "artifacts/milestone4/run-001"
+# ---------------------------------------------------------------------------
+# Output directory
+# Leave unset to auto-derive per run:
+#   apps/<app>/llm/<provider>/<model>/<video_type>/run-<NNN>
+# ---------------------------------------------------------------------------
+output_dir:
+
+# ---------------------------------------------------------------------------
+# Runs
+# Each entry requires:
+#   app_name   — folder name under apps/
+#   video_path — list of video type shorthands: screenrec | handheld
+#                (or explicit paths if needed)
+# Optional per-run overrides:
+#   apk_path   — defaults to apps/<app>/apk/<app>.apk
+#   max_steps  — overrides the shared max_steps above
+#   output_dir — overrides the shared output_dir above
+# ---------------------------------------------------------------------------
+runs:
+  - app_name: "adaway"
+    video_path:
+      - "screenrec"

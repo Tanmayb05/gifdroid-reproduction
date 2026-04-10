@@ -1,0 +1,134 @@
+# Example automation config for video-guided device automation
+# Copy this file to automation_config.yml and edit as needed.
+#
+# CLI:
+#   python -m gifdroid_llm.automate \
+#     --config gifdroid_llm/input/automation_config.yml \
+#     --env-file .env.local
+#
+# Dry-run (validate paths and imports without running):
+#   python -m gifdroid_llm.automate \
+#     --config gifdroid_llm/input/automation_config.yml \
+#     --env-file .env.local \
+#     --dry-run
+
+# ---------------------------------------------------------------------------
+# LLM provider (shared across all runs)
+# ---------------------------------------------------------------------------
+# Supported values: "gemini"
+# For direct-video summarization (no keyframe extraction), use "gemini".
+# Other providers fall back to the keyframe pipeline automatically.
+llm: "gemini"
+
+# Model name for the provider.
+# Gemini examples: "gemini-2.5-pro", "gemini-1.5-flash", "gemini-2.0-flash"
+llm_model: "gemini-2.5-pro"
+
+# ---------------------------------------------------------------------------
+# Device settings
+# ---------------------------------------------------------------------------
+# ADB serial of the target Android device.
+# Leave empty (or omit) to auto-detect the first connected device.
+# Find your serial with: adb devices
+device_serial:
+# device_serial: "emulator-5554"
+# device_serial: "R3CX10ABCDE"
+
+# ---------------------------------------------------------------------------
+# Automation loop settings (shared defaults, overridable per run)
+# ---------------------------------------------------------------------------
+# Maximum number of steps the agent will take before stopping.
+max_steps: 10
+
+# Number of previous steps to include in the LLM's conversation history.
+history_window: 3
+
+# Seconds to wait between steps to let the UI settle.
+step_delay: 1.5
+
+# ---------------------------------------------------------------------------
+# Output directory
+# ---------------------------------------------------------------------------
+# Where to write session_trace.json, video_summary.txt, and step screenshots.
+#
+# Leave unset (or null) to auto-derive per run:
+#   apps/<app>/llm/<provider>/<model>/<video_type>/run-<NNN>
+# The run index increments automatically so re-runs never overwrite each other.
+#
+# Set an explicit path to override for all runs (useful for one-off experiments).
+output_dir:
+# output_dir: "my/custom/output"
+
+# ---------------------------------------------------------------------------
+# Runs
+# ---------------------------------------------------------------------------
+# Each entry defines one app to automate. video_path is a list of video type
+# shorthands — one automation run is created for each entry.
+#
+# video_path shorthands:
+#   "screenrec" or "srv"      → apps/<app>/videos/screenrec/srv-001.mp4
+#   "handheld"  or "hhv"      → apps/<app>/videos/handheld/hhv-001.mp4
+#
+# You can also provide an explicit path if needed:
+#   video_path:
+#     - "apps/adaway/videos/screenrec/srv-002.mp4"
+#
+# Per-run optional overrides:
+#   apk_path   — defaults to apps/<app>/apk/<app>.apk
+#   max_steps  — overrides the shared max_steps for this run only
+#   output_dir — overrides the shared output_dir for this run only
+runs:
+  # Run both screenrec and handheld for adaway
+  - app_name: "adaway"
+    video_path:
+      - "screenrec"
+      - "handheld"
+
+  # Run only screenrec for antennapod
+  - app_name: "antennapod"
+    video_path:
+      - "screenrec"
+
+  # Run with a per-run max_steps override
+  - app_name: "jigsaw"
+    video_path:
+      - "screenrec"
+      - "handheld"
+    max_steps: 15
+
+  # Run with an explicit APK path
+  - app_name: "deadhash"
+    apk_path: "apps/deadhash/apk/deadhash.apk"
+    video_path:
+      - "screenrec"
+
+  # Run all apps — copy and add entries for each app under apps/
+  # - app_name: "homemedkit"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"
+  #
+  # - app_name: "luxalarm"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"
+  #
+  # - app_name: "pomodorot"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"
+  #
+  # - app_name: "portauthority"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"
+  #
+  # - app_name: "simplenotes"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"
+  #
+  # - app_name: "wifianalyzer"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"

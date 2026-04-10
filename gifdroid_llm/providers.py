@@ -608,6 +608,36 @@ class GeminiProvider(BaseLLMProvider):
         data = json.loads(response_text)
         return self._extract_text(data).strip()
 
+    def summarize_video_task_from_video(self, video_path: "Path") -> str:
+        """Summarize the task shown in a raw video file without keyframe extraction.
+
+        Uses the same task-description prompt as ``summarize_video_task`` but
+        sends the full video inline via ``_send_video_request``, allowing Gemini
+        to reason over temporal motion rather than still frames.
+
+        Raises ``ProviderError`` on any failure so callers can fall back to the
+        keyframe pipeline.
+        """
+        prompt_text = (
+            "This is a screen recording of an Android app.\n"
+            "Describe in 2-4 sentences what task the user is performing in the video. "
+            "Be specific about the sequence of actions (e.g. 'The user opens AdAway, "
+            "grants root permission by tapping Allow, then enables host blocking.'). "
+            "Return only the plain-text description, no JSON."
+        )
+        self.logger.info(
+            "summarize_video_task_from_video: sending raw video to Gemini | video=%s",
+            video_path.name,
+        )
+        response_text = self._send_video_request(video_path, prompt_text)
+        try:
+            data = json.loads(response_text)
+            return self._extract_text(data).strip()
+        except (json.JSONDecodeError, KeyError, TypeError, ProviderError) as exc:
+            raise ProviderError(
+                f"summarize_video_task_from_video: invalid response: {exc}"
+            ) from exc
+
     def decide_next_action_with_video_context(
         self,
         history: list,

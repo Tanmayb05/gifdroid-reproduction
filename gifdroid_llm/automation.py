@@ -141,9 +141,18 @@ def run_automation(
 ) -> dict:
     """Run the full video-guided automation loop (Milestone 4).
 
-    1. Extract keyframes from video.
-    2. Ask LLM to summarize the task shown in the video.
-    3. Run the feedback loop using video summary as initial context for each LLM call.
+    Video summarization strategy (in priority order):
+
+    1. **Direct-video path** — if the provider exposes
+       ``summarize_video_task_from_video(video_path)``, the raw video is sent
+       directly to the model (e.g. Gemini inline video).  This lets the model
+       reason over motion and temporal flow rather than still frames.
+    2. **Keyframe fallback** — if direct-video is unsupported or raises an
+       exception, frames are extracted, keyframes are selected, and
+       ``provider.summarize_video_task(keyframes)`` is called as before.
+
+    After summarization, the feedback loop runs using the summary as initial
+    context for each LLM call.
 
     Returns a session trace dict.
     """
@@ -153,31 +162,58 @@ def run_automation(
     if output_dir is not None:
         output_dir.mkdir(parents=True, exist_ok=True)
 
-    # --- Step 1: Extract keyframes from video ---
-    from gifdroid_llm.video import VideoFrameExtractor
-    from gifdroid_llm.keyframes import KeyframeSelector
-    from gifdroid_llm.config import FrameSamplingConfig, KeyframeSelectionConfig
+    # --- Step 1 & 2: Summarize the video task ---
+    # Prefer direct-video summarization when the provider supports it; fall
+    # back to the keyframe pipeline for providers that do not.
+    video_summary: str | None = None
 
-    frame_cfg = FrameSamplingConfig(strategy="uniform", fps=1.5, max_frames=100)
-    kf_cfg = KeyframeSelectionConfig(
-        method="ssim",
-        min_gap_seconds=0.0,
-        stable_threshold=2,
-        ssim_threshold=0.95,
-    )
+    if hasattr(provider, "summarize_video_task_from_video"):
+        logger.info(
+            "Provider supports direct-video summarization — attempting raw-video path | video=%s",
+            video_path,
+        )
+        try:
+            video_summary = provider.summarize_video_task_from_video(video_path)
+            logger.info(
+                "Direct-video summary obtained (skipping keyframe extraction) | summary=%s",
+                video_summary[:200],
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.warning(
+                "Direct-video summarization failed (%s) — falling back to keyframe pipeline",
+                exc,
+            )
+            video_summary = None
+    else:
+        logger.info(
+            "Provider does not support direct-video summarization — using keyframe pipeline"
+        )
 
-    logger.info("Extracting frames from video: %s", video_path)
-    extractor = VideoFrameExtractor()
-    frames, _ = extractor.extract(video_path, frame_cfg, logger=logger)
+    if video_summary is None:
+        # --- Keyframe fallback ---
+        from gifdroid_llm.video import VideoFrameExtractor
+        from gifdroid_llm.keyframes import KeyframeSelector
+        from gifdroid_llm.config import FrameSamplingConfig, KeyframeSelectionConfig
 
-    selector = KeyframeSelector()
-    keyframes = selector.select(frames, kf_cfg, logger=logger)
-    logger.info("Keyframes selected: %d", len(keyframes))
+        frame_cfg = FrameSamplingConfig(strategy="uniform", fps=1.5, max_frames=100)
+        kf_cfg = KeyframeSelectionConfig(
+            method="ssim",
+            min_gap_seconds=0.0,
+            stable_threshold=2,
+            ssim_threshold=0.95,
+        )
 
-    # --- Step 2: Summarize the video task ---
-    logger.info("Requesting video task summary from LLM")
-    video_summary = provider.summarize_video_task(keyframes)
-    logger.info("Task summary: %s", video_summary[:200])
+        logger.info("Extracting frames from video: %s", video_path)
+        extractor = VideoFrameExtractor()
+        frames, _ = extractor.extract(video_path, frame_cfg, logger=logger)
+
+        selector = KeyframeSelector()
+        keyframes = selector.select(frames, kf_cfg, logger=logger)
+        logger.info("Keyframes selected: %d", len(keyframes))
+
+        logger.info("Requesting video task summary from LLM via keyframe pipeline")
+        video_summary = provider.summarize_video_task(keyframes)
+        logger.info("Keyframe-based task summary: %s", video_summary[:200])
 
     # --- Step 3: Run the feedback loop ---
     session = AutomationSession(max_steps=max_steps, history_window=history_window)
@@ -255,7 +291,7 @@ def run_automation(
         "task": task_description,
         "video": str(video_path),
         "video_summary": video_summary,
-        "keyframes_used": len(keyframes),
+        "keyframes_used": len(keyframes) if "keyframes" in dir() else 0,
         "total_steps": len(steps_log),
         "status": status,
         "steps": steps_log,
@@ -265,5 +301,9 @@ def run_automation(
         trace_path = output_dir / "session_trace.json"
         trace_path.write_text(json.dumps(trace, indent=2))
         logger.info("Session trace saved to %s", trace_path)
+
+        summary_path = output_dir / "video_summary.txt"
+        summary_path.write_text(video_summary or "", encoding="utf-8")
+        logger.info("Video summary saved to %s", summary_path)
 
     return trace

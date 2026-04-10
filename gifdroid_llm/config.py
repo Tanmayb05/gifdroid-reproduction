@@ -40,21 +40,140 @@ VIDEO_MODE_SUPPORTED_PROVIDERS = {"gemini"}
 
 
 @dataclass(frozen=True)
-class AutomationConfig:
-    """Configuration for the video-guided automation loop (Milestone 4)."""
-    video_path: Path
-    apk_path: Path
+class AutomationRunConfig:
+    """A single resolved automation run: one app + one video type."""
+    app_name: str
+    video_path: Path       # e.g. apps/adaway/videos/screenrec/srv-001.mp4
+    apk_path: Path         # e.g. apps/adaway/apk/adaway.apk
+    video_type: str        # "screenrec" | "handheld"
     llm: str
     llm_model: str
-    device_serial: str | None  # None = auto-detect
+    device_serial: str | None
     max_steps: int
     history_window: int
     step_delay: float
-    output_dir: Path
+    output_dir: Path | None  # None = auto-derive in automate.py
+
+
+@dataclass(frozen=True)
+class AutomationConfig:
+    """Top-level automation config holding shared settings and one or more runs."""
+    llm: str
+    llm_model: str
+    device_serial: str | None
+    max_steps: int
+    history_window: int
+    step_delay: float
+    output_dir: Path | None
+    runs: List["AutomationRunConfig"]
+
+
+# Maps video_path shorthand used in config to the actual folder name under apps/<app>/videos/
+_VIDEO_TYPE_ALIASES: Dict[str, str] = {
+    "screenrec": "screenrec",
+    "srv": "screenrec",
+    "handheld": "handheld",
+    "hhv": "handheld",
+}
+
+# Maps video folder name to the canonical video filename prefix
+_VIDEO_FILENAME_PREFIX: Dict[str, str] = {
+    "screenrec": "srv",
+    "handheld": "hhv",
+}
+
+
+def _resolve_video_type(alias: str) -> str:
+    """Resolve a video_path shorthand (srv/hhv/screenrec/handheld) to folder name."""
+    key = alias.strip().lower()
+    if key not in _VIDEO_TYPE_ALIASES:
+        raise ConfigError(
+            f"Unknown video_path value '{alias}'. "
+            f"Use one of: {sorted(_VIDEO_TYPE_ALIASES)}"
+        )
+    return _VIDEO_TYPE_ALIASES[key]
+
+
+def _build_run_configs(
+    root: Dict[str, Any],
+    llm: str,
+    llm_model: str,
+    device_serial: str | None,
+    max_steps: int,
+    history_window: int,
+    step_delay: float,
+    output_dir: "Path | None",
+) -> "List[AutomationRunConfig]":
+    """Parse the runs list and expand each entry into one AutomationRunConfig per video type."""
+    runs_raw = root.get("runs")
+    if not isinstance(runs_raw, list) or len(runs_raw) == 0:
+        raise ConfigError("'runs' must be a non-empty list")
+
+    result: List[AutomationRunConfig] = []
+    for i, entry in enumerate(runs_raw):
+        if not isinstance(entry, dict):
+            raise ConfigError(f"runs[{i}] must be a mapping")
+
+        app_name = _require_str(entry, "app_name")
+
+        # apk_path: explicit or auto-derived as apps/<app>/apk/<app>.apk
+        apk_raw = _optional_str(entry, "apk_path")
+        apk_path = Path(apk_raw) if apk_raw else Path(f"apps/{app_name}/apk/{app_name}.apk")
+
+        # video_path: list of shorthands (srv, hhv, screenrec, handheld) or explicit paths
+        vp_raw = entry.get("video_path")
+        if vp_raw is None:
+            raise ConfigError(f"runs[{i}].video_path is required")
+        if isinstance(vp_raw, str):
+            vp_raw = [vp_raw]
+        if not isinstance(vp_raw, list) or len(vp_raw) == 0:
+            raise ConfigError(f"runs[{i}].video_path must be a non-empty string or list")
+
+        for vp_entry in vp_raw:
+            if not isinstance(vp_entry, str) or not vp_entry.strip():
+                raise ConfigError(f"runs[{i}].video_path entries must be non-empty strings")
+            vp_entry = vp_entry.strip()
+
+            # If it looks like a full path (contains '/'), use it directly
+            if "/" in vp_entry:
+                video_path = Path(vp_entry)
+                video_type = video_path.parent.name
+            else:
+                # Shorthand: resolve to canonical folder + filename
+                video_type = _resolve_video_type(vp_entry)
+                prefix = _VIDEO_FILENAME_PREFIX[video_type]
+                video_path = Path(f"apps/{app_name}/videos/{video_type}/{prefix}-001.mp4")
+
+            # Per-run overrides
+            run_max_steps = entry.get("max_steps", max_steps)
+            run_output_dir_raw = _optional_str(entry, "output_dir")
+            run_output_dir = Path(run_output_dir_raw) if run_output_dir_raw else output_dir
+
+            result.append(AutomationRunConfig(
+                app_name=app_name,
+                video_path=video_path,
+                apk_path=apk_path,
+                video_type=video_type,
+                llm=llm,
+                llm_model=llm_model,
+                device_serial=device_serial,
+                max_steps=run_max_steps,
+                history_window=history_window,
+                step_delay=step_delay,
+                output_dir=run_output_dir,
+            ))
+
+    return result
 
 
 def load_automation_config(config_path: Path) -> "AutomationConfig":
-    """Load and validate automation config from YAML."""
+    """Load and validate automation config from YAML.
+
+    Supports a multi-run format with a top-level ``runs`` list. Each run entry
+    specifies ``app_name`` and ``video_path`` (list of shorthands or explicit paths).
+    Shared settings (llm, max_steps, etc.) are defined at the top level and can be
+    overridden per run.
+    """
     if not config_path.exists():
         raise ConfigError(f"Automation config file not found: {config_path}")
 
@@ -63,8 +182,7 @@ def load_automation_config(config_path: Path) -> "AutomationConfig":
 
     root: Dict[str, Any] = _require_mapping(raw, "config")
 
-    video_path = Path(_require_str(root, "video_path"))
-    apk_path = Path(_require_str(root, "apk_path"))
+    # --- Shared settings ---
     llm = _require_str(root, "llm").lower()
     llm_model = _optional_str(root, "llm_model") or "gemini-2.5-pro"
     device_serial = _optional_str(root, "device_serial")
@@ -84,11 +202,16 @@ def load_automation_config(config_path: Path) -> "AutomationConfig":
         raise ConfigError("step_delay must be a non-negative number")
     step_delay = float(step_delay_raw)
 
-    output_dir = Path(_require_str(root, "output_dir"))
+    output_dir_raw = _optional_str(root, "output_dir")
+    output_dir = Path(output_dir_raw) if output_dir_raw else None
+
+    # --- Runs ---
+    runs = _build_run_configs(
+        root, llm, llm_model, device_serial,
+        max_steps, history_window, step_delay, output_dir,
+    )
 
     return AutomationConfig(
-        video_path=video_path,
-        apk_path=apk_path,
         llm=llm,
         llm_model=llm_model,
         device_serial=device_serial,
@@ -96,6 +219,7 @@ def load_automation_config(config_path: Path) -> "AutomationConfig":
         history_window=history_window,
         step_delay=step_delay,
         output_dir=output_dir,
+        runs=runs,
     )
 
 

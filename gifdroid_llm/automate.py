@@ -1,9 +1,7 @@
-"""CLI entry point for video-guided device automation (Milestone 4).
+"""CLI entry point for video-guided device automation.
 
 Usage:
     python -m gifdroid_llm.automate \\
-        --video apps/adaway/videos/screenrec/srv-001.mp4 \\
-        --apk apps/adaway/adaway.apk \\
         --config gifdroid_llm/input/automation_config.yml \\
         --env-file .env.local
 """
@@ -13,6 +11,7 @@ import argparse
 import json
 import logging
 import sys
+import time
 from pathlib import Path
 
 
@@ -21,37 +20,13 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         prog="python -m gifdroid_llm.automate",
         description="Video-guided Android UI automation via LLM + uiautomator2",
     )
-    parser.add_argument("--video", type=Path, help="Path to the demo video (.mp4)")
-    parser.add_argument("--apk", type=Path, help="Path to the APK to install")
     parser.add_argument(
         "--config",
         type=Path,
         default=Path("gifdroid_llm/input/automation_config.yml"),
-        help="Path to automation_config.yml",
+        help="Path to automation_config.yml (default: gifdroid_llm/input/automation_config.yml)",
     )
     parser.add_argument("--env-file", type=Path, default=None, help="Path to .env file")
-    parser.add_argument(
-        "--task",
-        default="",
-        help="Plain-text description of the task to perform (overrides config)",
-    )
-    parser.add_argument(
-        "--max-steps",
-        type=int,
-        default=None,
-        help="Maximum automation steps (overrides config)",
-    )
-    parser.add_argument(
-        "--output-dir",
-        type=Path,
-        default=None,
-        help="Directory to write session trace and screenshots (overrides config)",
-    )
-    parser.add_argument(
-        "--device-serial",
-        default=None,
-        help="ADB device serial (overrides config; omit to auto-detect)",
-    )
     parser.add_argument(
         "--dry-run",
         action="store_true",
@@ -60,10 +35,99 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
+def _resolve_output_dir(run, llm: str, llm_model: str) -> Path:
+    """Return the output dir for a run, auto-deriving if not set in config.
+
+    Auto-derived path:
+        apps/<app>/llm/<provider>/<model>/<video_type>/run-<NNN>
+    """
+    if run.output_dir is not None:
+        return run.output_dir
+
+    base = Path("apps") / run.app_name / "llm" / llm / llm_model / run.video_type
+    existing = sorted(base.glob("run-*")) if base.exists() else []
+    next_idx = len(existing) + 1
+    return base / f"run-{next_idx:03d}"
+
+
+def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict | None:
+    """Execute one automation run. Returns the trace dict or None on dry-run."""
+    logger.info(
+        "--- Run: app=%s video_type=%s video=%s ---",
+        run.app_name, run.video_type, run.video_path,
+    )
+
+    output_dir = _resolve_output_dir(run, run.llm, run.llm_model)
+    logger.info("Output dir: %s", output_dir)
+
+    if dry_run:
+        if not run.video_path.exists():
+            logger.error("Video not found: %s", run.video_path)
+            return None
+        if not run.apk_path.exists():
+            logger.error("APK not found: %s", run.apk_path)
+            return None
+        return {}
+
+    # --- Create provider ---
+    from gifdroid_llm.providers import create_provider
+
+    provider = create_provider(run.llm, run.llm_model, env, logger=logger, video_mode=True)
+
+    # --- Connect device + install APK ---
+    from gifdroid_llm.device import DeviceController
+
+    device = DeviceController()
+    device.connect(serial=run.device_serial)
+
+    logger.info("Installing APK: %s", run.apk_path)
+    pkg = device.install_apk(run.apk_path)
+    logger.info("APK installed: %s", pkg)
+
+    from gifdroid_llm.apk_utils import extract_main_activity
+
+    activity = extract_main_activity(run.apk_path)
+    if activity:
+        logger.info("Launching app: %s / %s", pkg, activity)
+        device.launch_app(pkg, activity)
+    else:
+        logger.info("Launching app: %s (no main activity found, using monkey)", pkg)
+        import subprocess
+        subprocess.run(
+            ["adb", "shell", "monkey", "-p", pkg, "-c", "android.intent.category.LAUNCHER", "1"],
+            check=True,
+        )
+
+    time.sleep(2)
+    logger.info("App launched: %s", device.get_current_activity())
+
+    # --- Run automation ---
+    from gifdroid_llm.automation import run_automation
+
+    trace = run_automation(
+        video_path=run.video_path,
+        task_description="",
+        provider=provider,
+        device=device,
+        max_steps=run.max_steps,
+        output_dir=output_dir,
+        history_window=run.history_window,
+        step_delay=run.step_delay,
+        logger=logger,
+    )
+
+    logger.info(
+        "Run complete: app=%s video_type=%s steps=%d status=%s",
+        run.app_name, run.video_type, trace["total_steps"], trace["status"],
+    )
+    logger.info("Session trace: %s", output_dir / "session_trace.json")
+
+    return trace
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _parse_args(argv)
 
-    # --- Logging setup ---
     logging.basicConfig(
         level=logging.INFO,
         format="[%(levelname)s] %(message)s",
@@ -85,27 +149,9 @@ def main(argv: list[str] | None = None) -> int:
 
     env = load_and_validate_env(args.env_file, cfg.llm) if args.env_file else {}
 
-    # CLI flags override config
-    video_path = args.video or cfg.video_path
-    apk_path = args.apk or cfg.apk_path
-    task_description = args.task or ""
-    max_steps = args.max_steps if args.max_steps is not None else cfg.max_steps
-    output_dir = args.output_dir or cfg.output_dir
-    device_serial = args.device_serial or cfg.device_serial
-
-    logger.info("Loaded video: %s", video_path)
-    logger.info("APK: %s", apk_path)
-    logger.info("Output dir: %s", output_dir)
-    logger.info("Max steps: %d", max_steps)
+    logger.info("Loaded %d run(s) from config", len(cfg.runs))
 
     if args.dry_run:
-        # Validate that all imports work and paths exist
-        if not video_path.exists():
-            logger.error("Video not found: %s", video_path)
-            return 1
-        if not apk_path.exists():
-            logger.error("APK not found: %s", apk_path)
-            return 1
         try:
             from gifdroid_llm.providers import create_provider  # noqa: F401
             from gifdroid_llm.device import DeviceController  # noqa: F401
@@ -113,75 +159,29 @@ def main(argv: list[str] | None = None) -> int:
         except ImportError as exc:
             logger.error("Import error: %s", exc)
             return 1
-        print("Dry-run OK")
-        return 0
+        ok = True
+        for run in cfg.runs:
+            result = _run_single(run, env, logger, dry_run=True)
+            if result is None:
+                ok = False
+        if ok:
+            print("Dry-run OK")
+        return 0 if ok else 1
 
-    # --- Create provider ---
-    from gifdroid_llm.providers import create_provider
+    # --- Execute all runs ---
+    summaries = []
+    for run in cfg.runs:
+        trace = _run_single(run, env, logger, dry_run=False)
+        if trace is not None:
+            summaries.append({
+                "app": run.app_name,
+                "video_type": run.video_type,
+                "status": trace["status"],
+                "total_steps": trace["total_steps"],
+                "video_summary": trace.get("video_summary", ""),
+            })
 
-    provider = create_provider(cfg.llm, cfg.llm_model, env, logger=logger)
-
-    # --- Install APK and connect device ---
-    from gifdroid_llm.device import DeviceController
-
-    device = DeviceController()
-    device.connect(serial=device_serial)
-
-    logger.info("Installing APK: %s", apk_path)
-    pkg = device.install_apk(apk_path)
-    logger.info("APK installed: %s", pkg)
-
-    from gifdroid_llm.apk_utils import extract_main_activity
-
-    activity = extract_main_activity(apk_path)
-    if activity:
-        logger.info("Launching app: %s / %s", pkg, activity)
-        device.launch_app(pkg, activity)
-    else:
-        logger.info("Launching app: %s (no main activity found, using monkey)", pkg)
-        import subprocess
-        subprocess.run(
-            ["adb", "shell", "monkey", "-p", pkg, "-c", "android.intent.category.LAUNCHER", "1"],
-            check=True,
-        )
-
-    import time
-    time.sleep(2)
-
-    logger.info("App launched: %s", device.get_current_activity())
-
-    # --- Run automation ---
-    from gifdroid_llm.automation import run_automation
-
-    trace = run_automation(
-        video_path=video_path,
-        task_description=task_description,
-        provider=provider,
-        device=device,
-        max_steps=max_steps,
-        output_dir=output_dir,
-        history_window=cfg.history_window,
-        step_delay=cfg.step_delay,
-        logger=logger,
-    )
-
-    logger.info(
-        "Session complete: %d steps, status=%s",
-        trace["total_steps"],
-        trace["status"],
-    )
-
-    trace_path = output_dir / "session_trace.json"
-    logger.info("Session trace written: %s", trace_path)
-
-    # Print summary to stdout
-    print(json.dumps({
-        "status": trace["status"],
-        "total_steps": trace["total_steps"],
-        "video_summary": trace.get("video_summary", ""),
-        "session_trace": str(trace_path),
-    }, indent=2))
-
+    print(json.dumps(summaries, indent=2))
     return 0
 
 

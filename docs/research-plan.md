@@ -1079,8 +1079,6 @@ Pass condition: `len(keyframes) > 0`, task summary is non-empty, no API error.
 
 ```bash
 python -m gifdroid_llm.automate \
-  --video apps/adaway/videos/screenrec/srv-001.mp4 \
-  --apk apps/adaway/adaway.apk \
   --config gifdroid_llm/input/automation_config.yml \
   --env-file .env.local
 ```
