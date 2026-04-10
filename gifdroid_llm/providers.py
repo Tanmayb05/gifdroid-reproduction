@@ -277,13 +277,15 @@ class GeminiProvider(BaseLLMProvider):
         self.logger.info("describe_screen: sending screenshot to Gemini | model=%s", self.llm_model)
         start = time.perf_counter()
         try:
-            with url_request.urlopen(req, timeout=90) as resp:
+            with url_request.urlopen(req, timeout=180) as resp:
                 response_text = resp.read().decode("utf-8")
         except url_error.HTTPError as exc:
             err_body = exc.read().decode("utf-8", errors="replace")
             raise ProviderError(f"describe_screen HTTP {exc.code}: {err_body[:300]}") from exc
         except url_error.URLError as exc:
             raise ProviderError(f"describe_screen URL error: {exc}") from exc
+        except TimeoutError as exc:
+            raise ProviderError(f"describe_screen timed out after 180s") from exc
 
         elapsed = time.perf_counter() - start
         self.logger.info("describe_screen: response received | elapsed_sec=%.2f", elapsed)
@@ -460,13 +462,15 @@ class GeminiProvider(BaseLLMProvider):
         self.logger.info("decide_next_action: calling Gemini | model=%s", self.llm_model)
         start = time.perf_counter()
         try:
-            with url_request.urlopen(req, timeout=90) as resp:
+            with url_request.urlopen(req, timeout=180) as resp:
                 response_text = resp.read().decode("utf-8")
         except url_error.HTTPError as exc:
             err_body = exc.read().decode("utf-8", errors="replace")
             raise ProviderError(f"decide_next_action HTTP {exc.code}: {err_body[:300]}") from exc
         except url_error.URLError as exc:
             raise ProviderError(f"decide_next_action URL error: {exc}") from exc
+        except TimeoutError as exc:
+            raise ProviderError(f"decide_next_action timed out after 180s") from exc
 
         elapsed = time.perf_counter() - start
         self.logger.info("decide_next_action: response received | elapsed_sec=%.2f", elapsed)
@@ -753,13 +757,15 @@ class GeminiProvider(BaseLLMProvider):
         self.logger.info("decide_next_action_with_video_context: calling Gemini | model=%s", self.llm_model)
         start = time.perf_counter()
         try:
-            with url_request.urlopen(req, timeout=90) as resp:
+            with url_request.urlopen(req, timeout=180) as resp:
                 response_text = resp.read().decode("utf-8")
         except url_error.HTTPError as exc:
             err_body = exc.read().decode("utf-8", errors="replace")
             raise ProviderError(f"decide_next_action_with_video_context HTTP {exc.code}: {err_body[:300]}") from exc
         except url_error.URLError as exc:
             raise ProviderError(f"decide_next_action_with_video_context URL error: {exc}") from exc
+        except TimeoutError as exc:
+            raise ProviderError(f"decide_next_action_with_video_context timed out after 180s") from exc
 
         elapsed = time.perf_counter() - start
         self.logger.info("decide_next_action_with_video_context: response received | elapsed_sec=%.2f", elapsed)

@@ -19,7 +19,7 @@ device_serial:
 # ---------------------------------------------------------------------------
 # Automation loop settings (shared defaults, overridable per run)
 # ---------------------------------------------------------------------------
-max_steps: 10
+max_steps: 15
 history_window: 3
 step_delay: 1.5
 
@@ -42,6 +42,47 @@ output_dir:
 #   output_dir — overrides the shared output_dir above
 # ---------------------------------------------------------------------------
 runs:
-  - app_name: "adaway"
+  # - app_name: "adaway"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"
+
+  - app_name: "antennapod"
     video_path:
       - "screenrec"
+      - "handheld"
+
+  - app_name: "jigsaw"
+    video_path:
+      - "screenrec"
+      - "handheld"
+
+  # - app_name: "homemedkit"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"
+  
+  # - app_name: "luxalarm"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"
+  
+  # - app_name: "pomodorot"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"
+  
+  # - app_name: "portauthority"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"
+  
+  # - app_name: "simplenotes"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"
+  
+  # - app_name: "wifianalyzer"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"

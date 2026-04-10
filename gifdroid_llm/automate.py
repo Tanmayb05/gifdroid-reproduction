@@ -52,12 +52,24 @@ def _resolve_output_dir(run, llm: str, llm_model: str) -> Path:
 
 def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict | None:
     """Execute one automation run. Returns the trace dict or None on dry-run."""
+    output_dir = _resolve_output_dir(run, run.llm, run.llm_model)
+
+    # Attach a per-run file handler so logs are saved alongside run outputs.
+    file_handler: logging.FileHandler | None = None
+    if not dry_run:
+        log_dir = output_dir / "logs"
+        log_dir.mkdir(parents=True, exist_ok=True)
+        file_handler = logging.FileHandler(log_dir / "automate.log", encoding="utf-8")
+        file_handler.setFormatter(logging.Formatter(
+            "[%(levelname)s] %(asctime)s %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+        ))
+        logger.addHandler(file_handler)
+
     logger.info(
         "--- Run: app=%s video_type=%s video=%s ---",
         run.app_name, run.video_type, run.video_path,
     )
-
-    output_dir = _resolve_output_dir(run, run.llm, run.llm_model)
     logger.info("Output dir: %s", output_dir)
 
     if dry_run:
@@ -122,6 +134,23 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
     )
     logger.info("Session trace: %s", output_dir / "session_trace.json")
 
+    from gifdroid_llm.replay_writer import write_replay_script
+
+    replay_path = write_replay_script(
+        output_dir=output_dir,
+        trace=trace,
+        apk_path=run.apk_path,
+        package=pkg,
+        activity=activity,
+        device_serial=run.device_serial,
+    )
+    logger.info("Replay script: %s", replay_path)
+    logger.info("=" * 72)
+
+    if file_handler is not None:
+        logger.removeHandler(file_handler)
+        file_handler.close()
+
     return trace
 
 
@@ -130,7 +159,8 @@ def main(argv: list[str] | None = None) -> int:
 
     logging.basicConfig(
         level=logging.INFO,
-        format="[%(levelname)s] %(message)s",
+        format="[%(levelname)s] %(asctime)s %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
         stream=sys.stderr,
     )
     logger = logging.getLogger("gifdroid_llm.automate")

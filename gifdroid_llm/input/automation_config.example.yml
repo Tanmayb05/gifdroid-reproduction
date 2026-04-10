@@ -37,13 +37,13 @@ device_serial:
 # ---------------------------------------------------------------------------
 # Automation loop settings (shared defaults, overridable per run)
 # ---------------------------------------------------------------------------
-# Maximum number of steps the agent will take before stopping.
+# the LLM agent will take at most 'n' actions on the device before stopping (prevents infinite loops)
 max_steps: 10
 
-# Number of previous steps to include in the LLM's conversation history.
+# how many recent steps of action history are included in each LLM prompt (gives the model short-term memory of what it just did)
 history_window: 3
 
-# Seconds to wait between steps to let the UI settle.
+# seconds to wait between each action (gives the device/app time to respond before taking a screenshot for the next step)
 step_delay: 1.5
 
 # ---------------------------------------------------------------------------
