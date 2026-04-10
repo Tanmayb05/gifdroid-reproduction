@@ -1,0 +1,271 @@
+{
+  "task": "",
+  "video": "apps/jigsaw/videos/handheld/hhv-001.mp4",
+  "video_summary": "The user opens the \"Jigsaw\" puzzle app from its app store page. On the main menu, they adjust the \"Puzzle Size\" settings, changing the number of horizontal and vertical pieces for the puzzle. Finally, they tap the \"Generate Puzzle\" button to create and start a new puzzle with the selected dimensions.",
+  "keyframes_used": 0,
+  "total_steps": 15,
+  "status": "max_steps_reached",
+  "steps": [
+    {
+      "step": 1,
+      "activity": "io.gitlab.derjosef.jigsaw/com.godot.game.GodotApp",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_001.png",
+      "continue": true,
+      "reasoning": "The video summary states that the user adjusts the puzzle size settings before generating a puzzle. The current screen allows for this adjustment. The first step is to change the number of horizontal pieces using the top slider. Tapping on the slider bar will change its value, which aligns with the task description.",
+      "confidence": 1.0,
+      "action": {
+        "type": "tap",
+        "resource_id": null,
+        "coordinates": [
+          400,
+          520
+        ],
+        "text": null,
+        "direction": null,
+        "target_description": "slider to adjust the number of horizontal puzzle pieces"
+      }
+    },
+    {
+      "step": 2,
+      "activity": "com.google.android.documentsui/com.android.documentsui.picker.PickActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_002.png",
+      "continue": true,
+      "reasoning": "The current screen is a file manager. To open the Jigsaw app from the app store, I need to first navigate to the home screen to access the app store. Pressing the home button is the standard way to exit the current app and return to the home screen.",
+      "confidence": 1.0,
+      "action": {
+        "type": "press_home",
+        "resource_id": null,
+        "coordinates": null,
+        "text": null,
+        "direction": null,
+        "target_description": "the home button"
+      }
+    },
+    {
+      "step": 3,
+      "activity": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_003.png",
+      "continue": true,
+      "reasoning": "The task requires opening an app from the Play Store. The previous step was `press_home`, which brought the UI to the home screen. To continue the task, I need to re-open the Play Store by tapping its icon in the dock.",
+      "confidence": 1.0,
+      "action": {
+        "type": "tap",
+        "resource_id": null,
+        "coordinates": [
+          540,
+          1538
+        ],
+        "text": "Play Store",
+        "direction": null,
+        "target_description": "the Play Store app icon"
+      }
+    },
+    {
+      "step": 4,
+      "activity": "com.android.vending/com.google.android.finsky.unauthenticated.activity.UnauthenticatedMainActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_004.png",
+      "continue": true,
+      "reasoning": "The task requires opening an app from the app store. The current screen is the Google Play Store, but it's asking the user to sign in. To proceed with finding and opening the app, the user must first sign in.",
+      "confidence": 1.0,
+      "action": {
+        "type": "tap",
+        "resource_id": "com.android.vending:id/0_resource_name_obfuscated",
+        "coordinates": [
+          539,
+          1341
+        ],
+        "text": "Sign in",
+        "direction": null,
+        "target_description": "the 'Sign in' button"
+      }
+    },
+    {
+      "step": 5,
+      "activity": "com.android.vending/com.google.android.finsky.unauthenticated.activity.UnauthenticatedMainActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_005.png",
+      "continue": true,
+      "reasoning": "The current screen shows a menu open in the Google Play Store. To proceed with the task of finding and opening the 'Jigsaw' app, this menu needs to be closed. Pressing the back button is the most reliable way to dismiss this pop-up menu and return to the main Play Store screen, where I can then access the search bar.",
+      "confidence": 1.0,
+      "action": {
+        "type": "press_back",
+        "resource_id": null,
+        "coordinates": null,
+        "text": null,
+        "direction": null,
+        "target_description": "the back button"
+      }
+    },
+    {
+      "step": 6,
+      "activity": "com.android.vending/com.google.android.finsky.unauthenticated.activity.UnauthenticatedMainActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_006.png",
+      "continue": true,
+      "reasoning": "The current screen is the Google Play sign-in page, which is a detour from the main task of opening the Jigsaw app. The previous action was also a back press, which led to this screen. To get back to the Jigsaw app's page in the Play Store, which is where the task is supposed to start, pressing the back button again is the most logical step to try and navigate back through the activity stack.",
+      "confidence": 0.9,
+      "action": {
+        "type": "press_back",
+        "resource_id": null,
+        "coordinates": null,
+        "text": null,
+        "direction": null,
+        "target_description": "the back button"
+      }
+    },
+    {
+      "step": 7,
+      "activity": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_007.png",
+      "continue": true,
+      "reasoning": "The task is to open the 'Jigsaw' puzzle app. The app is not on the home screen, so I need to swipe up to open the app drawer and find it.",
+      "confidence": 1.0,
+      "action": {
+        "type": "scroll",
+        "resource_id": null,
+        "coordinates": null,
+        "text": null,
+        "direction": "up",
+        "target_description": "the home screen"
+      }
+    },
+    {
+      "step": 8,
+      "activity": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_008.png",
+      "continue": true,
+      "reasoning": "The task is to open the 'Jigsaw' puzzle app. The app is not on the current home screen. I need to open the app drawer to find it. Swiping up from the bottom of the screen is the standard gesture to open the app drawer on this version of Android.",
+      "confidence": 1.0,
+      "action": {
+        "type": "scroll",
+        "resource_id": null,
+        "coordinates": null,
+        "text": null,
+        "direction": "up",
+        "target_description": "the app drawer"
+      }
+    },
+    {
+      "step": 9,
+      "activity": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_009.png",
+      "continue": true,
+      "reasoning": "The task is to open the 'Jigsaw' app from its app store page. The current screen is the Android home screen, and the 'Play Store' app icon is visible in the dock. Therefore, the next logical action is to tap on the 'Play Store' icon to open the app store.",
+      "confidence": 1.0,
+      "action": {
+        "type": "tap",
+        "resource_id": null,
+        "coordinates": [
+          540,
+          1538
+        ],
+        "text": "Play Store",
+        "direction": null,
+        "target_description": "the Play Store app icon"
+      }
+    },
+    {
+      "step": 10,
+      "activity": "com.android.vending/com.google.android.finsky.unauthenticated.activity.UnauthenticatedMainActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_010.png",
+      "continue": true,
+      "reasoning": "The user needs to sign in to the Google Play Store to find and open the 'Jigsaw' app as described in the task. The current screen is prompting the user to sign in.",
+      "confidence": 1.0,
+      "action": {
+        "type": "tap",
+        "resource_id": "com.android.vending:id/0_resource_name_obfuscated",
+        "coordinates": [
+          539,
+          1341
+        ],
+        "text": "Sign in",
+        "direction": null,
+        "target_description": "the 'Sign in' button"
+      }
+    },
+    {
+      "step": 11,
+      "activity": "com.android.vending/com.google.android.finsky.unauthenticated.activity.UnauthenticatedMainActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_011.png",
+      "continue": true,
+      "reasoning": "The current screen is a sign-in prompt which is not part of the main task. Pressing back should return to the previous screen (the app page in the Play Store) so I can attempt to open the app again.",
+      "confidence": 0.9,
+      "action": {
+        "type": "press_back",
+        "resource_id": null,
+        "coordinates": null,
+        "text": null,
+        "direction": null,
+        "target_description": "the back button"
+      }
+    },
+    {
+      "step": 12,
+      "activity": "com.android.vending/com.google.android.finsky.unauthenticated.activity.UnauthenticatedMainActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_012.png",
+      "continue": true,
+      "reasoning": "The current screen is a Google Play sign-in page, which is a deviation from the task of interacting with the Jigsaw puzzle app. To get back on track, I need to go to the home screen to find and launch the app that was just installed.",
+      "confidence": 0.9,
+      "action": {
+        "type": "press_home",
+        "resource_id": null,
+        "coordinates": null,
+        "text": null,
+        "direction": null,
+        "target_description": "the home button"
+      }
+    },
+    {
+      "step": 13,
+      "activity": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_013.png",
+      "continue": true,
+      "reasoning": "The task is to open the 'Jigsaw' puzzle app. The app is not on the home screen, so I need to open the app drawer to find it. Swiping up from the bottom of the screen is the standard gesture to open the app drawer.",
+      "confidence": 1.0,
+      "action": {
+        "type": "scroll",
+        "resource_id": null,
+        "coordinates": null,
+        "text": null,
+        "direction": "up",
+        "target_description": "the screen to open the app drawer"
+      }
+    },
+    {
+      "step": 14,
+      "activity": "com.google.android.apps.nexuslauncher/.NexusLauncherActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_014.png",
+      "continue": true,
+      "reasoning": "The task is to open the 'Jigsaw' puzzle app from its app store page. The first step is to open the Play Store, which is visible in the dock on the home screen.",
+      "confidence": 1.0,
+      "action": {
+        "type": "tap",
+        "resource_id": null,
+        "coordinates": [
+          540,
+          1538
+        ],
+        "text": null,
+        "direction": null,
+        "target_description": "Play Store"
+      }
+    },
+    {
+      "step": 15,
+      "activity": "com.android.vending/com.google.android.finsky.unauthenticated.activity.UnauthenticatedMainActivity",
+      "screenshot": "apps/jigsaw/llm/gemini/gemini-2.5-pro/handheld/run-001/steps/step_015.png",
+      "continue": true,
+      "reasoning": "The task is to open the 'Jigsaw' puzzle app from the app store. The current screen is the Google Play Store, which is prompting for a sign-in. To proceed and find the app, I need to sign in first. The most direct way to do this is to tap the 'Sign in' button.",
+      "confidence": 1.0,
+      "action": {
+        "type": "tap",
+        "resource_id": "com.android.vending:id/0_resource_name_obfuscated",
+        "coordinates": [
+          539,
+          1341
+        ],
+        "text": "Sign in",
+        "direction": null,
+        "target_description": "the 'Sign in' button"
+      }
+    }
+  ]
+}

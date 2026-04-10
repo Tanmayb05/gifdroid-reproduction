@@ -50,6 +50,49 @@ def _resolve_output_dir(run, llm: str, llm_model: str) -> Path:
     return base / f"run-{next_idx:03d}"
 
 
+def _log_run_stats(logger: logging.Logger, run, trace: dict, output_dir: Path, provider, wall_sec: float) -> None:
+    """Emit a structured stats block at the end of each run."""
+    from collections import Counter
+
+    steps = trace.get("steps") or []
+    action_counts = Counter(s.get("action", {}).get("type", "unknown") for s in steps)
+    actions_str = "  ".join(f"{k}={v}" for k, v in sorted(action_counts.items())) or "none"
+
+    llm_calls = getattr(provider, "llm_calls", [])
+    if llm_calls:
+        latencies = [c["elapsed_sec"] for c in llm_calls]
+        total_prompt = sum(c["prompt_tokens"] for c in llm_calls)
+        total_output = sum(c["output_tokens"] for c in llm_calls)
+        from collections import Counter as _C
+        calls_by_kind = _C(c["kind"] for c in llm_calls)
+        calls_str = "  ".join(f"{k}={v}" for k, v in sorted(calls_by_kind.items()))
+        lat_str = (
+            f"min={min(latencies):.1f}s  max={max(latencies):.1f}s  "
+            f"avg={sum(latencies)/len(latencies):.1f}s  total={sum(latencies):.1f}s"
+        )
+        tokens_str = (
+            f"prompt={total_prompt:,}  output={total_output:,}  "
+            f"total={total_prompt + total_output:,}"
+        )
+    else:
+        calls_str = lat_str = tokens_str = "n/a"
+
+    sep = "=" * 72
+    logger.info(sep)
+    logger.info("RUN SUMMARY")
+    logger.info("  App         : %s", run.app_name)
+    logger.info("  Video type  : %s", run.video_type)
+    logger.info("  Status      : %s", trace.get("status", "unknown"))
+    logger.info("  Steps       : %d", trace.get("total_steps", 0))
+    logger.info("  Actions     : %s", actions_str)
+    logger.info("  LLM calls   : %s", calls_str)
+    logger.info("  LLM latency : %s", lat_str)
+    logger.info("  Tokens used : %s", tokens_str)
+    logger.info("  Wall time   : %dm %ds", int(wall_sec) // 60, int(wall_sec) % 60)
+    logger.info("  Output      : %s", output_dir)
+    logger.info(sep)
+
+
 def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict | None:
     """Execute one automation run. Returns the trace dict or None on dry-run."""
     output_dir = _resolve_output_dir(run, run.llm, run.llm_model)
@@ -80,6 +123,8 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
             logger.error("APK not found: %s", run.apk_path)
             return None
         return {}
+
+    run_start = time.perf_counter()
 
     # --- Create provider ---
     from gifdroid_llm.providers import create_provider
@@ -145,7 +190,8 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
         device_serial=run.device_serial,
     )
     logger.info("Replay script: %s", replay_path)
-    logger.info("=" * 72)
+
+    _log_run_stats(logger, run, trace, output_dir, provider, time.perf_counter() - run_start)
 
     if file_handler is not None:
         logger.removeHandler(file_handler)

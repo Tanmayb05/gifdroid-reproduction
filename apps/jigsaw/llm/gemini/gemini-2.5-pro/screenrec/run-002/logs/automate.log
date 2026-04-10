@@ -1,0 +1,78 @@
+[INFO] 2026-04-10 01:06:06 --- Run: app=jigsaw video_type=screenrec video=apps/jigsaw/videos/screenrec/srv-001.mp4 ---
+[INFO] 2026-04-10 01:06:06 Output dir: apps/jigsaw/llm/gemini/gemini-2.5-pro/screenrec/run-002
+[INFO] 2026-04-10 01:06:07 Installing APK: apps/jigsaw/apk/jigsaw.apk
+[INFO] 2026-04-10 01:06:08 APK installed: io.gitlab.derjosef.jigsaw
+[INFO] 2026-04-10 01:06:08 Launching app: io.gitlab.derjosef.jigsaw / com.godot.game.GodotApp
+[INFO] 2026-04-10 01:06:11 App launched: com.google.android.permissioncontroller/com.android.permissioncontroller.permission.ui.GrantPermissionsActivity
+[INFO] 2026-04-10 01:06:11 Provider supports direct-video summarization — attempting raw-video path | video=apps/jigsaw/videos/screenrec/srv-001.mp4
+[INFO] 2026-04-10 01:06:11 summarize_video_task_from_video: sending raw video to Gemini | video=srv-001.mp4
+[INFO] 2026-04-10 01:06:11 Encoding video for inline upload | file=srv-001.mp4 | size=2449281 bytes
+[INFO] 2026-04-10 01:06:12 Sending video inference request | model=gemini-2.5-pro | video=srv-001.mp4
+[INFO] 2026-04-10 01:06:21 Video inference response received | elapsed_sec=9.61
+[INFO] 2026-04-10 01:06:21 Direct-video summary obtained (skipping keyframe extraction) | summary=The user opens the Jigsaw puzzle app from their home screen. On the main menu, they tap the "Generate Puzzle" button to begin a new game. The user then solves the resulting four-piece puzzle by draggi
+[INFO] 2026-04-10 01:06:21 Step 1/15
+[INFO] 2026-04-10 01:06:23 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:06:48 decide_next_action_with_video_context: response received | elapsed_sec=25.97
+[INFO] 2026-04-10 01:06:48 Step 1: continue=True action_type=tap
+[INFO] 2026-04-10 01:06:50 Step 2/15
+[INFO] 2026-04-10 01:06:51 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:07:08 decide_next_action_with_video_context: response received | elapsed_sec=16.91
+[INFO] 2026-04-10 01:07:08 Step 2: continue=True action_type=tap
+[INFO] 2026-04-10 01:07:10 Step 3/15
+[INFO] 2026-04-10 01:07:11 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:07:25 decide_next_action_with_video_context: response received | elapsed_sec=14.65
+[INFO] 2026-04-10 01:07:25 Step 3: continue=True action_type=tap
+[INFO] 2026-04-10 01:07:27 Step 4/15
+[INFO] 2026-04-10 01:07:28 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:07:40 decide_next_action_with_video_context: response received | elapsed_sec=12.34
+[INFO] 2026-04-10 01:07:40 Step 4: continue=True action_type=tap
+[INFO] 2026-04-10 01:07:41 Step 5/15
+[INFO] 2026-04-10 01:07:42 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:07:55 decide_next_action_with_video_context: response received | elapsed_sec=12.61
+[INFO] 2026-04-10 01:07:55 Step 5: continue=True action_type=tap
+[INFO] 2026-04-10 01:07:57 Step 6/15
+[INFO] 2026-04-10 01:07:58 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:08:07 decide_next_action_with_video_context: response received | elapsed_sec=9.14
+[INFO] 2026-04-10 01:08:07 Step 6: continue=True action_type=tap
+[INFO] 2026-04-10 01:08:08 Step 7/15
+[INFO] 2026-04-10 01:08:09 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:08:34 decide_next_action_with_video_context: response received | elapsed_sec=24.92
+[INFO] 2026-04-10 01:08:34 Step 7: continue=True action_type=tap
+[INFO] 2026-04-10 01:08:35 Step 8/15
+[INFO] 2026-04-10 01:08:36 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:08:52 decide_next_action_with_video_context: response received | elapsed_sec=15.66
+[INFO] 2026-04-10 01:08:52 Step 8: continue=True action_type=tap
+[INFO] 2026-04-10 01:08:54 Step 9/15
+[INFO] 2026-04-10 01:08:55 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:09:21 decide_next_action_with_video_context: response received | elapsed_sec=26.29
+[INFO] 2026-04-10 01:09:21 Step 9: continue=True action_type=tap
+[INFO] 2026-04-10 01:09:23 Step 10/15
+[INFO] 2026-04-10 01:09:24 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:10:47 decide_next_action_with_video_context: response received | elapsed_sec=83.32
+[INFO] 2026-04-10 01:10:47 Step 10: continue=True action_type=tap
+[INFO] 2026-04-10 01:10:49 Step 11/15
+[INFO] 2026-04-10 01:10:50 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:11:04 decide_next_action_with_video_context: response received | elapsed_sec=14.63
+[INFO] 2026-04-10 01:11:04 Step 11: continue=True action_type=tap
+[INFO] 2026-04-10 01:11:06 Step 12/15
+[INFO] 2026-04-10 01:11:07 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:11:47 decide_next_action_with_video_context: response received | elapsed_sec=40.63
+[INFO] 2026-04-10 01:11:47 Step 12: continue=True action_type=tap
+[INFO] 2026-04-10 01:11:49 Step 13/15
+[INFO] 2026-04-10 01:11:50 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:12:10 decide_next_action_with_video_context: response received | elapsed_sec=19.71
+[INFO] 2026-04-10 01:12:10 Step 13: continue=True action_type=tap
+[INFO] 2026-04-10 01:12:11 Step 14/15
+[INFO] 2026-04-10 01:12:12 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:13:05 decide_next_action_with_video_context: response received | elapsed_sec=52.70
+[INFO] 2026-04-10 01:13:05 Step 14: continue=True action_type=tap
+[INFO] 2026-04-10 01:13:07 Step 15/15
+[INFO] 2026-04-10 01:13:08 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:13:31 decide_next_action_with_video_context: response received | elapsed_sec=22.85
+[INFO] 2026-04-10 01:13:31 Step 15: continue=True action_type=tap
+[INFO] 2026-04-10 01:13:32 Session trace saved to apps/jigsaw/llm/gemini/gemini-2.5-pro/screenrec/run-002/session_trace.json
+[INFO] 2026-04-10 01:13:32 Video summary saved to apps/jigsaw/llm/gemini/gemini-2.5-pro/screenrec/run-002/video_summary.txt
+[INFO] 2026-04-10 01:13:32 Run complete: app=jigsaw video_type=screenrec steps=15 status=max_steps_reached
+[INFO] 2026-04-10 01:13:32 Session trace: apps/jigsaw/llm/gemini/gemini-2.5-pro/screenrec/run-002/session_trace.json
+[INFO] 2026-04-10 01:13:32 Replay script: apps/jigsaw/llm/gemini/gemini-2.5-pro/screenrec/run-002/replay.py
+[INFO] 2026-04-10 01:13:32 ========================================================================

@@ -83,6 +83,8 @@ class BaseLLMProvider(ABC):
         self.env = env
         self.logger = logger
         self.raw_llm_response: str | None = None
+        # Each entry: {"kind": str, "elapsed_sec": float, "prompt_tokens": int, "output_tokens": int}
+        self.llm_calls: list[dict] = []
 
     @abstractmethod
     def infer_actions(self, keyframes: List[Keyframe]) -> List[ProviderAction]:
@@ -476,6 +478,7 @@ class GeminiProvider(BaseLLMProvider):
         self.logger.info("decide_next_action: response received | elapsed_sec=%.2f", elapsed)
 
         data = json.loads(response_text)
+        self._record_call("decide_next_action", elapsed, data)
         raw_text = self._extract_text(data)
         return self._parse_action_decision(raw_text)
 
@@ -610,6 +613,7 @@ class GeminiProvider(BaseLLMProvider):
         self.logger.info("summarize_video_task: response received | elapsed_sec=%.2f", elapsed)
 
         data = json.loads(response_text)
+        self._record_call("summarize_video_task", elapsed, data)
         return self._extract_text(data).strip()
 
     def summarize_video_task_from_video(self, video_path: "Path") -> str:
@@ -636,6 +640,11 @@ class GeminiProvider(BaseLLMProvider):
         response_text = self._send_video_request(video_path, prompt_text)
         try:
             data = json.loads(response_text)
+            self._record_call(
+                "summarize_video_task_from_video",
+                getattr(self, "_last_video_request_elapsed", 0.0),
+                data,
+            )
             return self._extract_text(data).strip()
         except (json.JSONDecodeError, KeyError, TypeError, ProviderError) as exc:
             raise ProviderError(
@@ -771,8 +780,19 @@ class GeminiProvider(BaseLLMProvider):
         self.logger.info("decide_next_action_with_video_context: response received | elapsed_sec=%.2f", elapsed)
 
         data = json.loads(response_text)
+        self._record_call("decide_next_action_with_video_context", elapsed, data)
         raw_text = self._extract_text(data)
         return self._parse_action_decision(raw_text)
+
+    def _record_call(self, kind: str, elapsed: float, data: dict) -> None:
+        """Append per-call stats to llm_calls using Gemini's usageMetadata."""
+        usage = data.get("usageMetadata") or {}
+        self.llm_calls.append({
+            "kind": kind,
+            "elapsed_sec": elapsed,
+            "prompt_tokens": int(usage.get("promptTokenCount") or 0),
+            "output_tokens": int(usage.get("candidatesTokenCount") or 0),
+        })
 
     def _build_action_prompt(self, keyframes: List[Keyframe]) -> str:
         keyframe_lines = [
@@ -1082,6 +1102,7 @@ class GeminiVideoProvider(GeminiProvider):
         elapsed = time.perf_counter() - start
         self.logger.info("Video inference response received | elapsed_sec=%.2f", elapsed)
         self.raw_llm_response = response_text
+        self._last_video_request_elapsed = elapsed
         return response_text
 
     def infer_memory_from_video(self, video_path: Path) -> str:

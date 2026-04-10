@@ -178,6 +178,9 @@ def run_automation(
                 "Direct-video summary obtained (skipping keyframe extraction) | summary=%s",
                 video_summary[:200],
             )
+            if output_dir is not None:
+                (output_dir / "video_summary.txt").write_text(video_summary, encoding="utf-8")
+                logger.info("Video summary saved to %s", output_dir / "video_summary.txt")
         except Exception as exc:  # noqa: BLE001
             logger.warning(
                 "Direct-video summarization failed (%s) — falling back to keyframe pipeline",
@@ -214,6 +217,9 @@ def run_automation(
         logger.info("Requesting video task summary from LLM via keyframe pipeline")
         video_summary = provider.summarize_video_task(keyframes)
         logger.info("Keyframe-based task summary: %s", video_summary[:200])
+        if output_dir is not None:
+            (output_dir / "video_summary.txt").write_text(video_summary, encoding="utf-8")
+            logger.info("Video summary saved to %s", output_dir / "video_summary.txt")
 
     # --- Step 3: Run the feedback loop ---
     session = AutomationSession(max_steps=max_steps, history_window=history_window)
@@ -303,7 +309,8 @@ def run_automation(
         logger.info("Session trace saved to %s", trace_path)
 
         summary_path = output_dir / "video_summary.txt"
-        summary_path.write_text(video_summary or "", encoding="utf-8")
-        logger.info("Video summary saved to %s", summary_path)
+        if not summary_path.exists():
+            summary_path.write_text(video_summary or "", encoding="utf-8")
+            logger.info("Video summary saved to %s", summary_path)
 
     return trace
