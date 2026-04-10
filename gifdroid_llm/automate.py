@@ -124,6 +124,21 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
             return None
         return {}
 
+    # --- Pre-flight: verify required files exist before touching the device ---
+    missing = []
+    if not run.apk_path.exists():
+        missing.append(f"APK not found: {run.apk_path}")
+    if not run.video_path.exists():
+        missing.append(f"Video not found: {run.video_path}")
+    if missing:
+        for msg in missing:
+            logger.warning("SKIP run — %s", msg)
+        logger.warning("Skipping run: app=%s video_type=%s", run.app_name, run.video_type)
+        if file_handler is not None:
+            logger.removeHandler(file_handler)
+            file_handler.close()
+        return None
+
     run_start = time.perf_counter()
 
     # --- Create provider ---
@@ -170,6 +185,7 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
         output_dir=output_dir,
         history_window=run.history_window,
         step_delay=run.step_delay,
+        stall_repeat_threshold=run.stall_repeat_threshold,
         logger=logger,
     )
 
@@ -178,6 +194,11 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
         run.app_name, run.video_type, trace["total_steps"], trace["status"],
     )
     logger.info("Session trace: %s", output_dir / "session_trace.json")
+
+    if run.reset_between_runs:
+        logger.info("Resetting app state: force-stop + clear data | pkg=%s", pkg)
+        device.reset_app(pkg)
+        logger.info("App reset complete: %s", pkg)
 
     from gifdroid_llm.replay_writer import write_replay_script
 

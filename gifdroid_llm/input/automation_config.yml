@@ -22,6 +22,11 @@ device_serial:
 max_steps: 15
 history_window: 3
 step_delay: 1.5
+# Stop the loop if the same action repeats this many consecutive times (stall detection)
+stall_repeat_threshold: 4
+# After each run: force-stop the app and clear its data so the next run starts clean.
+# Set to false only if you deliberately want to carry state between runs.
+reset_between_runs: true
 
 # ---------------------------------------------------------------------------
 # Output directory
@@ -62,20 +67,20 @@ runs:
   #     - "screenrec"
   #     - "handheld"
   
-  - app_name: "luxalarm"
-    video_path:
-      - "screenrec"
-      - "handheld"
-  
-  - app_name: "pomodorot"
-    video_path:
-      - "screenrec"
-      - "handheld"
-  
-  # - app_name: "portauthority"
+  # - app_name: "luxalarm"
   #   video_path:
   #     - "screenrec"
   #     - "handheld"
+  
+  # - app_name: "pomodorot"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"
+  
+  - app_name: "portauthority"
+    video_path:
+      - "screenrec"
+      - "handheld"
   
   # - app_name: "simplenotes"
   #   video_path:

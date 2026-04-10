@@ -135,6 +135,24 @@ class DeviceController:
         else:
             pass
 
+    def reset_app(self, package: str) -> None:
+        """Return the device to a clean baseline after a run.
+
+        Steps (in order):
+        1. Force-stop the app — clears the activity stack.
+        2. Clear app data — wipes shared prefs, databases, caches.
+        3. Press home — ensures the launcher is in the foreground.
+        """
+        adb_prefix = [_ADB]
+        if self._serial:
+            adb_prefix += ["-s", self._serial]
+
+        subprocess.run(adb_prefix + ["shell", "am", "force-stop", package],
+                       capture_output=True, text=True)
+        subprocess.run(adb_prefix + ["shell", "pm", "clear", package],
+                       capture_output=True, text=True)
+        self.press_key("home")
+
     def is_app_running(self, package: str) -> bool:
         """Return True if the package has a running process."""
         adb_args = [_ADB]

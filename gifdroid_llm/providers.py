@@ -403,8 +403,11 @@ class GeminiProvider(BaseLLMProvider):
         prompt = (
             "You are an Android UI automation assistant driving a live device.{task_line}\n"
             "Look at the current screenshot and decide the next action.\n"
+            "IMPORTANT: If you have taken the same action 3 or more consecutive times and the "
+            "screen has not changed, set \"continue\": false — the task has either completed or "
+            "cannot proceed further.\n"
             "Return ONLY a JSON object with these keys:\n"
-            '  "continue": true if more actions are needed, false if task is complete,\n'
+            '  "continue": true if more actions are needed, false if task is complete or stuck,\n'
             '  "action": object with keys:\n'
             '    "type": one of tap|scroll|type_text|press_back|press_home|wait|done,\n'
             '    "resource_id": resource-id string or null,\n'
@@ -705,8 +708,11 @@ class GeminiProvider(BaseLLMProvider):
             f"TASK: {task_description}\n\n"
             f"VIDEO SUMMARY: {video_summary}\n\n"
             "Look at the current screenshot and decide the next action to reproduce the task.\n"
+            "IMPORTANT: If you have taken the same action 3 or more consecutive times and the "
+            "screen has not changed, set \"continue\": false — the task has either completed or "
+            "cannot proceed further. Do not keep scrolling indefinitely.\n"
             "Return ONLY a JSON object with these keys:\n"
-            '  "continue": true if more actions are needed, false if task is complete,\n'
+            '  "continue": true if more actions are needed, false if task is complete or stuck,\n'
             '  "action": object with keys:\n'
             '    "type": one of tap|scroll|type_text|press_back|press_home|wait|done,\n'
             '    "resource_id": resource-id string or null,\n'

@@ -1,0 +1,90 @@
+[INFO] 2026-04-10 01:31:33 --- Run: app=luxalarm video_type=screenrec video=apps/luxalarm/videos/screenrec/srv-001.mp4 ---
+[INFO] 2026-04-10 01:31:33 Output dir: apps/luxalarm/llm/gemini/gemini-2.5-pro/screenrec/run-001
+[INFO] 2026-04-10 01:31:36 Installing APK: apps/luxalarm/apk/luxalarm.apk
+[INFO] 2026-04-10 01:31:36 APK installed: com.dsalmun.luxalarm
+[INFO] 2026-04-10 01:31:36 Launching app: com.dsalmun.luxalarm / com.dsalmun.luxalarm.MainActivity
+[INFO] 2026-04-10 01:31:38 App launched: com.dsalmun.luxalarm/.MainActivity
+[INFO] 2026-04-10 01:31:38 Provider supports direct-video summarization — attempting raw-video path | video=apps/luxalarm/videos/screenrec/srv-001.mp4
+[INFO] 2026-04-10 01:31:38 summarize_video_task_from_video: sending raw video to Gemini | video=srv-001.mp4
+[INFO] 2026-04-10 01:31:38 Encoding video for inline upload | file=srv-001.mp4 | size=6688821 bytes
+[INFO] 2026-04-10 01:31:39 Sending video inference request | model=gemini-2.5-pro | video=srv-001.mp4
+[INFO] 2026-04-10 01:31:48 Video inference response received | elapsed_sec=8.61
+[INFO] 2026-04-10 01:31:48 Direct-video summary obtained (skipping keyframe extraction) | summary=The user opens the Lux Alarm app and creates a new alarm for 10:25. They then expand the alarm's options to set it to repeat on Mondays and Fridays. Finally, the user changes the alarm sound from the 
+[INFO] 2026-04-10 01:31:48 Video summary saved to apps/luxalarm/llm/gemini/gemini-2.5-pro/screenrec/run-001/video_summary.txt
+[INFO] 2026-04-10 01:31:48 Step 1/15
+[INFO] 2026-04-10 01:31:49 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:32:11 decide_next_action_with_video_context: response received | elapsed_sec=22.63
+[INFO] 2026-04-10 01:32:11 Step 1: continue=True action_type=tap
+[INFO] 2026-04-10 01:32:13 Step 2/15
+[INFO] 2026-04-10 01:32:14 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:32:19 decide_next_action_with_video_context: response received | elapsed_sec=4.87
+[INFO] 2026-04-10 01:32:19 Step 2: continue=True action_type=tap
+[INFO] 2026-04-10 01:32:21 Step 3/15
+[INFO] 2026-04-10 01:32:22 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:32:27 decide_next_action_with_video_context: response received | elapsed_sec=5.29
+[INFO] 2026-04-10 01:32:27 Step 3: continue=True action_type=scroll
+[INFO] 2026-04-10 01:32:30 Step 4/15
+[INFO] 2026-04-10 01:32:30 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:32:36 decide_next_action_with_video_context: response received | elapsed_sec=5.98
+[INFO] 2026-04-10 01:32:36 Step 4: continue=True action_type=scroll
+[INFO] 2026-04-10 01:32:39 Step 5/15
+[INFO] 2026-04-10 01:32:40 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:32:44 decide_next_action_with_video_context: response received | elapsed_sec=4.13
+[INFO] 2026-04-10 01:32:44 Step 5: continue=True action_type=scroll
+[INFO] 2026-04-10 01:32:46 Step 6/15
+[INFO] 2026-04-10 01:32:47 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:32:52 decide_next_action_with_video_context: response received | elapsed_sec=4.76
+[INFO] 2026-04-10 01:32:52 Step 6: continue=True action_type=scroll
+[INFO] 2026-04-10 01:32:54 Step 7/15
+[INFO] 2026-04-10 01:32:55 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:33:00 decide_next_action_with_video_context: response received | elapsed_sec=5.26
+[INFO] 2026-04-10 01:33:00 Step 7: continue=True action_type=scroll
+[INFO] 2026-04-10 01:33:03 Step 8/15
+[INFO] 2026-04-10 01:33:04 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:33:11 decide_next_action_with_video_context: response received | elapsed_sec=6.96
+[INFO] 2026-04-10 01:33:11 Step 8: continue=True action_type=scroll
+[INFO] 2026-04-10 01:33:13 Step 9/15
+[INFO] 2026-04-10 01:33:14 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:33:19 decide_next_action_with_video_context: response received | elapsed_sec=4.92
+[INFO] 2026-04-10 01:33:19 Step 9: continue=True action_type=scroll
+[INFO] 2026-04-10 01:33:21 Step 10/15
+[INFO] 2026-04-10 01:33:22 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:33:29 decide_next_action_with_video_context: response received | elapsed_sec=6.95
+[INFO] 2026-04-10 01:33:29 Step 10: continue=True action_type=scroll
+[INFO] 2026-04-10 01:33:31 Step 11/15
+[INFO] 2026-04-10 01:33:32 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:33:39 decide_next_action_with_video_context: response received | elapsed_sec=6.80
+[INFO] 2026-04-10 01:33:39 Step 11: continue=True action_type=scroll
+[INFO] 2026-04-10 01:33:41 Step 12/15
+[INFO] 2026-04-10 01:33:42 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:33:48 decide_next_action_with_video_context: response received | elapsed_sec=6.06
+[INFO] 2026-04-10 01:33:48 Step 12: continue=True action_type=scroll
+[INFO] 2026-04-10 01:33:51 Step 13/15
+[INFO] 2026-04-10 01:33:52 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:34:00 decide_next_action_with_video_context: response received | elapsed_sec=8.30
+[INFO] 2026-04-10 01:34:00 Step 13: continue=True action_type=scroll
+[INFO] 2026-04-10 01:34:02 Step 14/15
+[INFO] 2026-04-10 01:34:03 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:34:09 decide_next_action_with_video_context: response received | elapsed_sec=6.20
+[INFO] 2026-04-10 01:34:09 Step 14: continue=True action_type=scroll
+[INFO] 2026-04-10 01:34:12 Step 15/15
+[INFO] 2026-04-10 01:34:12 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-04-10 01:34:19 decide_next_action_with_video_context: response received | elapsed_sec=6.47
+[INFO] 2026-04-10 01:34:19 Step 15: continue=True action_type=scroll
+[INFO] 2026-04-10 01:34:21 Session trace saved to apps/luxalarm/llm/gemini/gemini-2.5-pro/screenrec/run-001/session_trace.json
+[INFO] 2026-04-10 01:34:21 Run complete: app=luxalarm video_type=screenrec steps=15 status=max_steps_reached
+[INFO] 2026-04-10 01:34:21 Session trace: apps/luxalarm/llm/gemini/gemini-2.5-pro/screenrec/run-001/session_trace.json
+[INFO] 2026-04-10 01:34:21 Replay script: apps/luxalarm/llm/gemini/gemini-2.5-pro/screenrec/run-001/replay.py
+[INFO] 2026-04-10 01:34:21 ========================================================================
+[INFO] 2026-04-10 01:34:21 RUN SUMMARY
+[INFO] 2026-04-10 01:34:21   App         : luxalarm
+[INFO] 2026-04-10 01:34:21   Video type  : screenrec
+[INFO] 2026-04-10 01:34:21   Status      : max_steps_reached
+[INFO] 2026-04-10 01:34:21   Steps       : 15
+[INFO] 2026-04-10 01:34:21   Actions     : scroll=13  tap=2
+[INFO] 2026-04-10 01:34:21   LLM calls   : decide_next_action_with_video_context=15  summarize_video_task_from_video=1
+[INFO] 2026-04-10 01:34:21   LLM latency : min=4.1s  max=22.6s  avg=7.1s  total=114.2s
+[INFO] 2026-04-10 01:34:21   Tokens used : prompt=42,645  output=2,166  total=44,811
+[INFO] 2026-04-10 01:34:21   Wall time   : 2m 48s
+[INFO] 2026-04-10 01:34:21   Output      : apps/luxalarm/llm/gemini/gemini-2.5-pro/screenrec/run-001
+[INFO] 2026-04-10 01:34:21 ========================================================================

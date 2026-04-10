@@ -17,6 +17,12 @@ def _screenshot_to_array(img: Any) -> np.ndarray:
     return np.array(img)
 
 
+def _action_key(step_entry: dict) -> tuple:
+    """Return a hashable key representing the action taken in a step."""
+    action = step_entry.get("action") or {}
+    return (action.get("type"), action.get("direction"), action.get("resource_id"))
+
+
 def run_blind_loop(
     task_description: str,
     provider: Any,
@@ -25,6 +31,7 @@ def run_blind_loop(
     output_dir: Path | None = None,
     history_window: int = 3,
     step_delay: float = 1.5,
+    stall_repeat_threshold: int = 4,
     logger: logging.Logger | None = None,
 ) -> dict:
     """Run the LLM-driven automation loop without video context.
@@ -109,6 +116,17 @@ def run_blind_loop(
             logger.info("Automation loop complete at step %d", step_num + 1)
             break
 
+        # Stall detection: same action repeated stall_repeat_threshold times → stop
+        if len(steps_log) >= stall_repeat_threshold:
+            recent_keys = [_action_key(s) for s in steps_log[-stall_repeat_threshold:]]
+            if len(set(recent_keys)) == 1:
+                status = "stalled"
+                logger.info(
+                    "Stall detected: action %s repeated %d times — stopping at step %d",
+                    recent_keys[0], stall_repeat_threshold, step_num + 1,
+                )
+                break
+
         # Execute the action
         device.execute_action(decision.action)
         time.sleep(step_delay)
@@ -137,6 +155,7 @@ def run_automation(
     output_dir: Path | None = None,
     history_window: int = 3,
     step_delay: float = 1.5,
+    stall_repeat_threshold: int = 4,
     logger: logging.Logger | None = None,
 ) -> dict:
     """Run the full video-guided automation loop (Milestone 4).
@@ -289,6 +308,17 @@ def run_automation(
             status = "done"
             logger.info("Automation loop complete at step %d", step_num + 1)
             break
+
+        # Stall detection: same action repeated stall_repeat_threshold times → stop
+        if len(steps_log) >= stall_repeat_threshold:
+            recent_keys = [_action_key(s) for s in steps_log[-stall_repeat_threshold:]]
+            if len(set(recent_keys)) == 1:
+                status = "stalled"
+                logger.info(
+                    "Stall detected: action %s repeated %d times — stopping at step %d",
+                    recent_keys[0], stall_repeat_threshold, step_num + 1,
+                )
+                break
 
         device.execute_action(decision.action)
         time.sleep(step_delay)
