@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ViBR — Automated Bug Replay from Video Reports</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0f1117;
+    color: #e0e0e0;
+    line-height: 1.6;
+  }
+
+  /* ── Header ── */
+  header {
+    background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%);
+    border-bottom: 1px solid #2d3748;
+    padding: 2rem;
+    text-align: center;
+  }
+  header h1 { font-size: 1.8rem; color: #63b3ed; margin-bottom: .4rem; }
+  header p  { color: #a0aec0; font-size: .95rem; }
+  .tag-row  { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center; margin-top: 1rem; }
+  .tag { background: #2d3748; color: #63b3ed; border-radius: 12px; padding: .2rem .7rem; font-size: .75rem; }
+
+  /* ── Layout ── */
+  .layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: calc(100vh - 120px);
+  }
+
+  /* ── Sidebar nav ── */
+  nav {
+    background: #1a1f2e;
+    border-right: 1px solid #2d3748;
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  nav a {
+    display: block;
+    padding: .5rem 1.4rem;
+    color: #a0aec0;
+    text-decoration: none;
+    font-size: .85rem;
+    border-left: 3px solid transparent;
+    transition: all .2s;
+  }
+  nav a:hover, nav a.active {
+    color: #63b3ed;
+    border-left-color: #63b3ed;
+    background: rgba(99,179,237,.06);
+  }
+  nav .nav-section { padding: .8rem 1.4rem .3rem; font-size: .7rem; text-transform: uppercase;
+    letter-spacing: .08em; color: #4a5568; }
+
+  /* ── Main content ── */
+  main { padding: 2rem; max-width: 900px; }
+
+  section { margin-bottom: 3rem; }
+  section h2 {
+    font-size: 1.2rem; color: #63b3ed; margin-bottom: 1rem;
+    padding-bottom: .5rem; border-bottom: 1px solid #2d3748;
+    display: flex; align-items: center; gap: .5rem;
+  }
+  section h2 .icon { font-size: 1.1rem; }
+
+  p, li { color: #cbd5e0; font-size: .92rem; margin-bottom: .5rem; }
+  ul { padding-left: 1.3rem; }
+  strong { color: #e2e8f0; }
+
+  /* ── Cards ── */
+  .card {
+    background: #1a1f2e;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .card h3 { color: #90cdf4; font-size: .95rem; margin-bottom: .5rem; }
+
+  /* ── Pill badges ── */
+  .badge {
+    display: inline-block;
+    padding: .15rem .55rem;
+    border-radius: 999px;
+    font-size: .72rem;
+    font-weight: 600;
+    margin-left: .4rem;
+  }
+  .badge-blue  { background: #2b4c7e; color: #90cdf4; }
+  .badge-green { background: #1c4532; color: #68d391; }
+  .badge-amber { background: #4a3728; color: #fbd38d; }
+  .badge-red   { background: #4a1e1e; color: #fc8181; }
+
+  /* ── Pipeline Diagram ── */
+  .pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  .pipe-node {
+    width: 100%;
+    max-width: 640px;
+    background: #1a1f2e;
+    border: 2px solid #2d3748;
+    border-radius: 12px;
+    padding: 1rem 1.4rem;
+    cursor: pointer;
+    transition: all .25s;
+    position: relative;
+  }
+  .pipe-node:hover { border-color: #63b3ed; transform: translateX(4px); }
+  .pipe-node.active { border-color: #63b3ed; background: #162032; }
+
+  .pipe-node .node-header {
+    display: flex; align-items: center; gap: .8rem;
+  }
+  .pipe-node .node-num {
+    width: 32px; height: 32px;
+    background: #2d3748; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .8rem; font-weight: 700; color: #63b3ed;
+    flex-shrink: 0;
+  }
+  .pipe-node.active .node-num { background: #63b3ed; color: #0f1117; }
+  .pipe-node .node-title { font-weight: 600; color: #e2e8f0; font-size: .95rem; }
+  .pipe-node .node-subtitle { color: #718096; font-size: .78rem; margin-top: .1rem; }
+  .pipe-node .node-caret {
+    margin-left: auto;
+    color: #4a5568;
+    transition: transform .2s;
+    font-size: .8rem;
+  }
+  .pipe-node.active .node-caret { transform: rotate(180deg); color: #63b3ed; }
+
+  .pipe-detail {
+    width: 100%;
+    max-width: 640px;
+    background: #111827;
+    border: 1px solid #2d3748;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    padding: 0 1.4rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease, padding .35s ease;
+  }
+  .pipe-detail.open {
+    max-height: 800px;
+    padding: 1rem 1.4rem 1.2rem;
+  }
+  .pipe-detail p, .pipe-detail li { font-size: .87rem; color: #a0aec0; }
+  .pipe-detail h4 { color: #63b3ed; font-size: .83rem; text-transform: uppercase;
+    letter-spacing: .06em; margin: .8rem 0 .3rem; }
+
+  .pipe-arrow {
+    width: 2px;
+    height: 20px;
+    background: #2d3748;
+    margin: 0 auto;
+    position: relative;
+  }
+  .pipe-arrow::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: -4px;
+    border: 5px solid transparent;
+    border-top-color: #4a5568;
+  }
+
+  /* Input / Output nodes */
+  .pipe-io {
+    width: 100%;
+    max-width: 640px;
+    text-align: center;
+    padding: .8rem 1.4rem;
+    border-radius: 10px;
+    font-size: .85rem;
+    font-weight: 600;
+  }
+  .pipe-io.input  { background: #1c3a2e; border: 1px solid #276749; color: #68d391; }
+  .pipe-io.output { background: #2a1f3d; border: 1px solid #553c9a; color: #b794f4; }
+
+  /* ── Technique chips inside detail ── */
+  .tech-chip {
+    display: inline-block;
+    background: #2d3748;
+    color: #90cdf4;
+    border-radius: 6px;
+    padding: .2rem .55rem;
+    font-size: .75rem;
+    margin: .2rem .2rem .2rem 0;
+  }
+
+  /* ── Results tables ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .85rem;
+    margin: .8rem 0;
+  }
+  th {
+    background: #2d3748;
+    color: #90cdf4;
+    padding: .5rem .8rem;
+    text-align: left;
+    font-weight: 600;
+  }
+  td { padding: .45rem .8rem; border-bottom: 1px solid #1e2533; color: #cbd5e0; }
+  tr.highlight td { background: #1c2b3a; color: #63b3ed; font-weight: 600; }
+  tr:hover td { background: #1e2533; }
+
+  /* ── Comparison grid ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .8rem;
+    margin: .8rem 0;
+  }
+  .compare-card {
+    background: #1a1f2e;
+    border: 1px solid #2d3748;
+    border-radius: 8px;
+    padding: .9rem;
+    text-align: center;
+  }
+  .compare-card .method { font-size: .75rem; color: #718096; margin-bottom: .3rem; }
+  .compare-card .score  { font-size: 1.5rem; font-weight: 700; }
+  .compare-card.winner  { border-color: #48bb78; background: #1c3a2e; }
+  .compare-card.winner .score { color: #68d391; }
+  .compare-card .score  { color: #63b3ed; }
+
+  /* ── Pros/Cons ── */
+  .pro-con { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: .8rem 0; }
+  .pros, .cons { border-radius: 8px; padding: 1rem; }
+  .pros { background: #1c3a2e; border: 1px solid #276749; }
+  .cons { background: #2a1f1f; border: 1px solid #742a2a; }
+  .pros h4 { color: #68d391; margin-bottom: .5rem; font-size: .85rem; }
+  .cons h4 { color: #fc8181; margin-bottom: .5rem; font-size: .85rem; }
+  .pros li, .cons li { font-size: .82rem; }
+
+  /* ── Key number callout ── */
+  .stat-row { display: flex; gap: .8rem; flex-wrap: wrap; margin: .8rem 0; }
+  .stat { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 8px;
+    padding: .8rem 1.2rem; text-align: center; flex: 1; min-width: 100px; }
+  .stat .num { font-size: 1.6rem; font-weight: 700; color: #63b3ed; }
+  .stat .lbl { font-size: .72rem; color: #718096; margin-top: .2rem; }
+
+  /* ── Scrollspy active ── */
+  section:target h2 { color: #f6ad55; }
+
+  /* responsive */
+  @media (max-width: 700px) {
+    .layout { grid-template-columns: 1fr; }
+    nav { position: static; height: auto; display: flex; flex-wrap: wrap;
+      gap: 0; border-right: none; border-bottom: 1px solid #2d3748; }
+    nav a { padding: .4rem .8rem; font-size: .8rem; }
+    nav .nav-section { display: none; }
+    .compare-grid { grid-template-columns: 1fr 1fr; }
+    .pro-con { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ViBR: Automated Bug Replay from Video-based Reports</h1>
+  <p>Vision-Language Models for Android GUI Testing &nbsp;·&nbsp; 2025</p>
+  <div class="tag-row">
+    <span class="tag">VLM / GPT-4o</span>
+    <span class="tag">CLIP</span>
+    <span class="tag">GroundingDINO</span>
+    <span class="tag">Android</span>
+    <span class="tag">Bug Reproduction</span>
+    <span class="tag">Video Analysis</span>
+    <span class="tag">GUI Testing</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- ── Sidebar ── -->
+  <nav id="nav">
+    <div class="nav-section">Overview</div>
+    <a href="#problem">Problem</a>
+    <a href="#input">Input</a>
+    <div class="nav-section">System</div>
+    <a href="#pipeline">Pipeline (Interactive)</a>
+    <a href="#llm">LLM Usage</a>
+    <a href="#vision">Vision Components</a>
+    <div class="nav-section">Results</div>
+    <a href="#results">Results & Metrics</a>
+    <a href="#comparison">vs. Baselines</a>
+    <div class="nav-section">Analysis</div>
+    <a href="#strengths">Strengths</a>
+    <a href="#limitations">Limitations</a>
+    <a href="#takeaways">Key Takeaways</a>
+  </nav>
+
+  <!-- ── Main ── -->
+  <main>
+
+    <!-- Problem -->
+    <section id="problem">
+      <h2><span class="icon">🎯</span> Problem Statement</h2>
+      <div class="card">
+        <h3>What problem does ViBR solve?</h3>
+        <p>Automatically reproducing bugs from <strong>GUI screen recordings</strong> (video-based bug reports) — <em>without</em> requiring touch indicators, pre-built UI transition graphs, or app-specific instrumentation.</p>
+      </div>
+      <div class="card">
+        <h3>Why does it matter?</h3>
+        <ul>
+          <li>Video-based bug reports grew <strong>15–35%</strong> between 2018–2020 on GitHub.</li>
+          <li>Reproducing bugs manually from video is time-consuming and error-prone due to GUI inconsistencies between recording device and replay device (resolution, layout, themes).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Gap in prior work</h3>
+        <ul>
+          <li><strong>GIFdroid:</strong> relies on pixel-level SSIM + pre-built UTG (brittle against layout changes; requires ~1hr Droidbot exploration).</li>
+          <li><strong>V2S:</strong> requires visible touch indicators — impractical for user-submitted recordings.</li>
+          <li><strong>LLM approaches:</strong> text-only; not applicable to video input.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Input -->
+    <section id="input">
+      <h2><span class="icon">📥</span> Input</h2>
+      <div class="stat-row">
+        <div class="stat"><div class="num">📹</div><div class="lbl">Video recording</div></div>
+        <div class="stat"><div class="num">📦</div><div class="lbl">APK file</div></div>
+        <div class="stat"><div class="num">🚫</div><div class="lbl">No touch indicators needed</div></div>
+        <div class="stat"><div class="num">🚫</div><div class="lbl">No UTG needed</div></div>
+      </div>
+      <p>Real-world screen recordings — unstructured, variable length, variable resolution. Videos sourced from diverse datasets (Themis crash dataset, GIFdroid study, V2S study).</p>
+    </section>
+
+    <!-- Pipeline -->
+    <section id="pipeline">
+      <h2><span class="icon">⚙️</span> System Pipeline</h2>
+      <p style="color:#718096; font-size:.85rem; margin-bottom:1rem;">Click any step to see what happens inside it.</p>
+
+      <div class="pipeline">
+
+        <!-- INPUT -->
+        <div class="pipe-io input">📹 INPUT: GUI Screen Recording (video) + APK</div>
+        <div class="pipe-arrow"></div>
+
+        <!-- Phase 1 -->
+        <div class="pipe-node" id="node-1" onclick="toggleNode('node-1','detail-1')">
+          <div class="node-header">
+            <div class="node-num">1</div>
+            <div>
+              <div class="node-title">Action Segmentation</div>
+              <div class="node-subtitle">CLIP + OCR &nbsp;·&nbsp; Split video into atomic action scenes</div>
+            </div>
+            <div class="node-caret">▼</div>
+          </div>
+        </div>
+        <div class="pipe-detail" id="detail-1">
+          <h4>Goal</h4>
+          <p>Split the raw video into a sequence of <strong>atomic action scenes</strong> — each scene corresponds to exactly one user action (tap, scroll, or text input).</p>
+
+          <h4>Step-by-step</h4>
+          <ol style="padding-left:1.3rem;">
+            <li>Convert every frame from <strong>RGB → YUV</strong>; extract the Y-luminance channel to reduce JPEG compression artifacts.</li>
+            <li>Encode each Y-luminance frame through the <strong>CLIP image encoder</strong> → high-dimensional embedding.</li>
+            <li>Compute <strong>cosine similarity</strong> between consecutive frame embeddings.</li>
+            <li>Classify scene boundary from the similarity curve:
+              <ul>
+                <li><strong>Sharp drop</strong> → <span class="tech-chip">Tap</span></li>
+                <li><strong>Gradual rise</strong> → <span class="tech-chip">Scroll</span></li>
+                <li><strong>Oscillation + keyboard detected by OCR</strong> → <span class="tech-chip">Input</span></li>
+              </ul>
+            </li>
+            <li>OCR checks for substrings <code>"qwert"</code> or <code>"123"</code> to detect on-screen keyboard.</li>
+          </ol>
+
+          <h4>Output</h4>
+          <p>Sequence of scenes: each scene = <code>[frame_start … frame_end]</code> + action type label.</p>
+
+          <h4>Key models / tools</h4>
+          <span class="tech-chip">CLIP</span>
+          <span class="tech-chip">YUV Y-channel</span>
+          <span class="tech-chip">Cosine Similarity</span>
+          <span class="tech-chip">OCR</span>
+        </div>
+        <div class="pipe-arrow"></div>
+
+        <!-- Phase 2 -->
+        <div class="pipe-node" id="node-2" onclick="toggleNode('node-2','detail-2')">
+          <div class="node-header">
+            <div class="node-num">2</div>
+            <div>
+              <div class="node-title">GUI State Comparison</div>
+              <div class="node-subtitle">GroundingDINO + GPT-4o &nbsp;·&nbsp; Does the device match the recording?</div>
+            </div>
+            <div class="node-caret">▼</div>
+          </div>
+        </div>
+        <div class="pipe-detail" id="detail-2">
+          <h4>Goal</h4>
+          <p>For each action scene, determine whether the <strong>current device screen</strong> is in the same functional state as the recording — even if they look visually different (dark mode, different resolution).</p>
+
+          <h4>Step A — Interactive Region Detection</h4>
+          <p>Run <strong>GroundingDINO</strong> (open-vocabulary object detector) on the scene's first frame using generic GUI text prompts:</p>
+          <span class="tech-chip">"button"</span>
+          <span class="tech-chip">"text field"</span>
+          <span class="tech-chip">"search bar"</span>
+          <span class="tech-chip">"layout"</span>
+          <p style="margin-top:.5rem;">→ Returns candidate bounding boxes for all interactive regions.</p>
+
+          <h4>Step B — Region of Interest (ROI) Selection</h4>
+          <p>Merge the scene's <strong>first frame</strong> (before action) and <strong>last frame</strong> (after action) into a single <em>dual-view composite image</em>. Label each detected region numerically.</p>
+          <p>Ask <strong>GPT-4o</strong>: <em>"Which numbered region was interacted with?"</em> → returns an integer index → ROI bounding box.</p>
+
+          <h4>Step C — State Consistency Check</h4>
+          <p>Show GPT-4o two images side-by-side:</p>
+          <ol style="padding-left:1.3rem;">
+            <li>Recording's first frame with <strong>ROI highlighted</strong> by bounding box.</li>
+            <li>Current <strong>device screenshot</strong> (live from ADB).</li>
+          </ol>
+          <p>VLM answers: <strong>[YES]</strong> = consistent (same functional state) | <strong>[NO]</strong> = inconsistent (device is in a different state).</p>
+
+          <h4>Key insight</h4>
+          <p>VLMs can reason about <em>functional equivalence</em> — a dark-mode screen and a light-mode screen with the same button are "consistent" even though pixel-level SSIM would say they're different.</p>
+
+          <h4>Key models / tools</h4>
+          <span class="tech-chip">GroundingDINO</span>
+          <span class="tech-chip">GPT-4o (VLM)</span>
+          <span class="tech-chip">Dual-view composite prompt</span>
+          <span class="tech-chip">ADB screenshot</span>
+        </div>
+        <div class="pipe-arrow"></div>
+
+        <!-- Phase 3 -->
+        <div class="pipe-node" id="node-3" onclick="toggleNode('node-3','detail-3')">
+          <div class="node-header">
+            <div class="node-num">3</div>
+            <div>
+              <div class="node-title">Bug Replay on Device</div>
+              <div class="node-subtitle">GPT-4o &nbsp;·&nbsp; Execute actions to reproduce the bug</div>
+            </div>
+            <div class="node-caret">▼</div>
+          </div>
+        </div>
+        <div class="pipe-detail" id="detail-3">
+          <h4>Goal</h4>
+          <p>Execute the right sequence of actions on the actual Android device to reproduce the bug, adapting when the device's GUI state differs from the recording.</p>
+
+          <h4>Current GUI Perception</h4>
+          <p>Take an ADB screenshot + UIAutomator XML → DFS traversal of view hierarchy → extract all interactive elements → draw bounding boxes and labels on screenshot → give this annotated image to the VLM.</p>
+
+          <h4>Action Inference — Two Paths</h4>
+          <div class="pro-con">
+            <div class="pros">
+              <h4>✅ Consistent State</h4>
+              <p style="font-size:.82rem;">Device is in the <em>same</em> state as recording.<br><br>VLM is shown:<br>1. Recording first frame (ROI highlighted)<br>2. Recording last frame (post-action)<br>3. Current device GUI<br>4. Action type from segmentation<br><br>→ VLM selects element + action primitive (direct replay).</p>
+            </div>
+            <div class="cons" style="background:#2a2010; border-color:#7b6020;">
+              <h4 style="color:#fbd38d;">⚠️ Inconsistent State</h4>
+              <p style="font-size:.82rem;">Device is in a <em>different</em> state from recording.<br><br>VLM is shown:<br>1. Recording first frame (target precondition)<br>2. Current device GUI<br><br>→ VLM infers exploratory action to navigate toward the target state.</p>
+            </div>
+          </div>
+
+          <h4>Action Space</h4>
+          <span class="tech-chip">tap [element]</span>
+          <span class="tech-chip">tap [back]</span>
+          <span class="tech-chip">scroll [up/down]</span>
+          <span class="tech-chip">input [element][value]</span>
+          <span class="tech-chip">end (bug reproduced)</span>
+
+          <h4>Execution loop</h4>
+          <p>Repeat Phase 2 + Phase 3 for each scene until VLM outputs <code>[end]</code>.</p>
+
+          <h4>Key models / tools</h4>
+          <span class="tech-chip">GPT-4o (VLM)</span>
+          <span class="tech-chip">ADB</span>
+          <span class="tech-chip">UIAutomator</span>
+          <span class="tech-chip">Genymotion emulator</span>
+        </div>
+        <div class="pipe-arrow"></div>
+
+        <!-- OUTPUT -->
+        <div class="pipe-io output">🐛 OUTPUT: Bug reproduced on device — or — Failure (no GUI correspondence)</div>
+
+      </div>
+    </section>
+
+    <!-- LLM Usage -->
+    <section id="llm">
+      <h2><span class="icon">🧠</span> LLM Usage</h2>
+      <div class="card">
+        <h3>Model: GPT-4o (multimodal VLM)</h3>
+        <p>Used as the core reasoning engine for <strong>three distinct tasks</strong>:</p>
+        <ul>
+          <li><strong>ROI Selection</strong> — "Which numbered region was interacted with?" (returns integer)</li>
+          <li><strong>State Consistency Check</strong> — "Is this interactive region present on the device?" (returns YES/NO)</li>
+          <li><strong>Action Inference</strong> — "Which element should I interact with and how?" (returns action primitive)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Prompting Strategy</h3>
+        <ul>
+          <li><strong>Region-guided attention prompting</strong>: dual-view composite image with labeled candidate regions.</li>
+          <li><strong>Binary state comparison</strong>: YES/NO output for reliable parsing via regex.</li>
+          <li><strong>Dynamic action inference</strong>: two separate prompt templates depending on whether state is consistent or inconsistent.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Vision -->
+    <section id="vision">
+      <h2><span class="icon">👁️</span> Vision Components</h2>
+      <div class="card">
+        <h3>CLIP — Scene Segmentation</h3>
+        <p>Encodes Y-luminance video frames into embeddings; cosine similarity between consecutive frames detects action boundaries. No fine-tuning — zero-shot transfer to GUI domain.</p>
+      </div>
+      <div class="card">
+        <h3>GroundingDINO — Interactive Region Detection</h3>
+        <p>Open-vocabulary object detector: given an image + text prompt, finds bounding boxes for regions matching the text. Used with generic GUI prompts ("button", "text field", etc.) to localize candidate interactive regions — no app-specific training needed.</p>
+        <p style="margin-top:.5rem; font-size:.82rem; color:#718096;">Architecture: Vision backbone → Language encoder (CLIP-based) → Cross-modal decoder → bounding boxes.</p>
+      </div>
+      <div class="card">
+        <h3>GPT-4o — GUI State Comparison & Action Inference</h3>
+        <p>Multimodal VLM; sees annotated screenshots and reasons about functional equivalence and which UI action to take.</p>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section id="results">
+      <h2><span class="icon">📊</span> Results & Metrics</h2>
+
+      <div class="stat-row">
+        <div class="stat"><div class="num">75</div><div class="lbl">GUI recordings (full dataset)</div></div>
+        <div class="stat"><div class="num">38</div><div class="lbl">Bug replay evaluation set</div></div>
+        <div class="stat"><div class="num">463</div><div class="lbl">GUI state comparison pairs</div></div>
+        <div class="stat"><div class="num">3×</div><div class="lbl">Runs per recording (VLM stochasticity)</div></div>
+      </div>
+
+      <h3 style="color:#90cdf4; margin:.8rem 0 .5rem; font-size:.9rem;">RQ1 — Action Segmentation</h3>
+      <table>
+        <tr><th>Method</th><th>Precision</th><th>Recall</th><th>F1</th></tr>
+        <tr><td>PySceneDetect</td><td>0.42</td><td>0.55</td><td>0.48</td></tr>
+        <tr><td>Hecate</td><td>0.20</td><td>0.26</td><td>0.23</td></tr>
+        <tr><td>TransNetV2</td><td>0.33</td><td>0.56</td><td>0.41</td></tr>
+        <tr><td>GPT-4o (raw)</td><td>0.25</td><td>0.55</td><td>0.34</td></tr>
+        <tr><td>GIFdroid</td><td>0.81</td><td>0.84</td><td>0.82</td></tr>
+        <tr class="highlight"><td>ViBR</td><td>0.87</td><td>0.85</td><td><strong>0.86</strong></td></tr>
+      </table>
+
+      <h3 style="color:#90cdf4; margin:.8rem 0 .5rem; font-size:.9rem;">RQ2 — GUI State Comparison</h3>
+      <table>
+        <tr><th>Method</th><th>Precision</th><th>Recall</th><th>F1</th></tr>
+        <tr><td>ABS (pixel diff)</td><td>0.40</td><td>0.35</td><td>0.37</td></tr>
+        <tr><td>SIFT</td><td>0.52</td><td>0.50</td><td>0.51</td></tr>
+        <tr><td>SSIM</td><td>0.60</td><td>0.64</td><td>0.62</td></tr>
+        <tr><td>CLIP (full screenshot)</td><td>0.61</td><td>0.53</td><td>0.57</td></tr>
+        <tr><td>VLM-only (no region guidance)</td><td>0.75</td><td>0.71</td><td>0.73</td></tr>
+        <tr class="highlight"><td>ViBR (region-guided VLM)</td><td>0.88</td><td>0.92</td><td><strong>0.89</strong></td></tr>
+      </table>
+
+      <h3 style="color:#90cdf4; margin:.8rem 0 .5rem; font-size:.9rem;">RQ3 — Bug Replay</h3>
+      <table>
+        <tr><th>Method</th><th>Reproducibility</th><th>Execution Time</th></tr>
+        <tr><td>V2S</td><td>47.4%</td><td>904.3s</td></tr>
+        <tr><td>GIFdroid</td><td>52.6%</td><td>346.3s</td></tr>
+        <tr class="highlight"><td>ViBR</td><td><strong>73.7%</strong></td><td><strong>289.1s</strong></td></tr>
+      </table>
+
+      <div class="card" style="margin-top:1rem;">
+        <h3>Ablation: Why Region-Guided Prompting Matters</h3>
+        <p>VLM without region guidance: F1 = <strong>0.73</strong></p>
+        <p>ViBR with region-guided prompting: F1 = <strong>0.89</strong></p>
+        <p style="color:#fbd38d; margin-top:.4rem;">→ +21.9% F1, +17.3% precision, +29.6% recall — focusing VLM attention on the specific interaction region is crucial.</p>
+      </div>
+    </section>
+
+    <!-- Comparison -->
+    <section id="comparison">
+      <h2><span class="icon">⚖️</span> ViBR vs. Baselines</h2>
+      <p style="margin-bottom:.8rem; color:#718096; font-size:.85rem;">Bug Replay — Reproducibility</p>
+      <div class="compare-grid">
+        <div class="compare-card">
+          <div class="method">V2S</div>
+          <div class="score">47.4%</div>
+          <div style="font-size:.75rem; color:#718096; margin-top:.3rem;">Requires touch indicators</div>
+        </div>
+        <div class="compare-card">
+          <div class="method">GIFdroid</div>
+          <div class="score">52.6%</div>
+          <div style="font-size:.75rem; color:#718096; margin-top:.3rem;">Needs 1hr UTG exploration</div>
+        </div>
+        <div class="compare-card winner">
+          <div class="method">ViBR</div>
+          <div class="score">73.7%</div>
+          <div style="font-size:.75rem; color:#4a9464; margin-top:.3rem;">No instrumentation needed</div>
+        </div>
+      </div>
+      <p style="color:#718096; font-size:.85rem; margin-top:.5rem;">Also fastest: 289.1s vs 346.3s (GIFdroid) vs 904.3s (V2S)</p>
+    </section>
+
+    <!-- Strengths -->
+    <section id="strengths">
+      <h2><span class="icon">💪</span> Strengths</h2>
+      <ul>
+        <li><strong>Functionality-aware GUI comparison</strong> — handles dark mode, resolution shifts, toast messages that defeat pixel-level methods.</li>
+        <li><strong>No instrumentation</strong> — works on standard screen recordings without touch indicators or pre-built UTGs.</li>
+        <li><strong>Fastest execution</strong> among baselines (289.1s vs 346.3s vs 904.3s).</li>
+        <li><strong>First framework</strong> to leverage VLMs for reasoning over GUI video recordings — new paradigm for video-based GUI engineering.</li>
+        <li><strong>Region-guided prompting</strong> is a coarse-to-fine approach: GroundingDINO narrows the search space, then VLM reasons within it.</li>
+      </ul>
+    </section>
+
+    <!-- Limitations -->
+    <section id="limitations">
+      <h2><span class="icon">⚠️</span> Limitations</h2>
+      <div class="pro-con">
+        <div class="cons">
+          <h4>Technical</h4>
+          <ul>
+            <li>Fails when no semantic GUI correspondence (e.g. Dropbox different folder structure).</li>
+            <li>Masked input fields (PIN, password) — VLM can't see actual input value.</li>
+            <li>Action segmentation struggles with delayed rendering and video ads.</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Practical</h4>
+          <ul>
+            <li>Relies on GPT-4o — API cost, latency, closed-source dependency.</li>
+            <li>Small bug replay dataset (38 recordings after filtering from 75).</li>
+            <li>Action space limited to tap/scroll/input — no complex gestures (pinch, multi-finger).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Takeaways -->
+    <section id="takeaways">
+      <h2><span class="icon">💡</span> Key Takeaways</h2>
+      <div class="card">
+        <h3>One-line summary</h3>
+        <p>ViBR reproduces bugs from GUI video recordings by segmenting actions using CLIP embeddings, comparing GUI states with region-guided VLM prompting, and adaptively replaying actions using GPT-4o — achieving <strong>73.7% reproducibility</strong> without any instrumentation.</p>
+      </div>
+      <div class="card">
+        <h3>Most important insight</h3>
+        <p>Region-guided prompting dramatically outperforms full-screenshot VLM comparison (F1: <strong>0.89 vs 0.73</strong>). Focusing VLM attention on the specific interaction region is crucial — holistic full-image reasoning is insufficient for fine-grained GUI state comparison.</p>
+      </div>
+      <div class="card">
+        <h3>Ideas to borrow</h3>
+        <ul>
+          <li>Y-luminance preprocessing before CLIP encoding to reduce compression noise.</li>
+          <li>Region-of-interest dual-view composite prompting for GUI state comparison.</li>
+          <li>Consistent vs. inconsistent state dual-prompt strategy for adaptive action inference.</li>
+          <li>GroundingDINO with generic GUI category prompts for interactive region detection.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Future work (from authors)</h3>
+        <ul>
+          <li>Sample intermediate frames within scenes for ambiguous transitions (e.g. PIN masking).</li>
+          <li>Expand action space to multi-touch gestures.</li>
+          <li>Apply ViBR to usability testing, tutorial generation, accessibility evaluation.</li>
+          <li>Evaluate across multiple VLMs (Gemini, Claude, Qwen).</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // Toggle pipeline node detail panels
+  function toggleNode(nodeId, detailId) {
+    const node   = document.getElementById(nodeId);
+    const detail = document.getElementById(detailId);
+    const isOpen = detail.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.pipe-detail').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.pipe-node').forEach(n => n.classList.remove('active'));
+
+    // Open clicked (unless it was already open)
+    if (!isOpen) {
+      detail.classList.add('open');
+      node.classList.add('active');
+      // Smooth scroll into view
+      setTimeout(() => node.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+    }
+  }
+
+  // Scrollspy: highlight nav link for visible section
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('nav a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+
+  // Smooth scroll for nav links
+  navLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>

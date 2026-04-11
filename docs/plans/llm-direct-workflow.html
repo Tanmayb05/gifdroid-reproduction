@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIFdroid — LLM-Direct Video Automation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            min-height: 100vh;
+            padding: 30px 20px;
+            color: #2c3e50;
+        }
+
+        .page { max-width: 980px; margin: 0 auto; }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .header h1 {
+            font-size: 1.9em;
+            font-weight: 700;
+            color: #1a252f;
+        }
+        .header .subtitle {
+            margin-top: 6px;
+            font-size: 0.95em;
+            color: #7f8c8d;
+        }
+        .diff-badge {
+            display: inline-block;
+            margin-top: 10px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        /* Main diagram card */
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            padding: 28px 24px;
+            margin-bottom: 24px;
+        }
+        .card-title {
+            font-size: 1em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #546e7a;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .mermaid { display: flex; justify-content: center; }
+
+        /* Comparison strip */
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .compare-box {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            padding: 20px;
+        }
+        .compare-box h3 {
+            font-size: 0.9em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid;
+        }
+        .compare-box.old h3 { color: #b71c1c; border-color: #ef9a9a; }
+        .compare-box.new h3 { color: #1b5e20; border-color: #a5d6a7; }
+        .compare-box ul { list-style: none; padding: 0; }
+        .compare-box ul li {
+            font-size: 0.83em;
+            padding: 4px 0;
+            padding-left: 18px;
+            position: relative;
+            color: #455a64;
+        }
+        .compare-box ul li::before {
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+        .compare-box.old ul li::before { content: "✗"; color: #e53935; }
+        .compare-box.new ul li::before { content: "✓"; color: #43a047; }
+
+        /* Detail cards grid */
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .detail-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            padding: 20px;
+        }
+        .detail-card h3 {
+            font-size: 0.85em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            color: #546e7a;
+        }
+
+        /* Phase chips */
+        .phase-list { display: flex; flex-direction: column; gap: 8px; }
+        .phase-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .phase-num {
+            min-width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75em;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+        .phase-text { font-size: 0.82em; color: #455a64; line-height: 1.5; }
+        .phase-text strong { color: #2c3e50; }
+
+        /* Action table */
+        table { width: 100%; border-collapse: collapse; font-size: 0.82em; }
+        th {
+            background: #f5f7fa;
+            text-align: left;
+            padding: 8px 10px;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #546e7a;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        td {
+            padding: 7px 10px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #455a64;
+        }
+        td code {
+            background: #f5f7fa;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        tr:last-child td { border-bottom: none; }
+
+        /* Risks */
+        .risk-list { display: flex; flex-direction: column; gap: 6px; }
+        .risk-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82em;
+            padding: 7px 10px;
+            border-radius: 6px;
+        }
+        .risk-item.high   { background: #fce4ec; color: #880e4f; }
+        .risk-item.medium { background: #fff8e1; color: #e65100; }
+        .risk-item.low    { background: #e8f5e9; color: #1b5e20; }
+        .risk-badge {
+            font-weight: 700;
+            font-size: 0.75em;
+            padding: 1px 7px;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        .high .risk-badge   { background: #e91e63; color: white; }
+        .medium .risk-badge { background: #ff9800; color: white; }
+        .low .risk-badge    { background: #43a047; color: white; }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.8em; color: #546e7a; }
+        .dot { height: 12px; width: 12px; border-radius: 3px; display: inline-block; }
+
+        @media (max-width: 640px) {
+            .compare-grid, .detail-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Header -->
+    <div class="header">
+        <h1>GIFdroid — LLM-Direct Video Automation</h1>
+        <p class="subtitle">Active feedback loop: LLM watches video directly and drives live device interaction</p>
+        <span class="diff-badge">No keyframe extraction · Raw video → LLM → Device</span>
+    </div>
+
+    <!-- Old vs New -->
+    <div class="compare-grid">
+        <div class="compare-box old">
+            <h3>Old Workflow (Passive Trace)</h3>
+            <ul>
+                <li>Extract frames at fixed FPS</li>
+                <li>SSIM keyframe selection step</li>
+                <li>Single LLM call, one-shot</li>
+                <li>Outputs static JSON trace only</li>
+                <li>No live device interaction</li>
+                <li>No feedback loop</li>
+            </ul>
+        </div>
+        <div class="compare-box new">
+            <h3>New Workflow (Active Agent)</h3>
+            <ul>
+                <li>Raw .mp4 uploaded directly to LLM</li>
+                <li>No frame extraction or SSIM needed</li>
+                <li>Multi-turn stateful conversation</li>
+                <li>LLM decides each action in real time</li>
+                <li>uiautomator2 executes on live device</li>
+                <li>Screenshot feedback closes the loop</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Flow Diagram -->
+    <div class="card">
+        <div class="card-title">Full Workflow — End to End</div>
+        <div class="mermaid">
+graph TD
+    A(["<b>INPUT</b><br/>video.mp4 + app.apk"]) --> B["<b>Setup</b><br/>ADB connect · APK install · App launch"]
+    B --> C["<b>Video Upload</b><br/>Raw .mp4 → Gemini / Claude API<br/><i>No frame extraction</i>"]
+    C --> D["<b>LLM: Initial Understanding</b><br/>Describe task goal from video<br/>Produce step-by-step intent"]
+
+    D --> E["<b>Capture Device State</b><br/>Screenshot + accessibility tree"]
+
+    subgraph LOOP ["  Active Decision Loop  "]
+        E --> F{"<b>LLM Decision</b><br/>video context + history<br/>+ current screenshot"}
+        F -- "continue: true" --> G["<b>Execute Action</b><br/>tap · scroll · type · back · wait"]
+        G --> H["<b>Capture Feedback</b><br/>New screenshot + hierarchy"]
+        H --> I["<b>Update History</b><br/>Sliding window<br/>compress old turns"]
+        I --> F
+    end
+
+    F -- "continue: false<br/>or max_steps" --> J["<b>End Session</b><br/>Write session trace JSON"]
+    J --> K(["<b>OUTPUT</b><br/>Session trace + screenshots"])
+
+    style LOOP fill:#fff8e1,stroke:#f9a825,stroke-dasharray:6 4
+    style F fill:#ffe082,stroke:#f9a825
+    style A fill:#c8e6c9,stroke:#388e3c
+    style K fill:#c8e6c9,stroke:#388e3c
+    style C fill:#e3f2fd,stroke:#1976d2
+    style D fill:#e3f2fd,stroke:#1976d2
+        </div>
+        <div class="legend">
+            <div class="legend-item"><span class="dot" style="background:#e3f2fd;border:1px solid #1976d2"></span>LLM Video Understanding</div>
+            <div class="legend-item"><span class="dot" style="background:#fff8e1;border:1px solid #f9a825"></span>Active Execution Loop</div>
+            <div class="legend-item"><span class="dot" style="background:#c8e6c9;border:1px solid #388e3c"></span>I/O Boundaries</div>
+        </div>
+    </div>
+
+    <!-- Detail Sections -->
+    <div class="detail-grid">
+
+        <!-- Steps breakdown -->
+        <div class="detail-card">
+            <h3>Step-by-Step Breakdown</h3>
+            <div class="phase-list">
+                <div class="phase-item">
+                    <div class="phase-num" style="background:#1976d2">1</div>
+                    <div class="phase-text"><strong>Setup</strong> — ADB connects to device, APK is installed and launched. Device serial + package name extracted.</div>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num" style="background:#1976d2">2</div>
+                    <div class="phase-text"><strong>Video Upload</strong> — Raw <code>.mp4</code> uploaded to LLM (Gemini Files API or Claude). No SSIM, no frame sampling.</div>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num" style="background:#1976d2">3</div>
+                    <div class="phase-text"><strong>Initial Understanding</strong> — LLM describes the task goal and intended step sequence from the video. Stored as system context.</div>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num" style="background:#f9a825">4</div>
+                    <div class="phase-text"><strong>State Capture</strong> — Screenshot + accessibility tree dump via uiautomator2 after every action.</div>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num" style="background:#f9a825">5</div>
+                    <div class="phase-text"><strong>LLM Decision</strong> — Multi-turn call with video context + history + current screenshot. Returns <code>continue</code> flag + next action.</div>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num" style="background:#f9a825">6</div>
+                    <div class="phase-text"><strong>Action Execution</strong> — uiautomator2 executes tap, scroll, type, back, etc. on live device.</div>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num" style="background:#f9a825">7</div>
+                    <div class="phase-text"><strong>History Update</strong> — New screenshot appended; sliding window keeps last N turns; older turns compressed to text.</div>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num" style="background:#388e3c">8</div>
+                    <div class="phase-text"><strong>Session End</strong> — <code>continue: false</code> or max_steps reached. Session trace JSON written with all actions + screenshots.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action types -->
+        <div class="detail-card">
+            <h3>Supported Action Types</h3>
+            <table>
+                <thead>
+                    <tr><th>Action</th><th>uiautomator2 API</th><th>Params</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>tap</td><td><code>device.click(x, y)</code></td><td>x, y or resource-id</td></tr>
+                    <tr><td>scroll</td><td><code>device.swipe(...)</code></td><td>direction, bounds</td></tr>
+                    <tr><td>type_text</td><td><code>device.send_keys(text)</code></td><td>text string</td></tr>
+                    <tr><td>press_back</td><td><code>device.press("back")</code></td><td>—</td></tr>
+                    <tr><td>press_home</td><td><code>device.press("home")</code></td><td>—</td></tr>
+                    <tr><td>wait</td><td><code>device.wait(...)</code></td><td>timeout ms</td></tr>
+                    <tr><td>launch_app</td><td><code>adb shell am start</code></td><td>package/activity</td></tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top:20px">LLM Response Schema</h3>
+            <pre style="background:#f5f7fa;border-radius:8px;padding:14px;font-size:0.78em;overflow:auto;color:#37474f;line-height:1.6">{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "x": 540,
+    "y": 1200,
+    "resource_id": "com.app:id/btn_ok",
+    "description": "Tap the OK button"
+  },
+  "reasoning": "Video shows user tapping OK..."
+}</pre>
+        </div>
+
+        <!-- Context strategy -->
+        <div class="detail-card">
+            <h3>Context Management Strategy</h3>
+            <div class="phase-list">
+                <div class="phase-item">
+                    <div class="phase-num" style="background:#6a1b9a">A</div>
+                    <div class="phase-text"><strong>Turn 1</strong> — Full video + task prompt. LLM produces initial understanding. Video stays as a fixed anchor in system context.</div>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num" style="background:#6a1b9a">B</div>
+                    <div class="phase-text"><strong>Turns 2–N</strong> — Only the last <strong>N screenshots</strong> (sliding window, default N=5) are sent. Earlier screenshots are replaced with text summaries.</div>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num" style="background:#6a1b9a">C</div>
+                    <div class="phase-text"><strong>Compression</strong> — LLM is asked to summarize completed steps every K turns to prevent context overflow. Summary injected as a system message.</div>
+                </div>
+                <div class="phase-item">
+                    <div class="phase-num" style="background:#6a1b9a">D</div>
+                    <div class="phase-text"><strong>Fallback</strong> — Accessibility tree (XML hierarchy) sent alongside screenshot when coordinate resolution is ambiguous. Resource-ids preferred over raw x,y.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Risks -->
+        <div class="detail-card">
+            <h3>Key Risks &amp; Mitigations</h3>
+            <div class="risk-list">
+                <div class="risk-item high">
+                    <span class="risk-badge">HIGH</span>
+                    LLM hallucinates wrong coordinates → fall back to resource-id from accessibility tree
+                </div>
+                <div class="risk-item high">
+                    <span class="risk-badge">HIGH</span>
+                    Context overflow from screenshots → sliding window + turn compression
+                </div>
+                <div class="risk-item medium">
+                    <span class="risk-badge">MED</span>
+                    uiautomator2 server crash mid-session → auto-reconnect + session checkpoint
+                </div>
+                <div class="risk-item medium">
+                    <span class="risk-badge">MED</span>
+                    Gemini API rate limits → inter-step delay + exponential backoff retry
+                </div>
+                <div class="risk-item medium">
+                    <span class="risk-badge">MED</span>
+                    App crash during automation → detect via activity monitor, log and stop
+                </div>
+                <div class="risk-item low">
+                    <span class="risk-badge">LOW</span>
+                    max_steps reached before task completes → log clearly, allow manual continuation
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- New files needed -->
+    <div class="card">
+        <div class="card-title">New Components Required</div>
+        <table>
+            <thead>
+                <tr><th>File</th><th>Type</th><th>Purpose</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>gifdroid_llm/automate.py</code></td><td>New entrypoint</td><td>CLI for the active automation loop (parallel to main.py)</td></tr>
+                <tr><td><code>gifdroid_llm/automation.py</code></td><td>New</td><td>Orchestrates the decision loop: step counter, stop conditions, trace output</td></tr>
+                <tr><td><code>gifdroid_llm/device.py</code></td><td>New</td><td>uiautomator2 wrapper: install APK, execute actions, screenshot, dump hierarchy</td></tr>
+                <tr><td><code>gifdroid_llm/session.py</code></td><td>New</td><td>Session state: conversation history, sliding window, compression, step log</td></tr>
+                <tr><td><code>gifdroid_llm/apk_utils.py</code></td><td>New</td><td>Extract package name + main activity from APK via apkutils2</td></tr>
+                <tr><td><code>gifdroid_llm/providers.py</code></td><td>Extend</td><td>Add <code>run_automation_turn(history, screenshot)</code> multi-turn method</td></tr>
+                <tr><td><code>gifdroid_llm/config.py</code></td><td>Extend</td><td>Add <code>automation:</code> config section (device_serial, max_steps, window_size)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    mermaid.initialize({ startOnLoad: true, theme: 'neutral', flowchart: { curve: 'basis' } });
+</script>
+</body>
+</html>

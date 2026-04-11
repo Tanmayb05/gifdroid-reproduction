@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdbGPT — Prompting Is All You Need</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f1117;
+    color: #e2e8f0;
+    line-height: 1.6;
+  }
+
+  /* ── Layout ── */
+  .page { max-width: 960px; margin: 0 auto; padding: 32px 20px 80px; }
+
+  /* ── Header ── */
+  .hero {
+    background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 100%);
+    border: 1px solid #2d3748;
+    border-radius: 16px;
+    padding: 36px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-block;
+    background: #312e81;
+    color: #a5b4fc;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .hero h1 { font-size: 1.6rem; font-weight: 800; color: #f0f4ff; line-height: 1.3; margin-bottom: 10px; }
+  .hero .meta { color: #94a3b8; font-size: 0.85rem; }
+  .hero .meta a { color: #818cf8; text-decoration: none; }
+  .hero .meta a:hover { text-decoration: underline; }
+
+  /* ── Stat pills ── */
+  .stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .stat {
+    background: #1e2433;
+    border: 1px solid #2d3748;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    color: #94a3b8;
+  }
+  .stat strong { color: #a5b4fc; }
+
+  /* ── Section titles ── */
+  .section-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #6366f1;
+    margin: 36px 0 16px;
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: #1a1f2e;
+    border: 1px solid #2d3748;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+  }
+  .card h3 { font-size: 0.95rem; color: #e2e8f0; margin-bottom: 6px; }
+  .card p, .card li { font-size: 0.875rem; color: #94a3b8; }
+  .card ul { padding-left: 18px; }
+  .card li { margin-bottom: 4px; }
+
+  /* ── Pipeline Diagram ── */
+  .pipeline { display: flex; flex-direction: column; gap: 0; }
+
+  .pipeline-step {
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 2px solid #2d3748;
+    background: #1a1f2e;
+    transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    overflow: hidden;
+  }
+  .pipeline-step:hover { border-color: #6366f1; transform: translateX(4px); }
+  .pipeline-step.active { border-color: #818cf8; box-shadow: 0 0 0 3px rgba(99,102,241,0.2); }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+  }
+  .step-num {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .step-label { font-weight: 700; font-size: 0.95rem; color: #e2e8f0; }
+  .step-sublabel { font-size: 0.78rem; color: #64748b; margin-top: 2px; }
+  .step-arrow { margin-left: auto; color: #4b5563; font-size: 0.8rem; transition: transform 0.2s; }
+  .pipeline-step.active .step-arrow { transform: rotate(90deg); color: #818cf8; }
+
+  .step-detail {
+    display: none;
+    padding: 0 20px 20px 68px;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    border-top: 1px solid #2d3748;
+    margin-top: 0;
+    padding-top: 16px;
+  }
+  .pipeline-step.active .step-detail { display: block; }
+
+  .step-detail h4 { color: #a5b4fc; font-size: 0.8rem; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 8px; margin-top: 14px; }
+  .step-detail h4:first-child { margin-top: 0; }
+  .step-detail ul { padding-left: 16px; }
+  .step-detail li { margin-bottom: 5px; }
+  .step-detail .code-block {
+    background: #0d1117;
+    border: 1px solid #2d3748;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.78rem;
+    color: #86efac;
+    margin-top: 8px;
+    line-height: 1.5;
+    white-space: pre;
+    overflow-x: auto;
+  }
+  .step-detail .highlight { color: #fbbf24; font-weight: 600; }
+  .step-detail .note {
+    background: #1e2433;
+    border-left: 3px solid #6366f1;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: #94a3b8;
+  }
+
+  /* connector arrow between steps */
+  .connector {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 0 0 35px;
+    height: 28px;
+    color: #4b5563;
+    font-size: 1rem;
+    user-select: none;
+  }
+  .connector span { font-size: 0.7rem; margin-left: 8px; color: #374151; letter-spacing: .4px; }
+
+  /* ── Step color themes ── */
+  .s-input .step-num  { background: #1e3a5f; color: #60a5fa; }
+  .s-phase1 .step-num { background: #312e81; color: #a5b4fc; }
+  .s-phase2 .step-num { background: #1e3a5f; color: #60a5fa; }
+  .s-exec .step-num   { background: #14532d; color: #4ade80; }
+  .s-oracle .step-num { background: #4c1d2f; color: #f472b6; }
+
+  .s-input.active   { border-color: #3b82f6; }
+  .s-phase1.active  { border-color: #818cf8; }
+  .s-phase2.active  { border-color: #60a5fa; }
+  .s-exec.active    { border-color: #22c55e; }
+  .s-oracle.active  { border-color: #ec4899; }
+
+  /* ── Results table ── */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .result-card {
+    background: #1a1f2e;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .result-card .value { font-size: 2rem; font-weight: 800; color: #a5b4fc; }
+  .result-card .label { font-size: 0.75rem; color: #64748b; margin-top: 4px; }
+  .result-card .vs    { font-size: 0.7rem; color: #374151; margin-top: 6px; }
+  .result-card .vs em { color: #6b7280; }
+
+  /* ── Comparison bar ── */
+  .bar-row { margin-bottom: 10px; }
+  .bar-label { font-size: 0.8rem; color: #94a3b8; margin-bottom: 4px; display: flex; justify-content: space-between; }
+  .bar-label span { color: #4b5563; font-size: 0.75rem; }
+  .bar-track { background: #1e2433; border-radius: 20px; height: 10px; overflow: hidden; }
+  .bar-fill {
+    height: 100%; border-radius: 20px;
+    transition: width 1s ease;
+    width: 0;
+  }
+  .bar-fill.adbgpt { background: linear-gradient(90deg, #6366f1, #a78bfa); }
+  .bar-fill.recdroid { background: #2d3748; }
+
+  /* ── Tabs ── */
+  .tab-bar { display: flex; gap: 4px; margin-bottom: 16px; }
+  .tab {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #2d3748;
+    color: #64748b;
+    background: transparent;
+    transition: all 0.15s;
+  }
+  .tab.active { background: #312e81; border-color: #6366f1; color: #a5b4fc; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ── Tags ── */
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tag {
+    background: #1e2433;
+    border: 1px solid #2d3748;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 0.72rem;
+    color: #6366f1;
+    font-weight: 600;
+  }
+
+  /* ── Prompt visualizer ── */
+  .prompt-box {
+    background: #0d1117;
+    border: 1px solid #2d3748;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 12px;
+  }
+  .prompt-box .prompt-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 14px;
+    border-bottom: 1px solid #1a1f2e;
+    font-size: 0.8rem;
+    font-family: 'SF Mono', monospace;
+  }
+  .prompt-box .prompt-line:last-child { border-bottom: none; }
+  .prompt-line .part-label {
+    min-width: 130px;
+    color: #6366f1;
+    font-weight: 700;
+    font-size: 0.72rem;
+    padding-top: 1px;
+    letter-spacing: .3px;
+  }
+  .prompt-line .part-value { color: #94a3b8; }
+  .prompt-line.highlight-line { background: #1a1f2e; }
+
+  /* ── Tooltip ── */
+  [data-tip] { position: relative; cursor: help; border-bottom: 1px dashed #4b5563; }
+  [data-tip]:hover::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e2433;
+    border: 1px solid #374151;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 24px; }
+    .hero h1 { font-size: 1.2rem; }
+    .step-detail { padding-left: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Hero ── -->
+  <div class="hero">
+    <div class="badge">ICSE 2024</div>
+    <h1>AdbGPT: Prompting Is All You Need</h1>
+    <div class="meta">
+      Sidong Feng &amp; Chunyang Chen &nbsp;·&nbsp;
+      <a href="https://doi.org/10.1145/3597503.3608137" target="_blank">doi:10.1145/3597503.3608137</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/sidongfeng/AdbGPT" target="_blank">GitHub</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>81.3%</strong> bug reproduction rate</div>
+      <div class="stat"><strong>5× faster</strong> than prior SOTA</div>
+      <div class="stat"><strong>Zero</strong> training data needed</div>
+      <div class="stat"><strong>48</strong> real-world bugs replayed</div>
+      <div class="stat"><strong>ChatGPT</strong> (GPT-3.5)</div>
+    </div>
+  </div>
+
+  <!-- ── One-liner ── -->
+  <div class="card">
+    <h3>What is this?</h3>
+    <p>AdbGPT automatically replays Android crash bugs using <strong>only prompt engineering</strong> — no training data, no hard-coded patterns. It feeds a natural-language bug report into ChatGPT to extract structured steps, then uses ChatGPT again to navigate the live app GUI step-by-step until the crash is triggered.</p>
+  </div>
+
+  <!-- ── Pipeline ── -->
+  <div class="section-title">System Pipeline — click any step to expand</div>
+  <div class="pipeline" id="pipeline">
+
+    <!-- INPUT -->
+    <div class="pipeline-step s-input" onclick="toggle(this)">
+      <div class="step-header">
+        <div class="step-num">IN</div>
+        <div>
+          <div class="step-label">Input</div>
+          <div class="step-sublabel">Bug report text + APK file</div>
+        </div>
+        <div class="step-arrow">▶</div>
+      </div>
+      <div class="step-detail">
+        <h4>What goes in</h4>
+        <ul>
+          <li><strong>Bug report</strong> — natural language S2Rs (Steps to Reproduce) written by a developer/user. Often informal, inconsistent, or incomplete.</li>
+          <li><strong>APK file</strong> — the Android app binary to run on the emulator.</li>
+        </ul>
+        <h4>Example raw bug report text</h4>
+        <div class="code-block">1. Open the app
+2. Go to Settings
+3. Tap "Notifications"
+4. Toggle "Enable alerts" on
+→ App crashes immediately</div>
+        <div class="note">S2Rs often have <span class="highlight">missing steps</span> (e.g., "you need to be logged in first"), <span class="highlight">vague values</span> ("enter a number"), or words that don't match on-screen labels.</div>
+      </div>
+    </div>
+
+    <div class="connector">↓ <span>raw bug report</span></div>
+
+    <!-- PHASE 1 -->
+    <div class="pipeline-step s-phase1" onclick="toggle(this)">
+      <div class="step-header">
+        <div class="step-num">P1</div>
+        <div>
+          <div class="step-label">Phase 1 — S2R Entity Extraction</div>
+          <div class="step-sublabel">LLM parses the bug report into structured actions</div>
+        </div>
+        <div class="step-arrow">▶</div>
+      </div>
+      <div class="step-detail">
+        <h4>Goal</h4>
+        <p>Turn messy natural language into a clean, ordered list of <code style="background:#0d1117;padding:1px 5px;border-radius:4px;color:#86efac">[Action][Component][Value]</code> triples.</p>
+
+        <h4>How the prompt is built</h4>
+        <div class="prompt-box">
+          <div class="prompt-line">
+            <div class="part-label">Available actions</div>
+            <div class="part-value">Tap, Scroll, Input, Double-tap, Long-tap</div>
+          </div>
+          <div class="prompt-line">
+            <div class="part-label">Action primitives</div>
+            <div class="part-value">Tap[Component], Scroll[Dir], Input[Component][Value]…</div>
+          </div>
+          <div class="prompt-line highlight-line">
+            <div class="part-label">3 few-shot examples</div>
+            <div class="part-value">Each with Chain-of-Thought reasoning (developer thought process)</div>
+          </div>
+          <div class="prompt-line">
+            <div class="part-label">Raw bug report</div>
+            <div class="part-value">← the new test input appended here</div>
+          </div>
+        </div>
+
+        <h4>LLM output</h4>
+        <div class="code-block">Tap[Settings icon]
+Tap[Notifications]
+Input[Search box]["alerts"]
+Tap[Enable alerts toggle]</div>
+
+        <h4>Why LLM beats pattern-matching here</h4>
+        <ul>
+          <li><span data-tip="e.g. 'films' matches 'movies' tab on screen">Diversified words</span> — LLM understands synonyms</li>
+          <li><span data-tip="Step 3 only makes sense if you read steps 1 & 2">Dependent context</span> — LLM reasons holistically</li>
+          <li>Inconsistent formats — LLM tolerates informal language</li>
+        </ul>
+        <div class="note">Accuracy: <strong>90.4% step accuracy</strong> vs 51.1% (ReCDroid) and 55.1% (MaCa). Runs in ~<strong>2 seconds</strong>.</div>
+      </div>
+    </div>
+
+    <div class="connector">↓ <span>ordered S2R entity list</span></div>
+
+    <!-- PHASE 2 -->
+    <div class="pipeline-step s-phase2" onclick="toggle(this)">
+      <div class="step-header">
+        <div class="step-num">P2</div>
+        <div>
+          <div class="step-label">Phase 2 — Guided Replay</div>
+          <div class="step-sublabel">LLM maps each step to the live app GUI, one at a time</div>
+        </div>
+        <div class="step-arrow">▶</div>
+      </div>
+      <div class="step-detail">
+        <h4>Loop: for each S2R entity…</h4>
+        <ul>
+          <li><strong>1. Capture GUI state</strong> — read the current screen's view hierarchy (XML) from the Android device via ADB.</li>
+          <li><strong>2. Encode to HTML</strong> — depth-first traversal converts XML widgets to simplified HTML tags:
+            <div class="code-block">&lt;button id="login_btn"&gt;Sign In&lt;/button&gt;
+&lt;input id="user_field" hint="Username"&gt;
+&lt;p&gt;Forgot password?&lt;/p&gt;</div>
+          </li>
+          <li><strong>3. Prompt LLM</strong> — send HTML encoding + 3 few-shot CoT examples + the current S2R entity.</li>
+          <li><strong>4. LLM picks the target widget</strong> — outputs which element to interact with and how.</li>
+          <li><strong>5. Execute via ADB</strong> — action sent to emulator using Android Debug Bridge.</li>
+        </ul>
+
+        <h4>Why HTML encoding?</h4>
+        <div class="note">Screenshots are not used — the view hierarchy (resource-id, text, content-desc) is converted to structured HTML text. This is lightweight and gives the LLM the semantic structure it needs without vision.</div>
+
+        <h4>Example LLM reasoning (Chain-of-Thought)</h4>
+        <div class="code-block">S2R: Tap[Notifications]
+GUI has: &lt;button id="notif"&gt;Notifications&lt;/button&gt;
+→ "The word 'Notifications' matches the button label exactly.
+   Action: Tap the element with id='notif'."</div>
+
+        <div class="note">If an S2R mentions a <span class="highlight">missing step</span> (e.g., must dismiss a dialog first), the LLM identifies the intermediate action from the GUI state.</div>
+      </div>
+    </div>
+
+    <div class="connector">↓ <span>ADB command executed on device</span></div>
+
+    <!-- EXECUTION -->
+    <div class="pipeline-step s-exec" onclick="toggle(this)">
+      <div class="step-header">
+        <div class="step-num">EX</div>
+        <div>
+          <div class="step-label">Execution</div>
+          <div class="step-sublabel">Actions run on Android emulator via ADB</div>
+        </div>
+        <div class="step-arrow">▶</div>
+      </div>
+      <div class="step-detail">
+        <h4>Tools used</h4>
+        <ul>
+          <li><strong>Genymotion</strong> — x86-64 Android emulator (macOS)</li>
+          <li><strong>Android Debug Bridge (ADB)</strong> — controls the emulator</li>
+          <li><strong>UI Automator2</strong> — issues UI interactions programmatically</li>
+        </ul>
+        <h4>Action types</h4>
+        <div class="code-block">Tap[Component]         → adb shell input tap x y
+Scroll[Direction]      → adb shell input swipe …
+Input[Component][Val]  → adb shell input text "val"
+Double-tap[Component]  → two rapid taps
+Long-tap[Component]    → adb shell input swipe x y x y 1000</div>
+        <div class="note">After each action, control returns to Phase 2 to check the new GUI state before executing the next S2R step.</div>
+      </div>
+    </div>
+
+    <div class="connector">↓ <span>app state update</span></div>
+
+    <!-- ORACLE -->
+    <div class="pipeline-step s-oracle" onclick="toggle(this)">
+      <div class="step-header">
+        <div class="step-num">OR</div>
+        <div>
+          <div class="step-label">Oracle Check</div>
+          <div class="step-sublabel">Did the app crash as expected?</div>
+        </div>
+        <div class="step-arrow">▶</div>
+      </div>
+      <div class="step-detail">
+        <h4>Success condition</h4>
+        <p>The app crashes with the <strong>expected crash behaviour</strong> described in the bug report.</p>
+        <h4>Failure modes</h4>
+        <ul>
+          <li><strong>No crash</strong> → continue to the next S2R entity</li>
+          <li><strong>Timeout (10 min)</strong> → stop, mark as not reproduced</li>
+        </ul>
+        <h4>What AdbGPT does NOT detect</h4>
+        <div class="note">Only crash bugs are in scope. <span class="highlight">Non-crash functional bugs</span> (wrong output, visual glitch) are not detected — this is a noted limitation and motivation for follow-up work like ReBL.</div>
+        <h4>Output</h4>
+        <div class="code-block">✅ Bug reproduced  (crash triggered after step 4)
+❌ Not reproduced  (timeout after 10 minutes)</div>
+      </div>
+    </div>
+
+  </div><!-- /pipeline -->
+
+  <!-- ── Results ── -->
+  <div class="section-title">Results</div>
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab(this,'t-numbers')">Numbers</button>
+    <button class="tab" onclick="switchTab(this,'t-comparison')">vs Baselines</button>
+    <button class="tab" onclick="switchTab(this,'t-ablation')">Ablation</button>
+  </div>
+
+  <div class="tab-content active" id="t-numbers">
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="value">81.3%</div>
+        <div class="label">Bug reproduction rate</div>
+        <div class="vs">on 48 real-world bugs</div>
+      </div>
+      <div class="result-card">
+        <div class="value">90.4%</div>
+        <div class="label">S2R step accuracy</div>
+        <div class="vs">88 bug reports</div>
+      </div>
+      <div class="result-card">
+        <div class="value">254s</div>
+        <div class="label">Avg. replay time</div>
+        <div class="vs">vs 1,361s (ReCDroid)</div>
+      </div>
+      <div class="result-card">
+        <div class="value">2s</div>
+        <div class="label">S2R extraction time</div>
+        <div class="vs">one-shot LLM call</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="t-comparison">
+    <div class="card">
+      <h3>Guided Replay — Reproduction Rate</h3>
+      <div style="margin-top:12px">
+        <div class="bar-row">
+          <div class="bar-label">AdbGPT (full) <span>81.3%</span></div>
+          <div class="bar-track"><div class="bar-fill adbgpt" data-w="81.3"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">ReCDroid <span>45.8%</span></div>
+          <div class="bar-track"><div class="bar-fill recdroid" data-w="45.8"></div></div>
+        </div>
+      </div>
+      <div style="height:16px"></div>
+      <h3>S2R Extraction — Step Accuracy</h3>
+      <div style="margin-top:12px">
+        <div class="bar-row">
+          <div class="bar-label">AdbGPT <span>90.4%</span></div>
+          <div class="bar-track"><div class="bar-fill adbgpt" data-w="90.4"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">MaCa <span>55.1%</span></div>
+          <div class="bar-track"><div class="bar-fill recdroid" data-w="55.1"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">ReCDroid <span>51.1%</span></div>
+          <div class="bar-track"><div class="bar-fill recdroid" data-w="51.1"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="t-ablation">
+    <div class="card">
+      <h3>What happens when you remove each component?</h3>
+      <div style="margin-top:12px">
+        <div class="bar-row">
+          <div class="bar-label">Full AdbGPT (few-shot + CoT) <span>81.3%</span></div>
+          <div class="bar-track"><div class="bar-fill adbgpt" data-w="81.3"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">w/o Chain-of-Thought <span>62.5%</span></div>
+          <div class="bar-track"><div class="bar-fill recdroid" data-w="62.5"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">w/o Few-shot examples <span>58.3%</span></div>
+          <div class="bar-track"><div class="bar-fill recdroid" data-w="58.3"></div></div>
+        </div>
+      </div>
+      <p style="margin-top:12px;font-size:0.82rem;color:#64748b">Both few-shot and CoT are critical. CoT provides the larger benefit for guided replay — it lets the LLM reason about <em>why</em> a widget matches, not just pattern-match on the label.</p>
+    </div>
+  </div>
+
+  <!-- ── Limitations ── -->
+  <div class="section-title">Limitations</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+    <div class="card">
+      <h3>Input values</h3>
+      <p>Cannot generate specific inputs (e.g., a valid URL). Uses generic placeholders — causes failures for fields with format constraints.</p>
+    </div>
+    <div class="card">
+      <h3>Crash-only</h3>
+      <p>Oracle only detects app crashes. Non-crash functional bugs (wrong output, UI glitches) are out of scope.</p>
+    </div>
+    <div class="card">
+      <h3>Multi-lingual</h3>
+      <p>Fails when GUI language differs from bug report language (e.g., French app, English S2Rs).</p>
+    </div>
+    <div class="card">
+      <h3>Non-determinism</h3>
+      <p>LLM output varies — results are averaged over 3 runs. API cost and availability are practical constraints.</p>
+    </div>
+  </div>
+
+  <!-- ── Context ── -->
+  <div class="section-title">Where it fits</div>
+  <div class="card">
+    <h3>Chronological position in LLM-based bug replay research</h3>
+    <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="background:#312e81;border-radius:6px;padding:5px 10px;font-size:0.78rem;font-weight:700;color:#a5b4fc;white-space:nowrap">AdbGPT (2024)</div>
+        <div style="font-size:0.82rem;color:#94a3b8">Text-only + crash bugs. First LLM-based approach. Few-shot + CoT prompting.</div>
+      </div>
+      <div style="padding-left:24px;color:#374151;font-size:0.85rem">↓</div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="background:#1e3a5f;border-radius:6px;padding:5px 10px;font-size:0.78rem;font-weight:700;color:#60a5fa;white-space:nowrap">ReBL</div>
+        <div style="font-size:0.82rem;color:#94a3b8">Adds feedback loop, handles non-crash bugs, whole bug report context.</div>
+      </div>
+      <div style="padding-left:24px;color:#374151;font-size:0.85rem">↓</div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="background:#14532d;border-radius:6px;padding:5px 10px;font-size:0.78rem;font-weight:700;color:#4ade80;white-space:nowrap">ViBR</div>
+        <div style="font-size:0.82rem;color:#94a3b8">Adds vision / screenshots — addresses AdbGPT's text-only blind spots.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Tags ── -->
+  <div class="tags">
+    <div class="tag">#LLM</div>
+    <div class="tag">#GPT</div>
+    <div class="tag">#PromptEngineering</div>
+    <div class="tag">#ChainOfThought</div>
+    <div class="tag">#FewShot</div>
+    <div class="tag">#GUI-Testing</div>
+    <div class="tag">#BugReproduction</div>
+    <div class="tag">#Android</div>
+    <div class="tag">#S2R-Extraction</div>
+    <div class="tag">#GuidedReplay</div>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+  function toggle(el) {
+    const wasActive = el.classList.contains('active');
+    // close all
+    document.querySelectorAll('.pipeline-step').forEach(s => s.classList.remove('active'));
+    if (!wasActive) el.classList.add('active');
+  }
+
+  function switchTab(btn, id) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(id).classList.add('active');
+    // animate bars when comparison tab opens
+    animateBars();
+  }
+
+  function animateBars() {
+    document.querySelectorAll('.bar-fill').forEach(bar => {
+      bar.style.width = '0';
+      const w = bar.dataset.w;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          bar.style.width = w + '%';
+        });
+      });
+    });
+  }
+
+  // Animate bars on load for the first tab shown
+  window.addEventListener('load', () => {
+    // open Phase 1 by default
+    document.querySelector('.s-phase1').classList.add('active');
+    animateBars();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ViBR Interactive Workflow</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121933;
+      --panel-2: #182248;
+      --text: #edf2ff;
+      --muted: #a9b6e5;
+      --accent: #7aa2ff;
+      --accent-2: #9b7bff;
+      --good: #2ecc71;
+      --bad: #ff6b6b;
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 10px 30px rgba(0,0,0,0.28);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at top, #15204a 0%, var(--bg) 45%);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 24px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .legend {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .summary {
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .summary h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .summary ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .flow-area {
+      padding: 20px;
+      overflow: auto;
+      min-height: 840px;
+    }
+
+    .panel {
+      position: sticky;
+      top: 24px;
+      padding: 22px;
+      min-height: 520px;
+    }
+
+    .panel h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+    }
+
+    .panel .small {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 14px 0 18px;
+    }
+
+    .meta .box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+    }
+
+    .meta .label {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .meta .value {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .panel h3 {
+      margin: 18px 0 10px;
+      font-size: 16px;
+    }
+
+    .panel ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    svg {
+      width: 100%;
+      min-width: 780px;
+      height: 1320px;
+      display: block;
+    }
+
+    .node {
+      cursor: pointer;
+      transition: transform 0.18s ease, filter 0.18s ease;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .node:hover { transform: scale(1.02); filter: brightness(1.08); }
+    .node.active rect, .node.active path.shape, .node.active polygon {
+      stroke: #ffffff;
+      stroke-width: 2.5;
+      filter: drop-shadow(0 0 12px rgba(122,162,255,0.45));
+    }
+
+    .node-title {
+      font-size: 17px;
+      font-weight: 700;
+      fill: #eef3ff;
+      pointer-events: none;
+    }
+
+    .node-sub {
+      font-size: 12px;
+      fill: #d3dcff;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .node-small {
+      font-size: 11px;
+      fill: #dbe3ff;
+      pointer-events: none;
+    }
+
+    .edge {
+      stroke: rgba(220,230,255,0.5);
+      stroke-width: 2.4;
+      fill: none;
+      marker-end: url(#arrow);
+    }
+
+    .loop-edge {
+      stroke: rgba(155,123,255,0.72);
+      stroke-width: 2.4;
+      fill: none;
+      marker-end: url(#arrowLoop);
+      stroke-dasharray: 8 8;
+    }
+
+    .yes-tag, .no-tag {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .yes-tag { fill: var(--good); }
+    .no-tag { fill: #ff9090; }
+
+    .footer-note {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .kbd {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      font-size: 12px;
+    }
+
+    @media (max-width: 1050px) {
+      .hero, .main {
+        grid-template-columns: 1fr;
+      }
+      .panel {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="card hero-card">
+        <h1>ViBR Interactive System Workflow</h1>
+        <p class="subtitle">
+          Click any step in the workflow to see what goes in, what comes out, what conditions are checked,
+          and where loops happen during bug replay from a GUI recording.
+        </p>
+        <div class="legend">
+          <span class="pill">Input</span>
+          <span class="pill">Segmentation</span>
+          <span class="pill">Region detection</span>
+          <span class="pill">Condition check</span>
+          <span class="pill">Loop</span>
+          <span class="pill">Output</span>
+        </div>
+      </div>
+      <aside class="card summary">
+        <h2>At a glance</h2>
+        <ul>
+          <li>Input is a bug video plus a target device/app.</li>
+          <li>The video is split into action scenes like tap, scroll, and input.</li>
+          <li>Each scene is analyzed to find the likely interacted region.</li>
+          <li>The system checks whether the current screen matches the recorded screen.</li>
+          <li>If yes, it executes the action. If not, it explores until the screen matches.</li>
+          <li>This repeats scene by scene until the bug is reproduced or the flow ends.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="main">
+      <div class="card flow-area">
+        <svg viewBox="0 0 900 1320" aria-label="ViBR workflow diagram">
+          <defs>
+            <linearGradient id="gInput" x1="0" x2="1">
+              <stop offset="0%" stop-color="#2962ff" />
+              <stop offset="100%" stop-color="#4f83ff" />
+            </linearGradient>
+            <linearGradient id="gProcess" x1="0" x2="1">
+              <stop offset="0%" stop-color="#2b4dbf" />
+              <stop offset="100%" stop-color="#6a7dff" />
+            </linearGradient>
+            <linearGradient id="gDecision" x1="0" x2="1">
+              <stop offset="0%" stop-color="#6c4cff" />
+              <stop offset="100%" stop-color="#9b7bff" />
+            </linearGradient>
+            <linearGradient id="gAction" x1="0" x2="1">
+              <stop offset="0%" stop-color="#127a52" />
+              <stop offset="100%" stop-color="#2ecc71" />
+            </linearGradient>
+            <linearGradient id="gWarn" x1="0" x2="1">
+              <stop offset="0%" stop-color="#9d3a3a" />
+              <stop offset="100%" stop-color="#ff6b6b" />
+            </linearGradient>
+            <linearGradient id="gEnd" x1="0" x2="1">
+              <stop offset="0%" stop-color="#b06a09" />
+              <stop offset="100%" stop-color="#ffc44d" />
+            </linearGradient>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L9,3 z" fill="rgba(220,230,255,0.7)" />
+            </marker>
+            <marker id="arrowLoop" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L9,3 z" fill="rgba(155,123,255,0.9)" />
+            </marker>
+          </defs>
+
+          <!-- edges -->
+          <path class="edge" d="M450 110 L450 170" />
+          <path class="edge" d="M450 250 L450 310" />
+          <path class="edge" d="M450 390 L450 450" />
+          <path class="edge" d="M450 530 L450 590" />
+          <path class="edge" d="M450 670 L450 730" />
+          <path class="edge" d="M300 810 L180 810 L180 900 L300 900" />
+          <path class="edge" d="M600 810 L720 810 L720 900 L600 900" />
+          <path class="edge" d="M450 880 L450 960" />
+          <path class="edge" d="M450 1040 L450 1100" />
+          <path class="edge" d="M450 1180 L450 1230" />
+          <path class="loop-edge" d="M720 980 C820 980 820 630 620 630" />
+
+          <text x="225" y="800" class="yes-tag">YES</text>
+          <text x="675" y="800" class="no-tag">NO</text>
+          <text x="742" y="790" class="node-small">guided exploration loop</text>
+
+          <!-- nodes -->
+          <g class="node active" data-id="input">
+            <rect x="270" y="30" rx="22" ry="22" width="360" height="80" fill="url(#gInput)" stroke="rgba(255,255,255,0.15)" />
+            <text x="450" y="62" text-anchor="middle" class="node-title">1. Input</text>
+            <text x="450" y="86" text-anchor="middle" class="node-sub">GUI bug video + target device/app</text>
+          </g>
+
+          <g class="node" data-id="segmentation">
+            <rect x="235" y="170" rx="22" ry="22" width="430" height="80" fill="url(#gProcess)" stroke="rgba(255,255,255,0.15)" />
+            <text x="450" y="202" text-anchor="middle" class="node-title">2. Action Segmentation</text>
+            <text x="450" y="226" text-anchor="middle" class="node-sub">CLIP embeddings + cosine similarity → scenes</text>
+          </g>
+
+          <g class="node" data-id="sceneLoop">
+            <rect x="255" y="310" rx="22" ry="22" width="390" height="80" fill="url(#gProcess)" stroke="rgba(255,255,255,0.15)" />
+            <text x="450" y="342" text-anchor="middle" class="node-title">3. For Each Action Scene</text>
+            <text x="450" y="366" text-anchor="middle" class="node-sub">Process one recorded user action at a time</text>
+          </g>
+
+          <g class="node" data-id="roi">
+            <rect x="205" y="450" rx="22" ry="22" width="490" height="80" fill="url(#gProcess)" stroke="rgba(255,255,255,0.15)" />
+            <text x="450" y="482" text-anchor="middle" class="node-title">4. Detect Candidate Regions + Select ROI</text>
+            <text x="450" y="506" text-anchor="middle" class="node-sub">GroundingDINO + VLM choose where the action happened</text>
+          </g>
+
+          <g class="node" data-id="currentGui">
+            <rect x="225" y="590" rx="22" ry="22" width="450" height="80" fill="url(#gProcess)" stroke="rgba(255,255,255,0.15)" />
+            <text x="450" y="622" text-anchor="middle" class="node-title">5. Read Current Device GUI</text>
+            <text x="450" y="646" text-anchor="middle" class="node-sub">Screenshot via ADB + XML via UIAutomator</text>
+          </g>
+
+          <g class="node" data-id="compare">
+            <polygon points="450,730 610,810 450,890 290,810" fill="url(#gDecision)" stroke="rgba(255,255,255,0.18)" />
+            <text x="450" y="800" text-anchor="middle" class="node-title">6. Does current GUI</text>
+            <text x="450" y="824" text-anchor="middle" class="node-title">match the recorded scene?</text>
+          </g>
+
+          <g class="node" data-id="execute">
+            <rect x="90" y="900" rx="22" ry="22" width="420" height="80" fill="url(#gAction)" stroke="rgba(255,255,255,0.15)" />
+            <text x="300" y="932" text-anchor="middle" class="node-title">7A. Execute Recorded Action</text>
+            <text x="300" y="956" text-anchor="middle" class="node-sub">tap / scroll / input on the live device</text>
+          </g>
+
+          <g class="node" data-id="explore">
+            <rect x="390" y="900" rx="22" ry="22" width="420" height="80" fill="url(#gWarn)" stroke="rgba(255,255,255,0.15)" />
+            <text x="600" y="932" text-anchor="middle" class="node-title">7B. Guided Exploration</text>
+            <text x="600" y="956" text-anchor="middle" class="node-sub">navigate until GUI becomes compatible</text>
+          </g>
+
+          <g class="node" data-id="advance">
+            <rect x="225" y="960" rx="22" ry="22" width="450" height="80" fill="url(#gProcess)" stroke="rgba(255,255,255,0.15)" />
+            <text x="450" y="992" text-anchor="middle" class="node-title">8. Advance Replay State</text>
+            <text x="450" y="1016" text-anchor="middle" class="node-sub">move to next scene or keep exploring</text>
+          </g>
+
+          <g class="node" data-id="endCheck">
+            <polygon points="450,1100 610,1140 450,1180 290,1140" fill="url(#gDecision)" stroke="rgba(255,255,255,0.18)" />
+            <text x="450" y="1136" text-anchor="middle" class="node-title">9. More scenes left</text>
+            <text x="450" y="1160" text-anchor="middle" class="node-title">or did model output [end]?</text>
+          </g>
+
+          <g class="node" data-id="output">
+            <rect x="270" y="1230" rx="22" ry="22" width="360" height="80" fill="url(#gEnd)" stroke="rgba(255,255,255,0.15)" />
+            <text x="450" y="1262" text-anchor="middle" class="node-title">10. Output</text>
+            <text x="450" y="1286" text-anchor="middle" class="node-sub">Bug reproduced or replay failed/stopped</text>
+          </g>
+        </svg>
+      </div>
+
+      <aside class="card panel" id="infoPanel">
+        <h2 id="panelTitle">1. Input</h2>
+        <div class="small" id="panelTagline">Starting point of the system.</div>
+
+        <div class="meta">
+          <div class="box">
+            <div class="label">Input</div>
+            <div class="value" id="panelInput">A GUI bug recording video and a target device or emulator where the app can be run.</div>
+          </div>
+          <div class="box">
+            <div class="label">Output</div>
+            <div class="value" id="panelOutput">Raw material for the replay pipeline.</div>
+          </div>
+          <div class="box">
+            <div class="label">Condition</div>
+            <div class="value" id="panelCondition">No condition here. This is the entry point.</div>
+          </div>
+          <div class="box">
+            <div class="label">Loop</div>
+            <div class="value" id="panelLoop">No loop at this stage.</div>
+          </div>
+        </div>
+
+        <h3>What happens here</h3>
+        <ul id="panelSteps"></ul>
+
+        <h3>Why this step matters</h3>
+        <ul id="panelWhy"></ul>
+
+        <div class="footer-note">
+          Tip: click different nodes in the flow. The two decision nodes show where ViBR branches based on GUI consistency and stopping criteria.
+          You can also follow the loop from <span class="kbd">Guided Exploration</span> back to the GUI comparison step.
+        </div>
+      </aside>
+    </section>
+  </div>
+
+  <script>
+    const details = {
+      input: {
+        title: '1. Input',
+        tagline: 'Starting point of the system.',
+        input: 'A GUI bug recording video and a target device or emulator where the app can be run.',
+        output: 'A replay job with a video to analyze and a live environment to act on.',
+        condition: 'No condition here. This is the entry point.',
+        loop: 'No loop at this stage.',
+        steps: [
+          'Take the bug report video that shows the problem happening on a GUI.',
+          'Prepare the device or emulator where the app will be replayed.',
+          'Initialize the pipeline that will analyze the video and drive the device.'
+        ],
+        why: [
+          'The system needs both the evidence of the bug and a live app environment.',
+          'Without a target device, the paper cannot execute replay actions.'
+        ]
+      },
+      segmentation: {
+        title: '2. Action Segmentation',
+        tagline: 'Split the video into small units, each representing one user action.',
+        input: 'Frames extracted from the GUI video.',
+        output: 'A sequence of action scenes such as tap scenes, scroll scenes, and input scenes.',
+        condition: 'Boundaries are inferred when consecutive frames change enough to signal a new action.',
+        loop: 'Yes, over consecutive frame pairs throughout the video.',
+        steps: [
+          'Extract frames from the video.',
+          'Encode consecutive frames using CLIP image embeddings.',
+          'Measure cosine similarity between frame N-1 and frame N.',
+          'Use similarity patterns to split the video into action scenes.',
+          'Infer rough action type patterns such as tap, scroll, and input.'
+        ],
+        why: [
+          'The rest of the system works scene by scene, not on the full raw video.',
+          'This turns a long recording into a manageable list of user actions.'
+        ]
+      },
+      sceneLoop: {
+        title: '3. For Each Action Scene',
+        tagline: 'Main outer loop across the recorded action sequence.',
+        input: 'The ordered list of segmented action scenes.',
+        output: 'One scene is selected at a time for reasoning and replay.',
+        condition: 'Continue until all scenes are processed or replay stops.',
+        loop: 'Yes. This is the main outer loop of the whole workflow.',
+        steps: [
+          'Pick the next scene in the segmented list.',
+          'Treat it as the current target action to reproduce.',
+          'Run region detection, GUI comparison, and action execution for that scene.'
+        ],
+        why: [
+          'Bug replay is sequential. The system follows the original user path one action at a time.',
+          'This preserves the order of interactions from the report video.'
+        ]
+      },
+      roi: {
+        title: '4. Detect Candidate Regions + Select ROI',
+        tagline: 'Find where the action likely happened inside the recorded scene.',
+        input: 'Frames from the current action scene, especially the first and last frame.',
+        output: 'A selected ROI: the most likely target region involved in the user action.',
+        condition: 'The VLM chooses the best region among GroundingDINO candidates.',
+        loop: 'Usually no explicit loop here, but multiple candidate regions are evaluated.',
+        steps: [
+          'Run GroundingDINO on the recorded GUI frame to detect interactive candidate regions.',
+          'Build a dual-view context from the first and last frame of the scene.',
+          'Ask a VLM to choose which candidate region best matches the intended interaction.',
+          'Mark that region as the ROI for later comparison and replay.'
+        ],
+        why: [
+          'A full-screen comparison can be noisy. The ROI narrows attention to the important part.',
+          'This helps the model focus on functional interaction targets instead of irrelevant visual changes.'
+        ]
+      },
+      currentGui: {
+        title: '5. Read Current Device GUI',
+        tagline: 'Capture the live screen and its structured UI metadata.',
+        input: 'The current state of the app on the device or emulator.',
+        output: 'A screenshot plus UIAutomator XML/view hierarchy describing GUI elements.',
+        condition: 'No branching yet. This prepares data for state comparison and execution.',
+        loop: 'Yes, this can repeat many times during exploration and scene progression.',
+        steps: [
+          'Take a screenshot from the live device, usually through ADB.',
+          'Extract the current view hierarchy/XML via UIAutomator.',
+          'Optionally annotate GUI elements for better action grounding.'
+        ],
+        why: [
+          'The system cannot replay against the recording alone. It must know what is currently on screen.',
+          'The visual and structural views together help the VLM reason about live actions.'
+        ]
+      },
+      compare: {
+        title: '6. GUI State Comparison',
+        tagline: 'Critical condition check: can the recorded action be replayed right now?',
+        input: 'The recorded scene with ROI and the current live GUI from the device.',
+        output: 'A binary decision: consistent or inconsistent GUI state.',
+        condition: 'If the current GUI is functionally consistent with the recorded scene, go execute. Otherwise, explore.',
+        loop: 'Yes, this decision can be revisited multiple times during guided exploration.',
+        steps: [
+          'Present the recorded frame and the current live GUI to the VLM.',
+          'Guide the VLM to focus on the selected ROI and surrounding interface context.',
+          'Ask whether the current GUI can support the same user action as the recorded one.',
+          'Return YES or NO.'
+        ],
+        why: [
+          'Direct replay only works when the live GUI is compatible with the recorded precondition.',
+          'This avoids blindly tapping the wrong place when screens differ due to layout shifts or dynamic content.'
+        ]
+      },
+      execute: {
+        title: '7A. Execute Recorded Action',
+        tagline: 'Happy path when the screen matches the recorded scene.',
+        input: 'Current compatible GUI, inferred action type, and grounded target element or direction.',
+        output: 'A real device action such as tap, scroll, or input, and the app moves to the next state.',
+        condition: 'This branch is taken only when the GUI comparison returns YES.',
+        loop: 'This step itself is not the loop, but it sits inside the scene-by-scene replay loop.',
+        steps: [
+          'Use the action information from segmentation and scene context.',
+          'Ground the action on the live GUI using the current screen and UI metadata.',
+          'Execute structured actions like [tap] [element], [scroll] [direction], or [input] [field] [value].'
+        ],
+        why: [
+          'This is where the paper actually replays the user behavior on a live device.',
+          'When the state matches, the system can faithfully reproduce the recorded action.'
+        ]
+      },
+      explore: {
+        title: '7B. Guided Exploration',
+        tagline: 'Recovery path when the current screen does not match the recorded one.',
+        input: 'Recorded target scene plus the current incompatible live GUI.',
+        output: 'One or more exploratory actions intended to move the app toward the target state.',
+        condition: 'Taken only when the GUI comparison returns NO.',
+        loop: 'Yes. This forms the inner loop that repeats until the GUI becomes compatible or replay stops.',
+        steps: [
+          'Ask the VLM what action would move the live GUI closer to the recorded target scene.',
+          'Execute exploratory actions such as back, tap a relevant element, or scroll.',
+          'Capture the live GUI again.',
+          'Return to the GUI comparison step and check compatibility again.'
+        ],
+        why: [
+          'Apps can start in the wrong place or show dynamic differences, so a recovery path is necessary.',
+          'This makes replay adaptive instead of brittle.'
+        ]
+      },
+      advance: {
+        title: '8. Advance Replay State',
+        tagline: 'Update progress after execution or exploration.',
+        input: 'Result of action execution or result of the latest exploratory move.',
+        output: 'Either the next scene becomes active or the system keeps trying to align the current one.',
+        condition: 'Advance to next scene after successful execution. Stay on current scene while exploration is ongoing.',
+        loop: 'Yes, this sits between the inner exploration loop and the outer scene loop.',
+        steps: [
+          'If an action for the current scene was successfully executed, mark that scene as done.',
+          'If the system was exploring, decide whether the current scene is now replayable.',
+          'Prepare the next control decision in the workflow.'
+        ],
+        why: [
+          'The system needs explicit replay state so it knows whether to move forward or retry.',
+          'This is the bridge between one scene and the next.'
+        ]
+      },
+      endCheck: {
+        title: '9. Stop Check',
+        tagline: 'Decide whether replay continues or terminates.',
+        input: 'Current replay progress and possibly the model output [end].',
+        output: 'Either continue processing scenes or stop the replay run.',
+        condition: 'Stop when there are no more scenes or when the model emits [end]. Otherwise continue.',
+        loop: 'Yes. If more scenes remain, the system returns to the outer scene loop.',
+        steps: [
+          'Check whether all action scenes have been completed.',
+          'Also check whether the model explicitly indicated [end].',
+          'If replay should continue, go back to process the next scene.'
+        ],
+        why: [
+          'The system needs a clear termination rule.',
+          'This prevents infinite replay and marks the end of the bug reproduction attempt.'
+        ]
+      },
+      output: {
+        title: '10. Output',
+        tagline: 'Final result of the full replay attempt.',
+        input: 'Replay status after all scenes are processed or the system stops.',
+        output: 'Bug reproduced, or replay stopped/failed before reproduction.',
+        condition: 'Reached only when termination is triggered.',
+        loop: 'No loop after this terminal step.',
+        steps: [
+          'Report whether the bug was successfully reproduced on the target device.',
+          'Optionally record traces, key states, and replay outcomes.'
+        ],
+        why: [
+          'This is the final deliverable of the workflow.',
+          'It tells whether the video-based report could be converted into a successful live replay.'
+        ]
+      }
+    };
+
+    const els = {
+      title: document.getElementById('panelTitle'),
+      tagline: document.getElementById('panelTagline'),
+      input: document.getElementById('panelInput'),
+      output: document.getElementById('panelOutput'),
+      condition: document.getElementById('panelCondition'),
+      loop: document.getElementById('panelLoop'),
+      steps: document.getElementById('panelSteps'),
+      why: document.getElementById('panelWhy')
+    };
+
+    function render(id) {
+      const d = details[id];
+      if (!d) return;
+      els.title.textContent = d.title;
+      els.tagline.textContent = d.tagline;
+      els.input.textContent = d.input;
+      els.output.textContent = d.output;
+      els.condition.textContent = d.condition;
+      els.loop.textContent = d.loop;
+
+      els.steps.innerHTML = d.steps.map(s => `<li>${s}</li>`).join('');
+      els.why.innerHTML = d.why.map(s => `<li>${s}</li>`).join('');
+
+      document.querySelectorAll('.node').forEach(n => n.classList.remove('active'));
+      const active = document.querySelector(`.node[data-id="${id}"]`);
+      if (active) active.classList.add('active');
+    }
+
+    document.querySelectorAll('.node').forEach(node => {
+      node.addEventListener('click', () => render(node.dataset.id));
+      node.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          render(node.dataset.id);
+        }
+      });
+      node.setAttribute('tabindex', '0');
+      node.setAttribute('role', 'button');
+      node.setAttribute('aria-label', `Open details for ${node.dataset.id}`);
+    });
+
+    render('input');
+  </script>
+</body>
+</html>

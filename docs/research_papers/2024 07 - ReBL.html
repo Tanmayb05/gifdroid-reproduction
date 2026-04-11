@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReBL — Feedback-Driven Android Bug Reproduction</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3350;
+    --accent: #5b8cff;
+    --accent2: #a78bfa;
+    --green: #34d399;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --orange: #fb923c;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --card-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #1e2340 0%, #12162b 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 2rem 1.5rem;
+    text-align: center;
+  }
+  header .badge { display: inline-block; background: var(--accent); color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 10px; border-radius: 99px; letter-spacing: 1px; margin-bottom: 0.75rem; text-transform: uppercase; }
+  header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 0.3rem; }
+  header h1 span { color: var(--accent); }
+  header p.subtitle { color: var(--muted); font-size: 0.95rem; }
+  header .meta { margin-top: 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  header .meta-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.9rem; font-size: 0.82rem; color: var(--muted); }
+  header .meta-item strong { color: var(--text); }
+
+  /* TABS */
+  .tabs { display: flex; justify-content: center; gap: 0.3rem; padding: 1rem 1rem 0; flex-wrap: wrap; background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+  .tab-btn { background: none; border: none; color: var(--muted); padding: 0.55rem 1.1rem; border-radius: 6px 6px 0 0; cursor: pointer; font-size: 0.88rem; font-weight: 600; transition: all 0.2s; border-bottom: 2px solid transparent; }
+  .tab-btn:hover { color: var(--text); background: var(--surface2); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); background: var(--surface2); }
+
+  /* SECTIONS */
+  .tab-content { display: none; max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .tab-content.active { display: block; }
+
+  /* CARDS */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem; box-shadow: var(--card-shadow); }
+  .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--accent); }
+  .card p, .card li { font-size: 0.9rem; color: var(--muted); }
+  .card li { margin-left: 1.2rem; margin-bottom: 0.3rem; }
+  .card ul { margin-top: 0.4rem; }
+
+  /* HIGHLIGHT BOX */
+  .highlight { background: linear-gradient(135deg, #1a2a4a, #1a1d27); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 1rem 1.25rem; margin: 1rem 0; font-size: 0.88rem; }
+  .highlight strong { color: var(--text); }
+
+  /* STATS ROW */
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; text-align: center; }
+  .stat .value { font-size: 1.8rem; font-weight: 800; color: var(--green); }
+  .stat .label { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+
+  /* BAR CHART */
+  .bar-group { margin-bottom: 0.9rem; }
+  .bar-label { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.25rem; display: flex; justify-content: space-between; }
+  .bar-track { background: var(--surface2); border-radius: 99px; height: 10px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 99px; transition: width 1s ease; }
+
+  /* COMPARISON TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th { background: var(--surface2); color: var(--accent); font-weight: 700; text-align: left; padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--border); }
+  td { padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--border); color: var(--muted); }
+  tr:last-child td { border-bottom: none; }
+  td.best { color: var(--green); font-weight: 700; }
+  td.highlight-row { color: var(--text); }
+
+  /* PIPELINE DIAGRAM */
+  .pipeline { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .pipeline-node {
+    width: 100%;
+    max-width: 640px;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .pipeline-node:hover { border-color: var(--accent); background: var(--surface2); }
+  .pipeline-node.active { border-color: var(--accent); background: #1a2540; }
+  .pipeline-node .node-header { display: flex; align-items: center; gap: 0.75rem; }
+  .pipeline-node .step-num { background: var(--accent); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; flex-shrink: 0; }
+  .pipeline-node .step-loop { background: var(--accent2); }
+  .pipeline-node .node-title { font-weight: 700; font-size: 0.95rem; }
+  .pipeline-node .node-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
+  .pipeline-node .expand-icon { margin-left: auto; color: var(--muted); font-size: 1.1rem; transition: transform 0.2s; }
+  .pipeline-node.active .expand-icon { transform: rotate(180deg); color: var(--accent); }
+  .pipeline-node .node-detail { display: none; margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  .pipeline-node.active .node-detail { display: block; }
+  .pipeline-node .node-detail p { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; }
+  .pipeline-node .node-detail ul { margin-left: 1.2rem; }
+  .pipeline-node .node-detail li { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.3rem; }
+  .pipeline-node .node-detail .code-snippet { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 0.65rem 0.9rem; font-family: 'Courier New', monospace; font-size: 0.78rem; color: var(--green); margin-top: 0.5rem; }
+  .pipeline-node .node-detail .tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border); border-radius: 99px; padding: 2px 8px; font-size: 0.72rem; color: var(--accent2); margin: 2px; }
+
+  .arrow-down { width: 2px; height: 30px; background: var(--border); margin: 0 auto; position: relative; }
+  .arrow-down::after { content: '▼'; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); color: var(--border); font-size: 0.65rem; }
+
+  .loop-bracket {
+    max-width: 640px;
+    width: 100%;
+    border: 2px dashed var(--accent2);
+    border-radius: 16px;
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    position: relative;
+  }
+  .loop-label {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg);
+    padding: 0 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent2);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  /* ABLATION */
+  .ablation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 520px) { .ablation-grid { grid-template-columns: 1fr; } }
+  .ablation-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; }
+  .ablation-card .delta { font-size: 1.4rem; font-weight: 800; }
+  .ablation-card .delta.bad { color: var(--red); }
+  .ablation-card .delta.good { color: var(--green); }
+  .ablation-card .al { font-size: 0.8rem; color: var(--muted); }
+
+  /* TAGS */
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+  .tag { background: var(--surface2); border: 1px solid var(--border); border-radius: 99px; padding: 3px 10px; font-size: 0.75rem; color: var(--accent2); }
+
+  /* PROMPT BOX */
+  .prompt-box { background: #0a0f1e; border: 1px solid var(--accent); border-radius: 10px; padding: 1rem 1.25rem; font-size: 0.82rem; color: #a5c8ff; font-family: 'Courier New', monospace; line-height: 1.7; white-space: pre-wrap; }
+  .prompt-box .ph { color: #fbbf24; }
+  .prompt-box .kw { color: #a78bfa; }
+
+  /* SECTION HEADING */
+  .section-heading { font-size: 1.15rem; font-weight: 800; margin-bottom: 1rem; color: var(--text); }
+  .section-heading span { color: var(--accent); }
+
+  /* PILL */
+  .pill { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 0.72rem; font-weight: 700; }
+  .pill.green { background: rgba(52,211,153,0.15); color: var(--green); }
+  .pill.red { background: rgba(248,113,113,0.15); color: var(--red); }
+  .pill.yellow { background: rgba(251,191,36,0.15); color: var(--yellow); }
+  .pill.blue { background: rgba(91,140,255,0.15); color: var(--accent); }
+
+  /* INPUT/OUTPUT STRIP */
+  .io-strip { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .io-box { flex: 1; min-width: 160px; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; }
+  .io-box .io-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.5rem; }
+  .io-box .io-item { font-size: 0.83rem; display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem; }
+  .io-box .io-item .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .dot.green { background: var(--green); }
+  .dot.blue { background: var(--accent); }
+  .dot.gray { background: var(--muted); }
+
+  footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">ISSTA 2024</div>
+  <h1><span>ReBL</span> — Feedback-Driven Bug Reproduction</h1>
+  <p class="subtitle">Automated Whole Bug Report Reproduction for Android Apps using GPT-4</p>
+  <div class="meta">
+    <div class="meta-item"><strong>Authors:</strong> Wang et al.</div>
+    <div class="meta-item"><strong>Venue:</strong> ISSTA 2024, Vienna</div>
+    <div class="meta-item"><strong>LLM:</strong> GPT-4</div>
+    <div class="meta-item"><strong>Platform:</strong> Android</div>
+    <div class="meta-item"><strong>Code:</strong> Publicly available</div>
+  </div>
+</header>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+  <button class="tab-btn" onclick="showTab('pipeline')">Pipeline</button>
+  <button class="tab-btn" onclick="showTab('results')">Results</button>
+  <button class="tab-btn" onclick="showTab('prompt')">Prompting</button>
+  <button class="tab-btn" onclick="showTab('limits')">Limits</button>
+</div>
+
+<!-- ======================== OVERVIEW TAB ======================== -->
+<div id="tab-overview" class="tab-content active">
+
+  <div class="highlight">
+    <strong>One-line summary:</strong> ReBL feeds the <em>entire</em> bug report (not extracted steps) into GPT-4, then iteratively executes actions and feeds back the real device state to reproduce both crash <em>and</em> non-crash Android bugs — achieving 90.63% success in ~75 seconds per bug.
+  </div>
+
+  <div class="stats-row">
+    <div class="stat"><div class="value">90.6%</div><div class="label">Reproduction Rate</div></div>
+    <div class="stat"><div class="value">75s</div><div class="label">Avg. Time / Bug</div></div>
+    <div class="stat"><div class="value">96</div><div class="label">Bug Reports Tested</div></div>
+    <div class="stat"><div class="value">78%</div><div class="label">Non-Crash Bugs Solved</div></div>
+    <div class="stat"><div class="value">7.4×</div><div class="label">Faster than ReCDroid</div></div>
+  </div>
+
+  <div class="section-heading">What problem does it solve?</div>
+  <div class="card">
+    <p>Manually reproducing Android bugs from bug reports is tedious. Existing automated tools either:</p>
+    <ul style="margin-top:0.6rem">
+      <li>Only handle <strong>crash bugs</strong> — completely miss non-crash functional bugs</li>
+      <li>Extract individual S2R steps (fragile when reports are incomplete or ambiguous)</li>
+      <li>Give no feedback to the LLM — easily get stuck in infinite action loops</li>
+    </ul>
+    <div class="highlight" style="margin-top:0.8rem">
+      <strong>Key insight:</strong> 88% of users abandon apps with recurring issues. Manual reproduction by developers is slow, error-prone, and doesn't scale.
+    </div>
+  </div>
+
+  <div class="section-heading">What makes ReBL different?</div>
+  <div class="io-strip">
+    <div class="io-box">
+      <div class="io-label">3 Novel Contributions</div>
+      <div class="io-item"><span class="dot green"></span><span><strong>Whole bug report</strong> as input (no S2R extraction)</span></div>
+      <div class="io-item"><span class="dot green"></span><span><strong>Feedback-driven</strong> iterative LLM loop</span></div>
+      <div class="io-item"><span class="dot green"></span><span>First to handle <strong>non-crash bugs</strong></span></div>
+    </div>
+    <div class="io-box">
+      <div class="io-label">vs. AdbGPT (Prior SOTA)</div>
+      <div class="io-item"><span class="dot blue"></span><span>ReBL: 90.6% vs AdbGPT: 62.5%</span></div>
+      <div class="io-item"><span class="dot blue"></span><span>Non-crash: 78% vs ~0%</span></div>
+      <div class="io-item"><span class="dot blue"></span><span>Feedback prevents action loops</span></div>
+    </div>
+  </div>
+
+  <div class="section-heading">Inputs &amp; Outputs</div>
+  <div class="io-strip">
+    <div class="io-box">
+      <div class="io-label">Inputs</div>
+      <div class="io-item"><span class="dot green"></span><span>Natural language bug report (whole text)</span></div>
+      <div class="io-item"><span class="dot green"></span><span>APK file (the app)</span></div>
+      <div class="io-item"><span class="dot gray"></span><span>No screenshots, no crash logs needed</span></div>
+    </div>
+    <div class="io-box">
+      <div class="io-label">Outputs</div>
+      <div class="io-item"><span class="dot blue"></span><span>Bug reproduced (crash or non-crash symptom confirmed)</span></div>
+      <div class="io-item"><span class="dot blue"></span><span>Sequence of actions taken</span></div>
+      <div class="io-item"><span class="dot blue"></span><span>Failure report if unsuccessful</span></div>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span class="tag">#LLM</span><span class="tag">#GPT-4</span><span class="tag">#FeedbackDriven</span><span class="tag">#WhileBugReport</span><span class="tag">#NonCrashBugs</span><span class="tag">#GUI-Testing</span><span class="tag">#Bug-Reproduction</span><span class="tag">#Android</span><span class="tag">#WidgetGrouping</span>
+  </div>
+</div>
+
+<!-- ======================== PIPELINE TAB ======================== -->
+<div id="tab-pipeline" class="tab-content">
+  <div class="highlight">
+    <strong>Click any step</strong> to expand it and see exactly what happens there.
+  </div>
+
+  <div class="pipeline">
+    <!-- INPUT -->
+    <div class="pipeline-node" onclick="toggleNode(this)">
+      <div class="node-header">
+        <div class="step-num">0</div>
+        <div>
+          <div class="node-title">Input</div>
+          <div class="node-sub">Whole bug report + APK file</div>
+        </div>
+        <span class="expand-icon">▾</span>
+      </div>
+      <div class="node-detail">
+        <p>ReBL takes two things as input — nothing more:</p>
+        <ul>
+          <li><strong>Whole bug report:</strong> The complete natural language text a user filed (title, description, steps, expected vs. actual behavior). <em>No preprocessing. No S2R extraction.</em></li>
+          <li><strong>APK file:</strong> The Android app to test, installed on a real device or emulator.</li>
+        </ul>
+        <div class="code-snippet">Input: "When I tap the Share button on a photo, the app crashes immediately."
+APK: com.example.photoapp-v2.3.apk</div>
+        <p style="margin-top:0.6rem"><span class="tag">Why whole report?</span> Non-crash bug symptoms are described in the report body, not in S2R steps. Extracting only S2Rs loses the oracle for detecting the bug.</p>
+      </div>
+    </div>
+
+    <div class="arrow-down"></div>
+
+    <!-- SETUP -->
+    <div class="pipeline-node" onclick="toggleNode(this)">
+      <div class="node-header">
+        <div class="step-num">1</div>
+        <div>
+          <div class="node-title">Instructions Setup <span class="pill blue">One-time</span></div>
+          <div class="node-sub">Transform GPT-4 into a bug-reproduction agent</div>
+        </div>
+        <span class="expand-icon">▾</span>
+      </div>
+      <div class="node-detail">
+        <p>Before any iteration, a comprehensive system-level instruction prompt is built once. It tells GPT-4:</p>
+        <ul>
+          <li><strong>Objective:</strong> Reproduce the bug symptom AND verify it matches the report description</li>
+          <li><strong>Available actions:</strong> click, scroll, set_text, back, restart, sleep, long_click, success, fail</li>
+          <li><strong>Response format:</strong> Must output structured action(s) per iteration</li>
+          <li><strong>Termination criteria:</strong> Output <code>success</code> when bug is observed, <code>fail</code> when stuck</li>
+          <li><strong>Workflow:</strong> Observe current UI → pick the best action → report back</li>
+        </ul>
+        <div class="code-snippet">You are a bug reproduction agent. Given a bug report and current app state,
+suggest the next action(s) to reproduce the bug symptom.
+Actions: [click, scroll, set_text, back, restart, sleep, long_click, success, fail]
+Format: action_name [target, ...]
+Stop when: bug symptom matches report description → output success</div>
+      </div>
+    </div>
+
+    <div class="arrow-down"></div>
+
+    <!-- LOOP WRAPPER -->
+    <div class="loop-bracket">
+      <div class="loop-label">ITERATIVE FEEDBACK LOOP — repeat until done or timeout</div>
+
+      <!-- STEP A -->
+      <div class="pipeline-node" onclick="toggleNode(this)">
+        <div class="node-header">
+          <div class="step-num step-loop">A</div>
+          <div>
+            <div class="node-title">App UI Extraction</div>
+            <div class="node-sub">Read current device screen state</div>
+          </div>
+          <span class="expand-icon">▾</span>
+        </div>
+        <div class="node-detail">
+          <p>At each iteration, ReBL captures what's currently on the device screen:</p>
+          <ul>
+            <li><strong>Activity name:</strong> Identifies which screen the app is on (e.g., <code>MainActivity</code>, <code>SettingsActivity</code>)</li>
+            <li><strong>View hierarchy (XML):</strong> Full UI tree from UI Automator2</li>
+          </ul>
+          <p style="margin-top:0.6rem"><strong>Widget Grouping Algorithm</strong> — instead of dumping raw widgets, ReBL groups them:</p>
+          <ul>
+            <li>If a layout is <em>clickable</em> → group it with all its children</li>
+            <li>If a layout is <em>not clickable</em> but has ≥1 clickable child → group them</li>
+            <li>Otherwise → group by structural rule</li>
+          </ul>
+          <div class="code-snippet">Raw XML: [Button: "Share"], [ImageView: photo], [FrameLayout clickable: true]
+  ↓ Grouping ↓
+Group 1: FrameLayout [ImageView, Button "Share"]
+Group 2: ...
+→ Cleaner context for LLM, avoids token waste on atomic widgets</div>
+          <p style="margin-top:0.5rem"><span class="tag">Why grouping?</span> Reduces cognitive load on LLM. Grouped widgets provide relational context (e.g., "Share button is part of the photo card") vs. orphaned widget IDs.</p>
+        </div>
+      </div>
+
+      <div class="arrow-down"></div>
+
+      <!-- STEP B -->
+      <div class="pipeline-node" onclick="toggleNode(this)">
+        <div class="node-header">
+          <div class="step-num step-loop">B</div>
+          <div>
+            <div class="node-title">Build Prompt</div>
+            <div class="node-sub">Assemble full context + token management</div>
+          </div>
+          <span class="expand-icon">▾</span>
+        </div>
+        <div class="node-detail">
+          <p>The full prompt sent to GPT-4 is assembled from 4 parts:</p>
+          <div class="code-snippet">[Instructions] + [Bug Report] + [App UI Info] + [Prompt History]</div>
+          <ul style="margin-top:0.6rem">
+            <li><strong>Instructions:</strong> The one-time system prompt from Step 1</li>
+            <li><strong>Bug Report:</strong> Full original text (never extracted, always complete)</li>
+            <li><strong>App UI Info:</strong> Current activity + grouped widget hierarchy from Step A</li>
+            <li><strong>Prompt History:</strong> All prior LLM responses + feedback from past iterations</li>
+          </ul>
+          <p style="margin-top:0.6rem"><strong>Token Limit Management:</strong></p>
+          <ul>
+            <li>Tracks cumulative tokens C. If C &gt; L × TH (L=8K, TH=0.7 → threshold=5.6K)</li>
+            <li>Triggers semantic summarization of Prompt History (max 3 times)</li>
+            <li>Summarization preserves crucial actions + decisions while reducing length</li>
+          </ul>
+          <p style="margin-top:0.4rem"><span class="tag">If 3 summarizations exceeded → terminate (fail)</span></p>
+        </div>
+      </div>
+
+      <div class="arrow-down"></div>
+
+      <!-- STEP C -->
+      <div class="pipeline-node" onclick="toggleNode(this)">
+        <div class="node-header">
+          <div class="step-num step-loop">C</div>
+          <div>
+            <div class="node-title">GPT-4 Action Generation</div>
+            <div class="node-sub">LLM decides what to do next</div>
+          </div>
+          <span class="expand-icon">▾</span>
+        </div>
+        <div class="node-detail">
+          <p>GPT-4 receives the full assembled prompt and outputs one or more actions:</p>
+          <div class="code-snippet">Available actions:
+  click [target]              — tap a UI element
+  scroll [target, direction]  — scroll up/down/left/right
+  set_text [target, text]     — type into a field
+  back                        — press the back button
+  restart                     — restart the app
+  sleep [duration]            — wait N seconds
+  long_click [target]         — long-press an element
+  success                     — bug symptom observed ✓
+  fail                        — cannot reproduce ✗
+
+Example output:
+  click [Group1: FrameLayout > Button "Share"]
+  → or a sequence: [click [menu], click [share], set_text [field, "test"]]</div>
+          <p style="margin-top:0.6rem"><span class="tag">Can output a sequence</span> GPT-4 may suggest multiple chained actions per iteration when steps are clearly sequential.</p>
+        </div>
+      </div>
+
+      <div class="arrow-down"></div>
+
+      <!-- STEP D -->
+      <div class="pipeline-node" onclick="toggleNode(this)">
+        <div class="node-header">
+          <div class="step-num step-loop">D</div>
+          <div>
+            <div class="node-title">Execution on Device</div>
+            <div class="node-sub">Run actions via UI Automator2 + smart detection</div>
+          </div>
+          <span class="expand-icon">▾</span>
+        </div>
+        <div class="node-detail">
+          <p>Actions are executed on a real Android device or emulator using <strong>UI Automator2</strong>.</p>
+          <p style="margin-top:0.5rem">Two smart detection mechanisms run during execution:</p>
+          <ul>
+            <li><strong>Quick-disappearing widget detection:</strong> Monitors for transient UI elements like toast messages ("Item saved!") or pop-up dialogs that flash briefly. These are captured and fed back to the LLM as context — otherwise they'd be invisible by the next UI extraction.</li>
+            <li><strong>Repeated sequence detection:</strong> If the exact same sequence of actions appears twice in the history, ReBL flags it and reminds the LLM to try a different approach (prevents infinite loops).</li>
+          </ul>
+          <div class="code-snippet">Execution:
+  UI Automator2.click(element_id=Group1_Button_Share)
+  → Status: SUCCESS
+  → Toast detected: "Sharing requires permission"  ← captured!
+  → New UI state: PermissionDialog appeared</div>
+        </div>
+      </div>
+
+      <div class="arrow-down"></div>
+
+      <!-- STEP E -->
+      <div class="pipeline-node" onclick="toggleNode(this)">
+        <div class="node-header">
+          <div class="step-num step-loop">E</div>
+          <div>
+            <div class="node-title">Update Prompt History</div>
+            <div class="node-sub">Feed execution result back to LLM context</div>
+          </div>
+          <span class="expand-icon">▾</span>
+        </div>
+        <div class="node-detail">
+          <p>After each execution, the result is appended to the Prompt History:</p>
+          <ul>
+            <li>The action that was taken</li>
+            <li>Whether it succeeded or failed</li>
+            <li>Any transient widgets seen (toasts, dialogs)</li>
+            <li>Whether a repeated sequence was detected (+ reminder to LLM)</li>
+          </ul>
+          <div class="code-snippet">Iteration 3 feedback:
+  Action: click [Button "Share"]
+  Status: SUCCESS
+  Toast observed: "Sharing requires location permission"
+  New screen: PermissionDialog (Allow / Deny)
+  → Next: LLM now sees this dialog and can decide to Allow or Deny</div>
+          <p style="margin-top:0.5rem">This feedback is why ReBL avoids the loops that plagued AdbGPT — the LLM always knows what happened and why, and can course-correct.</p>
+          <p style="margin-top:0.3rem">→ Loop back to <strong>Step A</strong> with updated state.</p>
+        </div>
+      </div>
+
+    </div><!-- end loop-bracket -->
+
+    <div class="arrow-down"></div>
+
+    <!-- TERMINATION -->
+    <div class="pipeline-node" onclick="toggleNode(this)">
+      <div class="node-header">
+        <div class="step-num">2</div>
+        <div>
+          <div class="node-title">Termination &amp; Output</div>
+          <div class="node-sub">Success, failure, or timeout</div>
+        </div>
+        <span class="expand-icon">▾</span>
+      </div>
+      <div class="node-detail">
+        <p>The loop terminates in one of three ways:</p>
+        <ul>
+          <li><span class="pill green">SUCCESS</span> LLM outputs <code>success</code> — it has matched the observed UI state to the bug symptom described in the report</li>
+          <li><span class="pill red">FAIL</span> LLM outputs <code>fail</code> — determines it cannot reproduce the bug</li>
+          <li><span class="pill yellow">TIMEOUT</span> 1-hour wall-clock limit exceeded, OR 3 prompt summarizations used up</li>
+        </ul>
+        <p style="margin-top:0.6rem"><strong>Bug oracle for non-crash bugs:</strong> The LLM compares the current UI state (content, layout, values) against the symptom described in the bug report — no hard-coded crash detector needed. This is what enables non-crash bug handling.</p>
+        <div class="code-snippet">LLM output: success [The photo sharing dialog shows incorrect contact list,
+            matching the bug report symptom "wrong contacts shown"]</div>
+      </div>
+    </div>
+
+  </div><!-- end pipeline -->
+</div>
+
+<!-- ======================== RESULTS TAB ======================== -->
+<div id="tab-results" class="tab-content">
+
+  <div class="section-heading">Reproduction Rate vs. Baselines</div>
+  <div class="card">
+    <div class="bar-group">
+      <div class="bar-label"><span><strong>ReBL</strong> (ours)</span><span style="color:var(--green);font-weight:700">90.6%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:90.6%;background:var(--green)"></div></div>
+    </div>
+    <div class="bar-group">
+      <div class="bar-label"><span>ReproBot</span><span>65.8%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:65.8%;background:var(--accent)"></div></div>
+    </div>
+    <div class="bar-group">
+      <div class="bar-label"><span>AdbGPT</span><span>62.5%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:62.5%;background:var(--accent)"></div></div>
+    </div>
+    <div class="bar-group">
+      <div class="bar-label"><span>ReCDroid+</span><span>45.2%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:45.2%;background:var(--accent2)"></div></div>
+    </div>
+    <p style="font-size:0.78rem;color:var(--muted);margin-top:0.6rem">* Baselines compared on 73-bug crash subset. ReBL tested on full 96 bugs (73 crash + 23 non-crash).</p>
+  </div>
+
+  <div class="section-heading">Non-Crash Bugs: The Real Breakthrough</div>
+  <div class="card">
+    <div class="bar-group">
+      <div class="bar-label"><span><strong>ReBL</strong></span><span style="color:var(--green);font-weight:700">78.3% (18/23)</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:78.3%;background:var(--green)"></div></div>
+    </div>
+    <div class="bar-group">
+      <div class="bar-label"><span>All other tools</span><span style="color:var(--red)">~0%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:0.5%;background:var(--red)"></div></div>
+    </div>
+    <p style="margin-top:0.7rem;font-size:0.87rem;color:var(--muted)">Prior tools (AdbGPT, ReCDroid+, ReproBot) are crash-only. They have no mechanism to detect non-crash bug symptoms. ReBL's LLM oracle reads the bug report description and matches it against real UI state.</p>
+  </div>
+
+  <div class="section-heading">Speed Comparison</div>
+  <div class="card">
+    <table>
+      <tr><th>Tool</th><th>Avg. Time</th><th>Speedup vs. ReBL</th></tr>
+      <tr><td class="highlight-row"><strong>ReBL</strong></td><td class="best">74.98s</td><td class="best">1× (baseline)</td></tr>
+      <tr><td>AdbGPT</td><td>94s</td><td>1.25× slower</td></tr>
+      <tr><td>ReproBot</td><td>280s</td><td>3.74× slower</td></tr>
+      <tr><td>ReCDroid+</td><td>556s</td><td>7.42× slower</td></tr>
+    </table>
+  </div>
+
+  <div class="section-heading">Ablation Study — What If We Remove Each Feature?</div>
+  <div class="ablation-grid">
+    <div class="ablation-card">
+      <div class="delta bad">−16.7%</div>
+      <div class="al"><strong>ReBL_NoFB</strong> — No feedback mechanism</div>
+      <p style="font-size:0.8rem;color:var(--muted);margin-top:0.4rem">Without feeding execution results back, the LLM gets stuck in repetitive loops. Biggest single contributor.</p>
+    </div>
+    <div class="ablation-card">
+      <div class="delta bad">−13.6%</div>
+      <div class="al"><strong>ReBL_Indiv</strong> — Individual widgets (no grouping)</div>
+      <p style="font-size:0.8rem;color:var(--muted);margin-top:0.4rem">Raw widget lists confuse the LLM — it can't tell which elements are related. Grouping is critical.</p>
+    </div>
+    <div class="ablation-card">
+      <div class="delta bad">−9.4%</div>
+      <div class="al"><strong>ReBL_S2R</strong> — S2R extraction instead of whole report</div>
+      <p style="font-size:0.8rem;color:var(--muted);margin-top:0.4rem">Extracting steps loses non-crash bug symptom descriptions. Whole report input is especially critical for non-crash bugs.</p>
+    </div>
+    <div class="ablation-card">
+      <div class="delta good">90.6%</div>
+      <div class="al"><strong>Full ReBL</strong> — All components enabled</div>
+      <p style="font-size:0.8rem;color:var(--muted);margin-top:0.4rem">Best performance. All three components work synergistically.</p>
+    </div>
+  </div>
+
+  <div class="section-heading">Dataset</div>
+  <div class="card">
+    <table>
+      <tr><th>Property</th><th>Value</th></tr>
+      <tr><td>Total bug reports</td><td>96</td></tr>
+      <tr><td>Crash bugs</td><td>73</td></tr>
+      <tr><td>Non-crash bugs</td><td>23</td></tr>
+      <tr><td>Sources</td><td>AdbGPT, ReproBot, ReCDroid+, Yakusu datasets</td></tr>
+      <tr><td>Real-world?</td><td>Yes</td></tr>
+      <tr><td>Publicly available?</td><td>Yes</td></tr>
+      <tr><td>Runs per bug</td><td>3 (majority vote for robustness)</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ======================== PROMPT TAB ======================== -->
+<div id="tab-prompt" class="tab-content">
+
+  <div class="section-heading">How ReBL Prompts GPT-4</div>
+
+  <div class="card">
+    <h3>Prompt Structure (per iteration)</h3>
+    <div class="prompt-box"><span class="kw">[INSTRUCTIONS — one-time setup]</span>
+You are a bug reproduction agent for Android apps.
+Objective: Reproduce the bug symptom AND verify it matches the description.
+Available actions: click, scroll, set_text, back, restart, sleep, long_click, success, fail
+Format: action_name [target, optional_args]
+Terminate with: success (bug observed) or fail (cannot reproduce)
+
+<span class="kw">[BUG REPORT — full text, every iteration]</span>
+<span class="ph">Title: App crashes when sharing a photo
+Steps: Open app → select a photo → tap Share
+Expected: Share sheet appears
+Actual: App crashes with "NullPointerException"</span>
+
+<span class="kw">[APP UI INFO — current screen state]</span>
+<span class="ph">Activity: com.example.app.PhotoViewActivity
+UI Groups:
+  Group 1: FrameLayout [ImageView (photo), Button "Share", Button "Edit"]
+  Group 2: ToolBar [Button "Back", TextView "My Photos"]</span>
+
+<span class="kw">[PROMPT HISTORY — prior iterations]</span>
+<span class="ph">Iteration 1:
+  Action: click [Group2: Button "Back"] → FAILED (already on photo view)
+  Feedback: Repeated action detected, try a different approach
+Iteration 2:
+  Action: click [Group1: Button "Share"] → SUCCESS
+  Toast seen: "Sharing..."
+  New screen: ShareActivity</span>
+
+<span class="kw">[LLM RESPONSE]</span>
+→ Based on above context, LLM picks next action...</div>
+  </div>
+
+  <div class="card">
+    <h3>Key Prompting Decisions</h3>
+    <ul>
+      <li><strong>No few-shot examples</strong> — relies entirely on GPT-4's instruction-following ability</li>
+      <li><strong>Whole bug report every iteration</strong> — ensures LLM never loses sight of the goal</li>
+      <li><strong>Structured action format</strong> — reduces hallucination of invalid actions</li>
+      <li><strong>Feedback in history</strong> — distinguishes successful vs. failed actions</li>
+      <li><strong>Explicit termination actions</strong> — <code>success</code> and <code>fail</code> are first-class actions, not implicit</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Token Management</h3>
+    <p>As iterations accumulate, the prompt grows. ReBL handles this with:</p>
+    <ul style="margin-top:0.5rem">
+      <li>Token counter tracks cumulative C</li>
+      <li>Threshold: C &gt; L × TH = 8000 × 0.7 = <strong>5,600 tokens</strong></li>
+      <li>When exceeded: semantic summarization of Prompt History</li>
+      <li>Summarization preserves key actions, decisions, failures</li>
+      <li>Max 3 summarizations — after that, terminates with fail</li>
+    </ul>
+    <div class="highlight" style="margin-top:0.8rem">
+      <strong>Trade-off:</strong> Summarization risks losing critical earlier context. This is one of the tool's known limitations — some bugs fail because early navigation steps get compressed away.
+    </div>
+  </div>
+</div>
+
+<!-- ======================== LIMITS TAB ======================== -->
+<div id="tab-limits" class="tab-content">
+
+  <div class="section-heading">Failure Cases</div>
+  <div class="card">
+    <h3>1. Third-Party Service Dependencies</h3>
+    <p>Bugs that require Google Drive, payment APIs, or external login services cannot be reproduced — ReBL has no way to authenticate or interact with systems outside the app.</p>
+    <div class="highlight">Example: "File uploads fail when backing up to Google Drive" — requires signed-in Google account with Drive access.</div>
+  </div>
+  <div class="card">
+    <h3>2. Extremely Insufficient Bug Reports</h3>
+    <p>When the bug report gives almost no information (e.g., "app doesn't work"), the LLM has no anchor for what to reproduce. The whole-report strategy helps, but there's nothing to work with if the report is empty.</p>
+  </div>
+  <div class="card">
+    <h3>3. Missing Navigation Steps</h3>
+    <p>Some bugs require navigating to an obscure part of the app. If the LLM explores the wrong path and the prompt history fills up, it may never find the right screen before summarization loses critical context.</p>
+  </div>
+
+  <div class="section-heading">Technical Limitations</div>
+  <div class="card">
+    <ul>
+      <li><strong>GPT-4 only</strong> — weaker LLMs (GPT-3.5, smaller models) perform significantly worse. The reasoning capability of GPT-4 is load-bearing.</li>
+      <li><strong>Android only</strong> — relies on UI Automator2. No iOS or web support.</li>
+      <li><strong>1-hour time limit</strong> — bugs requiring long exploration chains may not reproduce in time.</li>
+      <li><strong>LLM-based oracle</strong> — for non-crash bugs, the LLM decides if the bug is reproduced. This can hallucinate false positives or miss true reproduction.</li>
+      <li><strong>Specific input formats</strong> — when a field requires a URL, phone number, or credential, GPT-4 often generates syntactically wrong values.</li>
+    </ul>
+  </div>
+
+  <div class="section-heading">Open Research Questions</div>
+  <div class="card">
+    <ul>
+      <li>How do you handle bugs where the visual symptom can't be described in text? (e.g., layout misalignment, rendering glitches)</li>
+      <li>Can you replace the LLM oracle with a more reliable non-crash bug detector?</li>
+      <li>Can ReBL be extended to iOS or web (Playwright/Selenium)?</li>
+      <li>How does performance degrade with cheaper LLMs for cost reduction?</li>
+    </ul>
+    <div class="highlight" style="margin-top:0.8rem">
+      <strong>Connection to next work:</strong> ReBL is the text ceiling — it's the best you can do with text alone. ViBR (2025) adds a vision component to handle bugs where visual confirmation is needed.
+    </div>
+  </div>
+
+  <div class="section-heading">Threats to Validity</div>
+  <div class="card">
+    <table>
+      <tr><th>Type</th><th>Threat</th><th>Mitigation</th></tr>
+      <tr><td>External</td><td>96-bug dataset may not represent all Android bugs</td><td>Collected from 4 different prior tools/datasets</td></tr>
+      <tr><td>External</td><td>Single platform (Android)</td><td>Future work targets iOS, web</td></tr>
+      <tr><td>Internal</td><td>LLM randomness (temperature &gt; 0)</td><td>3 runs per bug, majority vote</td></tr>
+      <tr><td>Internal</td><td>Manual verification of reproduction</td><td>Two independent reviewers</td></tr>
+    </table>
+  </div>
+</div>
+
+<footer>ReBL — ISSTA 2024 | Interactive summary generated for research purposes</footer>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function toggleNode(node) {
+  const wasActive = node.classList.contains('active');
+  // Close all siblings in the same container
+  const parent = node.parentElement;
+  parent.querySelectorAll('.pipeline-node').forEach(n => n.classList.remove('active'));
+  if (!wasActive) node.classList.add('active');
+}
+</script>
+</body>
+</html>
