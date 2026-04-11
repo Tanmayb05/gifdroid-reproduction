@@ -6,7 +6,7 @@
 
 ## Architecture
 
-Each fix is a standalone function in a new file `gifdroid/hhv_keyframe.py` with identical signature to `keyframe_location()` in `location.py`:
+Each fix is a standalone function in a new file `src_gifdroid/hhv_keyframe.py` with identical signature to `keyframe_location()` in `location.py`:
 
 ```python
 def keyframe_location_<method>(video, stable_threshold=2, visualize=False, **kwargs)
@@ -137,7 +137,7 @@ parser.add_argument('--keyframe-method',
 
 **2. Replace line 156** (`keyframe_sequence, keyframe_index = keyframe_location(video)`) with:
 ```python
-from gifdroid.hhv_keyframe import get_keyframe_fn
+from src_gifdroid.hhv_keyframe import get_keyframe_fn
 keyframe_fn = get_keyframe_fn(args.keyframe_method)
 keyframe_sequence, keyframe_index = keyframe_fn(video)
 ```
@@ -153,7 +153,7 @@ keyframes_dir = os.path.join(out_dir, f"keyframes_{args.keyframe_method}")
 
 ```bash
 # Baseline (unchanged)
-python -m gifdroid.main \
+python -m src_gifdroid.main \
   --video app_AdAway/utg01/input/handheld/hhv_app_AdAway.mp4 \
   --utg   app_AdAway/utg01/input/utg.json \
   --artifact app_AdAway/utg01/input/artifacts \
@@ -161,7 +161,7 @@ python -m gifdroid.main \
   --keyframe-method baseline
 
 # Fix 1 — Video Stabilization
-python -m gifdroid.main \
+python -m src_gifdroid.main \
   --video app_AdAway/utg01/input/handheld/hhv_app_AdAway.mp4 \
   --utg   app_AdAway/utg01/input/utg.json \
   --artifact app_AdAway/utg01/input/artifacts \
@@ -169,7 +169,7 @@ python -m gifdroid.main \
   --keyframe-method stabilize
 
 # Fix 2 — Hysteresis
-python -m gifdroid.main \
+python -m src_gifdroid.main \
   --video app_AdAway/utg01/input/handheld/hhv_app_AdAway.mp4 \
   --utg   app_AdAway/utg01/input/utg.json \
   --artifact app_AdAway/utg01/input/artifacts \
@@ -177,7 +177,7 @@ python -m gifdroid.main \
   --keyframe-method hysteresis
 
 # Fix 3 — Homography
-python -m gifdroid.main \
+python -m src_gifdroid.main \
   --video app_AdAway/utg01/input/handheld/hhv_app_AdAway.mp4 \
   --utg   app_AdAway/utg01/input/utg.json \
   --artifact app_AdAway/utg01/input/artifacts \
@@ -185,7 +185,7 @@ python -m gifdroid.main \
   --keyframe-method homography
 
 # Fix 4 — CLIP clustering
-python -m gifdroid.main \
+python -m src_gifdroid.main \
   --video app_AdAway/utg01/input/handheld/hhv_app_AdAway.mp4 \
   --utg   app_AdAway/utg01/input/utg.json \
   --artifact app_AdAway/utg01/input/artifacts \
@@ -193,7 +193,7 @@ python -m gifdroid.main \
   --keyframe-method clip
 
 # Fix 5 — VLM (requires: ollama serve + ollama pull llama3.2-vision)
-python -m gifdroid.main \
+python -m src_gifdroid.main \
   --video app_AdAway/utg01/input/handheld/hhv_app_AdAway.mp4 \
   --utg   app_AdAway/utg01/input/utg.json \
   --artifact app_AdAway/utg01/input/artifacts \
@@ -235,15 +235,15 @@ Run all 5 fixes on SRV inputs — keyframe counts should not change significantl
 
 ### Phase 1 — Core infrastructure (no new deps) ✅
 
-**Files:** `gifdroid/hhv_keyframe.py` (new), `gifdroid/main.py`
+**Files:** `src_gifdroid/hhv_keyframe.py` (new), `src_gifdroid/main.py`
 
 **Tasks:**
 
-1. Create `gifdroid/hhv_keyframe.py` with:
+1. Create `src_gifdroid/hhv_keyframe.py` with:
    - `keyframe_location_hysteresis(video, stable_threshold=2, hysteresis_k=3, visualize=False)` — replace `is_stable()` with a forward-k consecutive check; reuse `read_frames_from_video`, `calculate_sim_seq`, `detect_keyframes` from `location.py`
    - `get_keyframe_fn(method)` dispatcher — returns the right function for `'baseline' | 'stabilize' | 'hysteresis' | 'homography' | 'clip' | 'vlm'`; raises `ValueError` for unknown methods
 
-2. Modify `gifdroid/main.py`:
+2. Modify `src_gifdroid/main.py`:
    - Add `--keyframe-method` arg to `parse_args()` (choices + default=`'baseline'`)
    - Replace line 156 (`keyframe_location(video)`) with `get_keyframe_fn(args.keyframe_method)(video)`
    - Change `keyframes_dir` to use `keyframes_{method}` subfolder name instead of `keyframes`
@@ -255,7 +255,7 @@ Run all 5 fixes on SRV inputs — keyframe counts should not change significantl
 
 ### Phase 2 — Fix 1: Video Stabilization (FFmpeg) ✅
 
-**Files:** `gifdroid/hhv_keyframe.py`
+**Files:** `src_gifdroid/hhv_keyframe.py`
 
 **Tasks:**
 
@@ -272,7 +272,7 @@ Run all 5 fixes on SRV inputs — keyframe counts should not change significantl
 
 ### Phase 3 — Fix 3: Homography-corrected SSIM ✅
 
-**Files:** `gifdroid/hhv_keyframe.py`
+**Files:** `src_gifdroid/hhv_keyframe.py`
 
 **Tasks:**
 
@@ -288,7 +288,7 @@ Run all 5 fixes on SRV inputs — keyframe counts should not change significantl
 
 ### Phase 4 — Fix 4: CLIP Clustering
 
-**Files:** `gifdroid/hhv_keyframe.py`
+**Files:** `src_gifdroid/hhv_keyframe.py`
 
 **Tasks:**
 
@@ -305,7 +305,7 @@ Run all 5 fixes on SRV inputs — keyframe counts should not change significantl
 
 ### Phase 5 — Fix 5: VLM Pair Classification (Ollama) ✅
 
-**Files:** `gifdroid/hhv_keyframe.py`
+**Files:** `src_gifdroid/hhv_keyframe.py`
 
 **Tasks:**
 

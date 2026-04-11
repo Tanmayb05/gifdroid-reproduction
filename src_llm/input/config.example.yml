@@ -38,8 +38,8 @@ llm: "gemini"
 
 # Optional: prompt template file for action inference (used by all local Ollama providers).
 # The file must contain a {KEYFRAMES} placeholder where keyframe metadata is injected.
-# If omitted, defaults to gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt
-# llm_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt"
+# If omitted, defaults to src_llm/input/prompts/llama_action_prompt_gemini_2.txt
+# llm_prompt_file: "src_llm/input/prompts/llama_action_prompt_gemini_2.txt"
 
 # -----------------
 # Frame Sampling

@@ -14,8 +14,8 @@ from urllib import request as url_request
 
 import cv2
 
-from gifdroid_llm.keyframes import Keyframe
-from gifdroid_llm.llama_prereq import LlamaPrereqError, assert_llama_accessible
+from src_llm.keyframes import Keyframe
+from src_llm.llama_prereq import LlamaPrereqError, assert_llama_accessible
 
 _RETRY_LOG = logging.getLogger(__name__)
 
@@ -937,7 +937,7 @@ class GeminiProvider(BaseLLMProvider):
         except ImportError as exc:
             raise ProviderError(
                 "google-auth is required for ADC auth. "
-                "Install dependencies from gifdroid_llm/requirements.txt"
+                "Install dependencies from src_llm/requirements.txt"
             ) from exc
 
         try:
@@ -1133,7 +1133,7 @@ class GeminiVideoProvider(GeminiProvider):
 
     def infer_memory_from_video(self, video_path: Path) -> str:
         """Send video to Gemini with the memory prompt, return raw Markdown text."""
-        default_memory_prompt = Path("gifdroid_llm/input/prompts/llama_action_prompt_memory.txt")
+        default_memory_prompt = Path("src_llm/input/prompts/llama_action_prompt_memory.txt")
         prompt_path = self._llm_prompt_file or default_memory_prompt
         try:
             prompt_text = prompt_path.read_text(encoding="utf-8")
@@ -1152,7 +1152,7 @@ class GeminiVideoProvider(GeminiProvider):
 
     def infer_actions_from_video(self, video_path: Path) -> List[ProviderAction]:
         """Encode video as base64, send inline to generateContent, parse actions."""
-        default_prompt = Path("gifdroid_llm/input/prompts/gemini_video_prompt.txt")
+        default_prompt = Path("src_llm/input/prompts/gemini_video_prompt.txt")
         prompt_path = self._llm_prompt_file or default_prompt
         try:
             prompt_text = prompt_path.read_text(encoding="utf-8")
@@ -2662,7 +2662,7 @@ def create_provider(
     video_mode: bool = False,
 ) -> BaseLLMProvider:
     provider_key = llm_name.lower()
-    default_prompt = Path("gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt")
+    default_prompt = Path("src_llm/input/prompts/llama_action_prompt_gemini_2.txt")
 
     if provider_key == "gemini":
         if video_mode:
@@ -2672,7 +2672,7 @@ def create_provider(
         return SonnetProvider(provider_key, llm_model, env, logger)
     if provider_key == "llama":
         prompt_path = llm_prompt_file or Path(
-            "gifdroid_llm/input/prompts/llama_action_prompt.txt"
+            "src_llm/input/prompts/llama_action_prompt.txt"
         )
         return LlamaProvider(provider_key, llm_model, env, logger, prompt_path)
     if provider_key == "llava":

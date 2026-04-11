@@ -89,7 +89,7 @@ def run_dir_llm(
     source: str,
     run_id: str,
 ) -> Path:
-    """Build run directory path for gifdroid_llm."""
+    """Build run directory path for src_llm."""
     model_slug = normalize_model_slug(model)
     return (
         utg_root(project_root, app_name, utg_id)

@@ -102,7 +102,7 @@ def load_config(config_path):
 
 def build_command(app, utg, method, force=False):
     """
-    Build the python -m gifdroid.main command for a given app/utg/method.
+    Build the python -m src_gifdroid.main command for a given app/utg/method.
     Returns (cmd_str, out_dir, skip_reason) where skip_reason is None if the run should proceed.
     """
     app_slug = app.lower()
@@ -135,7 +135,7 @@ def build_command(app, utg, method, force=False):
         return None, out_dir, 'output already exists (use --force to re-run)'
 
     cmd = (
-        f'python -m gifdroid.main'
+        f'python -m src_gifdroid.main'
         f' --video "{video}"'
         f' --utg "{utg_json}"'
         f' --artifact "{artifacts}"'

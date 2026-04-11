@@ -8,7 +8,7 @@ from itertools import groupby
 from collections import Counter
 from skimage.metrics import structural_similarity as ssim
 
-logger = logging.getLogger('gifdroid.location')
+logger = logging.getLogger('src_gifdroid.location')
 
 
 def extract_Y(img):

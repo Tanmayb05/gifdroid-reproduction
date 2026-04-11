@@ -1,8 +1,8 @@
 """CLI entry point for video-guided device automation.
 
 Usage:
-    python -m gifdroid_llm.automate \\
-        --config gifdroid_llm/input/automation_config.yml \\
+    python -m src_llm.automate \\
+        --config src_llm/input/automation_config.yml \\
         --env-file .env.local
 """
 from __future__ import annotations
@@ -17,14 +17,14 @@ from pathlib import Path
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        prog="python -m gifdroid_llm.automate",
+        prog="python -m src_llm.automate",
         description="Video-guided Android UI automation via LLM + uiautomator2",
     )
     parser.add_argument(
         "--config",
         type=Path,
-        default=Path("gifdroid_llm/input/automation_config.yml"),
-        help="Path to automation_config.yml (default: gifdroid_llm/input/automation_config.yml)",
+        default=Path("src_llm/input/automation_config.yml"),
+        help="Path to automation_config.yml (default: src_llm/input/automation_config.yml)",
     )
     parser.add_argument("--env-file", type=Path, default=None, help="Path to .env file")
     parser.add_argument(
@@ -142,12 +142,12 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
     run_start = time.perf_counter()
 
     # --- Create provider ---
-    from gifdroid_llm.providers import create_provider
+    from src_llm.providers import create_provider
 
     provider = create_provider(run.llm, run.llm_model, env, logger=logger, video_mode=True)
 
     # --- Connect device + install APK ---
-    from gifdroid_llm.device import DeviceController
+    from src_llm.device import DeviceController
 
     device = DeviceController()
     device.connect(serial=run.device_serial)
@@ -156,7 +156,7 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
     pkg = device.install_apk(run.apk_path)
     logger.info("APK installed: %s", pkg)
 
-    from gifdroid_llm.apk_utils import extract_main_activity
+    from src_llm.apk_utils import extract_main_activity
 
     activity = extract_main_activity(run.apk_path)
     if activity:
@@ -174,7 +174,7 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
     logger.info("App launched: %s", device.get_current_activity())
 
     # --- Run automation ---
-    from gifdroid_llm.automation import run_automation
+    from src_llm.automation import run_automation
 
     trace = run_automation(
         video_path=run.video_path,
@@ -200,7 +200,7 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
         device.reset_app(pkg)
         logger.info("App reset complete: %s", pkg)
 
-    from gifdroid_llm.replay_writer import write_replay_script
+    from src_llm.replay_writer import write_replay_script
 
     replay_path = write_replay_script(
         output_dir=output_dir,
@@ -230,10 +230,10 @@ def main(argv: list[str] | None = None) -> int:
         datefmt="%Y-%m-%d %H:%M:%S",
         stream=sys.stderr,
     )
-    logger = logging.getLogger("gifdroid_llm.automate")
+    logger = logging.getLogger("src_llm.automate")
 
     # --- Load config ---
-    from gifdroid_llm.config import load_automation_config, ConfigError
+    from src_llm.config import load_automation_config, ConfigError
 
     try:
         cfg = load_automation_config(args.config)
@@ -242,7 +242,7 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     # --- Load environment ---
-    from gifdroid_llm.env_loader import load_and_validate_env
+    from src_llm.env_loader import load_and_validate_env
 
     env = load_and_validate_env(args.env_file, cfg.llm) if args.env_file else {}
 
@@ -250,9 +250,9 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.dry_run:
         try:
-            from gifdroid_llm.providers import create_provider  # noqa: F401
-            from gifdroid_llm.device import DeviceController  # noqa: F401
-            from gifdroid_llm.automation import run_automation  # noqa: F401
+            from src_llm.providers import create_provider  # noqa: F401
+            from src_llm.device import DeviceController  # noqa: F401
+            from src_llm.automation import run_automation  # noqa: F401
         except ImportError as exc:
             logger.error("Import error: %s", exc)
             return 1

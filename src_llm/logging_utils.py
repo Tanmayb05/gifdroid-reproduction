@@ -8,7 +8,7 @@ def setup_logger(log_path: Path, level: str) -> logging.Logger:
     """Create a structured file logger and return it."""
     log_path.parent.mkdir(parents=True, exist_ok=True)
 
-    logger_name = f"gifdroid_llm.{log_path.stem}"
+    logger_name = f"src_llm.{log_path.stem}"
     logger = logging.getLogger(logger_name)
     logger.setLevel(getattr(logging, level.upper(), logging.INFO))
     logger.propagate = False

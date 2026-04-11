@@ -76,7 +76,7 @@ From the data:
 
 ### FFmpeg vidstab Pre-Stabilization
 
-The single highest-leverage intervention. Add to `gifdroid/prerequisites.py` `convert_handheld()`:
+The single highest-leverage intervention. Add to `src_gifdroid/prerequisites.py` `convert_handheld()`:
 
 ```bash
 # Pass 1: analyze motion

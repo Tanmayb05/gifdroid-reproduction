@@ -24,7 +24,7 @@ ollama pull qwen2.5vl:7b
 
 ## Changes Made
 
-### 1. `gifdroid_llm/providers.py`
+### 1. `src_llm/providers.py`
 
 `QwenProvider` was a stub. It is now a full implementation:
 
@@ -39,15 +39,15 @@ ollama pull qwen2.5vl:7b
 - Fallback to deterministic heuristic on parse failure or provider error.
 
 `create_provider()` updated to pass the prompt template path to `QwenProvider`
-(defaults to `gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt`).
+(defaults to `src_llm/input/prompts/llama_action_prompt_gemini_2.txt`).
 
-### 2. `gifdroid_llm/env_loader.py`
+### 2. `src_llm/env_loader.py`
 
 - `REQUIRED_ENV_BY_LLM["qwen"]` reduced to `["QWEN_BASE_URL"]` only.
 - `QWEN_API_KEY` is optional (local Ollama needs no auth).
 - `QWEN_MODEL` removed — model is set via `llm_model` in `config.yml`.
 
-### 3. `gifdroid_llm/main.py`
+### 3. `src_llm/main.py`
 
 - Prereq check (`assert_llama_accessible`) now runs for both `llama` and `qwen`.
 - Dynamically picks env var keys (`QWEN_BASE_URL`, `QWEN_API_KEY`, `QWEN_PREREQ_TIMEOUT_SEC`)
@@ -63,12 +63,12 @@ ollama pull qwen2.5vl:7b
 
 ### To run with Qwen
 
-Edit `gifdroid_llm/input/config.yml`:
+Edit `src_llm/input/config.yml`:
 
 ```yaml
 llm: "qwen"
 llm_model: "qwen2.5vl:7b"
-llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt"
+llama_action_prompt_file: "src_llm/input/prompts/llama_action_prompt_gemini_2.txt"
 ```
 
 Add to `.env.local`:
@@ -82,7 +82,7 @@ QWEN_BASE_URL=http://localhost:11434/v1
 ```yaml
 llm: "llama"
 llm_model: "llama3.2-vision"
-llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt"
+llama_action_prompt_file: "src_llm/input/prompts/llama_action_prompt_gemini_2.txt"
 ```
 
 ## Why Qwen2.5-VL is Better
@@ -104,12 +104,12 @@ llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini
 
 ```bash
 # Run with Qwen
-.venv/bin/python -m gifdroid_llm.main \
-  --config gifdroid_llm/input/config.yml \
+.venv/bin/python -m src_llm.main \
+  --config src_llm/input/config.yml \
   --env-file .env.local
 
 # Verify Qwen endpoint is accessible
-.venv/bin/python -m gifdroid_llm.llama_prereq \
+.venv/bin/python -m src_llm.llama_prereq \
   --base-url http://localhost:11434/v1 \
   --model qwen2.5vl:7b \
   --check-metal

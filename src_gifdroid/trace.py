@@ -4,7 +4,7 @@ import time
 from collections import defaultdict
 import itertools
 
-logger = logging.getLogger('gifdroid.trace')
+logger = logging.getLogger('src_gifdroid.trace')
 
 
 class Graph:

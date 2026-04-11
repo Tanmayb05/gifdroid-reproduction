@@ -9,8 +9,8 @@ from typing import Any, Dict, List
 
 import yaml
 
-from gifdroid_llm.config import ConfigError
-from gifdroid_llm.io_utils import write_json
+from src_llm.config import ConfigError
+from src_llm.io_utils import write_json
 
 
 @dataclass(frozen=True)
@@ -31,7 +31,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--config",
         type=Path,
-        default=Path("gifdroid_llm/input/reset_runs.yml"),
+        default=Path("src_llm/input/reset_runs.yml"),
         help="Path to reset config YAML.",
     )
     mode = parser.add_mutually_exclusive_group()

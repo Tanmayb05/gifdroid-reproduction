@@ -1,6 +1,6 @@
-# gifdroid_llm
+# src_llm
 
-`gifdroid_llm` generates an LLM-based execution trace (keyframes + action sequence) directly from a video recording of an Android app.
+`src_llm` generates an LLM-based execution trace (keyframes + action sequence) directly from a video recording of an Android app.
 
 ## Supported LLM Providers
 
@@ -31,7 +31,7 @@ ollama pull llama3.2-vision:11b
 Verify a model endpoint is accessible:
 
 ```bash
-python -m gifdroid_llm.llama_prereq \
+python -m src_llm.llama_prereq \
   --base-url http://localhost:11434/v1 \
   --model qwen2.5vl:7b \
   --check-metal
@@ -63,7 +63,7 @@ apps/{app}/
         screenrec/
           run-001/
             ...
-  utgs/          <- UTG input data only, not touched by gifdroid_llm
+  utgs/          <- UTG input data only, not touched by src_llm
   videos/
   apk/
 ```
@@ -99,7 +99,7 @@ Valid `action_type` values: `launch`, `tap`, `type`, `swipe`, `scroll`, `wait`, 
 ## Install
 
 ```bash
-pip install -r gifdroid_llm/requirements.txt
+pip install -r src_llm/requirements.txt
 ```
 
 ## Configure
@@ -128,12 +128,12 @@ GOOGLE_GENERATIVE_AI_API_KEY=your_key_here
 
 ### 2. Config file
 
-Edit `gifdroid_llm/input/config.yml` (see `config.example.yml` for full documentation):
+Edit `src_llm/input/config.yml` (see `config.example.yml` for full documentation):
 
 ```yaml
 llm: "qwen"                  # provider key
 llm_model: "qwen2.5vl:7b"   # optional — uses provider default if omitted
-llm_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt"
+llm_prompt_file: "src_llm/input/prompts/llama_action_prompt_gemini_2.txt"
 
 frame_sampling:
   strategy: "uniform"
@@ -171,22 +171,22 @@ runs:
 ## Run
 
 ```bash
-python -m gifdroid_llm.main \
-  --config gifdroid_llm/input/config.yml \
+python -m src_llm.main \
+  --config src_llm/input/config.yml \
   --env-file .env.local
 ```
 
 Dry-run (validates config/env, skips inference):
 
 ```bash
-python -m gifdroid_llm.main --dry-run
+python -m src_llm.main --dry-run
 ```
 
 ## Prompt Templates
 
 All local Ollama providers use a shared prompt template file specified by `llm_prompt_file` in config. The template must contain a `{KEYFRAMES}` placeholder where per-keyframe metadata is injected at runtime.
 
-Available templates in `gifdroid_llm/input/prompts/`:
+Available templates in `src_llm/input/prompts/`:
 
 | File | Description |
 | --- | --- |
@@ -198,7 +198,7 @@ Available templates in `gifdroid_llm/input/prompts/`:
 To use a different template:
 
 ```yaml
-llm_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_baseline.txt"
+llm_prompt_file: "src_llm/input/prompts/llama_action_prompt_baseline.txt"
 ```
 
 ## Fallback Behavior
@@ -223,7 +223,7 @@ The fallback result is still written to `execution_trace.json`. Check `llm_raw_r
 - Fall back to a deterministic heuristic if the model returns unparseable output.
 - Image resolution per provider: `llama` → 768px, `qwen`/`gemma` → 512px, `minicpm` → 448px (matches its native tile size).
 - Set `LLAMA_TIMEOUT_SEC` (or `QWEN_TIMEOUT_SEC`) in `.env.local` to tune the inference timeout.
-- Check Metal (Apple Silicon GPU) acceleration: `python -m gifdroid_llm.llama_prereq --check-metal`
+- Check Metal (Apple Silicon GPU) acceleration: `python -m src_llm.llama_prereq --check-metal`
 
 ### Gemini
 
@@ -249,15 +249,15 @@ Wipes `apps/{app}/llm/` run directories for selected apps.
 Preview first:
 
 ```bash
-python -m gifdroid_llm.reset_runs \
-  --config gifdroid_llm/input/reset_runs.example.yml \
+python -m src_llm.reset_runs \
+  --config src_llm/input/reset_runs.example.yml \
   --dry-run
 ```
 
 Apply:
 
 ```bash
-python -m gifdroid_llm.reset_runs \
-  --config gifdroid_llm/input/reset_runs.example.yml \
+python -m src_llm.reset_runs \
+  --config src_llm/input/reset_runs.example.yml \
   --apply
 ```

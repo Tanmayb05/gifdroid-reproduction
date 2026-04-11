@@ -26,10 +26,10 @@
 
 Command:
 ```
-.venv/bin/python -m gifdroid_llm.automate \
+.venv/bin/python -m src_llm.automate \
   --video apps/adaway/videos/screenrec/srv-001.mp4 \
   --apk apps/adaway/apk/adaway.apk \
-  --config gifdroid_llm/input/automation_config.yml \
+  --config src_llm/input/automation_config.yml \
   --env-file .env.local \
   --task "Open AdAway, navigate to the custom lists (Allowed tab), add and then cancel an entry, toggle the utl.web entry, and briefly view the Redirected tab." \
   --output-dir artifacts/milestone4/run-001
@@ -66,14 +66,14 @@ Session trace: `status=done`, 8 steps, keyframes_used=8.
 **Pass**
 
 ```
-.venv/bin/python -m gifdroid_llm.main --config gifdroid_llm/input/config.yml --env-file .env.local --dry-run
+.venv/bin/python -m src_llm.main --config src_llm/input/config.yml --env-file .env.local --dry-run
 ```
 
 Exits 0 across all 20 configured runs. Dry-run OK.
 
 Also:
 ```
-.venv/bin/python -m gifdroid_llm.automate --config gifdroid_llm/input/automation_config.yml --env-file .env.local --dry-run
+.venv/bin/python -m src_llm.automate --config src_llm/input/automation_config.yml --env-file .env.local --dry-run
 ```
 Exits 0: Dry-run OK.
 
@@ -81,11 +81,11 @@ Exits 0: Dry-run OK.
 
 ## New Files
 
-- `gifdroid_llm/automate.py` — CLI entry point (`python -m gifdroid_llm.automate`)
-- `gifdroid_llm/automation.py` — extended with `run_automation(video_path, ...)` for video-guided loop
-- `gifdroid_llm/providers.py` — added `GeminiProvider.summarize_video_task()` and `decide_next_action_with_video_context()`
-- `gifdroid_llm/config.py` — added `AutomationConfig` dataclass and `load_automation_config()`
-- `gifdroid_llm/input/automation_config.yml` — automation config template
+- `src_llm/automate.py` — CLI entry point (`python -m src_llm.automate`)
+- `src_llm/automation.py` — extended with `run_automation(video_path, ...)` for video-guided loop
+- `src_llm/providers.py` — added `GeminiProvider.summarize_video_task()` and `decide_next_action_with_video_context()`
+- `src_llm/config.py` — added `AutomationConfig` dataclass and `load_automation_config()`
+- `src_llm/input/automation_config.yml` — automation config template
 
 ## Artifacts
 

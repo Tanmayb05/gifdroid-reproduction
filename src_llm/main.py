@@ -6,21 +6,21 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import List
 
-from gifdroid_llm.config import AppConfig, ConfigError, PipelineConfig, load_config
-from gifdroid_llm.env_loader import EnvError, load_and_validate_env
-from gifdroid_llm.io_utils import (
+from src_llm.config import AppConfig, ConfigError, PipelineConfig, load_config
+from src_llm.env_loader import EnvError, load_and_validate_env
+from src_llm.io_utils import (
     PathError,
     create_output_layout,
     resolve_video_path,
     write_json,
     write_run_metadata,
 )
-from gifdroid_llm.keyframes import KeyframeSelector
-from gifdroid_llm.llama_prereq import LlamaPrereqError, assert_llama_accessible
-from gifdroid_llm.logging_utils import finalize_log_file, setup_logger
-from gifdroid_llm.providers import ProviderError, create_provider
-from gifdroid_llm.trace import TraceAction, TraceBuilder, TraceStep
-from gifdroid_llm.video import VideoError, VideoFrameExtractor
+from src_llm.keyframes import KeyframeSelector
+from src_llm.llama_prereq import LlamaPrereqError, assert_llama_accessible
+from src_llm.logging_utils import finalize_log_file, setup_logger
+from src_llm.providers import ProviderError, create_provider
+from src_llm.trace import TraceAction, TraceBuilder, TraceStep
+from src_llm.video import VideoError, VideoFrameExtractor
 
 
 def parse_args() -> argparse.Namespace:
@@ -30,7 +30,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--config",
         type=Path,
-        default=Path("gifdroid_llm/input/config.yml"),
+        default=Path("src_llm/input/config.yml"),
         help="Path to YAML config file.",
     )
     parser.add_argument(
@@ -93,7 +93,7 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
     (layout.run_dir / "logs").mkdir(parents=True, exist_ok=True)
 
     logger = setup_logger(layout.log_file_path, cfg.logging.level)
-    logger.info("Starting gifdroid_llm pipeline")
+    logger.info("Starting src_llm pipeline")
     logger.info("Resolved video path: %s", resolved_video_path)
 
     pipeline_status = "failed"
@@ -256,15 +256,15 @@ def run_pipeline(args: argparse.Namespace) -> int:
     pipeline_cfg = load_config(args.config)
     runs = pipeline_cfg.runs
     if len(runs) > 1:
-        print(f"[gifdroid_llm] Running {len(runs)} configured runs")
+        print(f"[src_llm] Running {len(runs)} configured runs")
     exit_code = 0
     for i, cfg in enumerate(runs, start=1):
         if len(runs) > 1:
-            print(f"[gifdroid_llm] --- Run {i}/{len(runs)}: {cfg.app_name} ({cfg.video_path}) ---")
+            print(f"[src_llm] --- Run {i}/{len(runs)}: {cfg.app_name} ({cfg.video_path}) ---")
         try:
             code = run_single(args, cfg)
         except VideoError as exc:
-            print(f"[gifdroid_llm] SKIP run {i}/{len(runs)}: {exc}")
+            print(f"[src_llm] SKIP run {i}/{len(runs)}: {exc}")
             continue
         if code != 0:
             exit_code = code
@@ -276,10 +276,10 @@ def main() -> int:
     try:
         return run_pipeline(args)
     except (ConfigError, EnvError, PathError, VideoError, ProviderError, LlamaPrereqError) as exc:
-        print(f"[gifdroid_llm] ERROR: {exc}", file=sys.stderr)
+        print(f"[src_llm] ERROR: {exc}", file=sys.stderr)
         return 1
     except Exception as exc:  # pragma: no cover
-        print(f"[gifdroid_llm] UNEXPECTED ERROR: {exc}", file=sys.stderr)
+        print(f"[src_llm] UNEXPECTED ERROR: {exc}", file=sys.stderr)
         return 1
 
 

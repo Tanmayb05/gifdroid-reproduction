@@ -14,14 +14,14 @@ import tempfile
 from itertools import groupby
 from pathlib import Path
 
-from gifdroid.location import (
+from src_gifdroid.location import (
     keyframe_location,
     read_frames_from_video,
     calculate_sim_seq,
     detect_keyframes,
 )
 
-logger = logging.getLogger('gifdroid.hhv_keyframe')
+logger = logging.getLogger('src_gifdroid.hhv_keyframe')
 
 # ---------------------------------------------------------------------------
 # Fix 1 — Video Stabilization (FFmpeg)

@@ -270,7 +270,7 @@ gifdroid-reproduction/
 │   ├── keyframes/
 │   ├── gui-mapping/
 │   └── traces/
-└── gifdroid/             # GIFdroid code
+└── src_gifdroid/             # GIFdroid code
 ```
 
 ### Convert Robo Results to GIFdroid Format
@@ -332,7 +332,7 @@ for app_dir in Path('./utg-data').iterdir():
 cd ~/gifdroid-reproduction/gifdroid
 
 # Run on a single recording
-python gifdroid.py \
+python src_gifdroid.py \
   --recording ../recordings/app1_bug1.gif \
   --utg ../gifdroid-input/app1/utg.json \
   --screenshots ../gifdroid-input/app1/screenshots \
@@ -361,7 +361,7 @@ for recording in Path(RECORDINGS_DIR).glob("*.gif"):
     
     if os.path.exists(utg_path):
         cmd = [
-            "python", "gifdroid.py",
+            "python", "src_gifdroid.py",
             "--recording", str(recording),
             "--utg", utg_path,
             "--screenshots", screenshots_path,

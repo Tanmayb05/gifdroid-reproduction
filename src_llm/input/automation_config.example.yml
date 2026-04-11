@@ -2,13 +2,13 @@
 # Copy this file to automation_config.yml and edit as needed.
 #
 # CLI:
-#   python -m gifdroid_llm.automate \
-#     --config gifdroid_llm/input/automation_config.yml \
+#   python -m src_llm.automate \
+#     --config src_llm/input/automation_config.yml \
 #     --env-file .env.local
 #
 # Dry-run (validate paths and imports without running):
-#   python -m gifdroid_llm.automate \
-#     --config gifdroid_llm/input/automation_config.yml \
+#   python -m src_llm.automate \
+#     --config src_llm/input/automation_config.yml \
 #     --env-file .env.local \
 #     --dry-run
 

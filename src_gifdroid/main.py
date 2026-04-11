@@ -8,10 +8,10 @@ from datetime import datetime
 
 import cv2
 
-from gifdroid.location import keyframe_location
-from gifdroid.hhv_keyframe import get_keyframe_fn
-from gifdroid.mapping import gui_mapping
-from gifdroid.trace import find_execution_trace
+from src_gifdroid.location import keyframe_location
+from src_gifdroid.hhv_keyframe import get_keyframe_fn
+from src_gifdroid.mapping import gui_mapping
+from src_gifdroid.trace import find_execution_trace
 
 # ---------------------------------------------------------------------------
 # Logging setup

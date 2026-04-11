@@ -1,10 +1,10 @@
-# `gifdroid_llm.automate` Execution Flow
+# `src_llm.automate` Execution Flow
 
 Command entrypoint:
 
 ```bash
-python -m gifdroid_llm.automate \
-  --config gifdroid_llm/input/automation_config.yml \
+python -m src_llm.automate \
+  --config src_llm/input/automation_config.yml \
   --env-file .env.local
 ```
 
@@ -13,12 +13,12 @@ Optional flags:
 - `--dry-run` — validate paths and imports then exit without running
 
 All run parameters (apps, videos, LLM, steps, output) are defined in the config file.
-See `gifdroid_llm/input/automation_config.example.yml` for all options with comments.
+See `src_llm/input/automation_config.example.yml` for all options with comments.
 
 ## High-Level Sequence
 
-1. Parse CLI arguments in `gifdroid_llm/automate.py`.
-2. Load automation config from YAML (`gifdroid_llm/input/automation_config.yml`).
+1. Parse CLI arguments in `src_llm/automate.py`.
+2. Load automation config from YAML (`src_llm/input/automation_config.yml`).
 3. Load/validate environment variables from `.env` (if `--env-file` is provided).
 4. If `--dry-run` is set, validate paths/imports across all runs and exit.
 5. For each run defined in `runs:`:
@@ -52,16 +52,16 @@ Per-run optional overrides: `apk_path`, `max_steps`, `output_dir`.
 
 ### 1) CLI Parse and Setup
 
-- `gifdroid_llm/automate.py::_parse_args()` parses:
+- `src_llm/automate.py::_parse_args()` parses:
   - `--config`, `--env-file`, `--dry-run`
-- `gifdroid_llm/automate.py::main()` sets logging.
+- `src_llm/automate.py::main()` sets logging.
 
 ### 2) Config + Env Load
 
-- `gifdroid_llm.config.load_automation_config(config_path)`
+- `src_llm.config.load_automation_config(config_path)`
   - Parses shared settings and expands `runs` list into `AutomationRunConfig` objects.
   - Returns `AutomationConfig`.
-- `gifdroid_llm.env_loader.load_and_validate_env(env_file, llm)`
+- `src_llm.env_loader.load_and_validate_env(env_file, llm)`
   - Loads `.env` and validates provider-specific requirements.
 
 ### 3) Dry-Run Path (Optional)
@@ -70,9 +70,9 @@ If `--dry-run`:
 
 - For each run: checks `video_path.exists()` and `apk_path.exists()`.
 - Imports:
-  - `gifdroid_llm.providers.create_provider`
-  - `gifdroid_llm.device.DeviceController`
-  - `gifdroid_llm.automation.run_automation`
+  - `src_llm.providers.create_provider`
+  - `src_llm.device.DeviceController`
+  - `src_llm.automation.run_automation`
 - Prints `Dry-run OK` and exits `0`.
 
 ### 4) Per-Run: Provider + Device Bootstrapping
@@ -82,7 +82,7 @@ For each run in `cfg.runs`:
 - Output dir resolved: explicit `output_dir` or auto-derived
   `apps/<app>/llm/<provider>/<model>/<video_type>/run-<NNN>`
 - Provider factory:
-  - `gifdroid_llm.providers.create_provider(llm, llm_model, env, logger, video_mode=True)`
+  - `src_llm.providers.create_provider(llm, llm_model, env, logger, video_mode=True)`
 - Device setup:
   - `DeviceController.connect(serial)`
 - APK install:
@@ -95,7 +95,7 @@ For each run in `cfg.runs`:
 
 ### 5) Video-Guided Automation (`run_automation`)
 
-`gifdroid_llm.automation.run_automation(...)` does:
+`src_llm.automation.run_automation(...)` does:
 
 1. Summarize video intent — two paths tried in order:
    - **Direct-video path** (preferred): if `hasattr(provider, "summarize_video_task_from_video")`,
@@ -142,15 +142,15 @@ Back in `automate.main()`:
 
 ## Key Files Involved
 
-- `gifdroid_llm/automate.py` (CLI orchestrator)
-- `gifdroid_llm/input/automation_config.yml` (active config)
-- `gifdroid_llm/input/automation_config.example.yml` (all options with comments)
-- `gifdroid_llm/config.py` (automation config loading)
-- `gifdroid_llm/env_loader.py` (env loading/validation)
-- `gifdroid_llm/providers.py` (LLM provider, action decisions)
-- `gifdroid_llm/device.py` (device actions via uiautomator2/adb)
-- `gifdroid_llm/apk_utils.py` (APK package/activity extraction)
-- `gifdroid_llm/automation.py` (video-guided loop)
-- `gifdroid_llm/session.py` (history window state)
-- `gifdroid_llm/video.py` (frame extraction)
-- `gifdroid_llm/keyframes.py` (keyframe selection)
+- `src_llm/automate.py` (CLI orchestrator)
+- `src_llm/input/automation_config.yml` (active config)
+- `src_llm/input/automation_config.example.yml` (all options with comments)
+- `src_llm/config.py` (automation config loading)
+- `src_llm/env_loader.py` (env loading/validation)
+- `src_llm/providers.py` (LLM provider, action decisions)
+- `src_llm/device.py` (device actions via uiautomator2/adb)
+- `src_llm/apk_utils.py` (APK package/activity extraction)
+- `src_llm/automation.py` (video-guided loop)
+- `src_llm/session.py` (history window state)
+- `src_llm/video.py` (frame extraction)
+- `src_llm/keyframes.py` (keyframe selection)

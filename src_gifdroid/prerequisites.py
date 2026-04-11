@@ -2,11 +2,11 @@
 prerequisites.py — GIFdroid pre-run setup script
 
 Usage:
-    python gifdroid/prerequisites.py                           # checks + generate commands.txt for all utg slots
-    python gifdroid/prerequisites.py --handheld                # also converts MOV -> mp4
-    python gifdroid/prerequisites.py --app SimpleNotes         # single app, all utg slots
-    python gifdroid/prerequisites.py --utg utg02               # all apps, specific utg slot
-    python gifdroid/prerequisites.py --handheld --app SimpleNotes --utg utg01
+    python src_gifdroid/prerequisites.py                           # checks + generate commands.txt for all utg slots
+    python src_gifdroid/prerequisites.py --handheld                # also converts MOV -> mp4
+    python src_gifdroid/prerequisites.py --app SimpleNotes         # single app, all utg slots
+    python src_gifdroid/prerequisites.py --utg utg02               # all apps, specific utg slot
+    python src_gifdroid/prerequisites.py --handheld --app SimpleNotes --utg utg01
 """
 
 import argparse
@@ -97,7 +97,7 @@ def check_dependencies():
 
     if missing:
         print(f"[WARNING] Missing Python packages: {', '.join(missing)}")
-        print("         Run: pip install -r gifdroid/requirements.txt")
+        print("         Run: pip install -r src_gifdroid/requirements.txt")
     else:
         print("[OK] All Python dependencies found.")
 
@@ -228,7 +228,7 @@ def generate_commands(utg_dirs, root, include_handheld):
             out_dir = os.path.join(utg_dir, "runs", "baseline", "screenrec", "run-001")
             lines.append(f"# {name} [{utg_id}] — screen recording")
             lines.append(
-                f"python -m gifdroid.main"
+                f"python -m src_gifdroid.main"
                 f" --video {srv_path}"
                 f" --utg {utg_json}"
                 f" --artifact {artifacts}"
@@ -247,7 +247,7 @@ def generate_commands(utg_dirs, root, include_handheld):
                 out_dir = os.path.join(utg_dir, "runs", "baseline", "handheld", "run-001")
                 lines.append(f"# {name} [{utg_id}] — handheld")
                 lines.append(
-                    f"python -m gifdroid.main"
+                    f"python -m src_gifdroid.main"
                     f" --video {mp4_path}"
                     f" --utg {utg_json}"
                     f" --artifact {artifacts}"
@@ -287,7 +287,7 @@ def parse_args():
 def main():
     args = parse_args()
 
-    # Root is two levels up from this file (gifdroid/prerequisites.py -> project root)
+    # Root is two levels up from this file (src_gifdroid/prerequisites.py -> project root)
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     print(f"Project root: {root}\n")

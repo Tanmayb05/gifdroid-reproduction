@@ -39,7 +39,7 @@ class DeviceController:
 
     def install_apk(self, apk_path: Path) -> str:
         """Install APK via ADB and return the package name."""
-        from gifdroid_llm.apk_utils import extract_package_name
+        from src_llm.apk_utils import extract_package_name
 
         pkg = extract_package_name(apk_path)
         serial_args = ["-s", self._serial] if self._serial else []
@@ -112,7 +112,7 @@ class DeviceController:
 
     def execute_action(self, action: "ExecutableAction") -> None:
         """Execute an ExecutableAction on the device."""
-        from gifdroid_llm.providers import ExecutableAction as _EA  # noqa: F401
+        from src_llm.providers import ExecutableAction as _EA  # noqa: F401
 
         action_type = action.type.lower()
         if action_type == "tap":

@@ -1,6 +1,6 @@
 # CLI (reset using this config):
-# .venv/bin/python -m gifdroid_llm.reset_runs --config gifdroid_llm/input/reset_runs.example.yml --dry-run
-# .venv/bin/python -m gifdroid_llm.reset_runs --config gifdroid_llm/input/reset_runs.example.yml --apply
+# .venv/bin/python -m src_llm.reset_runs --config src_llm/input/reset_runs.example.yml --dry-run
+# .venv/bin/python -m src_llm.reset_runs --config src_llm/input/reset_runs.example.yml --apply
 #
 # Wipes apps/{app}/llm/ run directories for selected apps.
 # Defaults to dry-run for safety. Use --apply to actually delete.

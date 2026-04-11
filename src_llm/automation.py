@@ -7,8 +7,8 @@ import time
 from pathlib import Path
 from typing import Any, List, Optional
 
-from gifdroid_llm.device import DeviceController
-from gifdroid_llm.session import AutomationSession, ConversationTurn
+from src_llm.device import DeviceController
+from src_llm.session import AutomationSession, ConversationTurn
 
 import numpy as np
 
@@ -213,9 +213,9 @@ def run_automation(
 
     if video_summary is None:
         # --- Keyframe fallback ---
-        from gifdroid_llm.video import VideoFrameExtractor
-        from gifdroid_llm.keyframes import KeyframeSelector
-        from gifdroid_llm.config import FrameSamplingConfig, KeyframeSelectionConfig
+        from src_llm.video import VideoFrameExtractor
+        from src_llm.keyframes import KeyframeSelector
+        from src_llm.config import FrameSamplingConfig, KeyframeSelectionConfig
 
         frame_cfg = FrameSamplingConfig(strategy="uniform", fps=1.5, max_frames=100)
         kf_cfg = KeyframeSelectionConfig(

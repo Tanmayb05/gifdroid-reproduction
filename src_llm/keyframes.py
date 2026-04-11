@@ -10,8 +10,8 @@ import cv2
 import numpy as np
 from skimage.metrics import structural_similarity as ssim
 
-from gifdroid_llm.config import KeyframeSelectionConfig
-from gifdroid_llm.video import SampledFrame
+from src_llm.config import KeyframeSelectionConfig
+from src_llm.video import SampledFrame
 
 
 @dataclass

@@ -159,13 +159,13 @@ The screenshot is the most LLM-friendly (visual). Accessibility tree is useful f
 
 | Component | File | Reuse |
 |-----------|------|-------|
-| Frame extraction | `gifdroid_llm/video.py` | Full reuse for initial video analysis |
-| Keyframe selection | `gifdroid_llm/keyframes.py` | Full reuse |
-| Provider abstraction | `gifdroid_llm/providers.py` | Extend — add multi-turn method |
-| Config loading | `gifdroid_llm/config.py` | Extend with new config keys |
-| Env loading | `gifdroid_llm/env_loader.py` | Full reuse |
-| Logging | `gifdroid_llm/logging_utils.py` | Full reuse |
-| IO utilities | `gifdroid_llm/io_utils.py` | Extend for session output |
+| Frame extraction | `src_llm/video.py` | Full reuse for initial video analysis |
+| Keyframe selection | `src_llm/keyframes.py` | Full reuse |
+| Provider abstraction | `src_llm/providers.py` | Extend — add multi-turn method |
+| Config loading | `src_llm/config.py` | Extend with new config keys |
+| Env loading | `src_llm/env_loader.py` | Full reuse |
+| Logging | `src_llm/logging_utils.py` | Full reuse |
+| IO utilities | `src_llm/io_utils.py` | Extend for session output |
 
 ### Extend/Modify
 
@@ -179,10 +179,10 @@ The screenshot is the most LLM-friendly (visual). Accessibility tree is useful f
 
 | Component | Location | Purpose |
 |-----------|----------|---------|
-| `gifdroid_llm/device.py` | New | uiautomator2 wrapper (install APK, execute actions, capture feedback) |
-| `gifdroid_llm/automation.py` | New | Orchestrate the decision loop |
-| `gifdroid_llm/session.py` | New | Session state: history, step count, stop conditions |
-| `gifdroid_llm/apk_utils.py` | New | APK metadata extraction (package name, main activity) |
+| `src_llm/device.py` | New | uiautomator2 wrapper (install APK, execute actions, capture feedback) |
+| `src_llm/automation.py` | New | Orchestrate the decision loop |
+| `src_llm/session.py` | New | Session state: history, step count, stop conditions |
+| `src_llm/apk_utils.py` | New | APK metadata extraction (package name, main activity) |
 
 ---
 
@@ -193,7 +193,7 @@ The screenshot is the most LLM-friendly (visual). Accessibility tree is useful f
 The new workflow is implemented as a **parallel path**, not a replacement:
 
 ```text
-gifdroid_llm/
+src_llm/
 ├── main.py          ← UNCHANGED (passive trace generation)
 ├── automate.py      ← NEW (active automation loop)
 ├── automation.py    ← NEW
@@ -205,7 +205,7 @@ gifdroid_llm/
 └── ...              ← UNCHANGED
 ```
 
-The existing `gifdroid/` pipeline is not touched at all.
+The existing `src_gifdroid/` pipeline is not touched at all.
 
 New dependencies (`uiautomator2`) are added to requirements but are **optional** — existing pipeline does not import them.
 
@@ -266,7 +266,7 @@ Each milestone must be **fully verified** before work on the next begins. Verifi
 - Android SDK installed (provides `adb`)
 - Python 3.10+ environment
 - Google Cloud project with Gemini API access
-- Existing `gifdroid_llm` pipeline runs successfully (baseline check)
+- Existing `src_llm` pipeline runs successfully (baseline check)
 
 ### What needs to be done
 
@@ -283,7 +283,7 @@ Each milestone must be **fully verified** before work on the next begins. Verifi
    ```
 3. Verify ADB device connectivity.
 4. Verify Gemini API key works with a simple image prompt.
-5. Run the existing `gifdroid_llm` pipeline on one app/video to confirm the baseline still works.
+5. Run the existing `src_llm` pipeline on one app/video to confirm the baseline still works.
 
 ### Open Questions
 
@@ -365,7 +365,7 @@ Pass condition: non-empty text response, no API error.
 Run:
 
 ```bash
-python -m gifdroid_llm.main --config gifdroid_llm/input/config.yml --env-file .env.local --dry-run
+python -m src_llm.main --config src_llm/input/config.yml --env-file .env.local --dry-run
 ```
 
 Expected output:
@@ -385,7 +385,7 @@ Pass condition: exits 0 with "Dry-run OK". Confirms new packages did not break e
 - V0.1: **Pass** — `adb devices` shows `emulator-5554` in `device` state.
 - V0.2: **Pass** — `uiautomator2` screenshot capture succeeds and saves `milestone0_screenshot.png` (`1080x1920`).
 - V0.3: **Fail** — Gemini call returns `403 API_KEY_SERVICE_BLOCKED` for `generativelanguage.googleapis.com`.
-- V0.4: **Pass** — existing `gifdroid_llm` dry-run completed successfully.
+- V0.4: **Pass** — existing `src_llm` dry-run completed successfully.
 
 Milestone 0 gate status: **NOT CLEARED** (V0.3 pending API access).
 
@@ -427,7 +427,7 @@ Current Milestone 0 files:
 
 ### What needs to be done
 
-Implement `gifdroid_llm/device.py`:
+Implement `src_llm/device.py`:
 
 ```python
 class DeviceController:
@@ -444,7 +444,7 @@ class DeviceController:
     def is_app_running(package: str) -> bool
 ```
 
-Also implement `gifdroid_llm/apk_utils.py`:
+Also implement `src_llm/apk_utils.py`:
 
 ```python
 def extract_package_name(apk_path: Path) -> str
@@ -465,8 +465,8 @@ Run:
 ```bash
 python -c "
 from pathlib import Path
-from gifdroid_llm.apk_utils import extract_package_name
-from gifdroid_llm.device import DeviceController
+from src_llm.apk_utils import extract_package_name
+from src_llm.device import DeviceController
 
 apk = Path('apps/adaway/adaway.apk')   # replace with actual apk path
 pkg = extract_package_name(apk)
@@ -498,7 +498,7 @@ Run:
 
 ```bash
 python -c "
-from gifdroid_llm.device import DeviceController
+from src_llm.device import DeviceController
 d = DeviceController()
 d.connect(serial=None)
 d.launch_app('org.adaway', '.ui.main.MainActivity')
@@ -524,7 +524,7 @@ Run:
 
 ```bash
 python -c "
-from gifdroid_llm.device import DeviceController
+from src_llm.device import DeviceController
 from pathlib import Path
 d = DeviceController()
 d.connect(serial=None)
@@ -555,7 +555,7 @@ Run a sequence: launch app → take screenshot A → tap a known UI element → 
 python -c "
 import time
 import numpy as np
-from gifdroid_llm.device import DeviceController
+from src_llm.device import DeviceController
 from pathlib import Path
 
 d = DeviceController()
@@ -597,7 +597,7 @@ Run:
 
 ```bash
 python -c "
-from gifdroid_llm.device import DeviceController
+from src_llm.device import DeviceController
 import xml.etree.ElementTree as ET
 
 d = DeviceController()
@@ -628,7 +628,7 @@ Pass condition: at least 1 clickable element found, XML parses without error.
 
 ---
 
-**Milestone 1 gate**: All V1.x tests pass. Save `milestone1_*.png` artifacts. Existing `gifdroid_llm.main --dry-run` still exits 0.
+**Milestone 1 gate**: All V1.x tests pass. Save `milestone1_*.png` artifacts. Existing `src_llm.main --dry-run` still exits 0.
 
 ### Milestone 1 Check Status (2026-04-07)
 
@@ -641,7 +641,7 @@ Pass condition: at least 1 clickable element found, XML parses without error.
 
 Milestone 1 gate status: **CLEARED**
 
-New files: `gifdroid_llm/device.py` (`DeviceController`), `gifdroid_llm/apk_utils.py` (`extract_package_name`, `extract_main_activity`).
+New files: `src_llm/device.py` (`DeviceController`), `src_llm/apk_utils.py` (`extract_package_name`, `extract_main_activity`).
 
 Evidence and logs: `artifacts/milestone1/README.md`.
 
@@ -694,7 +694,7 @@ Run:
 ```bash
 python -c "
 from pathlib import Path
-from gifdroid_llm.providers import create_provider
+from src_llm.providers import create_provider
 import os, json
 
 env = {'GOOGLE_GENERATIVE_AI_API_KEY': os.environ['GOOGLE_GENERATIVE_AI_API_KEY']}
@@ -739,8 +739,8 @@ Run:
 ```bash
 python -c "
 from pathlib import Path
-from gifdroid_llm.providers import create_provider
-from gifdroid_llm.device import DeviceController
+from src_llm.providers import create_provider
+from src_llm.device import DeviceController
 import os, json
 
 env = {'GOOGLE_GENERATIVE_AI_API_KEY': os.environ['GOOGLE_GENERATIVE_AI_API_KEY']}
@@ -787,11 +787,11 @@ Presentable artifact: screenshot + LLM JSON output side by side, printed to cons
 - V2.1: **Pass** — `describe_screen(milestone1_launch_screenshot.png, xml=None)` returns `type=tap`, `confidence=0.95`, no API error.
 - V2.2: **Pass** — `describe_screen(milestone2_current_screen.png, xml=live_dump)` returns `resource_id=org.adaway:id/hosts_sources_add` matching real accessibility tree element, `confidence=1.0`.
 - V2.3: **Partial** — Home screen returns `type=tap` (LLM sees notification badge to interact with); pass condition not met. Acceptable: without task context, LLM correctly sees actionable elements rather than declaring done.
-- Regression: **Pass** — existing `gifdroid_llm.main --dry-run` exits 0, all runs OK.
+- Regression: **Pass** — existing `src_llm.main --dry-run` exits 0, all runs OK.
 
 Milestone 2 gate status: **CLEARED** (V2.1 and V2.2 both pass)
 
-New code: `ScreenDescription`, `SuggestedAction` dataclasses added to `gifdroid_llm/providers.py`; `GeminiProvider.describe_screen(screenshot_path, accessibility_tree_xml)` method added.
+New code: `ScreenDescription`, `SuggestedAction` dataclasses added to `src_llm/providers.py`; `GeminiProvider.describe_screen(screenshot_path, accessibility_tree_xml)` method added.
 
 Evidence and logs: `artifacts/milestone2/README.md`.
 
@@ -811,8 +811,8 @@ This milestone proves the **feedback loop mechanics** work end-to-end before add
 
 ### What needs to be done
 
-1. Implement `gifdroid_llm/session.py` — `AutomationSession` and `ConversationTurn`
-2. Implement the core loop in `gifdroid_llm/automation.py` (video-free version):
+1. Implement `src_llm/session.py` — `AutomationSession` and `ConversationTurn`
+2. Implement the core loop in `src_llm/automation.py` (video-free version):
    ```python
    def run_blind_loop(
        task_description: str,
@@ -835,9 +835,9 @@ This milestone proves the **feedback loop mechanics** work end-to-end before add
 python -c "
 import time
 from pathlib import Path
-from gifdroid_llm.device import DeviceController
-from gifdroid_llm.providers import create_provider
-from gifdroid_llm.session import AutomationSession, ConversationTurn
+from src_llm.device import DeviceController
+from src_llm.providers import create_provider
+from src_llm.session import AutomationSession, ConversationTurn
 import os
 
 d = DeviceController()
@@ -889,9 +889,9 @@ Run a 3-step loop on a simple task. Save all intermediate screenshots.
 
 ```bash
 python -c "
-from gifdroid_llm.automation import run_blind_loop
-from gifdroid_llm.device import DeviceController
-from gifdroid_llm.providers import create_provider
+from src_llm.automation import run_blind_loop
+from src_llm.device import DeviceController
+from src_llm.providers import create_provider
 import os, json
 from pathlib import Path
 
@@ -956,7 +956,7 @@ Pass condition: `status == "done"` OR loop ran `max_steps` without error. All sc
 
 ```bash
 python -c "
-from gifdroid_llm.session import AutomationSession, ConversationTurn
+from src_llm.session import AutomationSession, ConversationTurn
 import numpy as np
 
 session = AutomationSession(max_steps=10, history_window=3)
@@ -988,16 +988,16 @@ Pass condition: assertion passes.
 - V3.1: **Pass** — Single round-trip: `continue=True`, action `tap org.adaway:id/snackbar_action` at `[954, 1747]`, screenshot saved to `milestone3_after_step1.png`.
 - V3.2: **Pass** — 5-step blind loop ran to completion with `status=done`; LLM navigated AdAway, triggered host sources update, and correctly identified task complete when "VPN configuration successfully updated" appeared.
 - V3.3: **Pass** — Sliding window assertion passes: 5 turns added, `get_history()` returns 3.
-- Regression: **Pass** — existing `gifdroid_llm.main --dry-run` exits 0 across all 20 configured runs.
+- Regression: **Pass** — existing `src_llm.main --dry-run` exits 0 across all 20 configured runs.
 
 Milestone 3 gate status: **CLEARED**
 
 New files:
 
-- `gifdroid_llm/session.py` — `AutomationSession`, `ConversationTurn`
-- `gifdroid_llm/automation.py` — `run_blind_loop`
-- `gifdroid_llm/providers.py` — `ExecutableAction`, `ActionDecision` dataclasses; `GeminiProvider.decide_next_action()` method
-- `gifdroid_llm/device.py` — `execute_action()` method
+- `src_llm/session.py` — `AutomationSession`, `ConversationTurn`
+- `src_llm/automation.py` — `run_blind_loop`
+- `src_llm/providers.py` — `ExecutableAction`, `ActionDecision` dataclasses; `GeminiProvider.decide_next_action()` method
+- `src_llm/device.py` — `execute_action()` method
 
 Evidence and logs: `artifacts/milestone3/README.md`.
 
@@ -1022,8 +1022,8 @@ This is the full new workflow end-to-end.
    - In the first LLM call, include keyframes as "this is what the user did — replicate it"
    - In subsequent calls, only include the last N live screenshots (sliding window)
 2. Design the **video context prompt** — tells LLM: "here are frames from a demo video showing the desired task; now guide the live device to reproduce it"
-3. Add `AutomationConfig` to `gifdroid_llm/config.py` and create `gifdroid_llm/input/automation_config.yml`
-4. Create `gifdroid_llm/automate.py` — new CLI entry point
+3. Add `AutomationConfig` to `src_llm/config.py` and create `src_llm/input/automation_config.yml`
+4. Create `src_llm/automate.py` — new CLI entry point
 
 ### Open Questions
 
@@ -1037,10 +1037,10 @@ This is the full new workflow end-to-end.
 ```bash
 python -c "
 from pathlib import Path
-from gifdroid_llm.video import VideoFrameExtractor
-from gifdroid_llm.keyframes import KeyframeSelector
-from gifdroid_llm.config import FrameSamplingConfig, KeyframeSelectionConfig
-from gifdroid_llm.providers import create_provider
+from src_llm.video import VideoFrameExtractor
+from src_llm.keyframes import KeyframeSelector
+from src_llm.config import FrameSamplingConfig, KeyframeSelectionConfig
+from src_llm.providers import create_provider
 import os, json
 
 video = Path('apps/adaway/videos/screenrec/srv-001.mp4')
@@ -1078,8 +1078,8 @@ Pass condition: `len(keyframes) > 0`, task summary is non-empty, no API error.
 **V4.2 — Full end-to-end automation run: video → device → session trace**
 
 ```bash
-python -m gifdroid_llm.automate \
-  --config gifdroid_llm/input/automation_config.yml \
+python -m src_llm.automate \
+  --config src_llm/input/automation_config.yml \
   --env-file .env.local
 ```
 
@@ -1110,8 +1110,8 @@ Pass condition: `session_trace.json` is written, `status` is `"done"` or `"max_s
 **V4.3 — Existing passive trace pipeline is unaffected**
 
 ```bash
-python -m gifdroid_llm.main \
-  --config gifdroid_llm/input/config.yml \
+python -m src_llm.main \
+  --config src_llm/input/config.yml \
   --env-file .env.local \
   --dry-run
 ```
@@ -1132,18 +1132,18 @@ Pass condition: exits 0. Verifies that Milestone 4 changes did not break the exi
 
 - V4.1: **Pass** — 8 keyframes extracted from `apps/adaway/videos/screenrec/srv-001.mp4`; `summarize_video_task()` returned non-empty task description in 21.71s via Vertex AI ADC. Note: Google AI Studio API key (`GOOGLE_GENERATIVE_AI_API_KEY`) is blocked for this project (403 billing required) — Vertex AI ADC used instead.
 - V4.2: **Pass** — Full automation run completed in 8 steps with `status=done`. LLM correctly navigated: home → Allowed list → add dialog → cancel → toggle utl.web checkbox → Redirected tab → Allowed tab → done. Session trace and 8 step screenshots saved to `artifacts/milestone4/run-001/`.
-- V4.3: **Pass** — `gifdroid_llm.main --dry-run` exits 0 across all 20 configured runs. `gifdroid_llm.automate --dry-run` exits 0.
+- V4.3: **Pass** — `src_llm.main --dry-run` exits 0 across all 20 configured runs. `src_llm.automate --dry-run` exits 0.
 - Regression: **Pass** — existing pipeline unaffected.
 
 Milestone 4 gate status: **CLEARED**
 
 New files:
 
-- `gifdroid_llm/automate.py` — CLI entry point (`python -m gifdroid_llm.automate`)
-- `gifdroid_llm/automation.py` — extended with `run_automation(video_path, ...)` for video-guided loop
-- `gifdroid_llm/providers.py` — `GeminiProvider.summarize_video_task()` and `decide_next_action_with_video_context()` added
-- `gifdroid_llm/config.py` — `AutomationConfig` dataclass and `load_automation_config()` added
-- `gifdroid_llm/input/automation_config.yml` — automation config template
+- `src_llm/automate.py` — CLI entry point (`python -m src_llm.automate`)
+- `src_llm/automation.py` — extended with `run_automation(video_path, ...)` for video-guided loop
+- `src_llm/providers.py` — `GeminiProvider.summarize_video_task()` and `decide_next_action_with_video_context()` added
+- `src_llm/config.py` — `AutomationConfig` dataclass and `load_automation_config()` added
+- `src_llm/input/automation_config.yml` — automation config template
 
 Evidence and logs: `artifacts/milestone4/README.md`.
 
@@ -1261,7 +1261,7 @@ Pass condition: image file saved, at least 2 matched step pairs shown.
   Note: ground truth = passive Gemini-2.5-Pro execution traces (`execution_trace.json`), not UTG files (no UTG ground truth available in this dataset). LCS computed on meaningful action types only (tap/scroll/input), ignoring START/END/NONE/LAUNCH noise.
 
 - V5.3: **Pass** — `analysis/adaway_comparison.png` saved (812×5912 px), 8 matched step pairs (all adaway automation steps paired with all 8 keyframes).
-- Regression: **Pass** — `gifdroid_llm.main --dry-run` exits 0.
+- Regression: **Pass** — `src_llm.main --dry-run` exits 0.
 
 Milestone 5 gate status: **CLEARED** (V5.1, V5.2, V5.3 all pass)
 
@@ -1284,7 +1284,7 @@ Evidence and logs: `artifacts/milestone5/` (session traces + step screenshots fo
 
 ### Motivation
 
-Currently `gifdroid_llm.automate` only writes a `session_trace.json` (an observational log). There is no way to re-run what the LLM did without re-running the LLM. A replay script turns each run into a **reusable automation artifact** — a human-readable, editable Python file that anyone can run to reproduce the bug.
+Currently `src_llm.automate` only writes a `session_trace.json` (an observational log). There is no way to re-run what the LLM did without re-running the LLM. A replay script turns each run into a **reusable automation artifact** — a human-readable, editable Python file that anyone can run to reproduce the bug.
 
 ### Design
 
@@ -1352,7 +1352,7 @@ Key properties:
 
 ### Implementation
 
-#### New file: `gifdroid_llm/replay_writer.py`
+#### New file: `src_llm/replay_writer.py`
 
 ```python
 def write_replay_script(
@@ -1370,12 +1370,12 @@ def write_replay_script(
 - Renders the script as a string using a template
 - Writes `output_dir / "replay.py"` and returns the path
 
-#### Edit: `gifdroid_llm/automate.py` — `_run_single()`
+#### Edit: `src_llm/automate.py` — `_run_single()`
 
 After `run_automation()` returns the trace, call:
 
 ```python
-from gifdroid_llm.replay_writer import write_replay_script
+from src_llm.replay_writer import write_replay_script
 replay_path = write_replay_script(
     output_dir=output_dir,
     trace=trace,
@@ -1393,14 +1393,14 @@ No changes needed to `automation.py`, `device.py`, or `session.py`.
 
 | File | Change |
 |---|---|
-| `gifdroid_llm/replay_writer.py` | **New** — renders and writes `replay.py` |
-| `gifdroid_llm/automate.py` | **Edit** — call `write_replay_script(...)` in `_run_single()` after `run_automation()` returns |
+| `src_llm/replay_writer.py` | **New** — renders and writes `replay.py` |
+| `src_llm/automate.py` | **Edit** — call `write_replay_script(...)` in `_run_single()` after `run_automation()` returns |
 
 ### Verification gates
 
 | ID | Test | Pass condition |
 |----|------|----------------|
-| V6.1 | Run `gifdroid_llm.automate` for one app/video | `replay.py` exists in the run output dir |
+| V6.1 | Run `src_llm.automate` for one app/video | `replay.py` exists in the run output dir |
 | V6.2 | Run the generated `replay.py --skip-install` against a connected device | All actions execute without error; final activity matches the trace |
 
 ---
@@ -1409,15 +1409,15 @@ No changes needed to `automation.py`, `device.py`, or `session.py`.
 
 - V6.1: **Pass** — `write_replay_script()` generates `apps/adaway/llm/gemini/gemini-2.5-pro/screenrec/run-001/replay.py` from the existing session trace. File passes `py_compile` syntax check. Script contains: header docstring (package, video, task summary, timestamp), `APK_PATH`/`PACKAGE`/`ACTIVITY` constants, `ACTIONS` list (Python dict literals), `_execute()` dispatcher, `main()` with `--serial`/`--delay`/`--skip-install` args.
 - V6.2: **Pass** — `python replay.py --skip-install --delay 1.2` on `emulator-5554 (sdk_gphone64_arm64)`. Steps 1–5 executed successfully (navigate to Allowed list → open add dialog → type hostname → confirm). Steps 6–10 are redundant loop steps from the original LLM run; step 6 correctly surfaces a uiautomator2 error because the dialog was already closed by step 5 — this is expected replay-faithfulness behavior, not a defect in the replay mechanism.
-- `gifdroid_llm.automate` integration: `_run_single()` now calls `write_replay_script()` after every run and logs the path.
-- Regression: **Pass** — `gifdroid_llm.main --dry-run` exits 0.
+- `src_llm.automate` integration: `_run_single()` now calls `write_replay_script()` after every run and logs the path.
+- Regression: **Pass** — `src_llm.main --dry-run` exits 0.
 
 Milestone 6 gate status: **CLEARED** (V6.1, V6.2 pass)
 
 New files:
 
-- `gifdroid_llm/replay_writer.py` — `write_replay_script(output_dir, trace, apk_path, package, activity, device_serial)` — renders and writes `replay.py`
-- `gifdroid_llm/automate.py` — edited: calls `write_replay_script()` after each `run_automation()` call
+- `src_llm/replay_writer.py` — `write_replay_script(output_dir, trace, apk_path, package, activity, device_serial)` — renders and writes `replay.py`
+- `src_llm/automate.py` — edited: calls `write_replay_script()` after each `run_automation()` call
 - `apps/adaway/llm/gemini/gemini-2.5-pro/screenrec/run-001/replay.py` — example generated script
 
 Evidence and logs: `artifacts/milestone6/README.md`.

@@ -9,8 +9,8 @@ schema mismatch causes every run to fall through to the deterministic fallback, 
 enters a repetition loop filling `screen_description` values with thousands of `"  "` characters.
 
 ## Context
-LLM keyframe analysis pipeline — `gifdroid_llm` module, Llama provider (`providers.py`).
-Introduced when `llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_1.txt"`
+LLM keyframe analysis pipeline — `src_llm` module, Llama provider (`providers.py`).
+Introduced when `llama_action_prompt_file: "src_llm/input/prompts/llama_action_prompt_gemini_1.txt"`
 was set in `config.yml`. The prompt was generated as a Gemini schema-first prompt and was never
 adapted for the Llama provider.
 Affects all runs using `llm: "llama"` + `llm_model: "llama3.2-vision"` with this prompt file.
@@ -67,7 +67,7 @@ these steps:
 ```
 
 ## Steps to reproduce
-1. Set `llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_1.txt"` in `config.yml`
+1. Set `llama_action_prompt_file: "src_llm/input/prompts/llama_action_prompt_gemini_1.txt"` in `config.yml`
 2. Configure `llm: "llama"`, `llm_model: "llama3.2-vision"`
 3. Run the pipeline on any app video
 4. Inspect `apps/<app>/llm/llama/llama3-2-vision/<source>/<variant>/run-<N>/llm_raw_response.txt`
@@ -81,7 +81,7 @@ these steps:
 - Ollama server: 0.19.0
 - Model: `llama3.2-vision` (11B)
 - Frame sampling: `fps: 1.5`, `max_frames: 100`, keyframe method: `ssim`
-- Prompt: `gifdroid_llm/input/prompts/llama_action_prompt_gemini_1.txt`
+- Prompt: `src_llm/input/prompts/llama_action_prompt_gemini_1.txt`
 - Observed on: adaway handheld run-002 (`2026-04-01T22:19:15`, duration 2115.6s)
 
 ## Evidence
@@ -104,7 +104,7 @@ these steps:
 rejects any response that does not start with `[`. The object schema response is always rejected.
 
 ## Fix (Option A — correct prompt)
-Write a new prompt file (`gifdroid_llm/input/prompts/llama_action_prompt.txt`) that:
+Write a new prompt file (`src_llm/input/prompts/llama_action_prompt.txt`) that:
 - Uses `{KEYFRAMES}` so `_build_action_prompt` can inject the keyframe list
 - Instructs the model to return ONLY a flat JSON array, no markdown fences, no prose
 - Uses the flat schema with `action_type` (not `type`) and the exact keys `_parse_actions` reads:
@@ -116,12 +116,12 @@ Write a new prompt file (`gifdroid_llm/input/prompts/llama_action_prompt.txt`) t
 
 Update `config.yml`:
 ```yaml
-llama_action_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt.txt"
+llama_action_prompt_file: "src_llm/input/prompts/llama_action_prompt.txt"
 ```
 
 ## Files to change
-- `gifdroid_llm/input/prompts/llama_action_prompt.txt` (create)
-- `gifdroid_llm/input/config.yml` (update `llama_action_prompt_file`)
+- `src_llm/input/prompts/llama_action_prompt.txt` (create)
+- `src_llm/input/config.yml` (update `llama_action_prompt_file`)
 
 ## Validation
 - [ ] Run adaway handheld — confirm `llm_raw_response.txt` starts with `[` and contains no prose preamble

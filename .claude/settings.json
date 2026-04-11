@@ -31,9 +31,9 @@
       "Bash(for f:*)",
       "Bash(do echo:*)",
       "Bash(wc -l /Users/tanmaybhuskute/Documents/gifdroid-reproduction/analysis/tables/*.csv)",
-      "Bash(grep -r \"0.95\" /Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid/*.py)",
+      "Bash(grep -r \"0.95\" /Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_gifdroid/*.py)",
       "Bash(find /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts -type f -name *.sh -o -name *.py)",
-      "Bash(grep -l \"gifdroid_llm_trace\\\\|gifdroid_llm\" /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts/*.py /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts/*.sh)",
+      "Bash(grep -l \"src_llm_trace\\\\|src_llm\" /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts/*.py /Users/tanmaybhuskute/Documents/gifdroid-reproduction/scripts/*.sh)",
       "Bash(xargs rm:*)",
       "Bash(find /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps -name \"manifest.backup.*.json\" -delete)",
       "Bash(grep -l ^---- /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/*/llm/llama/llama3-2-vision/*/fps1-5__max100__ssim__gap1__ssim0-95__stable2/run-001/llm_raw_response.txt)",
@@ -58,16 +58,16 @@
       "Bash(tee artifacts/milestone0/v0_3_gemini_vertex_output.txt)",
       "Bash(tee artifacts/milestone2/v2_1_output.txt)",
       "Bash(tee artifacts/milestone2/v2_2_output.txt)",
-      "Bash(.venv/bin/python -m gifdroid_llm.main --config gifdroid_llm/input/config.yml --env-file .env.local --dry-run)",
+      "Bash(.venv/bin/python -m src_llm.main --config src_llm/input/config.yml --env-file .env.local --dry-run)",
       "Bash(tee artifacts/milestone2/v2_regression_dry_run.txt)",
-      "Bash(.venv/bin/python -c \"from gifdroid_llm.automation import run_automation; from gifdroid_llm.automate import main; from gifdroid_llm.config import load_automation_config, AutomationConfig; from gifdroid_llm.providers import GeminiProvider; print\\('All imports OK'\\)\")",
+      "Bash(.venv/bin/python -c \"from src_llm.automation import run_automation; from src_llm.automate import main; from src_llm.config import load_automation_config, AutomationConfig; from src_llm.providers import GeminiProvider; print\\('All imports OK'\\)\")",
       "Bash(adb install:*)",
       "Bash(adb uninstall:*)"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/analysis",
-      "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/gifdroid_llm_trace",
+      "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_llm_trace",
       "/Users/tanmaybhuskute/.continue",
       "/Users/tanmaybhuskute"
     ]

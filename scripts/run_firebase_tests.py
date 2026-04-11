@@ -47,7 +47,7 @@ if os.path.isdir(GCLOUD_SDK_PATH) and GCLOUD_SDK_PATH not in os.environ.get("PAT
 os.makedirs(LOGS_DIR, exist_ok=True)
 LOG_FILE = os.path.join(LOGS_DIR, f"run_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
 
-logger = logging.getLogger("gifdroid")
+logger = logging.getLogger("src_gifdroid")
 logger.setLevel(logging.DEBUG)
 
 # File handler — everything goes to log file

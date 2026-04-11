@@ -19,8 +19,8 @@ Two pipelines exist side by side:
 
 ```
 gifdroid-reproduction/
-├── gifdroid/              # Original CV-based pipeline
-├── gifdroid_llm/          # LLM-enhanced pipeline
+├── src_gifdroid/              # Original CV-based pipeline
+├── src_llm/          # LLM-enhanced pipeline
 ├── apps/                  # Test dataset — 10 Android apps, 2 video types each
 ├── data/                  # Experimental results & traces
 ├── analysis/              # Post-run analysis & reporting scripts
@@ -36,7 +36,7 @@ gifdroid-reproduction/
 ### Entry Point
 
 ```
-python -m gifdroid.main \
+python -m src_gifdroid.main \
   --video <video.mp4> \
   --utg <utg.json> \
   --artifact <artifact_dir/> \
@@ -64,7 +64,7 @@ Video
 
 ### Phase 1 — Keyframe Location
 
-**File**: [gifdroid/location.py](../../gifdroid/location.py), [gifdroid/hhv_keyframe.py](../../gifdroid/hhv_keyframe.py)
+**File**: [src_gifdroid/location.py](../../src_gifdroid/location.py), [src_gifdroid/hhv_keyframe.py](../../src_gifdroid/hhv_keyframe.py)
 
 Five detection methods available (selected via `--keyframe-method`):
 
@@ -80,7 +80,7 @@ Entry: `hhv_keyframe.get_keyframe_fn(method)` returns the appropriate callable.
 
 ### Phase 2 — GUI Mapping
 
-**File**: [gifdroid/mapping.py](../../gifdroid/mapping.py)
+**File**: [src_gifdroid/mapping.py](../../src_gifdroid/mapping.py)
 
 - Loads all artifact PNGs; extracts ORB descriptors (nfeatures=1500) and grayscale
 - For each keyframe: computes `combined_score = 0.5 × SSIM + 0.5 × ORB_ratio_test`
@@ -88,7 +88,7 @@ Entry: `hhv_keyframe.get_keyframe_fn(method)` returns the appropriate callable.
 
 ### Phase 3 — Trace Generation
 
-**File**: [gifdroid/trace.py](../../gifdroid/trace.py)
+**File**: [src_gifdroid/trace.py](../../src_gifdroid/trace.py)
 
 - Parses UTG JSON → directed graph
 - Enumerates all simple paths from screen 0 → last observed screen (DFS via `Graph` class)
@@ -99,8 +99,8 @@ Entry: `hhv_keyframe.get_keyframe_fn(method)` returns the appropriate callable.
 
 | File | Purpose |
 |------|---------|
-| [gifdroid/main.py](../../gifdroid/main.py) | CLI + orchestration |
-| [gifdroid/prerequisites.py](../../gifdroid/prerequisites.py) | Dependency checks, MOV→mp4 conversion, command batch generation |
+| [src_gifdroid/main.py](../../src_gifdroid/main.py) | CLI + orchestration |
+| [src_gifdroid/prerequisites.py](../../src_gifdroid/prerequisites.py) | Dependency checks, MOV→mp4 conversion, command batch generation |
 
 ---
 
@@ -109,8 +109,8 @@ Entry: `hhv_keyframe.get_keyframe_fn(method)` returns the appropriate callable.
 ### Entry Point
 
 ```
-python -m gifdroid_llm.main \
-  --config gifdroid_llm/input/config.yml \
+python -m src_llm.main \
+  --config src_llm/input/config.yml \
   --env-file .env.local
 ```
 
@@ -143,7 +143,7 @@ Bypasses phases 1–2 entirely:
 
 ### Phase 1 — Frame Sampling
 
-**File**: [gifdroid_llm/video.py](../../gifdroid_llm/video.py)
+**File**: [src_llm/video.py](../../src_llm/video.py)
 
 | Strategy | Behavior |
 |----------|----------|
@@ -154,7 +154,7 @@ Output: `List[SampledFrame]` — frame number, timestamp, image_bgr, motion_from
 
 ### Phase 2 — Keyframe Selection
 
-**File**: [gifdroid_llm/keyframes.py](../../gifdroid_llm/keyframes.py)
+**File**: [src_llm/keyframes.py](../../src_llm/keyframes.py)
 
 | Method | Behavior |
 |--------|----------|
@@ -165,7 +165,7 @@ Output: `List[Keyframe]` — sequence_index, timestamp, motion_score, image_bgr,
 
 ### Phase 3 — LLM Inference
 
-**File**: [gifdroid_llm/providers.py](../../gifdroid_llm/providers.py)
+**File**: [src_llm/providers.py](../../src_llm/providers.py)
 
 Abstract base: `BaseLLMProvider`
 
@@ -238,19 +238,19 @@ class TraceStep:
 
 | File | Purpose |
 |------|---------|
-| [gifdroid_llm/main.py](../../gifdroid_llm/main.py) | CLI + batch orchestration |
-| [gifdroid_llm/config.py](../../gifdroid_llm/config.py) | YAML config parsing + validation |
-| [gifdroid_llm/io_utils.py](../../gifdroid_llm/io_utils.py) | Output layout, path resolution (shorthand hhv/srv → full paths), metadata |
-| [gifdroid_llm/env_loader.py](../../gifdroid_llm/env_loader.py) | .env loading + provider-specific validation |
-| [gifdroid_llm/logging_utils.py](../../gifdroid_llm/logging_utils.py) | Logging setup |
-| [gifdroid_llm/llama_prereq.py](../../gifdroid_llm/llama_prereq.py) | Ollama preflight (Metal detection, model availability) |
-| [gifdroid_llm/reset_runs.py](../../gifdroid_llm/reset_runs.py) | Batch cleanup of run directories |
+| [src_llm/main.py](../../src_llm/main.py) | CLI + batch orchestration |
+| [src_llm/config.py](../../src_llm/config.py) | YAML config parsing + validation |
+| [src_llm/io_utils.py](../../src_llm/io_utils.py) | Output layout, path resolution (shorthand hhv/srv → full paths), metadata |
+| [src_llm/env_loader.py](../../src_llm/env_loader.py) | .env loading + provider-specific validation |
+| [src_llm/logging_utils.py](../../src_llm/logging_utils.py) | Logging setup |
+| [src_llm/llama_prereq.py](../../src_llm/llama_prereq.py) | Ollama preflight (Metal detection, model availability) |
+| [src_llm/reset_runs.py](../../src_llm/reset_runs.py) | Batch cleanup of run directories |
 
 ---
 
 ## Configuration
 
-### config.yml (gifdroid_llm/input/config.yml)
+### config.yml (src_llm/input/config.yml)
 
 ```yaml
 llm: "gemini"                       # gemini | llama | llava | minicpm | gemma | qwen
@@ -296,7 +296,7 @@ QWEN_BASE_URL=http://localhost:11434/v1
 QWEN_TIMEOUT_SEC=300
 ```
 
-### Prompt Templates (gifdroid_llm/input/prompts/)
+### Prompt Templates (src_llm/input/prompts/)
 
 | File | Notes |
 |------|-------|
@@ -396,7 +396,7 @@ apps/<app>/
 
 ### Python Packages
 
-**gifdroid/** (original, pinned for CV compatibility):
+**src_gifdroid/** (original, pinned for CV compatibility):
 ```
 opencv-contrib-python==3.4.2.16
 opencv-python==4.5.1.48
@@ -407,7 +407,7 @@ matplotlib==3.3.4
 transformers, torch    # For CLIP keyframe method
 ```
 
-**gifdroid_llm/**:
+**src_llm/**:
 ```
 PyYAML>=6.0
 python-dotenv>=1.0.0
@@ -432,7 +432,7 @@ requests>=2.31.0
 
 ### Adding a New LLM Provider
 
-1. Subclass `BaseLLMProvider` in [gifdroid_llm/providers.py](../../gifdroid_llm/providers.py)
+1. Subclass `BaseLLMProvider` in [src_llm/providers.py](../../src_llm/providers.py)
 2. Implement `infer_actions(keyframes: List[Keyframe]) -> List[ProviderAction]`
 3. Register in `create_provider()` factory function
 4. Add to config validation if needed
@@ -445,7 +445,7 @@ requests>=2.31.0
 ### Adding Video Mode to a Provider
 
 1. Override `infer_actions_from_video(video_path: Path)` in provider subclass
-2. Add provider name to `VIDEO_MODE_SUPPORTED_PROVIDERS` in [gifdroid_llm/config.py](../../gifdroid_llm/config.py)
+2. Add provider name to `VIDEO_MODE_SUPPORTED_PROVIDERS` in [src_llm/config.py](../../src_llm/config.py)
 
 ---
 

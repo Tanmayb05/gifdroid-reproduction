@@ -1,5 +1,5 @@
 # CLI:
-# .venv/bin/python -m gifdroid_llm.main --config gifdroid_llm/input/config.yml --env-file .env.local
+# .venv/bin/python -m src_llm.main --config src_llm/input/config.yml --env-file .env.local
 
 # llm: "qwen"
 # llm: "llama"
@@ -13,10 +13,10 @@ llm_model: "gemini-2.5-pro"
 # Currently only supported by llm: "gemini" via Vertex AI File API.
 video_mode: true
 
-# llm_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_baseline_2.txt"
-llm_prompt_file:  "gifdroid_llm/input/prompts/llama_action_prompt_memory.txt"
-# llm_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_gemini_2.txt"
-# llm_prompt_file: "gifdroid_llm/input/prompts/llama_action_prompt_claude.txt"
+# llm_prompt_file: "src_llm/input/prompts/llama_action_prompt_baseline_2.txt"
+llm_prompt_file:  "src_llm/input/prompts/llama_action_prompt_memory.txt"
+# llm_prompt_file: "src_llm/input/prompts/llama_action_prompt_gemini_2.txt"
+# llm_prompt_file: "src_llm/input/prompts/llama_action_prompt_claude.txt"
 
 frame_sampling:
   strategy: "uniform"

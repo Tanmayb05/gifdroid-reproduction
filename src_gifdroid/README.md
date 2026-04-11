@@ -56,7 +56,7 @@ The overflow of our approach can be seen in Algorithm 1 in our paper.
 ### GIFdroid Installation
 * Ensure that the environment you are running in is operating with Python 3.6.9.
 * Current Option:
-    * Clone the repository [here](https://github.com/gifdroid/gifdroid.git), navigate to gifdroid directory, and execute `pip install -r requirements.txt`. Please make sure you have installed all the requirements.
+    * Clone the repository [here](https://github.com/gifdroid/gifdroid.git), navigate to src_gifdroid directory, and execute `pip install -r requirements.txt`. Please make sure you have installed all the requirements.
 
 ### Execution
 * Input requirements:
@@ -263,21 +263,21 @@ Please consider citing this paper if you use the code:
 ====
 # Steps
 
-python gifdroid/main.py --video=app_AdAway/app_AdAway.mp4 --utg=app_AdAway/utg.json --artifact=app_AdAway/artifacts/ --out=app_AdAway/execution.json
+python src_gifdroid/main.py --video=app_AdAway/app_AdAway.mp4 --utg=app_AdAway/utg.json --artifact=app_AdAway/artifacts/ --out=app_AdAway/execution.json
 
-python gifdroid/main.py --video=app_AntennaPod/app_AntennaPod.mp4 --utg=app_AntennaPod/utg.json --artifact=app_AntennaPod/artifacts/ --out=app_AntennaPod/execution.json
+python src_gifdroid/main.py --video=app_AntennaPod/app_AntennaPod.mp4 --utg=app_AntennaPod/utg.json --artifact=app_AntennaPod/artifacts/ --out=app_AntennaPod/execution.json
 
-python gifdroid/main.py --video=app_HomeMedkit/app_HomeMedkit.mp4 --utg=app_HomeMedkit/utg.json --artifact=app_HomeMedkit/artifacts/ --out=app_HomeMedkit/execution.json
+python src_gifdroid/main.py --video=app_HomeMedkit/app_HomeMedkit.mp4 --utg=app_HomeMedkit/utg.json --artifact=app_HomeMedkit/artifacts/ --out=app_HomeMedkit/execution.json
 
-python gifdroid/main.py --video=app_Jigsaw/app_Jigsaw.mp4 --utg=app_Jigsaw/utg.json --artifact=app_Jigsaw/artifacts/ --out=app_Jigsaw/execution.json
+python src_gifdroid/main.py --video=app_Jigsaw/app_Jigsaw.mp4 --utg=app_Jigsaw/utg.json --artifact=app_Jigsaw/artifacts/ --out=app_Jigsaw/execution.json
 
-python gifdroid/main.py --video=app_LuxAlarm/app_LuxAlarm.mp4 --utg=app_LuxAlarm/utg.json --artifact=app_LuxAlarm/artifacts/ --out=app_LuxAlarm/execution.json
+python src_gifdroid/main.py --video=app_LuxAlarm/app_LuxAlarm.mp4 --utg=app_LuxAlarm/utg.json --artifact=app_LuxAlarm/artifacts/ --out=app_LuxAlarm/execution.json
 
-python gifdroid/main.py --video=app_PortAuthority/app_PortAuthority.mp4 --utg=app_PortAuthority/utg.json --artifact=app_PortAuthority/artifacts/ --out=app_PortAuthority/execution.json
+python src_gifdroid/main.py --video=app_PortAuthority/app_PortAuthority.mp4 --utg=app_PortAuthority/utg.json --artifact=app_PortAuthority/artifacts/ --out=app_PortAuthority/execution.json
 
-python gifdroid/main.py --video=app_SimpleNotes/app_SimpleNotes.mp4 --utg=app_SimpleNotes/utg.json --artifact=app_SimpleNotes/artifacts/ --out=app_SimpleNotes/execution.json
+python src_gifdroid/main.py --video=app_SimpleNotes/app_SimpleNotes.mp4 --utg=app_SimpleNotes/utg.json --artifact=app_SimpleNotes/artifacts/ --out=app_SimpleNotes/execution.json
 
-python gifdroid/main.py --video=app_WifiAnalyzer/app_WifiAnalyzer.mp4 --utg=app_WifiAnalyzer/utg.json --artifact=app_WifiAnalyzer/artifacts/ --out=app_WifiAnalyzer/execution.json
+python src_gifdroid/main.py --video=app_WifiAnalyzer/app_WifiAnalyzer.mp4 --utg=app_WifiAnalyzer/utg.json --artifact=app_WifiAnalyzer/artifacts/ --out=app_WifiAnalyzer/execution.json
 
 
 ====

@@ -1,7 +1,7 @@
 """Write a self-contained replay.py script from a session trace.
 
 Usage (internal):
-    from gifdroid_llm.replay_writer import write_replay_script
+    from src_llm.replay_writer import write_replay_script
     path = write_replay_script(output_dir, trace, apk_path, package, activity, device_serial)
 """
 from __future__ import annotations

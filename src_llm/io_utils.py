@@ -8,7 +8,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, Literal, Tuple
 
-from gifdroid_llm.config import AppConfig, FrameSamplingConfig, KeyframeSelectionConfig
+from src_llm.config import AppConfig, FrameSamplingConfig, KeyframeSelectionConfig
 
 VideoType = Literal["hhv", "srv"]
 

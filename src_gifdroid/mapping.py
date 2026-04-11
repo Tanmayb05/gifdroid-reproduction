@@ -6,7 +6,7 @@ import os
 import time
 import matplotlib.pyplot as plt
 
-logger = logging.getLogger('gifdroid.mapping')
+logger = logging.getLogger('src_gifdroid.mapping')
 
 
 def load_screenshots(screenshots):

@@ -8,7 +8,7 @@ from typing import Dict, List, Tuple
 import cv2
 import numpy as np
 
-from gifdroid_llm.config import FrameSamplingConfig
+from src_llm.config import FrameSamplingConfig
 
 
 class VideoError(ValueError):

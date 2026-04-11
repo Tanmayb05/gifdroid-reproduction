@@ -9,7 +9,7 @@
 source .venv/bin/activate
 
 # 2. Run prerequisites (checks deps, converts MOV→mp4, regenerates commands.txt)
-python gifdroid/prerequisites.py --handheld --utg utg03
+python src_gifdroid/prerequisites.py --handheld --utg utg03
 
 # 3. Run all commands
 python run_all.py
@@ -36,16 +36,16 @@ Must be run before GIFdroid. It:
 
 ```bash
 # All apps, all utg slots (no handheld)
-python gifdroid/prerequisites.py
+python src_gifdroid/prerequisites.py
 
 # All apps, all utg slots (include handheld videos)
-python gifdroid/prerequisites.py --handheld
+python src_gifdroid/prerequisites.py --handheld
 
 # Specific utg slot only
-python gifdroid/prerequisites.py --handheld --utg utg03
+python src_gifdroid/prerequisites.py --handheld --utg utg03
 
 # Single app, specific utg slot
-python gifdroid/prerequisites.py --handheld --app PortAuthority --utg utg03
+python src_gifdroid/prerequisites.py --handheld --app PortAuthority --utg utg03
 ```
 
 ---
@@ -62,14 +62,14 @@ python run_all.py
 
 ```bash
 # handheld video
-python -m gifdroid.main \
+python -m src_gifdroid.main \
   --video app_PortAuthority/utg03/input/handheld/hhv_app_PortAuthority.mp4 \
   --utg app_PortAuthority/utg03/input/utg.json \
   --artifact app_PortAuthority/utg03/input/artifacts \
   --out app_PortAuthority/utg03/output/execution_hhv_PortAuthority.json
 
 # screen recording
-python -m gifdroid.main \
+python -m src_gifdroid.main \
   --video app_PortAuthority/utg03/input/screenrec/srv_app_PortAuthority.mp4 \
   --utg app_PortAuthority/utg03/input/utg.json \
   --artifact app_PortAuthority/utg03/input/artifacts \
