@@ -96,14 +96,45 @@ ViBR was tested exclusively using the Emulator. While in principle the system sh
 2. Prepare an OpenAI API key which you have to add in `openai_api.py`
 3. Install the APP to be tested on the Device
 4. Navigate to the same starting state
-5. Run the script in [`segment_replay.py`](./segment_replay.py) e.g. `python .\segment_replay.py <path to video>
-6. The script will also show the start and goal state additionally to a live screenshot of the device to be able to understand what its trying to execute. 
+5. Run the script in [`segment_replay.py`](./segment_replay.py), e.g. `python segment_replay.py <path_to_video> clip`
+6. Optional: add `--interactive` to show visual previews and pause between each predicted action.
 
+Example:
+```
+python segment_replay.py AmazeFileManager-1558/video-#1558.mp4 clip
+python segment_replay.py AmazeFileManager-1558/video-#1558.mp4 ssim --interactive
 ```
 
-# video path
-path_to_video = "AmazeFileManager-1558/video-#1558.mp4"
+### YAML multi-run execution (src_llm-style)
 
-python segment_replay.py <path_to_video>
+Use `src_ViBR/main.py` to run multiple apps/videos from YAML:
+
 ```
+python src_ViBR/main.py --config src_ViBR/input/config.yml
+```
+
+Config example:
+
+```
+algorithm: "clip"
+output:
+  overwrite: true
+logging:
+  level: "INFO"
+runs:
+  - app_name: "adaway"
+    video_path:
+      - "hhv"
+      - "srv"
+```
+
+Output layout:
+
+```
+apps/<app_name>/llm/ViBR/<handheld|screenrec>/run-XXX/
+  artifacts/
+  logs/<timestamp>__run-XXX__pipeline__<success|failed>.log
+  metadata.json
+```
+
 

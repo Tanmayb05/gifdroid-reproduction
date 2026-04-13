@@ -1,0 +1,26 @@
+# CLI:
+# python src_ViBR/main.py --config src_ViBR/input/config.yml
+
+# Default algorithm for runs that don't override it.
+# Options: "clip", "ssim"
+algorithm: "clip"
+
+output:
+  # Present for parity with src_llm config surface.
+  overwrite: true
+
+logging:
+  level: "INFO"
+
+runs:
+  - app_name: "adaway"
+    video_path:
+      - "hhv"
+      - "srv"
+    # Optional per-run override:
+    # algorithm: "ssim"
+
+  # - app_name: "antennapod"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"

@@ -1,0 +1,13 @@
+algorithm: "clip"
+
+output:
+  overwrite: true
+
+logging:
+  level: "INFO"
+
+runs:
+  - app_name: "adaway"
+    video_path:
+      - "hhv"
+      - "srv"

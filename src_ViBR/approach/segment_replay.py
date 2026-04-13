@@ -163,7 +163,7 @@ def segment_with_clip(frames, video_stem, cache_folder="./cache",
 # Main
 # ---------------------------------------------------------------------------
 
-def main(video_path: str, algorithm: str):
+def main(video_path: str, algorithm: str, output_root: str = "temp", interactive: bool = False):
     """
     Main entry point: processes video and replays UI actions segment by segment.
     """
@@ -177,7 +177,7 @@ def main(video_path: str, algorithm: str):
     device = ADBDeviceController()
 
     video_stem = os.path.splitext(os.path.basename(video_path))[0]
-    video_out_dir = os.path.join("temp", video_stem)
+    video_out_dir = os.path.join(output_root, video_stem)
     os.makedirs(video_out_dir, exist_ok=True)
 
     live_path = device.screenshot(index=0, save_path=video_out_dir)
@@ -253,11 +253,12 @@ def main(video_path: str, algorithm: str):
 
         region_index_to_center = {r["index"]: r["center"] for r in regions}
 
-        show_images(
-            cv2.imread(relevant_annotated_path),
-            stop_img,
-            current_img_labeled_xml_region,
-        )
+        if interactive:
+            show_images(
+                cv2.imread(relevant_annotated_path),
+                stop_img,
+                current_img_labeled_xml_region,
+            )
 
         match = extract_json(
             ask_gpt_state_consistency(
@@ -326,7 +327,8 @@ def main(video_path: str, algorithm: str):
                 f"Mismatch reason: {match['description']}"
             )
 
-        input("Press Enter to continue...")
+        if interactive:
+            input("Press Enter to continue...")
 
     print("✅ Video processing completed.")
 
@@ -341,5 +343,16 @@ if __name__ == "__main__":
         choices=SUPPORTED_ALGORITHMS,
         help="Boundary detection algorithm: ssim or clip",
     )
+    parser.add_argument(
+        "--output-root",
+        type=str,
+        default="temp",
+        help="Directory where replay artifacts are written.",
+    )
+    parser.add_argument(
+        "--interactive",
+        action="store_true",
+        help="Show OpenCV windows and pause between actions.",
+    )
     args = parser.parse_args()
-    main(args.video_path, args.algorithm)
+    main(args.video_path, args.algorithm, output_root=args.output_root, interactive=args.interactive)
