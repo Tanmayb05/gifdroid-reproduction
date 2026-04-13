@@ -42,6 +42,23 @@ def _resolve_video(project_root: Path, run_cfg: ViBRRunConfig) -> Path:
     return run_cfg.video_path if run_cfg.video_path.is_absolute() else (project_root / run_cfg.video_path)
 
 
+def _detect_project_root() -> Path:
+    # Resolve repository root relative to this file so paths stay correct
+    # even when launched from src_ViBR/ instead of repo root.
+    return Path(__file__).resolve().parent.parent
+
+
+def _find_groundingdino_dir(project_root: Path) -> Path | None:
+    candidates = [
+        project_root / "GroundingDINO",
+        project_root / "src_ViBR" / "GroundingDINO",
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return None
+
+
 def _stream_subprocess_to_logger(cmd: list[str], cwd: Path, logger) -> int:
     process = subprocess.Popen(
         cmd,
@@ -88,9 +105,18 @@ def run_single(project_root: Path, run_cfg: ViBRRunConfig, log_level: str, inter
             status = "success"
             return 0
 
+        dino_root = _find_groundingdino_dir(project_root)
+        if dino_root is None:
+            raise FileNotFoundError(
+                "GroundingDINO not found. Checked:\n"
+                f"- {project_root / 'GroundingDINO'}\n"
+                f"- {project_root / 'src_ViBR' / 'GroundingDINO'}\n"
+                "Clone https://github.com/IDEA-Research/GroundingDINO and install it."
+            )
+
         cmd = [
             sys.executable,
-            "segment_replay.py",
+            str(project_root / "src_ViBR" / "approach" / "segment_replay.py"),
             str(resolved_video),
             run_cfg.algorithm,
             "--output-root",
@@ -99,8 +125,7 @@ def run_single(project_root: Path, run_cfg: ViBRRunConfig, log_level: str, inter
         if interactive:
             cmd.append("--interactive")
 
-        approach_dir = project_root / "src_ViBR" / "approach"
-        rc = _stream_subprocess_to_logger(cmd, approach_dir, logger)
+        rc = _stream_subprocess_to_logger(cmd, project_root, logger)
         if rc != 0:
             raise RuntimeError(f"segment_replay failed with exit code {rc}")
 
@@ -132,7 +157,7 @@ def run_single(project_root: Path, run_cfg: ViBRRunConfig, log_level: str, inter
 def main() -> int:
     args = parse_args()
     cfg = load_config(args.config)
-    project_root = Path.cwd()
+    project_root = _detect_project_root()
 
     if len(cfg.runs) > 1:
         print(f"[src_ViBR] Running {len(cfg.runs)} configured runs")

@@ -1,4 +1,5 @@
-from GroundingDINO.groundingdino.util.inference import load_model, load_image, predict
+import sys
+from pathlib import Path
 import cv2
 import torch
 import supervision as sv
@@ -15,8 +16,25 @@ GroundingDINO region detection and annotation utilities.
 device = torch.device("cpu")
 
 # Configuration for model and detection.
-CONFIG_PATH = "groundingdino/config/GroundingDINO_SwinB_cfg.py"
-WEIGHTS_PATH = "GroundingDINO/weights/groundingdino_swinb_cogcoor.pth"
+_REPO_ROOT = Path(__file__).resolve().parents[2]
+_DINO_CANDIDATES = [
+    _REPO_ROOT / "GroundingDINO",
+    _REPO_ROOT / "src_ViBR" / "GroundingDINO",
+]
+_DINO_ROOT = next((p for p in _DINO_CANDIDATES if p.exists()), _DINO_CANDIDATES[0])
+_DINO_PARENT = _DINO_ROOT.parent
+if str(_DINO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_DINO_ROOT))
+if str(_DINO_PARENT) not in sys.path:
+    sys.path.insert(0, str(_DINO_PARENT))
+
+try:
+    from groundingdino.util.inference import load_model, load_image, predict
+except ModuleNotFoundError:
+    from GroundingDINO.groundingdino.util.inference import load_model, load_image, predict
+
+CONFIG_PATH = str(_DINO_ROOT / "groundingdino" / "config" / "GroundingDINO_SwinB_cfg.py")
+WEIGHTS_PATH = str(_DINO_ROOT / "weights" / "groundingdino_swinb_cogcoor.pth")
 TEXT_PROMPT = "header bar. navigation bar. toolbar. button. icon. checkbox. toggle. text input. search bar. text field. image. card. list item. bottom navigation. tab bar"
 BOX_THRESHOLD = 0.25     # Lower threshold for more permissive region detection
 TEXT_THRESHOLD = 0.2

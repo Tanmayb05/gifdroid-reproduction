@@ -1,0 +1,12 @@
+2026-04-13 00:17:23 | INFO | === src_vibr.2026-04-13T04-17-23__run-005__pipeline__started ===
+2026-04-13 00:17:23 | INFO | Starting ViBR run
+2026-04-13 00:17:23 | INFO | App: adaway
+2026-04-13 00:17:23 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/handheld/hhv-001.mp4
+2026-04-13 00:17:23 | INFO | Algorithm: clip
+2026-04-13 00:17:23 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/handheld/run-005
+2026-04-13 00:17:24 | INFO | Traceback (most recent call last):
+2026-04-13 00:17:24 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/approach/segment_replay.py", line 16, in <module>
+2026-04-13 00:17:24 | INFO |     from dino_detection import run_grounding_dino, annotate_relevant_regions
+2026-04-13 00:17:24 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/approach/dino_detection.py", line 1, in <module>
+2026-04-13 00:17:24 | INFO |     from GroundingDINO.groundingdino.util.inference import load_model, load_image, predict
+2026-04-13 00:17:24 | INFO | ModuleNotFoundError: No module named 'GroundingDINO'
