@@ -61,11 +61,59 @@ class ADBDeviceController:
         Dump UI hierarchy to XML and pull it locally.
         Returns XML string, or raises error if failed.
         """
-        remote_path = "/sdcard/ui_dump.xml"
-        self._adb(["shell", "uiautomator", "dump", remote_path])
-        result = self._adb(["pull", remote_path, local_path])
-        if result.returncode == 0 and os.path.exists(local_path):
-            with open(local_path, 'r', encoding='utf-8') as f:
-                return f.read()
-        else:
-            raise RuntimeError("Failed to dump or pull UI XML")
+        local_dir = os.path.dirname(local_path)
+        if local_dir:
+            os.makedirs(local_dir, exist_ok=True)
+
+        attempts = 3
+        errors = []
+
+        for attempt in range(1, attempts + 1):
+            # Strategy A: explicit remote path.
+            remote_path = "/sdcard/ui_dump.xml"
+            dump_result = self._adb(["shell", "uiautomator", "dump", remote_path])
+            pull_result = self._adb(["pull", remote_path, local_path])
+
+            if (
+                dump_result.returncode == 0
+                and pull_result.returncode == 0
+                and os.path.exists(local_path)
+                and os.path.getsize(local_path) > 0
+            ):
+                with open(local_path, "r", encoding="utf-8") as f:
+                    return f.read()
+
+            errors.append(
+                f"attempt {attempt} (explicit path) "
+                f"dump_rc={dump_result.returncode}, pull_rc={pull_result.returncode}, "
+                f"dump_out={dump_result.stdout.strip()}, dump_err={dump_result.stderr.strip()}, "
+                f"pull_out={pull_result.stdout.strip()}, pull_err={pull_result.stderr.strip()}"
+            )
+
+            # Strategy B: default uiautomator dump location (/sdcard/window_dump.xml).
+            dump_default = self._adb(["shell", "uiautomator", "dump"])
+            pull_default = self._adb(["pull", "/sdcard/window_dump.xml", local_path])
+
+            if (
+                dump_default.returncode == 0
+                and pull_default.returncode == 0
+                and os.path.exists(local_path)
+                and os.path.getsize(local_path) > 0
+            ):
+                with open(local_path, "r", encoding="utf-8") as f:
+                    return f.read()
+
+            errors.append(
+                f"attempt {attempt} (default path) "
+                f"dump_rc={dump_default.returncode}, pull_rc={pull_default.returncode}, "
+                f"dump_out={dump_default.stdout.strip()}, dump_err={dump_default.stderr.strip()}, "
+                f"pull_out={pull_default.stdout.strip()}, pull_err={pull_default.stderr.strip()}"
+            )
+
+            time.sleep(0.4)
+
+        raise RuntimeError(
+            "Failed to dump or pull UI XML after retries. "
+            "Check that device is unlocked, app is in foreground, and `adb devices` shows it as `device`.\n"
+            + "\n".join(errors)
+        )

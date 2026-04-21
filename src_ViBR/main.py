@@ -80,7 +80,7 @@ def run_single(project_root: Path, run_cfg: ViBRRunConfig, log_level: str, inter
     resolved_video = _resolve_video(project_root, run_cfg)
     source = detect_video_source(resolved_video)
     run_dt = datetime.now(timezone.utc)
-    layout = create_output_layout(project_root, run_cfg.app_name, source, run_dt)
+    layout = create_output_layout(project_root, run_cfg.app_name, run_cfg.llm, source, run_dt)
 
     layout.run_dir.mkdir(parents=True, exist_ok=True)
     (layout.run_dir / "logs").mkdir(parents=True, exist_ok=True)
@@ -98,6 +98,7 @@ def run_single(project_root: Path, run_cfg: ViBRRunConfig, log_level: str, inter
         logger.info("App: %s", run_cfg.app_name)
         logger.info("Video: %s", resolved_video)
         logger.info("Algorithm: %s", run_cfg.algorithm)
+        logger.info("LLM: %s (%s)", run_cfg.llm, run_cfg.llm_model)
         logger.info("Output: %s", layout.run_dir)
 
         if dry_run:
@@ -113,14 +114,28 @@ def run_single(project_root: Path, run_cfg: ViBRRunConfig, log_level: str, inter
                 f"- {project_root / 'src_ViBR' / 'GroundingDINO'}\n"
                 "Clone https://github.com/IDEA-Research/GroundingDINO and install it."
             )
+        dino_weights = dino_root / "weights" / "groundingdino_swinb_cogcoor.pth"
+        if not dino_weights.exists():
+            raise FileNotFoundError(
+                "GroundingDINO weights not found.\n"
+                f"Expected: {dino_weights}\n"
+                "Download GroundingDINO-B weights and place them at that path."
+            )
 
+        src_vibr_dir = project_root / "src_ViBR"
         cmd = [
             sys.executable,
-            str(project_root / "src_ViBR" / "approach" / "segment_replay.py"),
+            str(src_vibr_dir / "approach" / "segment_replay.py"),
             str(resolved_video),
             run_cfg.algorithm,
             "--output-root",
             str(layout.artifacts_dir),
+            "--cache-dir",
+            str(src_vibr_dir / "cache"),
+            "--llm",
+            run_cfg.llm,
+            "--llm-model",
+            run_cfg.llm_model,
         ]
         if interactive:
             cmd.append("--interactive")
@@ -142,6 +157,8 @@ def run_single(project_root: Path, run_cfg: ViBRRunConfig, log_level: str, inter
                 "source": source,
                 "video": str(resolved_video),
                 "algorithm": run_cfg.algorithm,
+                "llm": run_cfg.llm,
+                "llm_model": run_cfg.llm_model,
                 "run_id": layout.run_id,
                 "timestamp": run_dt.strftime("%Y-%m-%dT%H:%M:%S"),
                 "duration_sec": round(duration_sec, 1),

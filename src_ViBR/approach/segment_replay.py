@@ -1,5 +1,6 @@
 import os
 import json
+import re
 import pickle
 import time
 import cv2
@@ -8,7 +9,8 @@ import argparse
 from typing import List, Optional
 from math import hypot
 
-from openai_api import ask_gpt_for_action_region, ask_gpt_state_consistency, ask_gpt_for_relevant_regions
+import openai_api
+import gemini_api
 from adb_device_controller import ADBDeviceController
 from execute_action import execute_actions
 import yyh_utils  # Your video/frame utils (SSIM-based segmentation)
@@ -40,6 +42,8 @@ def extract_json(reply_text):
     Extracts JSON object from GPT reply (removes any markdown formatting).
     """
     reply_text = reply_text.strip()
+
+    # Strip leading/trailing markdown fences
     if reply_text.startswith("```json"):
         reply_text = reply_text[7:]
     elif reply_text.startswith("```"):
@@ -49,9 +53,19 @@ def extract_json(reply_text):
 
     try:
         return json.loads(reply_text.strip())
-    except json.JSONDecodeError as e:
-        print("❌ JSON decoding failed:", e)
-        raise
+    except json.JSONDecodeError:
+        pass
+
+    # Fall back: extract the first {...} block from prose responses
+    match = re.search(r'\{.*?\}', reply_text, re.DOTALL)
+    if match:
+        try:
+            return json.loads(match.group())
+        except json.JSONDecodeError:
+            pass
+
+    print("❌ JSON decoding failed: no valid JSON found in response")
+    raise json.JSONDecodeError("No valid JSON found", reply_text, 0)
 
 
 def show_images(start_img, stop_img, current_img):
@@ -74,6 +88,17 @@ def show_images(start_img, stop_img, current_img):
     if key == 27:
         print("Exiting.")
         sys.exit(0)
+
+
+def _resolve_region_position(action: dict, region_index_to_center: dict) -> Optional[tuple]:
+    """
+    Returns a (x, y) center if action["region"] is a valid integer index into region_index_to_center.
+    Returns None if region is a list/bbox (LLM hallucination) or unknown index.
+    """
+    region = action.get("region")
+    if isinstance(region, int) and region in region_index_to_center:
+        return region_index_to_center[region]
+    return None
 
 
 def match_action_to_element(action: dict, elements: List[AndroidElement]) -> Optional[AndroidElement]:
@@ -106,7 +131,7 @@ def match_action_to_element(action: dict, elements: List[AndroidElement]) -> Opt
 # Segmentation helpers
 # ---------------------------------------------------------------------------
 
-def segment_with_ssim(frames, y_frames, video_stem, cache_folder="./cache"):
+def segment_with_ssim(frames, y_frames, video_stem, cache_folder):
     """Run SSIM-based stable-segment detection (original yyh_utils path)."""
     os.makedirs(cache_folder, exist_ok=True)
     sim_file = os.path.join(cache_folder, f"sim_list_ssim_{video_stem}.pkl")
@@ -129,7 +154,7 @@ def segment_with_ssim(frames, y_frames, video_stem, cache_folder="./cache"):
     return stable_segments
 
 
-def segment_with_clip(frames, video_stem, cache_folder="./cache",
+def segment_with_clip(frames, video_stem, cache_folder,
                       stable_sim_threshold=0.95, stable_interval_threshold=3):
     """Run CLIP-based stable-segment detection."""
     from clip_seg import VideoStableSegmentCLIP
@@ -163,7 +188,15 @@ def segment_with_clip(frames, video_stem, cache_folder="./cache",
 # Main
 # ---------------------------------------------------------------------------
 
-def main(video_path: str, algorithm: str, output_root: str = "temp", interactive: bool = False):
+def main(
+    video_path: str,
+    algorithm: str,
+    output_root: str = "temp",
+    cache_dir: str = "cache",
+    interactive: bool = False,
+    llm: str = "openai",
+    llm_model: str = "gpt-4o",
+):
     """
     Main entry point: processes video and replays UI actions segment by segment.
     """
@@ -172,7 +205,14 @@ def main(video_path: str, algorithm: str, output_root: str = "temp", interactive
         print(f"❌ Unknown algorithm '{algorithm}'. Choose from: {SUPPORTED_ALGORITHMS}")
         sys.exit(1)
 
-    print(f"🔹 Starting video processing (algorithm={algorithm})...")
+    llm = llm.lower()
+    if llm == "gemini":
+        gemini_api.set_model(llm_model)
+        provider = gemini_api
+    else:
+        provider = openai_api
+
+    print(f"🔹 Starting video processing (algorithm={algorithm}, llm={llm}, model={llm_model})...")
     print("Initializing ADB device controller...")
     device = ADBDeviceController()
 
@@ -187,9 +227,9 @@ def main(video_path: str, algorithm: str, output_root: str = "temp", interactive
     # ---- Segment detection (switchable) ----
     print("🔍 Detecting stable segments...")
     if algorithm == "ssim":
-        stable_segments = segment_with_ssim(frames, y_frames, video_stem)
+        stable_segments = segment_with_ssim(frames, y_frames, video_stem, cache_folder=cache_dir)
     else:
-        stable_segments = segment_with_clip(frames, video_stem)
+        stable_segments = segment_with_clip(frames, video_stem, cache_folder=cache_dir)
 
     if stable_segments[0][0] > 2:
         stable_segments = [(0, 1)] + stable_segments
@@ -202,8 +242,8 @@ def main(video_path: str, algorithm: str, output_root: str = "temp", interactive
         step_out_dir = os.path.join(video_out_dir, f"step_{i}")
         os.makedirs(step_out_dir, exist_ok=True)
 
-        start = stable_segments[i][1]
-        stop = stable_segments[i + 1][0]
+        start = min(stable_segments[i][1], len(frames) - 1)
+        stop = min(stable_segments[i + 1][0], len(frames) - 1)
 
         start_img = frames[start]
         stop_img = frames[stop]
@@ -242,7 +282,7 @@ def main(video_path: str, algorithm: str, output_root: str = "temp", interactive
             }
             regions.append(region)
 
-        relevant = ask_gpt_for_relevant_regions(dino_out_path, tmp_stop_path)
+        relevant = provider.ask_gpt_for_relevant_regions(dino_out_path, tmp_stop_path)
         relevant = extract_json(relevant)
         print(f"🔍 Relevant regions: {relevant}")
         target_indices = relevant["target_regions"]
@@ -261,7 +301,7 @@ def main(video_path: str, algorithm: str, output_root: str = "temp", interactive
             )
 
         match = extract_json(
-            ask_gpt_state_consistency(
+            provider.ask_gpt_state_consistency(
                 relevant_annotated_path, live_path,
                 relevant["predicted_action"], relevant["target_regions"],
             )
@@ -282,42 +322,54 @@ def main(video_path: str, algorithm: str, output_root: str = "temp", interactive
                 elements=elements,
             )
 
-            recovery_reply = ask_gpt_for_action_region(
+            recovery_reply = provider.ask_gpt_for_action_region(
                 tmp_start_path, tmp_stop_path, labeled_path, relevant["predicted_action"],
             )
             recovery_action = extract_json(recovery_reply)
 
-            if "region" in recovery_action and recovery_action["region"] in region_index_to_center:
-                recovery_action["position"] = region_index_to_center[recovery_action["region"]]
-                print(f"🎯 Recovery using region index: {recovery_action['region']} at {recovery_action['position']}")
+            pos = _resolve_region_position(recovery_action, region_index_to_center)
+            if pos is not None:
+                recovery_action["position"] = pos
+                print(f"🎯 Recovery using region index: {recovery_action['region']} at {pos}")
             else:
                 matched_element = match_action_to_element(recovery_action, elements)
                 if matched_element:
                     recovery_action["position"] = matched_element.center
                     print(f"🎯 Recovery matched element: '{matched_element.text}' at {matched_element.center}")
 
+            position_required = recovery_action.get("action") in ("tap", "double_tap", "long_press")
+            if position_required and "position" not in recovery_action:
+                print("⚠️ Recovery: no position resolved, skipping action.")
+                attempts += 1
+                continue
+
             execute_actions(device, [recovery_action])
             time.sleep(1.0)
             live_path = device.screenshot(index=0, save_path=step_out_dir)
-            match = extract_json(ask_gpt_state_consistency(tmp_start_path, live_path))
+            match = extract_json(provider.ask_gpt_state_consistency(tmp_start_path, live_path))
             attempts += 1
 
         if match["same_state"] == "yes":
-            reply = ask_gpt_for_action_region(
+            reply = provider.ask_gpt_for_action_region(
                 relevant_annotated_path, tmp_stop_path, labeled_path,
                 relevant["predicted_action"], target_indices,
             )
             action = extract_json(reply)
 
             matched_element = match_action_to_element(action, elements)
-            if "region" in action and action["region"] in region_index_to_center:
-                action["position"] = region_index_to_center[action["region"]]
-                print(f"🎯 Using region index: {action['region']} at {action['position']}")
+            pos = _resolve_region_position(action, region_index_to_center)
+            if pos is not None:
+                action["position"] = pos
+                print(f"🎯 Using region index: {action['region']} at {pos}")
             elif matched_element:
                 action["position"] = matched_element.center
                 print(f"🎯 Matched element: '{matched_element.text}' at {matched_element.center}")
             else:
-                print("⚠️ No valid region or element match. Using original position if available.")
+                position_required = action.get("action") in ("tap", "double_tap", "long_press")
+                if position_required:
+                    print("⚠️ No valid region or element match. Skipping action.")
+                    continue
+                print("⚠️ No valid region or element match. Proceeding without position.")
 
             execute_actions(device, [action])
             print("✅ Action executed.\n")
@@ -350,9 +402,36 @@ if __name__ == "__main__":
         help="Directory where replay artifacts are written.",
     )
     parser.add_argument(
+        "--cache-dir",
+        type=str,
+        default="cache",
+        help="Directory where similarity cache (.pkl) files are stored.",
+    )
+    parser.add_argument(
         "--interactive",
         action="store_true",
         help="Show OpenCV windows and pause between actions.",
     )
+    parser.add_argument(
+        "--llm",
+        type=str,
+        default="openai",
+        choices=("openai", "gemini"),
+        help="LLM provider to use for visual reasoning (default: openai).",
+    )
+    parser.add_argument(
+        "--llm-model",
+        type=str,
+        default="gpt-4o",
+        help="Model name for the selected LLM provider (default: gpt-4o).",
+    )
     args = parser.parse_args()
-    main(args.video_path, args.algorithm, output_root=args.output_root, interactive=args.interactive)
+    main(
+        args.video_path,
+        args.algorithm,
+        output_root=args.output_root,
+        cache_dir=args.cache_dir,
+        interactive=args.interactive,
+        llm=args.llm,
+        llm_model=args.llm_model,
+    )

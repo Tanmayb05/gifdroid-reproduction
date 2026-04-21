@@ -30,7 +30,9 @@ def load_model(model_config_path: str, model_checkpoint_path: str, device: str =
     args = SLConfig.fromfile(model_config_path)
     args.device = device
     model = build_model(args)
-    checkpoint = torch.load(model_checkpoint_path, map_location="cpu")
+    # PyTorch >=2.6 defaults weights_only=True, which breaks this checkpoint format.
+    # We load a trusted local model checkpoint, so explicitly disable weights_only.
+    checkpoint = torch.load(model_checkpoint_path, map_location="cpu", weights_only=False)
     model.load_state_dict(clean_state_dict(checkpoint["model"]), strict=False)
     model.eval()
     return model

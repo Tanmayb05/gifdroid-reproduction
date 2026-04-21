@@ -44,8 +44,9 @@ def _next_run_id(base_dir: Path) -> str:
     return f"run-{max_num + 1:03d}"
 
 
-def create_output_layout(project_root: Path, app_name: str, source: str, run_dt: datetime) -> OutputLayout:
-    base_dir = project_root / "apps" / app_name.lower() / "llm" / "ViBR" / source
+def create_output_layout(project_root: Path, app_name: str, llm: str, source: str, run_dt: datetime) -> OutputLayout:
+    variant_dir = f"ViBR_{llm.lower()}"
+    base_dir = project_root / "apps" / app_name.lower() / "llm" / variant_dir / source
     run_id = _next_run_id(base_dir)
     run_dir = base_dir / run_id
     run_num = run_id.split("-")[1]

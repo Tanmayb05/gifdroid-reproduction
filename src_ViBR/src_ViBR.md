@@ -27,7 +27,7 @@ python segment_replay.py /path/to/video.mp4 clip
 
 Important runtime requirements:
 - Android device/emulator connected via ADB.
-- OpenAI API key hardcoded in `src_ViBR/approach/openai_api.py` (`OpenAI(api_key=...)`).
+- OpenAI API key configured as `OPENAI_API_KEY` (environment or `<repo>/.env.local`).
 - GroundingDINO repository + weights present (used by `dino_detection.py`).
 - Python packages from `src_ViBR/requirements.txt`.
 
@@ -120,7 +120,7 @@ Per segment:
 | Area | `src_ViBR` | `src_llm` |
 |---|---|---|
 | Primary goal | Reproduce bug directly from segmented scenes | Generate trace (`main`) and/or perform automation (`automate`) |
-| Config style | Positional CLI args + hardcoded API key file edit | YAML config + `.env` validation |
+| Config style | Positional CLI args + `.env.local` (`OPENAI_API_KEY`) | YAML config + `.env` validation |
 | LLM providers | OpenAI GPT-4o only | Multi-provider (`gemini`, `llama`, `qwen`, `llava`, `minicpm`, `gemma`, etc.) |
 | Segmentation | Stable-scene segmentation first (`ssim` or `clip`) | Frame sampling + keyframe selection (`ssim`/heuristic) |
 | Region grounding | GroundingDINO + GPT region selection | No GroundingDINO dependency in core pipeline |

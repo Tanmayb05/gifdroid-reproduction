@@ -1,0 +1,218 @@
+2026-04-13 00:35:43 | INFO | === src_vibr.2026-04-13T04-35-43__run-009__pipeline__started ===
+2026-04-13 00:35:43 | INFO | Starting ViBR run
+2026-04-13 00:35:43 | INFO | App: adaway
+2026-04-13 00:35:43 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/handheld/hhv-001.mp4
+2026-04-13 00:35:43 | INFO | Algorithm: clip
+2026-04-13 00:35:43 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/handheld/run-009
+2026-04-13 00:35:45 | INFO | /Users/tanmaybhuskute/.matplotlib is not a writable directory
+2026-04-13 00:35:45 | INFO | Matplotlib created a temporary cache directory at /var/folders/0p/qtmjgqpx59354rc_4qqhvv0h0000gn/T/matplotlib-63wzwa67 because there was an issue with the default path (/Users/tanmaybhuskute/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+2026-04-13 00:35:50 | INFO | Matplotlib is building the font cache; this may take a moment.
+2026-04-13 00:36:05 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-04-13 00:36:05 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-04-13 00:36:05 | INFO | SyntaxWarning: invalid escape sequence '\s'
+2026-04-13 00:36:05 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-04-13 00:36:05 | INFO | '[Errno 8] nodename nor servname provided, or not known' thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/config.json
+2026-04-13 00:36:05 | INFO | Retrying in 1s [Retry 1/5].
+2026-04-13 00:36:06 | INFO | '[Errno 8] nodename nor servname provided, or not known' thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/config.json
+2026-04-13 00:36:06 | INFO | Retrying in 1s [Retry 1/5].
+2026-04-13 00:36:07 | INFO | final text_encoder_type: bert-base-uncased
+2026-04-13 00:36:07 | INFO | Traceback (most recent call last):
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/configuration_utils.py", line 725, in _get_config_dict
+2026-04-13 00:36:07 | INFO |     resolved_config_file = cached_file(
+2026-04-13 00:36:07 | INFO |         pretrained_model_name_or_path,
+2026-04-13 00:36:07 | INFO |     ...<9 lines>...
+2026-04-13 00:36:07 | INFO |         _commit_hash=commit_hash,
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 278, in cached_file
+2026-04-13 00:36:07 | INFO |     file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 512, in cached_files
+2026-04-13 00:36:07 | INFO |     raise e
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 422, in cached_files
+2026-04-13 00:36:07 | INFO |     hf_hub_download(
+2026-04-13 00:36:07 | INFO |     ~~~~~~~~~~~~~~~^
+2026-04-13 00:36:07 | INFO |         path_or_repo_id,
+2026-04-13 00:36:07 | INFO |         ^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |     ...<10 lines>...
+2026-04-13 00:36:07 | INFO |         tqdm_class=tqdm_class,
+2026-04-13 00:36:07 | INFO |         ^^^^^^^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |     ^
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+2026-04-13 00:36:07 | INFO |     return fn(*args, **kwargs)
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 997, in hf_hub_download
+2026-04-13 00:36:07 | INFO |     return _hf_hub_download_to_cache_dir(
+2026-04-13 00:36:07 | INFO |         # Destination
+2026-04-13 00:36:07 | INFO |     ...<15 lines>...
+2026-04-13 00:36:07 | INFO |         dry_run=dry_run,
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1130, in _hf_hub_download_to_cache_dir
+2026-04-13 00:36:07 | INFO |     _get_metadata_or_catch_error(
+2026-04-13 00:36:07 | INFO |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2026-04-13 00:36:07 | INFO |         repo_id=repo_id,
+2026-04-13 00:36:07 | INFO |         ^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |     ...<10 lines>...
+2026-04-13 00:36:07 | INFO |         retry_on_errors=True,
+2026-04-13 00:36:07 | INFO |         ^^^^^^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |     ^
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1669, in _get_metadata_or_catch_error
+2026-04-13 00:36:07 | INFO |     metadata = get_hf_file_metadata(
+2026-04-13 00:36:07 | INFO |         url=url,
+2026-04-13 00:36:07 | INFO |     ...<4 lines>...
+2026-04-13 00:36:07 | INFO |         retry_on_errors=retry_on_errors,
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+2026-04-13 00:36:07 | INFO |     return fn(*args, **kwargs)
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1591, in get_hf_file_metadata
+2026-04-13 00:36:07 | INFO |     response = _httpx_follow_relative_redirects_with_backoff(
+2026-04-13 00:36:07 | INFO |         method="HEAD", url=url, headers=hf_headers, timeout=timeout, retry_on_errors=retry_on_errors
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 685, in _httpx_follow_relative_redirects_with_backoff
+2026-04-13 00:36:07 | INFO |     response = http_backoff(
+2026-04-13 00:36:07 | INFO |         method=method,
+2026-04-13 00:36:07 | INFO |     ...<3 lines>...
+2026-04-13 00:36:07 | INFO |         **no_retry_kwargs,
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 559, in http_backoff
+2026-04-13 00:36:07 | INFO |     return next(
+2026-04-13 00:36:07 | INFO |         _http_backoff_base(
+2026-04-13 00:36:07 | INFO |     ...<9 lines>...
+2026-04-13 00:36:07 | INFO |         )
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 467, in _http_backoff_base
+2026-04-13 00:36:07 | INFO |     response = client.request(method=method, url=url, **kwargs)
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/httpx/_client.py", line 825, in request
+2026-04-13 00:36:07 | INFO |     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+2026-04-13 00:36:07 | INFO |            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/httpx/_client.py", line 901, in send
+2026-04-13 00:36:07 | INFO |     raise RuntimeError("Cannot send a request, as the client has been closed.")
+2026-04-13 00:36:07 | INFO | RuntimeError: Cannot send a request, as the client has been closed.
+2026-04-13 00:36:07 | INFO | 
+2026-04-13 00:36:07 | INFO | During handling of the above exception, another exception occurred:
+2026-04-13 00:36:07 | INFO | 
+2026-04-13 00:36:07 | INFO | Traceback (most recent call last):
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/models/auto/tokenization_auto.py", line 685, in from_pretrained
+2026-04-13 00:36:07 | INFO |     config = AutoConfig.from_pretrained(
+2026-04-13 00:36:07 | INFO |         pretrained_model_name_or_path, trust_remote_code=trust_remote_code, **kwargs
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/models/auto/configuration_auto.py", line 1483, in from_pretrained
+2026-04-13 00:36:07 | INFO |     config_dict, unused_kwargs = PreTrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+2026-04-13 00:36:07 | INFO |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/configuration_utils.py", line 670, in get_config_dict
+2026-04-13 00:36:07 | INFO |     config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+2026-04-13 00:36:07 | INFO |                           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/configuration_utils.py", line 747, in _get_config_dict
+2026-04-13 00:36:07 | INFO |     raise OSError(
+2026-04-13 00:36:07 | INFO |     ...<4 lines>...
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO | OSError: Can't load the configuration of 'bert-base-uncased'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'bert-base-uncased' is the correct path to a directory containing a config.json file
+2026-04-13 00:36:07 | INFO | 
+2026-04-13 00:36:07 | INFO | During handling of the above exception, another exception occurred:
+2026-04-13 00:36:07 | INFO | 
+2026-04-13 00:36:07 | INFO | Traceback (most recent call last):
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/configuration_utils.py", line 725, in _get_config_dict
+2026-04-13 00:36:07 | INFO |     resolved_config_file = cached_file(
+2026-04-13 00:36:07 | INFO |         pretrained_model_name_or_path,
+2026-04-13 00:36:07 | INFO |     ...<9 lines>...
+2026-04-13 00:36:07 | INFO |         _commit_hash=commit_hash,
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 278, in cached_file
+2026-04-13 00:36:07 | INFO |     file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 512, in cached_files
+2026-04-13 00:36:07 | INFO |     raise e
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/utils/hub.py", line 422, in cached_files
+2026-04-13 00:36:07 | INFO |     hf_hub_download(
+2026-04-13 00:36:07 | INFO |     ~~~~~~~~~~~~~~~^
+2026-04-13 00:36:07 | INFO |         path_or_repo_id,
+2026-04-13 00:36:07 | INFO |         ^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |     ...<10 lines>...
+2026-04-13 00:36:07 | INFO |         tqdm_class=tqdm_class,
+2026-04-13 00:36:07 | INFO |         ^^^^^^^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |     ^
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+2026-04-13 00:36:07 | INFO |     return fn(*args, **kwargs)
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 997, in hf_hub_download
+2026-04-13 00:36:07 | INFO |     return _hf_hub_download_to_cache_dir(
+2026-04-13 00:36:07 | INFO |         # Destination
+2026-04-13 00:36:07 | INFO |     ...<15 lines>...
+2026-04-13 00:36:07 | INFO |         dry_run=dry_run,
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1130, in _hf_hub_download_to_cache_dir
+2026-04-13 00:36:07 | INFO |     _get_metadata_or_catch_error(
+2026-04-13 00:36:07 | INFO |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2026-04-13 00:36:07 | INFO |         repo_id=repo_id,
+2026-04-13 00:36:07 | INFO |         ^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |     ...<10 lines>...
+2026-04-13 00:36:07 | INFO |         retry_on_errors=True,
+2026-04-13 00:36:07 | INFO |         ^^^^^^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |     ^
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1669, in _get_metadata_or_catch_error
+2026-04-13 00:36:07 | INFO |     metadata = get_hf_file_metadata(
+2026-04-13 00:36:07 | INFO |         url=url,
+2026-04-13 00:36:07 | INFO |     ...<4 lines>...
+2026-04-13 00:36:07 | INFO |         retry_on_errors=retry_on_errors,
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+2026-04-13 00:36:07 | INFO |     return fn(*args, **kwargs)
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/file_download.py", line 1591, in get_hf_file_metadata
+2026-04-13 00:36:07 | INFO |     response = _httpx_follow_relative_redirects_with_backoff(
+2026-04-13 00:36:07 | INFO |         method="HEAD", url=url, headers=hf_headers, timeout=timeout, retry_on_errors=retry_on_errors
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 685, in _httpx_follow_relative_redirects_with_backoff
+2026-04-13 00:36:07 | INFO |     response = http_backoff(
+2026-04-13 00:36:07 | INFO |         method=method,
+2026-04-13 00:36:07 | INFO |     ...<3 lines>...
+2026-04-13 00:36:07 | INFO |         **no_retry_kwargs,
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 559, in http_backoff
+2026-04-13 00:36:07 | INFO |     return next(
+2026-04-13 00:36:07 | INFO |         _http_backoff_base(
+2026-04-13 00:36:07 | INFO |     ...<9 lines>...
+2026-04-13 00:36:07 | INFO |         )
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py", line 467, in _http_backoff_base
+2026-04-13 00:36:07 | INFO |     response = client.request(method=method, url=url, **kwargs)
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/httpx/_client.py", line 825, in request
+2026-04-13 00:36:07 | INFO |     return self.send(request, auth=auth, follow_redirects=follow_redirects)
+2026-04-13 00:36:07 | INFO |            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/httpx/_client.py", line 901, in send
+2026-04-13 00:36:07 | INFO |     raise RuntimeError("Cannot send a request, as the client has been closed.")
+2026-04-13 00:36:07 | INFO | RuntimeError: Cannot send a request, as the client has been closed.
+2026-04-13 00:36:07 | INFO | 
+2026-04-13 00:36:07 | INFO | During handling of the above exception, another exception occurred:
+2026-04-13 00:36:07 | INFO | 
+2026-04-13 00:36:07 | INFO | Traceback (most recent call last):
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/approach/segment_replay.py", line 16, in <module>
+2026-04-13 00:36:07 | INFO |     from dino_detection import run_grounding_dino, annotate_relevant_regions
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/approach/dino_detection.py", line 43, in <module>
+2026-04-13 00:36:07 | INFO |     MODEL = load_model(CONFIG_PATH, WEIGHTS_PATH)
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/GroundingDINO/groundingdino/util/inference.py", line 32, in load_model
+2026-04-13 00:36:07 | INFO |     model = build_model(args)
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/GroundingDINO/groundingdino/models/__init__.py", line 17, in build_model
+2026-04-13 00:36:07 | INFO |     model = build_func(args)
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/GroundingDINO/groundingdino/models/GroundingDINO/groundingdino.py", line 388, in build_groundingdino
+2026-04-13 00:36:07 | INFO |     model = GroundingDINO(
+2026-04-13 00:36:07 | INFO |         backbone,
+2026-04-13 00:36:07 | INFO |     ...<18 lines>...
+2026-04-13 00:36:07 | INFO |         max_text_len=args.max_text_len,
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/GroundingDINO/groundingdino/models/GroundingDINO/groundingdino.py", line 107, in __init__
+2026-04-13 00:36:07 | INFO |     self.tokenizer = get_tokenlizer.get_tokenlizer(text_encoder_type)
+2026-04-13 00:36:07 | INFO |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/GroundingDINO/groundingdino/util/get_tokenlizer.py", line 19, in get_tokenlizer
+2026-04-13 00:36:07 | INFO |     tokenizer = AutoTokenizer.from_pretrained(text_encoder_type)
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/models/auto/tokenization_auto.py", line 689, in from_pretrained
+2026-04-13 00:36:07 | INFO |     config = PreTrainedConfig.from_pretrained(pretrained_model_name_or_path, **kwargs)
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/configuration_utils.py", line 629, in from_pretrained
+2026-04-13 00:36:07 | INFO |     config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
+2026-04-13 00:36:07 | INFO |                           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/configuration_utils.py", line 670, in get_config_dict
+2026-04-13 00:36:07 | INFO |     config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+2026-04-13 00:36:07 | INFO |                           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-04-13 00:36:07 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/transformers/configuration_utils.py", line 747, in _get_config_dict
+2026-04-13 00:36:07 | INFO |     raise OSError(
+2026-04-13 00:36:07 | INFO |     ...<4 lines>...
+2026-04-13 00:36:07 | INFO |     )
+2026-04-13 00:36:07 | INFO | OSError: Can't load the configuration of 'bert-base-uncased'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'bert-base-uncased' is the correct path to a directory containing a config.json file

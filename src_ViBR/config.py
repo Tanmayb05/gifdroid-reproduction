@@ -8,6 +8,11 @@ import yaml
 
 
 SUPPORTED_ALGORITHMS = {"clip", "ssim"}
+SUPPORTED_LLMS = {"openai", "gemini"}
+DEFAULT_MODELS = {
+    "openai": "gpt-4o",
+    "gemini": "gemini-1.5-flash",
+}
 VIDEO_TYPE_ALIASES = {
     "screenrec": "screenrec",
     "srv": "screenrec",
@@ -39,6 +44,8 @@ class ViBRRunConfig:
     app_name: str
     video_path: Path
     algorithm: str
+    llm: str
+    llm_model: str
 
 
 @dataclass(frozen=True)
@@ -59,6 +66,26 @@ def _require_non_empty_str(data: dict[str, Any], key: str) -> str:
     if not isinstance(value, str) or not value.strip():
         raise ConfigError(f"Field '{key}' must be a non-empty string")
     return value.strip()
+
+
+def _resolve_llm(run: dict[str, Any], default_llm: str, default_llm_model: str) -> tuple[str, str]:
+    raw_llm = run.get("llm", default_llm)
+    if not isinstance(raw_llm, str) or not raw_llm.strip():
+        raise ConfigError("Run field 'llm' must be a non-empty string when provided")
+    llm = raw_llm.strip().lower()
+    if llm not in SUPPORTED_LLMS:
+        raise ConfigError(f"llm must be one of {sorted(SUPPORTED_LLMS)}")
+
+    raw_model = run.get("llm_model", None)
+    if raw_model is not None:
+        if not isinstance(raw_model, str) or not raw_model.strip():
+            raise ConfigError("Run field 'llm_model' must be a non-empty string when provided")
+        llm_model = raw_model.strip()
+    elif llm == default_llm:
+        llm_model = default_llm_model
+    else:
+        llm_model = DEFAULT_MODELS[llm]
+    return llm, llm_model
 
 
 def _resolve_algorithm(run: dict[str, Any], default_algorithm: str) -> str:
@@ -115,7 +142,12 @@ def _validate_logging(root: dict[str, Any]) -> LoggingConfig:
     return LoggingConfig(level=normalized)
 
 
-def _parse_runs(root: dict[str, Any], default_algorithm: str) -> list[ViBRRunConfig]:
+def _parse_runs(
+    root: dict[str, Any],
+    default_algorithm: str,
+    default_llm: str,
+    default_llm_model: str,
+) -> list[ViBRRunConfig]:
     runs_raw = root.get("runs")
     if not isinstance(runs_raw, list) or not runs_raw:
         raise ConfigError("'runs' must be a non-empty list")
@@ -126,9 +158,16 @@ def _parse_runs(root: dict[str, Any], default_algorithm: str) -> list[ViBRRunCon
         app_name = _require_non_empty_str(run_map, "app_name")
         video_values = _parse_video_path_list(run_map.get("video_path"))
         algorithm = _resolve_algorithm(run_map, default_algorithm)
+        llm, llm_model = _resolve_llm(run_map, default_llm, default_llm_model)
         for video_value in video_values:
             resolved_video = _expand_video_path(app_name, video_value)
-            runs.append(ViBRRunConfig(app_name=app_name, video_path=resolved_video, algorithm=algorithm))
+            runs.append(ViBRRunConfig(
+                app_name=app_name,
+                video_path=resolved_video,
+                algorithm=algorithm,
+                llm=llm,
+                llm_model=llm_model,
+            ))
     return runs
 
 
@@ -149,7 +188,22 @@ def load_config(config_path: Path) -> ViBRPipelineConfig:
     if default_algorithm not in SUPPORTED_ALGORITHMS:
         raise ConfigError(f"algorithm must be one of {sorted(SUPPORTED_ALGORITHMS)}")
 
+    llm_raw = root.get("llm", "openai")
+    if not isinstance(llm_raw, str) or not llm_raw.strip():
+        raise ConfigError("Top-level 'llm' must be a non-empty string when provided")
+    default_llm = llm_raw.strip().lower()
+    if default_llm not in SUPPORTED_LLMS:
+        raise ConfigError(f"llm must be one of {sorted(SUPPORTED_LLMS)}")
+
+    llm_model_raw = root.get("llm_model", None)
+    if llm_model_raw is not None:
+        if not isinstance(llm_model_raw, str) or not llm_model_raw.strip():
+            raise ConfigError("Top-level 'llm_model' must be a non-empty string when provided")
+        default_llm_model = llm_model_raw.strip()
+    else:
+        default_llm_model = DEFAULT_MODELS[default_llm]
+
     output_cfg = _validate_output(root)
     logging_cfg = _validate_logging(root)
-    runs = _parse_runs(root, default_algorithm)
+    runs = _parse_runs(root, default_algorithm, default_llm, default_llm_model)
     return ViBRPipelineConfig(output=output_cfg, logging=logging_cfg, runs=runs)

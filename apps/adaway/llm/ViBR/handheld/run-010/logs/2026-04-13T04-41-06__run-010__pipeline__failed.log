@@ -1,0 +1,53 @@
+2026-04-13 00:41:06 | INFO | === src_vibr.2026-04-13T04-41-06__run-010__pipeline__started ===
+2026-04-13 00:41:06 | INFO | Starting ViBR run
+2026-04-13 00:41:06 | INFO | App: adaway
+2026-04-13 00:41:06 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/handheld/hhv-001.mp4
+2026-04-13 00:41:06 | INFO | Algorithm: clip
+2026-04-13 00:41:06 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/handheld/run-010
+2026-04-13 00:41:11 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-04-13 00:41:11 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-04-13 00:41:11 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-04-13 00:41:11 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-04-13 00:41:23 | INFO | final text_encoder_type: bert-base-uncased
+2026-04-13 00:41:23 | INFO | 
+2026-04-13 00:41:23 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-04-13 00:41:23 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 12254.50it/s]
+2026-04-13 00:41:23 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-04-13 00:41:23 | INFO | Key                                        | Status     |  | 
+2026-04-13 00:41:23 | INFO | -------------------------------------------+------------+--+-
+2026-04-13 00:41:23 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-04-13 00:41:23 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-04-13 00:41:23 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-04-13 00:41:23 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-04-13 00:41:23 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-04-13 00:41:23 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-04-13 00:41:23 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-04-13 00:41:23 | INFO | 
+2026-04-13 00:41:23 | INFO | Notes:
+2026-04-13 00:41:23 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-04-13 00:41:23 | INFO | Traceback (most recent call last):
+2026-04-13 00:41:23 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/approach/segment_replay.py", line 16, in <module>
+2026-04-13 00:41:23 | INFO |     from dino_detection import run_grounding_dino, annotate_relevant_regions
+2026-04-13 00:41:23 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/approach/dino_detection.py", line 43, in <module>
+2026-04-13 00:41:23 | INFO |     MODEL = load_model(CONFIG_PATH, WEIGHTS_PATH)
+2026-04-13 00:41:23 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/GroundingDINO/groundingdino/util/inference.py", line 32, in load_model
+2026-04-13 00:41:23 | INFO |     model = build_model(args)
+2026-04-13 00:41:23 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/GroundingDINO/groundingdino/models/__init__.py", line 17, in build_model
+2026-04-13 00:41:23 | INFO |     model = build_func(args)
+2026-04-13 00:41:23 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/GroundingDINO/groundingdino/models/GroundingDINO/groundingdino.py", line 388, in build_groundingdino
+2026-04-13 00:41:23 | INFO |     model = GroundingDINO(
+2026-04-13 00:41:23 | INFO |         backbone,
+2026-04-13 00:41:23 | INFO |     ...<18 lines>...
+2026-04-13 00:41:23 | INFO |         max_text_len=args.max_text_len,
+2026-04-13 00:41:23 | INFO |     )
+2026-04-13 00:41:23 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/GroundingDINO/groundingdino/models/GroundingDINO/groundingdino.py", line 111, in __init__
+2026-04-13 00:41:23 | INFO |     self.bert = BertModelWarper(bert_model=self.bert)
+2026-04-13 00:41:23 | INFO |                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+2026-04-13 00:41:23 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/GroundingDINO/groundingdino/models/GroundingDINO/bertwarper.py", line 29, in __init__
+2026-04-13 00:41:23 | INFO |     self.get_head_mask = bert_model.get_head_mask
+2026-04-13 00:41:23 | INFO |                          ^^^^^^^^^^^^^^^^^^^^^^^^
+2026-04-13 00:41:23 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/.venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1968, in __getattr__
+2026-04-13 00:41:23 | INFO |     raise AttributeError(
+2026-04-13 00:41:23 | INFO |         f"'{type(self).__name__}' object has no attribute '{name}'"
+2026-04-13 00:41:23 | INFO |     )
+2026-04-13 00:41:23 | INFO | AttributeError: 'BertModel' object has no attribute 'get_head_mask'

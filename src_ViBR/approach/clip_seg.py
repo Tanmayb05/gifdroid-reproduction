@@ -87,13 +87,34 @@ class VideoStableSegmentCLIP:
     # Similarity computation
     # ------------------------------------------------------------------
 
+    @staticmethod
+    def _to_feature_tensor(feature_output) -> torch.Tensor:
+        """Normalize CLIP output shape across transformers versions."""
+        if isinstance(feature_output, torch.Tensor):
+            return feature_output
+
+        pool = getattr(feature_output, "pooler_output", None)
+        if isinstance(pool, torch.Tensor):
+            return pool
+
+        hidden = getattr(feature_output, "last_hidden_state", None)
+        if isinstance(hidden, torch.Tensor):
+            if hidden.dim() == 3:
+                return hidden[:, 0, :]
+            return hidden
+
+        raise TypeError(
+            f"Unsupported CLIP feature output type: {type(feature_output).__name__}"
+        )
+
     def _encode_frames(self, frame_list: list[Image.Image]) -> list[torch.Tensor]:
         """Encode a list of PIL images into L2-normalised CLIP embeddings."""
         embeddings: list[torch.Tensor] = []
         with torch.no_grad():
             for i, frame in enumerate(frame_list):
                 inputs = self.processor(images=frame, return_tensors="pt").to(self.device)
-                feat = self.model.get_image_features(**inputs)
+                feat_out = self.model.get_image_features(**inputs)
+                feat = self._to_feature_tensor(feat_out)
                 feat = feat / feat.norm(p=2, dim=-1, keepdim=True)
                 embeddings.append(feat.squeeze(0).cpu())
                 print(f"  Encoded {i + 1}/{len(frame_list)}", end="\r")

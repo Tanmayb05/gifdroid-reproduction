@@ -1,3 +1,9 @@
+# llm: "openai"
+# llm_model: "gpt-4o-mini"
+llm: "gemini"
+# llm_model: "gemini-2.5-flash"
+llm_model: "gemini-2.5-pro"
+
 algorithm: "clip"
 
 output:
@@ -7,7 +13,52 @@ logging:
   level: "INFO"
 
 runs:
-  - app_name: "adaway"
+  # - app_name: "adaway"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "antennapod"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "deadhash"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "homemedkit"
+  #   video_path:
+      # - "hhv"
+      # - "srv"
+
+  # - app_name: "jigsaw"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "luxalarm"
+  #   video_path:
+      # - "hhv"
+      # - "srv"
+
+  # - app_name: "pomodorot"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "portauthority"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "simplenotes"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  - app_name: "wifianalyzer"
     video_path:
-      - "hhv"
+      # - "hhv"
       - "srv"

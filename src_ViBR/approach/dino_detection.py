@@ -4,6 +4,7 @@ import cv2
 import torch
 import supervision as sv
 from torchvision.ops import box_convert
+from transformers import BertModel
 
 """
 GroundingDINO region detection and annotation utilities.
@@ -27,6 +28,32 @@ if str(_DINO_ROOT) not in sys.path:
     sys.path.insert(0, str(_DINO_ROOT))
 if str(_DINO_PARENT) not in sys.path:
     sys.path.insert(0, str(_DINO_PARENT))
+
+
+def _patch_transformers_compat() -> None:
+    # GroundingDINO expects BertModel.get_head_mask, removed in newer transformers.
+    if hasattr(BertModel, "get_head_mask"):
+        return
+
+    def _get_head_mask(self, head_mask, num_hidden_layers, is_attention_chunked=False):
+        if head_mask is None:
+            return [None] * num_hidden_layers
+
+        if head_mask.dim() == 1:
+            head_mask = head_mask.unsqueeze(0).unsqueeze(0).unsqueeze(-1).unsqueeze(-1)
+            head_mask = head_mask.expand(num_hidden_layers, -1, -1, -1, -1)
+        elif head_mask.dim() == 2:
+            head_mask = head_mask.unsqueeze(1).unsqueeze(-1).unsqueeze(-1)
+
+        head_mask = head_mask.to(dtype=self.dtype)
+        if is_attention_chunked:
+            head_mask = head_mask.unsqueeze(-1)
+        return head_mask
+
+    BertModel.get_head_mask = _get_head_mask  # type: ignore[attr-defined]
+
+
+_patch_transformers_compat()
 
 try:
     from groundingdino.util.inference import load_model, load_image, predict

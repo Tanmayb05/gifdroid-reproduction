@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>src_ViBR Limitations</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --paper: #ffffff;
+      --ink: #152033;
+      --muted: #4f5d75;
+      --line: #d9e0ea;
+      --accent: #1f7a8c;
+      --accent-soft: #e6f4f7;
+      --warn: #a63a50;
+      --ok: #2f7d32;
+      --shadow: 0 10px 30px rgba(21, 32, 51, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 8% 10%, #d7eef3 0, transparent 32%),
+        radial-gradient(circle at 88% 0%, #e7ebfb 0, transparent 34%),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 36px auto;
+      padding: 0 20px 40px;
+    }
+
+    .hero {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 26px 26px 20px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      letter-spacing: 0.2px;
+    }
+
+    .sub {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .stats {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .stat {
+      background: linear-gradient(180deg, #ffffff, #f9fbfe);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+
+    .stat .k { font-size: 0.78rem; color: var(--muted); }
+    .stat .v { font-size: 1.2rem; font-weight: 700; margin-top: 2px; }
+    .v.ok { color: var(--ok); }
+    .v.warn { color: var(--warn); }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 20px;
+      margin-top: 14px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    p { margin: 8px 0; }
+
+    ul {
+      margin: 8px 0 0 18px;
+      padding: 0;
+    }
+
+    li { margin: 5px 0; }
+
+    code {
+      background: #eef3f8;
+      border: 1px solid #dce6f0;
+      padding: 1px 6px;
+      border-radius: 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.92em;
+    }
+
+    .pill {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: #0f4f5a;
+      border: 1px solid #b9dfe5;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+
+    .priorities li { margin: 8px 0; }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>src_ViBR Limitations</h1>
+      <p class="sub">Evidence-driven summary from <code>src_ViBR/</code> implementation and existing <code>apps/&lt;app_name&gt;/llm/ViBR/</code> run artifacts.</p>
+      <div class="stats">
+        <div class="stat"><div class="k">Total runs</div><div class="v">49</div></div>
+        <div class="stat"><div class="k">Success</div><div class="v ok">27</div></div>
+        <div class="stat"><div class="k">Failed</div><div class="v warn">22</div></div>
+        <div class="stat"><div class="k">Handheld</div><div class="v">36 (22 failed)</div></div>
+        <div class="stat"><div class="k">Screenrec</div><div class="v">13 (13 success)</div></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <span class="pill">Key Reliability Gaps</span>
+      <h2>1) OpenAI model override is not honored</h2>
+      <p>OpenAI calls are hardcoded to <code>gpt-4o</code> in <code>openai_api.py</code>, even when run config sets another <code>llm_model</code> (for example <code>gpt-4o-mini</code>).</p>
+
+      <h2>2) Handheld replay is state-fragile</h2>
+      <p>The loop allows only <code>max_attempts = 3</code> for alignment and frequently logs <code>same_state: "no"</code> followed by skipped actions in failed handheld runs.</p>
+
+      <h2>3) UI XML dump dependency is brittle</h2>
+      <p>ADB/UIAutomator XML dump failures still occur in practice and terminate runs with <code>RuntimeError</code>.</p>
+
+      <h2>4) LLM JSON formatting can hard-fail runs</h2>
+      <p>When providers return prose plus JSON (or malformed output), <code>extract_json(...)</code> can raise <code>JSONDecodeError</code> and stop execution.</p>
+
+      <h2>5) Provider errors propagate as fatal</h2>
+      <p>Gemini model/endpoint mismatches (observed <code>HTTP 404</code>) abort the run; there is no automatic fallback to another provider/model.</p>
+    </section>
+
+    <section class="card">
+      <span class="pill">Design &amp; Maintainability Limits</span>
+      <h2>6) Config/runtime mismatch</h2>
+      <p><code>output.overwrite</code> is validated in config but not used in runtime; outputs always get a new <code>run-XXX</code> directory.</p>
+
+      <h2>7) Source type inference is path-heuristic</h2>
+      <p>Source is inferred from filename/path tokens (<code>hhv</code>, <code>srv</code>, <code>handheld</code>, <code>screenrec</code>). Non-standard naming can break classification.</p>
+
+      <h2>8) Metadata schema drift</h2>
+      <p>Historical metadata is inconsistent (some runs missing <code>llm</code>/<code>llm_model</code>), which complicates aggregate analysis.</p>
+
+      <h2>9) Action execution is lightly guarded</h2>
+      <p>ADB actions execute directly; unknown actions are ignored with a log line instead of strict failure/recovery policy.</p>
+
+      <h2>10) Segment index edge cases still surface</h2>
+      <p>At least one real run failed with <code>IndexError: list index out of range</code> while indexing segment frame bounds.</p>
+    </section>
+
+    <section class="card">
+      <span class="pill">Performance &amp; Coverage</span>
+      <h2>11) Runtime variance is high</h2>
+      <p>Observed durations range from <code>0.0s</code> to <code>1244.2s</code>, making throughput planning difficult.</p>
+
+      <h2>12) Artifact evidence is algorithm-skewed</h2>
+      <p>Current run artifacts are <code>clip</code>-only, so robustness conclusions for <code>ssim</code> remain weak in this workspace.</p>
+    </section>
+
+    <section class="card">
+      <span class="pill">From 2025 ViBR Paper</span>
+      <h2>Research-Reported Limitations &amp; Threats</h2>
+      <p>This section summarizes explicit caveats reported in <code>docs/research_papers/2025 - ViBR.md</code> (derived from the paper's limitations and validity discussion).</p>
+      <ul>
+        <li>Semantic mismatch failure mode: replay can fail when recorded GUI state has no clear semantic correspondence to current device state.</li>
+        <li>Masked-input blind spot: PIN/password-style obfuscation prevents reliable value recovery from video frames.</li>
+        <li>Segmentation edge cases: delayed rendering and video ads can introduce false scene boundaries.</li>
+        <li>Evaluation-size constraint: bug replay evaluation was reduced to 38 recordings after filtering, limiting breadth.</li>
+        <li>Model dependency risk: primary validation centers on GPT-4o, so cross-model generalization remains a stated external-validity concern.</li>
+        <li>Action-space ceiling: reported action primitives are limited (tap/scroll/input/end), excluding complex multi-touch gestures.</li>
+        <li>Human-labeling dependence: ground truth relies on expert manual annotation, introducing potential internal-validity bias despite cross-checking.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <span class="pill">Highest-ROI Fix Order</span>
+      <ol class="priorities">
+        <li>Honor configured OpenAI <code>llm_model</code> consistently.</li>
+        <li>Harden JSON extraction + provider re-ask on malformed responses.</li>
+        <li>Add stronger pre-segment state reset/checkpointing.</li>
+        <li>Improve ADB/UI dump recovery and app-focus health checks.</li>
+        <li>Implement or remove <code>output.overwrite</code> to match user expectation.</li>
+        <li>Add schema versioning and richer per-step telemetry for diagnostics.</li>
+      </ol>
+    </section>
+
+    <footer>Source markdown: <code>src_ViBR/src_ViBR_limitations.md</code></footer>
+  </main>
+</body>
+</html>

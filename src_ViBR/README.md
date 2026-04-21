@@ -243,3 +243,77 @@ moderate input-output token usage across these calls, on average 2,362, 2,319, a
 (input + output), respectively. 
 A typical bug
 reproduction involving 10 action scenes would incur a total inference cost of around $0.02.
+
+## Before Running `src_ViBR/main.py`
+
+Use this checklist before launching the YAML runner (`src_ViBR/main.py`).
+
+1. Create/activate a Python virtual environment at repo root (`.venv`) and install ViBR dependencies:
+```bash
+./.venv/bin/pip install -r src_ViBR/requirements.txt
+```
+
+2. Ensure GroundingDINO is available in one of these locations:
+- `<repo_root>/GroundingDINO`
+- `<repo_root>/src_ViBR/GroundingDINO`
+
+3. Install GroundingDINO in the same venv (recommended with no build isolation):
+```bash
+./.venv/bin/pip install -e src_ViBR/GroundingDINO --no-build-isolation
+```
+If your clone is at `<repo_root>/GroundingDINO`, use:
+```bash
+./.venv/bin/pip install -e GroundingDINO --no-build-isolation
+```
+
+4. Download GroundingDINO-B weights and place them at:
+```text
+src_ViBR/GroundingDINO/weights/groundingdino_swinb_cogcoor.pth
+```
+or (if your clone is in repo root):
+```text
+GroundingDINO/weights/groundingdino_swinb_cogcoor.pth
+```
+
+5. Ensure Hugging Face model files required by GroundingDINO are available (`bert-base-uncased` tokenizer/config). If your environment is offline, pre-download/cache them in advance.
+
+6. Set OpenAI API key in repo `.env.local`:
+```text
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+7. Connect an Android device/emulator via ADB and verify:
+```bash
+adb devices
+```
+
+8. Ensure the target app is installed and the device starts from the expected initial UI state.
+
+9. Configure runs in:
+```text
+src_ViBR/input/config.yml
+```
+Supported `video_path` values:
+- shorthand: `hhv`, `srv`
+- explicit relative/absolute video file paths
+Per-run `algorithm` supports `clip` or `ssim`.
+
+10. Run:
+```bash
+cd src_ViBR
+../.venv/bin/python main.py --config input/config.yml
+```
+Outputs are written to:
+```text
+apps/<app_name>/llm/ViBR/<handheld|screenrec>/run-XXX/
+```
+including `artifacts/`, `logs/`, and `metadata.json`.
+
+### Last Checkpoint Notes (Current Setup)
+
+You are through the previous import/runtime errors with these fixes already applied:
+- GroundingDINO compatibility patch for `transformers>=5` (`BertModel.get_head_mask`) in `src_ViBR/approach/dino_detection.py`
+- Fast preflight check for missing DINO weights in `src_ViBR/main.py`
+- `BertModelWarper.forward` compatibility patch for `transformers>=5`: removed the `device` positional argument from `get_extended_attention_mask()` in `src_ViBR/GroundingDINO/groundingdino/models/GroundingDINO/bertwarper.py` (line 110). Newer `transformers` changed the third positional arg from `device` to `dtype`, causing a `TypeError: to() received an invalid combination of arguments` crash at inference time.
+
+No current blockers. Weights file is present and all runs complete successfully.

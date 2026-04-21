@@ -1,0 +1,2242 @@
+2026-04-13 18:59:49 | INFO | === src_vibr.2026-04-13T22-59-49__run-006__pipeline__started ===
+2026-04-13 18:59:49 | INFO | Starting ViBR run
+2026-04-13 18:59:49 | INFO | App: adaway
+2026-04-13 18:59:49 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/videos/screenrec/srv-001.mp4
+2026-04-13 18:59:49 | INFO | Algorithm: clip
+2026-04-13 18:59:49 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006
+2026-04-13 18:59:54 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-04-13 18:59:54 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-04-13 18:59:54 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-04-13 18:59:58 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-04-13 18:59:58 | INFO | final text_encoder_type: bert-base-uncased
+2026-04-13 18:59:58 | INFO | 
+2026-04-13 18:59:58 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-04-13 18:59:58 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 16314.19it/s]
+2026-04-13 18:59:58 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-04-13 18:59:58 | INFO | Key                                        | Status     |  | 
+2026-04-13 18:59:58 | INFO | -------------------------------------------+------------+--+-
+2026-04-13 18:59:58 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-04-13 18:59:58 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-04-13 18:59:58 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-04-13 18:59:58 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-04-13 18:59:58 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-04-13 18:59:58 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-04-13 18:59:58 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-04-13 18:59:58 | INFO | 
+2026-04-13 18:59:58 | INFO | Notes:
+2026-04-13 18:59:58 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-04-13 19:00:03 | INFO | 🔹 Starting video processing (algorithm=clip)...
+2026-04-13 19:00:04 | INFO | Initializing ADB device controller...
+2026-04-13 19:00:04 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/screenshot-0.png
+2026-04-13 19:00:04 | INFO | Reading frames from video...
+2026-04-13 19:00:04 | INFO | Reading frame:  2
+2026-04-13 19:00:04 | INFO | Reading frame:  3
+2026-04-13 19:00:04 | INFO | Reading frame:  4
+2026-04-13 19:00:04 | INFO | Reading frame:  5
+2026-04-13 19:00:04 | INFO | Reading frame:  6
+2026-04-13 19:00:04 | INFO | Reading frame:  7
+2026-04-13 19:00:04 | INFO | Reading frame:  8
+2026-04-13 19:00:04 | INFO | Reading frame:  9
+2026-04-13 19:00:04 | INFO | Reading frame:  10
+2026-04-13 19:00:04 | INFO | Reading frame:  11
+2026-04-13 19:00:04 | INFO | Reading frame:  12
+2026-04-13 19:00:04 | INFO | Reading frame:  13
+2026-04-13 19:00:04 | INFO | Reading frame:  14
+2026-04-13 19:00:04 | INFO | Reading frame:  15
+2026-04-13 19:00:04 | INFO | Reading frame:  16
+2026-04-13 19:00:04 | INFO | Reading frame:  17
+2026-04-13 19:00:04 | INFO | Reading frame:  18
+2026-04-13 19:00:04 | INFO | Reading frame:  19
+2026-04-13 19:00:04 | INFO | Reading frame:  20
+2026-04-13 19:00:04 | INFO | Reading frame:  21
+2026-04-13 19:00:04 | INFO | Reading frame:  22
+2026-04-13 19:00:04 | INFO | Reading frame:  23
+2026-04-13 19:00:04 | INFO | Reading frame:  24
+2026-04-13 19:00:04 | INFO | Reading frame:  25
+2026-04-13 19:00:04 | INFO | Reading frame:  26
+2026-04-13 19:00:04 | INFO | Reading frame:  27
+2026-04-13 19:00:04 | INFO | Reading frame:  28
+2026-04-13 19:00:04 | INFO | Reading frame:  29
+2026-04-13 19:00:04 | INFO | Reading frame:  30
+2026-04-13 19:00:04 | INFO | Reading frame:  31
+2026-04-13 19:00:04 | INFO | Reading frame:  32
+2026-04-13 19:00:04 | INFO | Reading frame:  33
+2026-04-13 19:00:04 | INFO | Reading frame:  34
+2026-04-13 19:00:04 | INFO | Reading frame:  35
+2026-04-13 19:00:04 | INFO | Reading frame:  36
+2026-04-13 19:00:04 | INFO | Reading frame:  37
+2026-04-13 19:00:04 | INFO | Reading frame:  38
+2026-04-13 19:00:04 | INFO | Reading frame:  39
+2026-04-13 19:00:04 | INFO | Reading frame:  40
+2026-04-13 19:00:04 | INFO | Reading frame:  41
+2026-04-13 19:00:04 | INFO | Reading frame:  42
+2026-04-13 19:00:04 | INFO | Reading frame:  43
+2026-04-13 19:00:04 | INFO | Reading frame:  44
+2026-04-13 19:00:04 | INFO | Reading frame:  45
+2026-04-13 19:00:04 | INFO | Reading frame:  46
+2026-04-13 19:00:04 | INFO | Reading frame:  47
+2026-04-13 19:00:04 | INFO | Reading frame:  48
+2026-04-13 19:00:04 | INFO | Reading frame:  49
+2026-04-13 19:00:04 | INFO | Reading frame:  50
+2026-04-13 19:00:04 | INFO | Reading frame:  51
+2026-04-13 19:00:04 | INFO | Reading frame:  52
+2026-04-13 19:00:04 | INFO | Reading frame:  53
+2026-04-13 19:00:04 | INFO | Reading frame:  54
+2026-04-13 19:00:04 | INFO | Reading frame:  55
+2026-04-13 19:00:04 | INFO | Reading frame:  56
+2026-04-13 19:00:04 | INFO | Reading frame:  57
+2026-04-13 19:00:04 | INFO | Reading frame:  58
+2026-04-13 19:00:04 | INFO | Reading frame:  59
+2026-04-13 19:00:04 | INFO | Reading frame:  60
+2026-04-13 19:00:04 | INFO | Reading frame:  61
+2026-04-13 19:00:04 | INFO | Reading frame:  62
+2026-04-13 19:00:04 | INFO | Reading frame:  63
+2026-04-13 19:00:04 | INFO | Reading frame:  64
+2026-04-13 19:00:04 | INFO | Reading frame:  65
+2026-04-13 19:00:04 | INFO | Reading frame:  66
+2026-04-13 19:00:04 | INFO | Reading frame:  67
+2026-04-13 19:00:04 | INFO | Reading frame:  68
+2026-04-13 19:00:04 | INFO | Reading frame:  69
+2026-04-13 19:00:04 | INFO | Reading frame:  70
+2026-04-13 19:00:04 | INFO | Reading frame:  71
+2026-04-13 19:00:04 | INFO | Reading frame:  72
+2026-04-13 19:00:04 | INFO | Reading frame:  73
+2026-04-13 19:00:04 | INFO | Reading frame:  74
+2026-04-13 19:00:04 | INFO | Reading frame:  75
+2026-04-13 19:00:04 | INFO | Reading frame:  76
+2026-04-13 19:00:04 | INFO | Reading frame:  77
+2026-04-13 19:00:04 | INFO | Reading frame:  78
+2026-04-13 19:00:04 | INFO | Reading frame:  79
+2026-04-13 19:00:04 | INFO | Reading frame:  80
+2026-04-13 19:00:04 | INFO | Reading frame:  81
+2026-04-13 19:00:04 | INFO | Reading frame:  82
+2026-04-13 19:00:04 | INFO | Reading frame:  83
+2026-04-13 19:00:04 | INFO | Reading frame:  84
+2026-04-13 19:00:04 | INFO | Reading frame:  85
+2026-04-13 19:00:04 | INFO | Reading frame:  86
+2026-04-13 19:00:04 | INFO | Reading frame:  87
+2026-04-13 19:00:04 | INFO | Reading frame:  88
+2026-04-13 19:00:04 | INFO | Reading frame:  89
+2026-04-13 19:00:04 | INFO | Reading frame:  90
+2026-04-13 19:00:04 | INFO | Reading frame:  91
+2026-04-13 19:00:04 | INFO | Reading frame:  92
+2026-04-13 19:00:04 | INFO | Reading frame:  93
+2026-04-13 19:00:04 | INFO | Reading frame:  94
+2026-04-13 19:00:04 | INFO | Reading frame:  95
+2026-04-13 19:00:04 | INFO | Reading frame:  96
+2026-04-13 19:00:04 | INFO | Reading frame:  97
+2026-04-13 19:00:04 | INFO | Reading frame:  98
+2026-04-13 19:00:04 | INFO | Reading frame:  99
+2026-04-13 19:00:04 | INFO | Reading frame:  100
+2026-04-13 19:00:04 | INFO | Reading frame:  101
+2026-04-13 19:00:04 | INFO | Reading frame:  102
+2026-04-13 19:00:04 | INFO | Reading frame:  103
+2026-04-13 19:00:04 | INFO | Reading frame:  104
+2026-04-13 19:00:04 | INFO | Reading frame:  105
+2026-04-13 19:00:04 | INFO | Reading frame:  106
+2026-04-13 19:00:04 | INFO | Reading frame:  107
+2026-04-13 19:00:04 | INFO | Reading frame:  108
+2026-04-13 19:00:04 | INFO | Reading frame:  109
+2026-04-13 19:00:04 | INFO | Reading frame:  110
+2026-04-13 19:00:04 | INFO | Reading frame:  111
+2026-04-13 19:00:04 | INFO | Reading frame:  112
+2026-04-13 19:00:04 | INFO | Reading frame:  113
+2026-04-13 19:00:04 | INFO | Reading frame:  114
+2026-04-13 19:00:04 | INFO | Reading frame:  115
+2026-04-13 19:00:04 | INFO | Reading frame:  116
+2026-04-13 19:00:04 | INFO | Reading frame:  117
+2026-04-13 19:00:04 | INFO | Reading frame:  118
+2026-04-13 19:00:04 | INFO | Reading frame:  119
+2026-04-13 19:00:04 | INFO | Reading frame:  120
+2026-04-13 19:00:04 | INFO | Reading frame:  121
+2026-04-13 19:00:04 | INFO | Reading frame:  122
+2026-04-13 19:00:04 | INFO | Reading frame:  123
+2026-04-13 19:00:04 | INFO | Reading frame:  124
+2026-04-13 19:00:04 | INFO | Reading frame:  125
+2026-04-13 19:00:04 | INFO | Reading frame:  126
+2026-04-13 19:00:04 | INFO | Reading frame:  127
+2026-04-13 19:00:04 | INFO | Reading frame:  128
+2026-04-13 19:00:04 | INFO | Reading frame:  129
+2026-04-13 19:00:04 | INFO | Reading frame:  130
+2026-04-13 19:00:04 | INFO | Reading frame:  131
+2026-04-13 19:00:04 | INFO | Reading frame:  132
+2026-04-13 19:00:04 | INFO | Reading frame:  133
+2026-04-13 19:00:04 | INFO | Reading frame:  134
+2026-04-13 19:00:04 | INFO | Reading frame:  135
+2026-04-13 19:00:04 | INFO | Reading frame:  136
+2026-04-13 19:00:04 | INFO | Reading frame:  137
+2026-04-13 19:00:04 | INFO | Reading frame:  138
+2026-04-13 19:00:04 | INFO | Reading frame:  139
+2026-04-13 19:00:04 | INFO | Reading frame:  140
+2026-04-13 19:00:04 | INFO | Reading frame:  141
+2026-04-13 19:00:04 | INFO | Reading frame:  142
+2026-04-13 19:00:04 | INFO | Reading frame:  143
+2026-04-13 19:00:04 | INFO | Reading frame:  144
+2026-04-13 19:00:04 | INFO | Reading frame:  145
+2026-04-13 19:00:04 | INFO | Reading frame:  146
+2026-04-13 19:00:04 | INFO | Reading frame:  147
+2026-04-13 19:00:04 | INFO | Reading frame:  148
+2026-04-13 19:00:04 | INFO | Reading frame:  149
+2026-04-13 19:00:04 | INFO | Reading frame:  150
+2026-04-13 19:00:04 | INFO | Reading frame:  151
+2026-04-13 19:00:04 | INFO | Reading frame:  152
+2026-04-13 19:00:04 | INFO | Reading frame:  153
+2026-04-13 19:00:04 | INFO | Reading frame:  154
+2026-04-13 19:00:04 | INFO | Reading frame:  155
+2026-04-13 19:00:04 | INFO | Reading frame:  156
+2026-04-13 19:00:04 | INFO | Reading frame:  157
+2026-04-13 19:00:04 | INFO | Reading frame:  158
+2026-04-13 19:00:04 | INFO | Reading frame:  159
+2026-04-13 19:00:04 | INFO | Reading frame:  160
+2026-04-13 19:00:04 | INFO | Reading frame:  161
+2026-04-13 19:00:04 | INFO | Reading frame:  162
+2026-04-13 19:00:04 | INFO | Reading frame:  163
+2026-04-13 19:00:04 | INFO | Reading frame:  164
+2026-04-13 19:00:04 | INFO | Reading frame:  165
+2026-04-13 19:00:04 | INFO | Reading frame:  166
+2026-04-13 19:00:04 | INFO | Reading frame:  167
+2026-04-13 19:00:04 | INFO | Reading frame:  168
+2026-04-13 19:00:04 | INFO | Reading frame:  169
+2026-04-13 19:00:04 | INFO | Reading frame:  170
+2026-04-13 19:00:04 | INFO | Reading frame:  171
+2026-04-13 19:00:04 | INFO | Reading frame:  172
+2026-04-13 19:00:04 | INFO | Reading frame:  173
+2026-04-13 19:00:04 | INFO | Reading frame:  174
+2026-04-13 19:00:04 | INFO | Reading frame:  175
+2026-04-13 19:00:04 | INFO | Reading frame:  176
+2026-04-13 19:00:04 | INFO | Reading frame:  177
+2026-04-13 19:00:04 | INFO | Reading frame:  178
+2026-04-13 19:00:04 | INFO | Reading frame:  179
+2026-04-13 19:00:04 | INFO | Reading frame:  180
+2026-04-13 19:00:04 | INFO | Reading frame:  181
+2026-04-13 19:00:04 | INFO | Reading frame:  182
+2026-04-13 19:00:04 | INFO | Reading frame:  183
+2026-04-13 19:00:04 | INFO | Reading frame:  184
+2026-04-13 19:00:04 | INFO | Reading frame:  185
+2026-04-13 19:00:04 | INFO | Reading frame:  186
+2026-04-13 19:00:04 | INFO | Reading frame:  187
+2026-04-13 19:00:04 | INFO | Reading frame:  188
+2026-04-13 19:00:04 | INFO | Reading frame:  189
+2026-04-13 19:00:04 | INFO | Reading frame:  190
+2026-04-13 19:00:04 | INFO | Reading frame:  191
+2026-04-13 19:00:04 | INFO | Reading frame:  192
+2026-04-13 19:00:04 | INFO | Reading frame:  193
+2026-04-13 19:00:04 | INFO | Reading frame:  194
+2026-04-13 19:00:04 | INFO | Reading frame:  195
+2026-04-13 19:00:04 | INFO | Reading frame:  196
+2026-04-13 19:00:04 | INFO | Reading frame:  197
+2026-04-13 19:00:04 | INFO | Reading frame:  198
+2026-04-13 19:00:04 | INFO | Reading frame:  199
+2026-04-13 19:00:04 | INFO | Reading frame:  200
+2026-04-13 19:00:04 | INFO | Reading frame:  201
+2026-04-13 19:00:04 | INFO | Reading frame:  202
+2026-04-13 19:00:04 | INFO | Reading frame:  203
+2026-04-13 19:00:04 | INFO | Reading frame:  204
+2026-04-13 19:00:04 | INFO | Reading frame:  205
+2026-04-13 19:00:04 | INFO | Reading frame:  206
+2026-04-13 19:00:04 | INFO | Reading frame:  207
+2026-04-13 19:00:04 | INFO | Reading frame:  208
+2026-04-13 19:00:04 | INFO | Reading frame:  209
+2026-04-13 19:00:04 | INFO | Reading frame:  210
+2026-04-13 19:00:04 | INFO | Reading frame:  211
+2026-04-13 19:00:04 | INFO | Reading frame:  212
+2026-04-13 19:00:04 | INFO | Reading frame:  213
+2026-04-13 19:00:04 | INFO | Reading frame:  214
+2026-04-13 19:00:04 | INFO | Reading frame:  215
+2026-04-13 19:00:04 | INFO | Reading frame:  216
+2026-04-13 19:00:04 | INFO | Reading frame:  217
+2026-04-13 19:00:04 | INFO | Reading frame:  218
+2026-04-13 19:00:04 | INFO | Reading frame:  219
+2026-04-13 19:00:04 | INFO | Reading frame:  220
+2026-04-13 19:00:04 | INFO | Reading frame:  221
+2026-04-13 19:00:04 | INFO | Reading frame:  222
+2026-04-13 19:00:04 | INFO | Reading frame:  223
+2026-04-13 19:00:04 | INFO | Reading frame:  224
+2026-04-13 19:00:04 | INFO | Reading frame:  225
+2026-04-13 19:00:04 | INFO | Reading frame:  226
+2026-04-13 19:00:04 | INFO | Reading frame:  227
+2026-04-13 19:00:04 | INFO | Reading frame:  228
+2026-04-13 19:00:04 | INFO | Reading frame:  229
+2026-04-13 19:00:04 | INFO | Reading frame:  230
+2026-04-13 19:00:04 | INFO | Reading frame:  231
+2026-04-13 19:00:04 | INFO | Reading frame:  232
+2026-04-13 19:00:04 | INFO | Reading frame:  233
+2026-04-13 19:00:04 | INFO | Reading frame:  234
+2026-04-13 19:00:04 | INFO | Reading frame:  235
+2026-04-13 19:00:04 | INFO | Reading frame:  236
+2026-04-13 19:00:04 | INFO | Reading frame:  237
+2026-04-13 19:00:04 | INFO | Reading frame:  238
+2026-04-13 19:00:04 | INFO | Reading frame:  239
+2026-04-13 19:00:04 | INFO | Reading frame:  240
+2026-04-13 19:00:04 | INFO | Reading frame:  241
+2026-04-13 19:00:04 | INFO | Reading frame:  242
+2026-04-13 19:00:04 | INFO | Reading frame:  243
+2026-04-13 19:00:04 | INFO | Reading frame:  244
+2026-04-13 19:00:04 | INFO | Reading frame:  245
+2026-04-13 19:00:04 | INFO | Reading frame:  246
+2026-04-13 19:00:04 | INFO | Reading frame:  247
+2026-04-13 19:00:04 | INFO | Reading frame:  248
+2026-04-13 19:00:04 | INFO | Reading frame:  249
+2026-04-13 19:00:04 | INFO | Reading frame:  250
+2026-04-13 19:00:04 | INFO | Reading frame:  251
+2026-04-13 19:00:04 | INFO | Reading frame:  252
+2026-04-13 19:00:04 | INFO | Reading frame:  253
+2026-04-13 19:00:04 | INFO | Reading frame:  254
+2026-04-13 19:00:04 | INFO | Reading frame:  255
+2026-04-13 19:00:04 | INFO | Reading frame:  256
+2026-04-13 19:00:04 | INFO | Reading frame:  257
+2026-04-13 19:00:04 | INFO | Reading frame:  258
+2026-04-13 19:00:04 | INFO | Reading frame:  259
+2026-04-13 19:00:04 | INFO | Reading frame:  260
+2026-04-13 19:00:04 | INFO | Reading frame:  261
+2026-04-13 19:00:04 | INFO | Reading frame:  262
+2026-04-13 19:00:04 | INFO | Reading frame:  263
+2026-04-13 19:00:04 | INFO | Reading frame:  264
+2026-04-13 19:00:04 | INFO | Reading frame:  265
+2026-04-13 19:00:04 | INFO | Reading frame:  266
+2026-04-13 19:00:04 | INFO | Reading frame:  267
+2026-04-13 19:00:04 | INFO | Reading frame:  268
+2026-04-13 19:00:04 | INFO | Reading frame:  269
+2026-04-13 19:00:04 | INFO | Reading frame:  270
+2026-04-13 19:00:04 | INFO | Reading frame:  271
+2026-04-13 19:00:04 | INFO | Reading frame:  272
+2026-04-13 19:00:04 | INFO | Reading frame:  273
+2026-04-13 19:00:04 | INFO | Reading frame:  274
+2026-04-13 19:00:04 | INFO | Reading frame:  275
+2026-04-13 19:00:04 | INFO | Reading frame:  276
+2026-04-13 19:00:04 | INFO | Reading frame:  277
+2026-04-13 19:00:04 | INFO | Reading frame:  278
+2026-04-13 19:00:04 | INFO | Reading frame:  279
+2026-04-13 19:00:04 | INFO | Reading frame:  280
+2026-04-13 19:00:04 | INFO | Reading frame:  281
+2026-04-13 19:00:04 | INFO | Reading frame:  282
+2026-04-13 19:00:04 | INFO | Reading frame:  283
+2026-04-13 19:00:04 | INFO | Reading frame:  284
+2026-04-13 19:00:04 | INFO | Reading frame:  285
+2026-04-13 19:00:04 | INFO | Reading frame:  286
+2026-04-13 19:00:04 | INFO | Reading frame:  287
+2026-04-13 19:00:04 | INFO | Reading frame:  288
+2026-04-13 19:00:04 | INFO | Reading frame:  289
+2026-04-13 19:00:04 | INFO | Reading frame:  290
+2026-04-13 19:00:04 | INFO | Reading frame:  291
+2026-04-13 19:00:04 | INFO | Reading frame:  292
+2026-04-13 19:00:04 | INFO | Reading frame:  293
+2026-04-13 19:00:04 | INFO | Reading frame:  294
+2026-04-13 19:00:04 | INFO | Reading frame:  295
+2026-04-13 19:00:04 | INFO | Reading frame:  296
+2026-04-13 19:00:04 | INFO | Reading frame:  297
+2026-04-13 19:00:04 | INFO | Reading frame:  298
+2026-04-13 19:00:04 | INFO | Reading frame:  299
+2026-04-13 19:00:04 | INFO | Reading frame:  300
+2026-04-13 19:00:04 | INFO | Reading frame:  301
+2026-04-13 19:00:04 | INFO | Reading frame:  302
+2026-04-13 19:00:04 | INFO | Reading frame:  303
+2026-04-13 19:00:04 | INFO | Reading frame:  304
+2026-04-13 19:00:04 | INFO | Reading frame:  305
+2026-04-13 19:00:04 | INFO | Reading frame:  306
+2026-04-13 19:00:04 | INFO | Reading frame:  307
+2026-04-13 19:00:04 | INFO | Reading frame:  308
+2026-04-13 19:00:04 | INFO | Reading frame:  309
+2026-04-13 19:00:04 | INFO | Reading frame:  310
+2026-04-13 19:00:04 | INFO | Reading frame:  311
+2026-04-13 19:00:04 | INFO | Reading frame:  312
+2026-04-13 19:00:04 | INFO | Reading frame:  313
+2026-04-13 19:00:04 | INFO | Reading frame:  314
+2026-04-13 19:00:04 | INFO | Reading frame:  315
+2026-04-13 19:00:04 | INFO | Reading frame:  316
+2026-04-13 19:00:04 | INFO | Reading frame:  317
+2026-04-13 19:00:04 | INFO | Reading frame:  318
+2026-04-13 19:00:04 | INFO | Reading frame:  319
+2026-04-13 19:00:04 | INFO | Reading frame:  320
+2026-04-13 19:00:04 | INFO | Reading frame:  321
+2026-04-13 19:00:04 | INFO | Reading frame:  322
+2026-04-13 19:00:04 | INFO | Reading frame:  323
+2026-04-13 19:00:04 | INFO | Reading frame:  324
+2026-04-13 19:00:04 | INFO | Reading frame:  325
+2026-04-13 19:00:04 | INFO | Reading frame:  326
+2026-04-13 19:00:04 | INFO | Reading frame:  327
+2026-04-13 19:00:04 | INFO | Reading frame:  328
+2026-04-13 19:00:04 | INFO | Reading frame:  329
+2026-04-13 19:00:04 | INFO | Reading frame:  330
+2026-04-13 19:00:04 | INFO | Reading frame:  331
+2026-04-13 19:00:04 | INFO | Reading frame:  332
+2026-04-13 19:00:04 | INFO | Reading frame:  333
+2026-04-13 19:00:04 | INFO | Reading frame:  334
+2026-04-13 19:00:04 | INFO | Reading frame:  335
+2026-04-13 19:00:04 | INFO | Reading frame:  336
+2026-04-13 19:00:04 | INFO | Reading frame:  337
+2026-04-13 19:00:04 | INFO | Reading frame:  338
+2026-04-13 19:00:04 | INFO | Reading frame:  339
+2026-04-13 19:00:04 | INFO | Reading frame:  340
+2026-04-13 19:00:04 | INFO | Reading frame:  341
+2026-04-13 19:00:04 | INFO | Reading frame:  342
+2026-04-13 19:00:04 | INFO | Reading frame:  343
+2026-04-13 19:00:04 | INFO | Reading frame:  344
+2026-04-13 19:00:04 | INFO | Reading frame:  345
+2026-04-13 19:00:04 | INFO | Reading frame:  346
+2026-04-13 19:00:04 | INFO | Reading frame:  347
+2026-04-13 19:00:04 | INFO | Reading frame:  348
+2026-04-13 19:00:04 | INFO | Reading frame:  349
+2026-04-13 19:00:04 | INFO | Reading frame:  350
+2026-04-13 19:00:04 | INFO | Reading frame:  351
+2026-04-13 19:00:04 | INFO | Reading frame:  352
+2026-04-13 19:00:04 | INFO | Reading frame:  353
+2026-04-13 19:00:04 | INFO | Reading frame:  354
+2026-04-13 19:00:04 | INFO | Reading frame:  355
+2026-04-13 19:00:04 | INFO | Reading frame:  356
+2026-04-13 19:00:04 | INFO | Reading frame:  357
+2026-04-13 19:00:04 | INFO | Reading frame:  358
+2026-04-13 19:00:04 | INFO | Reading frame:  359
+2026-04-13 19:00:04 | INFO | Reading frame:  360
+2026-04-13 19:00:04 | INFO | Reading frame:  361
+2026-04-13 19:00:04 | INFO | Reading frame:  362
+2026-04-13 19:00:04 | INFO | Reading frame:  363
+2026-04-13 19:00:04 | INFO | Reading frame:  364
+2026-04-13 19:00:04 | INFO | Reading frame:  365
+2026-04-13 19:00:04 | INFO | Reading frame:  366
+2026-04-13 19:00:04 | INFO | Reading frame:  367
+2026-04-13 19:00:04 | INFO | Reading frame:  368
+2026-04-13 19:00:04 | INFO | Reading frame:  369
+2026-04-13 19:00:04 | INFO | Reading frame:  370
+2026-04-13 19:00:04 | INFO | Reading frame:  371
+2026-04-13 19:00:04 | INFO | Reading frame:  372
+2026-04-13 19:00:04 | INFO | Reading frame:  373
+2026-04-13 19:00:04 | INFO | Reading frame:  374
+2026-04-13 19:00:04 | INFO | Reading frame:  375
+2026-04-13 19:00:04 | INFO | Reading frame:  376
+2026-04-13 19:00:04 | INFO | Reading frame:  377
+2026-04-13 19:00:04 | INFO | Reading frame:  378
+2026-04-13 19:00:04 | INFO | Reading frame:  379
+2026-04-13 19:00:04 | INFO | Reading frame:  380
+2026-04-13 19:00:04 | INFO | Reading frame:  381
+2026-04-13 19:00:04 | INFO | Reading frame:  382
+2026-04-13 19:00:04 | INFO | Reading frame:  383
+2026-04-13 19:00:04 | INFO | Reading frame:  384
+2026-04-13 19:00:04 | INFO | Reading frame:  385
+2026-04-13 19:00:04 | INFO | Reading frame:  386
+2026-04-13 19:00:04 | INFO | Reading frame:  387
+2026-04-13 19:00:04 | INFO | Reading frame:  388
+2026-04-13 19:00:04 | INFO | Reading frame:  389
+2026-04-13 19:00:04 | INFO | Reading frame:  390
+2026-04-13 19:00:04 | INFO | Reading frame:  391
+2026-04-13 19:00:04 | INFO | Reading frame:  392
+2026-04-13 19:00:04 | INFO | Reading frame:  393
+2026-04-13 19:00:04 | INFO | Reading frame:  394
+2026-04-13 19:00:04 | INFO | Reading frame:  395
+2026-04-13 19:00:04 | INFO | Reading frame:  396
+2026-04-13 19:00:04 | INFO | Reading frame:  397
+2026-04-13 19:00:04 | INFO | Reading frame:  398
+2026-04-13 19:00:04 | INFO | Reading frame:  399
+2026-04-13 19:00:04 | INFO | Reading frame:  400
+2026-04-13 19:00:04 | INFO | Reading frame:  401
+2026-04-13 19:00:04 | INFO | Reading frame:  402
+2026-04-13 19:00:04 | INFO | Reading frame:  403
+2026-04-13 19:00:04 | INFO | Reading frame:  404
+2026-04-13 19:00:04 | INFO | Reading frame:  405
+2026-04-13 19:00:04 | INFO | Reading frame:  406
+2026-04-13 19:00:04 | INFO | Reading frame:  407
+2026-04-13 19:00:04 | INFO | Reading frame:  408
+2026-04-13 19:00:04 | INFO | Reading frame:  409
+2026-04-13 19:00:04 | INFO | Reading frame:  410
+2026-04-13 19:00:04 | INFO | Reading frame:  411
+2026-04-13 19:00:04 | INFO | Reading frame:  412
+2026-04-13 19:00:04 | INFO | Reading frame:  413
+2026-04-13 19:00:04 | INFO | Reading frame:  414
+2026-04-13 19:00:04 | INFO | Reading frame:  415
+2026-04-13 19:00:04 | INFO | Reading frame:  416
+2026-04-13 19:00:04 | INFO | Reading frame:  417
+2026-04-13 19:00:04 | INFO | Reading frame:  418
+2026-04-13 19:00:04 | INFO | Reading frame:  419
+2026-04-13 19:00:04 | INFO | Reading frame:  420
+2026-04-13 19:00:04 | INFO | Reading frame:  421
+2026-04-13 19:00:04 | INFO | Reading frame:  422
+2026-04-13 19:00:04 | INFO | Reading frame:  423
+2026-04-13 19:00:04 | INFO | Reading frame:  424
+2026-04-13 19:00:04 | INFO | Reading frame:  425
+2026-04-13 19:00:04 | INFO | Reading frame:  426
+2026-04-13 19:00:04 | INFO | Reading frame:  427
+2026-04-13 19:00:04 | INFO | Reading frame:  428
+2026-04-13 19:00:04 | INFO | Reading frame:  429
+2026-04-13 19:00:04 | INFO | Reading frame:  430
+2026-04-13 19:00:04 | INFO | Reading frame:  431
+2026-04-13 19:00:04 | INFO | Reading frame:  432
+2026-04-13 19:00:04 | INFO | Reading frame:  433
+2026-04-13 19:00:04 | INFO | Reading frame:  434
+2026-04-13 19:00:04 | INFO | Reading frame:  435
+2026-04-13 19:00:04 | INFO | Reading frame:  436
+2026-04-13 19:00:04 | INFO | Reading frame:  437
+2026-04-13 19:00:04 | INFO | Reading frame:  438
+2026-04-13 19:00:04 | INFO | Reading frame:  439
+2026-04-13 19:00:04 | INFO | Reading frame:  440
+2026-04-13 19:00:04 | INFO | Reading frame:  441
+2026-04-13 19:00:04 | INFO | Reading frame:  442
+2026-04-13 19:00:04 | INFO | Reading frame:  443
+2026-04-13 19:00:04 | INFO | Reading frame:  444
+2026-04-13 19:00:04 | INFO | Reading frame:  445
+2026-04-13 19:00:04 | INFO | Reading frame:  446
+2026-04-13 19:00:04 | INFO | Reading frame:  447
+2026-04-13 19:00:04 | INFO | Reading frame:  448
+2026-04-13 19:00:04 | INFO | Reading frame:  449
+2026-04-13 19:00:04 | INFO | Reading frame:  450
+2026-04-13 19:00:04 | INFO | Reading frame:  451
+2026-04-13 19:00:04 | INFO | Reading frame:  452
+2026-04-13 19:00:04 | INFO | Reading frame:  453
+2026-04-13 19:00:04 | INFO | Reading frame:  454
+2026-04-13 19:00:04 | INFO | Reading frame:  455
+2026-04-13 19:00:04 | INFO | Reading frame:  456
+2026-04-13 19:00:04 | INFO | Reading frame:  457
+2026-04-13 19:00:04 | INFO | Reading frame:  458
+2026-04-13 19:00:04 | INFO | Reading frame:  459
+2026-04-13 19:00:04 | INFO | Reading frame:  460
+2026-04-13 19:00:04 | INFO | Reading frame:  461
+2026-04-13 19:00:04 | INFO | Reading frame:  462
+2026-04-13 19:00:04 | INFO | Reading frame:  463
+2026-04-13 19:00:04 | INFO | Reading frame:  464
+2026-04-13 19:00:04 | INFO | Reading frame:  465
+2026-04-13 19:00:04 | INFO | Reading frame:  466
+2026-04-13 19:00:04 | INFO | Reading frame:  467
+2026-04-13 19:00:04 | INFO | Reading frame:  468
+2026-04-13 19:00:04 | INFO | Reading frame:  469
+2026-04-13 19:00:04 | INFO | Reading frame:  470
+2026-04-13 19:00:04 | INFO | Reading frame:  471
+2026-04-13 19:00:04 | INFO | Reading frame:  472
+2026-04-13 19:00:04 | INFO | Reading frame:  473
+2026-04-13 19:00:04 | INFO | Reading frame:  474
+2026-04-13 19:00:04 | INFO | Reading frame:  475
+2026-04-13 19:00:04 | INFO | Reading frame:  476
+2026-04-13 19:00:04 | INFO | Reading frame:  477
+2026-04-13 19:00:04 | INFO | Reading frame:  478
+2026-04-13 19:00:04 | INFO | Reading frame:  479
+2026-04-13 19:00:04 | INFO | Reading frame:  480
+2026-04-13 19:00:04 | INFO | Reading frame:  481
+2026-04-13 19:00:04 | INFO | Reading frame:  482
+2026-04-13 19:00:04 | INFO | Reading frame:  483
+2026-04-13 19:00:04 | INFO | Reading frame:  484
+2026-04-13 19:00:04 | INFO | Reading frame:  485
+2026-04-13 19:00:04 | INFO | Reading frame:  486
+2026-04-13 19:00:04 | INFO | Reading frame:  487
+2026-04-13 19:00:04 | INFO | Reading frame:  488
+2026-04-13 19:00:04 | INFO | Reading frame:  489
+2026-04-13 19:00:04 | INFO | Reading frame:  490
+2026-04-13 19:00:04 | INFO | Reading frame:  491
+2026-04-13 19:00:04 | INFO | Reading frame:  492
+2026-04-13 19:00:04 | INFO | Reading frame:  493
+2026-04-13 19:00:04 | INFO | Reading frame:  494
+2026-04-13 19:00:04 | INFO | Reading frame:  495
+2026-04-13 19:00:04 | INFO | Reading frame:  496
+2026-04-13 19:00:04 | INFO | Reading frame:  497
+2026-04-13 19:00:04 | INFO | Reading frame:  498
+2026-04-13 19:00:04 | INFO | Reading frame:  499
+2026-04-13 19:00:04 | INFO | Reading frame:  500
+2026-04-13 19:00:04 | INFO | Reading frame:  501
+2026-04-13 19:00:04 | INFO | Reading frame:  502
+2026-04-13 19:00:04 | INFO | Reading frame:  503
+2026-04-13 19:00:04 | INFO | Reading frame:  504
+2026-04-13 19:00:04 | INFO | Reading frame:  505
+2026-04-13 19:00:04 | INFO | Reading frame:  506
+2026-04-13 19:00:04 | INFO | Reading frame:  507
+2026-04-13 19:00:04 | INFO | Reading frame:  508
+2026-04-13 19:00:04 | INFO | Reading frame:  509
+2026-04-13 19:00:04 | INFO | Reading frame:  510
+2026-04-13 19:00:04 | INFO | Reading frame:  511
+2026-04-13 19:00:04 | INFO | Reading frame:  512
+2026-04-13 19:00:04 | INFO | Reading frame:  513
+2026-04-13 19:00:04 | INFO | Reading frame:  514
+2026-04-13 19:00:04 | INFO | Reading frame:  515
+2026-04-13 19:00:04 | INFO | Reading frame:  516
+2026-04-13 19:00:04 | INFO | Reading frame:  517
+2026-04-13 19:00:04 | INFO | Reading frame:  518
+2026-04-13 19:00:04 | INFO | Reading frame:  519
+2026-04-13 19:00:04 | INFO | Reading frame:  520
+2026-04-13 19:00:04 | INFO | Reading frame:  521
+2026-04-13 19:00:04 | INFO | Reading frame:  522
+2026-04-13 19:00:04 | INFO | Reading frame:  523
+2026-04-13 19:00:04 | INFO | Reading frame:  524
+2026-04-13 19:00:04 | INFO | Reading frame:  525
+2026-04-13 19:00:04 | INFO | Reading frame:  526
+2026-04-13 19:00:04 | INFO | Reading frame:  527
+2026-04-13 19:00:04 | INFO | Reading frame:  528
+2026-04-13 19:00:04 | INFO | Reading frame:  529
+2026-04-13 19:00:04 | INFO | Reading frame:  530
+2026-04-13 19:00:04 | INFO | Reading frame:  531
+2026-04-13 19:00:04 | INFO | Reading frame:  532
+2026-04-13 19:00:04 | INFO | Reading frame:  533
+2026-04-13 19:00:04 | INFO | Reading frame:  534
+2026-04-13 19:00:04 | INFO | Reading frame:  535
+2026-04-13 19:00:04 | INFO | Reading frame:  536
+2026-04-13 19:00:04 | INFO | Reading frame:  537
+2026-04-13 19:00:04 | INFO | Reading frame:  538
+2026-04-13 19:00:04 | INFO | Reading frame:  539
+2026-04-13 19:00:04 | INFO | Reading frame:  540
+2026-04-13 19:00:04 | INFO | Reading frame:  541
+2026-04-13 19:00:04 | INFO | Reading frame:  542
+2026-04-13 19:00:04 | INFO | Reading frame:  543
+2026-04-13 19:00:04 | INFO | Reading frame:  544
+2026-04-13 19:00:04 | INFO | Reading frame:  545
+2026-04-13 19:00:04 | INFO | Reading frame:  546
+2026-04-13 19:00:04 | INFO | Reading frame:  547
+2026-04-13 19:00:04 | INFO | Reading frame:  548
+2026-04-13 19:00:04 | INFO | Reading frame:  549
+2026-04-13 19:00:04 | INFO | Reading frame:  550
+2026-04-13 19:00:04 | INFO | Reading frame:  551
+2026-04-13 19:00:04 | INFO | Reading frame:  552
+2026-04-13 19:00:04 | INFO | Reading frame:  553
+2026-04-13 19:00:04 | INFO | Reading frame:  554
+2026-04-13 19:00:04 | INFO | Reading frame:  555
+2026-04-13 19:00:04 | INFO | Reading frame:  556
+2026-04-13 19:00:04 | INFO | Reading frame:  557
+2026-04-13 19:00:04 | INFO | Reading frame:  558
+2026-04-13 19:00:04 | INFO | Reading frame:  559
+2026-04-13 19:00:04 | INFO | Reading frame:  560
+2026-04-13 19:00:04 | INFO | Reading frame:  561
+2026-04-13 19:00:04 | INFO | Reading frame:  562
+2026-04-13 19:00:04 | INFO | Reading frame:  563
+2026-04-13 19:00:04 | INFO | Reading frame:  564
+2026-04-13 19:00:04 | INFO | Reading frame:  565
+2026-04-13 19:00:04 | INFO | Reading frame:  566
+2026-04-13 19:00:04 | INFO | Reading frame:  567
+2026-04-13 19:00:04 | INFO | Reading frame:  568
+2026-04-13 19:00:04 | INFO | Reading frame:  569
+2026-04-13 19:00:04 | INFO | Reading frame:  570
+2026-04-13 19:00:04 | INFO | Reading frame:  571
+2026-04-13 19:00:04 | INFO | Reading frame:  572
+2026-04-13 19:00:04 | INFO | Reading frame:  573
+2026-04-13 19:00:04 | INFO | Reading frame:  574
+2026-04-13 19:00:04 | INFO | Reading frame:  575
+2026-04-13 19:00:04 | INFO | Reading frame:  576
+2026-04-13 19:00:04 | INFO | Reading frame:  577
+2026-04-13 19:00:04 | INFO | Reading frame:  578
+2026-04-13 19:00:04 | INFO | Reading frame:  579
+2026-04-13 19:00:04 | INFO | Reading frame:  580
+2026-04-13 19:00:04 | INFO | Reading frame:  581
+2026-04-13 19:00:04 | INFO | Reading frame:  582
+2026-04-13 19:00:04 | INFO | Reading frame:  583
+2026-04-13 19:00:04 | INFO | Reading frame:  584
+2026-04-13 19:00:04 | INFO | Reading frame:  585
+2026-04-13 19:00:04 | INFO | Reading frame:  586
+2026-04-13 19:00:04 | INFO | Reading frame:  587
+2026-04-13 19:00:04 | INFO | Reading frame:  588
+2026-04-13 19:00:04 | INFO | Reading frame:  589
+2026-04-13 19:00:04 | INFO | Reading frame:  590
+2026-04-13 19:00:04 | INFO | Reading frame:  591
+2026-04-13 19:00:04 | INFO | Reading frame:  592
+2026-04-13 19:00:04 | INFO | Reading frame:  593
+2026-04-13 19:00:04 | INFO | Reading frame:  594
+2026-04-13 19:00:04 | INFO | Reading frame:  595
+2026-04-13 19:00:04 | INFO | Reading frame:  596
+2026-04-13 19:00:04 | INFO | Reading frame:  597
+2026-04-13 19:00:04 | INFO | Reading frame:  598
+2026-04-13 19:00:04 | INFO | Reading frame:  599
+2026-04-13 19:00:04 | INFO | Reading frame:  600
+2026-04-13 19:00:04 | INFO | Reading frame:  601
+2026-04-13 19:00:04 | INFO | Reading frame:  602
+2026-04-13 19:00:04 | INFO | Reading frame:  603
+2026-04-13 19:00:04 | INFO | Reading frame:  604
+2026-04-13 19:00:04 | INFO | Reading frame:  605
+2026-04-13 19:00:04 | INFO | Reading frame:  606
+2026-04-13 19:00:04 | INFO | Reading frame:  607
+2026-04-13 19:00:04 | INFO | Reading frame:  608
+2026-04-13 19:00:04 | INFO | Reading frame:  609
+2026-04-13 19:00:04 | INFO | Reading frame:  610
+2026-04-13 19:00:04 | INFO | Reading frame:  611
+2026-04-13 19:00:04 | INFO | Reading frame:  612
+2026-04-13 19:00:04 | INFO | Reading frame:  613
+2026-04-13 19:00:04 | INFO | Reading frame:  614
+2026-04-13 19:00:04 | INFO | Reading frame:  615
+2026-04-13 19:00:04 | INFO | Reading frame:  616
+2026-04-13 19:00:04 | INFO | Reading frame:  617
+2026-04-13 19:00:04 | INFO | Reading frame:  618
+2026-04-13 19:00:04 | INFO | Reading frame:  619
+2026-04-13 19:00:04 | INFO | Reading frame:  620
+2026-04-13 19:00:04 | INFO | Reading frame:  621
+2026-04-13 19:00:04 | INFO | Reading frame:  622
+2026-04-13 19:00:04 | INFO | Reading frame:  623
+2026-04-13 19:00:04 | INFO | Reading frame:  624
+2026-04-13 19:00:04 | INFO | Reading frame:  625
+2026-04-13 19:00:04 | INFO | Reading frame:  626
+2026-04-13 19:00:04 | INFO | Reading frame:  627
+2026-04-13 19:00:04 | INFO | Reading frame:  628
+2026-04-13 19:00:04 | INFO | Reading frame:  629
+2026-04-13 19:00:04 | INFO | Reading frame:  630
+2026-04-13 19:00:04 | INFO | Reading frame:  631
+2026-04-13 19:00:04 | INFO | Reading frame:  632
+2026-04-13 19:00:04 | INFO | Reading frame:  633
+2026-04-13 19:00:04 | INFO | Reading frame:  634
+2026-04-13 19:00:04 | INFO | Reading frame:  635
+2026-04-13 19:00:04 | INFO | Reading frame:  636
+2026-04-13 19:00:04 | INFO | Reading frame:  637
+2026-04-13 19:00:04 | INFO | Reading frame:  638
+2026-04-13 19:00:04 | INFO | Reading frame:  639
+2026-04-13 19:00:04 | INFO | Reading frame:  640
+2026-04-13 19:00:04 | INFO | Reading frame:  641
+2026-04-13 19:00:04 | INFO | Reading frame:  642
+2026-04-13 19:00:04 | INFO | Reading frame:  643
+2026-04-13 19:00:04 | INFO | Reading frame:  644
+2026-04-13 19:00:04 | INFO | Reading frame:  645
+2026-04-13 19:00:04 | INFO | Reading frame:  646
+2026-04-13 19:00:04 | INFO | Reading frame:  647
+2026-04-13 19:00:04 | INFO | Reading frame:  648
+2026-04-13 19:00:04 | INFO | Reading frame:  649
+2026-04-13 19:00:04 | INFO | Reading frame:  650
+2026-04-13 19:00:04 | INFO | Reading frame:  651
+2026-04-13 19:00:04 | INFO | Reading frame:  652
+2026-04-13 19:00:04 | INFO | Reading frame:  653
+2026-04-13 19:00:04 | INFO | Reading frame:  654
+2026-04-13 19:00:04 | INFO | Reading frame:  655
+2026-04-13 19:00:04 | INFO | Reading frame:  656
+2026-04-13 19:00:04 | INFO | Reading frame:  657
+2026-04-13 19:00:04 | INFO | Reading frame:  658
+2026-04-13 19:00:04 | INFO | Reading frame:  659
+2026-04-13 19:00:04 | INFO | Reading frame:  660
+2026-04-13 19:00:04 | INFO | Reading frame:  661
+2026-04-13 19:00:04 | INFO | Reading frame:  662
+2026-04-13 19:00:04 | INFO | Reading frame:  663
+2026-04-13 19:00:04 | INFO | Reading frame:  664
+2026-04-13 19:00:04 | INFO | Reading frame:  665
+2026-04-13 19:00:04 | INFO | Reading frame:  666
+2026-04-13 19:00:04 | INFO | Reading frame:  667
+2026-04-13 19:00:04 | INFO | Reading frame:  668
+2026-04-13 19:00:04 | INFO | Reading frame:  669
+2026-04-13 19:00:04 | INFO | Reading frame:  670
+2026-04-13 19:00:04 | INFO | Reading frame:  671
+2026-04-13 19:00:04 | INFO | Reading frame:  672
+2026-04-13 19:00:04 | INFO | Reading frame:  673
+2026-04-13 19:00:04 | INFO | Reading frame:  674
+2026-04-13 19:00:04 | INFO | Reading frame:  675
+2026-04-13 19:00:04 | INFO | Reading frame:  676
+2026-04-13 19:00:04 | INFO | Reading frame:  677
+2026-04-13 19:00:04 | INFO | Reading frame:  678
+2026-04-13 19:00:04 | INFO | Reading frame:  679
+2026-04-13 19:00:04 | INFO | Reading frame:  680
+2026-04-13 19:00:04 | INFO | Reading frame:  681
+2026-04-13 19:00:04 | INFO | Reading frame:  682
+2026-04-13 19:00:04 | INFO | Reading frame:  683
+2026-04-13 19:00:04 | INFO | Reading frame:  684
+2026-04-13 19:00:04 | INFO | Reading frame:  685
+2026-04-13 19:00:04 | INFO | Reading frame:  686
+2026-04-13 19:00:04 | INFO | Reading frame:  687
+2026-04-13 19:00:04 | INFO | Reading frame:  688
+2026-04-13 19:00:04 | INFO | Reading frame:  689
+2026-04-13 19:00:04 | INFO | Reading frame:  690
+2026-04-13 19:00:04 | INFO | Reading frame:  691
+2026-04-13 19:00:04 | INFO | Reading frame:  692
+2026-04-13 19:00:04 | INFO | Reading frame:  693
+2026-04-13 19:00:04 | INFO | Reading frame:  694
+2026-04-13 19:00:04 | INFO | Reading frame:  695
+2026-04-13 19:00:04 | INFO | Reading frame:  696
+2026-04-13 19:00:04 | INFO | Reading frame:  697
+2026-04-13 19:00:04 | INFO | Reading frame:  698
+2026-04-13 19:00:04 | INFO | Reading frame:  699
+2026-04-13 19:00:04 | INFO | Reading frame:  700
+2026-04-13 19:00:04 | INFO | Reading frame:  701
+2026-04-13 19:00:04 | INFO | Reading frame:  702
+2026-04-13 19:00:04 | INFO | Reading frame:  703
+2026-04-13 19:00:04 | INFO | Reading frame:  704
+2026-04-13 19:00:04 | INFO | Reading frame:  705
+2026-04-13 19:00:04 | INFO | Reading frame:  706
+2026-04-13 19:00:04 | INFO | Reading frame:  707
+2026-04-13 19:00:04 | INFO | Reading frame:  708
+2026-04-13 19:00:04 | INFO | Reading frame:  709
+2026-04-13 19:00:04 | INFO | Reading frame:  710
+2026-04-13 19:00:04 | INFO | Reading frame:  711
+2026-04-13 19:00:04 | INFO | Reading frame:  712
+2026-04-13 19:00:04 | INFO | Reading frame:  713
+2026-04-13 19:00:04 | INFO | Reading frame:  714
+2026-04-13 19:00:04 | INFO | Reading frame:  715
+2026-04-13 19:00:04 | INFO | Reading frame:  716
+2026-04-13 19:00:04 | INFO | Reading frame:  717
+2026-04-13 19:00:04 | INFO | Reading frame:  718
+2026-04-13 19:00:04 | INFO | Reading frame:  719
+2026-04-13 19:00:04 | INFO | Reading frame:  720
+2026-04-13 19:00:04 | INFO | Reading frame:  721
+2026-04-13 19:00:04 | INFO | Reading frame:  722
+2026-04-13 19:00:04 | INFO | Reading frame:  723
+2026-04-13 19:00:04 | INFO | Reading frame:  724
+2026-04-13 19:00:04 | INFO | Reading frame:  725
+2026-04-13 19:00:04 | INFO | Reading frame:  726
+2026-04-13 19:00:04 | INFO | Reading frame:  727
+2026-04-13 19:00:04 | INFO | Reading frame:  728
+2026-04-13 19:00:04 | INFO | Reading frame:  729
+2026-04-13 19:00:04 | INFO | Reading frame:  730
+2026-04-13 19:00:04 | INFO | Reading frame:  731
+2026-04-13 19:00:04 | INFO | Reading frame:  732
+2026-04-13 19:00:04 | INFO | Reading frame:  733
+2026-04-13 19:00:04 | INFO | Reading frame:  734
+2026-04-13 19:00:04 | INFO | Reading frame:  735
+2026-04-13 19:00:04 | INFO | Reading frame:  736
+2026-04-13 19:00:04 | INFO | Reading frame:  737
+2026-04-13 19:00:04 | INFO | Reading frame:  738
+2026-04-13 19:00:04 | INFO | Reading frame:  739
+2026-04-13 19:00:04 | INFO | Reading frame:  740
+2026-04-13 19:00:04 | INFO | Reading frame:  741
+2026-04-13 19:00:04 | INFO | Reading frame:  742
+2026-04-13 19:00:04 | INFO | Reading frame:  743
+2026-04-13 19:00:04 | INFO | Reading frame:  744
+2026-04-13 19:00:04 | INFO | Reading frame:  745
+2026-04-13 19:00:04 | INFO | Reading frame:  746
+2026-04-13 19:00:04 | INFO | Reading frame:  747
+2026-04-13 19:00:04 | INFO | Reading frame:  748
+2026-04-13 19:00:04 | INFO | Reading frame:  749
+2026-04-13 19:00:04 | INFO | Reading frame:  750
+2026-04-13 19:00:04 | INFO | Reading frame:  751
+2026-04-13 19:00:04 | INFO | Reading frame:  752
+2026-04-13 19:00:04 | INFO | Reading frame:  753
+2026-04-13 19:00:04 | INFO | Reading frame:  754
+2026-04-13 19:00:04 | INFO | Reading frame:  755
+2026-04-13 19:00:04 | INFO | Reading frame:  756
+2026-04-13 19:00:04 | INFO | Reading frame:  757
+2026-04-13 19:00:04 | INFO | Reading frame:  758
+2026-04-13 19:00:04 | INFO | Reading frame:  759
+2026-04-13 19:00:04 | INFO | Reading frame:  760
+2026-04-13 19:00:04 | INFO | Reading frame:  761
+2026-04-13 19:00:04 | INFO | Reading frame:  762
+2026-04-13 19:00:04 | INFO | Reading frame:  763
+2026-04-13 19:00:04 | INFO | Reading frame:  764
+2026-04-13 19:00:04 | INFO | Reading frame:  765
+2026-04-13 19:00:04 | INFO | Reading frame:  766
+2026-04-13 19:00:04 | INFO | Reading frame:  767
+2026-04-13 19:00:04 | INFO | Reading frame:  768
+2026-04-13 19:00:04 | INFO | Reading frame:  769
+2026-04-13 19:00:04 | INFO | Reading frame:  770
+2026-04-13 19:00:04 | INFO | Reading frame:  771
+2026-04-13 19:00:04 | INFO | Reading frame:  772
+2026-04-13 19:00:04 | INFO | 🔍 Detecting stable segments...
+2026-04-13 19:00:04 | INFO | 
+2026-04-13 19:00:04 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-04-13 19:00:04 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 32135.93it/s]
+2026-04-13 19:00:04 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-04-13 19:00:04 | INFO | Key                                  | Status     |  | 
+2026-04-13 19:00:04 | INFO | -------------------------------------+------------+--+-
+2026-04-13 19:00:04 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-04-13 19:00:04 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-04-13 19:00:04 | INFO | 
+2026-04-13 19:00:04 | INFO | Notes:
+2026-04-13 19:00:04 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-04-13 19:00:46 | INFO | `use_return_dict` is deprecated! Use `return_dict` instead!
+2026-04-13 19:00:46 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-04-13 19:00:46 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-04-13 19:00:49 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-04-13 19:01:00 | INFO | Encoding frames with CLIP...
+2026-04-13 19:01:00 | INFO |   Encoded 1/772
+2026-04-13 19:01:00 | INFO |   Encoded 2/772
+2026-04-13 19:01:00 | INFO |   Encoded 3/772
+2026-04-13 19:01:00 | INFO |   Encoded 4/772
+2026-04-13 19:01:00 | INFO |   Encoded 5/772
+2026-04-13 19:01:00 | INFO |   Encoded 6/772
+2026-04-13 19:01:00 | INFO |   Encoded 7/772
+2026-04-13 19:01:00 | INFO |   Encoded 8/772
+2026-04-13 19:01:00 | INFO |   Encoded 9/772
+2026-04-13 19:01:00 | INFO |   Encoded 10/772
+2026-04-13 19:01:00 | INFO |   Encoded 11/772
+2026-04-13 19:01:00 | INFO |   Encoded 12/772
+2026-04-13 19:01:00 | INFO |   Encoded 13/772
+2026-04-13 19:01:00 | INFO |   Encoded 14/772
+2026-04-13 19:01:00 | INFO |   Encoded 15/772
+2026-04-13 19:01:00 | INFO |   Encoded 16/772
+2026-04-13 19:01:00 | INFO |   Encoded 17/772
+2026-04-13 19:01:00 | INFO |   Encoded 18/772
+2026-04-13 19:01:00 | INFO |   Encoded 19/772
+2026-04-13 19:01:00 | INFO |   Encoded 20/772
+2026-04-13 19:01:00 | INFO |   Encoded 21/772
+2026-04-13 19:01:00 | INFO |   Encoded 22/772
+2026-04-13 19:01:00 | INFO |   Encoded 23/772
+2026-04-13 19:01:00 | INFO |   Encoded 24/772
+2026-04-13 19:01:00 | INFO |   Encoded 25/772
+2026-04-13 19:01:00 | INFO |   Encoded 26/772
+2026-04-13 19:01:00 | INFO |   Encoded 27/772
+2026-04-13 19:01:00 | INFO |   Encoded 28/772
+2026-04-13 19:01:00 | INFO |   Encoded 29/772
+2026-04-13 19:01:00 | INFO |   Encoded 30/772
+2026-04-13 19:01:00 | INFO |   Encoded 31/772
+2026-04-13 19:01:00 | INFO |   Encoded 32/772
+2026-04-13 19:01:00 | INFO |   Encoded 33/772
+2026-04-13 19:01:00 | INFO |   Encoded 34/772
+2026-04-13 19:01:00 | INFO |   Encoded 35/772
+2026-04-13 19:01:00 | INFO |   Encoded 36/772
+2026-04-13 19:01:00 | INFO |   Encoded 37/772
+2026-04-13 19:01:00 | INFO |   Encoded 38/772
+2026-04-13 19:01:00 | INFO |   Encoded 39/772
+2026-04-13 19:01:00 | INFO |   Encoded 40/772
+2026-04-13 19:01:00 | INFO |   Encoded 41/772
+2026-04-13 19:01:00 | INFO |   Encoded 42/772
+2026-04-13 19:01:00 | INFO |   Encoded 43/772
+2026-04-13 19:01:00 | INFO |   Encoded 44/772
+2026-04-13 19:01:00 | INFO |   Encoded 45/772
+2026-04-13 19:01:00 | INFO |   Encoded 46/772
+2026-04-13 19:01:00 | INFO |   Encoded 47/772
+2026-04-13 19:01:00 | INFO |   Encoded 48/772
+2026-04-13 19:01:00 | INFO |   Encoded 49/772
+2026-04-13 19:01:00 | INFO |   Encoded 50/772
+2026-04-13 19:01:00 | INFO |   Encoded 51/772
+2026-04-13 19:01:00 | INFO |   Encoded 52/772
+2026-04-13 19:01:00 | INFO |   Encoded 53/772
+2026-04-13 19:01:00 | INFO |   Encoded 54/772
+2026-04-13 19:01:00 | INFO |   Encoded 55/772
+2026-04-13 19:01:00 | INFO |   Encoded 56/772
+2026-04-13 19:01:00 | INFO |   Encoded 57/772
+2026-04-13 19:01:00 | INFO |   Encoded 58/772
+2026-04-13 19:01:00 | INFO |   Encoded 59/772
+2026-04-13 19:01:00 | INFO |   Encoded 60/772
+2026-04-13 19:01:00 | INFO |   Encoded 61/772
+2026-04-13 19:01:00 | INFO |   Encoded 62/772
+2026-04-13 19:01:00 | INFO |   Encoded 63/772
+2026-04-13 19:01:00 | INFO |   Encoded 64/772
+2026-04-13 19:01:00 | INFO |   Encoded 65/772
+2026-04-13 19:01:00 | INFO |   Encoded 66/772
+2026-04-13 19:01:00 | INFO |   Encoded 67/772
+2026-04-13 19:01:00 | INFO |   Encoded 68/772
+2026-04-13 19:01:00 | INFO |   Encoded 69/772
+2026-04-13 19:01:00 | INFO |   Encoded 70/772
+2026-04-13 19:01:00 | INFO |   Encoded 71/772
+2026-04-13 19:01:00 | INFO |   Encoded 72/772
+2026-04-13 19:01:00 | INFO |   Encoded 73/772
+2026-04-13 19:01:00 | INFO |   Encoded 74/772
+2026-04-13 19:01:00 | INFO |   Encoded 75/772
+2026-04-13 19:01:00 | INFO |   Encoded 76/772
+2026-04-13 19:01:00 | INFO |   Encoded 77/772
+2026-04-13 19:01:00 | INFO |   Encoded 78/772
+2026-04-13 19:01:00 | INFO |   Encoded 79/772
+2026-04-13 19:01:00 | INFO |   Encoded 80/772
+2026-04-13 19:01:00 | INFO |   Encoded 81/772
+2026-04-13 19:01:00 | INFO |   Encoded 82/772
+2026-04-13 19:01:00 | INFO |   Encoded 83/772
+2026-04-13 19:01:00 | INFO |   Encoded 84/772
+2026-04-13 19:01:00 | INFO |   Encoded 85/772
+2026-04-13 19:01:00 | INFO |   Encoded 86/772
+2026-04-13 19:01:00 | INFO |   Encoded 87/772
+2026-04-13 19:01:00 | INFO |   Encoded 88/772
+2026-04-13 19:01:00 | INFO |   Encoded 89/772
+2026-04-13 19:01:00 | INFO |   Encoded 90/772
+2026-04-13 19:01:00 | INFO |   Encoded 91/772
+2026-04-13 19:01:00 | INFO |   Encoded 92/772
+2026-04-13 19:01:00 | INFO |   Encoded 93/772
+2026-04-13 19:01:00 | INFO |   Encoded 94/772
+2026-04-13 19:01:00 | INFO |   Encoded 95/772
+2026-04-13 19:01:00 | INFO |   Encoded 96/772
+2026-04-13 19:01:00 | INFO |   Encoded 97/772
+2026-04-13 19:01:00 | INFO |   Encoded 98/772
+2026-04-13 19:01:00 | INFO |   Encoded 99/772
+2026-04-13 19:01:00 | INFO |   Encoded 100/772
+2026-04-13 19:01:00 | INFO |   Encoded 101/772
+2026-04-13 19:01:00 | INFO |   Encoded 102/772
+2026-04-13 19:01:00 | INFO |   Encoded 103/772
+2026-04-13 19:01:00 | INFO |   Encoded 104/772
+2026-04-13 19:01:00 | INFO |   Encoded 105/772
+2026-04-13 19:01:00 | INFO |   Encoded 106/772
+2026-04-13 19:01:00 | INFO |   Encoded 107/772
+2026-04-13 19:01:00 | INFO |   Encoded 108/772
+2026-04-13 19:01:00 | INFO |   Encoded 109/772
+2026-04-13 19:01:00 | INFO |   Encoded 110/772
+2026-04-13 19:01:00 | INFO |   Encoded 111/772
+2026-04-13 19:01:00 | INFO |   Encoded 112/772
+2026-04-13 19:01:00 | INFO |   Encoded 113/772
+2026-04-13 19:01:00 | INFO |   Encoded 114/772
+2026-04-13 19:01:00 | INFO |   Encoded 115/772
+2026-04-13 19:01:00 | INFO |   Encoded 116/772
+2026-04-13 19:01:00 | INFO |   Encoded 117/772
+2026-04-13 19:01:00 | INFO |   Encoded 118/772
+2026-04-13 19:01:00 | INFO |   Encoded 119/772
+2026-04-13 19:01:00 | INFO |   Encoded 120/772
+2026-04-13 19:01:00 | INFO |   Encoded 121/772
+2026-04-13 19:01:00 | INFO |   Encoded 122/772
+2026-04-13 19:01:00 | INFO |   Encoded 123/772
+2026-04-13 19:01:00 | INFO |   Encoded 124/772
+2026-04-13 19:01:00 | INFO |   Encoded 125/772
+2026-04-13 19:01:00 | INFO |   Encoded 126/772
+2026-04-13 19:01:00 | INFO |   Encoded 127/772
+2026-04-13 19:01:00 | INFO |   Encoded 128/772
+2026-04-13 19:01:00 | INFO |   Encoded 129/772
+2026-04-13 19:01:00 | INFO |   Encoded 130/772
+2026-04-13 19:01:00 | INFO |   Encoded 131/772
+2026-04-13 19:01:00 | INFO |   Encoded 132/772
+2026-04-13 19:01:00 | INFO |   Encoded 133/772
+2026-04-13 19:01:00 | INFO |   Encoded 134/772
+2026-04-13 19:01:00 | INFO |   Encoded 135/772
+2026-04-13 19:01:00 | INFO |   Encoded 136/772
+2026-04-13 19:01:00 | INFO |   Encoded 137/772
+2026-04-13 19:01:00 | INFO |   Encoded 138/772
+2026-04-13 19:01:00 | INFO |   Encoded 139/772
+2026-04-13 19:01:00 | INFO |   Encoded 140/772
+2026-04-13 19:01:00 | INFO |   Encoded 141/772
+2026-04-13 19:01:00 | INFO |   Encoded 142/772
+2026-04-13 19:01:00 | INFO |   Encoded 143/772
+2026-04-13 19:01:00 | INFO |   Encoded 144/772
+2026-04-13 19:01:00 | INFO |   Encoded 145/772
+2026-04-13 19:01:00 | INFO |   Encoded 146/772
+2026-04-13 19:01:00 | INFO |   Encoded 147/772
+2026-04-13 19:01:00 | INFO |   Encoded 148/772
+2026-04-13 19:01:00 | INFO |   Encoded 149/772
+2026-04-13 19:01:00 | INFO |   Encoded 150/772
+2026-04-13 19:01:00 | INFO |   Encoded 151/772
+2026-04-13 19:01:00 | INFO |   Encoded 152/772
+2026-04-13 19:01:00 | INFO |   Encoded 153/772
+2026-04-13 19:01:00 | INFO |   Encoded 154/772
+2026-04-13 19:01:00 | INFO |   Encoded 155/772
+2026-04-13 19:01:00 | INFO |   Encoded 156/772
+2026-04-13 19:01:00 | INFO |   Encoded 157/772
+2026-04-13 19:01:00 | INFO |   Encoded 158/772
+2026-04-13 19:01:00 | INFO |   Encoded 159/772
+2026-04-13 19:01:00 | INFO |   Encoded 160/772
+2026-04-13 19:01:00 | INFO |   Encoded 161/772
+2026-04-13 19:01:00 | INFO |   Encoded 162/772
+2026-04-13 19:01:00 | INFO |   Encoded 163/772
+2026-04-13 19:01:00 | INFO |   Encoded 164/772
+2026-04-13 19:01:00 | INFO |   Encoded 165/772
+2026-04-13 19:01:00 | INFO |   Encoded 166/772
+2026-04-13 19:01:00 | INFO |   Encoded 167/772
+2026-04-13 19:01:00 | INFO |   Encoded 168/772
+2026-04-13 19:01:00 | INFO |   Encoded 169/772
+2026-04-13 19:01:00 | INFO |   Encoded 170/772
+2026-04-13 19:01:00 | INFO |   Encoded 171/772
+2026-04-13 19:01:00 | INFO |   Encoded 172/772
+2026-04-13 19:01:00 | INFO |   Encoded 173/772
+2026-04-13 19:01:00 | INFO |   Encoded 174/772
+2026-04-13 19:01:00 | INFO |   Encoded 175/772
+2026-04-13 19:01:00 | INFO |   Encoded 176/772
+2026-04-13 19:01:00 | INFO |   Encoded 177/772
+2026-04-13 19:01:00 | INFO |   Encoded 178/772
+2026-04-13 19:01:00 | INFO |   Encoded 179/772
+2026-04-13 19:01:00 | INFO |   Encoded 180/772
+2026-04-13 19:01:00 | INFO |   Encoded 181/772
+2026-04-13 19:01:00 | INFO |   Encoded 182/772
+2026-04-13 19:01:00 | INFO |   Encoded 183/772
+2026-04-13 19:01:00 | INFO |   Encoded 184/772
+2026-04-13 19:01:00 | INFO |   Encoded 185/772
+2026-04-13 19:01:00 | INFO |   Encoded 186/772
+2026-04-13 19:01:00 | INFO |   Encoded 187/772
+2026-04-13 19:01:00 | INFO |   Encoded 188/772
+2026-04-13 19:01:00 | INFO |   Encoded 189/772
+2026-04-13 19:01:00 | INFO |   Encoded 190/772
+2026-04-13 19:01:00 | INFO |   Encoded 191/772
+2026-04-13 19:01:00 | INFO |   Encoded 192/772
+2026-04-13 19:01:00 | INFO |   Encoded 193/772
+2026-04-13 19:01:00 | INFO |   Encoded 194/772
+2026-04-13 19:01:00 | INFO |   Encoded 195/772
+2026-04-13 19:01:00 | INFO |   Encoded 196/772
+2026-04-13 19:01:00 | INFO |   Encoded 197/772
+2026-04-13 19:01:00 | INFO |   Encoded 198/772
+2026-04-13 19:01:00 | INFO |   Encoded 199/772
+2026-04-13 19:01:00 | INFO |   Encoded 200/772
+2026-04-13 19:01:00 | INFO |   Encoded 201/772
+2026-04-13 19:01:00 | INFO |   Encoded 202/772
+2026-04-13 19:01:00 | INFO |   Encoded 203/772
+2026-04-13 19:01:00 | INFO |   Encoded 204/772
+2026-04-13 19:01:00 | INFO |   Encoded 205/772
+2026-04-13 19:01:00 | INFO |   Encoded 206/772
+2026-04-13 19:01:00 | INFO |   Encoded 207/772
+2026-04-13 19:01:00 | INFO |   Encoded 208/772
+2026-04-13 19:01:00 | INFO |   Encoded 209/772
+2026-04-13 19:01:00 | INFO |   Encoded 210/772
+2026-04-13 19:01:00 | INFO |   Encoded 211/772
+2026-04-13 19:01:00 | INFO |   Encoded 212/772
+2026-04-13 19:01:00 | INFO |   Encoded 213/772
+2026-04-13 19:01:00 | INFO |   Encoded 214/772
+2026-04-13 19:01:00 | INFO |   Encoded 215/772
+2026-04-13 19:01:00 | INFO |   Encoded 216/772
+2026-04-13 19:01:00 | INFO |   Encoded 217/772
+2026-04-13 19:01:00 | INFO |   Encoded 218/772
+2026-04-13 19:01:00 | INFO |   Encoded 219/772
+2026-04-13 19:01:00 | INFO |   Encoded 220/772
+2026-04-13 19:01:00 | INFO |   Encoded 221/772
+2026-04-13 19:01:00 | INFO |   Encoded 222/772
+2026-04-13 19:01:00 | INFO |   Encoded 223/772
+2026-04-13 19:01:00 | INFO |   Encoded 224/772
+2026-04-13 19:01:00 | INFO |   Encoded 225/772
+2026-04-13 19:01:00 | INFO |   Encoded 226/772
+2026-04-13 19:01:00 | INFO |   Encoded 227/772
+2026-04-13 19:01:00 | INFO |   Encoded 228/772
+2026-04-13 19:01:00 | INFO |   Encoded 229/772
+2026-04-13 19:01:00 | INFO |   Encoded 230/772
+2026-04-13 19:01:00 | INFO |   Encoded 231/772
+2026-04-13 19:01:00 | INFO |   Encoded 232/772
+2026-04-13 19:01:00 | INFO |   Encoded 233/772
+2026-04-13 19:01:00 | INFO |   Encoded 234/772
+2026-04-13 19:01:00 | INFO |   Encoded 235/772
+2026-04-13 19:01:00 | INFO |   Encoded 236/772
+2026-04-13 19:01:00 | INFO |   Encoded 237/772
+2026-04-13 19:01:00 | INFO |   Encoded 238/772
+2026-04-13 19:01:00 | INFO |   Encoded 239/772
+2026-04-13 19:01:00 | INFO |   Encoded 240/772
+2026-04-13 19:01:00 | INFO |   Encoded 241/772
+2026-04-13 19:01:00 | INFO |   Encoded 242/772
+2026-04-13 19:01:00 | INFO |   Encoded 243/772
+2026-04-13 19:01:00 | INFO |   Encoded 244/772
+2026-04-13 19:01:00 | INFO |   Encoded 245/772
+2026-04-13 19:01:00 | INFO |   Encoded 246/772
+2026-04-13 19:01:00 | INFO |   Encoded 247/772
+2026-04-13 19:01:00 | INFO |   Encoded 248/772
+2026-04-13 19:01:00 | INFO |   Encoded 249/772
+2026-04-13 19:01:00 | INFO |   Encoded 250/772
+2026-04-13 19:01:00 | INFO |   Encoded 251/772
+2026-04-13 19:01:00 | INFO |   Encoded 252/772
+2026-04-13 19:01:00 | INFO |   Encoded 253/772
+2026-04-13 19:01:00 | INFO |   Encoded 254/772
+2026-04-13 19:01:00 | INFO |   Encoded 255/772
+2026-04-13 19:01:00 | INFO |   Encoded 256/772
+2026-04-13 19:01:00 | INFO |   Encoded 257/772
+2026-04-13 19:01:00 | INFO |   Encoded 258/772
+2026-04-13 19:01:00 | INFO |   Encoded 259/772
+2026-04-13 19:01:00 | INFO |   Encoded 260/772
+2026-04-13 19:01:00 | INFO |   Encoded 261/772
+2026-04-13 19:01:00 | INFO |   Encoded 262/772
+2026-04-13 19:01:00 | INFO |   Encoded 263/772
+2026-04-13 19:01:00 | INFO |   Encoded 264/772
+2026-04-13 19:01:00 | INFO |   Encoded 265/772
+2026-04-13 19:01:00 | INFO |   Encoded 266/772
+2026-04-13 19:01:00 | INFO |   Encoded 267/772
+2026-04-13 19:01:00 | INFO |   Encoded 268/772
+2026-04-13 19:01:00 | INFO |   Encoded 269/772
+2026-04-13 19:01:00 | INFO |   Encoded 270/772
+2026-04-13 19:01:00 | INFO |   Encoded 271/772
+2026-04-13 19:01:00 | INFO |   Encoded 272/772
+2026-04-13 19:01:00 | INFO |   Encoded 273/772
+2026-04-13 19:01:00 | INFO |   Encoded 274/772
+2026-04-13 19:01:00 | INFO |   Encoded 275/772
+2026-04-13 19:01:00 | INFO |   Encoded 276/772
+2026-04-13 19:01:00 | INFO |   Encoded 277/772
+2026-04-13 19:01:00 | INFO |   Encoded 278/772
+2026-04-13 19:01:00 | INFO |   Encoded 279/772
+2026-04-13 19:01:00 | INFO |   Encoded 280/772
+2026-04-13 19:01:00 | INFO |   Encoded 281/772
+2026-04-13 19:01:00 | INFO |   Encoded 282/772
+2026-04-13 19:01:00 | INFO |   Encoded 283/772
+2026-04-13 19:01:00 | INFO |   Encoded 284/772
+2026-04-13 19:01:00 | INFO |   Encoded 285/772
+2026-04-13 19:01:00 | INFO |   Encoded 286/772
+2026-04-13 19:01:00 | INFO |   Encoded 287/772
+2026-04-13 19:01:00 | INFO |   Encoded 288/772
+2026-04-13 19:01:00 | INFO |   Encoded 289/772
+2026-04-13 19:01:00 | INFO |   Encoded 290/772
+2026-04-13 19:01:00 | INFO |   Encoded 291/772
+2026-04-13 19:01:00 | INFO |   Encoded 292/772
+2026-04-13 19:01:00 | INFO |   Encoded 293/772
+2026-04-13 19:01:00 | INFO |   Encoded 294/772
+2026-04-13 19:01:00 | INFO |   Encoded 295/772
+2026-04-13 19:01:00 | INFO |   Encoded 296/772
+2026-04-13 19:01:00 | INFO |   Encoded 297/772
+2026-04-13 19:01:00 | INFO |   Encoded 298/772
+2026-04-13 19:01:00 | INFO |   Encoded 299/772
+2026-04-13 19:01:00 | INFO |   Encoded 300/772
+2026-04-13 19:01:00 | INFO |   Encoded 301/772
+2026-04-13 19:01:00 | INFO |   Encoded 302/772
+2026-04-13 19:01:00 | INFO |   Encoded 303/772
+2026-04-13 19:01:00 | INFO |   Encoded 304/772
+2026-04-13 19:01:00 | INFO |   Encoded 305/772
+2026-04-13 19:01:00 | INFO |   Encoded 306/772
+2026-04-13 19:01:00 | INFO |   Encoded 307/772
+2026-04-13 19:01:00 | INFO |   Encoded 308/772
+2026-04-13 19:01:00 | INFO |   Encoded 309/772
+2026-04-13 19:01:00 | INFO |   Encoded 310/772
+2026-04-13 19:01:00 | INFO |   Encoded 311/772
+2026-04-13 19:01:00 | INFO |   Encoded 312/772
+2026-04-13 19:01:00 | INFO |   Encoded 313/772
+2026-04-13 19:01:00 | INFO |   Encoded 314/772
+2026-04-13 19:01:00 | INFO |   Encoded 315/772
+2026-04-13 19:01:00 | INFO |   Encoded 316/772
+2026-04-13 19:01:00 | INFO |   Encoded 317/772
+2026-04-13 19:01:00 | INFO |   Encoded 318/772
+2026-04-13 19:01:00 | INFO |   Encoded 319/772
+2026-04-13 19:01:00 | INFO |   Encoded 320/772
+2026-04-13 19:01:00 | INFO |   Encoded 321/772
+2026-04-13 19:01:00 | INFO |   Encoded 322/772
+2026-04-13 19:01:00 | INFO |   Encoded 323/772
+2026-04-13 19:01:00 | INFO |   Encoded 324/772
+2026-04-13 19:01:00 | INFO |   Encoded 325/772
+2026-04-13 19:01:00 | INFO |   Encoded 326/772
+2026-04-13 19:01:00 | INFO |   Encoded 327/772
+2026-04-13 19:01:00 | INFO |   Encoded 328/772
+2026-04-13 19:01:00 | INFO |   Encoded 329/772
+2026-04-13 19:01:00 | INFO |   Encoded 330/772
+2026-04-13 19:01:00 | INFO |   Encoded 331/772
+2026-04-13 19:01:00 | INFO |   Encoded 332/772
+2026-04-13 19:01:00 | INFO |   Encoded 333/772
+2026-04-13 19:01:00 | INFO |   Encoded 334/772
+2026-04-13 19:01:00 | INFO |   Encoded 335/772
+2026-04-13 19:01:00 | INFO |   Encoded 336/772
+2026-04-13 19:01:00 | INFO |   Encoded 337/772
+2026-04-13 19:01:00 | INFO |   Encoded 338/772
+2026-04-13 19:01:00 | INFO |   Encoded 339/772
+2026-04-13 19:01:00 | INFO |   Encoded 340/772
+2026-04-13 19:01:00 | INFO |   Encoded 341/772
+2026-04-13 19:01:00 | INFO |   Encoded 342/772
+2026-04-13 19:01:00 | INFO |   Encoded 343/772
+2026-04-13 19:01:00 | INFO |   Encoded 344/772
+2026-04-13 19:01:00 | INFO |   Encoded 345/772
+2026-04-13 19:01:00 | INFO |   Encoded 346/772
+2026-04-13 19:01:00 | INFO |   Encoded 347/772
+2026-04-13 19:01:00 | INFO |   Encoded 348/772
+2026-04-13 19:01:00 | INFO |   Encoded 349/772
+2026-04-13 19:01:00 | INFO |   Encoded 350/772
+2026-04-13 19:01:00 | INFO |   Encoded 351/772
+2026-04-13 19:01:00 | INFO |   Encoded 352/772
+2026-04-13 19:01:00 | INFO |   Encoded 353/772
+2026-04-13 19:01:00 | INFO |   Encoded 354/772
+2026-04-13 19:01:00 | INFO |   Encoded 355/772
+2026-04-13 19:01:00 | INFO |   Encoded 356/772
+2026-04-13 19:01:00 | INFO |   Encoded 357/772
+2026-04-13 19:01:00 | INFO |   Encoded 358/772
+2026-04-13 19:01:00 | INFO |   Encoded 359/772
+2026-04-13 19:01:00 | INFO |   Encoded 360/772
+2026-04-13 19:01:00 | INFO |   Encoded 361/772
+2026-04-13 19:01:00 | INFO |   Encoded 362/772
+2026-04-13 19:01:00 | INFO |   Encoded 363/772
+2026-04-13 19:01:00 | INFO |   Encoded 364/772
+2026-04-13 19:01:00 | INFO |   Encoded 365/772
+2026-04-13 19:01:00 | INFO |   Encoded 366/772
+2026-04-13 19:01:00 | INFO |   Encoded 367/772
+2026-04-13 19:01:00 | INFO |   Encoded 368/772
+2026-04-13 19:01:00 | INFO |   Encoded 369/772
+2026-04-13 19:01:00 | INFO |   Encoded 370/772
+2026-04-13 19:01:00 | INFO |   Encoded 371/772
+2026-04-13 19:01:00 | INFO |   Encoded 372/772
+2026-04-13 19:01:00 | INFO |   Encoded 373/772
+2026-04-13 19:01:00 | INFO |   Encoded 374/772
+2026-04-13 19:01:00 | INFO |   Encoded 375/772
+2026-04-13 19:01:00 | INFO |   Encoded 376/772
+2026-04-13 19:01:00 | INFO |   Encoded 377/772
+2026-04-13 19:01:00 | INFO |   Encoded 378/772
+2026-04-13 19:01:00 | INFO |   Encoded 379/772
+2026-04-13 19:01:00 | INFO |   Encoded 380/772
+2026-04-13 19:01:00 | INFO |   Encoded 381/772
+2026-04-13 19:01:00 | INFO |   Encoded 382/772
+2026-04-13 19:01:00 | INFO |   Encoded 383/772
+2026-04-13 19:01:00 | INFO |   Encoded 384/772
+2026-04-13 19:01:00 | INFO |   Encoded 385/772
+2026-04-13 19:01:00 | INFO |   Encoded 386/772
+2026-04-13 19:01:00 | INFO |   Encoded 387/772
+2026-04-13 19:01:00 | INFO |   Encoded 388/772
+2026-04-13 19:01:00 | INFO |   Encoded 389/772
+2026-04-13 19:01:00 | INFO |   Encoded 390/772
+2026-04-13 19:01:00 | INFO |   Encoded 391/772
+2026-04-13 19:01:00 | INFO |   Encoded 392/772
+2026-04-13 19:01:00 | INFO |   Encoded 393/772
+2026-04-13 19:01:00 | INFO |   Encoded 394/772
+2026-04-13 19:01:00 | INFO |   Encoded 395/772
+2026-04-13 19:01:00 | INFO |   Encoded 396/772
+2026-04-13 19:01:00 | INFO |   Encoded 397/772
+2026-04-13 19:01:00 | INFO |   Encoded 398/772
+2026-04-13 19:01:00 | INFO |   Encoded 399/772
+2026-04-13 19:01:00 | INFO |   Encoded 400/772
+2026-04-13 19:01:00 | INFO |   Encoded 401/772
+2026-04-13 19:01:00 | INFO |   Encoded 402/772
+2026-04-13 19:01:00 | INFO |   Encoded 403/772
+2026-04-13 19:01:00 | INFO |   Encoded 404/772
+2026-04-13 19:01:00 | INFO |   Encoded 405/772
+2026-04-13 19:01:00 | INFO |   Encoded 406/772
+2026-04-13 19:01:00 | INFO |   Encoded 407/772
+2026-04-13 19:01:00 | INFO |   Encoded 408/772
+2026-04-13 19:01:00 | INFO |   Encoded 409/772
+2026-04-13 19:01:00 | INFO |   Encoded 410/772
+2026-04-13 19:01:00 | INFO |   Encoded 411/772
+2026-04-13 19:01:00 | INFO |   Encoded 412/772
+2026-04-13 19:01:00 | INFO |   Encoded 413/772
+2026-04-13 19:01:00 | INFO |   Encoded 414/772
+2026-04-13 19:01:00 | INFO |   Encoded 415/772
+2026-04-13 19:01:00 | INFO |   Encoded 416/772
+2026-04-13 19:01:00 | INFO |   Encoded 417/772
+2026-04-13 19:01:00 | INFO |   Encoded 418/772
+2026-04-13 19:01:00 | INFO |   Encoded 419/772
+2026-04-13 19:01:00 | INFO |   Encoded 420/772
+2026-04-13 19:01:00 | INFO |   Encoded 421/772
+2026-04-13 19:01:00 | INFO |   Encoded 422/772
+2026-04-13 19:01:00 | INFO |   Encoded 423/772
+2026-04-13 19:01:00 | INFO |   Encoded 424/772
+2026-04-13 19:01:00 | INFO |   Encoded 425/772
+2026-04-13 19:01:00 | INFO |   Encoded 426/772
+2026-04-13 19:01:00 | INFO |   Encoded 427/772
+2026-04-13 19:01:00 | INFO |   Encoded 428/772
+2026-04-13 19:01:00 | INFO |   Encoded 429/772
+2026-04-13 19:01:00 | INFO |   Encoded 430/772
+2026-04-13 19:01:00 | INFO |   Encoded 431/772
+2026-04-13 19:01:00 | INFO |   Encoded 432/772
+2026-04-13 19:01:00 | INFO |   Encoded 433/772
+2026-04-13 19:01:00 | INFO |   Encoded 434/772
+2026-04-13 19:01:00 | INFO |   Encoded 435/772
+2026-04-13 19:01:00 | INFO |   Encoded 436/772
+2026-04-13 19:01:00 | INFO |   Encoded 437/772
+2026-04-13 19:01:00 | INFO |   Encoded 438/772
+2026-04-13 19:01:00 | INFO |   Encoded 439/772
+2026-04-13 19:01:00 | INFO |   Encoded 440/772
+2026-04-13 19:01:00 | INFO |   Encoded 441/772
+2026-04-13 19:01:00 | INFO |   Encoded 442/772
+2026-04-13 19:01:00 | INFO |   Encoded 443/772
+2026-04-13 19:01:00 | INFO |   Encoded 444/772
+2026-04-13 19:01:00 | INFO |   Encoded 445/772
+2026-04-13 19:01:00 | INFO |   Encoded 446/772
+2026-04-13 19:01:00 | INFO |   Encoded 447/772
+2026-04-13 19:01:00 | INFO |   Encoded 448/772
+2026-04-13 19:01:00 | INFO |   Encoded 449/772
+2026-04-13 19:01:00 | INFO |   Encoded 450/772
+2026-04-13 19:01:00 | INFO |   Encoded 451/772
+2026-04-13 19:01:00 | INFO |   Encoded 452/772
+2026-04-13 19:01:00 | INFO |   Encoded 453/772
+2026-04-13 19:01:00 | INFO |   Encoded 454/772
+2026-04-13 19:01:00 | INFO |   Encoded 455/772
+2026-04-13 19:01:00 | INFO |   Encoded 456/772
+2026-04-13 19:01:00 | INFO |   Encoded 457/772
+2026-04-13 19:01:00 | INFO |   Encoded 458/772
+2026-04-13 19:01:00 | INFO |   Encoded 459/772
+2026-04-13 19:01:27 | INFO |   Encoded 460/772UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-04-13 19:01:27 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-04-13 19:01:30 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-04-13 19:01:49 | INFO | 
+2026-04-13 19:01:49 | INFO |   Encoded 461/772
+2026-04-13 19:01:49 | INFO |   Encoded 462/772
+2026-04-13 19:01:49 | INFO |   Encoded 463/772
+2026-04-13 19:01:49 | INFO |   Encoded 464/772
+2026-04-13 19:01:49 | INFO |   Encoded 465/772
+2026-04-13 19:01:49 | INFO |   Encoded 466/772
+2026-04-13 19:01:49 | INFO |   Encoded 467/772
+2026-04-13 19:01:49 | INFO |   Encoded 468/772
+2026-04-13 19:01:49 | INFO |   Encoded 469/772
+2026-04-13 19:01:49 | INFO |   Encoded 470/772
+2026-04-13 19:01:49 | INFO |   Encoded 471/772
+2026-04-13 19:01:49 | INFO |   Encoded 472/772
+2026-04-13 19:01:49 | INFO |   Encoded 473/772
+2026-04-13 19:01:49 | INFO |   Encoded 474/772
+2026-04-13 19:01:49 | INFO |   Encoded 475/772
+2026-04-13 19:01:49 | INFO |   Encoded 476/772
+2026-04-13 19:01:49 | INFO |   Encoded 477/772
+2026-04-13 19:01:49 | INFO |   Encoded 478/772
+2026-04-13 19:01:49 | INFO |   Encoded 479/772
+2026-04-13 19:01:49 | INFO |   Encoded 480/772
+2026-04-13 19:01:49 | INFO |   Encoded 481/772
+2026-04-13 19:01:49 | INFO |   Encoded 482/772
+2026-04-13 19:01:49 | INFO |   Encoded 483/772
+2026-04-13 19:01:49 | INFO |   Encoded 484/772
+2026-04-13 19:01:49 | INFO |   Encoded 485/772
+2026-04-13 19:01:49 | INFO |   Encoded 486/772
+2026-04-13 19:01:49 | INFO |   Encoded 487/772
+2026-04-13 19:01:49 | INFO |   Encoded 488/772
+2026-04-13 19:01:49 | INFO |   Encoded 489/772
+2026-04-13 19:01:49 | INFO |   Encoded 490/772
+2026-04-13 19:01:49 | INFO |   Encoded 491/772
+2026-04-13 19:01:49 | INFO |   Encoded 492/772
+2026-04-13 19:01:49 | INFO |   Encoded 493/772
+2026-04-13 19:01:49 | INFO |   Encoded 494/772
+2026-04-13 19:01:49 | INFO |   Encoded 495/772
+2026-04-13 19:01:49 | INFO |   Encoded 496/772
+2026-04-13 19:01:49 | INFO |   Encoded 497/772
+2026-04-13 19:01:49 | INFO |   Encoded 498/772
+2026-04-13 19:01:49 | INFO |   Encoded 499/772
+2026-04-13 19:01:49 | INFO |   Encoded 500/772
+2026-04-13 19:01:49 | INFO |   Encoded 501/772
+2026-04-13 19:01:49 | INFO |   Encoded 502/772
+2026-04-13 19:01:49 | INFO |   Encoded 503/772
+2026-04-13 19:01:49 | INFO |   Encoded 504/772
+2026-04-13 19:01:49 | INFO |   Encoded 505/772
+2026-04-13 19:01:49 | INFO |   Encoded 506/772
+2026-04-13 19:01:49 | INFO |   Encoded 507/772
+2026-04-13 19:01:49 | INFO |   Encoded 508/772
+2026-04-13 19:01:49 | INFO |   Encoded 509/772
+2026-04-13 19:01:49 | INFO |   Encoded 510/772
+2026-04-13 19:01:49 | INFO |   Encoded 511/772
+2026-04-13 19:01:49 | INFO |   Encoded 512/772
+2026-04-13 19:01:49 | INFO |   Encoded 513/772
+2026-04-13 19:01:49 | INFO |   Encoded 514/772
+2026-04-13 19:01:49 | INFO |   Encoded 515/772
+2026-04-13 19:01:49 | INFO |   Encoded 516/772
+2026-04-13 19:01:49 | INFO |   Encoded 517/772
+2026-04-13 19:01:49 | INFO |   Encoded 518/772
+2026-04-13 19:01:49 | INFO |   Encoded 519/772
+2026-04-13 19:01:49 | INFO |   Encoded 520/772
+2026-04-13 19:01:49 | INFO |   Encoded 521/772
+2026-04-13 19:01:49 | INFO |   Encoded 522/772
+2026-04-13 19:01:49 | INFO |   Encoded 523/772
+2026-04-13 19:01:49 | INFO |   Encoded 524/772
+2026-04-13 19:01:49 | INFO |   Encoded 525/772
+2026-04-13 19:01:49 | INFO |   Encoded 526/772
+2026-04-13 19:01:49 | INFO |   Encoded 527/772
+2026-04-13 19:01:49 | INFO |   Encoded 528/772
+2026-04-13 19:01:49 | INFO |   Encoded 529/772
+2026-04-13 19:01:49 | INFO |   Encoded 530/772
+2026-04-13 19:01:49 | INFO |   Encoded 531/772
+2026-04-13 19:01:49 | INFO |   Encoded 532/772
+2026-04-13 19:01:49 | INFO |   Encoded 533/772
+2026-04-13 19:01:49 | INFO |   Encoded 534/772
+2026-04-13 19:01:49 | INFO |   Encoded 535/772
+2026-04-13 19:01:49 | INFO |   Encoded 536/772
+2026-04-13 19:01:49 | INFO |   Encoded 537/772
+2026-04-13 19:01:49 | INFO |   Encoded 538/772
+2026-04-13 19:01:49 | INFO |   Encoded 539/772
+2026-04-13 19:01:49 | INFO |   Encoded 540/772
+2026-04-13 19:01:49 | INFO |   Encoded 541/772
+2026-04-13 19:01:49 | INFO |   Encoded 542/772
+2026-04-13 19:01:49 | INFO |   Encoded 543/772
+2026-04-13 19:01:49 | INFO |   Encoded 544/772
+2026-04-13 19:01:49 | INFO |   Encoded 545/772
+2026-04-13 19:01:49 | INFO |   Encoded 546/772
+2026-04-13 19:01:49 | INFO |   Encoded 547/772
+2026-04-13 19:01:49 | INFO |   Encoded 548/772
+2026-04-13 19:01:49 | INFO |   Encoded 549/772
+2026-04-13 19:01:49 | INFO |   Encoded 550/772
+2026-04-13 19:01:49 | INFO |   Encoded 551/772
+2026-04-13 19:01:49 | INFO |   Encoded 552/772
+2026-04-13 19:01:49 | INFO |   Encoded 553/772
+2026-04-13 19:01:49 | INFO |   Encoded 554/772
+2026-04-13 19:01:49 | INFO |   Encoded 555/772
+2026-04-13 19:01:49 | INFO |   Encoded 556/772
+2026-04-13 19:01:49 | INFO |   Encoded 557/772
+2026-04-13 19:01:49 | INFO |   Encoded 558/772
+2026-04-13 19:01:49 | INFO |   Encoded 559/772
+2026-04-13 19:01:49 | INFO |   Encoded 560/772
+2026-04-13 19:01:49 | INFO |   Encoded 561/772
+2026-04-13 19:01:49 | INFO |   Encoded 562/772
+2026-04-13 19:01:49 | INFO |   Encoded 563/772
+2026-04-13 19:01:49 | INFO |   Encoded 564/772
+2026-04-13 19:01:49 | INFO |   Encoded 565/772
+2026-04-13 19:01:49 | INFO |   Encoded 566/772
+2026-04-13 19:01:49 | INFO |   Encoded 567/772
+2026-04-13 19:01:49 | INFO |   Encoded 568/772
+2026-04-13 19:01:49 | INFO |   Encoded 569/772
+2026-04-13 19:01:49 | INFO |   Encoded 570/772
+2026-04-13 19:01:49 | INFO |   Encoded 571/772
+2026-04-13 19:01:49 | INFO |   Encoded 572/772
+2026-04-13 19:01:49 | INFO |   Encoded 573/772
+2026-04-13 19:01:49 | INFO |   Encoded 574/772
+2026-04-13 19:01:49 | INFO |   Encoded 575/772
+2026-04-13 19:01:49 | INFO |   Encoded 576/772
+2026-04-13 19:01:49 | INFO |   Encoded 577/772
+2026-04-13 19:01:49 | INFO |   Encoded 578/772
+2026-04-13 19:01:49 | INFO |   Encoded 579/772
+2026-04-13 19:01:49 | INFO |   Encoded 580/772
+2026-04-13 19:01:49 | INFO |   Encoded 581/772
+2026-04-13 19:01:49 | INFO |   Encoded 582/772
+2026-04-13 19:01:49 | INFO |   Encoded 583/772
+2026-04-13 19:01:49 | INFO |   Encoded 584/772
+2026-04-13 19:01:49 | INFO |   Encoded 585/772
+2026-04-13 19:01:49 | INFO |   Encoded 586/772
+2026-04-13 19:01:49 | INFO |   Encoded 587/772
+2026-04-13 19:01:49 | INFO |   Encoded 588/772
+2026-04-13 19:01:49 | INFO |   Encoded 589/772
+2026-04-13 19:01:49 | INFO |   Encoded 590/772
+2026-04-13 19:01:49 | INFO |   Encoded 591/772
+2026-04-13 19:01:49 | INFO |   Encoded 592/772
+2026-04-13 19:01:49 | INFO |   Encoded 593/772
+2026-04-13 19:01:49 | INFO |   Encoded 594/772
+2026-04-13 19:01:49 | INFO |   Encoded 595/772
+2026-04-13 19:01:49 | INFO |   Encoded 596/772
+2026-04-13 19:01:49 | INFO |   Encoded 597/772
+2026-04-13 19:01:49 | INFO |   Encoded 598/772
+2026-04-13 19:01:49 | INFO |   Encoded 599/772
+2026-04-13 19:01:49 | INFO |   Encoded 600/772
+2026-04-13 19:01:49 | INFO |   Encoded 601/772
+2026-04-13 19:01:49 | INFO |   Encoded 602/772
+2026-04-13 19:01:49 | INFO |   Encoded 603/772
+2026-04-13 19:01:49 | INFO |   Encoded 604/772
+2026-04-13 19:01:49 | INFO |   Encoded 605/772
+2026-04-13 19:01:49 | INFO |   Encoded 606/772
+2026-04-13 19:01:49 | INFO |   Encoded 607/772
+2026-04-13 19:01:49 | INFO |   Encoded 608/772
+2026-04-13 19:01:49 | INFO |   Encoded 609/772
+2026-04-13 19:01:49 | INFO |   Encoded 610/772
+2026-04-13 19:01:49 | INFO |   Encoded 611/772
+2026-04-13 19:01:49 | INFO |   Encoded 612/772
+2026-04-13 19:01:49 | INFO |   Encoded 613/772
+2026-04-13 19:01:49 | INFO |   Encoded 614/772
+2026-04-13 19:01:49 | INFO |   Encoded 615/772
+2026-04-13 19:01:49 | INFO |   Encoded 616/772
+2026-04-13 19:01:49 | INFO |   Encoded 617/772
+2026-04-13 19:01:49 | INFO |   Encoded 618/772
+2026-04-13 19:01:49 | INFO |   Encoded 619/772
+2026-04-13 19:01:49 | INFO |   Encoded 620/772
+2026-04-13 19:01:49 | INFO |   Encoded 621/772
+2026-04-13 19:01:49 | INFO |   Encoded 622/772
+2026-04-13 19:01:49 | INFO |   Encoded 623/772
+2026-04-13 19:01:49 | INFO |   Encoded 624/772
+2026-04-13 19:01:49 | INFO |   Encoded 625/772
+2026-04-13 19:01:49 | INFO |   Encoded 626/772
+2026-04-13 19:01:49 | INFO |   Encoded 627/772
+2026-04-13 19:01:49 | INFO |   Encoded 628/772
+2026-04-13 19:01:49 | INFO |   Encoded 629/772
+2026-04-13 19:01:49 | INFO |   Encoded 630/772
+2026-04-13 19:01:49 | INFO |   Encoded 631/772
+2026-04-13 19:01:49 | INFO |   Encoded 632/772
+2026-04-13 19:01:49 | INFO |   Encoded 633/772
+2026-04-13 19:01:49 | INFO |   Encoded 634/772
+2026-04-13 19:01:49 | INFO |   Encoded 635/772
+2026-04-13 19:01:49 | INFO |   Encoded 636/772
+2026-04-13 19:01:49 | INFO |   Encoded 637/772
+2026-04-13 19:01:49 | INFO |   Encoded 638/772
+2026-04-13 19:01:49 | INFO |   Encoded 639/772
+2026-04-13 19:01:49 | INFO |   Encoded 640/772
+2026-04-13 19:01:49 | INFO |   Encoded 641/772
+2026-04-13 19:01:49 | INFO |   Encoded 642/772
+2026-04-13 19:01:49 | INFO |   Encoded 643/772
+2026-04-13 19:01:49 | INFO |   Encoded 644/772
+2026-04-13 19:01:49 | INFO |   Encoded 645/772
+2026-04-13 19:01:49 | INFO |   Encoded 646/772
+2026-04-13 19:01:49 | INFO |   Encoded 647/772
+2026-04-13 19:01:49 | INFO |   Encoded 648/772
+2026-04-13 19:01:49 | INFO |   Encoded 649/772
+2026-04-13 19:01:49 | INFO |   Encoded 650/772
+2026-04-13 19:01:49 | INFO |   Encoded 651/772
+2026-04-13 19:01:49 | INFO |   Encoded 652/772
+2026-04-13 19:01:49 | INFO |   Encoded 653/772
+2026-04-13 19:01:49 | INFO |   Encoded 654/772
+2026-04-13 19:01:49 | INFO |   Encoded 655/772
+2026-04-13 19:01:49 | INFO |   Encoded 656/772
+2026-04-13 19:01:49 | INFO |   Encoded 657/772
+2026-04-13 19:01:49 | INFO |   Encoded 658/772
+2026-04-13 19:01:49 | INFO |   Encoded 659/772
+2026-04-13 19:01:49 | INFO |   Encoded 660/772
+2026-04-13 19:01:49 | INFO |   Encoded 661/772
+2026-04-13 19:01:49 | INFO |   Encoded 662/772
+2026-04-13 19:01:49 | INFO |   Encoded 663/772
+2026-04-13 19:01:49 | INFO |   Encoded 664/772
+2026-04-13 19:01:49 | INFO |   Encoded 665/772
+2026-04-13 19:01:49 | INFO |   Encoded 666/772
+2026-04-13 19:01:49 | INFO |   Encoded 667/772
+2026-04-13 19:01:49 | INFO |   Encoded 668/772
+2026-04-13 19:01:49 | INFO |   Encoded 669/772
+2026-04-13 19:01:49 | INFO |   Encoded 670/772
+2026-04-13 19:01:49 | INFO |   Encoded 671/772
+2026-04-13 19:01:49 | INFO |   Encoded 672/772
+2026-04-13 19:01:49 | INFO |   Encoded 673/772
+2026-04-13 19:01:49 | INFO |   Encoded 674/772
+2026-04-13 19:01:49 | INFO |   Encoded 675/772
+2026-04-13 19:01:49 | INFO |   Encoded 676/772
+2026-04-13 19:01:49 | INFO |   Encoded 677/772
+2026-04-13 19:01:49 | INFO |   Encoded 678/772
+2026-04-13 19:01:49 | INFO |   Encoded 679/772
+2026-04-13 19:01:49 | INFO |   Encoded 680/772
+2026-04-13 19:01:49 | INFO |   Encoded 681/772
+2026-04-13 19:01:49 | INFO |   Encoded 682/772
+2026-04-13 19:01:49 | INFO |   Encoded 683/772
+2026-04-13 19:01:49 | INFO |   Encoded 684/772
+2026-04-13 19:01:49 | INFO |   Encoded 685/772
+2026-04-13 19:01:49 | INFO |   Encoded 686/772
+2026-04-13 19:01:49 | INFO |   Encoded 687/772
+2026-04-13 19:01:49 | INFO |   Encoded 688/772
+2026-04-13 19:01:49 | INFO |   Encoded 689/772
+2026-04-13 19:01:49 | INFO |   Encoded 690/772
+2026-04-13 19:01:49 | INFO |   Encoded 691/772
+2026-04-13 19:01:49 | INFO |   Encoded 692/772
+2026-04-13 19:01:49 | INFO |   Encoded 693/772
+2026-04-13 19:01:49 | INFO |   Encoded 694/772
+2026-04-13 19:01:49 | INFO |   Encoded 695/772
+2026-04-13 19:01:49 | INFO |   Encoded 696/772
+2026-04-13 19:01:49 | INFO |   Encoded 697/772
+2026-04-13 19:01:49 | INFO |   Encoded 698/772
+2026-04-13 19:01:49 | INFO |   Encoded 699/772
+2026-04-13 19:01:49 | INFO |   Encoded 700/772
+2026-04-13 19:01:49 | INFO |   Encoded 701/772
+2026-04-13 19:01:49 | INFO |   Encoded 702/772
+2026-04-13 19:01:49 | INFO |   Encoded 703/772
+2026-04-13 19:01:49 | INFO |   Encoded 704/772
+2026-04-13 19:01:49 | INFO |   Encoded 705/772
+2026-04-13 19:01:49 | INFO |   Encoded 706/772
+2026-04-13 19:01:49 | INFO |   Encoded 707/772
+2026-04-13 19:01:49 | INFO |   Encoded 708/772
+2026-04-13 19:01:49 | INFO |   Encoded 709/772
+2026-04-13 19:01:49 | INFO |   Encoded 710/772
+2026-04-13 19:01:49 | INFO |   Encoded 711/772
+2026-04-13 19:01:49 | INFO |   Encoded 712/772
+2026-04-13 19:01:49 | INFO |   Encoded 713/772
+2026-04-13 19:01:49 | INFO |   Encoded 714/772
+2026-04-13 19:01:49 | INFO |   Encoded 715/772
+2026-04-13 19:01:49 | INFO |   Encoded 716/772
+2026-04-13 19:01:49 | INFO |   Encoded 717/772
+2026-04-13 19:01:49 | INFO |   Encoded 718/772
+2026-04-13 19:01:49 | INFO |   Encoded 719/772
+2026-04-13 19:01:49 | INFO |   Encoded 720/772
+2026-04-13 19:01:49 | INFO |   Encoded 721/772
+2026-04-13 19:01:49 | INFO |   Encoded 722/772
+2026-04-13 19:01:49 | INFO |   Encoded 723/772
+2026-04-13 19:01:49 | INFO |   Encoded 724/772
+2026-04-13 19:01:49 | INFO |   Encoded 725/772
+2026-04-13 19:01:49 | INFO |   Encoded 726/772
+2026-04-13 19:01:49 | INFO |   Encoded 727/772
+2026-04-13 19:01:49 | INFO |   Encoded 728/772
+2026-04-13 19:01:49 | INFO |   Encoded 729/772
+2026-04-13 19:01:49 | INFO |   Encoded 730/772
+2026-04-13 19:01:49 | INFO |   Encoded 731/772
+2026-04-13 19:01:49 | INFO |   Encoded 732/772
+2026-04-13 19:01:49 | INFO |   Encoded 733/772
+2026-04-13 19:01:49 | INFO |   Encoded 734/772
+2026-04-13 19:01:49 | INFO |   Encoded 735/772
+2026-04-13 19:01:49 | INFO |   Encoded 736/772
+2026-04-13 19:01:49 | INFO |   Encoded 737/772
+2026-04-13 19:01:49 | INFO |   Encoded 738/772
+2026-04-13 19:01:49 | INFO |   Encoded 739/772
+2026-04-13 19:01:49 | INFO |   Encoded 740/772
+2026-04-13 19:01:49 | INFO |   Encoded 741/772
+2026-04-13 19:01:49 | INFO |   Encoded 742/772
+2026-04-13 19:01:49 | INFO |   Encoded 743/772
+2026-04-13 19:01:49 | INFO |   Encoded 744/772
+2026-04-13 19:01:49 | INFO |   Encoded 745/772
+2026-04-13 19:01:49 | INFO |   Encoded 746/772
+2026-04-13 19:01:49 | INFO |   Encoded 747/772
+2026-04-13 19:01:49 | INFO |   Encoded 748/772
+2026-04-13 19:01:49 | INFO |   Encoded 749/772
+2026-04-13 19:01:49 | INFO |   Encoded 750/772
+2026-04-13 19:01:49 | INFO |   Encoded 751/772
+2026-04-13 19:01:49 | INFO |   Encoded 752/772
+2026-04-13 19:01:49 | INFO |   Encoded 753/772
+2026-04-13 19:01:49 | INFO |   Encoded 754/772
+2026-04-13 19:01:49 | INFO |   Encoded 755/772
+2026-04-13 19:01:49 | INFO |   Encoded 756/772
+2026-04-13 19:01:49 | INFO |   Encoded 757/772
+2026-04-13 19:01:49 | INFO |   Encoded 758/772
+2026-04-13 19:01:49 | INFO |   Encoded 759/772
+2026-04-13 19:01:49 | INFO |   Encoded 760/772
+2026-04-13 19:01:49 | INFO |   Encoded 761/772
+2026-04-13 19:01:49 | INFO |   Encoded 762/772
+2026-04-13 19:01:49 | INFO |   Encoded 763/772
+2026-04-13 19:01:49 | INFO |   Encoded 764/772
+2026-04-13 19:01:49 | INFO |   Encoded 765/772
+2026-04-13 19:01:49 | INFO |   Encoded 766/772
+2026-04-13 19:01:49 | INFO |   Encoded 767/772
+2026-04-13 19:01:49 | INFO |   Encoded 768/772
+2026-04-13 19:01:49 | INFO |   Encoded 769/772
+2026-04-13 19:01:49 | INFO |   Encoded 770/772
+2026-04-13 19:01:49 | INFO |   Encoded 771/772
+2026-04-13 19:01:49 | INFO |   Encoded 772/772
+2026-04-13 19:01:49 | INFO | Computing similarity sequence...
+2026-04-13 19:01:49 | INFO | 📼 CLIP similarity list calculated and saved.
+2026-04-13 19:01:49 | INFO | 
+2026-04-13 19:01:49 | INFO | 📂 Processing segment 0...
+2026-04-13 19:01:49 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/screenshot-0.png
+2026-04-13 19:01:49 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/dino.png
+2026-04-13 19:01:49 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/dino.png
+2026-04-13 19:01:49 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/tmp_stop.png
+2026-04-13 19:01:49 | INFO | Relevant Region Response from GPT-4o: ```json
+2026-04-13 19:01:49 | INFO | { "target_regions": [31], "predicted_action": "tap" }
+2026-04-13 19:01:49 | INFO | ```
+2026-04-13 19:01:49 | INFO | 🔍 Relevant regions: {'target_regions': [31], 'predicted_action': 'tap'}
+2026-04-13 19:01:49 | INFO | 🧠 GPT selected regions: [31]
+2026-04-13 19:01:49 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/relevant_regions.png
+2026-04-13 19:01:49 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/relevant_regions.png
+2026-04-13 19:01:49 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/screenshot-0.png
+2026-04-13 19:01:49 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:01:49 | INFO | {
+2026-04-13 19:01:49 | INFO |   "same_state": "no",
+2026-04-13 19:01:49 | INFO |   "description": "The current screen shows the 'Add source' interface of an application, while the reference is the home screen with app icons. The 'tap' action cannot result in the same functional outcome from these different interfaces."
+2026-04-13 19:01:49 | INFO | }
+2026-04-13 19:01:49 | INFO | ```
+2026-04-13 19:01:49 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-04-13 19:01:49 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/tmp_start.png
+2026-04-13 19:01:49 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/tmp_stop.png
+2026-04-13 19:01:49 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/labeled.png
+2026-04-13 19:01:49 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:01:49 | INFO | { "action": "tap", "region": 1, "description": "Tap the checkbox to perform action." }
+2026-04-13 19:01:49 | INFO | ```
+2026-04-13 19:01:49 | INFO | 🎯 Recovery using region index: 1 at (1016, 136)
+2026-04-13 19:01:49 | INFO | [1] Tap the checkbox to perform action. -> tap
+2026-04-13 19:01:49 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/screenshot-0.png
+2026-04-13 19:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/tmp_start.pngUserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-04-13 19:01:57 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-04-13 19:02:01 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-04-13 19:02:26 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-04-13 19:02:26 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-04-13 19:02:30 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-04-13 19:02:30 | INFO | 
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/screenshot-0.png
+2026-04-13 19:02:30 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:02:30 | INFO | {
+2026-04-13 19:02:30 | INFO |   "same_state": "no",
+2026-04-13 19:02:30 | INFO |   "description": "The reference screen shows a home screen with app icons, while the current screen shows an 'Add source' interface within an app. The user cannot perform the same action from these different screens."
+2026-04-13 19:02:30 | INFO | }
+2026-04-13 19:02:30 | INFO | ```
+2026-04-13 19:02:30 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/tmp_start.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/tmp_stop.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/labeled.png
+2026-04-13 19:02:30 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:02:30 | INFO | {
+2026-04-13 19:02:30 | INFO |   "action": "tap",
+2026-04-13 19:02:30 | INFO |   "region": 2,
+2026-04-13 19:02:30 | INFO |   "description": "Tap on the specified element to achieve the transition."
+2026-04-13 19:02:30 | INFO | }
+2026-04-13 19:02:30 | INFO | ```
+2026-04-13 19:02:30 | INFO | 🎯 Recovery using region index: 2 at (540, 325)
+2026-04-13 19:02:30 | INFO | [1] Tap on the specified element to achieve the transition. -> tap
+2026-04-13 19:02:30 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/screenshot-0.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/tmp_start.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/screenshot-0.png
+2026-04-13 19:02:30 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:02:30 | INFO | { "same_state": "no", "description": "The reference image shows a home screen with app icons, while the current image shows an 'Add source' screen within an app. The actions available on the home screen are not the same as those on the 'Add source' screen." }
+2026-04-13 19:02:30 | INFO | ```
+2026-04-13 19:02:30 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/tmp_start.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/tmp_stop.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/labeled.png
+2026-04-13 19:02:30 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:02:30 | INFO | {
+2026-04-13 19:02:30 | INFO |     "action": "tap",
+2026-04-13 19:02:30 | INFO |     "region": 0,
+2026-04-13 19:02:30 | INFO |     "description": "Tap back button to return to previous screen."
+2026-04-13 19:02:30 | INFO | }
+2026-04-13 19:02:30 | INFO | ```
+2026-04-13 19:02:30 | INFO | 🎯 Recovery using region index: 0 at (73, 136)
+2026-04-13 19:02:30 | INFO | [1] Tap back button to return to previous screen. -> tap
+2026-04-13 19:02:30 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/screenshot-0.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/tmp_start.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_0/screenshot-0.png
+2026-04-13 19:02:30 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:02:30 | INFO | {
+2026-04-13 19:02:30 | INFO |     "same_state": "no",
+2026-04-13 19:02:30 | INFO |     "description": "The reference screen shows a home screen with app icons, while the current screen shows the 'Hosts sources' page from the AdAway app. These are different functional states and the same action cannot be performed from both screens."
+2026-04-13 19:02:30 | INFO | }
+2026-04-13 19:02:30 | INFO | ```
+2026-04-13 19:02:30 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-04-13 19:02:30 | INFO | Mismatch reason: the reference screen shows a home screen with app icons, while the current screen shows the 'hosts sources' page from the adaway app. these are different functional states and the same action cannot be performed from both screens.
+2026-04-13 19:02:30 | INFO | 
+2026-04-13 19:02:30 | INFO | 📂 Processing segment 1...
+2026-04-13 19:02:30 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/screenshot-0.png
+2026-04-13 19:02:30 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/dino.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/dino.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/tmp_stop.png
+2026-04-13 19:02:30 | INFO | Relevant Region Response from GPT-4o: ```json
+2026-04-13 19:02:30 | INFO | { "target_regions": [22], "predicted_action": "tap" }
+2026-04-13 19:02:30 | INFO | ```
+2026-04-13 19:02:30 | INFO | 🔍 Relevant regions: {'target_regions': [22], 'predicted_action': 'tap'}
+2026-04-13 19:02:30 | INFO | 🧠 GPT selected regions: [22]
+2026-04-13 19:02:30 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/relevant_regions.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/relevant_regions.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/screenshot-0.png
+2026-04-13 19:02:30 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:02:30 | INFO | {
+2026-04-13 19:02:30 | INFO |   "same_state": "no",
+2026-04-13 19:02:30 | INFO |   "description": "The reference screen shows an overview with sections like Blocked, Allowed, and Redirected, whereas the current screen displays the Hosts sources list. The current screen does not allow performing the same actions as the reference screen."
+2026-04-13 19:02:30 | INFO | }
+2026-04-13 19:02:30 | INFO | ```
+2026-04-13 19:02:30 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/tmp_start.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/tmp_stop.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/labeled.png
+2026-04-13 19:02:30 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:02:30 | INFO | { "action": "tap", "region": 5, "description": "Tap on the red plus button to proceed." }
+2026-04-13 19:02:30 | INFO | ```
+2026-04-13 19:02:30 | INFO | 🎯 Recovery using region index: 5 at (964, 1741)
+2026-04-13 19:02:30 | INFO | [1] Tap on the red plus button to proceed. -> tap
+2026-04-13 19:02:30 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/screenshot-0.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/tmp_start.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/screenshot-0.png
+2026-04-13 19:02:30 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:02:30 | INFO | {
+2026-04-13 19:02:30 | INFO |   "same_state": "no",
+2026-04-13 19:02:30 | INFO |   "description": "The current screen is in the 'Add source' state, which lacks the elements and options available in the reference screen for performing the same actions."
+2026-04-13 19:02:30 | INFO | }
+2026-04-13 19:02:30 | INFO | ```
+2026-04-13 19:02:30 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/tmp_start.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/tmp_stop.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/labeled.png
+2026-04-13 19:02:30 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:02:30 | INFO | {
+2026-04-13 19:02:30 | INFO |     "action": "tap",
+2026-04-13 19:02:30 | INFO |     "region": 5,
+2026-04-13 19:02:30 | INFO |     "description": "Tap to add source."
+2026-04-13 19:02:30 | INFO | }
+2026-04-13 19:02:30 | INFO | ```
+2026-04-13 19:02:30 | INFO | 🎯 Recovery using region index: 5 at (964, 1741)
+2026-04-13 19:02:30 | INFO | [1] Tap to add source. -> tap
+2026-04-13 19:02:30 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/screenshot-0.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/tmp_start.png
+2026-04-13 19:02:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/screenshot-0.png
+2026-04-13 19:02:30 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:02:30 | INFO | {
+2026-04-13 19:02:30 | INFO |   "same_state": "no",
+2026-04-13 19:02:30 | INFO |   "description": "The reference state shows the main ad-blocking dashboard, while the current state shows 'Add source' screen. The actions available in each state are not the same."
+2026-04-13 19:02:30 | INFO | }
+2026-04-13 19:02:30 | INFO | ```
+2026-04-13 19:02:30 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-04-13 19:02:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/tmp_start.pngUserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-04-13 19:02:57 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-04-13 19:03:00 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-04-13 19:03:08 | INFO | 
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/tmp_stop.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/labeled.png
+2026-04-13 19:03:08 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:03:08 | INFO | {
+2026-04-13 19:03:08 | INFO |     "action": "tap",
+2026-04-13 19:03:08 | INFO |     "region": 5,
+2026-04-13 19:03:08 | INFO |     "description": "Tap to perform the action from the GUI recording."
+2026-04-13 19:03:08 | INFO | }
+2026-04-13 19:03:08 | INFO | ```
+2026-04-13 19:03:08 | INFO | 🎯 Recovery using region index: 5 at (964, 1741)
+2026-04-13 19:03:08 | INFO | [1] Tap to perform the action from the GUI recording. -> tap
+2026-04-13 19:03:08 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/screenshot-0.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/tmp_start.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_1/screenshot-0.png
+2026-04-13 19:03:08 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:03:08 | INFO | {
+2026-04-13 19:03:08 | INFO |     "same_state": "no",
+2026-04-13 19:03:08 | INFO |     "description": "The second image shows the 'Add source' screen, whereas the reference image shows the main dashboard. The actions available on the main dashboard cannot be performed from the 'Add source' screen."
+2026-04-13 19:03:08 | INFO | }
+2026-04-13 19:03:08 | INFO | ```
+2026-04-13 19:03:08 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-04-13 19:03:08 | INFO | Mismatch reason: the second image shows the 'add source' screen, whereas the reference image shows the main dashboard. the actions available on the main dashboard cannot be performed from the 'add source' screen.
+2026-04-13 19:03:08 | INFO | 
+2026-04-13 19:03:08 | INFO | 📂 Processing segment 2...
+2026-04-13 19:03:08 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/screenshot-0.png
+2026-04-13 19:03:08 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/dino.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/dino.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/tmp_stop.png
+2026-04-13 19:03:08 | INFO | Relevant Region Response from GPT-4o: ```json
+2026-04-13 19:03:08 | INFO | { "target_regions": [25], "predicted_action": "tap" }
+2026-04-13 19:03:08 | INFO | ```
+2026-04-13 19:03:08 | INFO | 🔍 Relevant regions: {'target_regions': [25], 'predicted_action': 'tap'}
+2026-04-13 19:03:08 | INFO | 🧠 GPT selected regions: [25]
+2026-04-13 19:03:08 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/relevant_regions.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/relevant_regions.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/screenshot-0.png
+2026-04-13 19:03:08 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:03:08 | INFO | {
+2026-04-13 19:03:08 | INFO |     "same_state": "no",
+2026-04-13 19:03:08 | INFO |     "description": "The first screen shows a search interface with a list, while the second screen shows an 'Add source' interface with different options such as label and list format. The user cannot perform the same action from both screens."
+2026-04-13 19:03:08 | INFO | }
+2026-04-13 19:03:08 | INFO | ```
+2026-04-13 19:03:08 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/tmp_start.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/tmp_stop.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/labeled.png
+2026-04-13 19:03:08 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:03:08 | INFO | { "action": "tap", "region": 4, "description": "Tap ALLOW to proceed to the next screen." }
+2026-04-13 19:03:08 | INFO | ```
+2026-04-13 19:03:08 | INFO | 🎯 Recovery using region index: 4 at (922, 482)
+2026-04-13 19:03:08 | INFO | [1] Tap ALLOW to proceed to the next screen. -> tap
+2026-04-13 19:03:08 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/screenshot-0.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/tmp_start.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/screenshot-0.png
+2026-04-13 19:03:08 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:03:08 | INFO | {
+2026-04-13 19:03:08 | INFO |   "same_state": "no",
+2026-04-13 19:03:08 | INFO |   "description": "The current screen is an 'Add source' form with input fields, while the reference screen is a search interface. The actions possible in these states are different."
+2026-04-13 19:03:08 | INFO | }
+2026-04-13 19:03:08 | INFO | ```
+2026-04-13 19:03:08 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/tmp_start.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/tmp_stop.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/labeled.png
+2026-04-13 19:03:08 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:03:08 | INFO | { "action": "tap", "region": 4, "description": "Tap on ALLOW to achieve the same transition." }
+2026-04-13 19:03:08 | INFO | ```
+2026-04-13 19:03:08 | INFO | 🎯 Recovery using region index: 4 at (922, 482)
+2026-04-13 19:03:08 | INFO | [1] Tap on ALLOW to achieve the same transition. -> tap
+2026-04-13 19:03:08 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/screenshot-0.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/tmp_start.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/screenshot-0.png
+2026-04-13 19:03:08 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:03:08 | INFO | {
+2026-04-13 19:03:08 | INFO |     "same_state": "no",
+2026-04-13 19:03:08 | INFO |     "description": "The current screen shows an 'Add source' form with fields and options, whereas the reference screen shows a search interface with a '+' button for adding items. The user cannot perform the same action from the current screen as in the reference screen."
+2026-04-13 19:03:08 | INFO | }
+2026-04-13 19:03:08 | INFO | ```
+2026-04-13 19:03:08 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/tmp_start.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/tmp_stop.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/labeled.png
+2026-04-13 19:03:08 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:03:08 | INFO | {
+2026-04-13 19:03:08 | INFO |   "action": "tap",
+2026-04-13 19:03:08 | INFO |   "region": 1,
+2026-04-13 19:03:08 | INFO |   "description": "Tap checkmark to proceed."
+2026-04-13 19:03:08 | INFO | }
+2026-04-13 19:03:08 | INFO | ```
+2026-04-13 19:03:08 | INFO | 🎯 Recovery using region index: 1 at (1016, 136)
+2026-04-13 19:03:08 | INFO | [1] Tap checkmark to proceed. -> tap
+2026-04-13 19:03:08 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/screenshot-0.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/tmp_start.png
+2026-04-13 19:03:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_2/screenshot-0.png
+2026-04-13 19:03:08 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:03:08 | INFO | {
+2026-04-13 19:03:08 | INFO |   "same_state": "no",
+2026-04-13 19:03:08 | INFO |   "description": "The first screen is a search interface with tabs for Blocked, Allowed, and Redirected, as well as a plus button. The second screen is an 'Add source' interface with fields for Label, List format, Type, and Location. The functionalities and available actions are different."
+2026-04-13 19:03:08 | INFO | }
+2026-04-13 19:03:08 | INFO | ```
+2026-04-13 19:03:08 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-04-13 19:03:08 | INFO | Mismatch reason: the first screen is a search interface with tabs for blocked, allowed, and redirected, as well as a plus button. the second screen is an 'add source' interface with fields for label, list format, type, and location. the functionalities and available actions are different.
+2026-04-13 19:03:08 | INFO | 
+2026-04-13 19:03:08 | INFO | 📂 Processing segment 3...
+2026-04-13 19:03:08 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/screenshot-0.png
+2026-04-13 19:03:25 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/dino.pngUserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-04-13 19:03:25 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-04-13 19:03:28 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-04-13 19:03:47 | INFO | 
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/dino.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/tmp_stop.png
+2026-04-13 19:03:47 | INFO | Relevant Region Response from GPT-4o: ```json
+2026-04-13 19:03:47 | INFO | {
+2026-04-13 19:03:47 | INFO |   "target_regions": [15],
+2026-04-13 19:03:47 | INFO |   "predicted_action": "input_text"
+2026-04-13 19:03:47 | INFO | }
+2026-04-13 19:03:47 | INFO | ```
+2026-04-13 19:03:47 | INFO | 🔍 Relevant regions: {'target_regions': [15], 'predicted_action': 'input_text'}
+2026-04-13 19:03:47 | INFO | 🧠 GPT selected regions: [15]
+2026-04-13 19:03:47 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/relevant_regions.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/relevant_regions.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/screenshot-0.png
+2026-04-13 19:03:47 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:03:47 | INFO | {
+2026-04-13 19:03:47 | INFO |   "same_state": "no",
+2026-04-13 19:03:47 | INFO |   "description": "The current screen is an 'Add source' form with input fields for 'Label' and 'Location', while the reference screen shows a search interface. The actions and available inputs differ significantly."
+2026-04-13 19:03:47 | INFO | }
+2026-04-13 19:03:47 | INFO | ```
+2026-04-13 19:03:47 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/tmp_start.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/tmp_stop.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/labeled.png
+2026-04-13 19:03:47 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:03:47 | INFO | {
+2026-04-13 19:03:47 | INFO |   "action": "tap",
+2026-04-13 19:03:47 | INFO |   "region": 1,
+2026-04-13 19:03:47 | INFO |   "description": "Tap the highlighted checkmark to transition."
+2026-04-13 19:03:47 | INFO | }
+2026-04-13 19:03:47 | INFO | ```
+2026-04-13 19:03:47 | INFO | 🎯 Recovery using region index: 1 at (1016, 136)
+2026-04-13 19:03:47 | INFO | [1] Tap the highlighted checkmark to transition. -> tap
+2026-04-13 19:03:47 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/screenshot-0.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/tmp_start.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/screenshot-0.png
+2026-04-13 19:03:47 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:03:47 | INFO | {
+2026-04-13 19:03:47 | INFO |   "same_state": "no",
+2026-04-13 19:03:47 | INFO |   "description": "The reference screen is a search interface with options like a microphone, search, and text input, whereas the current screen is an 'Add Source' form with input fields and type buttons. The actions available differ completely between the two screens."
+2026-04-13 19:03:47 | INFO | }
+2026-04-13 19:03:47 | INFO | ```
+2026-04-13 19:03:47 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/tmp_start.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/tmp_stop.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/labeled.png
+2026-04-13 19:03:47 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:03:47 | INFO | { "action": "tap", "region": 0, "description": "Tap back button to navigate." }
+2026-04-13 19:03:47 | INFO | ```
+2026-04-13 19:03:47 | INFO | 🎯 Recovery using region index: 0 at (73, 136)
+2026-04-13 19:03:47 | INFO | [1] Tap back button to navigate. -> tap
+2026-04-13 19:03:47 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/screenshot-0.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/tmp_start.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/screenshot-0.png
+2026-04-13 19:03:47 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:03:47 | INFO | {
+2026-04-13 19:03:47 | INFO |     "same_state": "no",
+2026-04-13 19:03:47 | INFO |     "description": "The current screen shows a 'Hosts sources' list with options related to host files, whereas the reference screen appears to display a search interface. The user cannot perform the same action from both screens."
+2026-04-13 19:03:47 | INFO | }
+2026-04-13 19:03:47 | INFO | ```
+2026-04-13 19:03:47 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/tmp_start.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/tmp_stop.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/labeled.png
+2026-04-13 19:03:47 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:03:47 | INFO | { "action": "tap", "region": 0, "description": "Tap to navigate to the previous screen." }
+2026-04-13 19:03:47 | INFO | ```
+2026-04-13 19:03:47 | INFO | 🎯 Recovery using region index: 0 at (73, 136)
+2026-04-13 19:03:47 | INFO | [1] Tap to navigate to the previous screen. -> tap
+2026-04-13 19:03:47 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/screenshot-0.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/tmp_start.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_3/screenshot-0.png
+2026-04-13 19:03:47 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:03:47 | INFO | {
+2026-04-13 19:03:47 | INFO |   "same_state": "no",
+2026-04-13 19:03:47 | INFO |   "description": "The current screen shows a different interface, likely related to a search operation, whereas the reference screen shows the main interface of an ad-blocker app. The actions available are not consistent between the two states."
+2026-04-13 19:03:47 | INFO | }
+2026-04-13 19:03:47 | INFO | ```
+2026-04-13 19:03:47 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-04-13 19:03:47 | INFO | Mismatch reason: the current screen shows a different interface, likely related to a search operation, whereas the reference screen shows the main interface of an ad-blocker app. the actions available are not consistent between the two states.
+2026-04-13 19:03:47 | INFO | 
+2026-04-13 19:03:47 | INFO | 📂 Processing segment 4...
+2026-04-13 19:03:47 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/screenshot-0.png
+2026-04-13 19:03:47 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/dino.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/dino.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/tmp_stop.png
+2026-04-13 19:03:47 | INFO | Relevant Region Response from GPT-4o: ```json
+2026-04-13 19:03:47 | INFO | { "target_regions": [15], "predicted_action": "tap" }
+2026-04-13 19:03:47 | INFO | ```
+2026-04-13 19:03:47 | INFO | 🔍 Relevant regions: {'target_regions': [15], 'predicted_action': 'tap'}
+2026-04-13 19:03:47 | INFO | 🧠 GPT selected regions: [15]
+2026-04-13 19:03:47 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/relevant_regions.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/relevant_regions.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/screenshot-0.png
+2026-04-13 19:03:47 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:03:47 | INFO | {
+2026-04-13 19:03:47 | INFO |   "same_state": "no",
+2026-04-13 19:03:47 | INFO |   "description": "The current screen does not have the large red button with a plus sign, which is present in the reference screen. This button is a critical element for performing the same action."
+2026-04-13 19:03:47 | INFO | }
+2026-04-13 19:03:47 | INFO | ```
+2026-04-13 19:03:47 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/tmp_start.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/tmp_stop.png
+2026-04-13 19:03:47 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/labeled.png
+2026-04-13 19:03:47 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:03:47 | INFO | {
+2026-04-13 19:03:47 | INFO |     "action": "tap",
+2026-04-13 19:03:47 | INFO |     "region": 3,
+2026-04-13 19:03:47 | INFO |     "description": "Tap on 'Allowed' to transition to the second GUI."
+2026-04-13 19:03:47 | INFO | }
+2026-04-13 19:03:47 | INFO | ```
+2026-04-13 19:03:47 | INFO | 🎯 Recovery using region index: 3 at (891, 511)
+2026-04-13 19:03:47 | INFO | [1] Tap on 'Allowed' to transition to the second GUI. -> tap
+2026-04-13 19:03:53 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/screenshot-0.pngUserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-04-13 19:03:53 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-04-13 19:03:56 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-04-13 19:04:22 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-04-13 19:04:22 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-04-13 19:04:26 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-04-13 19:04:28 | INFO | 
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/tmp_start.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/screenshot-0.png
+2026-04-13 19:04:28 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:04:28 | INFO | {
+2026-04-13 19:04:28 | INFO |   "same_state": "no",
+2026-04-13 19:04:28 | INFO |   "description": "The current screen does not allow the user to search or interact with a list item like the reference screen. The search bar and list item are missing in the current screen."
+2026-04-13 19:04:28 | INFO | }
+2026-04-13 19:04:28 | INFO | ```
+2026-04-13 19:04:28 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/tmp_start.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/tmp_stop.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/labeled.png
+2026-04-13 19:04:28 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:04:28 | INFO | { "action": "tap", "region": 4, "description": "Tap to add host to whitelist." }
+2026-04-13 19:04:28 | INFO | ```
+2026-04-13 19:04:28 | INFO | 🎯 Recovery using region index: 4 at (540, 874)
+2026-04-13 19:04:28 | INFO | [1] Tap to add host to whitelist. -> tap
+2026-04-13 19:04:28 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/screenshot-0.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/tmp_start.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/screenshot-0.png
+2026-04-13 19:04:28 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:04:28 | INFO | {
+2026-04-13 19:04:28 | INFO |     "same_state": "no",
+2026-04-13 19:04:28 | INFO |     "description": "The current screen lacks the search bar and checkbox present in the reference screen, preventing the same action from being performed."
+2026-04-13 19:04:28 | INFO | }
+2026-04-13 19:04:28 | INFO | ```
+2026-04-13 19:04:28 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/tmp_start.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/tmp_stop.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/labeled.png
+2026-04-13 19:04:28 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:04:28 | INFO | {
+2026-04-13 19:04:28 | INFO |   "action": "tap",
+2026-04-13 19:04:28 | INFO |   "region": 11,
+2026-04-13 19:04:28 | INFO |   "description": "Tap to transition to the next GUI."
+2026-04-13 19:04:28 | INFO | }
+2026-04-13 19:04:28 | INFO | ```
+2026-04-13 19:04:28 | INFO | 🎯 Recovery using region index: 11 at (540, 1710)
+2026-04-13 19:04:28 | INFO | [1] Tap to transition to the next GUI. -> tap
+2026-04-13 19:04:28 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/screenshot-0.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/tmp_start.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_4/screenshot-0.png
+2026-04-13 19:04:28 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:04:28 | INFO | {
+2026-04-13 19:04:28 | INFO |   "same_state": "no",
+2026-04-13 19:04:28 | INFO |   "description": "The current screen lacks a search text field present in the reference, and instead displays a list view."
+2026-04-13 19:04:28 | INFO | }
+2026-04-13 19:04:28 | INFO | ```
+2026-04-13 19:04:28 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-04-13 19:04:28 | INFO | Mismatch reason: the current screen lacks a search text field present in the reference, and instead displays a list view.
+2026-04-13 19:04:28 | INFO | 
+2026-04-13 19:04:28 | INFO | 📂 Processing segment 5...
+2026-04-13 19:04:28 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/screenshot-0.png
+2026-04-13 19:04:28 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/dino.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/dino.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/tmp_stop.png
+2026-04-13 19:04:28 | INFO | Relevant Region Response from GPT-4o: ```json
+2026-04-13 19:04:28 | INFO | { "target_regions": [8], "predicted_action": "tap" }
+2026-04-13 19:04:28 | INFO | ```
+2026-04-13 19:04:28 | INFO | 🔍 Relevant regions: {'target_regions': [8], 'predicted_action': 'tap'}
+2026-04-13 19:04:28 | INFO | 🧠 GPT selected regions: [8]
+2026-04-13 19:04:28 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/relevant_regions.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/relevant_regions.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/screenshot-0.png
+2026-04-13 19:04:28 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:04:28 | INFO | {
+2026-04-13 19:04:28 | INFO |   "same_state": "no",
+2026-04-13 19:04:28 | INFO |   "description": "The current screen lacks the 'Add host to whitelist' dialog present in the reference screen, preventing the same action of adding a host."
+2026-04-13 19:04:28 | INFO | }
+2026-04-13 19:04:28 | INFO | ```
+2026-04-13 19:04:28 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/tmp_start.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/tmp_stop.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/labeled.png
+2026-04-13 19:04:28 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:04:28 | INFO | { "action": "tap", "region": 6, "description": "Tap the checkbox next to 'yguy' to proceed." }
+2026-04-13 19:04:28 | INFO | ```
+2026-04-13 19:04:28 | INFO | 🎯 Recovery using region index: 6 at (105, 651)
+2026-04-13 19:04:28 | INFO | [1] Tap the checkbox next to 'yguy' to proceed. -> tap
+2026-04-13 19:04:28 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/screenshot-0.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/tmp_start.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/screenshot-0.png
+2026-04-13 19:04:28 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:04:28 | INFO | {
+2026-04-13 19:04:28 | INFO |   "same_state": "no",
+2026-04-13 19:04:28 | INFO |   "description": "The reference screen shows an 'Add host to whitelist' dialog, while the current screen displays a list of items with an 'Apply' button. The actions available are different."
+2026-04-13 19:04:28 | INFO | }
+2026-04-13 19:04:28 | INFO | ```
+2026-04-13 19:04:28 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/tmp_start.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/tmp_stop.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/labeled.png
+2026-04-13 19:04:28 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:04:28 | INFO | { "action": "tap", "region": 6, "description": "Tap on 'yguy' to proceed to the next GUI." }
+2026-04-13 19:04:28 | INFO | ```
+2026-04-13 19:04:28 | INFO | 🎯 Recovery using region index: 6 at (105, 651)
+2026-04-13 19:04:28 | INFO | [1] Tap on 'yguy' to proceed to the next GUI. -> tap
+2026-04-13 19:04:28 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/screenshot-0.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/tmp_start.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/screenshot-0.png
+2026-04-13 19:04:28 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:04:28 | INFO | {
+2026-04-13 19:04:28 | INFO |   "same_state": "no",
+2026-04-13 19:04:28 | INFO |   "description": "The current screen lacks the 'Add host to whitelist' dialog present in the reference screen, which is necessary for the user to perform the same action."
+2026-04-13 19:04:28 | INFO | }
+2026-04-13 19:04:28 | INFO | ```
+2026-04-13 19:04:28 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/tmp_start.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/tmp_stop.png
+2026-04-13 19:04:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/labeled.png
+2026-04-13 19:04:28 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:04:28 | INFO | { "action": "tap", "region": 7, "description": "Tap APPLY button to proceed." }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | 🎯 Recovery using region index: 7 at (964, 1594)
+2026-04-13 19:04:50 | INFO | [1] Tap APPLY button to proceed. -> tap
+2026-04-13 19:04:50 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/screenshot-0.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/tmp_start.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_5/screenshot-0.png
+2026-04-13 19:04:50 | INFO | Consistency Response from GPT-4o: { "same_state": "no", "description": "The current screen is missing the 'Add host to whitelist' popup with 'Hostname' input and action buttons ('CANCEL', 'ADD')." }
+2026-04-13 19:04:50 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-04-13 19:04:50 | INFO | Mismatch reason: the current screen is missing the 'add host to whitelist' popup with 'hostname' input and action buttons ('cancel', 'add').
+2026-04-13 19:04:50 | INFO | 
+2026-04-13 19:04:50 | INFO | 📂 Processing segment 6...
+2026-04-13 19:04:50 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/screenshot-0.png
+2026-04-13 19:04:50 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/dino.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/dino.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/tmp_stop.png
+2026-04-13 19:04:50 | INFO | Relevant Region Response from GPT-4o: ```json
+2026-04-13 19:04:50 | INFO | { "target_regions": [14, 11], "predicted_action": "tap" }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | 🔍 Relevant regions: {'target_regions': [14, 11], 'predicted_action': 'tap'}
+2026-04-13 19:04:50 | INFO | 🧠 GPT selected regions: [14, 11]
+2026-04-13 19:04:50 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/relevant_regions.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/relevant_regions.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/screenshot-0.png
+2026-04-13 19:04:50 | INFO | Consistency Response from GPT-4o: { "same_state": "no", "description": "The current screen does not have the 'Add host to whitelist' dialog present, which is required to perform the same action as in the reference state." }
+2026-04-13 19:04:50 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/tmp_start.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/tmp_stop.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/labeled.png
+2026-04-13 19:04:50 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:04:50 | INFO | { "action": "tap", "region": 5, "description": "Tap on 'utl.web' to achieve the same transition." }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | 🎯 Recovery using region index: 5 at (105, 525)
+2026-04-13 19:04:50 | INFO | [1] Tap on 'utl.web' to achieve the same transition. -> tap
+2026-04-13 19:04:50 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/screenshot-0.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/tmp_start.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/screenshot-0.png
+2026-04-13 19:04:50 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:04:50 | INFO | {
+2026-04-13 19:04:50 | INFO |   "same_state": "no",
+2026-04-13 19:04:50 | INFO |   "description": "The reference screen shows an input dialog for adding a host to a whitelist, whereas the current screen displays a list management interface without any active dialog. The user cannot perform the same action of adding a host from the current screen."
+2026-04-13 19:04:50 | INFO | }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/tmp_start.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/tmp_stop.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/labeled.png
+2026-04-13 19:04:50 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:04:50 | INFO | { "action": "tap", "region": 7, "description": "Tap APPLY to proceed to the next screen." }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | 🎯 Recovery using region index: 7 at (964, 1594)
+2026-04-13 19:04:50 | INFO | [1] Tap APPLY to proceed to the next screen. -> tap
+2026-04-13 19:04:50 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/screenshot-0.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/tmp_start.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/screenshot-0.png
+2026-04-13 19:04:50 | INFO | Consistency Response from GPT-4o: { "same_state": "no", "description": "The reference screen contains a dialog for adding a host to the whitelist with an input field, while the current screen shows a checklist of hosts without the dialog." }
+2026-04-13 19:04:50 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/tmp_start.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/tmp_stop.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/labeled.png
+2026-04-13 19:04:50 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:04:50 | INFO | { "action": "tap", "region": 7, "description": "Tap the red plus button to add or apply changes." }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | 🎯 Recovery using region index: 7 at (964, 1594)
+2026-04-13 19:04:50 | INFO | [1] Tap the red plus button to add or apply changes. -> tap
+2026-04-13 19:04:50 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/screenshot-0.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/tmp_start.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/screenshot-0.png
+2026-04-13 19:04:50 | INFO | Consistency Response from GPT-4o: { "same_state": "yes" }
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/relevant_regions.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/tmp_stop.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_6/labeled.png
+2026-04-13 19:04:50 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:04:50 | INFO | { "action": "tap", "region": 7, "description": "Tap the red plus button to add a new item." }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | 🎯 Using region index: 7 at (964, 1594)
+2026-04-13 19:04:50 | INFO | [1] Tap the red plus button to add a new item. -> tap
+2026-04-13 19:04:50 | INFO | ✅ Action executed.
+2026-04-13 19:04:50 | INFO | 
+2026-04-13 19:04:50 | INFO | 
+2026-04-13 19:04:50 | INFO | 📂 Processing segment 7...
+2026-04-13 19:04:50 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/screenshot-0.png
+2026-04-13 19:04:50 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/dino.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/dino.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/tmp_stop.png
+2026-04-13 19:04:50 | INFO | Relevant Region Response from GPT-4o: ```json
+2026-04-13 19:04:50 | INFO | { "target_regions": [29], "predicted_action": "tap" }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | 🔍 Relevant regions: {'target_regions': [29], 'predicted_action': 'tap'}
+2026-04-13 19:04:50 | INFO | 🧠 GPT selected regions: [29]
+2026-04-13 19:04:50 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/relevant_regions.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/relevant_regions.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/screenshot-0.png
+2026-04-13 19:04:50 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:04:50 | INFO | {
+2026-04-13 19:04:50 | INFO |   "same_state": "no",
+2026-04-13 19:04:50 | INFO |   "description": "The current screen lacks the search bar that is present in the reference screen, which prevents the user from performing the same search action."
+2026-04-13 19:04:50 | INFO | }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/tmp_start.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/tmp_stop.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/labeled.png
+2026-04-13 19:04:50 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:04:50 | INFO | { "action": "tap", "region": 5, "description": "Tap utl.web checkbox to achieve the same transition." }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | 🎯 Recovery using region index: 5 at (105, 525)
+2026-04-13 19:04:50 | INFO | [1] Tap utl.web checkbox to achieve the same transition. -> tap
+2026-04-13 19:04:50 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/screenshot-0.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/tmp_start.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/screenshot-0.png
+2026-04-13 19:04:50 | INFO | Consistency Response from GPT-4o: { "same_state": "no", "description": "The current screen shows a list titled 'Your lists' with several entries and checkboxes, whereas the reference screen shows a search result with text input. These represent different functionalities." }
+2026-04-13 19:04:50 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/tmp_start.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/tmp_stop.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/labeled.png
+2026-04-13 19:04:50 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:04:50 | INFO | { "action": "tap", "region": 5, "description": "Tap on 'utl.web' to achieve the transition." }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | 🎯 Recovery using region index: 5 at (105, 525)
+2026-04-13 19:04:50 | INFO | [1] Tap on 'utl.web' to achieve the transition. -> tap
+2026-04-13 19:04:50 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/screenshot-0.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/tmp_start.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/screenshot-0.png
+2026-04-13 19:04:50 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:04:50 | INFO | {
+2026-04-13 19:04:50 | INFO |     "same_state": "no",
+2026-04-13 19:04:50 | INFO |     "description": "The reference image shows a search input with text, while the current image shows a list view without the search input, making it impossible to perform the same action."
+2026-04-13 19:04:50 | INFO | }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/tmp_start.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/tmp_stop.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/labeled.png
+2026-04-13 19:04:50 | INFO | Region Action Response from GPT-4o: ```json
+2026-04-13 19:04:50 | INFO | {
+2026-04-13 19:04:50 | INFO |     "action": "tap",
+2026-04-13 19:04:50 | INFO |     "region": 5,
+2026-04-13 19:04:50 | INFO |     "description": "Tap to select the 'utl.web' item."
+2026-04-13 19:04:50 | INFO | }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | 🎯 Recovery using region index: 5 at (105, 525)
+2026-04-13 19:04:50 | INFO | [1] Tap to select the 'utl.web' item. -> tap
+2026-04-13 19:04:50 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/screenshot-0.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/tmp_start.png
+2026-04-13 19:04:50 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/adaway/llm/ViBR/screenrec/run-006/artifacts/srv-001/step_7/screenshot-0.png
+2026-04-13 19:04:50 | INFO | Consistency Response from GPT-4o: ```json
+2026-04-13 19:04:50 | INFO | {
+2026-04-13 19:04:50 | INFO |     "same_state": "no",
+2026-04-13 19:04:50 | INFO |     "description": "The current screen does not have the search interface activated, which is present in the reference state."
+2026-04-13 19:04:50 | INFO | }
+2026-04-13 19:04:50 | INFO | ```
+2026-04-13 19:04:50 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-04-13 19:04:50 | INFO | Mismatch reason: the current screen does not have the search interface activated, which is present in the reference state.
+2026-04-13 19:04:50 | INFO | ✅ Video processing completed.

@@ -93,7 +93,7 @@ ViBR was tested exclusively using the Emulator. While in principle the system sh
 
 ### Execution of ViBR
 1. Make sure you have a running Device (Emulator or Physical)
-2. Prepare an OpenAI API key which you have to add in `openai_api.py`
+2. Set `OPENAI_API_KEY` in `<repo>/.env.local`
 3. Install the APP to be tested on the Device
 4. Navigate to the same starting state
 5. Run the script in [`segment_replay.py`](./segment_replay.py), e.g. `python segment_replay.py <path_to_video> clip`

@@ -1,15 +1,53 @@
 import base64
+import os
+from pathlib import Path
 from openai import OpenAI
 
 """
 Functions to interact with OpenAI GPT-4o for visual app state comparison, action region prediction,
 and relevant region identification for Android GUI screenshots.
 
-WARNING: Remove hardcoded API key before sharing or pushing to public repositories.
+OpenAI key is loaded from environment variable OPENAI_API_KEY or from repo .env.local.
 """
 
-# TODO: Remove API key before sharing code! Never hardcode secrets in production.
-client = OpenAI(api_key="put-your-api-key-here")
+
+def _load_env_local(path: Path) -> dict[str, str]:
+    values: dict[str, str] = {}
+    if not path.exists():
+        return values
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.startswith("export "):
+            line = line[len("export "):].strip()
+        if "=" not in line:
+            continue
+        key, val = line.split("=", 1)
+        key = key.strip()
+        val = val.strip().strip('"').strip("'")
+        if key:
+            values[key] = val
+    return values
+
+
+def _get_openai_api_key() -> str:
+    key = os.environ.get("OPENAI_API_KEY", "").strip()
+    if key:
+        return key
+
+    repo_root = Path(__file__).resolve().parents[2]
+    env_values = _load_env_local(repo_root / ".env.local")
+    key = env_values.get("OPENAI_API_KEY", "").strip()
+    if key:
+        return key
+
+    raise RuntimeError(
+        "OPENAI_API_KEY not found. Set it in environment or in <repo>/.env.local."
+    )
+
+
+client = OpenAI(api_key=_get_openai_api_key())
 
 def encode_image(image_path):
     """Read an image file and return its base64-encoded string (UTF-8)."""
