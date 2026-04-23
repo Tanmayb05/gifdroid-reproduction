@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ViBR Workflow Guide</title>
+  <style>
+    :root {
+      --bg: #f5efe4;
+      --paper: #fffaf2;
+      --ink: #1f1b16;
+      --muted: #6b6257;
+      --line: #d8ccb9;
+      --accent: #0f766e;
+      --accent-soft: #d7f0ec;
+      --accent-2: #b45309;
+      --accent-2-soft: #fde8d2;
+      --accent-3: #7c3aed;
+      --accent-3-soft: #efe4ff;
+      --shadow: 0 14px 40px rgba(31, 27, 22, 0.08);
+      --radius: 18px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", "Iowan Old Style", "Palatino Linotype", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.07), transparent 28%),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.07), transparent 26%),
+        linear-gradient(180deg, #f7f1e8 0%, #f4ecdf 100%);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 32px 20px 72px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(15, 118, 110, 0.11), rgba(124, 58, 237, 0.08));
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      padding: 34px 28px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 880px;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .toc a {
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255, 250, 242, 0.82);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 0.94rem;
+    }
+
+    .section {
+      margin-top: 24px;
+      background: rgba(255, 250, 242, 0.86);
+      border: 1px solid rgba(216, 204, 185, 0.85);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .section-head {
+      padding: 22px 24px 12px;
+      border-bottom: 1px solid rgba(216, 204, 185, 0.55);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 250, 242, 0.2));
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .section-body {
+      padding: 22px 24px 28px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+
+    .card p,
+    .card ul {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card ul {
+      padding-left: 18px;
+    }
+
+    .pill {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .p1 { background: var(--accent-soft); color: var(--accent); }
+    .p2 { background: var(--accent-2-soft); color: var(--accent-2); }
+    .p3 { background: var(--accent-3-soft); color: var(--accent-3); }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .flow-step {
+      position: relative;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      min-height: 180px;
+    }
+
+    .flow-step .num {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      font-weight: 700;
+      background: var(--ink);
+      color: #fff;
+      margin-bottom: 12px;
+      font-size: 0.92rem;
+    }
+
+    .flow-step h3 {
+      margin: 0 0 8px;
+      font-size: 1.04rem;
+    }
+
+    .flow-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .arrow-line {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--muted);
+      font-size: 1.5rem;
+      margin: 10px 0 6px;
+    }
+
+    .function-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .function-table th,
+    .function-table td {
+      padding: 14px 14px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(216, 204, 185, 0.75);
+    }
+
+    .function-table th {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      background: #fcf5ea;
+    }
+
+    .function-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    code,
+    pre {
+      font-family: "SFMono-Regular", "Menlo", "Consolas", monospace;
+    }
+
+    pre {
+      margin: 0;
+      overflow-x: auto;
+      background: #1a1714;
+      color: #f8ede0;
+      padding: 16px 18px;
+      border-radius: 16px;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .note {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #fff3dd;
+      border: 1px solid #efd5a9;
+      color: #654d22;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .mini-item {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .mini-item strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 30px;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        padding: 20px 14px 48px;
+      }
+
+      .hero,
+      .section-head,
+      .section-body {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .function-table,
+      .function-table thead,
+      .function-table tbody,
+      .function-table tr,
+      .function-table th,
+      .function-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .function-table thead {
+        display: none;
+      }
+
+      .function-table td {
+        border-bottom: 1px solid rgba(216, 204, 185, 0.75);
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .function-table td::before {
+        display: block;
+        font-size: 0.76rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        margin-bottom: 6px;
+      }
+
+      .function-table td:nth-child(1)::before { content: "Function"; }
+      .function-table td:nth-child(2)::before { content: "Input"; }
+      .function-table td:nth-child(3)::before { content: "Process"; }
+      .function-table td:nth-child(4)::before { content: "Output"; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="hero">
+      <h1>ViBR Workflow Guide</h1>
+      <p>
+        A simple explanation of how <code>src_ViBR</code> works, what goes in, what happens in the middle,
+        and what files come out. This page is based on the current code in <code>src_ViBR</code> and the saved
+        run outputs under <code>apps/&lt;app_name&gt;/llm/ViBR</code>.
+      </p>
+      <nav class="toc">
+        <a href="#big-picture">Big Picture</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#inputs-process-outputs">Inputs / Process / Outputs</a>
+        <a href="#functions">Important Functions</a>
+        <a href="#output-layout">Output Layout</a>
+        <a href="#notes">Notes</a>
+      </nav>
+    </header>
+
+    <section class="section" id="big-picture">
+      <div class="section-head">
+        <h2>Big Picture</h2>
+        <p>ViBR tries to replay a bug-report video on a real Android device, one scene at a time.</p>
+      </div>
+      <div class="section-body">
+        <div class="grid three">
+          <div class="card">
+            <span class="pill p1">Input</span>
+            <h3>Recorded Bug Video</h3>
+            <p>ViBR reads a handheld or screen-recorded video and treats it as a sequence of user interaction scenes.</p>
+          </div>
+          <div class="card">
+            <span class="pill p2">Reasoning</span>
+            <h3>State Matching + Action Inference</h3>
+            <p>It compares the recorded frames with the current device screen, asks an LLM what matters, and predicts the next action.</p>
+          </div>
+          <div class="card">
+            <span class="pill p3">Output</span>
+            <h3>Replay Attempt on Device</h3>
+            <p>It executes the predicted action through ADB and saves logs and step-by-step artifacts for inspection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="workflow">
+      <div class="section-head">
+        <h2>End-to-End Workflow</h2>
+        <p>A readable view of the pipeline from config file to replayed device actions.</p>
+      </div>
+      <div class="section-body">
+        <div class="flow">
+          <div class="flow-step">
+            <div class="num">1</div>
+            <h3>Read Config</h3>
+            <p><code>src_ViBR/main.py</code> loads <code>config.yml</code>, checks the settings, and expands shortcuts like <code>hhv</code> or <code>srv</code> into real video file paths.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">2</div>
+            <h3>Create Run Folder</h3>
+            <p>It detects whether the video is handheld or screen-recorded, creates a new run directory, prepares logging, and stores metadata for that run.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">3</div>
+            <h3>Launch Replay Worker</h3>
+            <p><code>main.py</code> starts <code>approach/segment_replay.py</code>, passing the video path, segmentation algorithm, output folder, cache folder, and LLM settings.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">4</div>
+            <h3>Connect to Device</h3>
+            <p>The replay worker uses ADB to take a live screenshot and dump the current Android UI XML from the device.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">5</div>
+            <h3>Read Video Frames</h3>
+            <p>All video frames are loaded. If the algorithm is SSIM, luminance-only frames are also prepared for frame-to-frame similarity checks.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">6</div>
+            <h3>Split Into Stable Scenes</h3>
+            <p>ViBR segments the video into stable scenes using either CLIP similarity or SSIM similarity, so each scene roughly represents one user action.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">7</div>
+            <h3>Prepare One Scene</h3>
+            <p>For each scene, ViBR saves the recorded start frame, the recorded end frame, and a fresh live screenshot from the device into that step's artifact folder.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">8</div>
+            <h3>Parse Current Screen</h3>
+            <p>The UI XML is converted into screen elements. ViBR labels the current screenshot with numbered boxes so the model can point to live targets.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">9</div>
+            <h3>Find Relevant Regions</h3>
+            <p>GroundingDINO detects likely interactive regions on the recorded start frame. The LLM then chooses which of those regions best explain the transition to the stop frame.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">10</div>
+            <h3>Check State Consistency</h3>
+            <p>The LLM compares the recorded state and the current live state and decides whether the same user action can still be performed from the live screen.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">11</div>
+            <h3>Recover or Execute</h3>
+            <p>If the states do not match, ViBR tries up to 3 recovery actions to align the device. If the states do match, it predicts the actual next action and executes it through ADB.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">12</div>
+            <h3>Save Evidence</h3>
+            <p>Each step stores intermediate images such as <code>tmp_start.png</code>, <code>dino.png</code>, <code>relevant_regions.png</code>, and <code>labeled.png</code>. The run also stores a log and <code>metadata.json</code>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="inputs-process-outputs">
+      <div class="section-head">
+        <h2>Inputs, Process, Outputs</h2>
+        <p>The same pipeline explained as a clean input → process → output flow.</p>
+      </div>
+      <div class="section-body">
+        <div class="grid two">
+          <div class="card">
+            <span class="pill p1">Inputs</span>
+            <ul>
+              <li><code>src_ViBR/input/config.yml</code> for the run list, LLM, model, algorithm, and logging level.</li>
+              <li>A bug-report video such as <code>apps/&lt;app&gt;/videos/handheld/hhv-001.mp4</code> or <code>apps/&lt;app&gt;/videos/screenrec/srv-001.mp4</code>.</li>
+              <li>A connected Android device available through ADB.</li>
+              <li>GroundingDINO installation and weights.</li>
+              <li>API credentials for OpenAI or Gemini, depending on the provider in the config.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="pill p2">Main Process</span>
+            <ul>
+              <li>Read and validate config.</li>
+              <li>Create a run folder and log file.</li>
+              <li>Read the bug video into frames.</li>
+              <li>Split the video into stable scenes.</li>
+              <li>For each scene, compare recorded frames with the live device screen.</li>
+              <li>Use XML + GroundingDINO + LLM reasoning to pick targets and infer actions.</li>
+              <li>Replay the chosen action on the device through ADB.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="pill p3">Outputs</span>
+            <ul>
+              <li>A per-run folder under <code>apps/&lt;app&gt;/llm/...</code>.</li>
+              <li><code>artifacts/</code> with step-by-step screenshots and annotations.</li>
+              <li><code>logs/</code> with a full pipeline trace.</li>
+              <li><code>metadata.json</code> summarizing app, video, algorithm, runtime, and status.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="pill p1">Per-Step Artifacts</span>
+            <ul>
+              <li><code>tmp_start.png</code>: recorded scene start frame.</li>
+              <li><code>tmp_stop.png</code>: recorded scene end frame.</li>
+              <li><code>screenshot-0.png</code>: current live device screen.</li>
+              <li><code>labeled.png</code>: live screen with numbered XML elements.</li>
+              <li><code>dino.png</code>: all GroundingDINO detections on the recorded start frame.</li>
+              <li><code>relevant_regions.png</code>: only the LLM-selected important regions.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="arrow-line">config → main.py → segment_replay.py → XML / DINO / LLM / ADB → artifacts + logs + metadata</div>
+      </div>
+    </section>
+
+    <section class="section" id="functions">
+      <div class="section-head">
+        <h2>Important Functions</h2>
+        <p>Key functions explained in a simple input / process / output style.</p>
+      </div>
+      <div class="section-body">
+        <table class="function-table">
+          <thead>
+            <tr>
+              <th>Function</th>
+              <th>Input</th>
+              <th>Process</th>
+              <th>Output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>load_config()</code></td>
+              <td>YAML config path</td>
+              <td>Validates config values, fills defaults, expands <code>hhv</code>/<code>srv</code> into actual video paths, and creates run configs.</td>
+              <td>Normalized pipeline config object</td>
+            </tr>
+            <tr>
+              <td><code>create_output_layout()</code></td>
+              <td>Project root, app name, llm, source type, timestamp</td>
+              <td>Chooses the base run directory, next <code>run-XXX</code> id, artifacts path, metadata path, and log file path.</td>
+              <td>Output layout object for one run</td>
+            </tr>
+            <tr>
+              <td><code>read_frames_from_video()</code></td>
+              <td>Video path</td>
+              <td>Reads every frame from the video and also prepares cropped luminance frames for SSIM.</td>
+              <td><code>frames</code> and <code>y_frames</code></td>
+            </tr>
+            <tr>
+              <td><code>segment_with_clip()</code> / <code>segment_with_ssim()</code></td>
+              <td>Frames plus cache folder</td>
+              <td>Computes similarity between neighboring frames, reuses cached similarity when available, and detects stable scene ranges.</td>
+              <td>List of stable segments</td>
+            </tr>
+            <tr>
+              <td><code>parse_xml_string()</code></td>
+              <td>Android UI XML</td>
+              <td>Extracts visible elements, filters overlaps/noise, and optionally keeps only clickable elements.</td>
+              <td>List of <code>AndroidElement</code> objects</td>
+            </tr>
+            <tr>
+              <td><code>label_screenshot()</code></td>
+              <td>Live screenshot + parsed elements</td>
+              <td>Draws purple highlight boxes and numeric labels over the current screen.</td>
+              <td><code>labeled.png</code></td>
+            </tr>
+            <tr>
+              <td><code>run_grounding_dino()</code></td>
+              <td>Recorded start frame</td>
+              <td>Detects likely interactive regions such as buttons, icons, text fields, and list items.</td>
+              <td>Detected region list + annotated image</td>
+            </tr>
+            <tr>
+              <td><code>ask_gpt_for_relevant_regions()</code></td>
+              <td>Recorded start frame + stop frame</td>
+              <td>Asks the model which detected regions most likely caused the transition and what the likely action type was.</td>
+              <td>JSON with target regions and predicted action</td>
+            </tr>
+            <tr>
+              <td><code>ask_gpt_state_consistency()</code></td>
+              <td>Reference image + current live image</td>
+              <td>Asks whether the same action can still be performed from the live screen.</td>
+              <td>JSON saying same state yes/no</td>
+            </tr>
+            <tr>
+              <td><code>ask_gpt_for_action_region()</code></td>
+              <td>Recorded start frame, recorded stop frame, live labeled frame</td>
+              <td>Asks the model what exact action to perform now on the device to recreate the same transition.</td>
+              <td>JSON action such as tap, swipe, input_text, back, wait</td>
+            </tr>
+            <tr>
+              <td><code>execute_actions()</code></td>
+              <td>Action JSON + device controller</td>
+              <td>Maps abstract actions into concrete ADB commands.</td>
+              <td>Device interaction is executed</td>
+            </tr>
+            <tr>
+              <td><code>ADBDeviceController</code></td>
+              <td>Coordinates, text, shell commands</td>
+              <td>Runs ADB to take screenshots, dump UI XML, tap, swipe, type, and navigate.</td>
+              <td>Live screenshots, XML, and executed actions</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="output-layout">
+      <div class="section-head">
+        <h2>What the Output Folder Contains</h2>
+        <p>A run folder stores the main summary plus one artifact folder per source video.</p>
+      </div>
+      <div class="section-body">
+        <pre>apps/&lt;app_name&gt;/llm/ViBR/&lt;handheld|screenrec&gt;/run-XXX/
+  artifacts/
+    &lt;video-stem&gt;/
+      screenshot-0.png
+      step_0/
+        tmp_start.png
+        tmp_stop.png
+        screenshot-0.png
+        labeled.png
+        dino.png
+        relevant_regions.png
+      step_1/
+      step_2/
+      ...
+  logs/
+    &lt;timestamp&gt;__run-XXX__pipeline__success.log
+  metadata.json</pre>
+
+        <div class="mini-list" style="margin-top:16px;">
+          <div class="mini-item">
+            <strong><code>metadata.json</code></strong>
+            Short run summary: app name, source type, video path, algorithm, runtime, run id, and final status.
+          </div>
+          <div class="mini-item">
+            <strong>Log file</strong>
+            Full pipeline trace showing which segment was processed, what the model predicted, whether recovery was attempted, and whether the action was executed or skipped.
+          </div>
+          <div class="mini-item">
+            <strong><code>artifacts/</code></strong>
+            Visual evidence for each step so you can inspect what ViBR saw and why it made a particular decision.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="notes">
+      <div class="section-head">
+        <h2>Notes and Caveats</h2>
+        <p>Important details that help avoid confusion when reading the code and existing run folders.</p>
+      </div>
+      <div class="section-body">
+        <div class="grid two">
+          <div class="card">
+            <h3>Folder Naming Difference</h3>
+            <p>
+              The current <code>create_output_layout()</code> code builds paths like
+              <code>apps/&lt;app&gt;/llm/ViBR_&lt;llm&gt;/&lt;source&gt;/run-XXX</code>,
+              but many existing saved runs in the repository are still under
+              <code>apps/&lt;app&gt;/llm/ViBR/&lt;source&gt;/run-XXX</code>.
+            </p>
+          </div>
+          <div class="card">
+            <h3>What “Same State” Means</h3>
+            <p>
+              ViBR does not require the live screen to look pixel-perfect. It only asks whether the same user action is still possible from the live screen.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Why Some Steps Are Skipped</h3>
+            <p>
+              If recovery fails after the allowed retries, the current scene is skipped. The run can still finish successfully overall even if some scenes are skipped.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Why Both XML and Vision Are Used</h3>
+            <p>
+              XML helps map the live screen into clickable elements and coordinates. Vision helps compare layouts and interpret the recorded video when exact UI structure differs.
+            </p>
+          </div>
+        </div>
+
+        <div class="note">
+          This page uses only plain HTML and CSS. The diagrams are simple layout-based flow diagrams, not generated SVG or JavaScript diagrams, so they should be stable and easy to open anywhere.
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Saved as <code>src_ViBR/src_ViBR.html</code>
+    </div>
+  </div>
+</body>
+</html>

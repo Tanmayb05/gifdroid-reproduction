@@ -239,18 +239,15 @@ def main(
         time.sleep(0.5)
         print(f"\n📂 Processing segment {i}...")
 
-        step_out_dir = os.path.join(video_out_dir, f"step_{i}")
-        os.makedirs(step_out_dir, exist_ok=True)
-
         start = min(stable_segments[i][1], len(frames) - 1)
         stop = min(stable_segments[i + 1][0], len(frames) - 1)
 
         start_img = frames[start]
         stop_img = frames[stop]
-        live_path = device.screenshot(index=0, save_path=step_out_dir)
+        live_path = device.screenshot(index=0, save_path=video_out_dir, filename=f"step_{i}_screenshot-0.png")
 
-        tmp_start_path = os.path.join(step_out_dir, "tmp_start.png")
-        tmp_stop_path = os.path.join(step_out_dir, "tmp_stop.png")
+        tmp_start_path = os.path.join(video_out_dir, f"step_{i}_tmp_start.png")
+        tmp_stop_path = os.path.join(video_out_dir, f"step_{i}_tmp_stop.png")
         cv2.imwrite(tmp_start_path, start_img)
         cv2.imwrite(tmp_stop_path, stop_img)
 
@@ -262,14 +259,14 @@ def main(
 
         labeled_path = label_screenshot(
             screenshot_path=live_path,
-            screenshot_dir=step_out_dir,
-            name="labeled",
+            screenshot_dir=video_out_dir,
+            name=f"step_{i}_labeled",
             elements=elements,
         )
         current_img_labeled_xml_region = cv2.imread(labeled_path)
 
         # DINO detection for grounding region proposals
-        dino_out_path = os.path.join(step_out_dir, "dino.png")
+        dino_out_path = os.path.join(video_out_dir, f"step_{i}_dino.png")
         dino_regions = run_grounding_dino(tmp_start_path, dino_out_path)
 
         regions = []
@@ -288,7 +285,7 @@ def main(
         target_indices = relevant["target_regions"]
         print(f"🧠 GPT selected regions: {target_indices}")
 
-        relevant_annotated_path = os.path.join(step_out_dir, "relevant_regions.png")
+        relevant_annotated_path = os.path.join(video_out_dir, f"step_{i}_relevant_regions.png")
         annotate_relevant_regions(tmp_start_path, relevant_annotated_path, dino_regions, target_indices)
 
         region_index_to_center = {r["index"]: r["center"] for r in regions}
@@ -317,8 +314,8 @@ def main(
 
             labeled_path = label_screenshot(
                 screenshot_path=live_path,
-                screenshot_dir=step_out_dir,
-                name="labeled",
+                screenshot_dir=video_out_dir,
+                name=f"step_{i}_labeled",
                 elements=elements,
             )
 
@@ -345,7 +342,7 @@ def main(
 
             execute_actions(device, [recovery_action])
             time.sleep(1.0)
-            live_path = device.screenshot(index=0, save_path=step_out_dir)
+            live_path = device.screenshot(index=0, save_path=video_out_dir, filename=f"step_{i}_screenshot-0.png")
             match = extract_json(provider.ask_gpt_state_consistency(tmp_start_path, live_path))
             attempts += 1
 
