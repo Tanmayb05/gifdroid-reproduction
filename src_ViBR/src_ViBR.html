@@ -298,6 +298,118 @@
       font-size: 0.92rem;
     }
 
+    .expandable-group {
+      display: grid;
+      gap: 12px;
+    }
+
+    .expandable {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .expandable-toggle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 16px;
+      border: none;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.98rem;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .expandable-toggle::before {
+      content: "▶";
+      display: inline-block;
+      transition: transform 0.2s ease;
+      font-size: 0.85rem;
+    }
+
+    .expandable.open .expandable-toggle::before {
+      transform: rotate(90deg);
+    }
+
+    .expandable-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .expandable.open .expandable-content {
+      max-height: 2000px;
+    }
+
+    .expandable-content-inner {
+      padding: 0 16px 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .component-diagram {
+      background: linear-gradient(135deg, rgba(15, 118, 110, 0.05), rgba(124, 58, 237, 0.05));
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      margin: 14px 0;
+      font-family: monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+
+    .role-card {
+      background: linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(124, 58, 237, 0.05));
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 14px 14px 14px 16px;
+      margin: 10px 0;
+    }
+
+    .role-label {
+      display: inline-block;
+      margin-bottom: 6px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 700;
+      background: rgba(15, 118, 110, 0.15);
+      color: var(--accent);
+    }
+
+    .highlight-box {
+      background: #fff3dd;
+      border-left: 4px solid var(--accent-2);
+      padding: 12px 14px;
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+
+    .highlight-box strong {
+      color: var(--accent-2);
+    }
+
+    .code-label {
+      display: block;
+      margin: 10px 0 6px;
+      padding: 6px 10px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
     @media (max-width: 760px) {
       .shell {
         padding: 20px 14px 48px;
@@ -360,6 +472,7 @@
         <a href="#workflow">Workflow</a>
         <a href="#inputs-process-outputs">Inputs / Process / Outputs</a>
         <a href="#functions">Important Functions</a>
+        <a href="#grounding-dino">GroundingDINO</a>
         <a href="#output-layout">Output Layout</a>
         <a href="#notes">Notes</a>
       </nav>
@@ -609,6 +722,271 @@
       </div>
     </section>
 
+    <section class="section" id="grounding-dino">
+      <div class="section-head">
+        <h2>GroundingDINO: Interactive Region Detection</h2>
+        <p>Deep dive into how GroundingDINO finds clickable UI elements in screenshots without app-specific instrumentation.</p>
+      </div>
+      <div class="section-body">
+        <!-- Quick explanation -->
+        <div class="card" style="margin-bottom: 20px;">
+          <span class="pill p3">Core Concept</span>
+          <h3 style="margin-top: 10px;">What is GroundingDINO?</h3>
+          <p>
+            <strong>GroundingDINO</strong> is an open-vocabulary object detector that takes two inputs:
+          </p>
+          <ol style="margin: 10px 0; color: var(--muted);">
+            <li><strong>An image</strong> (e.g., a GUI screenshot)</li>
+            <li><strong>Free-form text descriptions</strong> (e.g., "button, text field, search bar")</li>
+          </ol>
+          <p>
+            It returns <strong>bounding boxes</strong> around image regions that match those descriptions.
+            Unlike traditional object detectors trained on fixed categories, GroundingDINO can understand any text prompt.
+          </p>
+        </div>
+
+        <!-- How it works internally -->
+        <div style="margin-bottom: 20px;">
+          <h3 style="margin-bottom: 12px;">How GroundingDINO Works Internally</h3>
+          <div class="expandable-group" id="dino-internals">
+            <div class="expandable">
+              <button class="expandable-toggle">Vision Backbone: Swin Transformer</button>
+              <div class="expandable-content">
+                <div class="expandable-content-inner">
+                  <p>
+                    The first component is a hierarchical vision transformer (Swin) that processes the image at multiple scales.
+                  </p>
+                  <p style="margin: 10px 0 0;">
+                    <strong>What it does:</strong> Extracts rich spatial features from the screenshot, capturing edges, textures, colors, and shapes at different zoom levels.
+                  </p>
+                  <p style="margin: 10px 0 0;">
+                    <strong>Why it matters:</strong> A small button and a large card both need to be detected. Multi-scale features handle both.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="expandable">
+              <button class="expandable-toggle">Language Encoder: BERT</button>
+              <div class="expandable-content">
+                <div class="expandable-content-inner">
+                  <p>
+                    The second component is a BERT transformer that encodes the text prompt into token embeddings.
+                  </p>
+                  <p style="margin: 10px 0 0;">
+                    <strong>What it does:</strong> Converts text like "button" or "text field" into dense vector representations that capture semantic meaning.
+                  </p>
+                  <p style="margin: 10px 0 0;">
+                    <strong>Why it matters:</strong> The model understands that "button", "clickable", and "pressable" all refer to similar UI concepts.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="expandable">
+              <button class="expandable-toggle">Cross-Modal Decoder: Matching Vision to Language</button>
+              <div class="expandable-content">
+                <div class="expandable-content-inner">
+                  <p>
+                    The third component is a decoder that fuses vision and language features and outputs bounding boxes.
+                  </p>
+                  <p style="margin: 10px 0 0;">
+                    <strong>What it does:</strong> Takes image regions from the backbone and text tokens from the encoder, matches them, and produces bounding boxes with confidence scores.
+                  </p>
+                  <p style="margin: 10px 0 0;">
+                    <strong>Why it matters:</strong> This is where vision and language "agree" on where an object is. The model learns which image patches align with which text concepts.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ViBR integration -->
+        <div style="margin-bottom: 20px;">
+          <h3 style="margin-bottom: 12px;">How ViBR Uses GroundingDINO (Step 9)</h3>
+
+          <div class="role-card">
+            <div class="role-label">Input</div>
+            <p>
+              <strong>The recorded start frame</strong> +
+              <strong>a generic GUI text prompt</strong>
+            </p>
+            <p style="margin: 6px 0 0; font-size: 0.92rem;">
+              <code>approach/dino_detection.py:65</code>:
+            </p>
+            <pre style="margin: 8px 0 0; font-size: 0.85rem; padding: 10px; background: #f5efe4; border: none; color: var(--ink);">"header bar . navigation bar . toolbar . button . icon .
+checkbox . toggle . text input . search bar . text field .
+image . card . list item . bottom navigation . tab bar"</pre>
+          </div>
+
+          <div class="role-card">
+            <div class="role-label">Process</div>
+            <p>
+              GroundingDINO scans the entire recorded frame and detects all regions that match any of those categories.
+              Each detection gets a confidence score (0.0–1.0).
+            </p>
+            <p style="margin: 6px 0 0;">
+              Why generic labels? Because the code doesn't know what app it's running on—it can't hardcode "Gmail compose button"
+              or "Twitter like icon". Generic categories work on any Android app.
+            </p>
+          </div>
+
+          <div class="role-card">
+            <div class="role-label">Output</div>
+            <p>
+              A list of <strong>detected regions</strong>, each with:
+            </p>
+            <ul style="margin: 8px 0 0;">
+              <li>Region index (0, 1, 2, ...)</li>
+              <li>Phrase / category matched (e.g., "button", "text field")</li>
+              <li>Confidence score (0.0–1.0)</li>
+              <li>Bounding box in pixel coordinates</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- The prompt strategy -->
+        <div style="margin-bottom: 20px;">
+          <h3 style="margin-bottom: 12px;">Why This Design Works (The Prompt Strategy)</h3>
+
+          <div class="highlight-box">
+            <strong>Key insight:</strong> ViBR doesn't ask GroundingDINO to find <em>which region was interacted with</em>.
+            It asks the LLM. GroundingDINO's job is just to narrow the search space.
+          </div>
+
+          <p style="margin: 12px 0;">
+            The workflow is a <strong>two-stage coarse-to-fine approach</strong>:
+          </p>
+
+          <div class="grid two">
+            <div class="card">
+              <span class="pill p1">Stage 1: Coarse</span>
+              <h3 style="font-size: 0.99rem; margin-top: 8px;">GroundingDINO</h3>
+              <p>
+                Detects all plausible interactive regions on the recorded frame.
+                Doesn't need to be perfect—just needs to find candidate regions.
+              </p>
+            </div>
+            <div class="card">
+              <span class="pill p2">Stage 2: Fine</span>
+              <h3 style="font-size: 0.99rem; margin-top: 8px;">GPT-4o VLM</h3>
+              <p>
+                Looks at the recorded start + end frames and picks which region <em>most likely</em>
+                explains the visual transition. Uses semantic reasoning, not just object detection.
+              </p>
+            </div>
+          </div>
+
+          <p style="margin: 12px 0;">
+            <strong>Why not just use GroundingDINO to pick the region?</strong>
+            Because GroundingDINO finds objects, not user intent. A tap might move focus, open a menu,
+            or trigger navigation—GroundingDINO can't reason about cause and effect. The VLM can.
+          </p>
+        </div>
+
+        <!-- Practical flow -->
+        <div style="margin-bottom: 20px;">
+          <h3 style="margin-bottom: 12px;">Practical Flow: One Action Scene</h3>
+
+          <div class="component-diagram">
+┌─────────────────────────────────────┐
+│ Recorded Frame Start                │ (what the user saw at the moment before the action)
+│ + Recorded Frame End                │ (what the user saw after)
+└─────────────┬───────────────────────┘
+              │
+              ▼
+┌─────────────────────────────────────┐
+│ GroundingDINO.predict(              │
+│   image=recorded_start,             │
+│   caption="button, text field, ...") │
+└─────────────┬───────────────────────┘
+              │
+              ▼
+┌─────────────────────────────────────┐
+│ Output: 8 detected regions           │
+│  • Region 0: "button" @ (100,200)   │
+│  • Region 1: "text field" @ (150,250)
+│  • Region 2: "icon" @ (250,100)     │
+│  ... (confidence scores omitted)     │
+└─────────────┬───────────────────────┘
+              │
+              ▼
+┌─────────────────────────────────────┐
+│ Ask GPT-4o:                          │
+│ "Look at frames start and end.       │
+│  Which of these 8 regions changed?"  │
+│ (show marked-up dual-view image)    │
+└─────────────┬───────────────────────┘
+              │
+              ▼
+┌─────────────────────────────────────┐
+│ GPT-4o Output: "Region 2 (icon)"    │
+│ (This is the ROI for this scene)    │
+└─────────────────────────────────────┘
+          </div>
+        </div>
+
+        <!-- Artifacts saved -->
+        <div style="margin-bottom: 20px;">
+          <h3 style="margin-bottom: 12px;">Artifacts Saved to Step Folder</h3>
+
+          <div class="grid two">
+            <div class="mini-item">
+              <strong><code>dino.png</code></strong>
+              <p style="margin: 6px 0 0; font-size: 0.92rem;">
+                All detected regions numbered and drawn as bounding boxes on the recorded start frame.
+                Confidence scores shown in labels.
+              </p>
+            </div>
+            <div class="mini-item">
+              <strong><code>relevant_regions.png</code></strong>
+              <p style="margin: 6px 0 0; font-size: 0.92rem;">
+                Only the regions selected by GPT-4o as relevant to the action.
+                Helps you visually verify what the model thought mattered.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code location -->
+        <div style="margin-bottom: 20px;">
+          <h3 style="margin-bottom: 12px;">Where to Find the Code</h3>
+
+          <div class="mini-item">
+            <strong><code>src_ViBR/approach/dino_detection.py</code></strong>
+            <p style="margin: 6px 0 0;">
+              Main entry point: <code>run_grounding_dino(image_path, output_path)</code><br>
+              Loads the pretrained model once, runs detection, and annotates the image.
+            </p>
+            <p style="margin: 6px 0 0;">
+              Model config: <code>GroundingDINO_SwinB_cfg.py</code> (Swin Transformer backbone)<br>
+              Weights: <code>weights/groundingdino_swinb_cogcoor.pth</code> (~300MB)
+            </p>
+          </div>
+
+          <div class="mini-item" style="margin-top: 12px;">
+            <strong><code>src_ViBR/approach/segment_replay.py</code></strong>
+            <p style="margin: 6px 0 0;">
+              Calls GroundingDINO at step 9 (see <code>extract_regions()</code> function)<br>
+              Passes the detected regions to the VLM for ROI selection.
+            </p>
+          </div>
+        </div>
+
+        <!-- Why it matters -->
+        <div class="highlight-box">
+          <strong>Why GroundingDINO is critical to ViBR:</strong>
+          <p style="margin: 8px 0 0;">
+            GIFdroid uses UIAutomator XML on the replay device—but XML doesn't exist on the <em>recorded video</em>.
+            GroundingDINO solves this by understanding GUI semantics from raw pixels.
+            It bridges vision and interaction: you see a region on screen, GroundingDINO finds it,
+            and the VLM decides what to do with it.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="output-layout">
       <div class="section-head">
         <h2>What the Output Folder Contains</h2>
@@ -696,5 +1074,23 @@
       Saved as <code>src_ViBR/src_ViBR.html</code>
     </div>
   </div>
+
+  <script>
+    // Make expandable sections interactive
+    document.querySelectorAll('.expandable-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const expandable = this.closest('.expandable');
+        expandable.classList.toggle('open');
+      });
+    });
+
+    // Optional: open first item in grounding-dino section by default
+    const firstExpand = document.querySelector('#dino-internals .expandable-toggle');
+    if (firstExpand) {
+      setTimeout(() => {
+        firstExpand.closest('.expandable').classList.add('open');
+      }, 100);
+    }
+  </script>
 </body>
 </html>

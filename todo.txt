@@ -1,0 +1,39 @@
+For the next week.
+
+You need to prepare a slides. (PPT or html)
+1. Slides include the overview of their tool. Using figures and explain. 
+2. Slides include the limitation of their tool by using a real example. Use example and middle results of that tool to show me . (example of each)
+3. It needs to have your tool's design and overview with diagram. Explain on each on node of diagram.
+4. Use the same example to 2, it needs to show why you tool can handle one video reproducing.
+5. Show me the evaluation results as a table, #number you can reproduce , # number they can reproduce for each video.
+
+
+
+Why is the failure??
+Test case scenarios to run for both the apps and check which ones better, which ones not. What is the reason for this?
+A backtracking strategy for the apps. If there is a bad click then the app should be able to go back and do a good click
+
+
+you need to complete collecting data, what is collecting data?
+- download respective apks for the new apps + old ones
+- match the versions for both  moto g60(handheld) + emulator (screen record)
+- screen-record 20 videos. 
+- define what each video does in a text file in the same folder as the video folder
+- do the same for handheld video
+- define what each video does in a text file in the same folder as the video folder
+- add the respective videos in respective dirs.
+
+
+running experiments. what do you mean by running experiements?
+- add a code block for vibr to get the summary of the video in a new file
+- run src__llm code for the new handheld and  screenrec videos (gemini 2.5 pro)
+- run src_ViBR code for the new handheld and  screenrec videos (gemini 2.5 pro)
+
+setting up a workflow on how to look for observations
+- store the results in a new 2026-05-01 dir where all the data for 2026-05-01 is stored for refeerence and its easier to navigate when doing the presentation.
+- determine what are the things you will need to evaluate to compare.
+- how to do that?
+- match the description of the video with ViBR and src_llm
+
+
+This is an end to end presentation. I want definitive observations and results backed observations, how to improve steps, limitaions. all of this from the experiments observations only and not theoritically.
