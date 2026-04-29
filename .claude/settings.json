@@ -62,7 +62,12 @@
       "Bash(tee artifacts/milestone2/v2_regression_dry_run.txt)",
       "Bash(.venv/bin/python -c \"from src_llm.automation import run_automation; from src_llm.automate import main; from src_llm.config import load_automation_config, AutomationConfig; from src_llm.providers import GeminiProvider; print\\('All imports OK'\\)\")",
       "Bash(adb install:*)",
-      "Bash(adb uninstall:*)"
+      "Bash(adb uninstall:*)",
+      "Bash(cp -v apps/adaway/apk/adaway_v6.1.4.apk apks/)",
+      "Bash(cp -v apps/antennapod/apk/antennapod_v3.11.0.apk apks/)",
+      "Bash(cp -v apps/jigsaw/apk/jigsaw_v1.3.0.apk apks/)",
+      "Bash(cp -v apps/homemedkit/apk/homemedkit_v1.9.3.apk apks/)",
+      "Bash(cp -v apps/pomodorot/apk/pomodorot_v0.13.3.apk apks/)"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",

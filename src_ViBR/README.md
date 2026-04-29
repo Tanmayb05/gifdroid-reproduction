@@ -285,6 +285,7 @@ OPENAI_API_KEY=your_openai_api_key_here
 7. Connect an Android device/emulator via ADB and verify:
 ```bash
 adb devices
+emulator -avd Pixel_2
 ```
 
 8. Ensure the target app is installed and the device starts from the expected initial UI state.
