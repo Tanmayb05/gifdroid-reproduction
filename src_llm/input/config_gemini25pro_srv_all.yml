@@ -1,0 +1,63 @@
+# src_llm config: Gemini 2.5 Pro, srv-001.mp4 for all apps
+# Usage:
+# python -m src_llm.main --config src_llm/input/config_gemini25pro_srv_all.yml
+
+llm: "gemini"
+llm_model: "gemini-2.5-pro"
+
+frame_sampling:
+  strategy: "uniform"
+  fps: 1.0
+  max_frames: 100
+
+keyframe_selection:
+  method: "heuristic"
+  min_gap_seconds: 2.0
+
+output:
+  overwrite: false
+
+logging:
+  level: "INFO"
+
+runs:
+  - app_name: "AdAway"
+    video_path: "srv"
+  - app_name: "AntennaPod"
+    video_path: "srv"
+  - app_name: "BakersPercentageCalculator"
+    video_path: "srv"
+  - app_name: "BatteryTemperatureDisplay"
+    video_path: "srv"
+  - app_name: "Bily"
+    video_path: "srv"
+  - app_name: "BinaryEye"
+    video_path: "srv"
+  - app_name: "BloodPressureMonitor"
+    video_path: "srv"
+  - app_name: "BreThap"
+    video_path: "srv"
+  - app_name: "DeadHash"
+    video_path: "srv"
+  - app_name: "HomeMedKit"
+    video_path: "srv"
+  - app_name: "HomeRAudioPlayer"
+    video_path: "srv"
+  - app_name: "Jigsaw"
+    video_path: "srv"
+  - app_name: "LuxAlarm"
+    video_path: "srv"
+  - app_name: "NewPipe"
+    video_path: "srv"
+  - app_name: "Pantry"
+    video_path: "srv"
+  - app_name: "PortAuthority"
+    video_path: "srv"
+  - app_name: "Quitter"
+    video_path: "srv"
+  - app_name: "SimpleNotes"
+    video_path: "srv"
+  - app_name: "Vanilla"
+    video_path: "srv"
+  - app_name: "WifiAnalyzer"
+    video_path: "srv"
