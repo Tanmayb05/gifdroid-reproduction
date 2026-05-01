@@ -1,9 +1,15 @@
 # src_llm config: Gemini 2.5 Pro, srv-001.mp4 for all apps
 # Usage:
 # python -m src_llm.main --config src_llm/input/config_gemini25pro_srv_all.yml
+#
+# Supports video_path formats:
+# - Shorthand: "srv" or "hhv" → resolves to srv-001.mp4 or hhv-001.mp4
+# - Full filename: "srv-001.mp4" or "srv-002.mp4" → exact file
+# - Explicit path: "apps/adaway/videos/srv-001.mp4"
 
 llm: "gemini"
 llm_model: "gemini-2.5-pro"
+video_mode: true
 
 frame_sampling:
   strategy: "uniform"
@@ -22,42 +28,42 @@ logging:
 
 runs:
   - app_name: "AdAway"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "AntennaPod"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "BakersPercentageCalculator"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "BatteryTemperatureDisplay"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "Bily"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "BinaryEye"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "BloodPressureMonitor"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "BreThap"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "DeadHash"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "HomeMedKit"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "HomeRAudioPlayer"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "Jigsaw"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "LuxAlarm"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "NewPipe"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "Pantry"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "PortAuthority"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "Quitter"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "SimpleNotes"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "Vanilla"
-    video_path: "srv"
+    video_path: "srv-001.mp4"
   - app_name: "WifiAnalyzer"
-    video_path: "srv"
+    video_path: "srv-001.mp4"

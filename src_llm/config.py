@@ -136,9 +136,11 @@ def _build_run_configs(
                 video_path = Path(vp_entry)
                 video_type = _resolve_video_type(video_path.name)
             else:
-                # Shorthand: resolve to filename in flat videos directory
+                # Shorthand or filename: resolve to flat videos directory
+                # Support: "srv", "hhv", "srv-001.mp4", "hhv-002.mp4", etc.
                 video_type = _resolve_video_type(vp_entry)
-                video_path = Path(f"apps/{app_name}/videos/{vp_entry}.mp4")
+                filename = vp_entry if vp_entry.endswith(".mp4") else f"{vp_entry}.mp4"
+                video_path = Path(f"apps/{app_name}/videos/{filename}")
 
             # Per-run overrides
             run_max_steps = entry.get("max_steps", max_steps)

@@ -44,9 +44,10 @@ def detect_video_type(video_path: Path) -> VideoType:
 
 
 def resolve_video_path(project_root: Path, cfg: AppConfig) -> Tuple[Path, VideoType]:
-    """Resolve video path from config (shorthand or explicit path)."""
+    """Resolve video path from config (shorthand, filename, or explicit path)."""
     raw_value = cfg.video_path.as_posix().strip().lower()
 
+    # Shorthand: "hhv" or "srv" -> defaults to -001.mp4
     if raw_value in {"hhv", "srv"}:
         video_type: VideoType = "hhv" if raw_value == "hhv" else "srv"
         video_file = f"{raw_value}-001.mp4"
@@ -59,7 +60,19 @@ def resolve_video_path(project_root: Path, cfg: AppConfig) -> Tuple[Path, VideoT
         )
         return resolved, video_type
 
-    explicit = cfg.video_path if cfg.video_path.is_absolute() else (project_root / cfg.video_path)
+    # Filename or explicit path: if "/" in path, use as-is; else resolve to app's videos dir
+    if "/" in raw_value:
+        explicit = cfg.video_path if cfg.video_path.is_absolute() else (project_root / cfg.video_path)
+    else:
+        # Just a filename like "srv-001.mp4" or "hhv-002.mp4" - resolve to app's videos dir
+        explicit = (
+            project_root
+            / "apps"
+            / cfg.app_name.lower()
+            / "videos"
+            / cfg.video_path
+        )
+
     video_type = detect_video_type(explicit)
     return explicit, video_type
 

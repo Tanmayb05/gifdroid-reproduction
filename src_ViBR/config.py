@@ -111,6 +111,9 @@ def _expand_video_path(app_name: str, video_path: Path) -> Path:
     raw = video_path.as_posix().strip().lower()
     if raw in {"srv", "hhv"}:
         return Path(f"apps/{app_name}/videos/{raw}-001.mp4")
+    # Support full filenames: "srv-001.mp4", "hhv-002.mp4", etc.
+    if raw.startswith(("srv-", "hhv-")) and raw.endswith(".mp4"):
+        return Path(f"apps/{app_name}/videos/{raw}")
     return video_path
 
 

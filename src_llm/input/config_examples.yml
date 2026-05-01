@@ -1,0 +1,56 @@
+# src_llm config examples showing different video_path specifications
+
+llm: "gemini"
+llm_model: "gemini-2.5-pro"
+
+frame_sampling:
+  strategy: "uniform"
+  fps: 1.0
+  max_frames: 100
+
+keyframe_selection:
+  method: "heuristic"
+  min_gap_seconds: 2.0
+
+output:
+  overwrite: false
+
+logging:
+  level: "INFO"
+
+runs:
+  # Example 1: Shorthand - resolves to srv-001.mp4
+  - app_name: "AdAway"
+    video_path: "srv"
+
+  # Example 2: Shorthand - resolves to hhv-001.mp4
+  - app_name: "AntennaPod"
+    video_path: "hhv"
+
+  # Example 3: Full filename (handles multiple versions like srv-002.mp4)
+  - app_name: "BakersPercentageCalculator"
+    video_path: "srv-001.mp4"
+
+  # Example 4: Full filename with different video
+  - app_name: "BatteryTemperatureDisplay"
+    video_path: "srv-002.mp4"
+
+  # Example 5: Handheld full filename
+  - app_name: "Bily"
+    video_path: "hhv-002.mp4"
+
+  # Example 6: Multiple videos (list)
+  - app_name: "BinaryEye"
+    video_path:
+      - "srv-001.mp4"
+      - "srv-002.mp4"
+
+  # Example 7: Mix of shorthand and full filename
+  - app_name: "BloodPressureMonitor"
+    video_path:
+      - "srv"
+      - "hhv-001.mp4"
+
+  # Example 8: Explicit full path (if not following the flat structure)
+  - app_name: "BreThap"
+    video_path: "apps/brethap/videos/srv-001.mp4"
