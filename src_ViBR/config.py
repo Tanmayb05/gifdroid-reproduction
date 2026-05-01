@@ -13,15 +13,9 @@ DEFAULT_MODELS = {
     "openai": "gpt-4o",
     "gemini": "gemini-1.5-flash",
 }
-VIDEO_TYPE_ALIASES = {
-    "screenrec": "screenrec",
-    "srv": "screenrec",
-    "handheld": "handheld",
-    "hhv": "handheld",
-}
 VIDEO_PREFIX = {
-    "screenrec": "srv",
-    "handheld": "hhv",
+    "srv": "screenrec",
+    "hhv": "handheld",
 }
 
 
@@ -115,10 +109,8 @@ def _parse_video_path_list(value: Any) -> list[Path]:
 
 def _expand_video_path(app_name: str, video_path: Path) -> Path:
     raw = video_path.as_posix().strip().lower()
-    if raw in VIDEO_TYPE_ALIASES:
-        video_type = VIDEO_TYPE_ALIASES[raw]
-        prefix = VIDEO_PREFIX[video_type]
-        return Path(f"apps/{app_name}/videos/{video_type}/{prefix}-001.mp4")
+    if raw in {"srv", "hhv"}:
+        return Path(f"apps/{app_name}/videos/{raw}-001.mp4")
     return video_path
 
 

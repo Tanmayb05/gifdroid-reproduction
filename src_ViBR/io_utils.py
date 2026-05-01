@@ -22,13 +22,14 @@ class OutputLayout:
 
 
 def detect_video_source(video_path: Path) -> str:
-    normalized = video_path.as_posix().lower()
-    if "/handheld/" in normalized or "hhv_" in normalized or "hhv-" in normalized:
+    filename = video_path.name.lower()
+    if filename.startswith("hhv"):
         return "handheld"
-    if "/screenrec/" in normalized or "srv_" in normalized or "srv-" in normalized:
+    if filename.startswith("srv"):
         return "screenrec"
     raise PathError(
-        "Could not detect video source from path. Expect handheld/hhv or screenrec/srv in video path."
+        f"Could not detect video source from filename '{video_path.name}'. "
+        "Expect filename to start with 'hhv' or 'srv'."
     )
 
 

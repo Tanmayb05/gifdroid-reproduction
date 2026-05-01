@@ -31,30 +31,30 @@ class OutputLayout:
 
 
 def detect_video_type(video_path: Path) -> VideoType:
-    """Infer HHV/SRV video type from the file path."""
-    normalized = video_path.as_posix().lower()
-    if "/handheld/" in normalized or "hhv_" in normalized or "hhv-" in normalized:
+    """Infer HHV/SRV video type from filename prefix."""
+    filename = video_path.name.lower()
+    if filename.startswith("hhv"):
         return "hhv"
-    if "/screenrec/" in normalized or "srv_" in normalized or "srv-" in normalized:
+    if filename.startswith("srv"):
         return "srv"
     raise PathError(
-        "Could not detect video type from path. Expect handheld/hhv or screenrec/srv in video path."
+        f"Could not detect video type from filename '{video_path.name}'. "
+        "Expect filename to start with 'hhv' or 'srv'."
     )
 
 
 def resolve_video_path(project_root: Path, cfg: AppConfig) -> Tuple[Path, VideoType]:
-    """Resolve video input from shorthand token ('hhv'/'srv') or explicit path."""
+    """Resolve video path from config (shorthand or explicit path)."""
     raw_value = cfg.video_path.as_posix().strip().lower()
+
     if raw_value in {"hhv", "srv"}:
         video_type: VideoType = "hhv" if raw_value == "hhv" else "srv"
-        input_subdir = "handheld" if video_type == "hhv" else "screenrec"
-        video_file = f"{video_type}-001.mp4"
+        video_file = f"{raw_value}-001.mp4"
         resolved = (
             project_root
             / "apps"
             / cfg.app_name.lower()
             / "videos"
-            / input_subdir
             / video_file
         )
         return resolved, video_type

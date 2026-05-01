@@ -43,7 +43,7 @@ VIDEO_MODE_SUPPORTED_PROVIDERS = {"gemini"}
 class AutomationRunConfig:
     """A single resolved automation run: one app + one video type."""
     app_name: str
-    video_path: Path       # e.g. apps/adaway/videos/screenrec/srv-001.mp4
+    video_path: Path       # e.g. apps/adaway/videos/srv-001.mp4
     apk_path: Path         # e.g. apps/adaway/apk/adaway.apk
     video_type: str        # "screenrec" | "handheld"
     llm: str
@@ -72,30 +72,21 @@ class AutomationConfig:
     runs: List["AutomationRunConfig"]
 
 
-# Maps video_path shorthand used in config to the actual folder name under apps/<app>/videos/
-_VIDEO_TYPE_ALIASES: Dict[str, str] = {
-    "screenrec": "screenrec",
+_VIDEO_TYPE_MAP: Dict[str, str] = {
     "srv": "screenrec",
-    "handheld": "handheld",
     "hhv": "handheld",
 }
 
-# Maps video folder name to the canonical video filename prefix
-_VIDEO_FILENAME_PREFIX: Dict[str, str] = {
-    "screenrec": "srv",
-    "handheld": "hhv",
-}
 
-
-def _resolve_video_type(alias: str) -> str:
-    """Resolve a video_path shorthand (srv/hhv/screenrec/handheld) to folder name."""
-    key = alias.strip().lower()
-    if key not in _VIDEO_TYPE_ALIASES:
-        raise ConfigError(
-            f"Unknown video_path value '{alias}'. "
-            f"Use one of: {sorted(_VIDEO_TYPE_ALIASES)}"
-        )
-    return _VIDEO_TYPE_ALIASES[key]
+def _resolve_video_type(filename: str) -> str:
+    """Infer video type from filename prefix (srv/hhv)."""
+    for prefix, vtype in _VIDEO_TYPE_MAP.items():
+        if filename.lower().startswith(prefix):
+            return vtype
+    raise ConfigError(
+        f"Unknown video file '{filename}'. "
+        f"Must start with 'srv' or 'hhv' prefix."
+    )
 
 
 def _build_run_configs(
@@ -126,7 +117,7 @@ def _build_run_configs(
         apk_raw = _optional_str(entry, "apk_path")
         apk_path = Path(apk_raw) if apk_raw else Path(f"apps/{app_name}/apk/{app_name}.apk")
 
-        # video_path: list of shorthands (srv, hhv, screenrec, handheld) or explicit paths
+        # video_path: list of shorthands (srv, hhv) or explicit paths
         vp_raw = entry.get("video_path")
         if vp_raw is None:
             raise ConfigError(f"runs[{i}].video_path is required")
@@ -143,12 +134,11 @@ def _build_run_configs(
             # If it looks like a full path (contains '/'), use it directly
             if "/" in vp_entry:
                 video_path = Path(vp_entry)
-                video_type = video_path.parent.name
+                video_type = _resolve_video_type(video_path.name)
             else:
-                # Shorthand: resolve to canonical folder + filename
+                # Shorthand: resolve to filename in flat videos directory
                 video_type = _resolve_video_type(vp_entry)
-                prefix = _VIDEO_FILENAME_PREFIX[video_type]
-                video_path = Path(f"apps/{app_name}/videos/{video_type}/{prefix}-001.mp4")
+                video_path = Path(f"apps/{app_name}/videos/{vp_entry}.mp4")
 
             # Per-run overrides
             run_max_steps = entry.get("max_steps", max_steps)
