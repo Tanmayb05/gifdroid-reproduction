@@ -1,21 +1,22 @@
 # ViBR: Automated Bug Replay from Video-based Reports Using Vision-Language Models
 
 ## Table of Contents
+
 - [Table of Contents](#table-of-contents)
 - [Getting Started](#getting-started)
 - [Motivation](#motivation)
 - [Approach](#approach)
-    - [Action Segmentation](#action-segmentation)
-    - [GUI State Comparison](#gui-state-comparison)
-    - [Bug Replay on Device](#bug-replay-on-device)
+  - [Action Segmentation](#action-segmentation)
+  - [GUI State Comparison](#gui-state-comparison)
+  - [Bug Replay on Device](#bug-replay-on-device)
 - [Evaluation](#evaluation)
-    - [RQ1: Performance of Action Segmentation](#rq1-performance-of-action-segmentation)
-    - [RQ2: Performance of GUI State Comparison](#rq2-performance-of-gui-state-comparison)
-    - [RQ3: Performance of Bug Replay](#rq3-performance-of-bug-replay)
-    - [RQ4: Runtime Overhead](#rq4-runtime-overhead)
-
+  - [RQ1: Performance of Action Segmentation](#rq1-performance-of-action-segmentation)
+  - [RQ2: Performance of GUI State Comparison](#rq2-performance-of-gui-state-comparison)
+  - [RQ3: Performance of Bug Replay](#rq3-performance-of-bug-replay)
+  - [RQ4: Runtime Overhead](#rq4-runtime-overhead)
 
 ## Getting Started
+
 Bug reports play a critical role in software maintenance by helping users convey encountered issues to developers.
 Recently, GUI screen capture videos have gained popularity as
 a bug reporting artifact due to their ease of use and ability
@@ -27,24 +28,20 @@ given a recording and the current GUI state, the approach
 infers the next actionable step and executes it accordingly.
 Specifically, ViBR segments the recording into distinct
 user interaction scenes using CLIP-based techniques;
- employs region-aware VLM-based reasoning to compare
+employs region-aware VLM-based reasoning to compare
 functionally equivalent GUI states between the recording and
 the target device; and adaptively infers and replays the
 corresponding user actions on the device.
 
 ## Motivation
-<p align="center">
-<img src="./figures/difference.jpg" width="70%"/> 
-</p>
+
+<p align="center"><img src="./figures/difference.jpg" width="70%"/></p>
 <p align="center">Figure: GUI comparison between recording and device.</p>
 
-
-
-Despite their growing prevalence of GUI recordings, reproducing bugs from recordings remains challenging process. 
+Despite their growing prevalence of GUI recordings, reproducing bugs from recordings remains challenging process.
 Existing methods often rely on fragile image-processing
-heuristics, explicit touch indicators, or pre-constructed UI transition graphs, which require non-trivial instrumentation and app-specific setup. 
+heuristics, explicit touch indicators, or pre-constructed UI transition graphs, which require non-trivial instrumentation and app-specific setup.
 As a result, developers often have to manually review the raw footage to infer user actions and the corresponding GUI elements—a process that is both error-prone and time-consuming, particularly when accounting for device differences.
-
 
 For example, as shown in the Figure, the same folder-selection
 interface can vary substantially across devices and configurations, such as 1920×1080 vs. 1440×2560
@@ -58,7 +55,7 @@ critical need.
 ## Approach
 
 <p align="center">
-<img src="./figures/overview.jpg" width="80%"/> 
+<img src="./figures/overview.jpg" width="80%"/>
 </p>
 <p align="center">Figure: The overview of ViBR.</p>
 
@@ -70,24 +67,22 @@ based on the current GUI state of the device.
 > For more approach details and implementations, please check the instructions in [Approach](./approach)
 
 ### Action Segmentation
+
 <p align="center">
-<img src="./figures/timeframe.png" width="85%"/> 
+<img src="./figures/timeframe.png" width="85%"/>
 </p>
 <p align="center">Figure: An illustration of consecutive frame similarity.</p>
 
 While recent work has explored using Vision-Language
 Models (VLMs) for video segmentation, these models
 struggle with long-term coherence—especially in GUI recordings. To address this limitation, we
-adopt a signal processing perspective, treating GUI recordings as sequences of visual frames encoding transitions between user actions. 
+adopt a signal processing perspective, treating GUI recordings as sequences of visual frames encoding transitions between user actions.
 That is, we segment the recording into discrete user action scenes by
 analyzing visual similarity between consecutive frames.
 
-
 ### GUI State Comparison
-<p align="center">
-<img src="./figures/prompt1.jpg" width="65%"/> 
-</p>
-<p align="center">Figure: The example of prompting GUI state comparison.</p>
+
+![Example of prompting GUI state comparison](./figures/prompt1.jpg)
 
 GUIs are inherently dynamic. Variations such as pop-up
 dialogs, layout shifts, and overlay configurations can introduce
@@ -100,12 +95,9 @@ In detail, we propose a region-guided, attention-
 based comparison framework that leverages VLMs to assess GUI state consistency with a focus
 on functionally relevant interaction targets.
 
-
 ### Bug Replay on Device
-<p align="center">
-<img src="./figures/prompt2.jpg" width="75%"/> 
-</p>
-<p align="center">Figure: The example of prompting bug replay on device.</p>
+
+![Example of prompting bug replay on device](./figures/prompt2.jpg)
 
 Once GUI state consistency has been verified, we proceed
 to replay the recorded user action on the current device. If
@@ -118,8 +110,6 @@ precondition. The overarching goal remains the same: to
 navigate the current device screen using VLMs, either with direct guidance
 from target actions or through exploration without explicit
 context, in order to ultimately reproduce the bug.
-
-
 
 ## Evaluation
 
@@ -140,40 +130,31 @@ For RQ4, we examine the runtime overhead
 introduced by multiple VLM calls to understand the practicality of our
 approach in real-world settings.
 
-
 > For more dataset details and experimental settings, please check the instructions in [Evaluation](./evaluation/README.md)
-
 
 ### RQ1: Performance of Action Segmentation
 
-<p align="center">
-<img src="figures/rq1.png" width="65%">
-</p>
-<p align="center">Table: Performance comparison for action boundary segmentation.</p>
+![Performance comparison for action boundary segmentation](figures/rq1.png)
 
 Our approach significantly
 outperforms all baselines, 7.4% in precision, 1.2% in recall, and 4.9% in F1-score over the best-performing baseline (GIFdroid). GPT-4o exhibits the
-lowest performance. 
+lowest performance.
 While GPT-4o demonstrates strong
 semantic understanding in many tasks, it struggles with frame-
 level segmentation, primarily due to its reliance on high-level
 abstraction that lacks the granularity necessary for accurately
 identifying scene boundaries—particularly when user actions
 involve minor but functionally significant interface changes.
-Similarly, the relatively low performance of TransNetV2 is also likely due to the domain discrepancy between the natural scenes it was trained and the artificial nature of GUI recordings. 
+Similarly, the relatively low performance of TransNetV2 is also likely due to the domain discrepancy between the natural scenes it was trained and the artificial nature of GUI recordings.
 
 Traditional image-processing methods, such as PySceneDetect and Hecate, achieve relatively low performance.
-This is because these methods rely on low-level visual heuristics, e.g., histogram differences or aesthetic scoring, that are not well-suited to the subtle and fine-grained transitions present in GUI recordings. 
-Among the baselines, GIFdroid performs best. 
+This is because these methods rely on low-level visual heuristics, e.g., histogram differences or aesthetic scoring, that are not well-suited to the subtle and fine-grained transitions present in GUI recordings.
+Among the baselines, GIFdroid performs best.
 However, since it relies on SSIM as a perception metric, it remains limited when segmenting actions that involve large semantic differences but exhibit only minor pixel-level intensity differences.
-
 
 ### RQ2: Performance of GUI State Comparison
 
-<p align="center">
-<img src="figures/rq2.png" width="45%">
-</p>
-<p align="center">Table: Performance of GUI state comparison.</p>
+![Performance of GUI state comparison](figures/rq2.png)
 
 Our approach consistently outperforms all baselines,
 achieving a 43.3% improvement
@@ -181,13 +162,10 @@ in precision, 37.5% in recall, and 40.3% in F1-score compared to the best-perfor
 our functionality-aware, VLM-driven comparison method over
 traditional visual similarity techniques.
 
-<p align="center">
-<img src="figures/rq2-2.png" width="75%">
-</p>
-<p align="center">Table: Ablation studies of GUI state comparison.</p>
+![Ablation studies of GUI state comparison](figures/rq2-2.png)
 
 Our ablation study further validates the contribution of
-region-guided prompting. 
+region-guided prompting.
 The Pre-action frame + Current GUI variant, which directly compares the pre-action state with the
 current on-device GUI, performs the worst, achieving an average F1-score of only 0.62.
 Incorporating the post-action frame improves the performance to
@@ -197,16 +175,9 @@ region of interest in our approach, Pre-action frame (GroundingDINO) + Post-acti
 GUI, substantially improves performance, e.g., improving 13%, 17%, and 15% for precision, recall, and
 F1-score, respectively.
 
-
-
-
 ### RQ3: Performance of Bug Replay
 
-<p align="center">
-<img src="figures/rq3.png" width="60%">
-</p>
-<p align="center">Table: Performance comparison for bug replay.</p>
-
+![Performance comparison for bug replay](figures/rq3.png)
 
 Our approach achieves an
 average reproducibility rate of 72.0% within 302.6
@@ -224,14 +195,9 @@ language models to achieve functionality-aware GUI matching
 and robust action inference across diverse device environments
 and configurations.
 
-
 ### RQ4: Runtime Overhead
 
-<p align="center">
-<img src="figures/rq4.png" width="75%">
-</p>
-<p align="center">Table: Runtime overhead associated with VLM calls.</p>
-
+![Runtime overhead associated with VLM calls](figures/rq4.png)
 
 For each GUI recording, ViBR invokes these components once per action scene.
 First, ViBR employs Interactive Region Detection using GroundingDINO, which takes an average of
@@ -240,7 +206,7 @@ it introduces no monetary cost during execution. Following this step, ViBR perfo
 based reasoning tasks per action scene: (1) Region of Interest Selection (avg. 4.15s), (2) Attention-
 Driven State Comparison (avg. 3.93s), and (3) Bug Replay Action Inference (avg. 5.93s). We observe
 moderate input-output token usage across these calls, on average 2,362, 2,319, and 3,462 total tokens
-(input + output), respectively. 
+(input + output), respectively.
 A typical bug
 reproduction involving 10 action scenes would incur a total inference cost of around $0.02.
 
@@ -249,70 +215,88 @@ reproduction involving 10 action scenes would incur a total inference cost of ar
 Use this checklist before launching the YAML runner (`src_ViBR/main.py`).
 
 1. Create/activate a Python virtual environment at repo root (`.venv`) and install ViBR dependencies:
+
 ```bash
 ./.venv/bin/pip install -r src_ViBR/requirements.txt
 ```
 
-2. Ensure GroundingDINO is available in one of these locations:
+1. Ensure GroundingDINO is available in one of these locations:
+
 - `<repo_root>/GroundingDINO`
 - `<repo_root>/src_ViBR/GroundingDINO`
 
-3. Install GroundingDINO in the same venv (recommended with no build isolation):
+1. Install GroundingDINO in the same venv (recommended with no build isolation):
+
 ```bash
 ./.venv/bin/pip install -e src_ViBR/GroundingDINO --no-build-isolation
 ```
+
 If your clone is at `<repo_root>/GroundingDINO`, use:
+
 ```bash
 ./.venv/bin/pip install -e GroundingDINO --no-build-isolation
 ```
 
-4. Download GroundingDINO-B weights and place them at:
+1. Download GroundingDINO-B weights and place them at:
+
 ```text
 src_ViBR/GroundingDINO/weights/groundingdino_swinb_cogcoor.pth
 ```
+
 or (if your clone is in repo root):
+
 ```text
 GroundingDINO/weights/groundingdino_swinb_cogcoor.pth
 ```
 
-5. Ensure Hugging Face model files required by GroundingDINO are available (`bert-base-uncased` tokenizer/config). If your environment is offline, pre-download/cache them in advance.
+1. Ensure Hugging Face model files required by GroundingDINO are available (`bert-base-uncased` tokenizer/config). If your environment is offline, pre-download/cache them in advance.
 
-6. Set OpenAI API key in repo `.env.local`:
+2. Set OpenAI API key in repo `.env.local`:
+
 ```text
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-7. Connect an Android device/emulator via ADB and verify:
+1. Connect an Android device/emulator via ADB and verify:
+
 ```bash
 adb devices
 emulator -avd Pixel_2
 ```
 
-8. Ensure the target app is installed and the device starts from the expected initial UI state.
+1. Ensure the target app is installed and the device starts from the expected initial UI state.
 
-9. Configure runs in:
+2. Configure runs in:
+
 ```text
 src_ViBR/input/config.yml
 ```
+
 Supported `video_path` values:
+
 - shorthand: `hhv`, `srv`
 - explicit relative/absolute video file paths
 Per-run `algorithm` supports `clip` or `ssim`.
 
-10. Run:
+1. Run:
+
 ```bash
 cd src_ViBR
 ../.venv/bin/python main.py --config input/config.yml
 ```
+
 Outputs are written to:
+
 ```text
 apps/<app_name>/llm/ViBR/<handheld|screenrec>/run-XXX/
 ```
+
 including `artifacts/`, `logs/`, and `metadata.json`.
 
 ### Last Checkpoint Notes (Current Setup)
 
 You are through the previous import/runtime errors with these fixes already applied:
+
 - GroundingDINO compatibility patch for `transformers>=5` (`BertModel.get_head_mask`) in `src_ViBR/approach/dino_detection.py`
 - Fast preflight check for missing DINO weights in `src_ViBR/main.py`
 - `BertModelWarper.forward` compatibility patch for `transformers>=5`: removed the `device` positional argument from `get_extended_attention_mask()` in `src_ViBR/GroundingDINO/groundingdino/models/GroundingDINO/bertwarper.py` (line 110). Newer `transformers` changed the third positional arg from `device` to `dtype`, causing a `TypeError: to() received an invalid combination of arguments` crash at inference time.

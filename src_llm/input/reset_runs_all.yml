@@ -1,0 +1,29 @@
+# Reset runs for all apps
+# Usage:
+# python -m src_llm.reset_runs --config src_llm/input/reset_runs_all.yml --dry-run
+# python -m src_llm.reset_runs --config src_llm/input/reset_runs_all.yml --apply
+
+dry_run: true
+
+targets:
+  - app_name: "AdAway"
+  - app_name: "AntennaPod"
+  - app_name: "BakersPercentageCalculator"
+  - app_name: "BatteryTemperatureDisplay"
+  - app_name: "Bily"
+  - app_name: "BinaryEye"
+  - app_name: "BloodPressureMonitor"
+  - app_name: "BreThap"
+  - app_name: "DeadHash"
+  - app_name: "HomeMedKit"
+  - app_name: "HomeRAudioPlayer"
+  - app_name: "Jigsaw"
+  - app_name: "LuxAlarm"
+  - app_name: "NewPipe"
+  - app_name: "Pantry"
+  - app_name: "PomodoroT"
+  - app_name: "PortAuthority"
+  - app_name: "Quitter"
+  - app_name: "SimpleNotes"
+  - app_name: "Vanilla"
+  - app_name: "WifiAnalyzer"
