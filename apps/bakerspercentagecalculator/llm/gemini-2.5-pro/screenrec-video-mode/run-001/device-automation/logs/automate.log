@@ -120,3 +120,111 @@
     "text": "400",
     "direct
 [INFO] 2026-05-06 00:40:50 Step 4: LLM response | continue=True action_type=type_text reasoning=The user has already entered the recipe name and notes. According to the task steps, the next action confidence=1.00
+[INFO] 2026-05-06 00:40:52 Step 5/10
+[INFO] 2026-05-06 00:40:52 Step 5: Sending to LLM | task=To add a new recipe for a cake to the application. | video_summary_len=1968 | history_len=3 | a11y_tree_len=29288
+[INFO] 2026-05-06 00:40:53 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-06 00:40:58 decide_next_action_with_video_context: response received | elapsed_sec=5.31
+[INFO] 2026-05-06 00:40:58 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/buttonSaveRecipe",
+    "coordinates": null,
+    "text": null,
+    "direction": null,
+    "target_description": "Save Recipe button"
+  },
+  "reasoning": "The user has filled in all the necessary fields for the new recipe (Recipe Name, Notes, Oven Temp & Time). The next and final step in creating the recipe is to save it by tapping the 'Save Recipe' button.",
+  "confidence": 
+[INFO] 2026-05-06 00:40:58 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/buttonSaveRecipe",
+    "coordinates": null,
+    "text": null,
+    "direction
+[INFO] 2026-05-06 00:40:58 Step 5: LLM response | continue=True action_type=tap reasoning=The user has filled in all the necessary fields for the new recipe (Recipe Name, Notes, Oven Temp &  confidence=1.00
+[INFO] 2026-05-06 00:41:00 Step 6/10
+[INFO] 2026-05-06 00:41:00 Step 6: Sending to LLM | task=To add a new recipe for a cake to the application. | video_summary_len=1968 | history_len=3 | a11y_tree_len=29288
+[INFO] 2026-05-06 00:41:01 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-06 00:41:11 decide_next_action_with_video_context: response received | elapsed_sec=9.86
+[INFO] 2026-05-06 00:41:11 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextRecipeName",
+    "coordinates": null,
+    "text": "cake",
+    "direction": null,
+    "target_description": "the Recipe Name text input field"
+  },
+  "reasoning": "The task is to create a new recipe named 'cake'. The current screen shows an error message 'Please enter a recipe name', which indicates that this field is mandatory. Based on the task description, t
+[INFO] 2026-05-06 00:41:11 Parsed decision | continue=True action=type_text | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextRecipeName",
+    "coordinates": null,
+    "text": "cake",
+    
+[INFO] 2026-05-06 00:41:11 Step 6: LLM response | continue=True action_type=type_text reasoning=The task is to create a new recipe named 'cake'. The current screen shows an error message 'Please e confidence=1.00
+[INFO] 2026-05-06 00:41:13 Step 7/10
+[INFO] 2026-05-06 00:41:13 Step 7: Sending to LLM | task=To add a new recipe for a cake to the application. | video_summary_len=1968 | history_len=3 | a11y_tree_len=29290
+[INFO] 2026-05-06 00:41:14 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-06 00:41:51 decide_next_action_with_video_context: response received | elapsed_sec=37.57
+[INFO] 2026-05-06 00:41:51 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextRecipeName",
+    "coordinates": null,
+    "text": "cake",
+    "direction": null,
+    "target_description": "the 'Recipe Name' text input field"
+  },
+  "reasoning": "The task is to add a new recipe for a 'cake'. The current screen is the 'Add Recipe' form. According to the session summary, the first step on this screen is to enter the recipe name. The screensho
+[INFO] 2026-05-06 00:41:51 Parsed decision | continue=True action=type_text | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextRecipeName",
+    "coordinates": null,
+    "text": "cake",
+    
+[INFO] 2026-05-06 00:41:51 Step 7: LLM response | continue=True action_type=type_text reasoning=The task is to add a new recipe for a 'cake'. The current screen is the 'Add Recipe' form. According confidence=1.00
+[INFO] 2026-05-06 00:41:53 Step 8/10
+[INFO] 2026-05-06 00:41:53 Step 8: Sending to LLM | task=To add a new recipe for a cake to the application. | video_summary_len=1968 | history_len=3 | a11y_tree_len=29290
+[INFO] 2026-05-06 00:41:55 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-06 00:42:22 decide_next_action_with_video_context: response received | elapsed_sec=26.82
+[INFO] 2026-05-06 00:42:22 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextRecipeName",
+    "coordinates": null,
+    "text": "cake",
+    "direction": null,
+    "target_description": "the Recipe Name text input field"
+  },
+  "reasoning": "According to the task description, the first step is to enter the recipe name 'cake'. The screenshot shows that the 'Recipe Name' field is currently empty. Therefore, the next action is to type 'cake
+[INFO] 2026-05-06 00:42:22 Parsed decision | continue=True action=type_text | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextRecipeName",
+    "coordinates": null,
+    "text": "cake",
+    
+[INFO] 2026-05-06 00:42:22 Step 8: LLM response | continue=True action_type=type_text reasoning=According to the task description, the first step is to enter the recipe name 'cake'. The screenshot confidence=1.00
+[INFO] 2026-05-06 00:42:23 Step 9/10
+[INFO] 2026-05-06 00:42:24 Step 9: Sending to LLM | task=To add a new recipe for a cake to the application. | video_summary_len=1968 | history_len=3 | a11y_tree_len=29289
+[INFO] 2026-05-06 00:42:25 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
