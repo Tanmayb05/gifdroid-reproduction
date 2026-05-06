@@ -132,8 +132,8 @@ Eliminates redundant video processing and reduces LLM token usage by 10x.
 
 | Phase | Title | Status |
 |-------|-------|--------|
-| 1 | Foundation & Configuration | ○ |
-| 2 | I/O & Output Layout Refactoring | ○ |
+| 1 | Foundation & Configuration | ✅ |
+| 2 | I/O & Output Layout Refactoring | ✅ |
 | 3 | Provider Enhancement for Memory Generation | ○ |
 | 4 | Stage 1 Implementation (Video → Memory) | ○ |
 | 5 | Stage 2 Implementation (Memory → Device) | ○ |
