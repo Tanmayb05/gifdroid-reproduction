@@ -147,7 +147,6 @@ def run_blind_loop(
 
 
 def run_automation(
-    video_path: Path,
     task_description: str,
     provider: Any,
     device: DeviceController,
@@ -157,8 +156,21 @@ def run_automation(
     step_delay: float = 1.5,
     stall_repeat_threshold: int = 4,
     logger: logging.Logger | None = None,
+    memory_content: str | None = None,
+    video_path: Path | None = None,
 ) -> dict:
-    """Run the full video-guided automation loop (Milestone 4).
+    """Run the full automation loop with optional memory context (Phase 5+).
+
+    Two modes:
+
+    1. **Memory-guided mode** (Phase 5): memory_content is provided (from Stage 1 memory.md)
+       - Uses pre-generated memory instead of re-analyzing video
+       - No video_path needed
+       - Fast, efficient, reusable memory context
+
+    2. **Video-guided mode** (Milestone 4): memory_content is None, video_path is provided
+       - Analyzes video to create task summary
+       - Falls back to keyframe extraction if needed
 
     Video summarization strategy (in priority order):
 
@@ -181,64 +193,74 @@ def run_automation(
     if output_dir is not None:
         output_dir.mkdir(parents=True, exist_ok=True)
 
-    # --- Step 1 & 2: Summarize the video task ---
-    # Prefer direct-video summarization when the provider supports it; fall
-    # back to the keyframe pipeline for providers that do not.
-    video_summary: str | None = None
+    # --- Phase 5+: Use pre-generated memory context (Stage 2) ---
+    # If memory_content is provided, use it directly without video analysis
+    video_summary: str | None = memory_content
 
-    if hasattr(provider, "summarize_video_task_from_video"):
-        logger.info(
-            "Provider supports direct-video summarization — attempting raw-video path | video=%s",
-            video_path,
-        )
-        try:
-            video_summary = provider.summarize_video_task_from_video(video_path)
+    if not memory_content:
+        # --- Fallback to video analysis (Milestone 4) ---
+        logger.info("No memory context provided — analyzing video directly")
+
+        if not video_path:
+            raise ValueError("Either memory_content or video_path must be provided")
+
+        # Prefer direct-video summarization when the provider supports it; fall
+        # back to the keyframe pipeline for providers that do not.
+        if hasattr(provider, "summarize_video_task_from_video"):
             logger.info(
-                "Direct-video summary obtained (skipping keyframe extraction) | summary=%s",
-                video_summary[:200],
+                "Provider supports direct-video summarization — attempting raw-video path | video=%s",
+                video_path,
             )
+            try:
+                video_summary = provider.summarize_video_task_from_video(video_path)
+                logger.info(
+                    "Direct-video summary obtained (skipping keyframe extraction) | summary=%s",
+                    video_summary[:200],
+                )
+                if output_dir is not None:
+                    (output_dir / "video_summary.txt").write_text(video_summary, encoding="utf-8")
+                    logger.info("Video summary saved to %s", output_dir / "video_summary.txt")
+            except Exception as exc:  # noqa: BLE001
+                logger.warning(
+                    "Direct-video summarization failed (%s) — falling back to keyframe pipeline",
+                    exc,
+                )
+                video_summary = None
+        else:
+            logger.info(
+                "Provider does not support direct-video summarization — using keyframe pipeline"
+            )
+
+        if video_summary is None:
+            # --- Keyframe fallback ---
+            from src_llm.video import VideoFrameExtractor
+            from src_llm.keyframes import KeyframeSelector
+            from src_llm.config import FrameSamplingConfig, KeyframeSelectionConfig
+
+            frame_cfg = FrameSamplingConfig(strategy="uniform", fps=1.5, max_frames=100)
+            kf_cfg = KeyframeSelectionConfig(
+                method="ssim",
+                min_gap_seconds=0.0,
+                stable_threshold=2,
+                ssim_threshold=0.95,
+            )
+
+            logger.info("Extracting frames from video: %s", video_path)
+            extractor = VideoFrameExtractor()
+            frames, _ = extractor.extract(video_path, frame_cfg, logger=logger)
+
+            selector = KeyframeSelector()
+            keyframes = selector.select(frames, kf_cfg, logger=logger)
+            logger.info("Keyframes selected: %d", len(keyframes))
+
+            logger.info("Requesting video task summary from LLM via keyframe pipeline")
+            video_summary = provider.summarize_video_task(keyframes)
+            logger.info("Keyframe-based task summary: %s", video_summary[:200])
             if output_dir is not None:
                 (output_dir / "video_summary.txt").write_text(video_summary, encoding="utf-8")
                 logger.info("Video summary saved to %s", output_dir / "video_summary.txt")
-        except Exception as exc:  # noqa: BLE001
-            logger.warning(
-                "Direct-video summarization failed (%s) — falling back to keyframe pipeline",
-                exc,
-            )
-            video_summary = None
     else:
-        logger.info(
-            "Provider does not support direct-video summarization — using keyframe pipeline"
-        )
-
-    if video_summary is None:
-        # --- Keyframe fallback ---
-        from src_llm.video import VideoFrameExtractor
-        from src_llm.keyframes import KeyframeSelector
-        from src_llm.config import FrameSamplingConfig, KeyframeSelectionConfig
-
-        frame_cfg = FrameSamplingConfig(strategy="uniform", fps=1.5, max_frames=100)
-        kf_cfg = KeyframeSelectionConfig(
-            method="ssim",
-            min_gap_seconds=0.0,
-            stable_threshold=2,
-            ssim_threshold=0.95,
-        )
-
-        logger.info("Extracting frames from video: %s", video_path)
-        extractor = VideoFrameExtractor()
-        frames, _ = extractor.extract(video_path, frame_cfg, logger=logger)
-
-        selector = KeyframeSelector()
-        keyframes = selector.select(frames, kf_cfg, logger=logger)
-        logger.info("Keyframes selected: %d", len(keyframes))
-
-        logger.info("Requesting video task summary from LLM via keyframe pipeline")
-        video_summary = provider.summarize_video_task(keyframes)
-        logger.info("Keyframe-based task summary: %s", video_summary[:200])
-        if output_dir is not None:
-            (output_dir / "video_summary.txt").write_text(video_summary, encoding="utf-8")
-            logger.info("Video summary saved to %s", output_dir / "video_summary.txt")
+        logger.info("Using pre-generated memory context from Stage 1 | len=%d", len(memory_content))
 
     # --- Step 3: Run the feedback loop ---
     session = AutomationSession(max_steps=max_steps, history_window=history_window)

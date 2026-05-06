@@ -11,6 +11,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import sys
 import time
 from pathlib import Path
@@ -36,17 +37,73 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
+def _normalize_model_slug(model_str: str) -> str:
+    """Normalize model name to lowercase with hyphens and dots.
+    e.g., 'Gemini-2.5-Pro' -> 'gemini-2.5-pro'
+    """
+    normalized = re.sub(r"[^a-z0-9.-]+", "-", model_str.lower()).strip("-")
+    return normalized if normalized else "model"
+
+
+def _locate_latest_run(app_name: str, llm_model: str, video_type: str) -> Path:
+    """Locate the latest Stage 1 run for an app+model+video_type combination.
+
+    Searches: apps/<app>/llm/<model>/<video_type>-video-mode/run-*/
+    Returns: Path to run directory (e.g., apps/adaway/llm/gemini-2.5-pro/screenrec-video-mode/run-001)
+    Raises: FileNotFoundError if no run found
+    """
+    model_slug = _normalize_model_slug(llm_model)
+    source = "handheld" if video_type == "hhv" else "screenrec"
+    source_dir = f"{source}-video-mode"
+
+    base = Path("apps") / app_name / "llm" / model_slug / source_dir
+    if not base.exists():
+        raise FileNotFoundError(
+            f"No Stage 1 runs found for {app_name} | {model_slug} | {source_dir}\n"
+            f"Expected path: {base}\n"
+            f"Make sure to run Stage 1 (src_llm.main) first with video_mode=true"
+        )
+
+    existing = sorted(base.glob("run-*"), key=lambda p: int(p.name[4:]))
+    if not existing:
+        raise FileNotFoundError(f"No numbered runs in {base}")
+
+    return existing[-1]
+
+
+def _load_run_metadata(run_dir: Path) -> dict:
+    """Load metadata.json from a completed Stage 1 run.
+
+    Returns: dict with keys like video_mode_metadata, task_description, etc.
+    """
+    metadata_path = run_dir / "metadata.json"
+    if not metadata_path.exists():
+        raise FileNotFoundError(
+            f"metadata.json not found in {run_dir}\n"
+            f"Expected path: {metadata_path}"
+        )
+
+    with metadata_path.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
 def _resolve_output_dir(run, llm: str, llm_model: str) -> Path:
     """Return the output dir for a run, auto-deriving if not set in config.
 
-    Auto-derived path:
-        apps/<app>/llm/<provider>/<model>/<video_type>/run-<NNN>
+    Auto-derived path (flat structure):
+        apps/<app>/llm/<model>/<video_type>-video-mode/run-<NNN>
+
+    model slug includes provider info (e.g., 'gemini-2.5-pro')
     """
     if run.output_dir is not None:
         return run.output_dir
 
-    base = Path("apps") / run.app_name / "llm" / llm / llm_model / run.video_type
-    existing = sorted(base.glob("run-*")) if base.exists() else []
+    model_slug = _normalize_model_slug(llm_model)
+    source = "handheld" if run.video_type == "hhv" else "screenrec"
+    source_dir = f"{source}-video-mode"
+
+    base = Path("apps") / run.app_name / "llm" / model_slug / source_dir
+    existing = sorted(base.glob("run-*"), key=lambda p: int(p.name[4:])) if base.exists() else []
     next_idx = len(existing) + 1
     return base / f"run-{next_idx:03d}"
 
@@ -174,12 +231,32 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
     time.sleep(2)
     logger.info("App launched: %s", device.get_current_activity())
 
-    # --- Run automation ---
+    # --- Locate and load prior Stage 1 run memory ---
+    memory_md_content = None
+    task_description = ""
+    try:
+        prior_run_dir = _locate_latest_run(run.app_name, run.llm_model, run.video_type)
+        logger.info("Located prior Stage 1 run: %s", prior_run_dir)
+
+        prior_metadata = _load_run_metadata(prior_run_dir)
+        video_mode_metadata = prior_metadata.get("video_mode_metadata", {})
+        memory_md_content = video_mode_metadata.get("memory_md_content")
+        task_description = video_mode_metadata.get("task_description", "")
+
+        if not memory_md_content:
+            logger.error("No memory.md content found in prior run metadata")
+            return None
+
+        logger.info("Loaded memory.md from prior Stage 1 run | task_desc_len=%d", len(task_description))
+    except FileNotFoundError as exc:
+        logger.error("Failed to locate prior Stage 1 run: %s", exc)
+        return None
+
+    # --- Run automation with memory context ---
     from src_llm.automation import run_automation
 
     trace = run_automation(
-        video_path=run.video_path,
-        task_description="",
+        task_description=task_description,
         provider=provider,
         device=device,
         max_steps=run.max_steps,
@@ -188,6 +265,7 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
         step_delay=run.step_delay,
         stall_repeat_threshold=run.stall_repeat_threshold,
         logger=logger,
+        memory_content=memory_md_content,
     )
 
     logger.info(
