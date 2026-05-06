@@ -188,6 +188,64 @@ def segment_with_clip(frames, video_stem, cache_folder,
 # Main
 # ---------------------------------------------------------------------------
 
+def generate_summary(
+    video_stem: str,
+    stable_segments: List,
+    actions: List[dict],
+    output_root: str,
+) -> None:
+    """
+    Generates and saves a video summary to memory.md in the output directory.
+    """
+    summary_path = os.path.join(output_root, video_stem, "memory.md")
+
+    segment_count = len(stable_segments) - 1
+    action_count = len([a for a in actions if a.get("executed")])
+    skipped_count = len([a for a in actions if not a.get("executed")])
+
+    summary_lines = [
+        f"# Video Summary: {video_stem}",
+        "",
+        "## Overview",
+        f"- **Total Segments**: {segment_count}",
+        f"- **Actions Executed**: {action_count}",
+        f"- **Actions Skipped**: {skipped_count}",
+        "",
+        "## Segment Details",
+        ""
+    ]
+
+    for i, action in enumerate(actions):
+        status = "✅ Executed" if action.get("executed") else "⏭️ Skipped"
+        action_type = action.get("action", "unknown").upper()
+        predicted = action.get("predicted_action", "—")
+        reason = action.get("skip_reason", "—") if not action.get("executed") else "—"
+
+        summary_lines.append(f"### Segment {i}")
+        summary_lines.append(f"- **Status**: {status}")
+        summary_lines.append(f"- **Action Type**: {action_type}")
+        summary_lines.append(f"- **Predicted Action**: {predicted}")
+        if action.get("executed"):
+            summary_lines.append(f"- **Position**: {action.get('position', 'N/A')}")
+        else:
+            summary_lines.append(f"- **Skip Reason**: {reason}")
+        summary_lines.append("")
+
+    summary_lines.extend([
+        "## Artifacts",
+        f"- Start/Stop frames: `step_*/tmp_start.png`, `step_*/tmp_stop.png`",
+        f"- Device screenshots: `step_*/screenshot-0.png`",
+        f"- Labeled elements: `step_*/labeled.png`",
+        f"- DINO detections: `step_*/dino.png`",
+        f"- Relevant regions: `step_*/relevant_regions.png`",
+    ])
+
+    with open(summary_path, "w") as f:
+        f.write("\n".join(summary_lines))
+
+    print(f"📝 Summary saved to {summary_path}")
+
+
 def main(
     video_path: str,
     algorithm: str,
@@ -233,6 +291,9 @@ def main(
 
     if stable_segments[0][0] > 2:
         stable_segments = [(0, 1)] + stable_segments
+
+    # ---- Track actions for summary ----
+    actions_log = []
 
     # ---- Per-segment replay loop (unchanged) ----
     for i in range(len(stable_segments) - 1):
@@ -365,21 +426,41 @@ def main(
                 position_required = action.get("action") in ("tap", "double_tap", "long_press")
                 if position_required:
                     print("⚠️ No valid region or element match. Skipping action.")
+                    actions_log.append({
+                        "segment": i,
+                        "executed": False,
+                        "predicted_action": relevant["predicted_action"],
+                        "skip_reason": "No valid region or element match",
+                    })
                     continue
                 print("⚠️ No valid region or element match. Proceeding without position.")
 
             execute_actions(device, [action])
+            actions_log.append({
+                "segment": i,
+                "executed": True,
+                "action": action.get("action"),
+                "position": action.get("position"),
+                "predicted_action": relevant["predicted_action"],
+            })
             print("✅ Action executed.\n")
         else:
             print(
                 "⚠️ Skipping action: current GUI state does not match start state.\n"
                 f"Mismatch reason: {match['description']}"
             )
+            actions_log.append({
+                "segment": i,
+                "executed": False,
+                "predicted_action": relevant["predicted_action"],
+                "skip_reason": match.get("description", "GUI state mismatch"),
+            })
 
         if interactive:
             input("Press Enter to continue...")
 
     print("✅ Video processing completed.")
+    generate_summary(video_stem, stable_segments, actions_log, output_root)
 
 
 if __name__ == "__main__":
