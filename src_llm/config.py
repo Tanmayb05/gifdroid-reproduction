@@ -247,7 +247,7 @@ class AppConfig:
     keyframe_selection: KeyframeSelectionConfig
     output: OutputConfig
     logging: LoggingConfig
-    video_mode: bool = False
+    video_mode: bool = True
 
 
 @dataclass(frozen=True)
@@ -375,7 +375,7 @@ def _parse_shared(root: Dict[str, Any]) -> tuple:
         }
         llm_model = default_models.get(llm, llm)
 
-    video_mode = bool(root.get("video_mode", False))
+    video_mode = bool(root.get("video_mode", True))
     if video_mode and llm not in VIDEO_MODE_SUPPORTED_PROVIDERS:
         supported = ", ".join(sorted(VIDEO_MODE_SUPPORTED_PROVIDERS))
         raise ConfigError(

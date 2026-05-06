@@ -28,6 +28,7 @@ class OutputLayout:
     log_file_path: Path
     run_id: str
     llm_raw_response_path: Path
+    is_dry_run: bool = False
 
 
 def detect_video_type(video_path: Path) -> VideoType:
@@ -106,35 +107,47 @@ def _build_cfg_slug(fs: FrameSamplingConfig, ks: KeyframeSelectionConfig) -> str
     return f"{fps_str}__{max_str}__{method_str}__{gap_str}"
 
 
+def _normalize_model_slug(model_str: str) -> str:
+    """Normalize model name to lowercase with hyphens and dots.
+    e.g., 'Gemini-2.5-Pro' -> 'gemini-2.5-pro'
+    """
+    normalized = re.sub(r"[^a-z0-9.-]+", "-", model_str.lower()).strip("-")
+    return normalized if normalized else "model"
+
+
 def create_output_layout(
     project_root: Path,
     cfg: AppConfig,
     video_type: VideoType,
     run_dt: datetime,
+    is_dry_run: bool = False,
 ) -> OutputLayout:
-    """Build all output paths under apps/{app}/llm/{provider}/{model}/{source}/{cfg_slug}/run-NNN/."""
-    provider = cfg.llm.lower()
-    model_slug = re.sub(r"[^a-z0-9-]+", "-", cfg.llm_model.lower()).strip("-")
-    if not model_slug:
-        model_slug = "model"
+    """Build output paths under apps/{app}/llm/{model}/{source}{-video-mode}/run-NNN/ or dry-run/
+
+    Flat structure without provider directory (model name includes provider info).
+    """
+    model_slug = _normalize_model_slug(cfg.llm_model)
     source = "handheld" if video_type == "hhv" else "screenrec"
-    cfg_slug = "video-mode" if cfg.video_mode else _build_cfg_slug(cfg.frame_sampling, cfg.keyframe_selection)
+    source_dir = f"{source}-video-mode" if cfg.video_mode else source
 
     run_parent = (
         project_root
         / "apps"
         / cfg.app_name.lower()
         / "llm"
-        / provider
         / model_slug
-        / source
-        / cfg_slug
+        / source_dir
     )
-    run_id = _next_run_id(run_parent)
-    run_dir = run_parent / run_id
+
+    if is_dry_run:
+        run_id = "dry-run"
+        run_dir = run_parent / run_id
+    else:
+        run_id = _next_run_id(run_parent)
+        run_dir = run_parent / run_id
 
     ts_file = run_dt.strftime("%Y-%m-%dT%H-%M-%S")
-    run_num = run_id[len("run-"):]
+    run_num = run_id[len("run-"):] if run_id != "dry-run" else "dry-run"
     log_file = run_dir / "logs" / f"{ts_file}__run-{run_num}__pipeline__started.log"
 
     return OutputLayout(
@@ -147,6 +160,7 @@ def create_output_layout(
         log_file_path=log_file,
         run_id=run_id,
         llm_raw_response_path=run_dir / "llm_raw_response.txt",
+        is_dry_run=is_dry_run,
     )
 
 
@@ -165,26 +179,47 @@ def write_run_metadata(
     source: str,
     video_file: str,
     llm_prompt_file: str | None,
-    frame_sampling_cfg: FrameSamplingConfig,
-    keyframe_selection_cfg: KeyframeSelectionConfig,
+    frame_sampling_cfg: FrameSamplingConfig | None,
+    keyframe_selection_cfg: KeyframeSelectionConfig | None,
     run_dt: datetime,
     duration_sec: float,
     status: str,
+    memory_md_content: str | None = None,
+    task_description: str | None = None,
+    ui_elements: Dict[str, str] | None = None,
+    completion_criteria: list[str] | None = None,
 ) -> None:
-    """Write metadata.json for a completed run."""
+    """Write metadata.json for a completed run.
+
+    For video_mode=true: includes memory_md_content and parsed fields.
+    For video_mode=false: includes frame_sampling and keyframe_selection config.
+    """
     payload = {
         "app": app_name.lower(),
         "method": method,
         "variant": variant,
         "source": source,
         "video": video_file,
-        "config": {
-            "llm_prompt_file": llm_prompt_file,
-            "frame_sampling": dataclasses.asdict(frame_sampling_cfg),
-            "keyframe_selection": dataclasses.asdict(keyframe_selection_cfg),
-        },
         "timestamp": run_dt.strftime("%Y-%m-%dT%H:%M:%S"),
         "duration_sec": round(duration_sec, 1),
         "status": status,
     }
+
+    # Add config only for non-video-mode
+    if frame_sampling_cfg and keyframe_selection_cfg:
+        payload["config"] = {
+            "llm_prompt_file": llm_prompt_file,
+            "frame_sampling": dataclasses.asdict(frame_sampling_cfg),
+            "keyframe_selection": dataclasses.asdict(keyframe_selection_cfg),
+        }
+
+    # Add video_mode metadata for Stage 2 consumption
+    if memory_md_content:
+        payload["video_mode_metadata"] = {
+            "memory_md_content": memory_md_content,
+            "task_description": task_description or "",
+            "ui_elements": ui_elements or {},
+            "completion_criteria": completion_criteria or [],
+        }
+
     write_json(path, payload)

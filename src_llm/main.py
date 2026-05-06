@@ -10,6 +10,7 @@ from src_llm.config import AppConfig, ConfigError, PipelineConfig, load_config
 from src_llm.env_loader import EnvError, load_and_validate_env
 from src_llm.io_utils import (
     PathError,
+    _normalize_model_slug,
     create_output_layout,
     resolve_video_path,
     write_json,
@@ -87,7 +88,7 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
             "If using shorthand video_path, expected hhv/srv file under apps/<name>/videos/."
         )
     run_dt = datetime.now(timezone.utc)
-    layout = create_output_layout(project_root, cfg, video_type, run_dt)
+    layout = create_output_layout(project_root, cfg, video_type, run_dt, is_dry_run=args.dry_run)
 
     layout.run_dir.mkdir(parents=True, exist_ok=True)
     (layout.run_dir / "logs").mkdir(parents=True, exist_ok=True)
@@ -223,8 +224,7 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
         duration_sec = (datetime.now(timezone.utc) - pipeline_start).total_seconds()
         video_file = resolved_video_path.name
         source = "handheld" if video_type == "hhv" else "screenrec"
-        import re as _re
-        model_slug = _re.sub(r"[^a-z0-9-]+", "-", cfg.llm_model.lower()).strip("-")
+        model_slug = _normalize_model_slug(cfg.llm_model)
 
         write_run_metadata(
             path=layout.metadata_path,
@@ -234,8 +234,8 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
             source=source,
             video_file=video_file,
             llm_prompt_file=str(cfg.llm_prompt_file) if cfg.llm_prompt_file is not None else None,
-            frame_sampling_cfg=cfg.frame_sampling,
-            keyframe_selection_cfg=cfg.keyframe_selection,
+            frame_sampling_cfg=cfg.frame_sampling if not cfg.video_mode else None,
+            keyframe_selection_cfg=cfg.keyframe_selection if not cfg.video_mode else None,
             run_dt=run_dt,
             duration_sec=duration_sec,
             status="success",

@@ -67,14 +67,22 @@
       "Bash(cp -v apps/antennapod/apk/antennapod_v3.11.0.apk apks/)",
       "Bash(cp -v apps/jigsaw/apk/jigsaw_v1.3.0.apk apks/)",
       "Bash(cp -v apps/homemedkit/apk/homemedkit_v1.9.3.apk apks/)",
-      "Bash(cp -v apps/pomodorot/apk/pomodorot_v0.13.3.apk apks/)"
+      "Bash(cp -v apps/pomodorot/apk/pomodorot_v0.13.3.apk apks/)",
+      "Skill(gsd:plan-phase)",
+      "Skill(gsd:plan-phase:*)",
+      "Bash(cat > *)",
+      "Bash(.venv/bin/python /tmp/test_phase1.py)",
+      "Bash(.venv/bin/python /tmp/test_slug.py)",
+      "Bash(.venv/bin/python /tmp/test_imports.py)",
+      "Bash(git add *)"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/analysis",
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_llm_trace",
       "/Users/tanmaybhuskute/.continue",
-      "/Users/tanmaybhuskute"
+      "/Users/tanmaybhuskute",
+      "/tmp"
     ]
   }
 }
