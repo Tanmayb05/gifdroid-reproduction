@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Blood Pressure Tracker\ngoal: To view statistical analysis of recorded blood pressure data.\noutcome: success - The user successfully navigated to the statistics screen and viewed the available data visualizations.\n---\n\n## Session Summary\nThe user started on the main log screen of a blood pressure app, which displayed a single data entry. They tapped the statistics button to open the statistics page, where they toggled between viewing the value distribution for systolic, diastolic, and pulse readings. Finally, they scrolled down to reveal an empty \"Metrics by time of day\" chart.\n\n## Steps\n\n### 1. Navigate to Statistics — 2s\n- **Screen:** Main Log\n- **Action:** `tap` → `Statistics button` (graph icon)\n- **Details:** The main screen shows one entry: Systolic 98, Diastolic 70, Pulse 123.\n- **Result:** The app navigates to the \"Statistics\" screen.\n- **Confidence:** 1.0\n\n### 2. View Diastolic Statistics — 3s\n- **Screen:** Statistics\n- **Action:** `tap` → `Diastolic` tab\n- **Details:** The user taps the \"Diastolic\" tab in the \"Value distribution\" section.\n- **Result:** The graph updates to show the diastolic value (70 min, 70 avg, 70 max) and its color changes to green.\n- **Confidence:** 1.0\n\n### 3. View Pulse Statistics — 4s\n- **Screen:** Statistics\n- **Action:** `tap` → `Pulse` tab\n- **Details:** The user taps the \"Pulse\" tab in the \"Value distribution\" section.\n- **Result:** The graph updates to show the pulse value (123 min, 123 avg, 123 max) and its color changes to red.\n- **Confidence:** 1.0\n\n### 4. View Metrics by Time of Day — 6s\n- **Screen:** Statistics\n- **Action:** `swipe_up` → `Screen`\n- **Details:** The user scrolls down the statistics page.\n- **Result:** The \"Metrics by time of day\" section, containing a circular 24-hour chart, becomes fully visible.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app contained a single data point at the start of the session: Systolic 98, Diastolic 70, Pulse 123.\n- The \"Metrics by time of day\" visualization is a radial chart representing a 24-hour clock.\n- The date range filter on the main screen (\"Apr 1, 2026 - May 1, 2026\") is different from the one on the statistics screen (\"Apr 14, 2026 - Apr 21, 2026\"), suggesting they are controlled independently."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.26793878067089377
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3669,
+    "candidatesTokenCount": 629,
+    "totalTokenCount": 5536,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "AUDIO",
+        "tokenCount": 275
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "VIDEO",
+        "tokenCount": 2838
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 629
+      }
+    ],
+    "thoughtsTokenCount": 1238
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-01T15:11:28.196255Z",
+  "responseId": "oML0aZ_9C4Lq88APwaH0iAw"
+}

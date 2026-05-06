@@ -1,0 +1,64 @@
+# src_llm automation config: Gemini 2.5 Pro, srv-001.mp4 for all apps
+# Replicates video on real/virtual Android device using APK
+#
+# Usage:
+# python -m src_llm.automate --config src_llm/input/automation_config_gemini25pro_srv_all.yml --env-file .env.local
+#
+# Dry-run (validate without running):
+# python -m src_llm.automate --config src_llm/input/automation_config_gemini25pro_srv_all.yml --env-file .env.local --dry-run
+
+llm: "gemini"
+llm_model: "gemini-2.5-pro"
+
+# ADB device serial - leave empty to auto-detect first connected device
+device_serial:
+
+max_steps: 10
+history_window: 3
+step_delay: 1.5
+stall_repeat_threshold: 4
+reset_between_runs: true
+
+output_dir:
+
+runs:
+  - app_name: "AdAway"
+    video_path: "srv-001.mp4"
+  - app_name: "AntennaPod"
+    video_path: "srv-001.mp4"
+  - app_name: "BakersPercentageCalculator"
+    video_path: "srv-001.mp4"
+  - app_name: "BatteryTemperatureDisplay"
+    video_path: "srv-001.mp4"
+  - app_name: "Bily"
+    video_path: "srv-001.mp4"
+  - app_name: "BinaryEye"
+    video_path: "srv-001.mp4"
+  - app_name: "BloodPressureMonitor"
+    video_path: "srv-001.mp4"
+  - app_name: "BreThap"
+    video_path: "srv-001.mp4"
+  - app_name: "DeadHash"
+    video_path: "srv-001.mp4"
+  - app_name: "HomeMedKit"
+    video_path: "srv-001.mp4"
+  - app_name: "HomeRAudioPlayer"
+    video_path: "srv-001.mp4"
+  - app_name: "Jigsaw"
+    video_path: "srv-001.mp4"
+  - app_name: "LuxAlarm"
+    video_path: "srv-001.mp4"
+  - app_name: "NewPipe"
+    video_path: "srv-001.mp4"
+  - app_name: "Pantry"
+    video_path: "srv-001.mp4"
+  - app_name: "PortAuthority"
+    video_path: "srv-001.mp4"
+  - app_name: "Quitter"
+    video_path: "srv-001.mp4"
+  - app_name: "SimpleNotes"
+    video_path: "srv-001.mp4"
+  - app_name: "Vanilla"
+    video_path: "srv-001.mp4"
+  - app_name: "WifiAnalyzer"
+    video_path: "srv-001.mp4"

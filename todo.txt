@@ -67,3 +67,10 @@ Test case scenarios to run for both the apps and check which ones better, which 
 A backtracking strategy for the apps. If there is a bad click then the app should be able to go back and do a good click
 
 ====
+
+
+run 1 - src_llm.main - dryrun
+run 2 - src_llm.main - video ANALYSIS
+run 3 - src_llm.automate - dryrun fail (no apk)
+run 4 - src_llm.automate - dryrun
+run 5 - src_llm.automate - apply

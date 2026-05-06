@@ -1,0 +1,65 @@
+[INFO] 2026-05-01 11:49:59 --- Run: app=BinaryEye video_type=screenrec video=apps/BinaryEye/videos/srv-001.mp4 ---
+[INFO] 2026-05-01 11:49:59 Output dir: apps/BinaryEye/llm/gemini/gemini-2.5-pro/screenrec/run-001
+[INFO] 2026-05-01 11:49:59 Installing APK: apps/BinaryEye/apk/BinaryEye.apk
+[INFO] 2026-05-01 11:50:02 APK installed: de.markusfisch.android.binaryeye
+[INFO] 2026-05-01 11:50:02 Launching app: de.markusfisch.android.binaryeye / de.markusfisch.android.binaryeye.activity.SplashActivity
+[INFO] 2026-05-01 11:50:04 App launched: de.markusfisch.android.binaryeye/.activity.WelcomeActivity
+[INFO] 2026-05-01 11:50:04 Provider supports direct-video summarization — attempting raw-video path | video=apps/BinaryEye/videos/srv-001.mp4
+[INFO] 2026-05-01 11:50:04 summarize_video_task_from_video: sending raw video to Gemini | video=srv-001.mp4
+[INFO] 2026-05-01 11:50:04 Encoding video for inline upload | file=srv-001.mp4 | size=4858379 bytes
+[INFO] 2026-05-01 11:50:05 Sending video inference request | model=gemini-2.5-pro | video=srv-001.mp4
+[INFO] 2026-05-01 11:50:13 Video inference response received | elapsed_sec=7.89
+[INFO] 2026-05-01 11:50:13 Direct-video summary obtained (skipping keyframe extraction) | summary=The user is in a barcode scanning app and navigates to the settings menu. They scroll down through the various options and enable the "Go back after copying or sharing" feature. After enabling this se
+[INFO] 2026-05-01 11:50:13 Video summary saved to apps/BinaryEye/llm/gemini/gemini-2.5-pro/screenrec/run-001/video_summary.txt
+[INFO] 2026-05-01 11:50:13 Step 1/10
+[INFO] 2026-05-01 11:50:14 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:50:31 decide_next_action_with_video_context: response received | elapsed_sec=17.52
+[INFO] 2026-05-01 11:50:31 Step 1: continue=True action_type=tap
+[INFO] 2026-05-01 11:50:33 Step 2/10
+[INFO] 2026-05-01 11:50:34 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:50:40 decide_next_action_with_video_context: response received | elapsed_sec=6.39
+[INFO] 2026-05-01 11:50:40 Step 2: continue=True action_type=tap
+[INFO] 2026-05-01 11:50:42 Step 3/10
+[INFO] 2026-05-01 11:50:43 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:50:50 decide_next_action_with_video_context: response received | elapsed_sec=7.46
+[INFO] 2026-05-01 11:50:50 Step 3: continue=True action_type=tap
+[INFO] 2026-05-01 11:50:52 Step 4/10
+[INFO] 2026-05-01 11:50:53 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:51:01 decide_next_action_with_video_context: response received | elapsed_sec=7.99
+[INFO] 2026-05-01 11:51:01 Step 4: continue=True action_type=tap
+[INFO] 2026-05-01 11:51:03 Step 5/10
+[INFO] 2026-05-01 11:51:04 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:51:09 decide_next_action_with_video_context: response received | elapsed_sec=4.50
+[INFO] 2026-05-01 11:51:09 Step 5: continue=True action_type=scroll
+[INFO] 2026-05-01 11:51:11 Step 6/10
+[INFO] 2026-05-01 11:51:12 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:51:18 decide_next_action_with_video_context: response received | elapsed_sec=5.68
+[INFO] 2026-05-01 11:51:18 Step 6: continue=True action_type=scroll
+[INFO] 2026-05-01 11:51:20 Step 7/10
+[INFO] 2026-05-01 11:51:21 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:51:29 decide_next_action_with_video_context: response received | elapsed_sec=7.82
+[INFO] 2026-05-01 11:51:29 Step 7: continue=True action_type=scroll
+[INFO] 2026-05-01 11:51:31 Step 8/10
+[INFO] 2026-05-01 11:51:32 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:51:41 decide_next_action_with_video_context: response received | elapsed_sec=8.85
+[INFO] 2026-05-01 11:51:41 Step 8: continue=True action_type=scroll
+[INFO] 2026-05-01 11:51:41 Stall detected: action ('scroll', 'down', None) repeated 4 times — stopping at step 8
+[INFO] 2026-05-01 11:51:41 Session trace saved to apps/BinaryEye/llm/gemini/gemini-2.5-pro/screenrec/run-001/session_trace.json
+[INFO] 2026-05-01 11:51:41 Run complete: app=BinaryEye video_type=screenrec steps=8 status=stalled
+[INFO] 2026-05-01 11:51:41 Session trace: apps/BinaryEye/llm/gemini/gemini-2.5-pro/screenrec/run-001/session_trace.json
+[INFO] 2026-05-01 11:51:41 Resetting app state: force-stop + clear data | pkg=de.markusfisch.android.binaryeye
+[INFO] 2026-05-01 11:51:42 App reset complete: de.markusfisch.android.binaryeye
+[INFO] 2026-05-01 11:51:42 Replay script: apps/BinaryEye/llm/gemini/gemini-2.5-pro/screenrec/run-001/replay.py
+[INFO] 2026-05-01 11:51:42 ========================================================================
+[INFO] 2026-05-01 11:51:42 RUN SUMMARY
+[INFO] 2026-05-01 11:51:42   App         : BinaryEye
+[INFO] 2026-05-01 11:51:42   Video type  : screenrec
+[INFO] 2026-05-01 11:51:42   Status      : stalled
+[INFO] 2026-05-01 11:51:42   Steps       : 8
+[INFO] 2026-05-01 11:51:42   Actions     : scroll=4  tap=4
+[INFO] 2026-05-01 11:51:42   LLM calls   : decide_next_action_with_video_context=8  summarize_video_task_from_video=1
+[INFO] 2026-05-01 11:51:42   LLM latency : min=4.5s  max=17.5s  avg=8.2s  total=74.1s
+[INFO] 2026-05-01 11:51:42   Tokens used : prompt=23,484  output=1,249  total=24,733
+[INFO] 2026-05-01 11:51:42   Wall time   : 1m 42s
+[INFO] 2026-05-01 11:51:42   Output      : apps/BinaryEye/llm/gemini/gemini-2.5-pro/screenrec/run-001
+[INFO] 2026-05-01 11:51:42 ========================================================================

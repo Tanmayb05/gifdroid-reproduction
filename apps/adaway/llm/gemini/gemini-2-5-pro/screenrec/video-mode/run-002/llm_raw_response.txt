@@ -1,0 +1,42 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: AdAway\ngoal: The user wants to add a new hostname to the whitelist (allowed list).\noutcome: incomplete — The hostname was added to the list, but the user did not apply the configuration changes to make them active.\n---\n\n## Session Summary\nThe user launched the AdAway ad blocker, navigated to the \"Your lists\" section, and viewed the \"Allowed\" list. After a brief, unsuccessful search, they added the new hostname \"utl.web\" to the whitelist. A banner prompted them to apply the new configuration, but the user navigated between tabs without applying the changes, leaving the task unfinished.\n\n## Steps\n\n### 1. Launch App — 0s\n- **Screen:** Android Home Screen\n- **Action:** tap → \"AdAway\" app icon\n- **Details:** The user is on their home screen and taps the AdAway icon.\n- **Result:** The AdAway app launched and displayed its main dashboard.\n- **Confidence:** 1.0\n\n### 2. Navigate to Lists — 5s\n- **Screen:** AdAway Dashboard\n- **Action:** tap → Hamburger menu icon (bottom-left)\n- **Details:** The user tapped the menu icon at the bottom-left of the screen.\n- **Result:** The app navigated to the \"Your lists\" screen, defaulting to the \"Allowed\" tab.\n- **Confidence:** 1.0\n\n### 3. Search for Hostname — 9s\n- **Screen:** Your lists\n- **Action:** type → \"Search hostname...\" field\n- **Details:** The user tapped the search icon and typed \"edhb\".\n- **Result:** The text was entered, but the list remained unchanged as there were no matching entries.\n- **Confidence:** 1.0\n\n### 4. Initiate Add Host — 14s\n- **Screen:** Your lists\n- **Action:** tap → Red \"+\" button\n- **Details:** The user tapped the floating action button to add a new entry.\n- **Result:** An \"Add host to whitelist\" dialog appeared.\n- **Confidence:** 1.0\n\n### 5. Enter Hostname — 17s\n- **Screen:** Add host to whitelist\n- **Action:** type → \"Hostname\" text field\n- **Details:** Typed \"utl.web\".\n- **Result:** The text \"utl.web\" was entered into the input field.\n- **Confidence:** 1.0\n\n### 6. Confirm Add Host — 21s\n- **Screen:** Add host to whitelist\n- **Action:** tap → \"ADD\" button\n- **Details:** The user confirmed the addition of the new hostname.\n- **Result:** The dialog closed, \"utl.web\" appeared in the list, and a banner appeared at the bottom stating \"Your configuration changed. You need to apply it.\"\n- **Confidence:** 1.0\n\n### 7. View Redirected List — 27s\n- **Screen:** Your lists\n- **Action:** tap → \"Redirected\" tab\n- **Details:** The user tapped the \"Redirected\" tab in the bottom navigation bar.\n- **Result:** The view switched to the \"Redirected\" list, which was empty. The \"Apply\" banner remained visible.\n- **Confidence:** 1.0\n\n### 8. View Allowed List — 29s\n- **Screen:** Your lists\n- **Action:** tap → \"Allowed\" tab\n- **Details:** The user tapped the \"Allowed\" tab to return to the previous view.\n- **Result:** The view switched back to the \"Allowed\" list, showing the new \"utl.web\" entry. The \"Apply\" banner was still present.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app version is 6.1.4, as seen on the main dashboard.\n- Adding a hostname to a list is a two-step process: adding the entry, and then separately applying the configuration changes.\n- The user did not complete the process by tapping the \"APPLY\" button, leaving the new whitelist rule in a pending, inactive state.\n- The main dashboard indicates the app has blocked 80,065 requests and is using a VPN-based configuration."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.47589204613298308
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 8296,
+    "candidatesTokenCount": 916,
+    "totalTokenCount": 11961,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "VIDEO",
+        "tokenCount": 7740
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 916
+      }
+    ],
+    "thoughtsTokenCount": 2749
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-01T15:09:01.636364Z",
+  "responseId": "DcL0aczrJsfZkNAP-OXAmQg"
+}

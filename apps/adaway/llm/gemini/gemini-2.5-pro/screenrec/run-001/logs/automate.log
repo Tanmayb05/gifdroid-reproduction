@@ -1,0 +1,72 @@
+[INFO] 2026-05-01 11:39:34 --- Run: app=AdAway video_type=screenrec video=apps/AdAway/videos/srv-001.mp4 ---
+[INFO] 2026-05-01 11:39:34 Output dir: apps/AdAway/llm/gemini/gemini-2.5-pro/screenrec/run-001
+[INFO] 2026-05-01 11:39:36 Installing APK: apps/AdAway/apk/AdAway.apk
+[INFO] 2026-05-01 11:39:38 APK installed: org.adaway
+[INFO] 2026-05-01 11:39:38 Launching app: org.adaway / org.adaway.ui.home.HomeActivity
+[INFO] 2026-05-01 11:39:40 App launched: org.adaway/.ui.welcome.WelcomeActivity
+[INFO] 2026-05-01 11:39:40 Provider supports direct-video summarization — attempting raw-video path | video=apps/AdAway/videos/srv-001.mp4
+[INFO] 2026-05-01 11:39:40 summarize_video_task_from_video: sending raw video to Gemini | video=srv-001.mp4
+[INFO] 2026-05-01 11:39:40 Encoding video for inline upload | file=srv-001.mp4 | size=3101372 bytes
+[INFO] 2026-05-01 11:39:42 Sending video inference request | model=gemini-2.5-pro | video=srv-001.mp4
+[INFO] 2026-05-01 11:39:48 Video inference response received | elapsed_sec=6.94
+[INFO] 2026-05-01 11:39:48 Direct-video summary obtained (skipping keyframe extraction) | summary=The user opens the AdAway app and navigates to the "Your lists" section from the hamburger menu. With the "Allowed" tab selected, they tap the plus icon to add a new entry. The user then types "utl.we
+[INFO] 2026-05-01 11:39:48 Video summary saved to apps/AdAway/llm/gemini/gemini-2.5-pro/screenrec/run-001/video_summary.txt
+[INFO] 2026-05-01 11:39:48 Step 1/10
+[INFO] 2026-05-01 11:39:49 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:39:59 decide_next_action_with_video_context: response received | elapsed_sec=9.34
+[INFO] 2026-05-01 11:39:59 Step 1: continue=True action_type=tap
+[INFO] 2026-05-01 11:40:00 Step 2/10
+[INFO] 2026-05-01 11:40:01 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:40:07 decide_next_action_with_video_context: response received | elapsed_sec=6.13
+[INFO] 2026-05-01 11:40:07 Step 2: continue=True action_type=tap
+[INFO] 2026-05-01 11:40:09 Step 3/10
+[INFO] 2026-05-01 11:40:10 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:40:18 decide_next_action_with_video_context: response received | elapsed_sec=7.59
+[INFO] 2026-05-01 11:40:18 Step 3: continue=True action_type=tap
+[INFO] 2026-05-01 11:40:20 Step 4/10
+[INFO] 2026-05-01 11:40:21 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:40:31 decide_next_action_with_video_context: response received | elapsed_sec=10.10
+[INFO] 2026-05-01 11:40:31 Step 4: continue=True action_type=wait
+[INFO] 2026-05-01 11:40:32 Step 5/10
+[INFO] 2026-05-01 11:40:33 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:40:41 decide_next_action_with_video_context: response received | elapsed_sec=7.79
+[INFO] 2026-05-01 11:40:41 Step 5: continue=True action_type=tap
+[INFO] 2026-05-01 11:40:43 Step 6/10
+[INFO] 2026-05-01 11:40:43 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:40:50 decide_next_action_with_video_context: response received | elapsed_sec=6.59
+[INFO] 2026-05-01 11:40:50 Step 6: continue=True action_type=tap
+[INFO] 2026-05-01 11:40:52 Step 7/10
+[INFO] 2026-05-01 11:40:53 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:41:01 decide_next_action_with_video_context: response received | elapsed_sec=8.33
+[INFO] 2026-05-01 11:41:01 Step 7: continue=True action_type=tap
+[INFO] 2026-05-01 11:41:03 Step 8/10
+[INFO] 2026-05-01 11:41:04 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:41:11 decide_next_action_with_video_context: response received | elapsed_sec=7.23
+[INFO] 2026-05-01 11:41:11 Step 8: continue=True action_type=tap
+[INFO] 2026-05-01 11:41:12 Step 9/10
+[INFO] 2026-05-01 11:41:13 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:41:49 decide_next_action_with_video_context: response received | elapsed_sec=35.43
+[INFO] 2026-05-01 11:41:49 Step 9: continue=True action_type=tap
+[INFO] 2026-05-01 11:41:50 Step 10/10
+[INFO] 2026-05-01 11:41:52 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:42:49 decide_next_action_with_video_context: response received | elapsed_sec=57.03
+[INFO] 2026-05-01 11:42:49 Step 10: continue=True action_type=tap
+[INFO] 2026-05-01 11:42:50 Session trace saved to apps/AdAway/llm/gemini/gemini-2.5-pro/screenrec/run-001/session_trace.json
+[INFO] 2026-05-01 11:42:50 Run complete: app=AdAway video_type=screenrec steps=10 status=max_steps_reached
+[INFO] 2026-05-01 11:42:50 Session trace: apps/AdAway/llm/gemini/gemini-2.5-pro/screenrec/run-001/session_trace.json
+[INFO] 2026-05-01 11:42:50 Resetting app state: force-stop + clear data | pkg=org.adaway
+[INFO] 2026-05-01 11:42:51 App reset complete: org.adaway
+[INFO] 2026-05-01 11:42:51 Replay script: apps/AdAway/llm/gemini/gemini-2.5-pro/screenrec/run-001/replay.py
+[INFO] 2026-05-01 11:42:51 ========================================================================
+[INFO] 2026-05-01 11:42:51 RUN SUMMARY
+[INFO] 2026-05-01 11:42:51   App         : AdAway
+[INFO] 2026-05-01 11:42:51   Video type  : screenrec
+[INFO] 2026-05-01 11:42:51   Status      : max_steps_reached
+[INFO] 2026-05-01 11:42:51   Steps       : 10
+[INFO] 2026-05-01 11:42:51   Actions     : tap=9  wait=1
+[INFO] 2026-05-01 11:42:51   LLM calls   : decide_next_action_with_video_context=10  summarize_video_task_from_video=1
+[INFO] 2026-05-01 11:42:51   LLM latency : min=6.1s  max=57.0s  avg=14.8s  total=162.5s
+[INFO] 2026-05-01 11:42:51   Tokens used : prompt=32,165  output=1,707  total=33,872
+[INFO] 2026-05-01 11:42:51   Wall time   : 3m 17s
+[INFO] 2026-05-01 11:42:51   Output      : apps/AdAway/llm/gemini/gemini-2.5-pro/screenrec/run-001
+[INFO] 2026-05-01 11:42:51 ========================================================================

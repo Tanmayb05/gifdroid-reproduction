@@ -1,0 +1,24 @@
+{
+  "app": "jigsaw",
+  "method": "llm",
+  "variant": "gemini-2-5-pro",
+  "source": "screenrec",
+  "video": "srv-001.mp4",
+  "config": {
+    "llm_prompt_file": null,
+    "frame_sampling": {
+      "strategy": "uniform",
+      "fps": 1.0,
+      "max_frames": 100
+    },
+    "keyframe_selection": {
+      "method": "heuristic",
+      "min_gap_seconds": 2.0,
+      "stable_threshold": 2,
+      "ssim_threshold": 0.95
+    }
+  },
+  "timestamp": "2026-05-01T15:13:27",
+  "duration_sec": 20.8,
+  "status": "success"
+}

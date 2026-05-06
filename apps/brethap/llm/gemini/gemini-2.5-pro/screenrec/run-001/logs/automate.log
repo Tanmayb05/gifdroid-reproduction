@@ -1,0 +1,49 @@
+[INFO] 2026-05-01 11:53:33 --- Run: app=BreThap video_type=screenrec video=apps/BreThap/videos/srv-001.mp4 ---
+[INFO] 2026-05-01 11:53:33 Output dir: apps/BreThap/llm/gemini/gemini-2.5-pro/screenrec/run-001
+[INFO] 2026-05-01 11:53:33 Installing APK: apps/BreThap/apk/BreThap.apk
+[INFO] 2026-05-01 11:53:36 APK installed: com.jithware.brethap
+[INFO] 2026-05-01 11:53:36 Launching app: com.jithware.brethap / com.jithware.brethap.MainActivity
+[INFO] 2026-05-01 11:53:39 App launched: com.jithware.brethap/.MainActivity
+[INFO] 2026-05-01 11:53:39 Provider supports direct-video summarization — attempting raw-video path | video=apps/BreThap/videos/srv-001.mp4
+[INFO] 2026-05-01 11:53:39 summarize_video_task_from_video: sending raw video to Gemini | video=srv-001.mp4
+[INFO] 2026-05-01 11:53:39 Encoding video for inline upload | file=srv-001.mp4 | size=926865 bytes
+[INFO] 2026-05-01 11:53:39 Sending video inference request | model=gemini-2.5-pro | video=srv-001.mp4
+[INFO] 2026-05-01 11:53:46 Video inference response received | elapsed_sec=6.66
+[INFO] 2026-05-01 11:53:46 Direct-video summary obtained (skipping keyframe extraction) | summary=The user starts and stops two short breathing exercises in the Brethap app. They then open the side menu and navigate to the "Sessions" screen to view their history. From there, the user taps the over
+[INFO] 2026-05-01 11:53:46 Video summary saved to apps/BreThap/llm/gemini/gemini-2.5-pro/screenrec/run-001/video_summary.txt
+[INFO] 2026-05-01 11:53:46 Step 1/10
+[INFO] 2026-05-01 11:53:47 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:53:55 decide_next_action_with_video_context: response received | elapsed_sec=8.70
+[INFO] 2026-05-01 11:53:55 Step 1: continue=True action_type=tap
+[INFO] 2026-05-01 11:53:57 Step 2/10
+[INFO] 2026-05-01 11:53:58 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:54:15 decide_next_action_with_video_context: response received | elapsed_sec=16.71
+[INFO] 2026-05-01 11:54:15 Step 2: continue=True action_type=tap
+[INFO] 2026-05-01 11:54:16 Step 3/10
+[INFO] 2026-05-01 11:54:17 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:54:33 decide_next_action_with_video_context: response received | elapsed_sec=15.71
+[INFO] 2026-05-01 11:54:33 Step 3: continue=True action_type=tap
+[INFO] 2026-05-01 11:54:35 Step 4/10
+[INFO] 2026-05-01 11:54:36 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-01 11:55:04 decide_next_action_with_video_context: response received | elapsed_sec=28.28
+[INFO] 2026-05-01 11:55:04 Step 4: continue=True action_type=tap
+[INFO] 2026-05-01 11:55:04 Stall detected: action ('tap', None, None) repeated 4 times — stopping at step 4
+[INFO] 2026-05-01 11:55:04 Session trace saved to apps/BreThap/llm/gemini/gemini-2.5-pro/screenrec/run-001/session_trace.json
+[INFO] 2026-05-01 11:55:04 Run complete: app=BreThap video_type=screenrec steps=4 status=stalled
+[INFO] 2026-05-01 11:55:04 Session trace: apps/BreThap/llm/gemini/gemini-2.5-pro/screenrec/run-001/session_trace.json
+[INFO] 2026-05-01 11:55:04 Resetting app state: force-stop + clear data | pkg=com.jithware.brethap
+[INFO] 2026-05-01 11:55:05 App reset complete: com.jithware.brethap
+[INFO] 2026-05-01 11:55:05 Replay script: apps/BreThap/llm/gemini/gemini-2.5-pro/screenrec/run-001/replay.py
+[INFO] 2026-05-01 11:55:05 ========================================================================
+[INFO] 2026-05-01 11:55:05 RUN SUMMARY
+[INFO] 2026-05-01 11:55:05   App         : BreThap
+[INFO] 2026-05-01 11:55:05   Video type  : screenrec
+[INFO] 2026-05-01 11:55:05   Status      : stalled
+[INFO] 2026-05-01 11:55:05   Steps       : 4
+[INFO] 2026-05-01 11:55:05   Actions     : tap=4
+[INFO] 2026-05-01 11:55:05   LLM calls   : decide_next_action_with_video_context=4  summarize_video_task_from_video=1
+[INFO] 2026-05-01 11:55:05   LLM latency : min=6.7s  max=28.3s  avg=15.2s  total=76.1s
+[INFO] 2026-05-01 11:55:05   Tokens used : prompt=16,011  output=677  total=16,688
+[INFO] 2026-05-01 11:55:05   Wall time   : 1m 31s
+[INFO] 2026-05-01 11:55:05   Output      : apps/BreThap/llm/gemini/gemini-2.5-pro/screenrec/run-001
+[INFO] 2026-05-01 11:55:05 ========================================================================

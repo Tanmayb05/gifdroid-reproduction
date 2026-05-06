@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Global Bill\ngoal: To reset all expenses on the bill and then modify the bill's settings.\noutcome: success - The user successfully cleared all expenses and then disabled the tax setting.\n---\n\n## Session Summary\nThe user began on the main bill screen, which displayed a total of $111.00. They navigated to the overflow menu and chose to reset the bill, confirming this action in a pop-up dialog. After the bill was successfully cleared, they re-opened the menu, selected \"Modify Bill,\" and disabled the \"Taxes\" toggle before dismissing the settings dialog and returning to the empty bill screen.\n\n## Steps\n\n### 1. Open Overflow Menu — 2s\n- **Screen:** Global Bill\n- **Action:** `tap` → `three-dot menu icon`\n- **Details:** The screen shows a \"Global Bill\" of $111.00.\n- **Result:** A context menu appeared with options \"Modify Bill\", \"Reset Bill\", and \"Settings\".\n- **Confidence:** 1.0\n\n### 2. Select Reset Bill — 4s\n- **Screen:** Global Bill\n- **Action:** `tap` → `Reset Bill`\n- **Details:** The user selects the \"Reset Bill\" option from the context menu.\n- **Result:** An \"Are You Sure?\" confirmation dialog appeared, warning that this action will remove all expenses.\n- **Confidence:** 1.0\n\n### 3. Confirm Bill Reset — 6s\n- **Screen:** Global Bill\n- **Action:** `tap` → `Reset`\n- **Details:** The user confirms the action in the \"Are You Sure?\" dialog.\n- **Result:** The dialog closed. The \"Global Bill\" total, user balances, and the expenses list were all reset to $0.00 and empty, respectively.\n- **Confidence:** 1.0\n\n### 4. Open Overflow Menu Again — 8s\n- **Screen:** Global Bill\n- **Action:** `tap` → `three-dot menu icon`\n- **Details:** The bill is now at $0.00.\n- **Result:** The same context menu appeared again.\n- **Confidence:** 1.0\n\n### 5. Select Modify Bill — 9s\n- **Screen:** Global Bill\n- **Action:** `tap` → `Modify Bill`\n- **Details:** The user selects the \"Modify Bill\" option from the context menu.\n- **Result:** A dialog appeared with settings for \"Currency\", \"Taxes\", and \"Discount\".\n- **Confidence:** 1.0\n\n### 6. Disable Taxes — 10s\n- **Screen:** Global Bill\n- **Action:** `tap` → `Taxes toggle`\n- **Details:** The \"Taxes\" toggle was initially in the 'on' state.\n- **Result:** The \"Taxes\" toggle switched to the 'off' state.\n- **Confidence:** 1.0\n\n### 7. Dismiss Settings Dialog — 12s\n- **Screen:** Global Bill\n- **Action:** `tap` → `(outside the dialog)`\n- **Details:** The user taps on the dimmed background area to close the dialog.\n- **Result:** The \"Modify Bill\" dialog closed, and the user returned to the main \"Global Bill\" screen.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app provides a confirmation dialog for destructive actions like resetting the bill.\n- The \"Modify Bill\" settings reveal a default tax rate of 14.975%.\n- Resetting the bill successfully clears the total amount, individual user balances, and the list of expenses."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.18071120160180817
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 4493,
+    "candidatesTokenCount": 795,
+    "totalTokenCount": 6464,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "AUDIO",
+        "tokenCount": 325
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "VIDEO",
+        "tokenCount": 3612
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 795
+      }
+    ],
+    "thoughtsTokenCount": 1176
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-01T15:10:44.422588Z",
+  "responseId": "dML0abzlGcG1kNAPrvu6SQ"
+}

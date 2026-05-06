@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Quitter\ngoal: The user wanted to test the journal feature and then disable it via the settings.\noutcome: success — The user successfully disabled the journal tab.\n---\n\n## Session Summary\nThe user started on the \"Quitter\" home screen, which lists various addictions to track. They swiped to the \"Journal\" tab, made a brief entry, and then navigated to the \"Settings\" screen. In settings, they toggled off the \"Show journal\" option and returned to the main screen, confirming the \"Journal\" tab was no longer visible in the bottom navigation.\n\n## Steps\n\n### 1. Navigate to Journal — 3s\n- **Screen:** Quitter Home\n- **Action:** swipe_left → `Journal` tab\n- **Details:** The user swiped from the \"Quitter\" tab to the \"Journal\" tab.\n- **Result:** The \"Journal\" screen is displayed, showing a calendar for May 2026 and a text entry field.\n- **Confidence:** 1.0\n\n### 2. Add Journal Entry — 11s\n- **Screen:** Journal\n- **Action:** type → `How was your day?` text field\n- **Details:** The user typed \"it was good\" into the journal entry field for Friday, May 1, 2026.\n- **Result:** The text \"it was good\" appears in the input field.\n- **Confidence:** 1.0\n\n### 3. Navigate to Settings — 12s\n- **Screen:** Journal\n- **Action:** swipe_left → `Settings` tab\n- **Details:** The user swiped from the \"Journal\" tab to the \"Settings\" tab.\n- **Result:** The \"Settings\" screen is displayed.\n- **Confidence:** 1.0\n\n### 4. Disable Journal Tab — 15s\n- **Screen:** Settings\n- **Action:** tap → `Show journal` toggle\n- **Details:** The toggle switch for \"Enable the journal tab for logging your thoughts\" was turned off.\n- **Result:** The toggle becomes inactive (greyed out). The \"Journal\" tab immediately disappears from the bottom navigation bar.\n- **Confidence:** 1.0\n\n### 5. Return to Home Screen — 16s\n- **Screen:** Settings\n- **Action:** swipe_right → `Quitter` tab\n- **Details:** The user swiped from the \"Settings\" tab back to the main \"Quitter\" screen.\n- **Result:** The \"Quitter\" home screen is displayed. The bottom navigation bar now only shows \"Quitter\" and \"Settings\".\n- **Confidence:** 1.0\n\n## Key Observations\n- The app allows users to enable or disable the \"Journal\" tab from the settings menu.\n- The navigation bar updates in real-time to reflect the change in the \"Show journal\" setting.\n- The app supports both tapping on the bottom navigation icons and swiping left/right to switch between the main tabs.\n- The journal entry for \"Friday, May 1, 2026\" was \"it was good\"."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.18347095523460683
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 5908,
+    "candidatesTokenCount": 674,
+    "totalTokenCount": 7114,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "VIDEO",
+        "tokenCount": 4902
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "AUDIO",
+        "tokenCount": 450
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 674
+      }
+    ],
+    "thoughtsTokenCount": 532
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-01T15:15:23.125594Z",
+  "responseId": "i8P0aZrVB5zKkNAPn5GJ2AQ"
+}

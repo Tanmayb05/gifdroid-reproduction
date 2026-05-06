@@ -260,6 +260,10 @@ def run_automation(
             screenshot.save(screenshot_path)
 
         history = session.get_history()
+
+        logger.info("Step %d: Sending to LLM | task=%s | video_summary_len=%d | history_len=%d | a11y_tree_len=%d",
+                    step_num + 1, task_description[:100], len(video_summary or ""), len(history), len(xml or ""))
+
         decision = provider.decide_next_action_with_video_context(
             history=history,
             screenshot=screenshot,
@@ -269,10 +273,12 @@ def run_automation(
         )
 
         logger.info(
-            "Step %d: continue=%s action_type=%s",
+            "Step %d: LLM response | continue=%s action_type=%s reasoning=%s confidence=%.2f",
             step_num + 1,
             decision.continue_automation,
             decision.action.type if decision.action else "none",
+            (decision.reasoning or "")[:100],
+            decision.confidence,
         )
 
         step_entry: dict = {

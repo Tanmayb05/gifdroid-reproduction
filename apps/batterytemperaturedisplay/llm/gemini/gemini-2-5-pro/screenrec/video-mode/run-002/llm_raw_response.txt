@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Battery Temperature\ngoal: The user wants to start and complete a battery temperature logging session.\noutcome: success - The logging session started and a notification confirmed its completion.\n---\n\n## Session Summary\nThe user was on the main screen of the Battery Temperature app. They initiated a 1-minute logging session by tapping the \"START LOGGING\" button. The app confirmed the start of the session by changing the button text and adding a temperature icon to the status bar. After a short wait, a toast notification appeared, indicating that the logging had finished.\n\n## Steps\n\n### 1. Start Logging — 7s\n- **Screen:** Main Screen\n- **Action:** `tap` → `START LOGGING` button\n- **Details:** The logging duration is set to \"1 minutes\".\n- **Result:** The button text changes to \"STOP LOGGING\" and a notification icon showing \"25°\" appears in the system status bar.\n\n### 2. Logging Finishes — 12s\n- **Screen:** Main Screen\n- **Action:** `wait` → `for logging to complete`\n- **Details:** The app was logging the temperature.\n- **Result:** A toast notification \"Temperature logging finished\" appears at the bottom of the screen, and the button text reverts to \"START LOGGING\".\n\n### 3. Return to Home Screen — 14s\n- **Screen:** Main Screen\n- **Action:** `back` → `(system navigation)`\n- **Details:** The \"Temperature logging finished\" toast is still visible.\n- **Result:** The user navigates to the Android home screen.\n\n## Key Observations\n- The app displays the current battery temperature as 25.0 °C.\n- While logging is active, a notification icon with the current temperature is displayed in the system status bar.\n- The log file path is displayed on the screen: `/storage/emulated/0/Android/data/barilyuk.batterytemperature/files/Documents/battery_temperature_log.csv`.\n- The app is credited to \"Eugen Bariyuk\" with the URL \"eb43.github.io\"."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.307428907311481
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 4801,
+    "candidatesTokenCount": 460,
+    "totalTokenCount": 6117,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "VIDEO",
+        "tokenCount": 3870
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "AUDIO",
+        "tokenCount": 375
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 460
+      }
+    ],
+    "thoughtsTokenCount": 856
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-01T15:10:25.376955Z",
+  "responseId": "YcL0afuAF_fDkNAPscu48Aw"
+}

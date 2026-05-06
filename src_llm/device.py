@@ -1,6 +1,7 @@
 """Device control layer using uiautomator2."""
 from __future__ import annotations
 
+import logging
 import subprocess
 import time
 from pathlib import Path
@@ -8,6 +9,8 @@ from typing import Optional
 
 import PIL.Image
 import uiautomator2 as u2
+
+logger = logging.getLogger(__name__)
 
 _ADB = "adb"
 
@@ -115,29 +118,42 @@ class DeviceController:
         from src_llm.providers import ExecutableAction as _EA  # noqa: F401
 
         action_type = action.type.lower()
+        logger.info("Executing action | type=%s | resource_id=%s | coordinates=%s | text=%s | target=%s",
+                    action_type, action.resource_id, action.coordinates,
+                    (action.text[:50] if action.text else None),
+                    action.target_description[:100] if action.target_description else None)
+
         if action_type == "tap":
             if action.resource_id:
                 el = self._device(resourceId=action.resource_id)
                 if el.exists:
+                    logger.info("Tapped element with resource_id=%s", action.resource_id)
                     el.click()
                     return
+                else:
+                    logger.warning("Element with resource_id=%s not found", action.resource_id)
             if action.coordinates:
+                logger.info("Tapping at coordinates [%d, %d]", action.coordinates[0], action.coordinates[1])
                 self.tap(action.coordinates[0], action.coordinates[1])
         elif action_type == "scroll":
             direction = action.direction or "down"
             x, y = (action.coordinates or [540, 960])
+            logger.info("Scrolling %s at [%d, %d]", direction, int(x), int(y))
             self.scroll(direction, int(x), int(y))
         elif action_type == "type_text":
             if action.text:
+                logger.info("Typing text: %s", action.text[:50])
                 self.type_text(action.text)
         elif action_type in ("press_back", "back"):
+            logger.info("Pressing back button")
             self.press_key("back")
         elif action_type in ("press_home", "home"):
+            logger.info("Pressing home button")
             self.press_key("home")
         elif action_type in ("wait", "done"):
-            pass
+            logger.info("Action type %s — no device action", action_type)
         else:
-            pass
+            logger.warning("Unknown action type: %s", action_type)
 
     def reset_app(self, package: str) -> None:
         """Return the device to a clean baseline after a run.

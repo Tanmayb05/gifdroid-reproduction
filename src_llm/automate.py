@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 import sys
 import time
 from pathlib import Path
@@ -224,13 +225,16 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
 def main(argv: list[str] | None = None) -> int:
     args = _parse_args(argv)
 
+    log_level = os.environ.get("DEBUG") and logging.DEBUG or logging.INFO
     logging.basicConfig(
-        level=logging.INFO,
+        level=log_level,
         format="[%(levelname)s] %(asctime)s %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
         stream=sys.stderr,
     )
     logger = logging.getLogger("src_llm.automate")
+    if log_level == logging.DEBUG:
+        logger.info("DEBUG mode enabled")
 
     # --- Load config ---
     from src_llm.config import load_automation_config, ConfigError

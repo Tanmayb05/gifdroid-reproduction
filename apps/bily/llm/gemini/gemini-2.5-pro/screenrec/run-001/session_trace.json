@@ -1,0 +1,86 @@
+{
+  "task": "",
+  "video": "apps/Bily/videos/srv-001.mp4",
+  "video_summary": "The user resets the current bill by tapping the three-dot menu, selecting \"Reset Bill,\" and confirming the action in a pop-up. This clears all existing expenses and sets the user balances and global bill to zero. Finally, the user taps the three-dot menu again and selects \"Modify Bill\" to open the bill settings.",
+  "keyframes_used": 0,
+  "total_steps": 4,
+  "status": "stalled",
+  "steps": [
+    {
+      "step": 1,
+      "activity": "com.bily/.MainActivity",
+      "screenshot": "apps/Bily/llm/gemini/gemini-2.5-pro/screenrec/run-001/steps/step_001.png",
+      "continue": true,
+      "reasoning": "The first step in the task is to reset the bill, which is initiated by tapping the three-dot menu in the top right corner to access more options.",
+      "confidence": 1.0,
+      "action": {
+        "type": "tap",
+        "resource_id": null,
+        "coordinates": [
+          1007,
+          148
+        ],
+        "text": null,
+        "direction": null,
+        "target_description": "the three-dot menu icon in the top right corner"
+      }
+    },
+    {
+      "step": 2,
+      "activity": "com.bily/.MainActivity",
+      "screenshot": "apps/Bily/llm/gemini/gemini-2.5-pro/screenrec/run-001/steps/step_002.png",
+      "continue": true,
+      "reasoning": "The video summary indicates that the user first resets the bill. The previous step opened the overflow menu, and the current screen shows the options. The next logical step is to tap on 'Reset Bill' to proceed with the task.",
+      "confidence": 1.0,
+      "action": {
+        "type": "tap",
+        "resource_id": null,
+        "coordinates": [
+          902,
+          420
+        ],
+        "text": null,
+        "direction": null,
+        "target_description": "Reset Bill option"
+      }
+    },
+    {
+      "step": 3,
+      "activity": "com.bily/.MainActivity",
+      "screenshot": "apps/Bily/llm/gemini/gemini-2.5-pro/screenrec/run-001/steps/step_003.png",
+      "continue": true,
+      "reasoning": "The video summary indicates that after resetting the bill, the user taps the three-dot menu again to select 'Modify Bill'. The current screen shows the bill has been reset, so the next logical step is to tap the menu.",
+      "confidence": 1.0,
+      "action": {
+        "type": "tap",
+        "resource_id": null,
+        "coordinates": [
+          1007,
+          148
+        ],
+        "text": null,
+        "direction": null,
+        "target_description": "the three-dot menu in the top right corner"
+      }
+    },
+    {
+      "step": 4,
+      "activity": "com.bily/.MainActivity",
+      "screenshot": "apps/Bily/llm/gemini/gemini-2.5-pro/screenrec/run-001/steps/step_004.png",
+      "continue": true,
+      "reasoning": "The video summary indicates that after resetting the bill, the user taps the three-dot menu again and selects 'Modify Bill'. The previous step was to tap the three-dot menu, and the current screen shows the menu is open. Therefore, the next action is to tap on 'Modify Bill'.",
+      "confidence": 1.0,
+      "action": {
+        "type": "tap",
+        "resource_id": null,
+        "coordinates": [
+          902,
+          294
+        ],
+        "text": null,
+        "direction": null,
+        "target_description": "Modify Bill option in the menu"
+      }
+    }
+  ]
+}

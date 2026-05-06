@@ -26,7 +26,7 @@ def _urlopen_with_retry(
     max_retries: int = 5,
     base_delay: float = 10.0,
 ) -> str:
-    """Call urlopen, retrying on HTTP 429 with exponential backoff."""
+    """Call urlopen, retrying on HTTP 429 and TimeoutError with exponential backoff."""
     for attempt in range(max_retries + 1):
         try:
             with url_request.urlopen(req, timeout=timeout) as resp:
@@ -36,6 +36,16 @@ def _urlopen_with_retry(
                 delay = base_delay * (2 ** attempt)
                 _RETRY_LOG.warning(
                     "HTTP 429 rate limit on attempt %d/%d — retrying in %.0fs",
+                    attempt + 1, max_retries, delay,
+                )
+                time.sleep(delay)
+                continue
+            raise
+        except TimeoutError as exc:
+            if attempt < max_retries:
+                delay = base_delay * (2 ** attempt)
+                _RETRY_LOG.warning(
+                    "Request timeout on attempt %d/%d — retrying in %.0fs",
                     attempt + 1, max_retries, delay,
                 )
                 time.sleep(delay)
@@ -749,6 +759,8 @@ class GeminiProvider(BaseLLMProvider):
             "Return ONLY valid JSON, no markdown fences."
         ) + history_text + clickable_summary
 
+        self.logger.debug("LLM Prompt (first 500 chars): %s", prompt[:500])
+
         import io as _io
         buf = _io.BytesIO()
         screenshot.save(buf, format="PNG")
@@ -808,9 +820,18 @@ class GeminiProvider(BaseLLMProvider):
         self.logger.info("decide_next_action_with_video_context: response received | elapsed_sec=%.2f", elapsed)
 
         data = json.loads(response_text)
+        self.logger.debug("LLM raw response (first 1000 chars): %s", response_text[:1000])
+
         self._record_call("decide_next_action_with_video_context", elapsed, data)
         raw_text = self._extract_text(data)
-        return self._parse_action_decision(raw_text)
+        self.logger.info("LLM extracted text: %s", raw_text[:500])
+
+        decision = self._parse_action_decision(raw_text)
+        self.logger.info("Parsed decision | continue=%s action=%s | raw_json=%s",
+                         decision.continue_automation,
+                         decision.action.type if decision.action else "none",
+                         raw_text[:200])
+        return decision
 
     def _record_call(self, kind: str, elapsed: float, data: dict) -> None:
         """Append per-call stats to llm_calls using Gemini's usageMetadata."""
