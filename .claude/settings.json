@@ -75,7 +75,10 @@
       "Bash(.venv/bin/python /tmp/test_slug.py)",
       "Bash(.venv/bin/python /tmp/test_imports.py)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(find apps/*/llm -name \"memory.md\")",
+      "Bash(.venv/bin/python /tmp/test_parse_memory.py)",
+      "Bash(.venv/bin/python3)"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",

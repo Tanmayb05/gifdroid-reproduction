@@ -1,0 +1,16 @@
+{
+  "app": "adaway",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "screenrec",
+  "video": "srv-001.mp4",
+  "timestamp": "2026-05-06T03:09:42",
+  "duration_sec": 27.8,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: AdAway\ngoal: To add a specific hostname to the ad blocker's whitelist.\noutcome: success - The hostname was added to the list but the configuration was not applied.\n---\n\n## Session Summary\nThe user launched the AdAway application from the home screen. They navigated through the app's menu to the \"Your lists\" section and switched to the \"Allowed\" tab. After a brief, abandoned search, the user added the hostname \"utl.web\" to the whitelist. The session ended on the list screen, with a prompt to apply the new configuration.\n\n## Steps\n\n### 1. Launch App \u2014 0s\n- **Screen:** Android Home Screen\n- **Action:** `tap` \u2192 `AdAway` app icon\n- **Details:** The user taps the AdAway icon to open the application.\n- **Result:** The AdAway app opens to its main dashboard.\n- **Confidence:** 1.0\n\n### 2. Navigate to Lists \u2014 3s\n- **Screen:** AdAway Main Dashboard\n- **Action:** `tap` \u2192 `hamburger menu icon` (bottom-left)\n- **Details:** The user opens the main navigation menu.\n- **Result:** A side menu appears.\n- **Confidence:** 1.0\n\n### 3. Open Allowed List \u2014 5s\n- **Screen:** AdAway Main Dashboard with Navigation Menu\n- **Action:** `tap` \u2192 `Your lists`\n- **Details:** The user selects \"Your lists\" from the menu, then taps the \"Allowed\" tab at the bottom of the next screen.\n- **Result:** The app displays the \"Your lists\" screen, focused on the \"Allowed\" (whitelist) tab. An existing entry \"yguy\" is visible.\n- **Confidence:** 1.0\n\n### 4. Initiate Add Host \u2014 14s\n- **Screen:** Your lists (Allowed)\n- **Action:** `tap` \u2192 `red \"+\" button`\n- **Details:** After a brief, abandoned search, the user taps the floating action button to add a new entry.\n- **Result:** The \"Add host to whitelist\" dialog appears.\n- **Confidence:** 1.0\n\n### 5. Add Hostname to Whitelist \u2014 17s\n- **Screen:** Your lists (Allowed) with \"Add host to whitelist\" dialog\n- **Action:** `type` \u2192 `Hostname` text field\n- **Details:** The user types \"utl.web\" into the hostname field and taps \"ADD\".\n- **Result:** The dialog closes. The hostname \"utl.web\" is added to the list, and a banner appears at the bottom stating \"Your configuration changed. You need to apply it.\"\n- **Confidence:** 1.0\n\n## Key Observations\n- The app version is 6.1.4, as seen on the main dashboard.\n- Modifying lists is a two-step process: add/remove the entry, then tap an \"APPLY\" button to make the changes active. The user did not complete the second step.\n- The \"Allowed\" list contained a pre-existing entry named \"yguy\".",
+    "task_description": "",
+    "ui_elements": {},
+    "completion_criteria": []
+  }
+}

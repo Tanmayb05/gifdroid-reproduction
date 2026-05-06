@@ -83,31 +83,95 @@ def _parse_memory_md(memory_text: str) -> Tuple[str, Dict[str, str], List[str]]:
     """Extract structured data from memory.md markdown.
 
     Returns: (task_description, ui_elements_dict, completion_criteria_list)
+
+    Handles both formats:
+    1. YAML header + Session Summary + Steps (current format from Gemini)
+    2. # Task Summary + ## UI Elements + ## Completion Criteria (planned format)
     """
     task_desc = ""
     ui_elements: Dict[str, str] = {}
     completion_criteria: List[str] = []
 
-    # Parse "# Task Summary" section
-    task_match = re.search(r'# Task Summary\n(.*?)(?=\n## |\Z)', memory_text, re.DOTALL)
-    if task_match:
-        task_desc = task_match.group(1).strip()
+    # Try Format 1: Check for YAML header with goal/outcome
+    yaml_match = re.search(r'^---\n(.*?)\n---', memory_text, re.DOTALL)
+    if yaml_match:
+        yaml_content = yaml_match.group(1)
+        # Extract goal from YAML
+        goal_match = re.search(r'goal:\s*(.+?)$', yaml_content, re.MULTILINE)
+        if goal_match:
+            task_desc = goal_match.group(1).strip()
 
-    # Parse "## UI Elements" section
-    ui_match = re.search(r'## UI Elements\n(.*?)(?=\n## |\Z)', memory_text, re.DOTALL)
-    if ui_match:
-        for line in ui_match.group(1).split('\n'):
-            if line.startswith('- '):
-                parts = line[2:].split(':', 1)
-                if len(parts) == 2:
-                    ui_elements[parts[0].strip()] = parts[1].strip()
+        # Extract outcome for completion criteria
+        outcome_match = re.search(r'outcome:\s*(.+?)$', yaml_content, re.MULTILINE)
+        if outcome_match:
+            outcome = outcome_match.group(1).strip()
+            if outcome:
+                completion_criteria.append(f"Task outcome: {outcome}")
 
-    # Parse "## Completion Criteria" section
-    criteria_match = re.search(r'## Completion Criteria\n(.*?)(?=\n## |\Z)', memory_text, re.DOTALL)
-    if criteria_match:
-        for line in criteria_match.group(1).split('\n'):
-            if line.startswith('- '):
-                completion_criteria.append(line[2:].strip())
+        # Extract UI elements from steps
+        # Skip blank lines after "## Steps\n" with \n*(.*?)
+        steps_match = re.search(r'## Steps\n\n+(.*?)(?=\n##|\Z)', memory_text, re.DOTALL)
+        if steps_match:
+            steps_text = steps_match.group(1)
+
+            # Parse line by line to extract UI elements
+            seen_elements = set()
+            seen_screens = set()
+
+            for line in steps_text.split('\n'):
+                # Extract action targets from **Action:** lines
+                if '**Action:**' in line:
+                    # Format: "- **Action:** tap → \"Allowed\" button"
+                    if '→' in line:
+                        parts = line.split('→', 1)
+                        if len(parts) == 2:
+                            target = parts[1].strip()
+                            # Remove trailing descriptors and quotes
+                            target = re.sub(r'\s+(button|field|menu|dialog|list|screen|bar)$', '', target, flags=re.IGNORECASE)
+                            target = target.strip('`"() ')
+                            action_type = re.search(r'(\w+)\s+→', line)
+                            if target and target not in seen_elements:
+                                if action_type:
+                                    ui_elements[target] = action_type.group(1)
+                                seen_elements.add(target)
+
+                # Extract screen names from **Screen:** lines
+                if '**Screen:**' in line:
+                    match = re.search(r'\*\*Screen:\*\*\s+([^\n]+)', line)
+                    if match:
+                        screen = match.group(1).strip()
+                        if screen and screen not in seen_screens:
+                            ui_elements[f"screen: {screen}"] = "navigation_target"
+                            seen_screens.add(screen)
+
+                # Extract user input details
+                if '**Details:**' in line and 'type' in line.lower():
+                    match = re.search(r'\*\*Details:\*\*\s+([^\n]+)', line)
+                    if match:
+                        detail = match.group(1).strip()
+                        if len(detail) > 5:
+                            ui_elements[f"input: {detail[:35]}"] = "user_input"
+    else:
+        # Try Format 2: Check for # Task Summary section
+        task_match = re.search(r'# Task Summary\n(.*?)(?=\n## |\Z)', memory_text, re.DOTALL)
+        if task_match:
+            task_desc = task_match.group(1).strip()
+
+        # Parse "## UI Elements" section
+        ui_match = re.search(r'## UI Elements\n(.*?)(?=\n## |\Z)', memory_text, re.DOTALL)
+        if ui_match:
+            for line in ui_match.group(1).split('\n'):
+                if line.startswith('- '):
+                    parts = line[2:].split(':', 1)
+                    if len(parts) == 2:
+                        ui_elements[parts[0].strip()] = parts[1].strip()
+
+        # Parse "## Completion Criteria" section
+        criteria_match = re.search(r'## Completion Criteria\n(.*?)(?=\n## |\Z)', memory_text, re.DOTALL)
+        if criteria_match:
+            for line in criteria_match.group(1).split('\n'):
+                if line.startswith('- '):
+                    completion_criteria.append(line[2:].strip())
 
     return task_desc, ui_elements, completion_criteria
 
