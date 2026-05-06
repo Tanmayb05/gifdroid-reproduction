@@ -1,11 +1,11 @@
 # CLI:
 # .venv/bin/python -m src_llm.main --config src_llm/input/config.yml --env-file .env.local
 
-# llm: "qwen"
-# llm: "llama"
-# llm: "gemma"
-# llm: "llava"
-# llm: "minicpm"
+# -----------------
+# LLM Configuration
+# -----------------
+
+# Provider options: "qwen", "llama", "gemma", "llava", "minicpm", "gemini"
 llm: "gemini"
 llm_model: "gemini-2.5-pro"
 
@@ -13,22 +13,38 @@ llm_model: "gemini-2.5-pro"
 # Currently only supported by llm: "gemini" via Vertex AI File API.
 video_mode: true
 
-# llm_prompt_file: "src_llm/input/prompts/llama_action_prompt_baseline_2.txt"
-llm_prompt_file:  "src_llm/input/prompts/llama_action_prompt_memory.txt"
-# llm_prompt_file: "src_llm/input/prompts/llama_action_prompt_gemini_2.txt"
-# llm_prompt_file: "src_llm/input/prompts/llama_action_prompt_claude.txt"
+# Prompt file for LLM action inference
+# Options:
+#   - "src_llm/input/prompts/llama_action_prompt_baseline_2.txt"
+#   - "src_llm/input/prompts/llama_action_prompt_memory.txt"
+#   - "src_llm/input/prompts/llama_action_prompt_gemini_2.txt"
+#   - "src_llm/input/prompts/llama_action_prompt_claude.txt"
+llm_prompt_file: "src_llm/input/prompts/llama_action_prompt_memory.txt"
+
+# -----------------
+# Frame Sampling (ignored in video_mode)
+# -----------------
 
 frame_sampling:
   strategy: "uniform"
   fps: 1.5
   max_frames: 100
 
+# -----------------
+# Keyframe Selection (ignored in video_mode)
+# -----------------
+
 keyframe_selection:
   # Options: "heuristic", "llm_assisted", "ssim"
-  method: "llm_assisted"
+  # NOTE: These settings are ignored when video_mode: true
+  method: "ssim"
   min_gap_seconds: 1.0
   ssim_threshold: 0.95
   stable_threshold: 2
+
+# -----------------
+# Output & Logging
+# -----------------
 
 output:
   overwrite: true
@@ -36,53 +52,113 @@ output:
 logging:
   level: "INFO"
 
+# -----------------
+# Run Definitions
+# -----------------
+
+# All available apps in the gifdroid-reproduction dataset:
+#   adaway, antennapod, bakerspercentagecalculator, batterytemperaturedisplay,
+#   bily, binaryeye, bloodpressuremonitor, brethap, deadhash, homemedkit,
+#   homeraudioplayer, jigsaw, luxalarm, newpipe, pantry, portauthority,
+#   quitter, simplenotes, vanilla, wifianalyzer
+
 runs:
-  - app_name: "adaway"
+  # - app_name: "adaway"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "antennapod"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  - app_name: "bakerspercentagecalculator"
     video_path:
       - "hhv"
       - "srv"
 
-  - app_name: "antennapod"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "batterytemperaturedisplay"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "deadhash"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "bily"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "homemedkit"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "binaryeye"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "jigsaw"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "bloodpressuremonitor"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "luxalarm"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "brethap"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "pomodorot"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "deadhash"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "portauthority"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "homemedkit"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "simplenotes"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "homeraudioplayer"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
 
-  - app_name: "wifianalyzer"
-    video_path:
-      - "hhv"
-      - "srv"
+  # - app_name: "jigsaw"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "luxalarm"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "newpipe"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "pantry"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "portauthority"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "quitter"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "simplenotes"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "vanilla"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"
+
+  # - app_name: "wifianalyzer"
+  #   video_path:
+  #     - "hhv"
+  #     - "srv"

@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Baker's Percentage Calculator\ngoal: To add a new recipe for a cake to the application.\noutcome: success - The user successfully created and saved a new recipe, which appeared on the main list.\n---\n\n## Session Summary\nThe user launched the app to an empty home screen and tapped the add button to navigate to the \"Add Recipe\" form. They proceeded to fill in the recipe name, notes, and oven temperature. After saving, the app returned to the home screen, which now displayed the newly created \"cake\" recipe.\n\n## Steps\n\n### 1. Start Adding Recipe — 2s\n- **Screen:** Home\n- **Action:** tap → `+`\n- **Details:** The screen shows the text \"Press the + button to add your first recipe!\".\n- **Result:** Navigated to the \"Add Recipe\" screen.\n- **Confidence:** 1.0\n\n### 2. Enter Recipe Name — 5s\n- **Screen:** Add Recipe\n- **Action:** type → `Recipe Name`\n- **Details:** Typed \"cake\".\n- **Result:** The text \"cake\" was entered into the \"Recipe Name\" field.\n- **Confidence:** 1.0\n\n### 3. Enter Notes — 8s\n- **Screen:** Add Recipe\n- **Action:** type → `Notes (e.g., seeds, nuts)`\n- **Details:** Typed \"nuts\".\n- **Result:** The text \"nuts\" was entered into the \"Notes\" field.\n- **Confidence:** 1.0\n\n### 4. Enter Oven Details — 15s\n- **Screen:** Add Recipe\n- **Action:** type → `Oven Temp & Time`\n- **Details:** Typed \"400\".\n- **Result:** The text \"400\" was entered into the \"Oven Temp & Time\" field.\n- **Confidence:** 1.0\n\n### 5. Save Recipe — 16s\n- **Screen:** Add Recipe\n- **Action:** tap → `Save Recipe`\n- **Result:** The recipe was saved, and the app navigated back to the home screen, which now displays a card for the \"cake\" recipe.\n- **Confidence:** 1.0\n\n## Key Observations\n- When creating a new recipe, the app automatically adds \"Flour\" as the first ingredient at 100%, which is the standard base for baker's percentages.\n- The default unit for recipes is \"grams\".\n- The user did not add or modify any ingredients, only the recipe name, notes, and oven details."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.21152401826540057
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 5933,
+    "candidatesTokenCount": 557,
+    "totalTokenCount": 7453,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "VIDEO",
+        "tokenCount": 4902
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "AUDIO",
+        "tokenCount": 475
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 557
+      }
+    ],
+    "thoughtsTokenCount": 963
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-06T04:33:17.728926Z",
+  "responseId": "jcT6ad6-LNqj7rcPhufO0AU"
+}

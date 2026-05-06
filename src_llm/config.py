@@ -184,7 +184,7 @@ def load_automation_config(config_path: Path) -> "AutomationConfig":
 
     # --- Shared settings ---
     llm = _require_str(root, "llm").lower()
-    llm_model = _optional_str(root, "llm_model") or "gemini-2.5-pro"
+    llm_model = _normalize_model_slug(_optional_str(root, "llm_model") or "gemini-2.5-pro")
     device_serial = _optional_str(root, "device_serial")
 
     max_steps_raw = root.get("max_steps", 10)
@@ -356,6 +356,16 @@ def _validate_logging(raw: Dict[str, Any]) -> LoggingConfig:
     return LoggingConfig(level=level)
 
 
+def _normalize_model_slug(model_str: str) -> str:
+    """Normalize model name to lowercase with hyphens and dots.
+
+    Examples: "Gemini-2.5-Pro" -> "gemini-2.5-pro"
+    """
+    import re
+    normalized = re.sub(r"[^a-z0-9.-]+", "-", model_str.lower()).strip("-")
+    return normalized
+
+
 def _parse_shared(root: Dict[str, Any]) -> tuple:
     """Parse shared settings (llm, frame_sampling, etc.) from root mapping."""
     llm = _require_str(root, "llm").lower()
@@ -366,7 +376,7 @@ def _parse_shared(root: Dict[str, Any]) -> tuple:
     )
     if llm_model is None:
         default_models = {
-            "gemini": "gemini-1.5-flash",
+            "gemini": "gemini-2.5-pro",
             "llama": "llama3.2-vision:latest",
             "llava": "llava:13b",
             "minicpm": "minicpm-v:latest",
@@ -374,6 +384,8 @@ def _parse_shared(root: Dict[str, Any]) -> tuple:
             "qwen": "qwen2.5vl:7b",
         }
         llm_model = default_models.get(llm, llm)
+
+    llm_model = _normalize_model_slug(llm_model)
 
     video_mode = bool(root.get("video_mode", True))
     if video_mode and llm not in VIDEO_MODE_SUPPORTED_PROVIDERS:

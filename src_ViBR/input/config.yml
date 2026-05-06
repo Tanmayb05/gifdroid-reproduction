@@ -1,64 +1,143 @@
-# llm: "openai"
-# llm_model: "gpt-4o-mini"
+# -----------------
+# LLM Configuration
+# -----------------
+
+# LLM Provider options: "openai", "gemini"
 llm: "gemini"
-# llm_model: "gemini-2.5-flash"
+
+# Model selection
+# OpenAI:  gpt-4o, gpt-4o-mini, gpt-4-turbo
+# Gemini:  gemini-2.5-pro, gemini-2.5-flash, gemini-1.5-flash
 llm_model: "gemini-2.5-pro"
 
+# -----------------
+# Algorithm Selection
+# -----------------
+
+# Default algorithm for all runs
+# Options: "clip" (CLIP-based visual similarity), "ssim" (Structure Similarity Index)
 algorithm: "clip"
 
+# -----------------
+# Output & Logging
+# -----------------
+
 output:
+  # If false, skip runs where output already exists.
+  # If true, overwrite existing output.
   overwrite: true
 
 logging:
+  # One of: DEBUG, INFO, WARNING, ERROR, CRITICAL
   level: "INFO"
 
+# -----------------
+# Run Definitions
+# -----------------
+
+# All available apps in the gifdroid-reproduction dataset:
+#   adaway, antennapod, bakerspercentagecalculator, batterytemperaturedisplay,
+#   bily, binaryeye, bloodpressuremonitor, brethap, deadhash, homemedkit,
+#   homeraudioplayer, jigsaw, luxalarm, newpipe, pantry, portauthority,
+#   quitter, simplenotes, vanilla, wifianalyzer
+
 runs:
-  # - app_name: "adaway"
-  #   video_path:
-  #     - "hhv"
-  #     - "srv"
+  - app_name: "adaway"
+    video_path:
+      - "hhv"
+      - "srv"
 
-  # - app_name: "antennapod"
-  #   video_path:
-  #     - "hhv"
-  #     - "srv"
+  - app_name: "antennapod"
+    video_path:
+      - "hhv"
+      - "srv"
 
-  # - app_name: "deadhash"
-  #   video_path:
-  #     - "hhv"
-  #     - "srv"
+  - app_name: "bakerspercentagecalculator"
+    video_path:
+      - "hhv"
+      - "srv"
 
-  # - app_name: "homemedkit"
-  #   video_path:
-      # - "hhv"
-      # - "srv"
+  - app_name: "batterytemperaturedisplay"
+    video_path:
+      - "hhv"
+      - "srv"
 
-  # - app_name: "jigsaw"
-  #   video_path:
-  #     - "hhv"
-  #     - "srv"
+  - app_name: "bily"
+    video_path:
+      - "hhv"
+      - "srv"
 
-  # - app_name: "luxalarm"
-  #   video_path:
-      # - "hhv"
-      # - "srv"
+  - app_name: "binaryeye"
+    video_path:
+      - "hhv"
+      - "srv"
 
-  # - app_name: "pomodorot"
-  #   video_path:
-  #     - "hhv"
-  #     - "srv"
+  - app_name: "bloodpressuremonitor"
+    video_path:
+      - "hhv"
+      - "srv"
 
-  # - app_name: "portauthority"
-  #   video_path:
-  #     - "hhv"
-  #     - "srv"
+  - app_name: "brethap"
+    video_path:
+      - "hhv"
+      - "srv"
 
-  # - app_name: "simplenotes"
-  #   video_path:
-  #     - "hhv"
-  #     - "srv"
+  - app_name: "deadhash"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "homemedkit"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "homeraudioplayer"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "jigsaw"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "luxalarm"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "newpipe"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "pantry"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "portauthority"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "quitter"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "simplenotes"
+    video_path:
+      - "hhv"
+      - "srv"
+
+  - app_name: "vanilla"
+    video_path:
+      - "hhv"
+      - "srv"
 
   - app_name: "wifianalyzer"
     video_path:
-      # - "hhv"
+      - "hhv"
       - "srv"
