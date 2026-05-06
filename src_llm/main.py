@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import List
+from typing import Dict, List, Tuple
 
 from src_llm.config import AppConfig, ConfigError, PipelineConfig, load_config
 from src_llm.env_loader import EnvError, load_and_validate_env
@@ -76,6 +77,39 @@ def _env_timeout_sec(env: dict, key: str, default: int) -> int:
     except ValueError:
         return default
     return value if value > 0 else default
+
+
+def _parse_memory_md(memory_text: str) -> Tuple[str, Dict[str, str], List[str]]:
+    """Extract structured data from memory.md markdown.
+
+    Returns: (task_description, ui_elements_dict, completion_criteria_list)
+    """
+    task_desc = ""
+    ui_elements: Dict[str, str] = {}
+    completion_criteria: List[str] = []
+
+    # Parse "# Task Summary" section
+    task_match = re.search(r'# Task Summary\n(.*?)(?=\n## |\Z)', memory_text, re.DOTALL)
+    if task_match:
+        task_desc = task_match.group(1).strip()
+
+    # Parse "## UI Elements" section
+    ui_match = re.search(r'## UI Elements\n(.*?)(?=\n## |\Z)', memory_text, re.DOTALL)
+    if ui_match:
+        for line in ui_match.group(1).split('\n'):
+            if line.startswith('- '):
+                parts = line[2:].split(':', 1)
+                if len(parts) == 2:
+                    ui_elements[parts[0].strip()] = parts[1].strip()
+
+    # Parse "## Completion Criteria" section
+    criteria_match = re.search(r'## Completion Criteria\n(.*?)(?=\n## |\Z)', memory_text, re.DOTALL)
+    if criteria_match:
+        for line in criteria_match.group(1).split('\n'):
+            if line.startswith('- '):
+                completion_criteria.append(line[2:].strip())
+
+    return task_desc, ui_elements, completion_criteria
 
 
 def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
@@ -155,12 +189,26 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
             logger.info("Running %s API preflight before trace generation", cfg.llm)
             provider.validate_connection()
 
+        memory_text = None
+        task_desc = None
+        ui_elements = None
+        completion_criteria = None
+
         if cfg.video_mode:
             logger.info("Video mode enabled — skipping frame extraction and keyframe selection")
             memory_text = provider.infer_memory_from_video(resolved_video_path)
             layout.memory_md_path.parent.mkdir(parents=True, exist_ok=True)
             layout.memory_md_path.write_text(memory_text, encoding="utf-8")
             logger.info("Memory trace written: %s", layout.memory_md_path)
+
+            # Parse memory.md for metadata storage
+            task_desc, ui_elements, completion_criteria = _parse_memory_md(memory_text)
+            logger.info(
+                "Parsed memory: task_desc=%s | ui_elements=%d | completion_criteria=%d",
+                len(task_desc) if task_desc else 0,
+                len(ui_elements) if ui_elements else 0,
+                len(completion_criteria) if completion_criteria else 0,
+            )
         else:
             extractor = VideoFrameExtractor()
             sampled_frames, metadata = extractor.extract(resolved_video_path, cfg.frame_sampling, logger)
@@ -239,6 +287,10 @@ def run_single(args: argparse.Namespace, cfg: AppConfig) -> int:
             run_dt=run_dt,
             duration_sec=duration_sec,
             status="success",
+            memory_md_content=memory_text,
+            task_description=task_desc,
+            ui_elements=ui_elements,
+            completion_criteria=completion_criteria,
         )
 
         pipeline_status = "success"

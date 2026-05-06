@@ -126,6 +126,33 @@ class BaseLLMProvider(ABC):
     def infer_actions(self, keyframes: List[Keyframe]) -> List[ProviderAction]:
         """Infer action hypotheses from selected keyframes."""
 
+    def infer_memory_from_video(self, video_path: Path) -> str:
+        """Analyze video and return structured markdown memory.
+
+        Markdown format (for video_mode):
+        # Task Summary
+        [description of task]
+
+        ## Steps
+        1. Step 1 description
+        2. Step 2 description
+        ...
+
+        ## UI Elements
+        - Element 1: description
+        - Element 2: description
+        ...
+
+        ## Completion Criteria
+        - Criterion 1
+        - Criterion 2
+        ...
+        """
+        raise NotImplementedError(
+            f"Provider '{self.llm_name}' does not support infer_memory_from_video(). "
+            "Only 'gemini' is currently supported."
+        )
+
     def infer_actions_from_video(self, video_path: Path) -> List[ProviderAction]:
         """Infer actions directly from a video file (video mode). Override in subclasses."""
         raise NotImplementedError(
