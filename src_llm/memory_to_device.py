@@ -51,6 +51,7 @@ def _locate_latest_run(app_name: str, llm_model: str, video_type: str) -> Path:
     """Locate the latest Stage 1 run for an app+model+video_type combination.
 
     Searches: apps/<app>/llm/<model>/<video_type>-video-mode/run-*/
+    Only returns runs with metadata.json (Stage 1 outputs), skipping Stage 2 device-automation dirs.
     Returns: Path to run directory (e.g., apps/adaway/llm/gemini-2.5-pro/screenrec-video-mode/run-001)
     Raises: FileNotFoundError if no run found
     """
@@ -66,9 +67,13 @@ def _locate_latest_run(app_name: str, llm_model: str, video_type: str) -> Path:
             f"Make sure to run Stage 1 (src_llm.main) first with video_mode=true"
         )
 
-    existing = sorted(base.glob("run-*"), key=lambda p: int(p.name[4:]))
+    # Only accept run-NNN directories that have metadata.json (Stage 1 outputs)
+    existing = [
+        p for p in sorted(base.glob("run-*"), key=lambda p: int(p.name[4:]))
+        if (p / "metadata.json").exists()
+    ]
     if not existing:
-        raise FileNotFoundError(f"No numbered runs in {base}")
+        raise FileNotFoundError(f"No Stage 1 runs with metadata.json in {base}")
 
     return existing[-1]
 
@@ -89,17 +94,26 @@ def _load_run_metadata(run_dir: Path) -> dict:
         return json.load(f)
 
 
-def _resolve_output_dir(run, llm: str, llm_model: str) -> Path:
+def _resolve_output_dir(run, llm: str, llm_model: str, prior_stage1_run: Path | None = None) -> Path:
     """Return the output dir for a run, auto-deriving if not set in config.
 
-    Auto-derived path (flat structure):
-        apps/<app>/llm/<model>/<video_type>-video-mode/run-<NNN>
+    For Stage 2 (device automation), uses the prior Stage 1 run directory to co-locate outputs.
+    This prevents Stage 2 from creating new run-NNN directories that would interfere with
+    subsequent Stage 1 → Stage 2 workflows.
+
+    Auto-derived path (Stage 2):
+        apps/<app>/llm/<model>/<video_type>-video-mode/run-<NNN>/device-automation/
 
     model slug includes provider info (e.g., 'gemini-2.5-pro')
     """
     if run.output_dir is not None:
         return run.output_dir
 
+    # If prior Stage 1 run provided, use it as base (Stage 2 case)
+    if prior_stage1_run is not None:
+        return prior_stage1_run / "device-automation"
+
+    # Otherwise, create new run-NNN directory (Stage 1 case, not used in Stage 2)
     model_slug = _normalize_model_slug(llm_model)
     source = "handheld" if run.video_type == "hhv" else "screenrec"
     source_dir = f"{source}-video-mode"
@@ -155,7 +169,32 @@ def _log_run_stats(logger: logging.Logger, run, trace: dict, output_dir: Path, p
 
 def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict | None:
     """Execute one automation run. Returns the trace dict or None on dry-run."""
-    output_dir = _resolve_output_dir(run, run.llm, run.llm_model)
+    # --- Locate prior Stage 1 run FIRST (before creating output dir) ---
+    prior_stage1_run = None
+    memory_md_content = None
+    task_description = ""
+
+    if not dry_run:
+        try:
+            prior_stage1_run = _locate_latest_run(run.app_name, run.llm_model, run.video_type)
+            logger.info("Located prior Stage 1 run: %s", prior_stage1_run)
+
+            prior_metadata = _load_run_metadata(prior_stage1_run)
+            video_mode_metadata = prior_metadata.get("video_mode_metadata", {})
+            memory_md_content = video_mode_metadata.get("memory_md_content")
+            task_description = video_mode_metadata.get("task_description", "")
+
+            if not memory_md_content:
+                logger.error("No memory.md content found in prior run metadata")
+                return None
+
+            logger.info("Loaded memory.md from prior Stage 1 run | task_desc_len=%d", len(task_description))
+        except FileNotFoundError as exc:
+            logger.error("Failed to locate prior Stage 1 run: %s", exc)
+            return None
+
+    # Now resolve output directory (uses prior_stage1_run if provided)
+    output_dir = _resolve_output_dir(run, run.llm, run.llm_model, prior_stage1_run)
 
     # Attach a per-run file handler so logs are saved alongside run outputs.
     file_handler: logging.FileHandler | None = None
@@ -229,27 +268,6 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
 
     time.sleep(2)
     logger.info("App launched: %s", device.get_current_activity())
-
-    # --- Locate and load prior Stage 1 run memory ---
-    memory_md_content = None
-    task_description = ""
-    try:
-        prior_run_dir = _locate_latest_run(run.app_name, run.llm_model, run.video_type)
-        logger.info("Located prior Stage 1 run: %s", prior_run_dir)
-
-        prior_metadata = _load_run_metadata(prior_run_dir)
-        video_mode_metadata = prior_metadata.get("video_mode_metadata", {})
-        memory_md_content = video_mode_metadata.get("memory_md_content")
-        task_description = video_mode_metadata.get("task_description", "")
-
-        if not memory_md_content:
-            logger.error("No memory.md content found in prior run metadata")
-            return None
-
-        logger.info("Loaded memory.md from prior Stage 1 run | task_desc_len=%d", len(task_description))
-    except FileNotFoundError as exc:
-        logger.error("Failed to locate prior Stage 1 run: %s", exc)
-        return None
 
     # --- Run automation with memory context ---
     from src_llm.automation import run_automation
