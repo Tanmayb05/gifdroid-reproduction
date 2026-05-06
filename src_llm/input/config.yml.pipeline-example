@@ -1,0 +1,49 @@
+# Unified Two-Stage Pipeline Configuration
+# This config serves both Stage 1 (video→memory) and Stage 2 (memory→device)
+#
+# Usage:
+#   python -m src_llm.pipeline --config this-file.yml --env-file .env.local
+#
+# Stage 1 (src_llm.main) reads: llm, llm_model, video_mode, frame_sampling, keyframe_selection, output, logging, runs
+# Stage 2 (src_llm.automate) reads: llm, llm_model, device_serial, max_steps, history_window, step_delay, etc.
+
+# LLM Configuration (used by both stages)
+llm: "gemini"
+llm_model: "gemini-2.5-pro"
+video_mode: true  # Stage 1: generate memory from video. Stage 2: use memory for automation
+
+# Frame Sampling (Stage 1 only, ignored by Stage 2)
+frame_sampling:
+  strategy: "uniform"
+  fps: 1.0
+  max_frames: 100
+
+# Keyframe Selection (Stage 1 only, ignored when video_mode=true)
+keyframe_selection:
+  method: "heuristic"
+  min_gap_seconds: 2.0
+
+# Output Configuration
+output:
+  overwrite: false
+
+# Logging
+logging:
+  level: "INFO"
+
+# Device Automation Configuration (Stage 2 only, ignored by Stage 1)
+device_serial:  # Leave empty for auto-detect of first connected device
+max_steps: 10
+history_window: 3
+step_delay: 1.5
+stall_repeat_threshold: 4
+reset_between_runs: true
+
+# Runs to process (same runs processed by both Stage 1 and Stage 2)
+runs:
+  - app_name: "AdAway"
+    video_path: "srv-001.mp4"
+  - app_name: "AntennaPod"
+    video_path: "srv-001.mp4"
+  - app_name: "BakersPercentageCalculator"
+    video_path: "srv-001.mp4"

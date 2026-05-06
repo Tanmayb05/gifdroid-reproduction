@@ -76,55 +76,57 @@ Eliminates redundant video processing and reduces LLM token usage by 10x.
 
 ---
 
-## Phase 5: Stage 2 Implementation (Memory → Device Automation)
+## Phase 5: Stage 2 Implementation (Memory → Device Automation) ✅
 **Goal:** Implement src_llm.automate with memory-aware automation
 
 **Requirements:**
-- [R5.1] Locate latest Stage 1 run for app+model+video_type
-- [R5.2] Load metadata.json and extract memory.md content
-- [R5.3] Pass memory context to LLM during automation steps
-- [R5.4] Device automation uses memory instead of re-analyzing video
+- [R5.1] Locate latest Stage 1 run for app+model+video_type ✅
+- [R5.2] Load metadata.json and extract memory.md content ✅
+- [R5.3] Pass memory context to LLM during automation steps ✅
+- [R5.4] Device automation uses memory instead of re-analyzing video ✅
 
 **Deliverables:**
-- Run locator: _locate_latest_run()
-- Metadata loader: _load_run_metadata()
-- Output dir resolver with auto-derivation
-- Integration with automation loop
+- Run locator: _locate_latest_run() ✅
+- Metadata loader: _load_run_metadata() ✅
+- Model slug normalizer: _normalize_model_slug() ✅
+- Output dir resolver with auto-derivation ✅
+- Integration with automation loop ✅
+- Dual-mode run_automation() (memory-guided + video-guided) ✅
 
 ---
 
-## Phase 6: Automation Memory Context Integration
+## Phase 6: Automation Memory Context Integration ✅
 **Goal:** Update automation loop to use memory context in LLM decisions
 
 **Requirements:**
-- [R6.1] run_automation() accepts memory_content parameter
-- [R6.2] decide_next_action() receives memory context
-- [R6.3] Memory injected into LLM prompt for each step
-- [R6.4] Session trace logs memory usage
+- [R6.1] run_automation() accepts memory_content parameter ✅
+- [R6.2] decide_next_action() receives memory context ✅
+- [R6.3] Memory injected into LLM prompt for each step ✅
+- [R6.4] Session trace logs memory usage ✅
 
 **Deliverables:**
-- Updated run_automation() signature
-- Provider.decide_next_action() with memory context
-- Prompt construction with memory injection
-- Session trace with memory metadata
+- Updated run_automation() signature ✅
+- Provider.decide_next_action_with_video_context() with memory context ✅
+- Prompt construction with memory injection ✅
+- Session trace with memory metadata ✅
 
 ---
 
-## Phase 7: End-to-End Orchestration & Testing
+## Phase 7: End-to-End Orchestration & Testing ✅
 **Goal:** Create orchestrator and validate two-stage pipeline integration
 
 **Requirements:**
-- [R7.1] Single config.yml serves both Stage 1 and Stage 2
-- [R7.2] End-to-end entry point (pipeline module)
-- [R7.3] Sequential execution: Stage 1 → Stage 2
-- [R7.4] Integration tests validate Stage 1 → Stage 2 handoff
-- [R7.5] Dry-run validates full pipeline without processing
+- [R7.1] Single config.yml serves both Stage 1 and Stage 2 ✅
+- [R7.2] End-to-end entry point (pipeline module) ✅
+- [R7.3] Sequential execution: Stage 1 → Stage 2 ✅
+- [R7.4] Integration tests validate Stage 1 → Stage 2 handoff ✅
+- [R7.5] Dry-run validates full pipeline without processing ✅
 
 **Deliverables:**
-- src_llm/pipeline.py (orchestrator)
-- Unified config.yml example
-- Integration tests
-- Documented workflow examples
+- src_llm/pipeline.py (orchestrator) ✅
+- Unified config.yml example ✅
+- Integration tests (17 tests, all passing) ✅
+- Documented workflow examples ✅
 
 ---
 
@@ -136,9 +138,9 @@ Eliminates redundant video processing and reduces LLM token usage by 10x.
 | 2 | I/O & Output Layout Refactoring | ✅ |
 | 3 | Provider Enhancement for Memory Generation | ✅ |
 | 4 | Stage 1 Implementation (Video → Memory) | ✅ |
-| 5 | Stage 2 Implementation (Memory → Device) | ○ |
-| 6 | Automation Memory Context Integration | ○ |
-| 7 | End-to-End Orchestration & Testing | ○ |
+| 5 | Stage 2 Implementation (Memory → Device) | ✅ |
+| 6 | Automation Memory Context Integration | ✅ |
+| 7 | End-to-End Orchestration & Testing | ✅ |
 
 **Total effort:** ~7 phases, estimated 40-60 hours of implementation
 **Token savings:** ~90% reduction in video re-analysis (10x improvement)
