@@ -1208,13 +1208,13 @@ python -m src_llm.pipeline --config src_llm/input/config.yml --env-file .env.loc
 
 ## Implementation Order
 
-1. **config.py**: Update directory structure logic, add metadata helpers
-2. **io_utils.py**: Update OutputLayout, create_output_layout(), write_run_metadata()
-3. **providers.py**: Add infer_memory_from_video() abstract + GeminiProvider implementation
-4. **main.py**: Implement memory.md generation, parsing, and metadata writing
-5. **automate.py**: Add run locating, metadata loading, memory-aware execution
-6. **automation.py**: Update decide_next_action() to use memory context
-7. **Test**: Verify Stage 1 generates memory.md, Stage 2 locates and uses it
+1. **config.py**: Update directory structure logic, add metadata helpers ✅
+2. **io_utils.py**: Update OutputLayout, create_output_layout(), write_run_metadata() ✅
+3. **providers.py**: Add infer_memory_from_video() abstract + GeminiProvider implementation ✅
+4. **main.py**: Implement memory.md generation, parsing, and metadata writing ✅
+5. **automate.py**: Add run locating, metadata loading, memory-aware execution (Phase 5)
+6. **automation.py**: Update decide_next_action() to use memory context (Phase 6)
+7. **Test**: Verify Stage 1 generates memory.md, Stage 2 locates and uses it (Phase 5-7)
 
 ## Key Design Decisions
 
