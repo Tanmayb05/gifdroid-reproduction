@@ -1,0 +1,18 @@
+2026-05-07 00:39:19 | INFO | === src_llm.2026-05-07T04-39-19__run-002__pipeline__started ===
+2026-05-07 00:39:19 | INFO | Starting src_llm pipeline
+2026-05-07 00:39:19 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/videos/hhv-001.mp4
+2026-05-07 00:39:19 | INFO | Environment validated for llm=gemini model=gemini-2.5-pro
+2026-05-07 00:39:19 | INFO | Running gemini API preflight before trace generation
+2026-05-07 00:39:19 | INFO | Gemini preflight started | model=gemini-2.5-pro | validating API key and endpoint access
+2026-05-07 00:39:20 | INFO | Gemini ADC default credentials loaded | adc_project=gifdroid-reproduction | runtime_project=project-1edeecda-ad08-47a7-867 | token_present=True
+2026-05-07 00:39:20 | INFO | Gemini auth route selected | route=adc_default | endpoint=vertex_ai
+2026-05-07 00:39:20 | INFO | Gemini API request sent | kind=preflight | model=gemini-2.5-pro | auth=adc_default | endpoint=vertex_ai | waiting for response
+2026-05-07 00:39:22 | INFO | Gemini API response received | kind=preflight | elapsed_sec=1.99
+2026-05-07 00:39:22 | INFO | Gemini preflight successful | model=gemini-2.5-pro
+2026-05-07 00:39:22 | INFO | Video mode enabled — skipping frame extraction and keyframe selection
+2026-05-07 00:39:22 | INFO | Encoding video for inline upload | file=hhv-001.mp4 | size=15383263 bytes
+2026-05-07 00:39:23 | INFO | Sending video inference request | model=gemini-2.5-pro | video=hhv-001.mp4
+2026-05-07 00:39:50 | INFO | Video inference response received | elapsed_sec=27.57
+2026-05-07 00:39:50 | INFO | Memory trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/gemini-2.5-pro/handheld-video-mode/run-002/memory.md
+2026-05-07 00:39:50 | INFO | Parsed memory: task_desc=47 | ui_elements=2 | completion_criteria=1
+2026-05-07 00:39:50 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/gemini-2.5-pro/handheld-video-mode/run-002/llm_raw_response.txt

@@ -1,0 +1,21 @@
+{
+  "app": "portauthority",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "handheld",
+  "video": "hhv-001.mp4",
+  "timestamp": "2026-05-07T14:37:13",
+  "duration_sec": 24.8,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Port Authority\ngoal: The user wants to scan their local network for connected devices and view details about one of them.\noutcome: success - The user successfully scanned the network, viewed the list of hosts, and inspected a specific device.\n---\n\n## Session Summary\nThe user launched the Port Authority app from its details page and initiated a scan to discover hosts on the local network. After the scan completed, they scrolled through the resulting list of 12 devices. They then selected one host to view its details before navigating back to the host list and then back to the initial app details screen.\n\n## Steps\n\n### 1. Open App \u2014 1s\n- **Screen:** App Details\n- **Action:** tap \u2192 `Open` button\n- **Details:** The user is on the app's info/store page and opens it.\n- **Result:** The Port Authority app launches to its main screen.\n- **Confidence:** 1.0\n\n### 2. Start Host Scan \u2014 3s\n- **Screen:** Port Authority (Main)\n- **Action:** tap \u2192 `DISCOVER HOSTS` button\n- **Details:** The main screen displays network info like LAN IP `192.168.0.193/24`.\n- **Result:** A \"Scanning For Hosts\" progress dialog appears and the scan begins.\n- **Confidence:** 1.0\n\n### 3. View Scan Results \u2014 13s\n- **Screen:** Port Authority (Main)\n- **Action:** wait \u2192 Scan completes\n- **Details:** The scan finishes, and the progress dialog disappears.\n- **Result:** A list of 12 discovered hosts is displayed on the main screen. The button text updates to `DISCOVER HOSTS (12)`.\n- **Confidence:** 1.0\n\n### 4. Select Host \u2014 20s\n- **Screen:** Port Authority (Main)\n- **Action:** tap \u2192 `192.168.0.21` list item\n- **Details:** The user selects a specific host from the discovered list.\n- **Result:** Navigates to a details screen for the host `192.168.0.21`.\n- **Confidence:** 1.0\n\n### 5. Navigate Back from Host Details \u2014 26s\n- **Screen:** Host Details (192.168.0.21)\n- **Action:** swipe_right \u2192 Screen content\n- **Details:** The user swipes from the left edge to go back.\n- **Result:** The app navigates back to the main screen showing the list of discovered hosts.\n- **Confidence:** 0.95\n\n### 6. Navigate Back to App Details \u2014 28s\n- **Screen:** Port Authority (Main)\n- **Action:** back \u2192 System back gesture\n- **Details:** The user performs a system back action.\n- **Result:** The app closes, and the user is returned to the initial App Details screen.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app displays a message \"MAC: Unavailable for non-privileged apps starting with Android 11\", indicating a known OS-level restriction.\n- The app was unable to retrieve the WAN IP, displaying \"Couldn't get your external IP\".\n- The SSID is shown as `<unknown ssid>` and the BSSID is `02:00:00:00:00:00`, which is a randomized MAC address used by Android for privacy.\n- The local network scan successfully discovered 12 hosts on the `192.168.0.193/24` subnet.",
+    "task_description": "The user wants to scan their local network for connected devices and view details about one of them.",
+    "ui_elements": {
+      "screen: App Details": "navigation_target",
+      "Open": "tap"
+    },
+    "completion_criteria": [
+      "Task outcome: success - The user successfully scanned the network, viewed the list of hosts, and inspected a specific device."
+    ]
+  }
+}

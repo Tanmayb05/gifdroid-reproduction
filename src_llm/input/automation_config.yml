@@ -82,12 +82,17 @@ runs:
   #     - "screenrec"
   #     - "handheld"
   
-  - app_name: "simplenotes"
+  - app_name: "bakerspercentagecalculator"
     video_path:
-      - "screenrec"
-      - "handheld"
-  
-  - app_name: "wifianalyzer"
-    video_path:
-      - "screenrec"
-      - "handheld"
+      - "srv-001.mp4"
+    max_steps: 15
+
+  # - app_name: "simplenotes"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"
+  #
+  # - app_name: "wifianalyzer"
+  #   video_path:
+  #     - "screenrec"
+  #     - "handheld"

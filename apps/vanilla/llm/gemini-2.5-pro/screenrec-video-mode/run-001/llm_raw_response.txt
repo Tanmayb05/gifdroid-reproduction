@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Calculator\ngoal: The user wants to perform a multi-step arithmetic calculation (36 * 6 - 6).\noutcome: success - The calculator correctly computed the expression and displayed the final result.\n---\n\n## Session Summary\nThe user opened a calculator application and entered a multi-step calculation. They first typed '36', multiplied it by '6', then subtracted '6' from the intermediate result. The session concluded successfully when the user pressed the equals button and the correct final answer, '210', was displayed.\n\n## Steps\n\n### 1. Enter first number — 2s\n- **Screen:** Calculator\n- **Action:** tap → `3` button, then `6` button\n- **Details:** The user enters the number 36.\n- **Result:** The display updates from '3' to '36'.\n- **Confidence:** 1.0\n\n### 2. Select multiplication — 3s\n- **Screen:** Calculator\n- **Action:** tap → `x` button\n- **Details:** The user selects the multiplication operator.\n- **Result:** The display remains '36', and the multiplication operator is queued for the next input.\n- **Confidence:** 1.0\n\n### 3. Enter second number — 4s\n- **Screen:** Calculator\n- **Action:** tap → `6` button\n- **Details:** The user enters the number 6.\n- **Result:** The display updates to show '6', replacing the previous number.\n- **Confidence:** 1.0\n\n### 4. Select subtraction and trigger intermediate calculation — 5s\n- **Screen:** Calculator\n- **Action:** tap → `-` button\n- **Details:** The user selects the subtraction operator.\n- **Result:** The calculator performs the preceding operation (36 * 6), and the display updates to show the intermediate result '216'. The subtraction operator is now queued.\n- **Confidence:** 1.0\n\n### 5. Enter third number — 6s\n- **Screen:** Calculator\n- **Action:** tap → `6` button\n- **Details:** The user enters the number 6.\n- **Result:** The display updates to show '6', replacing the intermediate result.\n- **Confidence:** 1.0\n\n### 6. Calculate final result — 7s\n- **Screen:** Calculator\n- **Action:** tap → `=` button\n- **Details:** The user requests the final result of the expression.\n- **Result:** The calculator performs the final operation (216 - 6), and the display updates to show the final answer, '210'.\n- **Confidence:** 1.0\n\n## Key Observations\n- The calculator uses immediate execution for chained operations. When an operator (`-`) is pressed after a full expression (`36 * 6`) is entered, it calculates the result of that expression ('216') before proceeding with the new operation."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.39284622312530759
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 2820,
+    "candidatesTokenCount": 635,
+    "totalTokenCount": 5617,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "VIDEO",
+        "tokenCount": 2064
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "AUDIO",
+        "tokenCount": 200
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 635
+      }
+    ],
+    "thoughtsTokenCount": 2162
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-07T14:39:28.780875Z",
+  "responseId": "IKT8acvUL4GykNAPrfH6mAU"
+}

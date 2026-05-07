@@ -1,0 +1,20 @@
+{
+  "app": "jigsaw",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "screenrec",
+  "video": "srv-001.mp4",
+  "timestamp": "2026-05-07T04:52:51",
+  "duration_sec": 20.2,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Jigsaw Puzzle\ngoal: The user wants to generate and start solving a simple jigsaw puzzle.\noutcome: incomplete \u2014 The user placed two of the four puzzle pieces but did not finish the puzzle.\n---\n\n## Session Summary\nThe user launched the \"Jigsaw Puzzle\" app from the home screen. On the main menu, they accepted the default 2x2 puzzle settings and tapped \"Generate Puzzle\". The user then proceeded to the puzzle board and successfully dragged and placed two of the four pieces into their correct positions before the session ended.\n\n## Steps\n\n### 1. App Launch \u2014 1s\n- **Screen:** Android Home Screen\n- **Action:** `tap` \u2192 `Jigsaw` app icon\n- **Details:** The app icon is a green circle with a light blue puzzle piece.\n- **Result:** The \"Jigsaw Puzzle\" app launches, showing a splash screen before transitioning to the main menu.\n- **Confidence:** 1.0\n\n### 2. Generate Puzzle \u2014 10s\n- **Screen:** Jigsaw Puzzle (Main Menu)\n- **Action:** `tap` \u2192 `Generate Puzzle` button\n- **Details:** The puzzle size was set to the default 2x2 (4 pieces). The puzzle picture was the app's icon.\n- **Result:** The app transitions to the puzzle board screen, showing the empty grid and the scattered puzzle pieces.\n- **Confidence:** 1.0\n\n### 3. Place First Piece \u2014 13s\n- **Screen:** Puzzle Board\n- **Action:** `tap` \u2192 A puzzle piece from the top area\n- **Details:** The user drags a piece and places it in the top-right corner of the puzzle grid.\n- **Result:** The piece snaps into place on the board.\n- **Confidence:** 1.0\n\n### 4. Place Second Piece \u2014 18s\n- **Screen:** Puzzle Board\n- **Action:** `tap` \u2192 A puzzle piece from the bottom area\n- **Details:** The user drags a piece and places it in the bottom-left corner of the puzzle grid.\n- **Result:** The piece snaps into place on the board, leaving two pieces unsolved.\n- **Confidence:** 1.0\n\n## Key Observations\n- The image used for the jigsaw puzzle is the app's own icon.\n- The default puzzle size is a 2x2 grid, resulting in 4 pieces.\n- The user did not interact with any settings and proceeded directly to generating the default puzzle.",
+    "task_description": "The user wants to generate and start solving a simple jigsaw puzzle.",
+    "ui_elements": {
+      "screen: Android Home Screen": "navigation_target"
+    },
+    "completion_criteria": [
+      "Task outcome: incomplete \u2014 The user placed two of the four puzzle pieces but did not finish the puzzle."
+    ]
+  }
+}

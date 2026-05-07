@@ -64,10 +64,12 @@ def _locate_latest_run(app_name: str, llm_model: str, video_type: str) -> Path:
             f"Make sure to run Stage 1 (src_llm.main) first with video_mode=true"
         )
 
-    existing = sorted(base.glob("run-*"), key=lambda p: int(p.name[4:]))
+    # Only include runs that have completed metadata.json (not in-progress runs)
+    existing = [p for p in base.glob("run-*") if (p / "metadata.json").exists()]
     if not existing:
-        raise FileNotFoundError(f"No numbered runs in {base}")
+        raise FileNotFoundError(f"No completed runs (with metadata.json) in {base}")
 
+    existing = sorted(existing, key=lambda p: int(p.name[4:]))
     return existing[-1]
 
 

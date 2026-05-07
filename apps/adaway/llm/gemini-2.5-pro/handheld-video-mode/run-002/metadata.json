@@ -1,0 +1,21 @@
+{
+  "app": "adaway",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "handheld",
+  "video": "hhv-001.mp4",
+  "timestamp": "2026-05-07T23:07:11",
+  "duration_sec": 30.6,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: AdAway\ngoal: To add a new hostname to the ad blocker's whitelist.\noutcome: success - The user successfully added \"pol\" to the allowed list and verified the change.\n---\n\n## Session Summary\nThe user started on the AdAway main screen and navigated to the \"Allowed\" list. They used the search and add functionality to add the hostname \"pol\" to the whitelist. After applying the configuration change, they navigated back to the main screen, where the \"Allowed\" count had updated to 1, and then returned to the list to confirm the new entry was present.\n\n## Steps\n\n### 1. Navigate to Allowed List \u2014 2s\n- **Screen:** AdAway Main Screen\n- **Action:** tap \u2192 `Allowed` button\n- **Details:** The \"Allowed\" count is 0.\n- **Result:** Navigated to the \"Your lists\" screen.\n- **Confidence:** 1.0\n\n### 2. Initiate Search \u2014 3s\n- **Screen:** Your lists\n- **Action:** tap \u2192 `Search` icon\n- **Details:** The list is currently empty.\n- **Result:** A \"Search hostname...\" input field appears at the top of the screen.\n- **Confidence:** 1.0\n\n### 3. Add New Host \u2014 12s\n- **Screen:** Your lists (Search)\n- **Action:** tap \u2192 `+` floating action button\n- **Details:** The user had previously typed \"uhkh\" into the search bar.\n- **Result:** An \"Add host to whitelist\" dialog appears.\n- **Confidence:** 1.0\n\n### 4. Enter Hostname \u2014 25s\n- **Screen:** Your lists (Search)\n- **Action:** type \u2192 `Hostname` input field\n- **Details:** Typed \"pol\" into the dialog's input field.\n- **Result:** The text \"pol\" is visible in the field.\n- **Confidence:** 1.0\n\n### 5. Confirm Add Host \u2014 27s\n- **Screen:** Your lists (Search)\n- **Action:** tap \u2192 `ADD` button\n- **Details:** The dialog contains the hostname \"pol\".\n- **Result:** The dialog closes and a banner appears with the message: \"Your configuration changed. You need to apply it\".\n- **Confidence:** 1.0\n\n### 6. Apply Configuration \u2014 29s\n- **Screen:** Your lists (Search)\n- **Action:** tap \u2192 `Apply` button\n- **Details:** Tapped the \"Apply\" button on the configuration change banner.\n- **Result:** The banner text changes to \"Applying new configuration...\".\n- **Confidence:** 1.0\n\n### 7. Return to Main Screen \u2014 35s\n- **Screen:** Your lists\n- **Action:** back \u2192 `Back` arrow\n- **Details:** The user tapped the back arrow twice to exit the search view and then the list view.\n- **Result:** Returned to the AdAway main screen.\n- **Confidence:** 1.0\n\n### 8. Verify Change on Main Screen \u2014 39s\n- **Screen:** AdAway Main Screen\n- **Action:** tap \u2192 `Allowed` button\n- **Details:** The \"Allowed\" count is now \"1\".\n- **Result:** Navigated back to the \"Your lists\" screen.\n- **Confidence:** 1.0\n\n### 9. Final Verification \u2014 41s\n- **Screen:** Your lists\n- **Action:** wait \u2192\n- **Details:** The list now contains one entry: \"pol\".\n- **Result:** The user has successfully verified that the hostname was added to the whitelist.\n- **Confidence:** 1.0\n\n## Key Observations\n- After adding a host to the whitelist, the user must perform a separate \"Apply\" action for the change to take effect.\n- The main dashboard's \"Allowed\" counter correctly updated from 0 to 1 after the configuration was applied.\n- The app provides clear feedback via a banner when a configuration change is pending and when it is being applied.",
+    "task_description": "To add a new hostname to the ad blocker's whitelist.",
+    "ui_elements": {
+      "screen: AdAway Main Screen": "navigation_target",
+      "Allowed": "tap"
+    },
+    "completion_criteria": [
+      "Task outcome: success - The user successfully added \"pol\" to the allowed list and verified the change."
+    ]
+  }
+}

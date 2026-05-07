@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Blood Pressure Tracker\ngoal: To view the statistical analysis and charts for a recorded blood pressure measurement.\noutcome: success - The user successfully navigated to the statistics screen and viewed the available charts.\n---\n\n## Session Summary\nThe user started on the main log screen of a blood pressure tracking app, which displayed a single data entry. They tapped the statistics button to navigate to a dedicated statistics page. On this page, they toggled between the systolic, diastolic, and pulse value distribution charts and then scrolled down to view an empty \"Metrics by time of day\" radar chart.\n\n## Steps\n\n### 1. Navigate to Statistics — 2s\n- **Screen:** Main Log\n- **Action:** `tap` → `Statistics button`\n- **Details:** The user tapped the button with a graph icon to view data analysis. The main screen showed one entry: Systolic 98, Diastolic 70, Pulse 123.\n- **Result:** The app navigated to the \"Statistics\" screen.\n- **Confidence:** 1.0\n\n### 2. View Diastolic Stats — 3s\n- **Screen:** Statistics\n- **Action:** `tap` → `Diastolic tab`\n- **Details:** The \"Value distribution\" chart was initially showing the Systolic value (98).\n- **Result:** The chart updated to show the Diastolic value (70), and the chart color changed from teal to green.\n- **Confidence:** 1.0\n\n### 3. View Pulse Stats — 4s\n- **Screen:** Statistics\n- **Action:** `tap` → `Pulse tab`\n- **Details:** The user tapped the \"Pulse\" tab in the \"Value distribution\" section.\n- **Result:** The chart updated to show the Pulse value (123), and the chart color changed from green to red.\n- **Confidence:** 1.0\n\n### 4. View Time of Day Metrics — 6s\n- **Screen:** Statistics\n- **Action:** `swipe_up` → `Screen`\n- **Details:** The user scrolled down the \"Statistics\" page.\n- **Result:** A \"Metrics by time of day\" section with a circular radar chart became visible.\n- **Confidence:** 1.0\n\n## Key Observations\n- The single data point recorded was Systolic: 98, Diastolic: 70, Pulse: 123.\n- The main screen states \"Not enough data to draw a graph\" for a single entry, but the statistics screen is able to generate a \"Value distribution\" chart from that same entry.\n- The \"Metrics by time of day\" chart is a radar chart representing a 24-hour clock.\n- There is a date range inconsistency: the main screen shows \"Apr 1, 2026 - May 1, 2026\" while the statistics screen shows \"Apr 14, 2026 - Apr 21, 2026\"."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.2480553992000627
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3669,
+    "candidatesTokenCount": 648,
+    "totalTokenCount": 5576,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "AUDIO",
+        "tokenCount": 275
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "VIDEO",
+        "tokenCount": 2838
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 648
+      }
+    ],
+    "thoughtsTokenCount": 1259
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-07T03:48:56.277214Z",
+  "responseId": "qAv8ad71EKa888AP4Jed-QI"
+}

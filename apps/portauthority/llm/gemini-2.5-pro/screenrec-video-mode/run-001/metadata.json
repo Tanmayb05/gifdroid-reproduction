@@ -1,0 +1,20 @@
+{
+  "app": "portauthority",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "screenrec",
+  "video": "srv-001.mp4",
+  "timestamp": "2026-05-07T14:37:37",
+  "duration_sec": 24.3,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Port Authority\ngoal: To disable the feature that fetches the device's external IP address.\noutcome: success - The user successfully navigated to settings and disabled the option.\n---\n\n## Session Summary\nThe user started on the main screen of the Port Authority app, where an error message indicated the external IP could not be fetched. After running a host scan and briefly inspecting a device, the user opened the side menu, navigated to the settings screen, and successfully disabled the \"Fetch device's external IP\" option.\n\n## Steps\n\n### 1. Discover Network Hosts \u2014 2s\n- **Screen:** Main Screen\n- **Action:** `tap` \u2192 `DISCOVER HOSTS` button\n- **Details:** The main screen shows \"Couldn't get your external IP\" for the WAN IP field.\n- **Result:** A \"Scanning For Hosts\" dialog appears with a progress bar.\n\n### 2. View Discovered Hosts \u2014 8s\n- **Screen:** Main Screen\n- **Action:** `wait` \u2192 Host scan completes\n- **Details:** The scan found 4 hosts.\n- **Result:** The main screen updates to show a list of discovered hosts, including both IPv4 and IPv6 addresses.\n\n### 3. Inspect Host Details \u2014 10s\n- **Screen:** Main Screen (Host List)\n- **Action:** `tap` \u2192 Host with IP `fec0::2`\n- **Result:** Navigates to the details screen for the selected host.\n\n### 4. Attempt to Wake Host \u2014 13s\n- **Screen:** Host Details\n- **Action:** `tap` \u2192 `WAKE UP` button\n- **Details:** The host IP is `fec0::2`.\n- **Result:** A toast notification \"Waking up fec0::2...\" appears briefly.\n\n### 5. Navigate Back to Main Screen \u2014 18s\n- **Screen:** Host Details\n- **Action:** `back`\n- **Result:** Returns to the main screen showing the list of discovered hosts.\n\n### 6. Open Navigation Menu \u2014 18s\n- **Screen:** Main Screen\n- **Action:** `open_menu` \u2192 Hamburger menu icon\n- **Result:** The side navigation menu slides in from the left.\n\n### 7. Open Settings \u2014 22s\n- **Screen:** Navigation Menu\n- **Action:** `tap` \u2192 `Settings`\n- **Result:** Navigates to the Settings screen.\n\n### 8. Disable External IP Fetching \u2014 24s\n- **Screen:** Settings\n- **Action:** `tap` \u2192 `Fetch device's external IP` checkbox\n- **Details:** The checkbox was initially checked.\n- **Result:** The checkbox becomes unchecked, disabling the feature.\n\n## Key Observations\n- The app displayed an error, \"Couldn't get your external IP,\" on the main screen, which likely prompted the user's actions.\n- The app notes that MAC addresses are \"Unavailable for non-privileged apps starting with Android 11\".\n- The device's LAN IP is `10.0.2.16/24`.\n- The BSSID is shown as `02:00:00:00:00:00`, which is a locally administered MAC address, often used in virtualized environments or for privacy.",
+    "task_description": "To disable the feature that fetches the device's external IP address.",
+    "ui_elements": {
+      "screen: Main Screen": "navigation_target"
+    },
+    "completion_criteria": [
+      "Task outcome: success - The user successfully navigated to settings and disabled the option."
+    ]
+  }
+}

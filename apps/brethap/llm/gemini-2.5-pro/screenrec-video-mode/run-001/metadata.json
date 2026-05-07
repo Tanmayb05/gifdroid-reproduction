@@ -1,0 +1,21 @@
+{
+  "app": "brethap",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "screenrec",
+  "video": "srv-001.mp4",
+  "timestamp": "2026-05-07T04:05:05",
+  "duration_sec": 23.9,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Brethap\ngoal: The user wants to record a few short breathing sessions and then clear the session history.\noutcome: success - The user successfully recorded and then cleared all session data.\n---\n\n## Session Summary\nThe user started on the main screen of the Brethap app and initiated two very short breathing sessions. They then navigated to the \"Sessions\" screen via the side menu, viewed the recorded sessions, and used the \"Clear All\" option from the overflow menu to successfully delete the history, confirming the action in a dialog.\n\n## Steps\n\n### 1. Start Session 1 \u2014 2s\n- **Screen:** Main Screen\n- **Action:** tap \u2192 Play button\n- **Details:** The screen was displaying \"Press Start\" and a timer set to \"0:02:00\".\n- **Result:** The breathing exercise started, displaying \"Inhale\" and a countdown timer.\n\n### 2. Stop Session 1 \u2014 7s\n- **Screen:** Breathing Session\n- **Action:** tap \u2192 Stop button\n- **Details:** The session was in the \"Exhale\" phase.\n- **Result:** The session ended and the app returned to the main screen. A message \"0:00:05 Session, 0 Breaths\" appeared at the bottom.\n\n### 3. Start Session 2 \u2014 9s\n- **Screen:** Main Screen\n- **Action:** tap \u2192 Play button\n- **Details:** The user starts a new session immediately after the first one.\n- **Result:** A new breathing exercise started, displaying \"Inhale\" and a countdown timer.\n\n### 4. Stop Session 2 \u2014 15s\n- **Screen:** Breathing Session\n- **Action:** tap \u2192 Stop button\n- **Details:** The session was in the \"Exhale\" phase.\n- **Result:** The session ended and the app returned to the main screen. A message \"0:00:06 Session, 0 Breaths\" appeared at the bottom.\n\n### 5. Open Navigation Menu \u2014 16s\n- **Screen:** Main Screen\n- **Action:** tap \u2192 Hamburger menu icon\n- **Details:** The user opens the side navigation drawer.\n- **Result:** The navigation drawer opened, showing options: Preferences, Sessions, Calendar, About Brethap.\n\n### 6. Navigate to Sessions \u2014 18s\n- **Screen:** Navigation Drawer\n- **Action:** tap \u2192 Sessions\n- **Details:** The user selects the \"Sessions\" list item.\n- **Result:** The app navigated to the \"Sessions\" screen, displaying a list of two previously recorded sessions.\n\n### 7. Open Sessions Menu \u2014 20s\n- **Screen:** Sessions\n- **Action:** tap \u2192 Three-dot menu icon\n- **Details:** The user opens the overflow menu on the Sessions screen.\n- **Result:** A dropdown menu appeared with options: Clear All, Backup, Restore, Export.\n\n### 8. Select Clear All \u2014 21s\n- **Screen:** Sessions\n- **Action:** tap \u2192 Clear All\n- **Details:** The user selects the \"Clear All\" option from the menu.\n- **Result:** A confirmation dialog appeared asking \"Are you sure you want to clear all sessions?\".\n\n### 9. Confirm Deletion \u2014 22s\n- **Screen:** Clear All Dialog\n- **Action:** tap \u2192 Continue\n- **Details:** The user confirms the deletion action.\n- **Result:** The dialog closed, the session list became empty, and a \"Sessions cleared\" toast message appeared.\n\n## Key Observations\n- The app records sessions even if they are very short and no full breaths are completed (the UI shows \"0 Breaths\").\n- The session log displays a future date of \"2026-05-01\", which could indicate a bug or a misconfigured device/emulator date.",
+    "task_description": "The user wants to record a few short breathing sessions and then clear the session history.",
+    "ui_elements": {
+      "screen: Main Screen": "navigation_target",
+      "Play": "tap"
+    },
+    "completion_criteria": [
+      "Task outcome: success - The user successfully recorded and then cleared all session data."
+    ]
+  }
+}

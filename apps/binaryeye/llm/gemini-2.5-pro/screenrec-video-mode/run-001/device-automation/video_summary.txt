@@ -1,0 +1,50 @@
+---
+app: Barcode Scanner
+goal: To enable the setting that automatically returns to the scan screen after copying or sharing a scanned code.
+outcome: success - The user successfully located and enabled the desired setting.
+---
+
+## Session Summary
+The user started on the main "Scan code" screen and opened the overflow menu to access the app's settings. They scrolled down the list of options, found the "Go back after copying or sharing" setting under the "Content" section, and enabled it. The user then navigated back to the main scanning screen, completing their task.
+
+## Steps
+
+### 1. Open overflow menu — 2s
+- **Screen:** Scan code
+- **Action:** tap → overflow menu icon (three dots)
+- **Details:** The user is on the main scanning screen with the camera active.
+- **Result:** A dropdown menu with several options appeared.
+- **Confidence:** 1.0
+
+### 2. Navigate to Settings — 3s
+- **Screen:** Scan code
+- **Action:** tap → "Settings" menu item
+- **Details:** The user selected "Settings" from the dropdown menu.
+- **Result:** The app navigated to the "Settings" screen.
+- **Confidence:** 1.0
+
+### 3. Scroll to Content settings — 4s
+- **Screen:** Settings
+- **Action:** swipe_up → settings list
+- **Details:** The user scrolled down past the "Scan", "Continuous scan", and "Forwarding" sections.
+- **Result:** The "Content" section of the settings became visible.
+- **Confidence:** 1.0
+
+### 4. Enable "Go back after copying or sharing" — 11s
+- **Screen:** Settings
+- **Action:** tap → "Go back after copying or sharing" toggle
+- **Details:** The toggle was initially in the off position.
+- **Result:** The toggle switched to the on (green) position.
+- **Confidence:** 1.0
+
+### 5. Return to Scan screen — 14s
+- **Screen:** Settings
+- **Action:** back → back arrow icon
+- **Details:** The user tapped the back arrow at the top of the Settings screen.
+- **Result:** The app returned to the initial "Scan code" screen.
+- **Confidence:** 1.0
+
+## Key Observations
+- The app provides a detailed settings menu, allowing customization of scanning behavior, data handling, and post-scan actions.
+- The user enabled the "Go back after copying or sharing" feature, which is designed to streamline workflows involving multiple, consecutive scans.
+- The settings screen includes options for forwarding scanned data via URL (HTTP GET) or Bluetooth.

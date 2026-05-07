@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Simple Notes\ngoal: The user wants to create and save two separate text notes in the application.\noutcome: success — The user successfully created two distinct notes, both of which were visible on the main screen at the end of the session.\n---\n\n## Session Summary\nThe user launched the \"Simple Notes\" app from their home screen. Finding the app empty, they created a new text note, added a title and content, and saved it. They then immediately repeated the process to create and save a second, different text note. The session concluded with both notes successfully created and displayed on the app's main screen.\n\n## Steps\n\n### 1. Launch App — 1s\n- **Screen:** Home Screen\n- **Action:** `tap` → `Simple Notes` icon\n- **Details:** The icon is in a folder labeled \"Media\".\n- **Result:** The \"Simple Notes\" app opens to an empty state.\n- **Confidence:** 1.0\n\n### 2. Initiate New Note — 6s\n- **Screen:** Simple Notes\n- **Action:** `tap` → `+` floating action button\n- **Details:** The screen displays a \"No notes yet\" message.\n- **Result:** A menu appears with \"Text Note\" and \"Checklist\" options.\n- **Confidence:** 1.0\n\n### 3. Select Note Type — 8s\n- **Screen:** Simple Notes\n- **Action:** `tap` → `Text Note` button\n- **Result:** The app navigates to the \"New Note\" creation screen.\n- **Confidence:** 1.0\n\n### 4. Create First Note — 11s\n- **Screen:** New Note\n- **Action:** `type` → `Title` and `Content` fields\n- **Details:** Typed \"Gandhi\" into the Title field and \"Cfnm\" into the Content field.\n- **Result:** The text is entered into the respective input fields.\n- **Confidence:** 1.0\n\n### 5. Save First Note — 17s\n- **Screen:** New Note\n- **Action:** `tap` → `Back` arrow icon\n- **Result:** The note is saved, and the app returns to the main screen, which now displays the newly created \"Gandhi\" note.\n- **Confidence:** 1.0\n\n### 6. Initiate Second Note — 19s\n- **Screen:** Simple Notes\n- **Action:** `tap` → `+` floating action button\n- **Result:** The \"Text Note\" and \"Checklist\" menu reappears.\n- **Confidence:** 1.0\n\n### 7. Select Note Type Again — 27s\n- **Screen:** Simple Notes\n- **Action:** `tap` → `Text Note` button\n- **Result:** The app navigates to the \"New Note\" creation screen.\n- **Confidence:** 1.0\n\n### 8. Create Second Note — 29s\n- **Screen:** New Note\n- **Action:** `type` → `Title` and `Content` fields\n- **Details:** Typed \"Uuyjj\" into the Title field and \"Hhhhh\" into the Content field.\n- **Result:** The text is entered into the respective input fields.\n- **Confidence:** 1.0\n\n### 9. Toggle Preview/Edit Mode — 34s\n- **Screen:** New Note\n- **Action:** `tap` → `Eye` icon (preview)\n- **Result:** The keyboard is dismissed, a \"Saved\" toast message appears, and the eye icon changes to a pencil (edit) icon.\n- **Confidence:** 0.9\n\n### 10. Save Second Note — 37s\n- **Screen:** New Note\n- **Action:** `tap` → `Back` arrow icon\n- **Result:** The second note is saved, and the app returns to the main screen, which now displays both the \"Uuyjj\" and \"Gandhi\" notes.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app saves notes automatically upon exiting the editor via the back arrow, which is an implicit save pattern.\n- There is a dedicated icon (an eye) to toggle between editing and previewing a note, which also triggers a save action.\n- New notes are created by tapping a floating action button which then expands into a speed dial menu with note type options.\n- The app's main screen displays notes in a grid layout."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.24205762689763849
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 11618,
+    "candidatesTokenCount": 968,
+    "totalTokenCount": 14342,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "VIDEO",
+        "tokenCount": 10062
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "AUDIO",
+        "tokenCount": 1000
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 968
+      }
+    ],
+    "thoughtsTokenCount": 1756
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-07T14:38:34.544156Z",
+  "responseId": "6qP8aZybIcfHkNAPturMkQE"
+}

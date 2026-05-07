@@ -1,0 +1,21 @@
+{
+  "app": "pantry",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "screenrec",
+  "video": "srv-001.mp4",
+  "timestamp": "2026-05-07T14:36:49",
+  "duration_sec": 23.9,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Dispensa\ngoal: The user wanted to reorder the location tabs on the main screen.\noutcome: success - The user successfully reordered the tabs and the change was reflected on the main screen.\n---\n\n## Session Summary\nThe user launched the Dispensa app and navigated from the main screen to the settings. Within settings, they accessed the \"Storage location management\" screen to change the order of the predefined locations. They successfully moved the \"Pantry\" tab to the end of the list and confirmed the change was applied on the main screen.\n\n## Steps\n\n### 1. App Launch \u2014 0s\n- **Screen:** Android Home Screen\n- **Action:** launch \u2192 `Dispensa` app icon\n- **Details:** The user taps the \"Dispensa\" app icon to open it.\n- **Result:** The Dispensa app opens to its main screen.\n- **Confidence:** 1.0\n\n### 2. Open Menu \u2014 4s\n- **Screen:** Dispensa Main Screen\n- **Action:** tap \u2192 `Three-dot menu` icon\n- **Details:** The \"Pantry\" tab is currently selected.\n- **Result:** A context menu appears with options \"Export data\", \"Import data\", and \"Settings\".\n- **Confidence:** 1.0\n\n### 3. Navigate to Settings \u2014 5s\n- **Screen:** Dispensa Main Screen\n- **Action:** tap \u2192 `Settings` menu item\n- **Details:** The user selects \"Settings\" from the overflow menu.\n- **Result:** The app navigates to the \"Settings\" screen.\n- **Confidence:** 1.0\n\n### 4. Open Storage Management \u2014 6s\n- **Screen:** Settings\n- **Action:** tap \u2192 `Manage storage`\n- **Details:** The user taps the \"Manage storage\" option under the \"Locations\" heading.\n- **Result:** The app navigates to the \"Storage location management\" screen.\n- **Confidence:** 1.0\n\n### 5. Reorder Locations \u2014 8s\n- **Screen:** Storage location management\n- **Action:** long_press \u2192 `Drag handle` for (Pantry)\n- **Details:** The user drags the \"(Pantry)\" item from the second position to the last position in the list.\n- **Result:** The list order is updated to (All), (Fridge), (Freezer), (Pantry). A \"Saved successfully\" toast message appears.\n- **Confidence:** 1.0\n\n### 6. Return to Main Screen \u2014 11s\n- **Screen:** Storage location management\n- **Action:** back \u2192 `System back button`\n- **Details:** The user presses the back button twice to return from the settings flow.\n- **Result:** The app returns to the main \"Dispensa\" screen, where the tab order is now \"ALL\", \"FRIDGE\", \"FREEZER\", \"PANTRY\".\n- **Confidence:** 1.0\n\n### 7. Verify New Tab Order \u2014 13s\n- **Screen:** Dispensa Main Screen\n- **Action:** swipe_left \u2192 `PANTRY` tab\n- **Details:** The user swipes across the tabs and selects \"PANTRY\" to confirm it is now at the end of the list.\n- **Result:** The \"PANTRY\" tab is selected, confirming its new position.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app allows users to reorder the main location tabs via the settings menu.\n- After reordering, the app automatically selects the first tab after \"ALL\" as the new default view (in this case, \"FRIDGE\").\n- A \"Saved successfully\" toast message provides clear feedback that the reordering action was successful.\n- The app version is visible in the settings screen: `Version: 0.1.7-fdroid (Build: 17)`.",
+    "task_description": "The user wanted to reorder the location tabs on the main screen.",
+    "ui_elements": {
+      "screen: Android Home Screen": "navigation_target",
+      "Dispensa` app icon": "launch"
+    },
+    "completion_criteria": [
+      "Task outcome: success - The user successfully reordered the tabs and the change was reflected on the main screen."
+    ]
+  }
+}

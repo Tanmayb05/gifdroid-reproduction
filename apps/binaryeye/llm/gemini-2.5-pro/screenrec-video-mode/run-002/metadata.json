@@ -1,0 +1,21 @@
+{
+  "app": "binaryeye",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "screenrec",
+  "video": "srv-001.mp4",
+  "timestamp": "2026-05-07T03:05:38",
+  "duration_sec": 21.6,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Barcode Scanner\ngoal: To enable the setting that automatically returns to the scan screen after an action.\noutcome: success - The user successfully located and enabled the desired setting.\n---\n\n## Session Summary\nThe user started on the main \"Scan code\" screen and navigated to the app's settings via the overflow menu. They scrolled through the various options until they found the \"Content\" section, where they enabled the \"Go back after copying or sharing\" feature. Finally, they returned to the main scanning screen.\n\n## Steps\n\n### 1. Open Overflow Menu \u2014 2s\n- **Screen:** Scan code\n- **Action:** tap \u2192 three-dot menu icon\n- **Details:** The camera view is active, showing a TV with a checkerboard pattern.\n- **Result:** A context menu appears with several options.\n- **Confidence:** 1.0\n\n### 2. Navigate to Settings \u2014 3s\n- **Screen:** Scan code (with context menu)\n- **Action:** tap \u2192 \"Settings\"\n- **Details:** The user selects \"Settings\" from the list of options.\n- **Result:** The app navigates to the \"Settings\" screen.\n- **Confidence:** 1.0\n\n### 3. Scroll to Content Settings \u2014 8s\n- **Screen:** Settings\n- **Action:** swipe_up \u2192 Settings list\n- **Details:** The user scrolls down past the \"Scan\", \"Interaction\", and \"Forwarding\" sections.\n- **Result:** The \"Content\" section of the settings becomes visible at the bottom of the screen.\n- **Confidence:** 1.0\n\n### 4. Enable \"Go back\" Setting \u2014 11s\n- **Screen:** Settings\n- **Action:** tap \u2192 \"Go back after copying or sharing\" toggle\n- **Details:** The toggle is initially in the \"off\" position.\n- **Result:** The toggle switches to the \"on\" position, enabling the feature.\n- **Confidence:** 1.0\n\n### 5. Return to Scan Screen \u2014 14s\n- **Screen:** Settings\n- **Action:** back \u2192 back arrow icon\n- **Details:** The user taps the back arrow at the top-left of the Settings screen.\n- **Result:** The app returns to the initial \"Scan code\" screen.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app offers a wide range of customizable settings, including supported barcode formats, interaction feedback, and content handling.\n- The user specifically enabled the \"Go back after copying or sharing\" option, which is designed to streamline the workflow for multiple scans.\n- The settings menu is organized into logical sections such as \"Scan\", \"Interaction\", \"Forwarding\", and \"Content\".",
+    "task_description": "To enable the setting that automatically returns to the scan screen after an action.",
+    "ui_elements": {
+      "screen: Scan code": "navigation_target",
+      "three-dot menu icon": "tap"
+    },
+    "completion_criteria": [
+      "Task outcome: success - The user successfully located and enabled the desired setting."
+    ]
+  }
+}

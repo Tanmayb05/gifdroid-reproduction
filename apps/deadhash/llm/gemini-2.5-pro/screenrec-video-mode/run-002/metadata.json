@@ -1,0 +1,21 @@
+{
+  "app": "deadhash",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "screenrec",
+  "video": "srv-001.mp4",
+  "timestamp": "2026-05-07T04:28:54",
+  "duration_sec": 22.3,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: DeadHash\ngoal: To explore the app's features for calculating hashes from text and to configure the available hashing algorithms.\noutcome: success \u2014 The user successfully calculated a hash, navigated between app sections, and modified a setting.\n---\n\n## Session Summary\nThe user started on the text hashing screen of the DeadHash app and entered \"qwerty\" to generate its corresponding hashes. They then explored the file hashing feature via the navigation menu but did not select a file. Finally, the user navigated to the settings screen and disabled the MD5 hashing algorithm.\n\n## Steps\n\n### 1. App Launch \u2014 0s\n- **Screen:** DeadHash Text Hashing\n- **Action:** launch \u2192 `app: DeadHash`\n- **Details:** The app opens to the main screen for calculating hashes from text.\n- **Result:** The text hashing interface is displayed, showing fields for text input and hash comparison, along with a list of hash types.\n- **Confidence:** 1.0\n\n### 2. Enter Text for Hashing \u2014 3s\n- **Screen:** DeadHash Text Hashing\n- **Action:** type \u2192 `EditText` with hint \"Enter your text here\"\n- **Details:** Typed text: \"qwerty\"\n- **Result:** The app automatically calculates and displays the hashes for \"qwerty\" in the list below.\n- **Confidence:** 1.0\n\n### 3. Open Navigation Menu \u2014 9s\n- **Screen:** DeadHash Text Hashing\n- **Action:** tap \u2192 `Hamburger menu icon`\n- **Details:** The user taps the menu icon in the top-left corner.\n- **Result:** A side navigation drawer opens, showing \"Tools\" (File, Text) and \"Info\" (Help, About) sections.\n- **Confidence:** 1.0\n\n### 4. Navigate to File Hashing \u2014 11s\n- **Screen:** DeadHash Navigation Menu\n- **Action:** tap \u2192 `File`\n- **Details:** The user selects the \"File\" option from the \"Tools\" section in the navigation menu.\n- **Result:** The app transitions to the file hashing screen.\n- **Confidence:** 1.0\n\n### 5. Open File Picker \u2014 14s\n- **Screen:** DeadHash File Hashing\n- **Action:** tap \u2192 `Folder icon`\n- **Details:** The user taps the folder icon to select a file for hashing.\n- **Result:** The system's file picker interface (\"Recent\") appears.\n- **Confidence:** 1.0\n\n### 6. Return to App \u2014 18s\n- **Screen:** System File Picker\n- **Action:** back \u2192 `System back button`\n- **Details:** The user presses the back button without selecting a file.\n- **Result:** The file picker closes, and the user returns to the app's file hashing screen.\n- **Confidence:** 1.0\n\n### 7. Open Settings \u2014 20s\n- **Screen:** DeadHash File Hashing\n- **Action:** tap \u2192 `Settings icon`\n- **Details:** The user taps the gear icon in the top-right corner.\n- **Result:** The app navigates to the \"Settings\" screen.\n- **Confidence:** 1.0\n\n### 8. Disable MD5 Hashing \u2014 23s\n- **Screen:** Settings\n- **Action:** tap \u2192 `Toggle switch` for \"MD5\"\n- **Details:** The user taps the toggle next to the \"MD5\" option under the \"Hashing\" section.\n- **Result:** The toggle for MD5 is set to the \"off\" position.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app calculates hashes in real-time as the user types, without requiring a tap on the \"CALCULATE\" button.\n- The MD5 hash calculated for the text \"qwerty\" is `d8578edf8458ce06fbc5bb76a58c5ca4`.\n- The settings allow the user to enable or disable specific hashing algorithms (MD5, SHA-1, SHA-224, etc.) from being displayed.\n- The app provides separate interfaces for hashing text and hashing files.",
+    "task_description": "To explore the app's features for calculating hashes from text and to configure the available hashing algorithms.",
+    "ui_elements": {
+      "screen: DeadHash Text Hashing": "navigation_target",
+      "app: DeadHash": "launch"
+    },
+    "completion_criteria": [
+      "Task outcome: success \u2014 The user successfully calculated a hash, navigated between app sections, and modified a setting."
+    ]
+  }
+}

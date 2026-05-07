@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Brethap\ngoal: The user wants to record a few short breathing sessions and then clear the session history.\noutcome: success - The user successfully recorded and then cleared all session data.\n---\n\n## Session Summary\nThe user started on the main screen of the Brethap app and initiated two very short breathing sessions. They then navigated to the \"Sessions\" screen via the side menu, viewed the recorded sessions, and used the \"Clear All\" option from the overflow menu to successfully delete the history, confirming the action in a dialog.\n\n## Steps\n\n### 1. Start Session 1 — 2s\n- **Screen:** Main Screen\n- **Action:** tap → Play button\n- **Details:** The screen was displaying \"Press Start\" and a timer set to \"0:02:00\".\n- **Result:** The breathing exercise started, displaying \"Inhale\" and a countdown timer.\n\n### 2. Stop Session 1 — 7s\n- **Screen:** Breathing Session\n- **Action:** tap → Stop button\n- **Details:** The session was in the \"Exhale\" phase.\n- **Result:** The session ended and the app returned to the main screen. A message \"0:00:05 Session, 0 Breaths\" appeared at the bottom.\n\n### 3. Start Session 2 — 9s\n- **Screen:** Main Screen\n- **Action:** tap → Play button\n- **Details:** The user starts a new session immediately after the first one.\n- **Result:** A new breathing exercise started, displaying \"Inhale\" and a countdown timer.\n\n### 4. Stop Session 2 — 15s\n- **Screen:** Breathing Session\n- **Action:** tap → Stop button\n- **Details:** The session was in the \"Exhale\" phase.\n- **Result:** The session ended and the app returned to the main screen. A message \"0:00:06 Session, 0 Breaths\" appeared at the bottom.\n\n### 5. Open Navigation Menu — 16s\n- **Screen:** Main Screen\n- **Action:** tap → Hamburger menu icon\n- **Details:** The user opens the side navigation drawer.\n- **Result:** The navigation drawer opened, showing options: Preferences, Sessions, Calendar, About Brethap.\n\n### 6. Navigate to Sessions — 18s\n- **Screen:** Navigation Drawer\n- **Action:** tap → Sessions\n- **Details:** The user selects the \"Sessions\" list item.\n- **Result:** The app navigated to the \"Sessions\" screen, displaying a list of two previously recorded sessions.\n\n### 7. Open Sessions Menu — 20s\n- **Screen:** Sessions\n- **Action:** tap → Three-dot menu icon\n- **Details:** The user opens the overflow menu on the Sessions screen.\n- **Result:** A dropdown menu appeared with options: Clear All, Backup, Restore, Export.\n\n### 8. Select Clear All — 21s\n- **Screen:** Sessions\n- **Action:** tap → Clear All\n- **Details:** The user selects the \"Clear All\" option from the menu.\n- **Result:** A confirmation dialog appeared asking \"Are you sure you want to clear all sessions?\".\n\n### 9. Confirm Deletion — 22s\n- **Screen:** Clear All Dialog\n- **Action:** tap → Continue\n- **Details:** The user confirms the deletion action.\n- **Result:** The dialog closed, the session list became empty, and a \"Sessions cleared\" toast message appeared.\n\n## Key Observations\n- The app records sessions even if they are very short and no full breaths are completed (the UI shows \"0 Breaths\").\n- The session log displays a future date of \"2026-05-01\", which could indicate a bug or a misconfigured device/emulator date."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.18622866043677697
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 7373,
+    "candidatesTokenCount": 832,
+    "totalTokenCount": 9368,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "AUDIO",
+        "tokenCount": 625
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "VIDEO",
+        "tokenCount": 6192
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 832
+      }
+    ],
+    "thoughtsTokenCount": 1163
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-07T04:05:08.656978Z",
+  "responseId": "dA_8adKMKL_X88APoryD6QM"
+}

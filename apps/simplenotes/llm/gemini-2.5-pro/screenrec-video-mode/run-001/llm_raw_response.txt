@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Simple Notes\ngoal: To create, edit, and then delete a checklist note.\noutcome: success - The user successfully created, added items to, and deleted a checklist note.\n---\n\n## Session Summary\nThe user started on the empty main screen of the \"Simple Notes\" app. They created a new checklist, gave it a title, and added an initial item. After saving and returning to the main screen, they reopened the note to add a second item. Finally, they selected the note and deleted it locally, returning the app to its initial empty state.\n\n## Steps\n\n### 1. Open New Note Menu — 2s\n- **Screen:** Simple Notes (Main)\n- **Action:** tap → `+` FAB (Floating Action Button)\n- **Details:** The main screen shows \"No notes yet\".\n- **Result:** A menu with \"Text Note\" and \"Checklist\" options appears.\n\n### 2. Create New Checklist — 3s\n- **Screen:** Simple Notes (Main)\n- **Action:** tap → `Checklist` button\n- **Details:** The user selects the checklist option from the menu.\n- **Result:** The user is navigated to the \"New List\" screen.\n\n### 3. Add List Title — 8s\n- **Screen:** New List\n- **Action:** type → `Title` text field\n- **Details:** Typed text: \"grocery list\"\n- **Result:** The title \"grocery list\" is entered into the title field.\n\n### 4. Add First Item — 11s\n- **Screen:** New List\n- **Action:** type → `New item...` text field\n- **Details:** Typed text: \"eggs\"\n- **Result:** The first checklist item \"eggs\" is created.\n\n### 5. Save and Return to Main — 13s\n- **Screen:** New List\n- **Action:** back → `Back arrow` icon\n- **Details:** The user navigates back from the new list creation screen.\n- **Result:** The user is returned to the main \"Simple Notes\" screen, which now displays a preview of the \"grocery list\" note.\n\n### 6. Re-open Note to Edit — 14s\n- **Screen:** Simple Notes (Main)\n- **Action:** tap → `grocery list` note card\n- **Details:** The note card shows the title and the first item \"eggs\".\n- **Result:** The user is navigated to the \"Edit List\" screen for the selected note.\n\n### 7. Add Second Item — 19s\n- **Screen:** Edit List\n- **Action:** type → `New item...` text field\n- **Details:** Typed text: \"milk\"\n- **Result:** A second checklist item \"milk\" is added to the list.\n\n### 8. Save Edited Note — 20s\n- **Screen:** Edit List\n- **Action:** back → `Back arrow` icon\n- **Details:** The user navigates back from the edit screen.\n- **Result:** The user is returned to the main screen. The note preview now shows both \"eggs\" and \"milk\".\n\n### 9. Select Note for Deletion — 23s\n- **Screen:** Simple Notes (Main)\n- **Action:** long_press → `grocery list` note card\n- **Details:** The user enters selection mode.\n- **Result:** The note card is selected, indicated by a checkmark, and a delete icon appears in the top app bar.\n\n### 10. Initiate Deletion — 25s\n- **Screen:** Simple Notes (Main - Selection Mode)\n- **Action:** tap → `Delete` (trash can) icon\n- **Details:** The header shows \"1 selected\".\n- **Result:** A \"Delete note?\" bottom sheet dialog appears.\n\n### 11. Confirm Local Deletion — 27s\n- **Screen:** Simple Notes (Main)\n- **Action:** tap → `Delete local only` button\n- **Details:** The dialog offers \"Delete everywhere (also server)\" and \"Delete local only\".\n- **Result:** The note is deleted, the screen returns to the \"No notes yet\" state, and a toast message \"1 note deleted locally\" appears briefly.\n\n## Key Observations\n- The app supports two types of notes: \"Text Note\" and \"Checklist\".\n- The deletion process distinguishes between a local-only deletion and a server-synced deletion (\"Delete everywhere\").\n- The \"Delete everywhere (also server)\" option is visually emphasized (pink background), suggesting it is the primary or recommended action.\n- A confirmation toast message appears at the bottom of the screen after a successful local deletion."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.12634372146877312
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 8738,
+    "candidatesTokenCount": 1014,
+    "totalTokenCount": 10457,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "AUDIO",
+        "tokenCount": 700
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "VIDEO",
+        "tokenCount": 7482
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1014
+      }
+    ],
+    "thoughtsTokenCount": 705
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-07T14:39:06.004313Z",
+  "responseId": "CqT8adkhiLWQ0A-CmeyhBQ"
+}

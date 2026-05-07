@@ -1,0 +1,16 @@
+{
+  "app": "newpipe",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "screenrec",
+  "video": "srv-001.mp4",
+  "timestamp": "2026-05-07T14:36:25",
+  "duration_sec": 23.4,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "```markdown\napp: NewPipe\ngoal: The user wanted to find a trending music video and increase its playback speed.\noutcome: success \u2014 The user successfully found a video and adjusted its tempo.\n---\n\n## Session Summary\nThe user started on the \"Live\" screen of the NewPipe app. They opened the main navigation menu, selected \"Trending music,\" and chose a video to watch. Once the video was playing, they opened the playback settings, increased the tempo to 1.3x, and confirmed the change.\n\n## Steps\n\n### 1. Open Navigation Menu \u2014 2s\n- **Screen:** Live\n- **Action:** tap \u2192 Hamburger menu icon (top-left)\n- **Details:** The screen shows a list of live YouTube streams.\n- **Result:** The main navigation menu slides in from the left.\n\n### 2. Navigate to Trending Music \u2014 5s\n- **Screen:** Navigation Menu\n- **Action:** tap \u2192 \"Trending music\"\n- **Details:** The menu lists options like Subscriptions, History, and various trending categories.\n- **Result:** The app navigates to the \"Trending music\" screen.\n\n### 3. Select Music Video \u2014 8s\n- **Screen:** Trending music\n- **Action:** tap \u2192 \"PODCATERA\" video thumbnail\n- **Details:** The selected video is by the channel \"AlofokeMusicSounds\".\n- **Result:** The app transitions to the video player and details screen for the selected video.\n\n### 4. Open Player Controls \u2014 11s\n- **Screen:** Video Player\n- **Action:** tap \u2192 Video player area\n- **Details:** The video is paused or the controls are brought up.\n- **Result:** The video player overlay with controls (play/pause, timeline, quality, speed) appears.\n\n### 5. Open Playback Settings \u2014 12s\n- **Screen:** Video Player\n- **Action:** tap \u2192 List icon (three horizontal lines with dots)\n- **Details:** This icon is located in the top-right of the player controls.\n- **Result:** A \"Tempo\" and \"Pitch\" settings dialog appears.\n\n### 6. Adjust Playback Speed \u2014 14s\n- **Screen:** Tempo/Pitch Settings\n- **Action:** select \u2192 Drag \"Tempo\" slider\n- **Details:** The user drags the slider to the right, setting the tempo to 1.3x.\n- **Result:** The tempo value in the dialog updates to \"1.3x\".\n\n### 7. Confirm Playback Speed \u2014 17s\n- **Screen:** Tempo/Pitch Settings\n- **Action:** tap \u2192 \"OK\" button\n- **Details:** The user confirms the new 1.3x tempo.\n- **Result:** The dialog closes, and the video resumes playing with the playback speed indicator in the top bar showing \"1.3x\".\n\n## Key Observations\n- The app being used is \"NewPipe,\" a third-party YouTube client, as identified in the navigation menu.\n- A persistent error message \"Could not parse website\" is visible at the bottom of the video details screen, indicating a potential parsing or API issue.\n- The playback settings dialog allows for independent control of both tempo (speed) and pitch.\n```",
+    "task_description": "",
+    "ui_elements": {},
+    "completion_criteria": []
+  }
+}

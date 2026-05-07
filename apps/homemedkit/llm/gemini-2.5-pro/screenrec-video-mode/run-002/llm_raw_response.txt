@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "app: Medicine Tracker\ngoal: To manually add a new medication to the application.\noutcome: success - The user successfully filled out the form and saved a new medication, landing on its details page.\n---\n\n## Session Summary\nThe user started on the main \"Medicine\" list screen and initiated the process of adding a new item. They tapped the add button, selected the manual add option, and proceeded to fill out a form with details like the product name, expiration date, package opened date, display name, release form, and a comment. After successfully saving the form, the application displayed a details page for the newly created medication, confirming all the entered information was saved correctly.\n\n## Steps\n\n### 1. Initiate Add Medicine — 2s\n- **Screen:** Medicine List\n- **Action:** tap → `+` floating action button\n- **Details:** The button is in the bottom right corner.\n- **Result:** Two new buttons, \"Scan\" and \"Add\", appeared above the original button.\n- **Confidence:** 1.0\n\n### 2. Select Manual Add — 4s\n- **Screen:** Medicine List\n- **Action:** tap → `Add` button\n- **Details:** The button has a pencil icon.\n- **Result:** Navigated to the \"Add Medicine\" form screen.\n- **Confidence:** 1.0\n\n### 3. Enter Product Name — 6s\n- **Screen:** Add Medicine\n- **Action:** type → `Product name` field\n- **Details:** Typed \"medA\".\n- **Result:** The text \"medA\" appeared in the \"Product name\" field.\n- **Confidence:** 1.0\n\n### 4. Attempt to Select Group — 10s\n- **Screen:** Add Medicine\n- **Action:** tap → `Group` field\n- **Details:** The field was initially empty.\n- **Result:** A \"Medication groups\" dialog appeared, stating \"There are no groups found. You can add groups in the application settings.\"\n- **Confidence:** 1.0\n\n### 5. Dismiss Group Dialog — 13s\n- **Screen:** Add Medicine\n- **Action:** tap → `Save` button in dialog\n- **Details:** The user tapped the \"Save\" option in the \"Medication groups\" dialog.\n- **Result:** The dialog was dismissed, and the user returned to the \"Add Medicine\" form.\n- **Confidence:** 1.0\n\n### 6. Set Expiration Date — 14s\n- **Screen:** Add Medicine\n- **Action:** tap → `Exp. date` field\n- **Details:** The user selected \"MAY\" from the month picker for the year 2026.\n- **Result:** The \"Exp. date\" field was populated with \"May 31, 2026\".\n- **Confidence:** 1.0\n\n### 7. Set Package Opened Date — 19s\n- **Screen:** Add Medicine\n- **Action:** tap → `Package opened` field\n- **Details:** The user selected \"23\" from the calendar view for May 2026 and tapped \"Save\".\n- **Result:** The \"Package opened\" field was populated with \"May 22, 2026\".\n- **Confidence:** 1.0\n\n### 8. Enter Display Name — 25s\n- **Screen:** Add Medicine\n- **Action:** type → `Display name` field\n- **Details:** Typed \"medA\".\n- **Result:** The text \"medA\" appeared in the \"Display name\" field.\n- **Confidence:** 1.0\n\n### 9. Enter Release Form — 29s\n- **Screen:** Add Medicine\n- **Action:** type → `Release form` field\n- **Details:** Typed \"medB\".\n- **Result:** The text \"medB\" appeared in the \"Release form\" field.\n- **Confidence:** 1.0\n\n### 10. Enter Comment — 37s\n- **Screen:** Add Medicine\n- **Action:** type → `Comment` field\n- **Details:** Typed \"abc\".\n- **Result:** The text \"abc\" appeared in the \"Comment\" field.\n- **Confidence:** 1.0\n\n### 11. Save New Medicine — 39s\n- **Screen:** Add Medicine\n- **Action:** tap → `✓` (check) icon\n- **Details:** The icon is in the top right of the header.\n- **Result:** Navigated to the details screen for the newly created medicine.\n- **Confidence:** 1.0\n\n## Key Observations\n- When attempting to assign a medication to a group, a dialog appears informing the user that no groups exist and must be created in the settings. This interrupts the add-medicine workflow.\n- After saving the new medication, the app navigates to a read-only details view for that item, rather than returning to the main medicine list.\n- The \"Group\" field defaults to \"Unspecified\" if no group is selected.\n- The \"Status\" of the newly created item is automatically set to \"Added manually\".\n- The date picker for \"Exp. date\" is a month/year selector, while the picker for \"Package opened\" is a full calendar view."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.14347634128087472
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 12650,
+    "candidatesTokenCount": 1145,
+    "totalTokenCount": 14946,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "VIDEO",
+        "tokenCount": 11094
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "AUDIO",
+        "tokenCount": 1000
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1145
+      }
+    ],
+    "thoughtsTokenCount": 1151
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-07T04:40:02.004531Z",
+  "responseId": "ohf8abMjurj5yg-p-IfhDA"
+}

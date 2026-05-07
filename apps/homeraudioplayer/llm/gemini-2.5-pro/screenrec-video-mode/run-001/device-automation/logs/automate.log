@@ -1,0 +1,454 @@
+[INFO] 2026-05-07 00:53:11 --- Run: app=homeraudioplayer video_type=handheld video=apps/homeraudioplayer/videos/hhv.mp4 ---
+[INFO] 2026-05-07 00:53:11 Output dir: apps/homeraudioplayer/llm/gemini-2.5-pro/screenrec-video-mode/run-001/device-automation
+[INFO] 2026-05-07 00:53:14 Installing APK: apps/homeraudioplayer/apk/homeraudioplayer.apk
+[INFO] 2026-05-07 00:53:18 APK installed: com.studio4plus.homerplayer2
+[INFO] 2026-05-07 00:53:18 Launching app: com.studio4plus.homerplayer2 / com.studio4plus.homerplayer2.app.MainActivity
+[INFO] 2026-05-07 00:53:20 App launched: com.studio4plus.homerplayer2/.app.MainActivity
+[INFO] 2026-05-07 00:53:20 Using pre-generated memory context from Stage 1 | len=2794
+[INFO] 2026-05-07 00:53:20 Step 1/10
+[INFO] 2026-05-07 00:53:22 Step 1: Sending to LLM | task=The user wanted to hide the settings button from the main player screen. | video_summary_len=2794 | history_len=0 | a11y_tree_len=25795
+[INFO] 2026-05-07 00:53:23 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-07 00:54:00 decide_next_action_with_video_context: response received | elapsed_sec=37.02
+[INFO] 2026-05-07 00:54:00 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      540,
+      873
+    ],
+    "text": null,
+    "direction": null,
+    "target_description": "the central icon with a book and a play symbol"
+  },
+  "reasoning": "The current screen is the splash screen of the Audiobook Player app. The task begins on the main player screen. To proceed, I must tap the central icon, which features a book and a play symbol, to launch the main interface of 
+[INFO] 2026-05-07 00:54:00 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      540,
+      873
+    ],
+    "text": null,
+    "direction": null,
+    "target_descriptio
+[INFO] 2026-05-07 00:54:00 Step 1: LLM response | continue=True action_type=tap reasoning=The current screen is the splash screen of the Audiobook Player app. The task begins on the main pla confidence=1.00
+[INFO] 2026-05-07 00:54:02 Step 2/10
+[INFO] 2026-05-07 00:54:02 Step 2: Sending to LLM | task=The user wanted to hide the settings button from the main player screen. | video_summary_len=2794 | history_len=1 | a11y_tree_len=87089
+[INFO] 2026-05-07 00:54:03 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-07 00:54:20 decide_next_action_with_video_context: response received | elapsed_sec=16.60
+[INFO] 2026-05-07 00:54:20 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      297,
+      1002
+    ],
+    "text": null,
+    "direction": null,
+    "target_description": "Audiobooks folder"
+  },
+  "reasoning": "The application is asking to select a folder to store files. The current root directory is not allowed, as indicated by the message \"Can't use this folder\". Since this is an audiobook player, the \"Audiobooks\" folder is the most logical and appropriat
+[INFO] 2026-05-07 00:54:20 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      297,
+      1002
+    ],
+    "text": null,
+    "direction": null,
+    "target_descripti
+[INFO] 2026-05-07 00:54:20 Step 2: LLM response | continue=True action_type=tap reasoning=The application is asking to select a folder to store files. The current root directory is not allow confidence=1.00
+[INFO] 2026-05-07 00:54:22 Step 3/10
+[INFO] 2026-05-07 00:54:22 Step 3: Sending to LLM | task=The user wanted to hide the settings button from the main player screen. | video_summary_len=2794 | history_len=2 | a11y_tree_len=33406
+[INFO] 2026-05-07 00:54:23 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-07 00:54:34 decide_next_action_with_video_context: response received | elapsed_sec=11.21
+[INFO] 2026-05-07 00:54:34 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "android:id/button1",
+    "coordinates": [
+      540,
+      1794
+    ],
+    "text": "USE THIS FOLDER",
+    "direction": null,
+    "target_description": "the 'USE THIS FOLDER' button"
+  },
+  "reasoning": "The current screen is a file picker, asking to select a folder for audiobooks. To proceed to the main application screen where the task can be performed, I need to confirm this folder selection. The 'USE THIS FOLDE
+[INFO] 2026-05-07 00:54:34 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "android:id/button1",
+    "coordinates": [
+      540,
+      1794
+    ],
+    "text": "USE THIS FOLDER",
+    "direction"
+[INFO] 2026-05-07 00:54:34 Step 3: LLM response | continue=True action_type=tap reasoning=The current screen is a file picker, asking to select a folder for audiobooks. To proceed to the mai confidence=1.00
+[INFO] 2026-05-07 00:54:35 Step 4/10
+[INFO] 2026-05-07 00:54:36 Step 4: Sending to LLM | task=The user wanted to hide the settings button from the main player screen. | video_summary_len=2794 | history_len=3 | a11y_tree_len=21337
+[INFO] 2026-05-07 00:54:36 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-07 00:55:26 decide_next_action_with_video_context: response received | elapsed_sec=49.23
+[INFO] 2026-05-07 00:55:26 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "android:id/button1",
+    "coordinates": null,
+    "text": null,
+    "direction": null,
+    "target_description": "the 'ALLOW' button"
+  },
+  "reasoning": "The application is requesting permission to access the selected folder. To proceed to the main screen and continue with the task, I must grant this permission by tapping 'ALLOW'. The previous attempt to tap 'ALLOW' did not change the screen, so I am retrying the
+[INFO] 2026-05-07 00:55:26 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "android:id/button1",
+    "coordinates": null,
+    "text": null,
+    "direction": null,
+    "target_description": "the
+[INFO] 2026-05-07 00:55:26 Step 4: LLM response | continue=True action_type=tap reasoning=The application is requesting permission to access the selected folder. To proceed to the main scree confidence=0.90
+[INFO] 2026-05-07 00:55:27 Step 5/10
+[INFO] 2026-05-07 00:55:28 Step 5: Sending to LLM | task=The user wanted to hide the settings button from the main player screen. | video_summary_len=2794 | history_len=3 | a11y_tree_len=25145
+[INFO] 2026-05-07 00:55:28 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-07 00:55:39 decide_next_action_with_video_context: response received | elapsed_sec=10.78
+[INFO] 2026-05-07 00:55:39 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      936,
+      1753
+    ],
+    "text": null,
+    "direction": null,
+    "target_description": "Next button"
+  },
+  "reasoning": "The user needs to get past the initial setup screen to reach the main player and access the settings. The 'Next' button is the most logical way to proceed through the setup wizard.",
+  "confidence": 1.0
+}
+```
+[INFO] 2026-05-07 00:55:39 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      936,
+      1753
+    ],
+    "text": null,
+    "direction": null,
+    "target_descripti
+[INFO] 2026-05-07 00:55:39 Step 5: LLM response | continue=True action_type=tap reasoning=The user needs to get past the initial setup screen to reach the main player and access the settings confidence=1.00
+[INFO] 2026-05-07 00:55:41 Step 6/10
+[INFO] 2026-05-07 00:55:41 Step 6: Sending to LLM | task=The user wanted to hide the settings button from the main player screen. | video_summary_len=2794 | history_len=3 | a11y_tree_len=25973
+[INFO] 2026-05-07 00:55:42 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-07 00:55:58 decide_next_action_with_video_context: response received | elapsed_sec=15.87
+[INFO] 2026-05-07 00:55:58 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      709,
+      1753
+    ],
+    "text": null,
+    "direction": null,
+    "target_description": "Skip button"
+  },
+  "reasoning": "The current screen is a setup screen for text-to-speech, which is not part of the main task described in the video summary. The previous attempts to tap 'Done' did not change the screen. The 'Skip' button is the most logical next step to bypass this setup and 
+[INFO] 2026-05-07 00:55:58 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      709,
+      1753
+    ],
+    "text": null,
+    "direction": null,
+    "target_descripti
+[INFO] 2026-05-07 00:55:58 Step 6: LLM response | continue=True action_type=tap reasoning=The current screen is a setup screen for text-to-speech, which is not part of the main task describe confidence=0.90
+[INFO] 2026-05-07 00:55:59 Step 7/10
+[INFO] 2026-05-07 00:56:00 Step 7: Sending to LLM | task=The user wanted to hide the settings button from the main player screen. | video_summary_len=2794 | history_len=3 | a11y_tree_len=20291
+[INFO] 2026-05-07 00:56:00 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-07 00:56:15 decide_next_action_with_video_context: response received | elapsed_sec=14.90
+[INFO] 2026-05-07 00:56:15 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "",
+    "coordinates": [
+      996,
+      126
+    ],
+    "text": null,
+    "direction": null,
+    "target_description": "Settings icon"
+  },
+  "reasoning": "The goal is to hide the settings button. To do this, I must first navigate to the settings menu. The settings button (gear icon) is visible in the top-right corner of the screen. Tapping it is the necessary next step to access the option to hide it, as describe
+[INFO] 2026-05-07 00:56:15 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "",
+    "coordinates": [
+      996,
+      126
+    ],
+    "text": null,
+    "direction": null,
+    "target_description"
+[INFO] 2026-05-07 00:56:15 Step 7: LLM response | continue=True action_type=tap reasoning=The goal is to hide the settings button. To do this, I must first navigate to the settings menu. The confidence=1.00
+[INFO] 2026-05-07 00:56:17 Step 8/10
+[INFO] 2026-05-07 00:56:17 Step 8: Sending to LLM | task=The user wanted to hide the settings button from the main player screen. | video_summary_len=2794 | history_len=3 | a11y_tree_len=31352
+[INFO] 2026-05-07 00:56:18 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-07 00:56:24 decide_next_action_with_video_context: response received | elapsed_sec=6.41
+[INFO] 2026-05-07 00:56:24 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      540,
+      1324
+    ],
+    "text": null,
+    "direction": null,
+    "target_description": "Lockdown settings... list item"
+  },
+  "reasoning": "The user wants to hide the settings button. According to the video summary, this option is located within the 'Lockdown settings'. The current screen is the main 'Settings' page, and the 'Lockdown settings...' option is visible. Therefore, t
+[INFO] 2026-05-07 00:56:24 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      540,
+      1324
+    ],
+    "text": null,
+    "direction": null,
+    "target_descripti
+[INFO] 2026-05-07 00:56:24 Step 8: LLM response | continue=True action_type=tap reasoning=The user wants to hide the settings button. According to the video summary, this option is located w confidence=1.00
+[INFO] 2026-05-07 00:56:24 Stall detected: action ('tap', None, None) repeated 4 times — stopping at step 8
+[INFO] 2026-05-07 00:56:24 Session trace saved to apps/homeraudioplayer/llm/gemini-2.5-pro/screenrec-video-mode/run-001/device-automation/session_trace.json
+[INFO] 2026-05-07 00:56:24 Video summary saved to apps/homeraudioplayer/llm/gemini-2.5-pro/screenrec-video-mode/run-001/device-automation/video_summary.txt
+[INFO] 2026-05-07 00:56:24 Run complete: app=homeraudioplayer video_type=handheld steps=8 status=stalled
+[INFO] 2026-05-07 00:56:24 Session trace: apps/homeraudioplayer/llm/gemini-2.5-pro/screenrec-video-mode/run-001/device-automation/session_trace.json
+[INFO] 2026-05-07 00:56:24 Resetting app state: force-stop + clear data | pkg=com.studio4plus.homerplayer2
+[INFO] 2026-05-07 00:56:25 App reset complete: com.studio4plus.homerplayer2
+[INFO] 2026-05-07 00:56:25 Replay script: apps/homeraudioplayer/llm/gemini-2.5-pro/screenrec-video-mode/run-001/device-automation/replay.py
+[INFO] 2026-05-07 00:56:25 ========================================================================
+[INFO] 2026-05-07 00:56:25 RUN SUMMARY
+[INFO] 2026-05-07 00:56:25   App         : homeraudioplayer
+[INFO] 2026-05-07 00:56:25   Video type  : handheld
+[INFO] 2026-05-07 00:56:25   Status      : stalled
+[INFO] 2026-05-07 00:56:25   Steps       : 8
+[INFO] 2026-05-07 00:56:25   Actions     : tap=8
+[INFO] 2026-05-07 00:56:25   LLM calls   : decide_next_action_with_video_context=8
+[INFO] 2026-05-07 00:56:25   LLM latency : min=6.4s  max=49.2s  avg=20.3s  total=162.0s
+[INFO] 2026-05-07 00:56:25   Tokens used : prompt=24,584  output=1,330  total=25,914
+[INFO] 2026-05-07 00:56:25   Wall time   : 3m 14s
+[INFO] 2026-05-07 00:56:25   Output      : apps/homeraudioplayer/llm/gemini-2.5-pro/screenrec-video-mode/run-001/device-automation
+[INFO] 2026-05-07 00:56:25 ========================================================================
+[INFO] 2026-05-07 00:56:25 --- Run: app=homeraudioplayer video_type=screenrec video=apps/homeraudioplayer/videos/srv.mp4 ---
+[INFO] 2026-05-07 00:56:25 Output dir: apps/homeraudioplayer/llm/gemini-2.5-pro/screenrec-video-mode/run-001/device-automation
+[INFO] 2026-05-07 00:56:26 Installing APK: apps/homeraudioplayer/apk/homeraudioplayer.apk
+[INFO] 2026-05-07 00:56:32 APK installed: com.studio4plus.homerplayer2
+[INFO] 2026-05-07 00:56:32 Launching app: com.studio4plus.homerplayer2 / com.studio4plus.homerplayer2.app.MainActivity
+[INFO] 2026-05-07 00:56:34 App launched: com.studio4plus.homerplayer2/.app.MainActivity
+[INFO] 2026-05-07 00:56:34 Using pre-generated memory context from Stage 1 | len=2794
+[INFO] 2026-05-07 00:56:34 Step 1/10
+[INFO] 2026-05-07 00:56:35 Step 1: Sending to LLM | task=The user wanted to hide the settings button from the main player screen. | video_summary_len=2794 | history_len=0 | a11y_tree_len=25795
+[INFO] 2026-05-07 00:56:36 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-07 00:56:44 decide_next_action_with_video_context: response received | elapsed_sec=7.71
+[INFO] 2026-05-07 00:56:44 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      936,
+      1753
+    ],
+    "text": null,
+    "direction": null,
+    "target_description": "Next button"
+  },
+  "reasoning": "The user wants to hide the settings button, which is accessible from the main player screen. The current screen is a setup screen. I need to tap 'Next' to proceed through the setup and reach the main screen where the task can be performed.",
+  "confidence": 1.
+[INFO] 2026-05-07 00:56:44 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      936,
+      1753
+    ],
+    "text": null,
+    "direction": null,
+    "target_descripti
+[INFO] 2026-05-07 00:56:44 Step 1: LLM response | continue=True action_type=tap reasoning=The user wants to hide the settings button, which is accessible from the main player screen. The cur confidence=1.00
+[INFO] 2026-05-07 00:56:45 Step 2/10
+[INFO] 2026-05-07 00:56:46 Step 2: Sending to LLM | task=The user wanted to hide the settings button from the main player screen. | video_summary_len=2794 | history_len=1 | a11y_tree_len=25795
+[INFO] 2026-05-07 00:56:46 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-07 00:57:00 decide_next_action_with_video_context: response received | elapsed_sec=13.52
+[INFO] 2026-05-07 00:57:00 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      540,
+      531
+    ],
+    "text": null,
+    "direction": null,
+    "target_description": "Sample books card"
+  },
+  "reasoning": "The user wants to hide the settings button, which is on the main player screen. The current screen is a setup screen. To proceed to the main player, I need to add content. The easiest way to do this is by selecting 'Sample books'. The 'Next' button is cur
+[INFO] 2026-05-07 00:57:00 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      540,
+      531
+    ],
+    "text": null,
+    "direction": null,
+    "target_descriptio
+[INFO] 2026-05-07 00:57:00 Step 2: LLM response | continue=True action_type=tap reasoning=The user wants to hide the settings button, which is on the main player screen. The current screen i confidence=1.00
+[INFO] 2026-05-07 00:57:01 Step 3/10
+[INFO] 2026-05-07 00:57:02 Step 3: Sending to LLM | task=The user wanted to hide the settings button from the main player screen. | video_summary_len=2794 | history_len=2 | a11y_tree_len=25174
+[INFO] 2026-05-07 00:57:02 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-07 00:57:19 decide_next_action_with_video_context: response received | elapsed_sec=16.37
+[INFO] 2026-05-07 00:57:19 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      936,
+      1753
+    ],
+    "text": null,
+    "direction": null,
+    "target_description": "Next button"
+  },
+  "reasoning": "The current screen is the initial setup screen for adding audiobooks. To proceed to the main player screen, where the task of hiding the settings button begins, I need to tap the 'Next' button.",
+  "confidence": 1.0
+}
+```
+[INFO] 2026-05-07 00:57:19 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      936,
+      1753
+    ],
+    "text": null,
+    "direction": null,
+    "target_descripti
+[INFO] 2026-05-07 00:57:19 Step 3: LLM response | continue=True action_type=tap reasoning=The current screen is the initial setup screen for adding audiobooks. To proceed to the main player  confidence=1.00
+[INFO] 2026-05-07 00:57:20 Step 4/10
+[INFO] 2026-05-07 00:57:21 Step 4: Sending to LLM | task=The user wanted to hide the settings button from the main player screen. | video_summary_len=2794 | history_len=3 | a11y_tree_len=25974
+[INFO] 2026-05-07 00:57:21 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-07 00:57:36 decide_next_action_with_video_context: response received | elapsed_sec=14.63
+[INFO] 2026-05-07 00:57:36 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      932,
+      1753
+    ],
+    "text": null,
+    "direction": null,
+    "target_description": "Done button"
+  },
+  "reasoning": "The current screen is for \"Speak book titles\" settings. To find the \"Lockdown settings\" as described in the task, the user needs to exit this screen and return to the main settings menu. The \"Done\" button will accomplish this.",
+  "confidence": 1.0
+}
+```
+[INFO] 2026-05-07 00:57:36 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": null,
+    "coordinates": [
+      932,
+      1753
+    ],
+    "text": null,
+    "direction": null,
+    "target_descripti
+[INFO] 2026-05-07 00:57:36 Step 4: LLM response | continue=True action_type=tap reasoning=The current screen is for "Speak book titles" settings. To find the "Lockdown settings" as described confidence=1.00
+[INFO] 2026-05-07 00:57:36 Stall detected: action ('tap', None, None) repeated 4 times — stopping at step 4
+[INFO] 2026-05-07 00:57:36 Session trace saved to apps/homeraudioplayer/llm/gemini-2.5-pro/screenrec-video-mode/run-001/device-automation/session_trace.json
+[INFO] 2026-05-07 00:57:36 Run complete: app=homeraudioplayer video_type=screenrec steps=4 status=stalled
+[INFO] 2026-05-07 00:57:36 Session trace: apps/homeraudioplayer/llm/gemini-2.5-pro/screenrec-video-mode/run-001/device-automation/session_trace.json
+[INFO] 2026-05-07 00:57:36 Resetting app state: force-stop + clear data | pkg=com.studio4plus.homerplayer2
+[INFO] 2026-05-07 00:57:36 App reset complete: com.studio4plus.homerplayer2
+[INFO] 2026-05-07 00:57:36 Replay script: apps/homeraudioplayer/llm/gemini-2.5-pro/screenrec-video-mode/run-001/device-automation/replay.py
+[INFO] 2026-05-07 00:57:36 ========================================================================
+[INFO] 2026-05-07 00:57:36 RUN SUMMARY
+[INFO] 2026-05-07 00:57:36   App         : homeraudioplayer
+[INFO] 2026-05-07 00:57:36   Video type  : screenrec
+[INFO] 2026-05-07 00:57:36   Status      : stalled
+[INFO] 2026-05-07 00:57:36   Steps       : 4
+[INFO] 2026-05-07 00:57:36   Actions     : tap=4
+[INFO] 2026-05-07 00:57:36   LLM calls   : decide_next_action_with_video_context=4
+[INFO] 2026-05-07 00:57:36   LLM latency : min=7.7s  max=16.4s  avg=13.1s  total=52.2s
+[INFO] 2026-05-07 00:57:36   Tokens used : prompt=11,914  output=637  total=12,551
+[INFO] 2026-05-07 00:57:36   Wall time   : 1m 11s
+[INFO] 2026-05-07 00:57:36   Output      : apps/homeraudioplayer/llm/gemini-2.5-pro/screenrec-video-mode/run-001/device-automation
+[INFO] 2026-05-07 00:57:36 ========================================================================

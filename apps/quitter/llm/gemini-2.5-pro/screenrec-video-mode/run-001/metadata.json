@@ -1,0 +1,20 @@
+{
+  "app": "quitter",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "screenrec",
+  "video": "srv-001.mp4",
+  "timestamp": "2026-05-07T14:38:02",
+  "duration_sec": 23.7,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Quitter\ngoal: The user wants to disable the Journal tab from the app's settings.\noutcome: success \u2014 The Journal tab was successfully removed from the main navigation.\n---\n\n## Session Summary\nThe user started on the main \"Quitter\" screen, which lists addictions. They swiped to the \"Journal\" tab and made a brief entry, then swiped to the \"Settings\" tab. In settings, they located and disabled the \"Show journal\" option. Finally, they returned to the main screen and confirmed the \"Journal\" tab was no longer present in the top navigation.\n\n## Steps\n\n### 1. Navigate to Journal \u2014 3s\n- **Screen:** Quitter\n- **Action:** `swipe_left`\n- **Details:** Swiped from the \"Quitter\" tab to the \"Journal\" tab.\n- **Result:** The \"Journal\" screen is displayed, showing a calendar and an entry field for \"Friday, May 1, 2026\".\n- **Confidence:** 1.0\n\n### 2. Create Journal Entry \u2014 11s\n- **Screen:** Journal\n- **Action:** `type` \u2192 \"How was your day?\" text field\n- **Details:** Typed \"it was good\".\n- **Result:** The text \"it was good\" appears in the journal entry field.\n- **Confidence:** 1.0\n\n### 3. Navigate to Settings \u2014 12s\n- **Screen:** Journal\n- **Action:** `swipe_left`\n- **Details:** Swiped from the \"Journal\" tab to the \"Settings\" tab.\n- **Result:** The \"Settings\" screen is displayed.\n- **Confidence:** 1.0\n\n### 4. Disable Journal Tab \u2014 15s\n- **Screen:** Settings\n- **Action:** `tap` \u2192 \"Show journal\" toggle\n- **Details:** The toggle was in the \"on\" state.\n- **Result:** The \"Show journal\" toggle switches to the \"off\" state.\n- **Confidence:** 1.0\n\n### 5. Return to Main Screen \u2014 16s\n- **Screen:** Settings\n- **Action:** `swipe_right`\n- **Details:** Swiped from the \"Settings\" tab towards the main screen.\n- **Result:** The \"Quitter\" screen is displayed, and the \"Journal\" tab is no longer visible in the top navigation bar.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app features a tabbed navigation for \"Quitter\", \"Journal\", and \"Settings\".\n- The \"Journal\" tab's visibility can be controlled from the \"Settings\" screen via a \"Show journal\" toggle.\n- The journal entry is dated for \"Friday, May 1, 2026\".\n- The \"Swipe between tabs\" setting is enabled, allowing the user to navigate by swiping horizontally across the screen.",
+    "task_description": "The user wants to disable the Journal tab from the app's settings.",
+    "ui_elements": {
+      "screen: Quitter": "navigation_target"
+    },
+    "completion_criteria": [
+      "Task outcome: success \u2014 The Journal tab was successfully removed from the main navigation."
+    ]
+  }
+}

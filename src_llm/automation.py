@@ -266,6 +266,7 @@ def run_automation(
     session = AutomationSession(max_steps=max_steps, history_window=history_window)
     steps_log: list[dict] = []
     status = "max_steps_reached"
+    field_state_assertions: list[dict] = []
 
     for step_num in range(max_steps):
         logger.info("Step %d/%d", step_num + 1, max_steps)
@@ -341,15 +342,99 @@ def run_automation(
         if len(steps_log) >= stall_repeat_threshold:
             recent_keys = [_action_key(s) for s in steps_log[-stall_repeat_threshold:]]
             if len(set(recent_keys)) == 1:
-                status = "stalled"
-                logger.info(
-                    "Stall detected: action %s repeated %d times — stopping at step %d",
-                    recent_keys[0], stall_repeat_threshold, step_num + 1,
-                )
-                break
+                # Check if this is a scroll stall — if so, try the opposite direction once
+                action_type, direction, resource_id = recent_keys[0]
+                if action_type == "scroll" and direction in ("up", "down"):
+                    opposite_direction = "down" if direction == "up" else "up"
+                    logger.info(
+                        "Scroll stall detected: action %s repeated %d times. "
+                        "Attempting opposite direction (%s) once before stopping at step %d",
+                        recent_keys[0], stall_repeat_threshold, opposite_direction, step_num + 1,
+                    )
+                    # Flip the direction and execute once
+                    decision.action.direction = opposite_direction
+                    logger.info("Scroll direction flipped: %s → %s", direction, opposite_direction)
+                    device.execute_action(decision.action)
+                    time.sleep(step_delay)
+                    # Take a screenshot to see if the opposite direction helped
+                    screenshot = device.capture_screenshot()
+                    xml = device.dump_accessibility_tree()
+                    activity = device.get_current_activity()
+
+                    logger.info("Post-opposite-scroll screenshot captured for analysis")
+                    status = "stalled"
+                    break
+                else:
+                    status = "stalled"
+                    logger.info(
+                        "Stall detected: action %s repeated %d times — stopping at step %d",
+                        recent_keys[0], stall_repeat_threshold, step_num + 1,
+                    )
+                    break
 
         device.execute_action(decision.action)
         time.sleep(step_delay)
+
+        # Post-action state verification for text inputs
+        if decision.action.type == "type_text":
+            time.sleep(0.5)  # Brief pause for UI to update
+            post_screenshot = device.capture_screenshot()
+            post_xml = device.dump_accessibility_tree()
+
+            assertion = {
+                "action_step": step_num + 1,
+                "action_type": "type_text",
+                "resource_id": decision.action.resource_id,
+                "text_intended": decision.action.text,
+                "post_screenshot": str(output_dir / "steps" / f"step_{step_num + 1:03d}_post.png") if output_dir else None,
+            }
+
+            if output_dir:
+                post_screenshot.save(assertion["post_screenshot"])
+
+            # Simple check: look for the text in the accessibility tree
+            if decision.action.text and post_xml and decision.action.text in post_xml:
+                assertion["field_verified"] = True
+                logger.info("Step %d: Field state verified — text '%s' found in a11y tree", step_num + 1, decision.action.text)
+            else:
+                assertion["field_verified"] = False
+                logger.warning("Step %d: Field state FAILED — text '%s' NOT found in a11y tree after type_text", step_num + 1, decision.action.text)
+                assertion["problem"] = "text_not_persisted"
+
+            field_state_assertions.append(assertion)
+
+        # Success detection: check if main screen appears and recipe list is populated
+        if decision.action.type == "tap" and "Save" in (decision.action.target_description or ""):
+            time.sleep(1)
+            post_screenshot = device.capture_screenshot()
+            post_xml = device.dump_accessibility_tree()
+
+            success_check = {
+                "action_step": step_num + 1,
+                "action_type": "tap",
+                "target": decision.action.target_description,
+            }
+
+            # Check if we're back on main screen (recipe list visible)
+            is_main_screen = post_xml and ("recipe" in post_xml.lower() or "list" in post_xml.lower())
+            is_error_visible = post_xml and "error" in post_xml.lower() and "please enter" in post_xml.lower()
+
+            if is_main_screen and not is_error_visible:
+                success_check["save_successful"] = True
+                logger.info("Step %d: Save appears successful — recipe list visible on main screen", step_num + 1)
+                status = "completed"
+                # Log remaining field assertions before breaking
+                step_entry["field_assertions"] = field_state_assertions
+                steps_log[-1] = step_entry
+                break
+            elif is_error_visible:
+                success_check["save_successful"] = False
+                success_check["problem"] = "validation_error"
+                logger.warning("Step %d: Save FAILED — validation error still visible", step_num + 1)
+            else:
+                success_check["save_successful"] = False
+                success_check["problem"] = "unclear_state"
+                logger.warning("Step %d: Save result unclear — could not determine if on main screen", step_num + 1)
 
     trace = {
         "task": task_description,
@@ -359,6 +444,7 @@ def run_automation(
         "total_steps": len(steps_log),
         "status": status,
         "steps": steps_log,
+        "field_state_assertions": field_state_assertions,
     }
 
     if output_dir is not None:

@@ -142,6 +142,20 @@ class DeviceController:
             self.scroll(direction, int(x), int(y))
         elif action_type == "type_text":
             if action.text:
+                # Ensure the field is focused by tapping it first
+                if action.resource_id:
+                    el = self._device(resourceId=action.resource_id)
+                    if el.exists:
+                        logger.info("Tapping field before typing (focus): resource_id=%s", action.resource_id)
+                        el.click()
+                    else:
+                        logger.warning("Field for type_text not found (resource_id=%s)", action.resource_id)
+                elif action.coordinates:
+                    logger.info("Tapping field before typing (focus): coordinates=%s", action.coordinates)
+                    self.tap(action.coordinates[0], action.coordinates[1])
+                else:
+                    logger.warning("type_text action has no resource_id or coordinates to focus")
+
                 logger.info("Typing text: %s", action.text[:50])
                 self.type_text(action.text)
         elif action_type in ("press_back", "back"):
