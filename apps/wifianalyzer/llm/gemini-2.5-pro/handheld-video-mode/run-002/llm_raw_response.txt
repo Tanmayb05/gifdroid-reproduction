@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: WIFIAnalyzer\ngoal: The user wants to explore the different data visualization features of the WIFIAnalyzer app.\noutcome: success - The user successfully navigated through all the main tabs and viewed the different analysis screens.\n---\n\n## Session Summary\nThe user started on the Google Play Store page for the WIFIAnalyzer app and launched it. They landed on the \"Access Points\" list, then systematically tapped through the bottom navigation tabs to view the \"Channel Rating\", \"Time Graph\", and \"Channel Graph\" screens. The user finished the session by cycling back through the tabs, ending on the \"Channel Rating\" screen.\n\n## Steps\n\n### 1. Launch App — 1s\n- **Screen:** Google Play Store - WIFIAnalyzer App Page\n- **Action:** `tap` → `Open` button\n- **Details:** The app page shows the app was \"Updated 2 months ago\".\n- **Result:** The WIFIAnalyzer app launches and displays the \"Access Points\" screen.\n- **Confidence:** 1.0\n\n### 2. Scroll Network List — 3s\n- **Screen:** Access Points\n- **Action:** `swipe_up` → `Network List`\n- **Details:** The list contains numerous Wi-Fi networks, including \"ThodaSaSignal\", \"TrapLordRicky\", and \"TroysAbedintheModem\". A warning \"Wi-Fi scan throttling is enabled\" is visible.\n- **Result:** The list of available Wi-Fi networks scrolls up, revealing more entries at the bottom.\n- **Confidence:** 1.0\n\n### 3. View Channel Rating — 5s\n- **Screen:** Access Points\n- **Action:** `tap` → `Channel Rating` tab\n- **Result:** The app switches to the \"Channel Rating\" view, which displays a star-based rating for each Wi-Fi channel.\n- **Confidence:** 1.0\n\n### 4. View Time Graph — 7s\n- **Screen:** Channel Rating\n- **Action:** `tap` → `Time Graph` tab\n- **Result:** The app switches to the \"Time Graph\" view. The graph begins to populate with signal strength data over time.\n- **Confidence:** 1.0\n\n### 5. View Channel Graph — 12s\n- **Screen:** Time Graph\n- **Action:** `tap` → `Channel Graph` tab\n- **Result:** The app switches to the \"Channel Graph\" view, showing a bar chart of signal strength for networks on different channels.\n- **Confidence:** 1.0\n\n### 6. Return to Channel Rating — 15s\n- **Screen:** Channel Graph\n- **Action:** `tap` → `Channel Rating` tab\n- **Result:** The app navigates back to the \"Channel Rating\" screen.\n- **Confidence:** 1.0\n\n### 7. Return to Access Points — 17s\n- **Screen:** Channel Rating\n- **Action:** `tap` → `Access Points` tab\n- **Result:** The app navigates back to the \"Access Points\" screen.\n- **Confidence:** 1.0\n\n### 8. End on Channel Rating — 19s\n- **Screen:** Access Points\n- **Action:** `tap` → `Channel Rating` tab\n- **Result:** The app navigates back to the \"Channel Rating\" screen, where the session ends.\n- **Confidence:** 1.0\n\n## Key Observations\n- A persistent warning, \"Wi-Fi scan throttling is enabled,\" is displayed across all screens, indicating a potential Android system limitation on scan frequency.\n- The user's device is connected to the \"ThodaSaSignal\" network on channel 6, with a link speed of 39Mbps and an IP address of 192.168.0.193.\n- The \"Channel Rating\" screen suggests that channels 9, 10, and 11 are the best available options in the 2.4 GHz band.\n- The \"Channel Graph\" shows significant congestion on channels 1-6, with multiple overlapping networks."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.27521626605619504
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 6499,
+    "candidatesTokenCount": 881,
+    "totalTokenCount": 9222,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "VIDEO",
+        "tokenCount": 5418
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "AUDIO",
+        "tokenCount": 525
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 881
+      }
+    ],
+    "thoughtsTokenCount": 1842
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-08T16:30:10.725120Z",
+  "responseId": "kg_-aYChLPWRzvgPvrWKuAQ"
+}

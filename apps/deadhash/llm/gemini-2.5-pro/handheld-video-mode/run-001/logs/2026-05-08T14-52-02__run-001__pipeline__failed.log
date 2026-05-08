@@ -1,0 +1,14 @@
+2026-05-08 10:52:02 | INFO | === src_llm.2026-05-08T14-52-02__run-001__pipeline__started ===
+2026-05-08 10:52:02 | INFO | Starting src_llm pipeline
+2026-05-08 10:52:02 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/deadhash/videos/hhv-001.mp4
+2026-05-08 10:52:02 | INFO | Environment validated for llm=gemini model=gemini-2.5-pro
+2026-05-08 10:52:02 | INFO | Running gemini API preflight before trace generation
+2026-05-08 10:52:02 | INFO | Gemini preflight started | model=gemini-2.5-pro | validating API key and endpoint access
+2026-05-08 10:52:09 | INFO | Gemini ADC default credentials loaded | adc_project=gifdroid-reproduction | runtime_project=project-1edeecda-ad08-47a7-867 | token_present=True
+2026-05-08 10:52:09 | INFO | Gemini auth route selected | route=adc_default | endpoint=vertex_ai
+2026-05-08 10:52:09 | INFO | Gemini API request sent | kind=preflight | model=gemini-2.5-pro | auth=adc_default | endpoint=vertex_ai | waiting for response
+2026-05-08 10:52:16 | INFO | Gemini API response received | kind=preflight | elapsed_sec=6.41
+2026-05-08 10:52:16 | INFO | Gemini preflight successful | model=gemini-2.5-pro
+2026-05-08 10:52:16 | INFO | Video mode enabled — skipping frame extraction and keyframe selection
+2026-05-08 10:52:16 | INFO | Encoding video for inline upload | file=hhv-001.mp4 | size=49962657 bytes
+2026-05-08 10:52:17 | INFO | Sending video inference request | model=gemini-2.5-pro | video=hhv-001.mp4

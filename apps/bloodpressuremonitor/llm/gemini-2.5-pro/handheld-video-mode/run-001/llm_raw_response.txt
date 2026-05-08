@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Blood Pressure Tracker\ngoal: The user wants to add multiple blood pressure readings and view the resulting graph and statistics.\noutcome: success - The user successfully added two data points, which generated a graph, and then viewed the statistics screen.\n---\n\n## Session Summary\nThe user started on the main screen of a blood pressure tracking application, which initially showed no data. They proceeded to add two separate blood pressure readings, including systolic, diastolic, pulse, and an optional note for each. After saving the second entry, a line graph appeared on the main screen. The user then navigated to the statistics page to view different data visualizations.\n\n## Steps\n\n### 1. Initiate New Record Entry — 0s\n- **Screen:** Main Screen\n- **Action:** tap → `+` icon\n- **Details:** The screen initially displays \"Not enough data to draw a graph.\"\n- **Result:** Navigated to the \"Add Record\" screen.\n- **Confidence:** 1.0\n\n### 2. Enter First Blood Pressure Reading — 3s\n- **Screen:** Add Record\n- **Action:** type → `Systolic`, `Diastolic`, `Pulse` fields\n- **Details:** Entered Systolic: 118, Diastolic: 76, Pulse: 68. The date is pre-filled as 2026-05-01.\n- **Result:** The respective fields are populated with the entered numbers.\n- **Confidence:** 1.0\n\n### 3. Add Note to First Record — 9s\n- **Screen:** Add Record\n- **Action:** type → `Note (optional)` field\n- **Details:** Typed the text \"qwert\".\n- **Result:** The note field is populated with the text.\n- **Confidence:** 1.0\n\n### 4. Save First Record — 11s\n- **Screen:** Add Record\n- **Action:** tap → `Save` button\n- **Details:** The user saves the first complete data entry.\n- **Result:** Returned to the main screen. A single data point is listed, but the graph area still shows \"Not enough data to draw a graph.\"\n- **Confidence:** 1.0\n\n### 5. Initiate Second Record Entry — 13s\n- **Screen:** Main Screen\n- **Action:** tap → `+` icon\n- **Details:** The user begins adding a second data point.\n- **Result:** Navigated to the \"Add Record\" screen.\n- **Confidence:** 1.0\n\n### 6. Enter Second Blood Pressure Reading — 16s\n- **Screen:** Add Record\n- **Action:** type → `Systolic`, `Diastolic`, `Pulse` fields\n- **Details:** Entered Systolic: 122, Diastolic: 78, Pulse: 72.\n- **Result:** The respective fields are populated with the new values.\n- **Confidence:** 1.0\n\n### 7. Add Note to Second Record — 23s\n- **Screen:** Add Record\n- **Action:** type → `Note (optional)` field\n- **Details:** Typed the text \"poiu\".\n- **Result:** The note field is populated with the text.\n- **Confidence:** 1.0\n\n### 8. Save Second Record — 25s\n- **Screen:** Add Record\n- **Action:** tap → `Save` button\n- **Details:** The user saves the second complete data entry.\n- **Result:** Returned to the main screen. A line graph connecting the two data points is now visible, and both entries are listed below.\n- **Confidence:** 1.0\n\n### 9. Navigate to Statistics — 26s\n- **Screen:** Main Screen\n- **Action:** tap → `Statistics` icon (graph-like icon)\n- **Details:** The user taps the icon between the settings gear and the plus sign.\n- **Result:** Navigated to the \"Statistics\" screen.\n- **Confidence:** 1.0\n\n### 10. Interact with Statistics Chart — 29s\n- **Screen:** Statistics\n- **Action:** swipe_left → `Value distribution` chart\n- **Details:** The user swipes on the bar chart, cycling through visualizations for Systolic, Diastolic, and Pulse.\n- **Result:** The chart's data and color change to reflect the selected metric.\n- **Confidence:** 1.0\n\n## Key Observations\n- The application requires a minimum of two data points to render a line graph on the main screen.\n- The date for the new entries was automatically set to a future date (May 1, 2026).\n- The \"Statistics\" screen features two distinct visualizations: a \"Value distribution\" bar chart and a \"Metrics by time of day\" radial chart.\n- The \"Value distribution\" chart is interactive, allowing the user to swipe between Systolic, Diastolic, and Pulse metrics."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.14207757130362447
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 9637,
+    "candidatesTokenCount": 1073,
+    "totalTokenCount": 12023,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "AUDIO",
+        "tokenCount": 825
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "VIDEO",
+        "tokenCount": 8256
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1073
+      }
+    ],
+    "thoughtsTokenCount": 1313
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-08T13:51:47.957556Z",
+  "responseId": "c-r9afS4Ouud29sP2P6c6AI"
+}

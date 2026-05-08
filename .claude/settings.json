@@ -78,7 +78,17 @@
       "Bash(git commit *)",
       "Bash(find apps/*/llm -name \"memory.md\")",
       "Bash(.venv/bin/python /tmp/test_parse_memory.py)",
-      "Bash(.venv/bin/python3)"
+      "Bash(.venv/bin/python3)",
+      "Bash(xargs -I {} sh -c 'echo \"{}:\"; stat -f \"%Sm\" \"{}\"')",
+      "Bash(sort -k2)",
+      "Bash(chmod +x /tmp/collect_memory_automation.sh)",
+      "Bash(/tmp/collect_memory_automation.sh)",
+      "Bash(grep -E \"\\\\.\\(py|md\\)$\")",
+      "mcp__claude_ai_Figma__create_new_file",
+      "mcp__claude_ai_Figma__whoami",
+      "mcp__claude_ai_Figma__use_figma",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",

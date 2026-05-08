@@ -1,0 +1,21 @@
+{
+  "app": "simplenotes",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "handheld",
+  "video": "hhv-001.mp4",
+  "timestamp": "2026-05-08T16:26:38",
+  "duration_sec": 51.2,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Simple Notes\ngoal: The user wants to create and save two separate text notes.\noutcome: success - The user successfully created and saved two text notes, which were then visible on the main screen.\n---\n\n## Session Summary\nThe user launched the Simple Notes application, which initially showed an empty state. They proceeded to create a new text note, entered a title and content, and saved it by navigating back. The user then repeated this process to create a second, distinct text note, ending the session on the main screen where both notes were listed.\n\n## Steps\n\n### 1. Launch App \u2014 1s\n- **Screen:** Home Screen\n- **Action:** tap \u2192 \"Simple Notes\" icon\n- **Details:** The icon is a white notepad on a purple background.\n- **Result:** The \"Simple Notes\" app opens to an empty state.\n- **Confidence:** 1.0\n\n### 2. Initiate New Note \u2014 7s\n- **Screen:** Simple Notes (Main List)\n- **Action:** tap \u2192 \"+\" button\n- **Details:** The button is in the bottom-right corner.\n- **Result:** A menu appears with \"Text Note\" and \"Checklist\" options.\n- **Confidence:** 1.0\n\n### 3. Select Note Type \u2014 8s\n- **Screen:** Simple Notes (Main List)\n- **Action:** tap \u2192 \"Text Note\" button\n- **Result:** The app navigates to the \"New Note\" creation screen.\n- **Confidence:** 1.0\n\n### 4. Enter First Note Title \u2014 11s\n- **Screen:** New Note\n- **Action:** type \u2192 \"Title\" field\n- **Details:** Typed \"Gandhi\".\n- **Result:** The text \"Gandhi\" appears in the title field.\n- **Confidence:** 1.0\n\n### 5. Enter First Note Content \u2014 14s\n- **Screen:** New Note\n- **Action:** type \u2192 \"Content\" field\n- **Details:** Typed \"Cfnm\".\n- **Result:** The text \"Cfnm\" appears in the content field.\n- **Confidence:** 1.0\n\n### 6. Save First Note \u2014 17s\n- **Screen:** New Note\n- **Action:** tap \u2192 Back arrow icon\n- **Details:** The back arrow is in the top-left corner.\n- **Result:** The note is saved, and the view returns to the main list, now displaying the \"Gandhi\" note.\n- **Confidence:** 1.0\n\n### 7. Initiate Second Note \u2014 26s\n- **Screen:** Simple Notes (Main List)\n- **Action:** tap \u2192 \"Text Note\" button\n- **Details:** The user had previously tapped the \"+\" button at 19s.\n- **Result:** The app navigates to a new \"New Note\" screen.\n- **Confidence:** 1.0\n\n### 8. Enter Second Note Title \u2014 29s\n- **Screen:** New Note\n- **Action:** type \u2192 \"Title\" field\n- **Details:** Typed \"Uuyjj\".\n- **Result:** The text \"Uuyjj\" appears in the title field.\n- **Confidence:** 1.0\n\n### 9. Enter Second Note Content \u2014 31s\n- **Screen:** New Note\n- **Action:** type \u2192 \"Content\" field\n- **Details:** Typed \"Hhhhh\".\n- **Result:** The text \"Hhhhh\" appears in the content field.\n- **Confidence:** 1.0\n\n### 10. Save Second Note \u2014 37s\n- **Screen:** New Note\n- **Action:** tap \u2192 Back arrow icon\n- **Details:** The back arrow is in the top-left corner.\n- **Result:** The second note is saved, and the view returns to the main list, now displaying both the \"Uuyjj\" and \"Gandhi\" notes.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app uses a floating action button (+) that expands into a menu for creating different types of notes (\"Text Note\", \"Checklist\").\n- Saving a note is accomplished by tapping the system-like back arrow in the editor, which implicitly saves the content and returns the user to the note list.\n- The main screen displays notes in a grid layout, showing the title and a preview of the content for each note.",
+    "task_description": "The user wants to create and save two separate text notes.",
+    "ui_elements": {
+      "screen: Home Screen": "navigation_target",
+      "Simple Notes\" icon": "tap"
+    },
+    "completion_criteria": [
+      "Task outcome: success - The user successfully created and saved two text notes, which were then visible on the main screen."
+    ]
+  }
+}

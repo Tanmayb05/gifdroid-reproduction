@@ -1,0 +1,18 @@
+2026-05-08 09:49:48 | INFO | === src_llm.2026-05-08T13-49-48__run-001__pipeline__started ===
+2026-05-08 09:49:48 | INFO | Starting src_llm pipeline
+2026-05-08 09:49:48 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/binaryeye/videos/hhv-001.mp4
+2026-05-08 09:49:48 | INFO | Environment validated for llm=gemini model=gemini-2.5-pro
+2026-05-08 09:49:48 | INFO | Running gemini API preflight before trace generation
+2026-05-08 09:49:48 | INFO | Gemini preflight started | model=gemini-2.5-pro | validating API key and endpoint access
+2026-05-08 09:49:49 | INFO | Gemini ADC default credentials loaded | adc_project=gifdroid-reproduction | runtime_project=project-1edeecda-ad08-47a7-867 | token_present=True
+2026-05-08 09:49:49 | INFO | Gemini auth route selected | route=adc_default | endpoint=vertex_ai
+2026-05-08 09:49:49 | INFO | Gemini API request sent | kind=preflight | model=gemini-2.5-pro | auth=adc_default | endpoint=vertex_ai | waiting for response
+2026-05-08 09:49:51 | INFO | Gemini API response received | kind=preflight | elapsed_sec=1.28
+2026-05-08 09:49:51 | INFO | Gemini preflight successful | model=gemini-2.5-pro
+2026-05-08 09:49:51 | INFO | Video mode enabled — skipping frame extraction and keyframe selection
+2026-05-08 09:49:51 | INFO | Encoding video for inline upload | file=hhv-001.mp4 | size=36865199 bytes
+2026-05-08 09:49:51 | INFO | Sending video inference request | model=gemini-2.5-pro | video=hhv-001.mp4
+2026-05-08 09:50:44 | INFO | Video inference response received | elapsed_sec=52.30
+2026-05-08 09:50:44 | INFO | Memory trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/binaryeye/llm/gemini-2.5-pro/handheld-video-mode/run-001/memory.md
+2026-05-08 09:50:44 | INFO | Parsed memory: task_desc=92 | ui_elements=2 | completion_criteria=1
+2026-05-08 09:50:44 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/binaryeye/llm/gemini-2.5-pro/handheld-video-mode/run-001/llm_raw_response.txt

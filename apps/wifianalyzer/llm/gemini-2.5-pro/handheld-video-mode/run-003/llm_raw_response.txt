@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: WiFi Analyzer\ngoal: To export the current Wi-Fi scan data.\noutcome: success - The user successfully copied the scan data to the clipboard.\n---\n\n## Session Summary\nThe user started on the \"Access Points\" screen of a Wi-Fi analysis application. They navigated through the \"Channel Rating\" and \"Channel Graph\" views to visualize the network environment. After briefly inspecting the details of a specific network, the user opened the main menu, selected the export function, and successfully copied the scan data to the clipboard.\n\n## Steps\n\n### 1. Navigate to Channel Rating — 1s\n- **Screen:** Access Points\n- **Action:** tap → `Channel Rating` tab\n- **Details:** The user taps the middle tab at the bottom of the screen.\n- **Result:** The view changes to the \"Channel Rating\" screen, which shows a star-based rating for each Wi-Fi channel.\n- **Confidence:** 1.0\n\n### 2. Navigate to Channel Graph — 2s\n- **Screen:** Channel Rating\n- **Action:** tap → `Channel Graph` tab\n- **Details:** The user taps the rightmost tab at the bottom of the screen.\n- **Result:** The view changes to the \"Channel Graph\" screen, displaying a bar graph of Wi-Fi networks by signal strength and channel.\n- **Confidence:** 1.0\n\n### 3. Inspect Network Details — 4s\n- **Screen:** Channel Graph\n- **Action:** tap → `ThodesdaSignal` network bar\n- **Details:** The user taps on the bar representing the \"ThodesdaSignal\" network on the graph.\n- **Result:** A dialog box appears, showing detailed information for the selected network, including its MAC address, frequency, and manufacturer (TP LINK SYSTEMS INC).\n- **Confidence:** 1.0\n\n### 4. Open Navigation Menu — 8s\n- **Screen:** Channel Graph\n- **Action:** tap → Hamburger menu icon\n- **Details:** The user taps the three-line menu icon in the top-left corner.\n- **Result:** A side navigation drawer slides out from the left, revealing options like \"Access Points\", \"Export\", and \"Settings\".\n- **Confidence:** 1.0\n\n### 5. Select Export — 10s\n- **Screen:** Channel Graph (with Navigation Menu open)\n- **Action:** tap → `Export`\n- **Details:** The user taps the \"Export\" option in the navigation menu.\n- **Result:** The Android system share sheet appears, presenting the data to be exported and sharing options.\n- **Confidence:** 1.0\n\n### 6. Copy Data to Clipboard — 13s\n- **Screen:** Android Share Sheet\n- **Action:** tap → `Copy`\n- **Details:** The user taps the \"Copy\" button within the share sheet.\n- **Result:** A toast notification with the text \"Copied\" appears at the bottom of the screen, and the user is returned to the \"Channel Graph\" view.\n- **Confidence:** 1.0\n\n## Key Observations\n- A persistent warning message, \"Wi-Fi scan throttling is enabled,\" is displayed at the top of the app, indicating a potential limitation on the frequency of Wi-Fi scans by the Android OS.\n- The exported data appears to be in a CSV-like format, with the header visible in the share sheet: `Time,BSSID,SSID,Capabilities,Frequency,CenterFrequency0,CenterFrequency1,Width(Range),Level`.\n- The app provides multiple data visualization modes: a detailed list (\"Access Points\"), a channel quality summary (\"Channel Rating\"), and a signal strength graph (\"Channel Graph\")."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.25444101866907076
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 5367,
+    "candidatesTokenCount": 794,
+    "totalTokenCount": 7413,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "VIDEO",
+        "tokenCount": 4386
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "AUDIO",
+        "tokenCount": 425
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 794
+      }
+    ],
+    "thoughtsTokenCount": 1252
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-08T16:32:33.118083Z",
+  "responseId": "IRD-acOaB6uSzvgP6JOUmAM"
+}

@@ -1,0 +1,21 @@
+{
+  "app": "bakerspercentagecalculator",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "handheld",
+  "video": "hhv-002.mp4",
+  "timestamp": "2026-05-08T13:47:46",
+  "duration_sec": 37.6,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Baker's Percentage Calculator\ngoal: To import a recipe from a previously created backup file.\noutcome: success - The app displayed a \"Recipe imported\" confirmation toast.\n---\n\n## Session Summary\nThe user started on the main screen of the \"Baker's Percentage Calculator\" app. They opened the overflow menu, selected the \"Import Recipe\" option, and were taken to the system file picker. After selecting a `.json` backup file from their downloads, the app returned to the main screen and displayed a toast message confirming the successful import.\n\n## Steps\n\n### 1. Open Overflow Menu \u2014 1s\n- **Screen:** Main Screen\n- **Action:** tap \u2192 Overflow Menu Icon (three vertical dots)\n- **Details:** The main screen is titled \"Baker's Percentage Calculator\" and appears to be empty.\n- **Result:** A dropdown menu appeared with options: \"Import Recipe\", \"Backup Recipes\", \"Restore Recipes\".\n- **Confidence:** 1.0\n\n### 2. Select Import Option \u2014 3s\n- **Screen:** Main Screen with Menu\n- **Action:** tap \u2192 `Import Recipe`\n- **Details:** The user selects the first option from the overflow menu.\n- **Result:** The native Android file picker interface opened, displaying the \"Downloads\" folder.\n- **Confidence:** 1.0\n\n### 3. Select Backup File \u2014 7s\n- **Screen:** Downloads (File Picker)\n- **Action:** tap \u2192 `bakers_percentage_backup.json`\n- **Details:** The user selects a JSON file from the list of downloaded files.\n- **Result:** The file picker closed, and the view returned to the app's main screen.\n- **Confidence:** 1.0\n\n### 4. Confirm Import \u2014 9s\n- **Screen:** Main Screen\n- **Action:** wait \u2192 `(system feedback)`\n- **Details:** A toast notification appeared at the bottom of the screen.\n- **Result:** The toast message \"Recipe imported\" was displayed briefly.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app supports importing data from a `.json` file format.\n- The import functionality is accessed through an overflow menu.\n- A system toast message, \"Recipe imported\", is used to confirm a successful import operation.\n- The app utilizes the standard Android system file picker for selecting the import file.",
+    "task_description": "To import a recipe from a previously created backup file.",
+    "ui_elements": {
+      "screen: Main Screen": "navigation_target",
+      "Overflow Menu Icon (three vertical dots": "tap"
+    },
+    "completion_criteria": [
+      "Task outcome: success - The app displayed a \"Recipe imported\" confirmation toast."
+    ]
+  }
+}

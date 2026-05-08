@@ -1,0 +1,21 @@
+{
+  "app": "binaryeye",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "handheld",
+  "video": "hhv-001.mp4",
+  "timestamp": "2026-05-08T13:49:48",
+  "duration_sec": 55.3,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Barcode Scanner\ngoal: To disable the setting that automatically goes back after copying or sharing a scanned code.\noutcome: success - The user successfully located and disabled the target setting.\n---\n\n## Session Summary\nThe user started on the main scanning screen of a barcode app. They opened the overflow menu, navigated to the settings page, scrolled through the options, and successfully disabled the \"Go back after copying or sharing\" feature.\n\n## Steps\n\n### 1. Open Overflow Menu \u2014 0s\n- **Screen:** Main Scanner\n- **Action:** tap \u2192 `menu icon` (three dots)\n- **Details:** The menu icon is located in the top left corner of the screen.\n- **Result:** A dropdown menu appeared with several options.\n- **Confidence:** 1.0\n\n### 2. Navigate to Settings \u2014 2s\n- **Screen:** Main Scanner (with menu open)\n- **Action:** tap \u2192 `Print settings`\n- **Details:** Menu options visible: \"Switch camera\", \"Scan continuously\", \"Restrict format\", \"Print settings\", \"Info\", \"Profile: Default\".\n- **Result:** The application navigated to the main \"Settings\" screen.\n- **Confidence:** 1.0\n\n### 3. Scroll Settings List \u2014 3s\n- **Screen:** Settings\n- **Action:** swipe_up \u2192 `settings list`\n- **Details:** The user scrolled down the list of available settings.\n- **Result:** The view scrolled, revealing more settings options further down the page.\n- **Confidence:** 1.0\n\n### 4. Disable \"Go Back\" Setting \u2014 10s\n- **Screen:** Settings\n- **Action:** tap \u2192 `toggle switch` for \"Go back after copying or sharing\"\n- **Details:** The toggle switch was active (green) before the tap.\n- **Result:** The toggle switch for the \"Go back after copying or sharing\" setting was turned off.\n- **Confidence:** 1.0\n\n## Key Observations\n- The menu item tapped was labeled \"Print settings\", but it led to a general \"Settings\" page, which could be a confusing user experience.\n- The user specifically disabled the \"Go back after copying or sharing\" feature, indicating a desire to remain on the result screen after performing an action on a scanned code.",
+    "task_description": "To disable the setting that automatically goes back after copying or sharing a scanned code.",
+    "ui_elements": {
+      "screen: Main Scanner": "navigation_target",
+      "menu icon` (three dots": "tap"
+    },
+    "completion_criteria": [
+      "Task outcome: success - The user successfully located and disabled the target setting."
+    ]
+  }
+}

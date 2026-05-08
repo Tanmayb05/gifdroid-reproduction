@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Addiction Tracker\ngoal: The user wants to explore the alcohol sobriety tracker, change their quit date, and view the details of a recovery milestone.\noutcome: success — The user successfully updated their quit date and viewed the details of a milestone on the recovery timeline.\n---\n\n## Session Summary\nThe user started on the app's main dashboard, which lists various addictions to track. They selected the \"Alcohol\" tracker, which took them to a timeline of their sobriety journey. On this screen, they successfully changed their quit date, which updated the total days counted. Finally, they tapped on a specific health milestone to read more details before the session ended.\n\n## Steps\n\n### 1. Select Alcohol Tracker — 0s\n- **Screen:** Addictions Dashboard\n- **Action:** tap → `Alcohol` tile\n- **Details:** The tile shows \"Alcohol\", \"15 days\", and a quit date of \"Apr 17, 2026\".\n- **Result:** The app navigates to the \"Sober & sparkling\" timeline screen for alcohol.\n- **Confidence:** 1.0\n\n### 2. Open Date Picker — 2s\n- **Screen:** Sober & sparkling (Timeline)\n- **Action:** tap → `Quit date` field\n- **Details:** The current quit date is displayed as \"Apr 17, 2026 (15 days)\".\n- **Result:** A calendar dialog appears with the title \"Select date\".\n- **Confidence:** 1.0\n\n### 3. Change Quit Date — 4s\n- **Screen:** Sober & sparkling (Timeline)\n- **Action:** select → `9` (on calendar)\n- **Details:** The user selects April 9th from the calendar.\n- **Result:** The selected date in the dialog changes to \"Thu, Apr 9\".\n- **Confidence:** 1.0\n\n### 4. Confirm New Date — 5s\n- **Screen:** Sober & sparkling (Timeline)\n- **Action:** tap → `OK` button\n- **Details:** The user confirms the new date selection in the calendar dialog.\n- **Result:** The dialog closes. The \"Quit date\" on the timeline screen updates to \"Apr 9, 2026 (23 days)\".\n- **Confidence:** 1.0\n\n### 5. View Milestone Details — 8s\n- **Screen:** Sober & sparkling (Timeline)\n- **Action:** tap → `Brain Volume Recovery Begins` milestone\n- **Details:** The user taps on the first milestone on the updated timeline.\n- **Result:** The app navigates to a new screen with detailed information about \"Brain Volume Recovery Begins\".\n- **Confidence:** 1.0\n\n### 6. Scroll Details Page — 10s\n- **Screen:** Brain Volume Recovery Begins\n- **Action:** swipe_up → `Text content`\n- **Details:** The user scrolls down to view the rest of the article.\n- **Result:** The bottom of the page is revealed, showing a button to \"Open Original Source\" and the source URL.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app features a dynamic timeline that visualizes health recovery milestones after quitting a substance.\n- Changing the \"Quit date\" automatically recalculates and updates the number of days sober and the user's position on the recovery timeline.\n- The information for recovery milestones is sourced from external websites, such as `priorygroup.com`, and the app provides a link to the original source."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.27238486353722968
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 4260,
+    "candidatesTokenCount": 763,
+    "totalTokenCount": 6262,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "AUDIO",
+        "tokenCount": 350
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "VIDEO",
+        "tokenCount": 3354
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 763
+      }
+    ],
+    "thoughtsTokenCount": 1239
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-08T16:26:12.548285Z",
+  "responseId": "pA7-ab27IaKAzvgPi4L3oQ8"
+}

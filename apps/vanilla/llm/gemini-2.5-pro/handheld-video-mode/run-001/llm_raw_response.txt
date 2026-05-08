@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Calculator\ngoal: To perform a sequence of basic arithmetic calculations.\noutcome: success - The user successfully completed two chained calculations.\n---\n\n## Session Summary\nThe user opened the Calculator app and performed two sequential calculations. First, they calculated 3 + 3, which resulted in 6. They then used this result to immediately calculate 6 x 6, which correctly yielded 36. The session ended with the final result displayed on the screen.\n\n## Steps\n\n### 1. Enter first number — 0s\n- **Screen:** Calculator\n- **Action:** tap → button '3'\n- **Details:** The calculator display is initially empty.\n- **Result:** The number '3' appears in the display area.\n- **Confidence:** 1.0\n\n### 2. Enter addition operator — 1s\n- **Screen:** Calculator\n- **Action:** tap → button '+'\n- **Details:** The current value is '3'.\n- **Result:** The display updates to show '3+'.\n- **Confidence:** 1.0\n\n### 3. Enter second number — 2s\n- **Screen:** Calculator\n- **Action:** tap → button '3'\n- **Details:** The current expression is '3+'.\n- **Result:** The display updates to show '3+3'.\n- **Confidence:** 1.0\n\n### 4. Calculate first result — 3s\n- **Screen:** Calculator\n- **Action:** tap → button '='\n- **Details:** The expression to be evaluated is '3+3'.\n- **Result:** The result '6' is shown in the display, with the expression '3+3' above it.\n- **Confidence:** 1.0\n\n### 5. Enter multiplication operator — 5s\n- **Screen:** Calculator\n- **Action:** tap → button 'x'\n- **Details:** The current value is '6'.\n- **Result:** The display updates to show '6x', indicating a chained operation.\n- **Confidence:** 1.0\n\n### 6. Enter third number — 7s\n- **Screen:** Calculator\n- **Action:** tap → button '6'\n- **Details:** The current expression is '6x'.\n- **Result:** The display updates to show '6x6'.\n- **Confidence:** 1.0\n\n### 7. Calculate final result — 8s\n- **Screen:** Calculator\n- **Action:** tap → button '='\n- **Details:** The expression to be evaluated is '6x6'.\n- **Result:** The final result '36' is shown in the display, with the expression '6x6' above it.\n- **Confidence:** 1.0\n\n## Key Observations\n- The calculator app correctly supports chaining operations, using the result of one calculation as the first operand for the next.\n- The app UI is in a dark theme with pastel-colored operator buttons.\n- The status bar shows the time as 9:31 and the battery at 89%."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.1904641653745229
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3411,
+    "candidatesTokenCount": 655,
+    "totalTokenCount": 5264,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "AUDIO",
+        "tokenCount": 275
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "VIDEO",
+        "tokenCount": 2580
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 655
+      }
+    ],
+    "thoughtsTokenCount": 1198
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-08T16:29:35.604424Z",
+  "responseId": "bw_-aYjyJP_n88APsuvymA8"
+}

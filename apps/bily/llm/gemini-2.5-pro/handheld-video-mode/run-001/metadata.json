@@ -1,0 +1,21 @@
+{
+  "app": "bily",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "handheld",
+  "video": "hhv-001.mp4",
+  "timestamp": "2026-05-08T13:49:10",
+  "duration_sec": 38.7,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Bill Splitter\ngoal: The user wants to reset all expenses and then explore the app's settings.\noutcome: success - The user successfully reset the bill and interacted with the settings menu.\n---\n\n## Session Summary\nThe user started on the main bill screen, which displayed a list of expenses. They navigated to the overflow menu and chose to reset the bill, confirming the action in a pop-up dialog. After successfully clearing the expenses, the user opened the settings menu, toggled two options off, and then closed the menu to return to the cleared main screen.\n\n## Steps\n\n### 1. Open Overflow Menu \u2014 0s\n- **Screen:** Main Bill Screen\n- **Action:** tap \u2192 Overflow Menu Icon (three dots)\n- **Details:** The screen shows a \"Global Bill\" of $0.00 and a list of users and expenses.\n- **Result:** A dropdown menu appeared with options \"Modify Bill\", \"Reset Bill\", and \"Settings\".\n- **Confidence:** 1.0\n\n### 2. Select Reset Bill \u2014 1s\n- **Screen:** Main Bill Screen\n- **Action:** tap \u2192 \"Reset Bill\" menu item\n- **Details:** The user selects the \"Reset Bill\" option from the overflow menu.\n- **Result:** A confirmation dialog appeared.\n- **Confidence:** 1.0\n\n### 3. Confirm Reset \u2014 3s\n- **Screen:** \"Are You Sure?\" Dialog\n- **Action:** tap \u2192 \"Reset\" button\n- **Details:** The dialog text reads \"This will remove all expenses.\"\n- **Result:** The dialog closed, and the expense list on the main screen was cleared. The \"$689.00\" expense is no longer visible.\n- **Confidence:** 1.0\n\n### 4. Open Settings \u2014 5s\n- **Screen:** Main Bill Screen\n- **Action:** tap \u2192 \"Settings\" menu item\n- **Details:** The user re-opened the overflow menu (action not shown) and tapped \"Settings\".\n- **Result:** A settings dialog appeared in the middle of the screen.\n- **Confidence:** 0.9\n\n### 5. Toggle First Setting Off \u2014 7s\n- **Screen:** Settings Dialog\n- **Action:** tap \u2192 Left Toggle Switch\n- **Details:** The user taps the first of two unnamed toggle switches at the top of the dialog.\n- **Result:** The left toggle switch moved to the \"off\" position.\n- **Confidence:** 1.0\n\n### 6. Toggle Second Setting Off \u2014 9s\n- **Screen:** Settings Dialog\n- **Action:** tap \u2192 Right Toggle Switch\n- **Details:** The user taps the second toggle switch.\n- **Result:** The right toggle switch moved to the \"off\" position.\n- **Confidence:** 1.0\n\n### 7. Close Settings \u2014 10s\n- **Screen:** Settings Dialog\n- **Action:** tap \u2192 Area outside the dialog\n- **Details:** The user taps the background to dismiss the settings dialog.\n- **Result:** The settings dialog closed, returning the user to the main bill screen.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app provides a \"Reset Bill\" function that clears all expenses after user confirmation.\n- The settings menu is presented as a modal dialog rather than a full-screen view.\n- The app settings include configurations for Currency (US Dollar), Taxes, and Discount.\n- A tax rate of 14.975% is visible in the settings.\n- The settings dialog contains two unnamed toggle switches at the top, suggesting their function might not be immediately obvious to a user.",
+    "task_description": "The user wants to reset all expenses and then explore the app's settings.",
+    "ui_elements": {
+      "screen: Main Bill Screen": "navigation_target",
+      "Overflow Menu Icon (three dots": "tap"
+    },
+    "completion_criteria": [
+      "Task outcome: success - The user successfully reset the bill and interacted with the settings menu."
+    ]
+  }
+}

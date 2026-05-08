@@ -1,0 +1,53 @@
+Analyze [APP_NAME] device automation memory reproduction across all runs:
+
+1. These are the apps: adaway, antennapod, bakerspercentagecalculator, batterytemperaturedisplay, bily, binaryeye, bloodpressuremonitor, brethap
+
+2. For each enabled app, analyze BOTH video modes:
+   
+   **Handheld Video Mode (hhv):**
+   - memory.md from: apps/[APP_NAME]/llm/gemini-2.5-pro/handheld-video-mode/run-001/
+   - automate.log from: apps/[APP_NAME]/llm/gemini-2.5-pro/handheld-video-mode/run-001/device-automation/logs/
+   - session_trace.json from: apps/[APP_NAME]/llm/gemini-2.5-pro/handheld-video-mode/run-001/device-automation/
+   
+   **Screenrec Video Mode (srv):**
+   - memory.md from: apps/[APP_NAME]/llm/gemini-2.5-pro/screenrec-video-mode/run-001/
+   - automate.log from: apps/[APP_NAME]/llm/gemini-2.5-pro/screenrec-video-mode/run-001/device-automation/logs/
+   - session_trace.json from: apps/[APP_NAME]/llm/gemini-2.5-pro/screenrec-video-mode/run-001/device-automation/
+
+3. For EACH video mode, provide:
+   - Memory steps extracted (task goal, outcome, numbered steps)
+   - Automation steps executed (with confidence scores)
+   - Step-by-step comparison table (Memory vs Actual)
+   - Reproduction rate (% match)
+   - Key findings (deviations, skipped steps, extra steps)
+
+4. Cross-mode comparison:
+   - Compare reproduction rates: handheld vs screenrec
+   - Identify if one mode is more faithful to memory than the other
+   - Note any differences in LLM decision-making between modes
+   - Compare token usage, latency, wall time
+
+5. Overall conclusion:
+   - Which video mode reproduced memory better?
+   - Overall reproduction fidelity across both modes
+   - Any patterns in how device automation follows memory instructions
+This analyzes both handheld-video-mode and screenrec-video-mode runs side-by-side and compares their reproduction fidelity.
+
+Save the output in apps/0_analysis/memory_vs_automation_fidelity_report_for_8_apps.md
+dont create a script and run analysis on this. i want you to read the logs and json and memory and want you to analyse it and save it in the format
+i want a separate section for each app
+
+plan for this
+
+
+=======
+
+
+For the next week.
+
+You need to prepare a slides.
+1. Slides include the overview of their tool. Using figures and explain. 
+2. Slides include the limitation of their tool by using a real example. Use example and middle results of that tool to show me .
+3. It needs to have your tool's design and overview with diagram. Explain on each on node of diagram.
+4. Use the same example to 2, it needs to show why you tool can handle one video reproducing.
+5. Show me the evaluation results as a table, #number you can reproduce , # number they can reproduce for each video.

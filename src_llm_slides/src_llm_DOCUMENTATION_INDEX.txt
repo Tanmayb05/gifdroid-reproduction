@@ -1,0 +1,243 @@
+═══════════════════════════════════════════════════════════════════════════════
+                        src_llm DOCUMENTATION INDEX
+═══════════════════════════════════════════════════════════════════════════════
+
+This directory contains COMPLETE DOCUMENTATION for src_llm with diagrams,
+explanations, and guides. Start with the file that matches your goal:
+
+═══════════════════════════════════════════════════════════════════════════════
+🎯 CHOOSE YOUR STARTING POINT
+═══════════════════════════════════════════════════════════════════════════════
+
+1️⃣  FIRST TIME LEARNING? 
+    → Start with: README_src_llm_overview.md
+    What you get: Quick summary, key concepts, why it matters
+    Time: 10 minutes
+
+2️⃣  NEED A COMPREHENSIVE GUIDE?
+    → Start with: src_llm_complete_guide.md
+    What you get: Full explanation of all components + getting started
+    Time: 30 minutes
+
+3️⃣  WANT TO UNDERSTAND EACH PART?
+    → Read: src_llm_node_explanations.md
+    What you get: "In simple words" explanation of each component
+    Time: 20 minutes
+
+4️⃣  NEED TECHNICAL DEEP DIVE?
+    → Read: src_llm_design_overview.md
+    What you get: Detailed architecture, all components, implementation details
+    Time: 45 minutes
+
+5️⃣  LIKE VISUAL DIAGRAMS?
+    → Read: src_llm_visual_diagrams.md
+    What you get: ASCII diagrams, data flows, visual explanations
+    Time: 25 minutes
+
+═══════════════════════════════════════════════════════════════════════════════
+📚 FILE DESCRIPTIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+README_src_llm_overview.md
+  Overview: One-page summary of the entire system
+  Includes:
+    • Core concept (one sentence)
+    • Architecture at a glance
+    • 10 main nodes (table)
+    • Token savings comparison
+    • Why two stages
+    • Quick start guide
+    • Common use cases
+  Best for: Getting the big picture quickly
+  Length: ~300 lines
+
+src_llm_complete_guide.md
+  Overview: Comprehensive guide to understanding and using src_llm
+  Includes:
+    • What is src_llm (with examples)
+    • Complete architecture explanation
+    • All 10 nodes explained in simple language
+    • Data flow diagrams
+    • Getting started (step-by-step)
+    • Token savings analysis
+    • Quick command reference
+  Best for: Learning how the system works and how to use it
+  Length: ~500 lines
+
+src_llm_design_overview.md
+  Overview: Deep technical documentation of the entire system
+  Includes:
+    • README.md structure (official docs)
+    • Architecture overview with diagrams
+    • Component breakdown (7+ components detailed)
+    • Memory.md schema documentation
+    • Configuration files (YAML + ENV)
+    • Workflow & commands
+    • Output directory structure
+    • Token savings analysis with math
+    • All supported models
+    • Error handling mechanisms
+    • Design decision rationales
+    • Getting started guide
+  Best for: Technical understanding, debugging, architecture decisions
+  Length: ~700 lines
+
+src_llm_visual_diagrams.md
+  Overview: ASCII diagrams and visual explanations
+  Includes:
+    • Complete system architecture (ASCII art)
+    • Data flow diagram
+    • Component interaction diagram
+    • Stage 1 pipeline visualization
+    • Stage 2 pipeline visualization
+    • Memory.md format example
+    • Token savings visualization
+    • Error handling & recovery flowchart
+    • Configuration setup flow
+    • Traditional vs Two-Stage comparison table
+  Best for: Visual learners, understanding data flow
+  Length: ~600 lines
+
+src_llm_node_explanations.md
+  Overview: Simple, educational explanation of each major node
+  Includes:
+    • 11 node explanations with examples
+    • "In simple words" descriptions for each
+    • Complete flow (simplified)
+    • Why this design choices were made
+    • Learning path for newcomers
+    • Complexity breakdown
+    • Quick reference table
+  Best for: Understanding each component individually
+  Length: ~450 lines
+
+═══════════════════════════════════════════════════════════════════════════════
+🎓 RECOMMENDED READING ORDER
+═══════════════════════════════════════════════════════════════════════════════
+
+Beginner Path (New to src_llm):
+  1. README_src_llm_overview.md (10 min)
+  2. src_llm_node_explanations.md (20 min)
+  3. src_llm_visual_diagrams.md (25 min)
+  4. README_src_llm_overview.md Getting Started section (10 min)
+
+Intermediate Path (Want to use it):
+  1. README_src_llm_overview.md (10 min)
+  2. src_llm_complete_guide.md (30 min)
+  3. src_llm_complete_guide.md Getting Started section (15 min)
+
+Advanced Path (Need to understand internals):
+  1. src_llm_design_overview.md Architecture section (15 min)
+  2. src_llm_node_explanations.md (20 min)
+  3. src_llm_design_overview.md Components section (30 min)
+  4. src_llm_visual_diagrams.md (25 min)
+
+Visual Learner Path:
+  1. src_llm_visual_diagrams.md (25 min)
+  2. README_src_llm_overview.md (10 min)
+  3. src_llm_node_explanations.md (20 min)
+  4. src_llm_complete_guide.md (30 min)
+
+═══════════════════════════════════════════════════════════════════════════════
+💡 KEY CONCEPTS EXPLAINED
+═══════════════════════════════════════════════════════════════════════════════
+
+TWO-STAGE ARCHITECTURE:
+  Stage 1: Analyze video ONCE → Generate understanding (memory.md)
+  Stage 2: Use memory MANY TIMES → Control device (reuses understanding)
+  Result: 90% token savings!
+
+WHY IT'S EFFICIENT:
+  Traditional: Video → Analyze → Act → Analyze again → Act → ...
+  Two-Stage: Video → Analyze → Remember → Act → Act → Act → ...
+  Memory reuse is 85% cheaper than re-analyzing video!
+
+MAIN COMPONENTS:
+  1. VideoFrameExtractor - Break video into frames
+  2. KeyframeSelector - Filter to important frames
+  3. LLM Provider - AI analyzes and understands
+  4. Memory Parser - Structure output
+  5. MemoryToDevice - Use memory to automate
+  6. Automation Loop - Keep going until done
+  7. Execution Trace - Log everything
+
+MEMORY.MD:
+  Human-readable document containing:
+  • Task Summary (what we're doing)
+  • Steps (sequence of actions)
+  • UI Elements (buttons, fields, locations)
+  • Completion Criteria (how to know when done)
+
+═══════════════════════════════════════════════════════════════════════════════
+🚀 QUICK START COMMANDS
+═══════════════════════════════════════════════════════════════════════════════
+
+# Both stages (recommended)
+python -m src_llm.end_to_end --config src_llm/input/config.yml
+
+# Stage 1 only (analyze video)
+python -m src_llm.end_to_end --stage 1 --config src_llm/input/config.yml
+
+# Stage 2 only (use memory to automate)
+python -m src_llm.end_to_end --stage 2 --config src_llm/input/config.yml
+
+# Dry-run (validate without executing)
+python -m src_llm.end_to_end --dry-run --config src_llm/input/config.yml
+
+═══════════════════════════════════════════════════════════════════════════════
+❓ COMMON QUESTIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+Q: What is src_llm?
+A: An AI system that analyzes a video once, then reuses that understanding to
+   automate Android app tasks. Saves 90% on token costs.
+
+Q: Why two stages?
+A: Separation of concerns. Stage 1 (expensive video analysis) runs once.
+   Stage 2 (cheap automation) uses that understanding many times.
+
+Q: What's memory.md?
+A: A human-readable document containing the task description, steps, UI 
+   elements, and completion criteria extracted from the video.
+
+Q: Can I use it offline?
+A: Stage 1 (video analysis) can run offline. Stage 2 needs device access.
+   For cloud LLMs, you need internet.
+
+Q: Which LLM should I use?
+A: Try Qwen 2.5-VL (local, free) or Gemini 1.5 Flash (cloud, free tier).
+   See supported models for all options.
+
+Q: How much does it cost?
+A: Local models (Ollama) = free. Cloud models have API costs, but 90%
+   token savings means huge cost reduction vs alternatives.
+
+═══════════════════════════════════════════════════════════════════════════════
+📖 DOCUMENTATION STATISTICS
+═══════════════════════════════════════════════════════════════════════════════
+
+Total documentation: ~2,500+ lines
+Total diagrams: 10+ ASCII diagrams
+Total explained nodes: 11 major components
+Code examples: 20+
+Configuration examples: 3+
+Comparison tables: 5+
+
+═══════════════════════════════════════════════════════════════════════════════
+✅ YOU NOW HAVE:
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Overview document (quick summary)
+✓ Complete guide (comprehensive explanation)
+✓ Node explanations (easy-to-understand breakdowns)
+✓ Design documentation (technical deep dive)
+✓ Visual diagrams (ASCII art flows)
+✓ Getting started guide (step-by-step instructions)
+✓ Configuration examples (YAML + ENV)
+✓ Token savings analysis (why it's efficient)
+✓ Error handling documentation (what happens when things fail)
+✓ Command reference (how to run it)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Pick a file and start reading! 📚

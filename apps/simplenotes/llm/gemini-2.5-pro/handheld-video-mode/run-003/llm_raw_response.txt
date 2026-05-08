@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Simple Notes\ngoal: The user wants to create a new text note and then delete it.\noutcome: success - The user successfully created a note and then deleted it from the main list.\n---\n\n## Session Summary\nThe user started on the main screen of the \"Simple Notes\" app and created a new text note with a title and content. After saving the note, they returned to the main screen, selected the new note via a long press, and proceeded to delete it. The session concluded with the note being successfully removed from the list.\n\n## Steps\n\n### 1. Open New Note Options — 0s\n- **Screen:** Simple Notes (Main)\n- **Action:** `tap` → `Floating Action Button`\n- **Details:** The button is a pink circle with a plus sign.\n- **Result:** A menu with \"Text Note\" and \"Checklist\" options appears.\n- **Confidence:** 1.0\n\n### 2. Create New Text Note — 1s\n- **Screen:** Simple Notes (Main)\n- **Action:** `tap` → `Text Note` button\n- **Details:** The user selects the option to create a standard text note.\n- **Result:** The app navigates to the \"New Note\" screen.\n- **Confidence:** 1.0\n\n### 3. Type Note Title — 4s\n- **Screen:** New Note\n- **Action:** `type` → `Title` field\n- **Details:** Typed \"Abc\".\n- **Result:** The text \"Abc\" appears in the title field.\n- **Confidence:** 1.0\n\n### 4. Type Note Content — 7s\n- **Screen:** New Note\n- **Action:** `type` → `Content` field\n- **Details:** Typed \"Xyz\".\n- **Result:** The text \"Xyz\" appears in the content field.\n- **Confidence:** 1.0\n\n### 5. Save Note — 9s\n- **Screen:** New Note\n- **Action:** `tap` → `Back` arrow icon\n- **Details:** The back arrow in the top-left corner also functions as a save action.\n- **Result:** The app returns to the main \"Simple Notes\" screen, and a new note titled \"Abc\" is now visible in the list.\n- **Confidence:** 1.0\n\n### 6. Select Note for Deletion — 12s\n- **Screen:** Simple Notes (Main)\n- **Action:** `long_press` → `Note titled \"Abc\"`\n- **Details:** The user presses and holds the newly created note.\n- **Result:** The app enters a selection mode. A contextual action bar appears at the top, and a \"1 selected\" message is displayed.\n- **Confidence:** 1.0\n\n### 7. Initiate Deletion — 15s\n- **Screen:** Simple Notes (Main - Selection Mode)\n- **Action:** `tap` → `Delete` icon (trash can)\n- **Details:** The user taps the trash can icon in the top action bar.\n- **Result:** A \"Delete note?\" confirmation dialog appears.\n- **Confidence:** 1.0\n\n### 8. Confirm Local Deletion — 17s\n- **Screen:** Delete note? (Dialog)\n- **Action:** `tap` → `Delete local only` button\n- **Details:** The user chooses to delete the note only from the device.\n- **Result:** The dialog closes, and the note titled \"Abc\" is removed from the main list.\n- **Confidence:** 1.0\n\n## Key Observations\n- The deletion dialog offers two options: \"Delete everywhere (sync)\" and \"Delete local only\", indicating the app has a synchronization feature.\n- The \"Delete everywhere (sync)\" option was disabled with a note stating \"Not available in offline mode\", suggesting the device was not connected to the internet during the test.\n- A siren is audible in the background audio throughout the recording."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.16142762216042209
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 6216,
+    "candidatesTokenCount": 867,
+    "totalTokenCount": 8128,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "AUDIO",
+        "tokenCount": 500
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "VIDEO",
+        "tokenCount": 5160
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 867
+      }
+    ],
+    "thoughtsTokenCount": 1045
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-08T16:27:43.749996Z",
+  "responseId": "_w7-aazjLYWK88APtajpqA4"
+}
