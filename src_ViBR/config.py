@@ -11,7 +11,7 @@ SUPPORTED_ALGORITHMS = {"clip", "ssim"}
 SUPPORTED_LLMS = {"openai", "gemini"}
 DEFAULT_MODELS = {
     "openai": "gpt-4o",
-    "gemini": "gemini-1.5-flash",
+    "gemini": "gemini-2.5-pro",
 }
 VIDEO_PREFIX = {
     "srv": "screenrec",
@@ -107,14 +107,54 @@ def _parse_video_path_list(value: Any) -> list[Path]:
     raise ConfigError("Field 'video_path' must be a non-empty string or a non-empty list")
 
 
-def _expand_video_path(app_name: str, video_path: Path) -> Path:
-    raw = video_path.as_posix().strip().lower()
+def _expand_video_path_glob(app_name: str, pattern: str) -> list[Path]:
+    """Expand a video path pattern (shorthand or glob) to actual files.
+
+    Supports:
+    - "srv" or "hhv" → srv-001.mp4 or hhv-001.mp4
+    - "srv-001.mp4" or "hhv-002.mp4" → exact file
+    - "srv-*" or "hhv-*" → all matching files (globbed, sorted)
+    - Explicit paths starting with "/" or "apps/" (no expansion)
+    """
+    raw = pattern.strip().lower()
+
+    # Explicit paths: use as-is
+    if "/" in raw:
+        return [Path(raw)]
+
+    # Shorthand: "srv" or "hhv" → default to -001.mp4
     if raw in {"srv", "hhv"}:
-        return Path(f"apps/{app_name}/videos/{raw}-001.mp4")
-    # Support full filenames: "srv-001.mp4", "hhv-002.mp4", etc.
+        return [Path(f"apps/{app_name}/videos/{raw}-001.mp4")]
+
+    # Full filename: "srv-001.mp4", "hhv-002.mp4", etc.
     if raw.startswith(("srv-", "hhv-")) and raw.endswith(".mp4"):
-        return Path(f"apps/{app_name}/videos/{raw}")
-    return video_path
+        return [Path(f"apps/{app_name}/videos/{raw}")]
+
+    # Glob pattern: "srv-*" or "hhv-*"
+    if raw in {"srv-*", "hhv-*"}:
+        prefix = raw.split("-")[0]  # "srv" or "hhv"
+        video_dir = Path(f"apps/{app_name}/videos")
+        if video_dir.exists():
+            matches = sorted(video_dir.glob(f"{prefix}-*.mp4"))
+            if matches:
+                return matches
+        raise ConfigError(
+            f"No videos found matching pattern '{pattern}' for app '{app_name}' "
+            f"(searched in {video_dir})"
+        )
+
+    raise ConfigError(
+        f"Invalid video path format '{pattern}'. "
+        f"Use: 'srv', 'hhv', 'srv-001.mp4', 'srv-*', or explicit path"
+    )
+
+
+def _expand_video_path(app_name: str, video_path: Path) -> Path:
+    """Legacy function for single path expansion. Use _expand_video_path_glob for patterns."""
+    expanded = _expand_video_path_glob(app_name, video_path.as_posix())
+    if not expanded:
+        raise ConfigError(f"Could not expand video path: {video_path}")
+    return expanded[0]
 
 
 def _validate_output(root: dict[str, Any]) -> OutputConfig:
@@ -155,14 +195,16 @@ def _parse_runs(
         algorithm = _resolve_algorithm(run_map, default_algorithm)
         llm, llm_model = _resolve_llm(run_map, default_llm, default_llm_model)
         for video_value in video_values:
-            resolved_video = _expand_video_path(app_name, video_value)
-            runs.append(ViBRRunConfig(
-                app_name=app_name,
-                video_path=resolved_video,
-                algorithm=algorithm,
-                llm=llm,
-                llm_model=llm_model,
-            ))
+            # Expand patterns (including globs) to get all matching videos
+            resolved_videos = _expand_video_path_glob(app_name, video_value.as_posix())
+            for resolved_video in resolved_videos:
+                runs.append(ViBRRunConfig(
+                    app_name=app_name,
+                    video_path=resolved_video,
+                    algorithm=algorithm,
+                    llm=llm,
+                    llm_model=llm_model,
+                ))
     return runs
 
 

@@ -246,17 +246,55 @@ def generate_summary(
     print(f"📝 Summary saved to {summary_path}")
 
 
+def _prepare_device_for_app(device: ADBDeviceController, app_name: str):
+    """
+    Prepare device for app testing: go to home screen and open the specified app.
+
+    Args:
+        device: ADBDeviceController instance
+        app_name: Name of app to open (must match key in app_launch_commands.json)
+    """
+    import json
+
+    project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    commands_file = os.path.join(project_root, "src_ViBR", "input", "app_launch_commands.json")
+
+    if not os.path.exists(commands_file):
+        print(f"❌ App launch commands file not found: {commands_file}")
+        return
+
+    with open(commands_file, 'r') as f:
+        app_launch_commands = json.load(f)
+
+    if app_name not in app_launch_commands:
+        print(f"❌ App '{app_name}' not found in launch commands")
+        return
+
+    print(f"🏠 Going to home screen...")
+    device.shell("input keyevent 3")
+    time.sleep(1)
+
+    launch_cmd = app_launch_commands[app_name]["launch_command"]
+    print(f"🚀 Opening app '{app_name}' with command: {launch_cmd}")
+    device.shell(launch_cmd)
+    time.sleep(2)
+
+    print(f"✅ App '{app_name}' opened and ready")
+
+
 def main(
     video_path: str,
     algorithm: str,
     output_root: str = "temp",
     cache_dir: str = "cache",
     interactive: bool = False,
-    llm: str = "openai",
-    llm_model: str = "gpt-4o",
+    llm: str = "gemini",
+    llm_model: str = "gemini-2.5-pro",
+    app_name: Optional[str] = None,
 ):
     """
     Main entry point: processes video and replays UI actions segment by segment.
+    If app_name is provided, goes to home screen and opens the app before starting video replay.
     """
     algorithm = algorithm.lower()
     if algorithm not in SUPPORTED_ALGORITHMS:
@@ -273,6 +311,10 @@ def main(
     print(f"🔹 Starting video processing (algorithm={algorithm}, llm={llm}, model={llm_model})...")
     print("Initializing ADB device controller...")
     device = ADBDeviceController()
+
+    if app_name:
+        print(f"📱 Preparing device for app: {app_name}")
+        _prepare_device_for_app(device, app_name)
 
     video_stem = os.path.splitext(os.path.basename(video_path))[0]
     video_out_dir = os.path.join(output_root, video_stem)
@@ -462,6 +504,21 @@ def main(
     print("✅ Video processing completed.")
     generate_summary(video_stem, stable_segments, actions_log, output_root)
 
+    # Export metrics for main.py
+    from collections import Counter
+    action_types = Counter(action.get("type", "unknown") for action in actions_log)
+    metrics_data = {
+        "total_scenes": len(stable_segments) - 1,
+        "scenes_processed": len(actions_log),
+        "scenes_failed": 0,
+        "action_types": dict(action_types),
+        "llm_calls": getattr(provider, "llm_calls", []) if hasattr(provider, "llm_calls") else [],
+    }
+    metrics_path = os.path.join(output_root, "vibr_metrics.json")
+    import json
+    with open(metrics_path, "w") as f:
+        json.dump(metrics_data, f, indent=2, default=str)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Segment and replay actions from video.")
@@ -493,15 +550,21 @@ if __name__ == "__main__":
     parser.add_argument(
         "--llm",
         type=str,
-        default="openai",
+        default="gemini",
         choices=("openai", "gemini"),
-        help="LLM provider to use for visual reasoning (default: openai).",
+        help="LLM provider to use for visual reasoning (default: gemini).",
     )
     parser.add_argument(
         "--llm-model",
         type=str,
-        default="gpt-4o",
-        help="Model name for the selected LLM provider (default: gpt-4o).",
+        default="gemini-2.5-pro",
+        help="Model name for the selected LLM provider (default: gemini-2.5-pro).",
+    )
+    parser.add_argument(
+        "--app-name",
+        type=str,
+        default=None,
+        help="App name to open at the start (optional). Will go home then open app before video replay.",
     )
     args = parser.parse_args()
     main(
@@ -512,4 +575,5 @@ if __name__ == "__main__":
         interactive=args.interactive,
         llm=args.llm,
         llm_model=args.llm_model,
+        app_name=args.app_name,
     )

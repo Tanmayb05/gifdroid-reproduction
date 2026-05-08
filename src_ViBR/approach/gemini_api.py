@@ -20,6 +20,7 @@ Auth (in priority order):
 
 _DEFAULT_MODEL = "gemini-1.5-flash"
 _MODEL: str | None = None  # overridden by set_model()
+llm_calls: list[dict] = []  # Track all LLM API calls for metrics
 
 
 def set_model(model: str) -> None:
@@ -129,7 +130,7 @@ _BASE_DELAY = 10  # seconds
 _DEFAULT_TIMEOUT = 180  # seconds — increased for slower models like gemini-2.5-pro
 
 
-def _call_gemini(parts: list[dict], timeout: int = _DEFAULT_TIMEOUT) -> str:
+def _call_gemini(parts: list[dict], timeout: int = _DEFAULT_TIMEOUT, kind: str = "unknown") -> str:
     model = _get_model()
     url, headers = _build_url_and_headers(model)
 
@@ -138,6 +139,11 @@ def _call_gemini(parts: list[dict], timeout: int = _DEFAULT_TIMEOUT) -> str:
         "generationConfig": {"temperature": 0.1},
     }
     payload_bytes = json.dumps(payload).encode("utf-8")
+
+    call_start = time.time()
+    error = None
+    prompt_tokens = 0
+    output_tokens = 0
 
     for attempt in range(_MAX_RETRIES):
         req = url_request.Request(url=url, data=payload_bytes, headers=headers, method="POST")
@@ -152,8 +158,10 @@ def _call_gemini(parts: list[dict], timeout: int = _DEFAULT_TIMEOUT) -> str:
                 time.sleep(delay)
             else:
                 body = exc.read().decode("utf-8", errors="replace")
+                error = f"HTTP {exc.code}"
                 raise RuntimeError(f"Gemini HTTP error {exc.code}: {body[:300]}") from exc
         except url_error.URLError as exc:
+            error = str(exc)
             raise RuntimeError(f"Gemini URL error: {exc}") from exc
         except TimeoutError:
             if attempt < _MAX_RETRIES - 1:
@@ -161,7 +169,10 @@ def _call_gemini(parts: list[dict], timeout: int = _DEFAULT_TIMEOUT) -> str:
                 print(f"Gemini request timed out (attempt {attempt + 1}/{_MAX_RETRIES}). Retrying in {delay}s...")
                 time.sleep(delay)
             else:
+                error = f"Timeout after {_MAX_RETRIES} attempts"
                 raise RuntimeError(f"Gemini request timed out after {_MAX_RETRIES} attempts ({timeout}s each)")
+
+    elapsed_sec = time.time() - call_start
 
     data = json.loads(response_text)
     candidates = data.get("candidates")
@@ -170,6 +181,21 @@ def _call_gemini(parts: list[dict], timeout: int = _DEFAULT_TIMEOUT) -> str:
     parts_out = candidates[0].get("content", {}).get("parts", [])
     if not parts_out:
         raise RuntimeError(f"Gemini candidate has no parts: {response_text[:300]}")
+
+    # Extract token counts from response
+    usage = data.get("usageMetadata", {})
+    prompt_tokens = usage.get("promptTokenCount", 0)
+    output_tokens = usage.get("candidatesTokenCount", 0)
+
+    # Record metrics
+    llm_calls.append({
+        "kind": kind,
+        "elapsed_sec": elapsed_sec,
+        "prompt_tokens": prompt_tokens,
+        "output_tokens": output_tokens,
+        "error": error,
+    })
+
     return parts_out[0].get("text", "")
 
 
@@ -241,7 +267,7 @@ def ask_gpt_state_consistency(start_img, live_img, action="", target_region=""):
         _image_part(start_img),
         _image_part(live_img),
     ]
-    response = _call_gemini(parts)
+    response = _call_gemini(parts, kind="state_comparison")
     print("Consistency Response from Gemini:", response)
     return response.strip().lower()
 
@@ -288,7 +314,7 @@ def ask_gpt_for_action_region(start_img, stop_img, live_img, predicted_action, r
         _image_part(stop_img),
         _image_part(live_img),
     ]
-    response = _call_gemini(parts)
+    response = _call_gemini(parts, kind="action_inference")
     print("Region Action Response from Gemini:", response)
     return response
 
@@ -335,6 +361,6 @@ def ask_gpt_for_relevant_regions(start_img_path, stop_img_path):
         _image_part(start_img_path),
         _image_part(stop_img_path),
     ]
-    response = _call_gemini(parts)
+    response = _call_gemini(parts, kind="region_detection")
     print("Relevant Region Response from Gemini:", response)
     return response

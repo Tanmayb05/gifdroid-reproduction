@@ -251,11 +251,55 @@ GroundingDINO/weights/groundingdino_swinb_cogcoor.pth
 
 1. Ensure Hugging Face model files required by GroundingDINO are available (`bert-base-uncased` tokenizer/config). If your environment is offline, pre-download/cache them in advance.
 
-2. Set OpenAI API key in repo `.env.local`:
+1. Set up Gemini authentication (ViBR uses Gemini-2.5-pro by default):
+
+ViBR supports two authentication methods for Gemini (in priority order):
+
+##### Option A: Google AI Studio (API Key)
+
+Set in repo `.env.local`:
+
+```text
+GOOGLE_GENERATIVE_AI_API_KEY=your_google_generative_ai_api_key_here
+```
+
+**Option B: Vertex AI (Application Default Credentials)**
+
+No `.env.local` entry needed — uses ADC from:
+
+```bash
+gcloud auth application-default login
+```
+
+Or set `GOOGLE_APPLICATION_CREDENTIALS` environment variable pointing to a service account JSON file.
+
+Optional Vertex AI environment variables in `.env.local`:
+
+```text
+GEMINI_VERTEX_PROJECT_ID=your_gcp_project_id
+GEMINI_VERTEX_LOCATION=us-central1  # Default: us-central1
+```
+
+**If you prefer OpenAI instead:**
 
 ```text
 OPENAI_API_KEY=your_openai_api_key_here
 ```
+
+Then override in `config.yml` with `llm: "openai"` and `llm_model: "gpt-4o"`
+
+1. **App launch commands** are pre-generated and stored in:
+
+```text
+src_ViBR/input/app_launch_commands.json
+```
+
+This file maps app names to their package names and ADB launch commands. If you need to add a new app or update launch commands, you can regenerate this file or add entries manually. Each run will automatically:
+
+- Go to the home screen
+- Open the specified app
+- Wait for app to load
+- Then run the ViBR video replay sequence
 
 1. Connect an Android device/emulator via ADB and verify:
 
@@ -264,9 +308,15 @@ adb devices
 emulator -avd Pixel_2
 ```
 
-1. Ensure the target app is installed and the device starts from the expected initial UI state.
+**Important:** The device should be unlocked and responsive. The ViBR automation will:
 
-2. Configure runs in:
+- Navigate to home screen
+- Open the target app
+- Proceed with video replay
+
+Ensure the device is in a state where it can receive ADB commands (unlocked, USB debugging enabled).
+
+1. Configure runs in:
 
 ```text
 src_ViBR/input/config.yml
@@ -276,6 +326,7 @@ Supported `video_path` values:
 
 - shorthand: `hhv`, `srv`
 - explicit relative/absolute video file paths
+
 Per-run `algorithm` supports `clip` or `ssim`.
 
 1. Run:

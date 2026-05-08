@@ -1,5 +1,6 @@
 import base64
 import os
+import time
 from pathlib import Path
 from openai import OpenAI
 
@@ -9,6 +10,8 @@ and relevant region identification for Android GUI screenshots.
 
 OpenAI key is loaded from environment variable OPENAI_API_KEY or from repo .env.local.
 """
+
+llm_calls: list[dict] = []  # Track all LLM API calls for metrics
 
 
 def _load_env_local(path: Path) -> dict[str, str]:
@@ -92,16 +95,38 @@ def ask_gpt_state_consistency(start_img, live_img, action="", target_region=""):
         "{ \"same_state\": \"yes\" } or { \"same_state\": \"no\", \"description\": \"<reason>\" }"
     )
 
-    response = client.chat.completions.create(
-        model="gpt-4o",
-        messages=[
-            {"role": "user", "content": [
-                {"type": "text", "text": prompt},
-                {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64_start}"}},
-                {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64_live}"}},
-            ]}
-        ]
-    )
+    call_start = time.time()
+    error = None
+    prompt_tokens = 0
+    output_tokens = 0
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[
+                {"role": "user", "content": [
+                    {"type": "text", "text": prompt},
+                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64_start}"}},
+                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64_live}"}},
+                ]}
+            ]
+        )
+
+        prompt_tokens = response.usage.prompt_tokens
+        output_tokens = response.usage.completion_tokens
+    except Exception as exc:
+        error = str(exc)
+        raise
+
+    elapsed_sec = time.time() - call_start
+
+    llm_calls.append({
+        "kind": "state_comparison",
+        "elapsed_sec": elapsed_sec,
+        "prompt_tokens": prompt_tokens,
+        "output_tokens": output_tokens,
+        "error": error,
+    })
 
     print("Consistency Response from GPT-4o:", response.choices[0].message.content)
 
@@ -129,37 +154,59 @@ def ask_gpt_for_action_region(start_img, stop_img, live_img, predicted_action, r
     # Prompt for action inference using start, stop, and current screenshots, based on region indices
     prompt_instruction_region = '''
     Your goal is to reproduce the action {predicted_action} from the GUI recording on a real device. I show you the three GUI screenshots by order. In the recording, the interaction with the highlighted purple region in the first GUI leads to the second GUI. The current GUI on your device is shown as the third GUI, on which element should you perform the action to achieve the same transition? Please follow the primitive in action space.
- 
-    ### Possible Actions: 
-    1. **tap** - Taps a location on screen. - Example: { "action": "tap", "region": 2, "description": "Tap center of screen to open app." } 
- 
-    2. **swipe** - Swipes from one point to another. - Example: { "action": "swipe", "from": [540, 1600], "to": [540, 400], "duration": 500, "description": "Swipe up to scroll." } 
- 
+
+    ### Possible Actions:
+    1. **tap** - Taps a location on screen. - Example: { "action": "tap", "region": 2, "description": "Tap center of screen to open app." }
+
+    2. **swipe** - Swipes from one point to another. - Example: { "action": "swipe", "from": [540, 1600], "to": [540, 400], "duration": 500, "description": "Swipe up to scroll." }
+
     3. If you see the keyboard on the GUI screen, it is highly possible is a **input_text** - Types text into a focused input field. - Example: { "action": "input_text", "text": "hello world", "description": "Type search query." }
- 
-    4. **back** - Presses Android back button. - Example: { "action": "back", "description": "Go back to previous screen." } 
- 
-    5. **home** - Goes to Android home screen. - Example: { "action": "home", "description": "Return to home." } 
- 
-    6. **wait** - Waits for a specified duration. - Example: { "action": "wait", "duration": 1500, "description": "Wait for animation to finish." } 
- 
-    7. **no action** - No action is needed. - Example: { "action": "no action", "description": "No Action needed." } 
- 
+
+    4. **back** - Presses Android back button. - Example: { "action": "back", "description": "Go back to previous screen." }
+
+    5. **home** - Goes to Android home screen. - Example: { "action": "home", "description": "Return to home." }
+
+    6. **wait** - Waits for a specified duration. - Example: { "action": "wait", "duration": 1500, "description": "Wait for animation to finish." }
+
+    7. **no action** - No action is needed. - Example: { "action": "no action", "description": "No Action needed." }
+
     Return a **JSON object** describing the required action. Do not include any other text or explanation.
     '''
 
-    response = client.chat.completions.create(
-        model="gpt-4o",
-        # temperature=0.2,
-        messages=[
-            {"role": "user", "content": [
-                {"type": "text", "text": prompt_instruction_region },
-                {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64_start}", "detail": "low"}},
-                {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64_stop}", "detail": "low"}},
-                {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64_live}", "detail": "high"}}
-            ]}
-        ]
-    )
+    call_start = time.time()
+    error = None
+    prompt_tokens = 0
+    output_tokens = 0
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            # temperature=0.2,
+            messages=[
+                {"role": "user", "content": [
+                    {"type": "text", "text": prompt_instruction_region },
+                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64_start}", "detail": "low"}},
+                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64_stop}", "detail": "low"}},
+                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64_live}", "detail": "high"}}
+                ]}
+            ]
+        )
+
+        prompt_tokens = response.usage.prompt_tokens
+        output_tokens = response.usage.completion_tokens
+    except Exception as exc:
+        error = str(exc)
+        raise
+
+    elapsed_sec = time.time() - call_start
+
+    llm_calls.append({
+        "kind": "action_inference",
+        "elapsed_sec": elapsed_sec,
+        "prompt_tokens": prompt_tokens,
+        "output_tokens": output_tokens,
+        "error": error,
+    })
 
     print("Region Action Response from GPT-4o:", response.choices[0].message.content)
 
@@ -202,17 +249,39 @@ def ask_gpt_for_relevant_regions(start_img_path, stop_img_path):
       { "target_regions": [int, int, ...], "predicted_action": "<action>" }
       """
 
-    response = client.chat.completions.create(
-        model="gpt-4o",
-        messages=[{
-            "role": "user",
-            "content": [
-                {"type": "text", "text": prompt_instruction_relevant_regions + "\n\nScreenshots are attached below."},
-                {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{encode_image(start_img_path)}", "detail": "high"}},
-                {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{encode_image(stop_img_path)}", "detail": "high"}}
-            ]
-        }]
-    )
+    call_start = time.time()
+    error = None
+    prompt_tokens = 0
+    output_tokens = 0
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[{
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": prompt_instruction_relevant_regions + "\n\nScreenshots are attached below."},
+                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{encode_image(start_img_path)}", "detail": "high"}},
+                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{encode_image(stop_img_path)}", "detail": "high"}}
+                ]
+            }]
+        )
+
+        prompt_tokens = response.usage.prompt_tokens
+        output_tokens = response.usage.completion_tokens
+    except Exception as exc:
+        error = str(exc)
+        raise
+
+    elapsed_sec = time.time() - call_start
+
+    llm_calls.append({
+        "kind": "region_detection",
+        "elapsed_sec": elapsed_sec,
+        "prompt_tokens": prompt_tokens,
+        "output_tokens": output_tokens,
+        "error": error,
+    })
 
     print("Relevant Region Response from GPT-4o:", response.choices[0].message.content)
     return response.choices[0].message.content
