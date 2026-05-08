@@ -56,7 +56,7 @@ def _locate_latest_run(app_name: str, llm_model: str, video_type: str) -> Path:
     Raises: FileNotFoundError if no run found
     """
     model_slug = _normalize_model_slug(llm_model)
-    source = "handheld" if video_type == "hhv" else "screenrec"
+    source = "handheld" if video_type == "handheld" else "screenrec"
     source_dir = f"{source}-video-mode"
 
     base = Path("apps") / app_name / "llm" / model_slug / source_dir
@@ -115,7 +115,7 @@ def _resolve_output_dir(run, llm: str, llm_model: str, prior_stage1_run: Path | 
 
     # Otherwise, create new run-NNN directory (Stage 1 case, not used in Stage 2)
     model_slug = _normalize_model_slug(llm_model)
-    source = "handheld" if run.video_type == "hhv" else "screenrec"
+    source = "handheld" if run.video_type == "handheld" else "screenrec"
     source_dir = f"{source}-video-mode"
 
     base = Path("apps") / run.app_name / "llm" / model_slug / source_dir
