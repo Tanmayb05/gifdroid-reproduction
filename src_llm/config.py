@@ -450,9 +450,30 @@ def _parse_run_entry(entry: Any, idx: int, shared: tuple) -> List[AppConfig]:
         video_mode,
     ) = shared
     app_name = _require_str(entry, "app_name")
-    video_paths = _parse_video_paths(entry.get("video_path"))
-    return [
-        AppConfig(
+    vp_raw = entry.get("video_path")
+    if vp_raw is None:
+        raise ConfigError(f"runs[{idx}].video_path is required")
+    if isinstance(vp_raw, str):
+        vp_raw = [vp_raw]
+    if not isinstance(vp_raw, list) or len(vp_raw) == 0:
+        raise ConfigError(f"runs[{idx}].video_path must be a non-empty string or list")
+
+    result: List[AppConfig] = []
+    for vp_entry in vp_raw:
+        if not isinstance(vp_entry, str) or not vp_entry.strip():
+            raise ConfigError(f"runs[{idx}].video_path entries must be non-empty strings")
+        vp_entry = vp_entry.strip()
+
+        # If it looks like a full path (contains '/'), use it directly
+        if "/" in vp_entry:
+            video_path = Path(vp_entry)
+        else:
+            # Shorthand or filename: resolve to flat videos directory
+            # Support: "srv", "hhv", "srv-001.mp4", "hhv-002.mp4", etc.
+            filename = vp_entry if vp_entry.endswith(".mp4") else f"{vp_entry}.mp4"
+            video_path = Path(f"apps/{app_name}/videos/{filename}")
+
+        result.append(AppConfig(
             app_name=app_name,
             video_path=video_path,
             llm=llm,
@@ -463,9 +484,8 @@ def _parse_run_entry(entry: Any, idx: int, shared: tuple) -> List[AppConfig]:
             output=output_cfg,
             logging=logging_cfg,
             video_mode=video_mode,
-        )
-        for video_path in video_paths
-    ]
+        ))
+    return result
 
 
 def load_config(config_path: Path) -> PipelineConfig:
