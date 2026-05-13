@@ -92,7 +92,8 @@
       "Bash(.venv/bin/python src_ViBR/main.py --config src_ViBR/input/config.yml --dry-run)",
       "Bash([ -f \"$DIR/$f\" ])",
       "Bash(grep -E \"\\\\.py$\")",
-      "Bash(grep -E \"test.*\\\\.py$\")"
+      "Bash(grep -E \"test.*\\\\.py$\")",
+      "Bash(./.venv/bin/python -m pytest tests/test_vibr_io_utils.py tests/test_vibr_integration.py -v)"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",

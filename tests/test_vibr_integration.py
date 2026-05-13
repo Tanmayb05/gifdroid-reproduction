@@ -44,7 +44,7 @@ class TestCreateOutputLayoutIntegration(unittest.TestCase):
     # ------------------------------------------------------------------
     def test_base_dir_path_matches_flat_convention(self):
         layout = self._run()
-        expected_suffix = Path("apps") / "binaryeye" / "llm" / "hhv-001-gemini-2.5-pro"
+        expected_suffix = Path("apps") / "binaryeye" / "llm" / "hhv-001-gemini-2.5-pro-vibr"
         self.assertTrue(
             str(layout.base_dir).endswith(str(expected_suffix)),
             msg=f"base_dir '{layout.base_dir}' does not end with '{expected_suffix}'",

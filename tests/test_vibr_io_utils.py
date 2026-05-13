@@ -77,7 +77,7 @@ class TestCreateOutputLayout(unittest.TestCase):
             "gemini-2.5-pro",
             self.run_dt,
         )
-        expected_base = self.project_root / "apps" / "binaryeye" / "llm" / "hhv-001-gemini-2.5-pro"
+        expected_base = self.project_root / "apps" / "binaryeye" / "llm" / "hhv-001-gemini-2.5-pro-vibr"
         self.assertEqual(layout.base_dir, expected_base)
 
     def test_run_dir_under_base(self):
@@ -176,14 +176,14 @@ class TestCreateOutputLayoutRunIdIncrement(unittest.TestCase):
 
     def test_skips_non_run_directories(self):
         # Create a non-matching directory — should not affect counter
-        base = self.project_root / "apps" / "myapp" / "llm" / "hhv-001-gemini"
+        base = self.project_root / "apps" / "myapp" / "llm" / "hhv-001-gemini-vibr"
         base.mkdir(parents=True)
         (base / "logs").mkdir()
         layout = self._layout()
         self.assertEqual(layout.run_id, "run-001")
 
     def test_handles_gap_in_run_numbers(self):
-        base = self.project_root / "apps" / "myapp" / "llm" / "hhv-001-gemini"
+        base = self.project_root / "apps" / "myapp" / "llm" / "hhv-001-gemini-vibr"
         base.mkdir(parents=True)
         (base / "run-001").mkdir()
         (base / "run-003").mkdir()  # gap: run-002 is missing

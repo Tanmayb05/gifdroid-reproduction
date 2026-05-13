@@ -29,20 +29,20 @@ Components:
 ### New structure (active from 2026-05-12)
 
 ```
-apps/<app_name>/llm/<video-name>-<model>/run-NNN/
+apps/<app_name>/llm/<video-name>-<model>-vibr/run-NNN/
 ```
 
 Example:
 
 ```
-apps/binaryeye/llm/hhv-001-gemini-2-5-pro/run-001/
-apps/binaryeye/llm/srv-003-gpt-4o/run-001/
+apps/binaryeye/llm/hhv-001-gemini-2.5-pro-vibr/run-001/
+apps/binaryeye/llm/srv-003-gpt-4o-vibr/run-001/
 ```
 
 Components:
 - `<video-name>` — stem of the `video_path` value in `config.yml` (e.g. `hhv-001`, `srv-003`)
-- `<model>` — normalized `llm_model` from `config.yml` (lowercase, dots and special characters
-  replaced by hyphens, e.g. `gemini-2.5-pro` becomes `gemini-2-5-pro`)
+- `<model>` — normalized `llm_model` from `config.yml` (lowercase, special characters replaced by hyphens)
+- `-vibr` — suffix indicating this is a ViBR run (vs. `-llm` for src_llm runs)
 - `run-NNN` — zero-padded run counter, auto-incremented per variant directory
 
 ---
@@ -92,7 +92,10 @@ Changes made in Phase 8:
 
 ## Consistency with src_llm
 
-`src_llm` adopted the flat `<video-name>-<model>[-vm]` convention in an earlier phase.
-Phase 8 brings `src_ViBR` into alignment so both subsystems use the same output layout strategy.
-The only difference is that `src_ViBR` does not append a `-vm` suffix because it does not have a
-separate "video mode" toggle.
+`src_llm` adopted the flat `<video-name>-<model>[-vm]-llm` convention in an earlier phase.
+Phase 8 brings `src_ViBR` into alignment using `-vibr` suffix to distinguish from `-llm`:
+
+- **src_llm runs:** `<video-name>-<model>[-vm]-llm/run-NNN/`
+- **src_ViBR runs:** `<video-name>-<model>-vibr/run-NNN/`
+
+The `-vibr` suffix makes it immediately clear which subsystem generated each run directory.
