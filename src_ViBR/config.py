@@ -35,11 +35,17 @@ class LoggingConfig:
 
 @dataclass(frozen=True)
 class ViBRRunConfig:
+    """Configuration for a single ViBR run.
+
+    Output directories follow the flat naming convention:
+    apps/{app_name}/llm/{video_stem}-{llm_model_slug}/run-NNN/
+    """
+
     app_name: str
     video_path: Path
     algorithm: str
     llm: str
-    llm_model: str
+    llm_model: str  # Full model name (e.g., "gemini-2.5-pro"); normalized to slug for paths
 
 
 @dataclass(frozen=True)
