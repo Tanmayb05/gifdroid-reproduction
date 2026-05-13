@@ -1,0 +1,937 @@
+# ViBR Run Log
+
+**Status**: SUCCESS
+
+## Full Log
+
+```
+2026-05-08 17:12:08 | INFO | === src_vibr.2026-05-08T21-12-08__run-001__pipeline__started ===
+2026-05-08 17:12:08 | INFO | Starting ViBR run
+2026-05-08 17:12:08 | INFO | App: batterytemperaturedisplay
+2026-05-08 17:12:08 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/videos/srv-001.mp4
+2026-05-08 17:12:08 | INFO | Algorithm: clip
+2026-05-08 17:12:08 | INFO | LLM: gemini (gemini-2.5-pro)
+2026-05-08 17:12:08 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001
+2026-05-08 17:12:14 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-08 17:12:14 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-08 17:12:14 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-08 17:12:14 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-08 17:12:15 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-08 17:12:15 | INFO | 
+2026-05-08 17:12:15 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-08 17:12:15 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7140.98it/s]
+2026-05-08 17:12:15 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-08 17:12:15 | INFO | Key                                        | Status     |  | 
+2026-05-08 17:12:15 | INFO | -------------------------------------------+------------+--+-
+2026-05-08 17:12:15 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-08 17:12:15 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-08 17:12:15 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-08 17:12:15 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-08 17:12:15 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-08 17:12:15 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-08 17:12:15 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-08 17:12:15 | INFO | 
+2026-05-08 17:12:15 | INFO | Notes:
+2026-05-08 17:12:15 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-08 17:12:21 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-pro)...
+2026-05-08 17:12:21 | INFO | Initializing ADB device controller...
+2026-05-08 17:12:21 | INFO | 📱 Preparing device for app: batterytemperaturedisplay
+2026-05-08 17:12:21 | INFO | 🏠 Going to home screen...
+2026-05-08 17:12:21 | INFO | 🚀 Opening app 'batterytemperaturedisplay' with command: am start -n barilyuk.batterytemperature/.MainActivity
+2026-05-08 17:12:21 | INFO | ✅ App 'batterytemperaturedisplay' opened and ready
+2026-05-08 17:12:21 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/screenshot-0.png
+2026-05-08 17:12:21 | INFO | Reading frames from video...
+2026-05-08 17:12:21 | INFO | Reading frame:  2
+2026-05-08 17:12:21 | INFO | Reading frame:  3
+2026-05-08 17:12:21 | INFO | Reading frame:  4
+2026-05-08 17:12:21 | INFO | Reading frame:  5
+2026-05-08 17:12:21 | INFO | Reading frame:  6
+2026-05-08 17:12:21 | INFO | Reading frame:  7
+2026-05-08 17:12:21 | INFO | Reading frame:  8
+2026-05-08 17:12:21 | INFO | Reading frame:  9
+2026-05-08 17:12:21 | INFO | Reading frame:  10
+2026-05-08 17:12:21 | INFO | Reading frame:  11
+2026-05-08 17:12:21 | INFO | Reading frame:  12
+2026-05-08 17:12:21 | INFO | Reading frame:  13
+2026-05-08 17:12:21 | INFO | Reading frame:  14
+2026-05-08 17:12:21 | INFO | Reading frame:  15
+2026-05-08 17:12:21 | INFO | Reading frame:  16
+2026-05-08 17:12:21 | INFO | Reading frame:  17
+2026-05-08 17:12:21 | INFO | Reading frame:  18
+2026-05-08 17:12:21 | INFO | Reading frame:  19
+2026-05-08 17:12:21 | INFO | Reading frame:  20
+2026-05-08 17:12:21 | INFO | Reading frame:  21
+2026-05-08 17:12:21 | INFO | Reading frame:  22
+2026-05-08 17:12:21 | INFO | Reading frame:  23
+2026-05-08 17:12:21 | INFO | Reading frame:  24
+2026-05-08 17:12:21 | INFO | Reading frame:  25
+2026-05-08 17:12:21 | INFO | Reading frame:  26
+2026-05-08 17:12:21 | INFO | Reading frame:  27
+2026-05-08 17:12:21 | INFO | Reading frame:  28
+2026-05-08 17:12:21 | INFO | Reading frame:  29
+2026-05-08 17:12:21 | INFO | Reading frame:  30
+2026-05-08 17:12:21 | INFO | Reading frame:  31
+2026-05-08 17:12:21 | INFO | Reading frame:  32
+2026-05-08 17:12:21 | INFO | Reading frame:  33
+2026-05-08 17:12:21 | INFO | Reading frame:  34
+2026-05-08 17:12:21 | INFO | Reading frame:  35
+2026-05-08 17:12:21 | INFO | Reading frame:  36
+2026-05-08 17:12:21 | INFO | Reading frame:  37
+2026-05-08 17:12:21 | INFO | Reading frame:  38
+2026-05-08 17:12:21 | INFO | Reading frame:  39
+2026-05-08 17:12:21 | INFO | Reading frame:  40
+2026-05-08 17:12:21 | INFO | Reading frame:  41
+2026-05-08 17:12:21 | INFO | Reading frame:  42
+2026-05-08 17:12:21 | INFO | Reading frame:  43
+2026-05-08 17:12:21 | INFO | Reading frame:  44
+2026-05-08 17:12:21 | INFO | Reading frame:  45
+2026-05-08 17:12:21 | INFO | Reading frame:  46
+2026-05-08 17:12:21 | INFO | Reading frame:  47
+2026-05-08 17:12:21 | INFO | Reading frame:  48
+2026-05-08 17:12:21 | INFO | Reading frame:  49
+2026-05-08 17:12:21 | INFO | Reading frame:  50
+2026-05-08 17:12:21 | INFO | Reading frame:  51
+2026-05-08 17:12:21 | INFO | Reading frame:  52
+2026-05-08 17:12:21 | INFO | Reading frame:  53
+2026-05-08 17:12:21 | INFO | Reading frame:  54
+2026-05-08 17:12:21 | INFO | Reading frame:  55
+2026-05-08 17:12:21 | INFO | Reading frame:  56
+2026-05-08 17:12:21 | INFO | Reading frame:  57
+2026-05-08 17:12:21 | INFO | Reading frame:  58
+2026-05-08 17:12:21 | INFO | Reading frame:  59
+2026-05-08 17:12:21 | INFO | Reading frame:  60
+2026-05-08 17:12:21 | INFO | Reading frame:  61
+2026-05-08 17:12:21 | INFO | Reading frame:  62
+2026-05-08 17:12:21 | INFO | Reading frame:  63
+2026-05-08 17:12:21 | INFO | Reading frame:  64
+2026-05-08 17:12:21 | INFO | Reading frame:  65
+2026-05-08 17:12:21 | INFO | Reading frame:  66
+2026-05-08 17:12:21 | INFO | Reading frame:  67
+2026-05-08 17:12:21 | INFO | Reading frame:  68
+2026-05-08 17:12:21 | INFO | Reading frame:  69
+2026-05-08 17:12:21 | INFO | Reading frame:  70
+2026-05-08 17:12:21 | INFO | Reading frame:  71
+2026-05-08 17:12:21 | INFO | Reading frame:  72
+2026-05-08 17:12:21 | INFO | Reading frame:  73
+2026-05-08 17:12:21 | INFO | Reading frame:  74
+2026-05-08 17:12:21 | INFO | Reading frame:  75
+2026-05-08 17:12:21 | INFO | Reading frame:  76
+2026-05-08 17:12:21 | INFO | Reading frame:  77
+2026-05-08 17:12:21 | INFO | Reading frame:  78
+2026-05-08 17:12:21 | INFO | Reading frame:  79
+2026-05-08 17:12:21 | INFO | Reading frame:  80
+2026-05-08 17:12:21 | INFO | Reading frame:  81
+2026-05-08 17:12:21 | INFO | Reading frame:  82
+2026-05-08 17:12:21 | INFO | Reading frame:  83
+2026-05-08 17:12:21 | INFO | Reading frame:  84
+2026-05-08 17:12:21 | INFO | Reading frame:  85
+2026-05-08 17:12:21 | INFO | Reading frame:  86
+2026-05-08 17:12:21 | INFO | Reading frame:  87
+2026-05-08 17:12:21 | INFO | Reading frame:  88
+2026-05-08 17:12:21 | INFO | Reading frame:  89
+2026-05-08 17:12:21 | INFO | Reading frame:  90
+2026-05-08 17:12:21 | INFO | Reading frame:  91
+2026-05-08 17:12:21 | INFO | Reading frame:  92
+2026-05-08 17:12:21 | INFO | Reading frame:  93
+2026-05-08 17:12:21 | INFO | Reading frame:  94
+2026-05-08 17:12:21 | INFO | Reading frame:  95
+2026-05-08 17:12:21 | INFO | Reading frame:  96
+2026-05-08 17:12:21 | INFO | Reading frame:  97
+2026-05-08 17:12:21 | INFO | Reading frame:  98
+2026-05-08 17:12:21 | INFO | Reading frame:  99
+2026-05-08 17:12:21 | INFO | Reading frame:  100
+2026-05-08 17:12:21 | INFO | Reading frame:  101
+2026-05-08 17:12:21 | INFO | Reading frame:  102
+2026-05-08 17:12:21 | INFO | Reading frame:  103
+2026-05-08 17:12:21 | INFO | Reading frame:  104
+2026-05-08 17:12:21 | INFO | Reading frame:  105
+2026-05-08 17:12:21 | INFO | Reading frame:  106
+2026-05-08 17:12:21 | INFO | Reading frame:  107
+2026-05-08 17:12:21 | INFO | Reading frame:  108
+2026-05-08 17:12:21 | INFO | Reading frame:  109
+2026-05-08 17:12:21 | INFO | Reading frame:  110
+2026-05-08 17:12:21 | INFO | Reading frame:  111
+2026-05-08 17:12:21 | INFO | Reading frame:  112
+2026-05-08 17:12:21 | INFO | Reading frame:  113
+2026-05-08 17:12:21 | INFO | Reading frame:  114
+2026-05-08 17:12:21 | INFO | Reading frame:  115
+2026-05-08 17:12:21 | INFO | Reading frame:  116
+2026-05-08 17:12:21 | INFO | Reading frame:  117
+2026-05-08 17:12:21 | INFO | Reading frame:  118
+2026-05-08 17:12:21 | INFO | Reading frame:  119
+2026-05-08 17:12:21 | INFO | Reading frame:  120
+2026-05-08 17:12:21 | INFO | Reading frame:  121
+2026-05-08 17:12:21 | INFO | Reading frame:  122
+2026-05-08 17:12:21 | INFO | Reading frame:  123
+2026-05-08 17:12:21 | INFO | Reading frame:  124
+2026-05-08 17:12:21 | INFO | Reading frame:  125
+2026-05-08 17:12:21 | INFO | Reading frame:  126
+2026-05-08 17:12:21 | INFO | Reading frame:  127
+2026-05-08 17:12:21 | INFO | Reading frame:  128
+2026-05-08 17:12:21 | INFO | Reading frame:  129
+2026-05-08 17:12:21 | INFO | Reading frame:  130
+2026-05-08 17:12:21 | INFO | Reading frame:  131
+2026-05-08 17:12:21 | INFO | Reading frame:  132
+2026-05-08 17:12:21 | INFO | Reading frame:  133
+2026-05-08 17:12:21 | INFO | Reading frame:  134
+2026-05-08 17:12:21 | INFO | Reading frame:  135
+2026-05-08 17:12:21 | INFO | Reading frame:  136
+2026-05-08 17:12:21 | INFO | Reading frame:  137
+2026-05-08 17:12:21 | INFO | Reading frame:  138
+2026-05-08 17:12:21 | INFO | Reading frame:  139
+2026-05-08 17:12:21 | INFO | Reading frame:  140
+2026-05-08 17:12:21 | INFO | Reading frame:  141
+2026-05-08 17:12:21 | INFO | Reading frame:  142
+2026-05-08 17:12:21 | INFO | Reading frame:  143
+2026-05-08 17:12:21 | INFO | Reading frame:  144
+2026-05-08 17:12:21 | INFO | Reading frame:  145
+2026-05-08 17:12:21 | INFO | Reading frame:  146
+2026-05-08 17:12:21 | INFO | Reading frame:  147
+2026-05-08 17:12:21 | INFO | Reading frame:  148
+2026-05-08 17:12:21 | INFO | Reading frame:  149
+2026-05-08 17:12:21 | INFO | Reading frame:  150
+2026-05-08 17:12:21 | INFO | Reading frame:  151
+2026-05-08 17:12:21 | INFO | Reading frame:  152
+2026-05-08 17:12:21 | INFO | Reading frame:  153
+2026-05-08 17:12:21 | INFO | Reading frame:  154
+2026-05-08 17:12:21 | INFO | Reading frame:  155
+2026-05-08 17:12:21 | INFO | Reading frame:  156
+2026-05-08 17:12:21 | INFO | Reading frame:  157
+2026-05-08 17:12:21 | INFO | Reading frame:  158
+2026-05-08 17:12:21 | INFO | Reading frame:  159
+2026-05-08 17:12:21 | INFO | Reading frame:  160
+2026-05-08 17:12:21 | INFO | Reading frame:  161
+2026-05-08 17:12:21 | INFO | Reading frame:  162
+2026-05-08 17:12:21 | INFO | Reading frame:  163
+2026-05-08 17:12:21 | INFO | Reading frame:  164
+2026-05-08 17:12:21 | INFO | Reading frame:  165
+2026-05-08 17:12:21 | INFO | Reading frame:  166
+2026-05-08 17:12:21 | INFO | Reading frame:  167
+2026-05-08 17:12:21 | INFO | Reading frame:  168
+2026-05-08 17:12:21 | INFO | Reading frame:  169
+2026-05-08 17:12:21 | INFO | Reading frame:  170
+2026-05-08 17:12:21 | INFO | Reading frame:  171
+2026-05-08 17:12:21 | INFO | Reading frame:  172
+2026-05-08 17:12:21 | INFO | Reading frame:  173
+2026-05-08 17:12:21 | INFO | Reading frame:  174
+2026-05-08 17:12:21 | INFO | Reading frame:  175
+2026-05-08 17:12:21 | INFO | Reading frame:  176
+2026-05-08 17:12:21 | INFO | Reading frame:  177
+2026-05-08 17:12:21 | INFO | Reading frame:  178
+2026-05-08 17:12:21 | INFO | Reading frame:  179
+2026-05-08 17:12:21 | INFO | Reading frame:  180
+2026-05-08 17:12:21 | INFO | Reading frame:  181
+2026-05-08 17:12:21 | INFO | Reading frame:  182
+2026-05-08 17:12:21 | INFO | Reading frame:  183
+2026-05-08 17:12:21 | INFO | Reading frame:  184
+2026-05-08 17:12:21 | INFO | Reading frame:  185
+2026-05-08 17:12:21 | INFO | Reading frame:  186
+2026-05-08 17:12:21 | INFO | Reading frame:  187
+2026-05-08 17:12:21 | INFO | Reading frame:  188
+2026-05-08 17:12:21 | INFO | Reading frame:  189
+2026-05-08 17:12:21 | INFO | Reading frame:  190
+2026-05-08 17:12:21 | INFO | Reading frame:  191
+2026-05-08 17:12:21 | INFO | Reading frame:  192
+2026-05-08 17:12:21 | INFO | Reading frame:  193
+2026-05-08 17:12:21 | INFO | Reading frame:  194
+2026-05-08 17:12:21 | INFO | Reading frame:  195
+2026-05-08 17:12:21 | INFO | Reading frame:  196
+2026-05-08 17:12:21 | INFO | Reading frame:  197
+2026-05-08 17:12:21 | INFO | Reading frame:  198
+2026-05-08 17:12:21 | INFO | Reading frame:  199
+2026-05-08 17:12:21 | INFO | Reading frame:  200
+2026-05-08 17:12:21 | INFO | Reading frame:  201
+2026-05-08 17:12:21 | INFO | Reading frame:  202
+2026-05-08 17:12:21 | INFO | Reading frame:  203
+2026-05-08 17:12:21 | INFO | Reading frame:  204
+2026-05-08 17:12:21 | INFO | Reading frame:  205
+2026-05-08 17:12:21 | INFO | Reading frame:  206
+2026-05-08 17:12:21 | INFO | Reading frame:  207
+2026-05-08 17:12:21 | INFO | Reading frame:  208
+2026-05-08 17:12:21 | INFO | Reading frame:  209
+2026-05-08 17:12:21 | INFO | Reading frame:  210
+2026-05-08 17:12:21 | INFO | Reading frame:  211
+2026-05-08 17:12:21 | INFO | Reading frame:  212
+2026-05-08 17:12:21 | INFO | Reading frame:  213
+2026-05-08 17:12:21 | INFO | Reading frame:  214
+2026-05-08 17:12:21 | INFO | Reading frame:  215
+2026-05-08 17:12:21 | INFO | Reading frame:  216
+2026-05-08 17:12:21 | INFO | Reading frame:  217
+2026-05-08 17:12:21 | INFO | Reading frame:  218
+2026-05-08 17:12:21 | INFO | Reading frame:  219
+2026-05-08 17:12:21 | INFO | Reading frame:  220
+2026-05-08 17:12:21 | INFO | Reading frame:  221
+2026-05-08 17:12:21 | INFO | Reading frame:  222
+2026-05-08 17:12:21 | INFO | Reading frame:  223
+2026-05-08 17:12:21 | INFO | Reading frame:  224
+2026-05-08 17:12:21 | INFO | Reading frame:  225
+2026-05-08 17:12:21 | INFO | Reading frame:  226
+2026-05-08 17:12:21 | INFO | Reading frame:  227
+2026-05-08 17:12:21 | INFO | Reading frame:  228
+2026-05-08 17:12:21 | INFO | Reading frame:  229
+2026-05-08 17:12:21 | INFO | Reading frame:  230
+2026-05-08 17:12:21 | INFO | Reading frame:  231
+2026-05-08 17:12:21 | INFO | Reading frame:  232
+2026-05-08 17:12:21 | INFO | Reading frame:  233
+2026-05-08 17:12:21 | INFO | Reading frame:  234
+2026-05-08 17:12:21 | INFO | Reading frame:  235
+2026-05-08 17:12:21 | INFO | Reading frame:  236
+2026-05-08 17:12:21 | INFO | Reading frame:  237
+2026-05-08 17:12:21 | INFO | Reading frame:  238
+2026-05-08 17:12:21 | INFO | Reading frame:  239
+2026-05-08 17:12:21 | INFO | Reading frame:  240
+2026-05-08 17:12:21 | INFO | Reading frame:  241
+2026-05-08 17:12:21 | INFO | Reading frame:  242
+2026-05-08 17:12:21 | INFO | Reading frame:  243
+2026-05-08 17:12:21 | INFO | Reading frame:  244
+2026-05-08 17:12:21 | INFO | Reading frame:  245
+2026-05-08 17:12:21 | INFO | Reading frame:  246
+2026-05-08 17:12:21 | INFO | Reading frame:  247
+2026-05-08 17:12:21 | INFO | Reading frame:  248
+2026-05-08 17:12:21 | INFO | Reading frame:  249
+2026-05-08 17:12:21 | INFO | Reading frame:  250
+2026-05-08 17:12:21 | INFO | Reading frame:  251
+2026-05-08 17:12:21 | INFO | Reading frame:  252
+2026-05-08 17:12:21 | INFO | Reading frame:  253
+2026-05-08 17:12:21 | INFO | Reading frame:  254
+2026-05-08 17:12:21 | INFO | Reading frame:  255
+2026-05-08 17:12:21 | INFO | Reading frame:  256
+2026-05-08 17:12:21 | INFO | Reading frame:  257
+2026-05-08 17:12:21 | INFO | Reading frame:  258
+2026-05-08 17:12:21 | INFO | Reading frame:  259
+2026-05-08 17:12:21 | INFO | Reading frame:  260
+2026-05-08 17:12:21 | INFO | Reading frame:  261
+2026-05-08 17:12:21 | INFO | Reading frame:  262
+2026-05-08 17:12:21 | INFO | Reading frame:  263
+2026-05-08 17:12:21 | INFO | Reading frame:  264
+2026-05-08 17:12:21 | INFO | Reading frame:  265
+2026-05-08 17:12:21 | INFO | Reading frame:  266
+2026-05-08 17:12:21 | INFO | Reading frame:  267
+2026-05-08 17:12:21 | INFO | Reading frame:  268
+2026-05-08 17:12:21 | INFO | Reading frame:  269
+2026-05-08 17:12:21 | INFO | Reading frame:  270
+2026-05-08 17:12:21 | INFO | Reading frame:  271
+2026-05-08 17:12:21 | INFO | Reading frame:  272
+2026-05-08 17:12:21 | INFO | Reading frame:  273
+2026-05-08 17:12:21 | INFO | Reading frame:  274
+2026-05-08 17:12:21 | INFO | Reading frame:  275
+2026-05-08 17:12:21 | INFO | Reading frame:  276
+2026-05-08 17:12:21 | INFO | Reading frame:  277
+2026-05-08 17:12:21 | INFO | Reading frame:  278
+2026-05-08 17:12:21 | INFO | Reading frame:  279
+2026-05-08 17:12:21 | INFO | Reading frame:  280
+2026-05-08 17:12:21 | INFO | Reading frame:  281
+2026-05-08 17:12:21 | INFO | Reading frame:  282
+2026-05-08 17:12:21 | INFO | Reading frame:  283
+2026-05-08 17:12:21 | INFO | Reading frame:  284
+2026-05-08 17:12:21 | INFO | Reading frame:  285
+2026-05-08 17:12:21 | INFO | Reading frame:  286
+2026-05-08 17:12:21 | INFO | Reading frame:  287
+2026-05-08 17:12:21 | INFO | Reading frame:  288
+2026-05-08 17:12:21 | INFO | Reading frame:  289
+2026-05-08 17:12:21 | INFO | Reading frame:  290
+2026-05-08 17:12:21 | INFO | Reading frame:  291
+2026-05-08 17:12:21 | INFO | Reading frame:  292
+2026-05-08 17:12:21 | INFO | Reading frame:  293
+2026-05-08 17:12:21 | INFO | Reading frame:  294
+2026-05-08 17:12:21 | INFO | Reading frame:  295
+2026-05-08 17:12:21 | INFO | Reading frame:  296
+2026-05-08 17:12:21 | INFO | Reading frame:  297
+2026-05-08 17:12:21 | INFO | Reading frame:  298
+2026-05-08 17:12:21 | INFO | Reading frame:  299
+2026-05-08 17:12:21 | INFO | Reading frame:  300
+2026-05-08 17:12:21 | INFO | Reading frame:  301
+2026-05-08 17:12:21 | INFO | Reading frame:  302
+2026-05-08 17:12:21 | INFO | Reading frame:  303
+2026-05-08 17:12:21 | INFO | Reading frame:  304
+2026-05-08 17:12:21 | INFO | Reading frame:  305
+2026-05-08 17:12:21 | INFO | Reading frame:  306
+2026-05-08 17:12:21 | INFO | Reading frame:  307
+2026-05-08 17:12:21 | INFO | Reading frame:  308
+2026-05-08 17:12:21 | INFO | Reading frame:  309
+2026-05-08 17:12:21 | INFO | Reading frame:  310
+2026-05-08 17:12:21 | INFO | Reading frame:  311
+2026-05-08 17:12:21 | INFO | Reading frame:  312
+2026-05-08 17:12:21 | INFO | Reading frame:  313
+2026-05-08 17:12:21 | INFO | Reading frame:  314
+2026-05-08 17:12:21 | INFO | Reading frame:  315
+2026-05-08 17:12:21 | INFO | Reading frame:  316
+2026-05-08 17:12:21 | INFO | Reading frame:  317
+2026-05-08 17:12:21 | INFO | Reading frame:  318
+2026-05-08 17:12:21 | INFO | Reading frame:  319
+2026-05-08 17:12:21 | INFO | Reading frame:  320
+2026-05-08 17:12:21 | INFO | Reading frame:  321
+2026-05-08 17:12:21 | INFO | Reading frame:  322
+2026-05-08 17:12:21 | INFO | Reading frame:  323
+2026-05-08 17:12:21 | INFO | Reading frame:  324
+2026-05-08 17:12:21 | INFO | Reading frame:  325
+2026-05-08 17:12:21 | INFO | Reading frame:  326
+2026-05-08 17:12:21 | INFO | Reading frame:  327
+2026-05-08 17:12:21 | INFO | Reading frame:  328
+2026-05-08 17:12:21 | INFO | Reading frame:  329
+2026-05-08 17:12:21 | INFO | Reading frame:  330
+2026-05-08 17:12:21 | INFO | Reading frame:  331
+2026-05-08 17:12:21 | INFO | Reading frame:  332
+2026-05-08 17:12:21 | INFO | Reading frame:  333
+2026-05-08 17:12:21 | INFO | Reading frame:  334
+2026-05-08 17:12:21 | INFO | Reading frame:  335
+2026-05-08 17:12:21 | INFO | Reading frame:  336
+2026-05-08 17:12:21 | INFO | Reading frame:  337
+2026-05-08 17:12:21 | INFO | Reading frame:  338
+2026-05-08 17:12:21 | INFO | Reading frame:  339
+2026-05-08 17:12:21 | INFO | Reading frame:  340
+2026-05-08 17:12:21 | INFO | Reading frame:  341
+2026-05-08 17:12:21 | INFO | Reading frame:  342
+2026-05-08 17:12:21 | INFO | Reading frame:  343
+2026-05-08 17:12:21 | INFO | Reading frame:  344
+2026-05-08 17:12:21 | INFO | Reading frame:  345
+2026-05-08 17:12:21 | INFO | Reading frame:  346
+2026-05-08 17:12:21 | INFO | Reading frame:  347
+2026-05-08 17:12:21 | INFO | Reading frame:  348
+2026-05-08 17:12:21 | INFO | Reading frame:  349
+2026-05-08 17:12:21 | INFO | Reading frame:  350
+2026-05-08 17:12:21 | INFO | Reading frame:  351
+2026-05-08 17:12:21 | INFO | Reading frame:  352
+2026-05-08 17:12:21 | INFO | Reading frame:  353
+2026-05-08 17:12:21 | INFO | Reading frame:  354
+2026-05-08 17:12:21 | INFO | 🔍 Detecting stable segments...
+2026-05-08 17:12:21 | INFO | 
+2026-05-08 17:12:21 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-08 17:12:21 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 33111.17it/s]
+2026-05-08 17:12:21 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-08 17:12:21 | INFO | Key                                  | Status     |  | 
+2026-05-08 17:12:21 | INFO | -------------------------------------+------------+--+-
+2026-05-08 17:12:21 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-08 17:12:21 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-08 17:12:21 | INFO | 
+2026-05-08 17:12:21 | INFO | Notes:
+2026-05-08 17:12:21 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-08 17:12:25 | INFO | `use_return_dict` is deprecated! Use `return_dict` instead!
+2026-05-08 17:12:25 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 17:12:25 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 17:12:30 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 17:12:58 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 17:12:58 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 17:13:02 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 17:13:52 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 17:13:52 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 17:13:55 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 17:15:10 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 17:15:10 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 17:15:14 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 17:15:58 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 17:15:58 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 17:16:02 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 17:16:42 | INFO | ✅ CLIP similarity list loaded from cache.
+2026-05-08 17:16:42 | INFO | 
+2026-05-08 17:16:42 | INFO | 📂 Processing segment 0...
+2026-05-08 17:16:42 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_0_screenshot-0.png
+2026-05-08 17:16:42 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_0_dino.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_0_dino.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_0_tmp_stop.png
+2026-05-08 17:16:42 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 17:16:42 | INFO | {
+2026-05-08 17:16:42 | INFO |   "target_regions": [
+2026-05-08 17:16:42 | INFO |     26
+2026-05-08 17:16:42 | INFO |   ],
+2026-05-08 17:16:42 | INFO |   "predicted_action": "tap"
+2026-05-08 17:16:42 | INFO | }
+2026-05-08 17:16:42 | INFO | ```
+2026-05-08 17:16:42 | INFO | 🔍 Relevant regions: {'target_regions': [26], 'predicted_action': 'tap'}
+2026-05-08 17:16:42 | INFO | 🧠 GPT selected regions: [26]
+2026-05-08 17:16:42 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_0_relevant_regions.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_0_relevant_regions.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_0_screenshot-0.png
+2026-05-08 17:16:42 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:16:42 | INFO | {
+2026-05-08 17:16:42 | INFO |   "same_state": "yes"
+2026-05-08 17:16:42 | INFO | }
+2026-05-08 17:16:42 | INFO | ```
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_0_relevant_regions.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_0_tmp_stop.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_0_labeled.png
+2026-05-08 17:16:42 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:16:42 | INFO | {
+2026-05-08 17:16:42 | INFO | "action": "tap",
+2026-05-08 17:16:42 | INFO | "region": 7,
+2026-05-08 17:16:42 | INFO | "description": "Tap on the 'Enable Auto Start' checkbox to uncheck it."
+2026-05-08 17:16:42 | INFO | }
+2026-05-08 17:16:42 | INFO | ```
+2026-05-08 17:16:42 | INFO | 🎯 Using region index: 7 at (181, 1610)
+2026-05-08 17:16:42 | INFO | [1] Tap on the 'Enable Auto Start' checkbox to uncheck it. -> tap
+2026-05-08 17:16:42 | INFO | ✅ Action executed.
+2026-05-08 17:16:42 | INFO | 
+2026-05-08 17:16:42 | INFO | 
+2026-05-08 17:16:42 | INFO | 📂 Processing segment 1...
+2026-05-08 17:16:42 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_screenshot-0.png
+2026-05-08 17:16:42 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_dino.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_dino.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_tmp_stop.png
+2026-05-08 17:16:42 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 17:16:42 | INFO | {
+2026-05-08 17:16:42 | INFO |   "target_regions": [],
+2026-05-08 17:16:42 | INFO |   "predicted_action": "no action"
+2026-05-08 17:16:42 | INFO | }
+2026-05-08 17:16:42 | INFO | ```
+2026-05-08 17:16:42 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'no action'}
+2026-05-08 17:16:42 | INFO | 🧠 GPT selected regions: []
+2026-05-08 17:16:42 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_relevant_regions.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_screenshot-0.png
+2026-05-08 17:16:42 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:16:42 | INFO | {
+2026-05-08 17:16:42 | INFO |   "same_state": "no",
+2026-05-08 17:16:42 | INFO |   "description": "The current screen displays a modal dialog box titled 'Autostart Permission Needed' which is not present in the reference screen. This dialog blocks interaction with the underlying application content."
+2026-05-08 17:16:42 | INFO | }
+2026-05-08 17:16:42 | INFO | ```
+2026-05-08 17:16:42 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_tmp_start.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_tmp_stop.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_labeled.png
+2026-05-08 17:16:42 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:16:42 | INFO | {
+2026-05-08 17:16:42 | INFO |   "action": "no action",
+2026-05-08 17:16:42 | INFO |   "description": "No Action needed."
+2026-05-08 17:16:42 | INFO | }
+2026-05-08 17:16:42 | INFO | ```
+2026-05-08 17:16:42 | INFO | [1] No Action needed. -> no action
+2026-05-08 17:16:42 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_screenshot-0.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_tmp_stop.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_screenshot-0.png
+2026-05-08 17:16:42 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:16:42 | INFO | {
+2026-05-08 17:16:42 | INFO |   "same_state": "yes"
+2026-05-08 17:16:42 | INFO | }
+2026-05-08 17:16:42 | INFO | ```
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_relevant_regions.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_tmp_stop.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_1_labeled.png
+2026-05-08 17:16:42 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:16:42 | INFO | {
+2026-05-08 17:16:42 | INFO |   "action": "no action",
+2026-05-08 17:16:42 | INFO |   "description": "The original action resulted in no change to the screen, so no action is needed on the current screen."
+2026-05-08 17:16:42 | INFO | }
+2026-05-08 17:16:42 | INFO | ```
+2026-05-08 17:16:42 | INFO | ⚠️ No valid region or element match. Proceeding without position.
+2026-05-08 17:16:42 | INFO | [1] The original action resulted in no change to the screen, so no action is needed on the current screen. -> no action
+2026-05-08 17:16:42 | INFO | ✅ Action executed.
+2026-05-08 17:16:42 | INFO | 
+2026-05-08 17:16:42 | INFO | 
+2026-05-08 17:16:42 | INFO | 📂 Processing segment 2...
+2026-05-08 17:16:42 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_screenshot-0.png
+2026-05-08 17:16:42 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_dino.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_dino.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_tmp_stop.png
+2026-05-08 17:16:42 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 17:16:42 | INFO | {
+2026-05-08 17:16:42 | INFO |   "target_regions": [],
+2026-05-08 17:16:42 | INFO |   "predicted_action": "no action"
+2026-05-08 17:16:42 | INFO | }
+2026-05-08 17:16:42 | INFO | ```
+2026-05-08 17:16:42 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'no action'}
+2026-05-08 17:16:42 | INFO | 🧠 GPT selected regions: []
+2026-05-08 17:16:42 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_relevant_regions.png
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_screenshot-0.png
+2026-05-08 17:16:42 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:16:42 | INFO | {
+2026-05-08 17:16:42 | INFO |   "same_state": "no",
+2026-05-08 17:16:42 | INFO |   "description": "The current screen shows a different state of the UI elements compared to the reference screen. Specifically, the 'Log for' input field is empty and has an error message, the 'Ring alarm at' value is different (50 vs 60), and the 'Enable temperature alarm' and 'Enable Auto Start' checkboxes are checked, whereas they were unchecked in the reference image."
+2026-05-08 17:16:42 | INFO | }
+2026-05-08 17:16:42 | INFO | ```
+2026-05-08 17:16:42 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 17:16:42 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_tmp_start.png
+2026-05-08 17:17:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_tmp_stop.pngUserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 17:17:18 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 17:17:22 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 17:18:30 | INFO | 
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_labeled.png
+2026-05-08 17:18:30 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:18:30 | INFO | {
+2026-05-08 17:18:30 | INFO |     "action": "no action",
+2026-05-08 17:18:30 | INFO |     "description": "No Action needed."
+2026-05-08 17:18:30 | INFO | }
+2026-05-08 17:18:30 | INFO | ```
+2026-05-08 17:18:30 | INFO | [1] No Action needed. -> no action
+2026-05-08 17:18:30 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_screenshot-0.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_tmp_stop.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_screenshot-0.png
+2026-05-08 17:18:30 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:18:30 | INFO | {
+2026-05-08 17:18:30 | INFO |   "same_state": "yes"
+2026-05-08 17:18:30 | INFO | }
+2026-05-08 17:18:30 | INFO | ```
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_relevant_regions.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_tmp_stop.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_2_labeled.png
+2026-05-08 17:18:30 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:18:30 | INFO | {
+2026-05-08 17:18:30 | INFO |   "action": "no action",
+2026-05-08 17:18:30 | INFO |   "description": "No action is needed as the screen state did not change in the recording."
+2026-05-08 17:18:30 | INFO | }
+2026-05-08 17:18:30 | INFO | ```
+2026-05-08 17:18:30 | INFO | ⚠️ No valid region or element match. Proceeding without position.
+2026-05-08 17:18:30 | INFO | [1] No action is needed as the screen state did not change in the recording. -> no action
+2026-05-08 17:18:30 | INFO | ✅ Action executed.
+2026-05-08 17:18:30 | INFO | 
+2026-05-08 17:18:30 | INFO | 
+2026-05-08 17:18:30 | INFO | 📂 Processing segment 3...
+2026-05-08 17:18:30 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_3_screenshot-0.png
+2026-05-08 17:18:30 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_3_dino.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_3_dino.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_3_tmp_stop.png
+2026-05-08 17:18:30 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 17:18:30 | INFO | {
+2026-05-08 17:18:30 | INFO |   "target_regions": [
+2026-05-08 17:18:30 | INFO |     1
+2026-05-08 17:18:30 | INFO |   ],
+2026-05-08 17:18:30 | INFO |   "predicted_action": "tap"
+2026-05-08 17:18:30 | INFO | }
+2026-05-08 17:18:30 | INFO | ```
+2026-05-08 17:18:30 | INFO | 🔍 Relevant regions: {'target_regions': [1], 'predicted_action': 'tap'}
+2026-05-08 17:18:30 | INFO | 🧠 GPT selected regions: [1]
+2026-05-08 17:18:30 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_3_relevant_regions.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_3_relevant_regions.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_3_screenshot-0.png
+2026-05-08 17:18:30 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:18:30 | INFO | {
+2026-05-08 17:18:30 | INFO |   "same_state": "yes"
+2026-05-08 17:18:30 | INFO | }
+2026-05-08 17:18:30 | INFO | ```
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_3_relevant_regions.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_3_tmp_stop.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_3_labeled.png
+2026-05-08 17:18:30 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:18:30 | INFO | {
+2026-05-08 17:18:30 | INFO |   "action": "tap",
+2026-05-08 17:18:30 | INFO |   "region": 6,
+2026-05-08 17:18:30 | INFO |   "description": "Tap on the checkbox next to 'Enable temperature alarm'."
+2026-05-08 17:18:30 | INFO | }
+2026-05-08 17:18:30 | INFO | ```
+2026-05-08 17:18:30 | INFO | 🎯 Using region index: 6 at (740, 1208)
+2026-05-08 17:18:30 | INFO | [1] Tap on the checkbox next to 'Enable temperature alarm'. -> tap
+2026-05-08 17:18:30 | INFO | ✅ Action executed.
+2026-05-08 17:18:30 | INFO | 
+2026-05-08 17:18:30 | INFO | 
+2026-05-08 17:18:30 | INFO | 📂 Processing segment 4...
+2026-05-08 17:18:30 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_screenshot-0.png
+2026-05-08 17:18:30 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_dino.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_dino.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_tmp_stop.png
+2026-05-08 17:18:30 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 17:18:30 | INFO | {
+2026-05-08 17:18:30 | INFO |   "target_regions": [
+2026-05-08 17:18:30 | INFO |     3
+2026-05-08 17:18:30 | INFO |   ],
+2026-05-08 17:18:30 | INFO |   "predicted_action": "tap"
+2026-05-08 17:18:30 | INFO | }
+2026-05-08 17:18:30 | INFO | ```
+2026-05-08 17:18:30 | INFO | 🔍 Relevant regions: {'target_regions': [3], 'predicted_action': 'tap'}
+2026-05-08 17:18:30 | INFO | 🧠 GPT selected regions: [3]
+2026-05-08 17:18:30 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_relevant_regions.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_relevant_regions.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_screenshot-0.png
+2026-05-08 17:18:30 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:18:30 | INFO | {
+2026-05-08 17:18:30 | INFO |   "same_state": "no",
+2026-05-08 17:18:30 | INFO |   "description": "The current screen shows an error state where the 'Log for' duration has not been entered, indicated by a red exclamation mark and a toast message 'Please enter duration'. In the reference screen, a valid duration ('1') is entered, and the app is ready to start logging. Therefore, the action of starting the log cannot be performed in the same way."
+2026-05-08 17:18:30 | INFO | }
+2026-05-08 17:18:30 | INFO | ```
+2026-05-08 17:18:30 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_tmp_start.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_tmp_stop.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_labeled.png
+2026-05-08 17:18:30 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:18:30 | INFO | {
+2026-05-08 17:18:30 | INFO |   "action": "tap",
+2026-05-08 17:18:30 | INFO |   "region": 3,
+2026-05-08 17:18:30 | INFO |   "description": "Tap the 'START LOGGING' button to begin logging battery temperature."
+2026-05-08 17:18:30 | INFO | }
+2026-05-08 17:18:30 | INFO | ```
+2026-05-08 17:18:30 | INFO | 🎯 Recovery using region index: 3 at (821, 919)
+2026-05-08 17:18:30 | INFO | [1] Tap the 'START LOGGING' button to begin logging battery temperature. -> tap
+2026-05-08 17:18:30 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_screenshot-0.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_tmp_stop.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_screenshot-0.png
+2026-05-08 17:18:30 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:18:30 | INFO | {
+2026-05-08 17:18:30 | INFO |   "same_state": "no",
+2026-05-08 17:18:30 | INFO |   "description": "The state of the logging feature is different. In the reference image, logging is active, and the button says 'STOP LOGGING'. In the current image, logging is not active, the button says 'START LOGGING', and there is an error message prompting the user to enter a duration."
+2026-05-08 17:18:30 | INFO | }
+2026-05-08 17:18:30 | INFO | ```
+2026-05-08 17:18:30 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_tmp_start.png
+2026-05-08 17:18:30 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_tmp_stop.png
+2026-05-08 17:18:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_labeled.pngUserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 17:18:48 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 17:18:52 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 17:19:39 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 17:19:39 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 17:19:43 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 17:20:45 | INFO | 
+2026-05-08 17:20:45 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:20:45 | INFO | {
+2026-05-08 17:20:45 | INFO |   "action": "tap",
+2026-05-08 17:20:45 | INFO |   "region": 3,
+2026-05-08 17:20:45 | INFO |   "description": "Tap the 'START LOGGING' button to begin logging battery temperature."
+2026-05-08 17:20:45 | INFO | }
+2026-05-08 17:20:45 | INFO | ```
+2026-05-08 17:20:45 | INFO | 🎯 Recovery using region index: 3 at (821, 919)
+2026-05-08 17:20:45 | INFO | [1] Tap the 'START LOGGING' button to begin logging battery temperature. -> tap
+2026-05-08 17:20:45 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_screenshot-0.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_tmp_stop.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_screenshot-0.png
+2026-05-08 17:20:45 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:20:45 | INFO | {
+2026-05-08 17:20:45 | INFO |   "same_state": "no",
+2026-05-08 17:20:45 | INFO |   "description": "The logging state is different between the two screens. In the reference image, logging is active, as indicated by the 'STOP LOGGING' button. In the current image, logging is not active, as shown by the 'START LOGGING' button and an error message 'Please enter duration'."
+2026-05-08 17:20:45 | INFO | }
+2026-05-08 17:20:45 | INFO | ```
+2026-05-08 17:20:45 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_tmp_start.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_tmp_stop.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_labeled.png
+2026-05-08 17:20:45 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:20:45 | INFO | {
+2026-05-08 17:20:45 | INFO |   "action": "tap",
+2026-05-08 17:20:45 | INFO |   "region": 3,
+2026-05-08 17:20:45 | INFO |   "description": "Tap on the START LOGGING button."
+2026-05-08 17:20:45 | INFO | }
+2026-05-08 17:20:45 | INFO | ```
+2026-05-08 17:20:45 | INFO | 🎯 Recovery using region index: 3 at (821, 919)
+2026-05-08 17:20:45 | INFO | [1] Tap on the START LOGGING button. -> tap
+2026-05-08 17:20:45 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_screenshot-0.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_tmp_stop.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_4_screenshot-0.png
+2026-05-08 17:20:45 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:20:45 | INFO | {
+2026-05-08 17:20:45 | INFO |   "same_state": "no",
+2026-05-08 17:20:45 | INFO |   "description": "The state of the logging feature is different. In the reference image, logging is active, indicated by the 'STOP LOGGING' button. In the current image, logging is not active, indicated by the 'START LOGGING' button and an error message prompting the user to enter a duration."
+2026-05-08 17:20:45 | INFO | }
+2026-05-08 17:20:45 | INFO | ```
+2026-05-08 17:20:45 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-08 17:20:45 | INFO | Mismatch reason: the state of the logging feature is different. in the reference image, logging is active, indicated by the 'stop logging' button. in the current image, logging is not active, indicated by the 'start logging' button and an error message prompting the user to enter a duration.
+2026-05-08 17:20:45 | INFO | 
+2026-05-08 17:20:45 | INFO | 📂 Processing segment 5...
+2026-05-08 17:20:45 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_screenshot-0.png
+2026-05-08 17:20:45 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_dino.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_dino.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_tmp_stop.png
+2026-05-08 17:20:45 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 17:20:45 | INFO | {
+2026-05-08 17:20:45 | INFO |   "target_regions": [
+2026-05-08 17:20:45 | INFO |     20,
+2026-05-08 17:20:45 | INFO |     25
+2026-05-08 17:20:45 | INFO |   ],
+2026-05-08 17:20:45 | INFO |   "predicted_action": "tap"
+2026-05-08 17:20:45 | INFO | }
+2026-05-08 17:20:45 | INFO | ```
+2026-05-08 17:20:45 | INFO | 🔍 Relevant regions: {'target_regions': [20, 25], 'predicted_action': 'tap'}
+2026-05-08 17:20:45 | INFO | 🧠 GPT selected regions: [20, 25]
+2026-05-08 17:20:45 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_relevant_regions.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_relevant_regions.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_screenshot-0.png
+2026-05-08 17:20:45 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:20:45 | INFO | {
+2026-05-08 17:20:45 | INFO |   "same_state": "no",
+2026-05-08 17:20:45 | INFO |   "description": "The state of the logging functionality is different. In the reference image, logging is active, indicated by the \"STOP LOGGING\" button. In the current image, logging is not active, indicated by the \"START LOGGING\" button and an error message \"Please enter duration\"."
+2026-05-08 17:20:45 | INFO | }
+2026-05-08 17:20:45 | INFO | ```
+2026-05-08 17:20:45 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_tmp_start.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_tmp_stop.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_labeled.png
+2026-05-08 17:20:45 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:20:45 | INFO | {
+2026-05-08 17:20:45 | INFO |     "action": "tap",
+2026-05-08 17:20:45 | INFO |     "region": 3,
+2026-05-08 17:20:45 | INFO |     "description": "Tap the 'START LOGGING' button."
+2026-05-08 17:20:45 | INFO | }
+2026-05-08 17:20:45 | INFO | ```
+2026-05-08 17:20:45 | INFO | 🎯 Recovery using region index: 3 at (821, 919)
+2026-05-08 17:20:45 | INFO | [1] Tap the 'START LOGGING' button. -> tap
+2026-05-08 17:20:45 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_screenshot-0.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_tmp_stop.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_screenshot-0.png
+2026-05-08 17:20:45 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:20:45 | INFO | {
+2026-05-08 17:20:45 | INFO |   "same_state": "no",
+2026-05-08 17:20:45 | INFO |   "description": "The two screens are in different functional states. The reference screen shows a state where logging has just finished, and a new log can be started immediately as the duration field is filled. The current screen shows an error state because the duration field is empty, and an error message \"Please enter duration\" is displayed, preventing the user from starting the logging process."
+2026-05-08 17:20:45 | INFO | }
+2026-05-08 17:20:45 | INFO | ```
+2026-05-08 17:20:45 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_tmp_start.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_tmp_stop.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_labeled.png
+2026-05-08 17:20:45 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:20:45 | INFO | {
+2026-05-08 17:20:45 | INFO | "action": "tap",
+2026-05-08 17:20:45 | INFO | "region": 3,
+2026-05-08 17:20:45 | INFO | "description": "Tap the START LOGGING button."
+2026-05-08 17:20:45 | INFO | }
+2026-05-08 17:20:45 | INFO | ```
+2026-05-08 17:20:45 | INFO | 🎯 Recovery using region index: 3 at (821, 919)
+2026-05-08 17:20:45 | INFO | [1] Tap the START LOGGING button. -> tap
+2026-05-08 17:20:45 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_screenshot-0.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_tmp_stop.png
+2026-05-08 17:20:45 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_screenshot-0.png
+2026-05-08 17:20:45 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:20:45 | INFO | {
+2026-05-08 17:20:45 | INFO |   "same_state": "yes"
+2026-05-08 17:20:45 | INFO | }
+2026-05-08 17:20:45 | INFO | ```
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_relevant_regions.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_tmp_stop.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_5_labeled.png
+2026-05-08 17:20:56 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:20:56 | INFO | {
+2026-05-08 17:20:56 | INFO |     "action": "tap",
+2026-05-08 17:20:56 | INFO |     "region": 3,
+2026-05-08 17:20:56 | INFO |     "description": "Tap the 'START LOGGING' button."
+2026-05-08 17:20:56 | INFO | }
+2026-05-08 17:20:56 | INFO | ```
+2026-05-08 17:20:56 | INFO | 🎯 Using region index: 3 at (821, 919)
+2026-05-08 17:20:56 | INFO | [1] Tap the 'START LOGGING' button. -> tap
+2026-05-08 17:20:56 | INFO | ✅ Action executed.
+2026-05-08 17:20:56 | INFO | 
+2026-05-08 17:20:56 | INFO | 
+2026-05-08 17:20:56 | INFO | 📂 Processing segment 6...
+2026-05-08 17:20:56 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_6_screenshot-0.png
+2026-05-08 17:20:56 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_6_dino.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_6_dino.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_6_tmp_stop.png
+2026-05-08 17:20:56 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 17:20:56 | INFO | {
+2026-05-08 17:20:56 | INFO |   "target_regions": [
+2026-05-08 17:20:56 | INFO |     38
+2026-05-08 17:20:56 | INFO |   ],
+2026-05-08 17:20:56 | INFO |   "predicted_action": "tap"
+2026-05-08 17:20:56 | INFO | }
+2026-05-08 17:20:56 | INFO | ```
+2026-05-08 17:20:56 | INFO | 🔍 Relevant regions: {'target_regions': [38], 'predicted_action': 'tap'}
+2026-05-08 17:20:56 | INFO | 🧠 GPT selected regions: [38]
+2026-05-08 17:20:56 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_6_relevant_regions.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_6_relevant_regions.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_6_screenshot-0.png
+2026-05-08 17:20:56 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:20:56 | INFO | {
+2026-05-08 17:20:56 | INFO |   "same_state": "yes"
+2026-05-08 17:20:56 | INFO | }
+2026-05-08 17:20:56 | INFO | ```
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_6_relevant_regions.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_6_tmp_stop.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_6_labeled.png
+2026-05-08 17:20:56 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:20:56 | INFO | {
+2026-05-08 17:20:56 | INFO |   "action": "tap",
+2026-05-08 17:20:56 | INFO |   "region": 8,
+2026-05-08 17:20:56 | INFO |   "description": "Tap the 'KILL APP & EXIT' button."
+2026-05-08 17:20:56 | INFO | }
+2026-05-08 17:20:56 | INFO | ```
+2026-05-08 17:20:56 | INFO | 🎯 Using region index: 8 at (518, 1659)
+2026-05-08 17:20:56 | INFO | [1] Tap the 'KILL APP & EXIT' button. -> tap
+2026-05-08 17:20:56 | INFO | ✅ Action executed.
+2026-05-08 17:20:56 | INFO | 
+2026-05-08 17:20:56 | INFO | 
+2026-05-08 17:20:56 | INFO | 📂 Processing segment 7...
+2026-05-08 17:20:56 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_screenshot-0.png
+2026-05-08 17:20:56 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_dino.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_dino.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_tmp_stop.png
+2026-05-08 17:20:56 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 17:20:56 | INFO | {
+2026-05-08 17:20:56 | INFO |   "target_regions": [
+2026-05-08 17:20:56 | INFO |     28
+2026-05-08 17:20:56 | INFO |   ],
+2026-05-08 17:20:56 | INFO |   "predicted_action": "home"
+2026-05-08 17:20:56 | INFO | }
+2026-05-08 17:20:56 | INFO | ```
+2026-05-08 17:20:56 | INFO | 🔍 Relevant regions: {'target_regions': [28], 'predicted_action': 'home'}
+2026-05-08 17:20:56 | INFO | 🧠 GPT selected regions: [28]
+2026-05-08 17:20:56 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_relevant_regions.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_relevant_regions.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_screenshot-0.png
+2026-05-08 17:20:56 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:20:56 | INFO | {
+2026-05-08 17:20:56 | INFO |   "same_state": "no",
+2026-05-08 17:20:56 | INFO |   "description": "The reference screen shows the 'Battery Temperature' app, while the current screen is the Android home screen. The user cannot interact with the app's features from the home screen."
+2026-05-08 17:20:56 | INFO | }
+2026-05-08 17:20:56 | INFO | ```
+2026-05-08 17:20:56 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_tmp_start.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_tmp_stop.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_labeled.png
+2026-05-08 17:20:56 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:20:56 | INFO | {
+2026-05-08 17:20:56 | INFO |   "action": "home",
+2026-05-08 17:20:56 | INFO |   "description": "Return to home."
+2026-05-08 17:20:56 | INFO | }
+2026-05-08 17:20:56 | INFO | ```
+2026-05-08 17:20:56 | INFO | [1] Return to home. -> home
+2026-05-08 17:20:56 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_screenshot-0.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_tmp_stop.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_screenshot-0.png
+2026-05-08 17:20:56 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:20:56 | INFO | {
+2026-05-08 17:20:56 | INFO |   "same_state": "no",
+2026-05-08 17:20:56 | INFO |   "description": "The reference screen shows the app drawer, which lists all installed applications. The current screen is the home screen. These are two different functional states of the Android launcher."
+2026-05-08 17:20:56 | INFO | }
+2026-05-08 17:20:56 | INFO | ```
+2026-05-08 17:20:56 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_tmp_start.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_tmp_stop.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_labeled.png
+2026-05-08 17:20:56 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:20:56 | INFO | {
+2026-05-08 17:20:56 | INFO |   "action": "home",
+2026-05-08 17:20:56 | INFO |   "description": "Return to home."
+2026-05-08 17:20:56 | INFO | }
+2026-05-08 17:20:56 | INFO | ```
+2026-05-08 17:20:56 | INFO | [1] Return to home. -> home
+2026-05-08 17:20:56 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_screenshot-0.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_tmp_stop.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_screenshot-0.png
+2026-05-08 17:20:56 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:20:56 | INFO | {
+2026-05-08 17:20:56 | INFO |   "same_state": "no",
+2026-05-08 17:20:56 | INFO |   "description": "The reference screen shows an open app drawer, displaying a grid of application icons. The current screen shows the home screen, and the app drawer is not open, meaning the app icons are not visible or accessible."
+2026-05-08 17:20:56 | INFO | }
+2026-05-08 17:20:56 | INFO | ```
+2026-05-08 17:20:56 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_tmp_start.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_tmp_stop.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_labeled.png
+2026-05-08 17:20:56 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 17:20:56 | INFO | {
+2026-05-08 17:20:56 | INFO |   "action": "home",
+2026-05-08 17:20:56 | INFO |   "description": "Return to home."
+2026-05-08 17:20:56 | INFO | }
+2026-05-08 17:20:56 | INFO | ```
+2026-05-08 17:20:56 | INFO | [1] Return to home. -> home
+2026-05-08 17:20:56 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_screenshot-0.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_tmp_stop.png
+2026-05-08 17:20:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/step_7_screenshot-0.png
+2026-05-08 17:20:56 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 17:20:56 | INFO | {
+2026-05-08 17:20:56 | INFO |   "same_state": "no",
+2026-05-08 17:20:56 | INFO |   "description": "The reference screen displays the app drawer, showing a grid of installed applications. The current screen is the home screen, which does not show the app drawer. Therefore, the user cannot perform the same actions, such as launching an app from the app drawer, from the current screen."
+2026-05-08 17:20:56 | INFO | }
+2026-05-08 17:20:56 | INFO | ```
+2026-05-08 17:20:56 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-08 17:20:56 | INFO | Mismatch reason: the reference screen displays the app drawer, showing a grid of installed applications. the current screen is the home screen, which does not show the app drawer. therefore, the user cannot perform the same actions, such as launching an app from the app drawer, from the current screen.
+2026-05-08 17:20:56 | INFO | ✅ Video processing completed.
+2026-05-08 17:20:56 | INFO | 📝 Summary saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/batterytemperaturedisplay/llm/ViBR_gemini/screenrec/run-001/artifacts/srv-001/memory.md
+2026-05-08 17:20:57 | INFO | ========================================================================
+RUN SUMMARY
+  App         : batterytemperaturedisplay
+  Video type  : screenrec
+  Status      : success
+  Scenes      : 8/8
+  Actions     : unknown=8
+  LLM calls   : action_inference=16  region_detection=8  state_comparison=18
+  LLM latency : min=4.0s  max=22.6s  avg=9.6s  total=403.8s
+  Tokens used : prompt=41,080  output=1,882  total=42,962
+  Wall time   : 8m 48s
+========================================================================
+
+```

@@ -1,0 +1,2036 @@
+# ViBR Run Log
+
+**Status**: SUCCESS
+
+## Full Log
+
+```
+2026-05-08 16:20:23 | INFO | === src_vibr.2026-05-08T20-20-23__run-001__pipeline__started ===
+2026-05-08 16:20:23 | INFO | Starting ViBR run
+2026-05-08 16:20:23 | INFO | App: bakerspercentagecalculator
+2026-05-08 16:20:23 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/videos/hhv-001.mp4
+2026-05-08 16:20:23 | INFO | Algorithm: clip
+2026-05-08 16:20:23 | INFO | LLM: gemini (gemini-2.5-pro)
+2026-05-08 16:20:23 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001
+2026-05-08 16:20:28 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-08 16:20:28 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-08 16:20:28 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-08 16:20:29 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-08 16:20:29 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-08 16:20:29 | INFO | 
+2026-05-08 16:20:29 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-08 16:20:29 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 15664.19it/s]
+2026-05-08 16:20:29 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-08 16:20:29 | INFO | Key                                        | Status     |  | 
+2026-05-08 16:20:29 | INFO | -------------------------------------------+------------+--+-
+2026-05-08 16:20:29 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-08 16:20:29 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-08 16:20:29 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-08 16:20:29 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-08 16:20:29 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-08 16:20:29 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-08 16:20:29 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-08 16:20:29 | INFO | 
+2026-05-08 16:20:29 | INFO | Notes:
+2026-05-08 16:20:29 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-08 16:20:40 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-pro)...
+2026-05-08 16:20:40 | INFO | Initializing ADB device controller...
+2026-05-08 16:20:40 | INFO | 📱 Preparing device for app: bakerspercentagecalculator
+2026-05-08 16:20:40 | INFO | 🏠 Going to home screen...
+2026-05-08 16:20:40 | INFO | 🚀 Opening app 'bakerspercentagecalculator' with command: am start -n com.pep1lo.bakerspercentagecalculator/.MainActivity
+2026-05-08 16:20:40 | INFO | ✅ App 'bakerspercentagecalculator' opened and ready
+2026-05-08 16:20:40 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/screenshot-0.png
+2026-05-08 16:20:40 | INFO | Reading frames from video...
+2026-05-08 16:20:40 | INFO | Reading frame:  2
+2026-05-08 16:20:40 | INFO | Reading frame:  3
+2026-05-08 16:20:40 | INFO | Reading frame:  4
+2026-05-08 16:20:40 | INFO | Reading frame:  5
+2026-05-08 16:20:40 | INFO | Reading frame:  6
+2026-05-08 16:20:40 | INFO | Reading frame:  7
+2026-05-08 16:20:40 | INFO | Reading frame:  8
+2026-05-08 16:20:40 | INFO | Reading frame:  9
+2026-05-08 16:20:40 | INFO | Reading frame:  10
+2026-05-08 16:20:40 | INFO | Reading frame:  11
+2026-05-08 16:20:40 | INFO | Reading frame:  12
+2026-05-08 16:20:40 | INFO | Reading frame:  13
+2026-05-08 16:20:40 | INFO | Reading frame:  14
+2026-05-08 16:20:40 | INFO | Reading frame:  15
+2026-05-08 16:20:40 | INFO | Reading frame:  16
+2026-05-08 16:20:40 | INFO | Reading frame:  17
+2026-05-08 16:20:40 | INFO | Reading frame:  18
+2026-05-08 16:20:40 | INFO | Reading frame:  19
+2026-05-08 16:20:40 | INFO | Reading frame:  20
+2026-05-08 16:20:40 | INFO | Reading frame:  21
+2026-05-08 16:20:40 | INFO | Reading frame:  22
+2026-05-08 16:20:40 | INFO | Reading frame:  23
+2026-05-08 16:20:40 | INFO | Reading frame:  24
+2026-05-08 16:20:40 | INFO | Reading frame:  25
+2026-05-08 16:20:40 | INFO | Reading frame:  26
+2026-05-08 16:20:40 | INFO | Reading frame:  27
+2026-05-08 16:20:40 | INFO | Reading frame:  28
+2026-05-08 16:20:40 | INFO | Reading frame:  29
+2026-05-08 16:20:40 | INFO | Reading frame:  30
+2026-05-08 16:20:40 | INFO | Reading frame:  31
+2026-05-08 16:20:40 | INFO | Reading frame:  32
+2026-05-08 16:20:40 | INFO | Reading frame:  33
+2026-05-08 16:20:40 | INFO | Reading frame:  34
+2026-05-08 16:20:40 | INFO | Reading frame:  35
+2026-05-08 16:20:40 | INFO | Reading frame:  36
+2026-05-08 16:20:40 | INFO | Reading frame:  37
+2026-05-08 16:20:40 | INFO | Reading frame:  38
+2026-05-08 16:20:40 | INFO | Reading frame:  39
+2026-05-08 16:20:40 | INFO | Reading frame:  40
+2026-05-08 16:20:40 | INFO | Reading frame:  41
+2026-05-08 16:20:40 | INFO | Reading frame:  42
+2026-05-08 16:20:40 | INFO | Reading frame:  43
+2026-05-08 16:20:40 | INFO | Reading frame:  44
+2026-05-08 16:20:40 | INFO | Reading frame:  45
+2026-05-08 16:20:40 | INFO | Reading frame:  46
+2026-05-08 16:20:40 | INFO | Reading frame:  47
+2026-05-08 16:20:40 | INFO | Reading frame:  48
+2026-05-08 16:20:40 | INFO | Reading frame:  49
+2026-05-08 16:20:40 | INFO | Reading frame:  50
+2026-05-08 16:20:40 | INFO | Reading frame:  51
+2026-05-08 16:20:40 | INFO | Reading frame:  52
+2026-05-08 16:20:40 | INFO | Reading frame:  53
+2026-05-08 16:20:40 | INFO | Reading frame:  54
+2026-05-08 16:20:40 | INFO | Reading frame:  55
+2026-05-08 16:20:40 | INFO | Reading frame:  56
+2026-05-08 16:20:40 | INFO | Reading frame:  57
+2026-05-08 16:20:40 | INFO | Reading frame:  58
+2026-05-08 16:20:40 | INFO | Reading frame:  59
+2026-05-08 16:20:40 | INFO | Reading frame:  60
+2026-05-08 16:20:40 | INFO | Reading frame:  61
+2026-05-08 16:20:40 | INFO | Reading frame:  62
+2026-05-08 16:20:40 | INFO | Reading frame:  63
+2026-05-08 16:20:40 | INFO | Reading frame:  64
+2026-05-08 16:20:40 | INFO | Reading frame:  65
+2026-05-08 16:20:40 | INFO | Reading frame:  66
+2026-05-08 16:20:40 | INFO | Reading frame:  67
+2026-05-08 16:20:40 | INFO | Reading frame:  68
+2026-05-08 16:20:40 | INFO | Reading frame:  69
+2026-05-08 16:20:40 | INFO | Reading frame:  70
+2026-05-08 16:20:40 | INFO | Reading frame:  71
+2026-05-08 16:20:40 | INFO | Reading frame:  72
+2026-05-08 16:20:40 | INFO | Reading frame:  73
+2026-05-08 16:20:40 | INFO | Reading frame:  74
+2026-05-08 16:20:40 | INFO | Reading frame:  75
+2026-05-08 16:20:40 | INFO | Reading frame:  76
+2026-05-08 16:20:40 | INFO | Reading frame:  77
+2026-05-08 16:20:40 | INFO | Reading frame:  78
+2026-05-08 16:20:40 | INFO | Reading frame:  79
+2026-05-08 16:20:40 | INFO | Reading frame:  80
+2026-05-08 16:20:40 | INFO | Reading frame:  81
+2026-05-08 16:20:40 | INFO | Reading frame:  82
+2026-05-08 16:20:40 | INFO | Reading frame:  83
+2026-05-08 16:20:40 | INFO | Reading frame:  84
+2026-05-08 16:20:40 | INFO | Reading frame:  85
+2026-05-08 16:20:40 | INFO | Reading frame:  86
+2026-05-08 16:20:40 | INFO | Reading frame:  87
+2026-05-08 16:20:40 | INFO | Reading frame:  88
+2026-05-08 16:20:40 | INFO | Reading frame:  89
+2026-05-08 16:20:40 | INFO | Reading frame:  90
+2026-05-08 16:20:40 | INFO | Reading frame:  91
+2026-05-08 16:20:40 | INFO | Reading frame:  92
+2026-05-08 16:20:40 | INFO | Reading frame:  93
+2026-05-08 16:20:40 | INFO | Reading frame:  94
+2026-05-08 16:20:40 | INFO | Reading frame:  95
+2026-05-08 16:20:40 | INFO | Reading frame:  96
+2026-05-08 16:20:40 | INFO | Reading frame:  97
+2026-05-08 16:20:40 | INFO | Reading frame:  98
+2026-05-08 16:20:40 | INFO | Reading frame:  99
+2026-05-08 16:20:40 | INFO | Reading frame:  100
+2026-05-08 16:20:40 | INFO | Reading frame:  101
+2026-05-08 16:20:40 | INFO | Reading frame:  102
+2026-05-08 16:20:40 | INFO | Reading frame:  103
+2026-05-08 16:20:40 | INFO | Reading frame:  104
+2026-05-08 16:20:40 | INFO | Reading frame:  105
+2026-05-08 16:20:40 | INFO | Reading frame:  106
+2026-05-08 16:20:40 | INFO | Reading frame:  107
+2026-05-08 16:20:40 | INFO | Reading frame:  108
+2026-05-08 16:20:40 | INFO | Reading frame:  109
+2026-05-08 16:20:40 | INFO | Reading frame:  110
+2026-05-08 16:20:40 | INFO | Reading frame:  111
+2026-05-08 16:20:40 | INFO | Reading frame:  112
+2026-05-08 16:20:40 | INFO | Reading frame:  113
+2026-05-08 16:20:40 | INFO | Reading frame:  114
+2026-05-08 16:20:40 | INFO | Reading frame:  115
+2026-05-08 16:20:40 | INFO | Reading frame:  116
+2026-05-08 16:20:40 | INFO | Reading frame:  117
+2026-05-08 16:20:40 | INFO | Reading frame:  118
+2026-05-08 16:20:40 | INFO | Reading frame:  119
+2026-05-08 16:20:40 | INFO | Reading frame:  120
+2026-05-08 16:20:40 | INFO | Reading frame:  121
+2026-05-08 16:20:40 | INFO | Reading frame:  122
+2026-05-08 16:20:40 | INFO | Reading frame:  123
+2026-05-08 16:20:40 | INFO | Reading frame:  124
+2026-05-08 16:20:40 | INFO | Reading frame:  125
+2026-05-08 16:20:40 | INFO | Reading frame:  126
+2026-05-08 16:20:40 | INFO | Reading frame:  127
+2026-05-08 16:20:40 | INFO | Reading frame:  128
+2026-05-08 16:20:40 | INFO | Reading frame:  129
+2026-05-08 16:20:40 | INFO | Reading frame:  130
+2026-05-08 16:20:40 | INFO | Reading frame:  131
+2026-05-08 16:20:40 | INFO | Reading frame:  132
+2026-05-08 16:20:40 | INFO | Reading frame:  133
+2026-05-08 16:20:40 | INFO | Reading frame:  134
+2026-05-08 16:20:40 | INFO | Reading frame:  135
+2026-05-08 16:20:40 | INFO | Reading frame:  136
+2026-05-08 16:20:40 | INFO | Reading frame:  137
+2026-05-08 16:20:40 | INFO | Reading frame:  138
+2026-05-08 16:20:40 | INFO | Reading frame:  139
+2026-05-08 16:20:40 | INFO | Reading frame:  140
+2026-05-08 16:20:40 | INFO | Reading frame:  141
+2026-05-08 16:20:40 | INFO | Reading frame:  142
+2026-05-08 16:20:40 | INFO | Reading frame:  143
+2026-05-08 16:20:40 | INFO | Reading frame:  144
+2026-05-08 16:20:40 | INFO | Reading frame:  145
+2026-05-08 16:20:40 | INFO | Reading frame:  146
+2026-05-08 16:20:40 | INFO | Reading frame:  147
+2026-05-08 16:20:40 | INFO | Reading frame:  148
+2026-05-08 16:20:40 | INFO | Reading frame:  149
+2026-05-08 16:20:40 | INFO | Reading frame:  150
+2026-05-08 16:20:40 | INFO | Reading frame:  151
+2026-05-08 16:20:40 | INFO | Reading frame:  152
+2026-05-08 16:20:40 | INFO | Reading frame:  153
+2026-05-08 16:20:40 | INFO | Reading frame:  154
+2026-05-08 16:20:40 | INFO | Reading frame:  155
+2026-05-08 16:20:40 | INFO | Reading frame:  156
+2026-05-08 16:20:40 | INFO | Reading frame:  157
+2026-05-08 16:20:40 | INFO | Reading frame:  158
+2026-05-08 16:20:40 | INFO | Reading frame:  159
+2026-05-08 16:20:40 | INFO | Reading frame:  160
+2026-05-08 16:20:40 | INFO | Reading frame:  161
+2026-05-08 16:20:40 | INFO | Reading frame:  162
+2026-05-08 16:20:40 | INFO | Reading frame:  163
+2026-05-08 16:20:40 | INFO | Reading frame:  164
+2026-05-08 16:20:40 | INFO | Reading frame:  165
+2026-05-08 16:20:40 | INFO | Reading frame:  166
+2026-05-08 16:20:40 | INFO | Reading frame:  167
+2026-05-08 16:20:40 | INFO | Reading frame:  168
+2026-05-08 16:20:40 | INFO | Reading frame:  169
+2026-05-08 16:20:40 | INFO | Reading frame:  170
+2026-05-08 16:20:40 | INFO | Reading frame:  171
+2026-05-08 16:20:40 | INFO | Reading frame:  172
+2026-05-08 16:20:40 | INFO | Reading frame:  173
+2026-05-08 16:20:40 | INFO | Reading frame:  174
+2026-05-08 16:20:40 | INFO | Reading frame:  175
+2026-05-08 16:20:40 | INFO | Reading frame:  176
+2026-05-08 16:20:40 | INFO | Reading frame:  177
+2026-05-08 16:20:40 | INFO | Reading frame:  178
+2026-05-08 16:20:40 | INFO | Reading frame:  179
+2026-05-08 16:20:40 | INFO | Reading frame:  180
+2026-05-08 16:20:40 | INFO | Reading frame:  181
+2026-05-08 16:20:40 | INFO | Reading frame:  182
+2026-05-08 16:20:40 | INFO | Reading frame:  183
+2026-05-08 16:20:40 | INFO | Reading frame:  184
+2026-05-08 16:20:40 | INFO | Reading frame:  185
+2026-05-08 16:20:40 | INFO | Reading frame:  186
+2026-05-08 16:20:40 | INFO | Reading frame:  187
+2026-05-08 16:20:40 | INFO | Reading frame:  188
+2026-05-08 16:20:40 | INFO | Reading frame:  189
+2026-05-08 16:20:40 | INFO | Reading frame:  190
+2026-05-08 16:20:40 | INFO | Reading frame:  191
+2026-05-08 16:20:40 | INFO | Reading frame:  192
+2026-05-08 16:20:40 | INFO | Reading frame:  193
+2026-05-08 16:20:40 | INFO | Reading frame:  194
+2026-05-08 16:20:40 | INFO | Reading frame:  195
+2026-05-08 16:20:40 | INFO | Reading frame:  196
+2026-05-08 16:20:40 | INFO | Reading frame:  197
+2026-05-08 16:20:40 | INFO | Reading frame:  198
+2026-05-08 16:20:40 | INFO | Reading frame:  199
+2026-05-08 16:20:40 | INFO | Reading frame:  200
+2026-05-08 16:20:40 | INFO | Reading frame:  201
+2026-05-08 16:20:40 | INFO | Reading frame:  202
+2026-05-08 16:20:40 | INFO | Reading frame:  203
+2026-05-08 16:20:40 | INFO | Reading frame:  204
+2026-05-08 16:20:40 | INFO | Reading frame:  205
+2026-05-08 16:20:40 | INFO | Reading frame:  206
+2026-05-08 16:20:40 | INFO | Reading frame:  207
+2026-05-08 16:20:40 | INFO | Reading frame:  208
+2026-05-08 16:20:40 | INFO | Reading frame:  209
+2026-05-08 16:20:40 | INFO | Reading frame:  210
+2026-05-08 16:20:40 | INFO | Reading frame:  211
+2026-05-08 16:20:40 | INFO | Reading frame:  212
+2026-05-08 16:20:40 | INFO | Reading frame:  213
+2026-05-08 16:20:40 | INFO | Reading frame:  214
+2026-05-08 16:20:40 | INFO | Reading frame:  215
+2026-05-08 16:20:40 | INFO | Reading frame:  216
+2026-05-08 16:20:40 | INFO | Reading frame:  217
+2026-05-08 16:20:40 | INFO | Reading frame:  218
+2026-05-08 16:20:40 | INFO | Reading frame:  219
+2026-05-08 16:20:40 | INFO | Reading frame:  220
+2026-05-08 16:20:40 | INFO | Reading frame:  221
+2026-05-08 16:20:40 | INFO | Reading frame:  222
+2026-05-08 16:20:40 | INFO | Reading frame:  223
+2026-05-08 16:20:40 | INFO | Reading frame:  224
+2026-05-08 16:20:40 | INFO | Reading frame:  225
+2026-05-08 16:20:40 | INFO | Reading frame:  226
+2026-05-08 16:20:40 | INFO | Reading frame:  227
+2026-05-08 16:20:40 | INFO | Reading frame:  228
+2026-05-08 16:20:40 | INFO | Reading frame:  229
+2026-05-08 16:20:40 | INFO | Reading frame:  230
+2026-05-08 16:20:40 | INFO | Reading frame:  231
+2026-05-08 16:20:40 | INFO | Reading frame:  232
+2026-05-08 16:20:40 | INFO | Reading frame:  233
+2026-05-08 16:20:40 | INFO | Reading frame:  234
+2026-05-08 16:20:40 | INFO | Reading frame:  235
+2026-05-08 16:20:40 | INFO | Reading frame:  236
+2026-05-08 16:20:40 | INFO | Reading frame:  237
+2026-05-08 16:20:40 | INFO | Reading frame:  238
+2026-05-08 16:20:40 | INFO | Reading frame:  239
+2026-05-08 16:20:40 | INFO | Reading frame:  240
+2026-05-08 16:20:40 | INFO | Reading frame:  241
+2026-05-08 16:20:40 | INFO | Reading frame:  242
+2026-05-08 16:20:40 | INFO | Reading frame:  243
+2026-05-08 16:20:40 | INFO | Reading frame:  244
+2026-05-08 16:20:40 | INFO | Reading frame:  245
+2026-05-08 16:20:40 | INFO | Reading frame:  246
+2026-05-08 16:20:40 | INFO | Reading frame:  247
+2026-05-08 16:20:40 | INFO | Reading frame:  248
+2026-05-08 16:20:40 | INFO | Reading frame:  249
+2026-05-08 16:20:40 | INFO | Reading frame:  250
+2026-05-08 16:20:40 | INFO | Reading frame:  251
+2026-05-08 16:20:40 | INFO | Reading frame:  252
+2026-05-08 16:20:40 | INFO | Reading frame:  253
+2026-05-08 16:20:40 | INFO | Reading frame:  254
+2026-05-08 16:20:40 | INFO | Reading frame:  255
+2026-05-08 16:20:40 | INFO | Reading frame:  256
+2026-05-08 16:20:40 | INFO | Reading frame:  257
+2026-05-08 16:20:40 | INFO | Reading frame:  258
+2026-05-08 16:20:40 | INFO | Reading frame:  259
+2026-05-08 16:20:40 | INFO | Reading frame:  260
+2026-05-08 16:20:40 | INFO | Reading frame:  261
+2026-05-08 16:20:40 | INFO | Reading frame:  262
+2026-05-08 16:20:40 | INFO | Reading frame:  263
+2026-05-08 16:20:40 | INFO | Reading frame:  264
+2026-05-08 16:20:40 | INFO | Reading frame:  265
+2026-05-08 16:20:40 | INFO | Reading frame:  266
+2026-05-08 16:20:40 | INFO | Reading frame:  267
+2026-05-08 16:20:40 | INFO | Reading frame:  268
+2026-05-08 16:20:40 | INFO | Reading frame:  269
+2026-05-08 16:20:40 | INFO | Reading frame:  270
+2026-05-08 16:20:40 | INFO | Reading frame:  271
+2026-05-08 16:20:40 | INFO | Reading frame:  272
+2026-05-08 16:20:40 | INFO | Reading frame:  273
+2026-05-08 16:20:40 | INFO | Reading frame:  274
+2026-05-08 16:20:40 | INFO | Reading frame:  275
+2026-05-08 16:20:40 | INFO | Reading frame:  276
+2026-05-08 16:20:40 | INFO | Reading frame:  277
+2026-05-08 16:20:40 | INFO | Reading frame:  278
+2026-05-08 16:20:40 | INFO | Reading frame:  279
+2026-05-08 16:20:40 | INFO | Reading frame:  280
+2026-05-08 16:20:40 | INFO | Reading frame:  281
+2026-05-08 16:20:40 | INFO | Reading frame:  282
+2026-05-08 16:20:40 | INFO | Reading frame:  283
+2026-05-08 16:20:40 | INFO | Reading frame:  284
+2026-05-08 16:20:40 | INFO | Reading frame:  285
+2026-05-08 16:20:40 | INFO | Reading frame:  286
+2026-05-08 16:20:40 | INFO | Reading frame:  287
+2026-05-08 16:20:40 | INFO | Reading frame:  288
+2026-05-08 16:20:40 | INFO | Reading frame:  289
+2026-05-08 16:20:40 | INFO | Reading frame:  290
+2026-05-08 16:20:40 | INFO | Reading frame:  291
+2026-05-08 16:20:40 | INFO | Reading frame:  292
+2026-05-08 16:20:40 | INFO | Reading frame:  293
+2026-05-08 16:20:40 | INFO | Reading frame:  294
+2026-05-08 16:20:40 | INFO | Reading frame:  295
+2026-05-08 16:20:40 | INFO | Reading frame:  296
+2026-05-08 16:20:40 | INFO | Reading frame:  297
+2026-05-08 16:20:40 | INFO | Reading frame:  298
+2026-05-08 16:20:40 | INFO | Reading frame:  299
+2026-05-08 16:20:40 | INFO | Reading frame:  300
+2026-05-08 16:20:40 | INFO | Reading frame:  301
+2026-05-08 16:20:40 | INFO | Reading frame:  302
+2026-05-08 16:20:40 | INFO | Reading frame:  303
+2026-05-08 16:20:40 | INFO | Reading frame:  304
+2026-05-08 16:20:40 | INFO | Reading frame:  305
+2026-05-08 16:20:40 | INFO | Reading frame:  306
+2026-05-08 16:20:40 | INFO | Reading frame:  307
+2026-05-08 16:20:40 | INFO | Reading frame:  308
+2026-05-08 16:20:40 | INFO | Reading frame:  309
+2026-05-08 16:20:40 | INFO | Reading frame:  310
+2026-05-08 16:20:40 | INFO | Reading frame:  311
+2026-05-08 16:20:40 | INFO | Reading frame:  312
+2026-05-08 16:20:40 | INFO | Reading frame:  313
+2026-05-08 16:20:40 | INFO | Reading frame:  314
+2026-05-08 16:20:40 | INFO | Reading frame:  315
+2026-05-08 16:20:40 | INFO | Reading frame:  316
+2026-05-08 16:20:40 | INFO | Reading frame:  317
+2026-05-08 16:20:40 | INFO | Reading frame:  318
+2026-05-08 16:20:40 | INFO | Reading frame:  319
+2026-05-08 16:20:40 | INFO | Reading frame:  320
+2026-05-08 16:20:40 | INFO | Reading frame:  321
+2026-05-08 16:20:40 | INFO | Reading frame:  322
+2026-05-08 16:20:40 | INFO | Reading frame:  323
+2026-05-08 16:20:40 | INFO | Reading frame:  324
+2026-05-08 16:20:40 | INFO | Reading frame:  325
+2026-05-08 16:20:40 | INFO | Reading frame:  326
+2026-05-08 16:20:40 | INFO | Reading frame:  327
+2026-05-08 16:20:40 | INFO | Reading frame:  328
+2026-05-08 16:20:40 | INFO | Reading frame:  329
+2026-05-08 16:20:40 | INFO | Reading frame:  330
+2026-05-08 16:20:40 | INFO | Reading frame:  331
+2026-05-08 16:20:40 | INFO | Reading frame:  332
+2026-05-08 16:20:40 | INFO | Reading frame:  333
+2026-05-08 16:20:40 | INFO | Reading frame:  334
+2026-05-08 16:20:40 | INFO | Reading frame:  335
+2026-05-08 16:20:40 | INFO | Reading frame:  336
+2026-05-08 16:20:40 | INFO | Reading frame:  337
+2026-05-08 16:20:40 | INFO | Reading frame:  338
+2026-05-08 16:20:40 | INFO | Reading frame:  339
+2026-05-08 16:20:40 | INFO | Reading frame:  340
+2026-05-08 16:20:40 | INFO | Reading frame:  341
+2026-05-08 16:20:40 | INFO | Reading frame:  342
+2026-05-08 16:20:40 | INFO | Reading frame:  343
+2026-05-08 16:20:40 | INFO | Reading frame:  344
+2026-05-08 16:20:40 | INFO | Reading frame:  345
+2026-05-08 16:20:40 | INFO | Reading frame:  346
+2026-05-08 16:20:40 | INFO | Reading frame:  347
+2026-05-08 16:20:40 | INFO | Reading frame:  348
+2026-05-08 16:20:40 | INFO | Reading frame:  349
+2026-05-08 16:20:40 | INFO | Reading frame:  350
+2026-05-08 16:20:40 | INFO | Reading frame:  351
+2026-05-08 16:20:40 | INFO | Reading frame:  352
+2026-05-08 16:20:40 | INFO | Reading frame:  353
+2026-05-08 16:20:40 | INFO | Reading frame:  354
+2026-05-08 16:20:40 | INFO | Reading frame:  355
+2026-05-08 16:20:40 | INFO | Reading frame:  356
+2026-05-08 16:20:40 | INFO | Reading frame:  357
+2026-05-08 16:20:40 | INFO | Reading frame:  358
+2026-05-08 16:20:40 | INFO | Reading frame:  359
+2026-05-08 16:20:40 | INFO | Reading frame:  360
+2026-05-08 16:20:40 | INFO | Reading frame:  361
+2026-05-08 16:20:40 | INFO | Reading frame:  362
+2026-05-08 16:20:40 | INFO | Reading frame:  363
+2026-05-08 16:20:40 | INFO | Reading frame:  364
+2026-05-08 16:20:40 | INFO | Reading frame:  365
+2026-05-08 16:20:40 | INFO | Reading frame:  366
+2026-05-08 16:20:40 | INFO | Reading frame:  367
+2026-05-08 16:20:40 | INFO | Reading frame:  368
+2026-05-08 16:20:40 | INFO | Reading frame:  369
+2026-05-08 16:20:40 | INFO | Reading frame:  370
+2026-05-08 16:20:40 | INFO | Reading frame:  371
+2026-05-08 16:20:40 | INFO | Reading frame:  372
+2026-05-08 16:20:40 | INFO | Reading frame:  373
+2026-05-08 16:20:40 | INFO | Reading frame:  374
+2026-05-08 16:20:40 | INFO | Reading frame:  375
+2026-05-08 16:20:40 | INFO | Reading frame:  376
+2026-05-08 16:20:40 | INFO | Reading frame:  377
+2026-05-08 16:20:40 | INFO | Reading frame:  378
+2026-05-08 16:20:40 | INFO | Reading frame:  379
+2026-05-08 16:20:40 | INFO | Reading frame:  380
+2026-05-08 16:20:40 | INFO | Reading frame:  381
+2026-05-08 16:20:40 | INFO | Reading frame:  382
+2026-05-08 16:20:40 | INFO | Reading frame:  383
+2026-05-08 16:20:40 | INFO | Reading frame:  384
+2026-05-08 16:20:43 | INFO | Reading frame:  385
+2026-05-08 16:20:43 | INFO | Reading frame:  386
+2026-05-08 16:20:43 | INFO | Reading frame:  387
+2026-05-08 16:20:43 | INFO | Reading frame:  388
+2026-05-08 16:20:43 | INFO | Reading frame:  389
+2026-05-08 16:20:43 | INFO | Reading frame:  390
+2026-05-08 16:20:43 | INFO | Reading frame:  391
+2026-05-08 16:20:43 | INFO | Reading frame:  392
+2026-05-08 16:20:43 | INFO | Reading frame:  393
+2026-05-08 16:20:43 | INFO | Reading frame:  394
+2026-05-08 16:20:43 | INFO | Reading frame:  395
+2026-05-08 16:20:43 | INFO | Reading frame:  396
+2026-05-08 16:20:43 | INFO | Reading frame:  397
+2026-05-08 16:20:43 | INFO | Reading frame:  398
+2026-05-08 16:20:43 | INFO | Reading frame:  399
+2026-05-08 16:20:43 | INFO | Reading frame:  400
+2026-05-08 16:20:43 | INFO | Reading frame:  401
+2026-05-08 16:20:43 | INFO | Reading frame:  402
+2026-05-08 16:20:43 | INFO | Reading frame:  403
+2026-05-08 16:20:43 | INFO | Reading frame:  404
+2026-05-08 16:20:43 | INFO | Reading frame:  405
+2026-05-08 16:20:43 | INFO | Reading frame:  406
+2026-05-08 16:20:43 | INFO | Reading frame:  407
+2026-05-08 16:20:43 | INFO | Reading frame:  408
+2026-05-08 16:20:43 | INFO | Reading frame:  409
+2026-05-08 16:20:43 | INFO | Reading frame:  410
+2026-05-08 16:20:43 | INFO | Reading frame:  411
+2026-05-08 16:20:43 | INFO | Reading frame:  412
+2026-05-08 16:20:43 | INFO | Reading frame:  413
+2026-05-08 16:20:43 | INFO | Reading frame:  414
+2026-05-08 16:20:43 | INFO | Reading frame:  415
+2026-05-08 16:20:43 | INFO | Reading frame:  416
+2026-05-08 16:20:43 | INFO | Reading frame:  417
+2026-05-08 16:20:43 | INFO | Reading frame:  418
+2026-05-08 16:20:43 | INFO | Reading frame:  419
+2026-05-08 16:20:43 | INFO | Reading frame:  420
+2026-05-08 16:20:43 | INFO | Reading frame:  421
+2026-05-08 16:20:43 | INFO | Reading frame:  422
+2026-05-08 16:20:43 | INFO | Reading frame:  423
+2026-05-08 16:20:43 | INFO | Reading frame:  424
+2026-05-08 16:20:43 | INFO | Reading frame:  425
+2026-05-08 16:20:43 | INFO | Reading frame:  426
+2026-05-08 16:20:43 | INFO | Reading frame:  427
+2026-05-08 16:20:43 | INFO | Reading frame:  428
+2026-05-08 16:20:43 | INFO | Reading frame:  429
+2026-05-08 16:20:43 | INFO | Reading frame:  430
+2026-05-08 16:20:43 | INFO | Reading frame:  431
+2026-05-08 16:20:43 | INFO | Reading frame:  432
+2026-05-08 16:20:43 | INFO | Reading frame:  433
+2026-05-08 16:20:43 | INFO | Reading frame:  434
+2026-05-08 16:20:43 | INFO | Reading frame:  435
+2026-05-08 16:20:43 | INFO | Reading frame:  436
+2026-05-08 16:20:43 | INFO | Reading frame:  437
+2026-05-08 16:20:43 | INFO | Reading frame:  438
+2026-05-08 16:20:43 | INFO | Reading frame:  439
+2026-05-08 16:20:43 | INFO | Reading frame:  440
+2026-05-08 16:20:43 | INFO | Reading frame:  441
+2026-05-08 16:20:43 | INFO | Reading frame:  442
+2026-05-08 16:20:43 | INFO | Reading frame:  443
+2026-05-08 16:20:43 | INFO | Reading frame:  444
+2026-05-08 16:20:43 | INFO | Reading frame:  445
+2026-05-08 16:20:43 | INFO | Reading frame:  446
+2026-05-08 16:20:43 | INFO | Reading frame:  447
+2026-05-08 16:20:43 | INFO | Reading frame:  448
+2026-05-08 16:20:43 | INFO | Reading frame:  449
+2026-05-08 16:20:43 | INFO | Reading frame:  450
+2026-05-08 16:20:43 | INFO | Reading frame:  451
+2026-05-08 16:20:43 | INFO | Reading frame:  452
+2026-05-08 16:20:43 | INFO | Reading frame:  453
+2026-05-08 16:20:43 | INFO | Reading frame:  454
+2026-05-08 16:20:43 | INFO | Reading frame:  455
+2026-05-08 16:20:43 | INFO | Reading frame:  456
+2026-05-08 16:20:43 | INFO | Reading frame:  457
+2026-05-08 16:20:43 | INFO | Reading frame:  458
+2026-05-08 16:20:43 | INFO | Reading frame:  459
+2026-05-08 16:20:43 | INFO | Reading frame:  460
+2026-05-08 16:20:43 | INFO | Reading frame:  461
+2026-05-08 16:20:43 | INFO | Reading frame:  462
+2026-05-08 16:20:43 | INFO | Reading frame:  463
+2026-05-08 16:20:43 | INFO | Reading frame:  464
+2026-05-08 16:20:43 | INFO | Reading frame:  465
+2026-05-08 16:20:43 | INFO | Reading frame:  466
+2026-05-08 16:20:43 | INFO | Reading frame:  467
+2026-05-08 16:20:43 | INFO | Reading frame:  468
+2026-05-08 16:20:43 | INFO | Reading frame:  469
+2026-05-08 16:20:43 | INFO | Reading frame:  470
+2026-05-08 16:20:43 | INFO | Reading frame:  471
+2026-05-08 16:20:43 | INFO | Reading frame:  472
+2026-05-08 16:20:43 | INFO | Reading frame:  473
+2026-05-08 16:20:43 | INFO | Reading frame:  474
+2026-05-08 16:20:43 | INFO | Reading frame:  475
+2026-05-08 16:20:43 | INFO | Reading frame:  476
+2026-05-08 16:20:43 | INFO | Reading frame:  477
+2026-05-08 16:20:43 | INFO | Reading frame:  478
+2026-05-08 16:20:43 | INFO | Reading frame:  479
+2026-05-08 16:20:43 | INFO | Reading frame:  480
+2026-05-08 16:20:43 | INFO | Reading frame:  481
+2026-05-08 16:20:43 | INFO | Reading frame:  482
+2026-05-08 16:20:43 | INFO | Reading frame:  483
+2026-05-08 16:20:43 | INFO | Reading frame:  484
+2026-05-08 16:20:43 | INFO | Reading frame:  485
+2026-05-08 16:20:43 | INFO | Reading frame:  486
+2026-05-08 16:20:43 | INFO | Reading frame:  487
+2026-05-08 16:20:43 | INFO | Reading frame:  488
+2026-05-08 16:20:43 | INFO | Reading frame:  489
+2026-05-08 16:20:43 | INFO | Reading frame:  490
+2026-05-08 16:20:43 | INFO | Reading frame:  491
+2026-05-08 16:20:43 | INFO | Reading frame:  492
+2026-05-08 16:20:43 | INFO | Reading frame:  493
+2026-05-08 16:20:43 | INFO | Reading frame:  494
+2026-05-08 16:20:43 | INFO | Reading frame:  495
+2026-05-08 16:20:43 | INFO | Reading frame:  496
+2026-05-08 16:20:43 | INFO | Reading frame:  497
+2026-05-08 16:20:43 | INFO | Reading frame:  498
+2026-05-08 16:20:43 | INFO | Reading frame:  499
+2026-05-08 16:20:43 | INFO | Reading frame:  500
+2026-05-08 16:20:43 | INFO | Reading frame:  501
+2026-05-08 16:20:43 | INFO | Reading frame:  502
+2026-05-08 16:20:43 | INFO | Reading frame:  503
+2026-05-08 16:20:43 | INFO | Reading frame:  504
+2026-05-08 16:20:43 | INFO | Reading frame:  505
+2026-05-08 16:20:43 | INFO | Reading frame:  506
+2026-05-08 16:20:43 | INFO | Reading frame:  507
+2026-05-08 16:20:43 | INFO | Reading frame:  508
+2026-05-08 16:20:43 | INFO | Reading frame:  509
+2026-05-08 16:20:43 | INFO | Reading frame:  510
+2026-05-08 16:20:43 | INFO | Reading frame:  511
+2026-05-08 16:20:43 | INFO | Reading frame:  512
+2026-05-08 16:20:43 | INFO | Reading frame:  513
+2026-05-08 16:20:43 | INFO | Reading frame:  514
+2026-05-08 16:20:43 | INFO | Reading frame:  515
+2026-05-08 16:20:43 | INFO | Reading frame:  516
+2026-05-08 16:20:43 | INFO | Reading frame:  517
+2026-05-08 16:20:43 | INFO | Reading frame:  518
+2026-05-08 16:20:43 | INFO | Reading frame:  519
+2026-05-08 16:20:43 | INFO | Reading frame:  520
+2026-05-08 16:20:43 | INFO | Reading frame:  521
+2026-05-08 16:20:43 | INFO | Reading frame:  522
+2026-05-08 16:20:43 | INFO | Reading frame:  523
+2026-05-08 16:20:43 | INFO | Reading frame:  524
+2026-05-08 16:20:43 | INFO | Reading frame:  525
+2026-05-08 16:20:43 | INFO | Reading frame:  526
+2026-05-08 16:20:43 | INFO | Reading frame:  527
+2026-05-08 16:20:43 | INFO | Reading frame:  528
+2026-05-08 16:20:43 | INFO | Reading frame:  529
+2026-05-08 16:20:43 | INFO | Reading frame:  530
+2026-05-08 16:20:43 | INFO | Reading frame:  531
+2026-05-08 16:20:43 | INFO | Reading frame:  532
+2026-05-08 16:20:43 | INFO | Reading frame:  533
+2026-05-08 16:20:43 | INFO | Reading frame:  534
+2026-05-08 16:20:43 | INFO | Reading frame:  535
+2026-05-08 16:20:43 | INFO | Reading frame:  536
+2026-05-08 16:20:43 | INFO | Reading frame:  537
+2026-05-08 16:20:43 | INFO | Reading frame:  538
+2026-05-08 16:20:43 | INFO | Reading frame:  539
+2026-05-08 16:20:43 | INFO | Reading frame:  540
+2026-05-08 16:20:43 | INFO | Reading frame:  541
+2026-05-08 16:20:43 | INFO | Reading frame:  542
+2026-05-08 16:20:43 | INFO | Reading frame:  543
+2026-05-08 16:20:43 | INFO | Reading frame:  544
+2026-05-08 16:20:43 | INFO | Reading frame:  545
+2026-05-08 16:20:43 | INFO | Reading frame:  546
+2026-05-08 16:20:43 | INFO | Reading frame:  547
+2026-05-08 16:20:43 | INFO | Reading frame:  548
+2026-05-08 16:20:43 | INFO | Reading frame:  549
+2026-05-08 16:20:43 | INFO | Reading frame:  550
+2026-05-08 16:20:43 | INFO | Reading frame:  551
+2026-05-08 16:20:43 | INFO | Reading frame:  552
+2026-05-08 16:20:43 | INFO | Reading frame:  553
+2026-05-08 16:20:43 | INFO | Reading frame:  554
+2026-05-08 16:20:43 | INFO | Reading frame:  555
+2026-05-08 16:20:43 | INFO | Reading frame:  556
+2026-05-08 16:20:43 | INFO | Reading frame:  557
+2026-05-08 16:20:43 | INFO | Reading frame:  558
+2026-05-08 16:20:43 | INFO | Reading frame:  559
+2026-05-08 16:20:43 | INFO | Reading frame:  560
+2026-05-08 16:20:43 | INFO | Reading frame:  561
+2026-05-08 16:20:43 | INFO | Reading frame:  562
+2026-05-08 16:20:43 | INFO | Reading frame:  563
+2026-05-08 16:20:43 | INFO | Reading frame:  564
+2026-05-08 16:20:43 | INFO | Reading frame:  565
+2026-05-08 16:20:43 | INFO | Reading frame:  566
+2026-05-08 16:20:43 | INFO | Reading frame:  567
+2026-05-08 16:20:43 | INFO | Reading frame:  568
+2026-05-08 16:20:43 | INFO | Reading frame:  569
+2026-05-08 16:20:43 | INFO | Reading frame:  570
+2026-05-08 16:20:43 | INFO | Reading frame:  571
+2026-05-08 16:20:43 | INFO | Reading frame:  572
+2026-05-08 16:20:43 | INFO | Reading frame:  573
+2026-05-08 16:20:43 | INFO | Reading frame:  574
+2026-05-08 16:20:43 | INFO | Reading frame:  575
+2026-05-08 16:20:43 | INFO | Reading frame:  576
+2026-05-08 16:20:43 | INFO | Reading frame:  577
+2026-05-08 16:20:43 | INFO | Reading frame:  578
+2026-05-08 16:20:43 | INFO | Reading frame:  579
+2026-05-08 16:20:43 | INFO | Reading frame:  580
+2026-05-08 16:20:43 | INFO | Reading frame:  581
+2026-05-08 16:20:43 | INFO | Reading frame:  582
+2026-05-08 16:20:43 | INFO | Reading frame:  583
+2026-05-08 16:20:43 | INFO | Reading frame:  584
+2026-05-08 16:20:43 | INFO | Reading frame:  585
+2026-05-08 16:20:43 | INFO | Reading frame:  586
+2026-05-08 16:20:43 | INFO | Reading frame:  587
+2026-05-08 16:20:43 | INFO | Reading frame:  588
+2026-05-08 16:20:43 | INFO | Reading frame:  589
+2026-05-08 16:20:43 | INFO | Reading frame:  590
+2026-05-08 16:20:43 | INFO | Reading frame:  591
+2026-05-08 16:20:43 | INFO | Reading frame:  592
+2026-05-08 16:20:43 | INFO | Reading frame:  593
+2026-05-08 16:20:43 | INFO | Reading frame:  594
+2026-05-08 16:20:43 | INFO | Reading frame:  595
+2026-05-08 16:20:43 | INFO | Reading frame:  596
+2026-05-08 16:20:43 | INFO | Reading frame:  597
+2026-05-08 16:20:43 | INFO | Reading frame:  598
+2026-05-08 16:20:43 | INFO | Reading frame:  599
+2026-05-08 16:20:43 | INFO | Reading frame:  600
+2026-05-08 16:20:43 | INFO | Reading frame:  601
+2026-05-08 16:20:43 | INFO | Reading frame:  602
+2026-05-08 16:20:43 | INFO | Reading frame:  603
+2026-05-08 16:20:43 | INFO | Reading frame:  604
+2026-05-08 16:20:43 | INFO | Reading frame:  605
+2026-05-08 16:20:43 | INFO | Reading frame:  606
+2026-05-08 16:20:43 | INFO | Reading frame:  607
+2026-05-08 16:20:43 | INFO | Reading frame:  608
+2026-05-08 16:20:43 | INFO | Reading frame:  609
+2026-05-08 16:20:43 | INFO | Reading frame:  610
+2026-05-08 16:20:43 | INFO | Reading frame:  611
+2026-05-08 16:20:43 | INFO | Reading frame:  612
+2026-05-08 16:20:43 | INFO | Reading frame:  613
+2026-05-08 16:20:43 | INFO | Reading frame:  614
+2026-05-08 16:20:43 | INFO | Reading frame:  615
+2026-05-08 16:20:43 | INFO | Reading frame:  616
+2026-05-08 16:20:43 | INFO | Reading frame:  617
+2026-05-08 16:20:43 | INFO | Reading frame:  618
+2026-05-08 16:20:43 | INFO | Reading frame:  619
+2026-05-08 16:20:43 | INFO | Reading frame:  620
+2026-05-08 16:20:43 | INFO | Reading frame:  621
+2026-05-08 16:20:43 | INFO | Reading frame:  622
+2026-05-08 16:20:43 | INFO | Reading frame:  623
+2026-05-08 16:20:43 | INFO | Reading frame:  624
+2026-05-08 16:20:43 | INFO | Reading frame:  625
+2026-05-08 16:20:43 | INFO | Reading frame:  626
+2026-05-08 16:20:43 | INFO | Reading frame:  627
+2026-05-08 16:20:43 | INFO | Reading frame:  628
+2026-05-08 16:20:43 | INFO | Reading frame:  629
+2026-05-08 16:20:43 | INFO | Reading frame:  630
+2026-05-08 16:20:43 | INFO | Reading frame:  631
+2026-05-08 16:20:43 | INFO | Reading frame:  632
+2026-05-08 16:20:43 | INFO | Reading frame:  633
+2026-05-08 16:20:43 | INFO | Reading frame:  634
+2026-05-08 16:20:43 | INFO | Reading frame:  635
+2026-05-08 16:20:43 | INFO | Reading frame:  636
+2026-05-08 16:20:43 | INFO | Reading frame:  637
+2026-05-08 16:20:43 | INFO | Reading frame:  638
+2026-05-08 16:20:43 | INFO | Reading frame:  639
+2026-05-08 16:20:43 | INFO | Reading frame:  640
+2026-05-08 16:20:43 | INFO | Reading frame:  641
+2026-05-08 16:20:43 | INFO | Reading frame:  642
+2026-05-08 16:20:43 | INFO | Reading frame:  643
+2026-05-08 16:20:43 | INFO | Reading frame:  644
+2026-05-08 16:20:43 | INFO | Reading frame:  645
+2026-05-08 16:20:43 | INFO | Reading frame:  646
+2026-05-08 16:20:43 | INFO | Reading frame:  647
+2026-05-08 16:20:43 | INFO | Reading frame:  648
+2026-05-08 16:20:43 | INFO | Reading frame:  649
+2026-05-08 16:20:43 | INFO | Reading frame:  650
+2026-05-08 16:20:43 | INFO | Reading frame:  651
+2026-05-08 16:20:43 | INFO | Reading frame:  652
+2026-05-08 16:20:43 | INFO | Reading frame:  653
+2026-05-08 16:20:43 | INFO | Reading frame:  654
+2026-05-08 16:20:43 | INFO | Reading frame:  655
+2026-05-08 16:20:43 | INFO | Reading frame:  656
+2026-05-08 16:20:43 | INFO | Reading frame:  657
+2026-05-08 16:20:43 | INFO | Reading frame:  658
+2026-05-08 16:20:43 | INFO | Reading frame:  659
+2026-05-08 16:20:43 | INFO | Reading frame:  660
+2026-05-08 16:20:43 | INFO | Reading frame:  661
+2026-05-08 16:20:43 | INFO | Reading frame:  662
+2026-05-08 16:20:43 | INFO | Reading frame:  663
+2026-05-08 16:20:43 | INFO | Reading frame:  664
+2026-05-08 16:20:43 | INFO | Reading frame:  665
+2026-05-08 16:20:43 | INFO | Reading frame:  666
+2026-05-08 16:20:43 | INFO | Reading frame:  667
+2026-05-08 16:20:43 | INFO | Reading frame:  668
+2026-05-08 16:20:43 | INFO | Reading frame:  669
+2026-05-08 16:20:43 | INFO | Reading frame:  670
+2026-05-08 16:20:43 | INFO | Reading frame:  671
+2026-05-08 16:20:43 | INFO | Reading frame:  672
+2026-05-08 16:20:43 | INFO | Reading frame:  673
+2026-05-08 16:20:43 | INFO | Reading frame:  674
+2026-05-08 16:20:43 | INFO | Reading frame:  675
+2026-05-08 16:20:43 | INFO | Reading frame:  676
+2026-05-08 16:20:43 | INFO | Reading frame:  677
+2026-05-08 16:20:43 | INFO | Reading frame:  678
+2026-05-08 16:20:43 | INFO | Reading frame:  679
+2026-05-08 16:20:43 | INFO | Reading frame:  680
+2026-05-08 16:20:43 | INFO | Reading frame:  681
+2026-05-08 16:20:43 | INFO | Reading frame:  682
+2026-05-08 16:20:43 | INFO | Reading frame:  683
+2026-05-08 16:20:43 | INFO | Reading frame:  684
+2026-05-08 16:20:43 | INFO | Reading frame:  685
+2026-05-08 16:20:43 | INFO | Reading frame:  686
+2026-05-08 16:20:43 | INFO | Reading frame:  687
+2026-05-08 16:20:43 | INFO | Reading frame:  688
+2026-05-08 16:20:43 | INFO | Reading frame:  689
+2026-05-08 16:20:43 | INFO | Reading frame:  690
+2026-05-08 16:20:43 | INFO | Reading frame:  691
+2026-05-08 16:20:43 | INFO | Reading frame:  692
+2026-05-08 16:20:43 | INFO | Reading frame:  693
+2026-05-08 16:20:43 | INFO | Reading frame:  694
+2026-05-08 16:20:43 | INFO | Reading frame:  695
+2026-05-08 16:20:43 | INFO | Reading frame:  696
+2026-05-08 16:20:43 | INFO | Reading frame:  697
+2026-05-08 16:20:43 | INFO | Reading frame:  698
+2026-05-08 16:20:43 | INFO | Reading frame:  699
+2026-05-08 16:20:43 | INFO | Reading frame:  700
+2026-05-08 16:20:43 | INFO | Reading frame:  701
+2026-05-08 16:20:43 | INFO | Reading frame:  702
+2026-05-08 16:20:43 | INFO | Reading frame:  703
+2026-05-08 16:20:43 | INFO | Reading frame:  704
+2026-05-08 16:20:43 | INFO | Reading frame:  705
+2026-05-08 16:20:43 | INFO | Reading frame:  706
+2026-05-08 16:20:43 | INFO | Reading frame:  707
+2026-05-08 16:20:43 | INFO | Reading frame:  708
+2026-05-08 16:20:43 | INFO | Reading frame:  709
+2026-05-08 16:20:43 | INFO | Reading frame:  710
+2026-05-08 16:20:43 | INFO | Reading frame:  711
+2026-05-08 16:20:43 | INFO | Reading frame:  712
+2026-05-08 16:20:43 | INFO | Reading frame:  713
+2026-05-08 16:20:43 | INFO | Reading frame:  714
+2026-05-08 16:20:43 | INFO | Reading frame:  715
+2026-05-08 16:20:43 | INFO | Reading frame:  716
+2026-05-08 16:20:43 | INFO | Reading frame:  717
+2026-05-08 16:20:43 | INFO | Reading frame:  718
+2026-05-08 16:20:43 | INFO | Reading frame:  719
+2026-05-08 16:20:43 | INFO | Reading frame:  720
+2026-05-08 16:20:43 | INFO | Reading frame:  721
+2026-05-08 16:20:43 | INFO | Reading frame:  722
+2026-05-08 16:20:43 | INFO | Reading frame:  723
+2026-05-08 16:20:43 | INFO | Reading frame:  724
+2026-05-08 16:20:43 | INFO | Reading frame:  725
+2026-05-08 16:20:43 | INFO | Reading frame:  726
+2026-05-08 16:20:43 | INFO | Reading frame:  727
+2026-05-08 16:20:43 | INFO | Reading frame:  728
+2026-05-08 16:20:43 | INFO | Reading frame:  729
+2026-05-08 16:20:43 | INFO | Reading frame:  730
+2026-05-08 16:20:43 | INFO | Reading frame:  731
+2026-05-08 16:20:43 | INFO | Reading frame:  732
+2026-05-08 16:20:43 | INFO | Reading frame:  733
+2026-05-08 16:20:43 | INFO | Reading frame:  734
+2026-05-08 16:20:43 | INFO | Reading frame:  735
+2026-05-08 16:20:43 | INFO | Reading frame:  736
+2026-05-08 16:20:43 | INFO | Reading frame:  737
+2026-05-08 16:20:43 | INFO | Reading frame:  738
+2026-05-08 16:20:43 | INFO | Reading frame:  739
+2026-05-08 16:20:43 | INFO | Reading frame:  740
+2026-05-08 16:20:43 | INFO | Reading frame:  741
+2026-05-08 16:20:43 | INFO | Reading frame:  742
+2026-05-08 16:20:43 | INFO | Reading frame:  743
+2026-05-08 16:20:43 | INFO | Reading frame:  744
+2026-05-08 16:20:43 | INFO | Reading frame:  745
+2026-05-08 16:20:43 | INFO | Reading frame:  746
+2026-05-08 16:20:43 | INFO | Reading frame:  747
+2026-05-08 16:20:43 | INFO | Reading frame:  748
+2026-05-08 16:20:43 | INFO | Reading frame:  749
+2026-05-08 16:20:43 | INFO | Reading frame:  750
+2026-05-08 16:20:43 | INFO | Reading frame:  751
+2026-05-08 16:20:43 | INFO | Reading frame:  752
+2026-05-08 16:20:43 | INFO | Reading frame:  753
+2026-05-08 16:20:43 | INFO | Reading frame:  754
+2026-05-08 16:20:43 | INFO | Reading frame:  755
+2026-05-08 16:20:43 | INFO | Reading frame:  756
+2026-05-08 16:20:43 | INFO | Reading frame:  757
+2026-05-08 16:20:43 | INFO | Reading frame:  758
+2026-05-08 16:20:43 | INFO | Reading frame:  759
+2026-05-08 16:20:43 | INFO | Reading frame:  760
+2026-05-08 16:20:43 | INFO | Reading frame:  761
+2026-05-08 16:20:43 | INFO | Reading frame:  762
+2026-05-08 16:20:43 | INFO | Reading frame:  763
+2026-05-08 16:20:43 | INFO | Reading frame:  764
+2026-05-08 16:20:43 | INFO | Reading frame:  765
+2026-05-08 16:20:43 | INFO | Reading frame:  766
+2026-05-08 16:20:43 | INFO | Reading frame:  767
+2026-05-08 16:20:43 | INFO | Reading frame:  768
+2026-05-08 16:20:43 | INFO | Reading frame:  769
+2026-05-08 16:20:43 | INFO | Reading frame:  770
+2026-05-08 16:20:43 | INFO | Reading frame:  771
+2026-05-08 16:20:43 | INFO | Reading frame:  772
+2026-05-08 16:20:43 | INFO | Reading frame:  773
+2026-05-08 16:20:43 | INFO | Reading frame:  774
+2026-05-08 16:20:43 | INFO | Reading frame:  775
+2026-05-08 16:20:43 | INFO | Reading frame:  776
+2026-05-08 16:20:43 | INFO | Reading frame:  777
+2026-05-08 16:20:43 | INFO | Reading frame:  778
+2026-05-08 16:20:43 | INFO | Reading frame:  779
+2026-05-08 16:20:43 | INFO | Reading frame:  780
+2026-05-08 16:20:43 | INFO | Reading frame:  781
+2026-05-08 16:20:43 | INFO | Reading frame:  782
+2026-05-08 16:20:43 | INFO | Reading frame:  783
+2026-05-08 16:20:43 | INFO | Reading frame:  784
+2026-05-08 16:20:43 | INFO | Reading frame:  785
+2026-05-08 16:20:43 | INFO | Reading frame:  786
+2026-05-08 16:20:43 | INFO | Reading frame:  787
+2026-05-08 16:20:43 | INFO | Reading frame:  788
+2026-05-08 16:20:43 | INFO | Reading frame:  789
+2026-05-08 16:20:43 | INFO | Reading frame:  790
+2026-05-08 16:20:43 | INFO | Reading frame:  791
+2026-05-08 16:20:43 | INFO | Reading frame:  792
+2026-05-08 16:20:43 | INFO | Reading frame:  793
+2026-05-08 16:20:43 | INFO | Reading frame:  794
+2026-05-08 16:20:47 | INFO | Reading frame:  795
+2026-05-08 16:20:47 | INFO | Reading frame:  796
+2026-05-08 16:20:47 | INFO | Reading frame:  797
+2026-05-08 16:20:47 | INFO | Reading frame:  798
+2026-05-08 16:20:47 | INFO | Reading frame:  799
+2026-05-08 16:20:47 | INFO | Reading frame:  800
+2026-05-08 16:20:47 | INFO | Reading frame:  801
+2026-05-08 16:20:47 | INFO | Reading frame:  802
+2026-05-08 16:20:47 | INFO | Reading frame:  803
+2026-05-08 16:20:47 | INFO | Reading frame:  804
+2026-05-08 16:20:47 | INFO | Reading frame:  805
+2026-05-08 16:20:47 | INFO | Reading frame:  806
+2026-05-08 16:20:47 | INFO | Reading frame:  807
+2026-05-08 16:20:47 | INFO | Reading frame:  808
+2026-05-08 16:20:47 | INFO | Reading frame:  809
+2026-05-08 16:20:47 | INFO | Reading frame:  810
+2026-05-08 16:20:47 | INFO | Reading frame:  811
+2026-05-08 16:20:47 | INFO | Reading frame:  812
+2026-05-08 16:20:47 | INFO | Reading frame:  813
+2026-05-08 16:20:47 | INFO | Reading frame:  814
+2026-05-08 16:20:47 | INFO | Reading frame:  815
+2026-05-08 16:20:47 | INFO | Reading frame:  816
+2026-05-08 16:20:47 | INFO | Reading frame:  817
+2026-05-08 16:20:47 | INFO | Reading frame:  818
+2026-05-08 16:20:47 | INFO | Reading frame:  819
+2026-05-08 16:20:47 | INFO | Reading frame:  820
+2026-05-08 16:20:47 | INFO | Reading frame:  821
+2026-05-08 16:20:47 | INFO | Reading frame:  822
+2026-05-08 16:20:47 | INFO | Reading frame:  823
+2026-05-08 16:20:47 | INFO | Reading frame:  824
+2026-05-08 16:20:47 | INFO | Reading frame:  825
+2026-05-08 16:20:47 | INFO | Reading frame:  826
+2026-05-08 16:20:47 | INFO | Reading frame:  827
+2026-05-08 16:20:47 | INFO | Reading frame:  828
+2026-05-08 16:20:47 | INFO | Reading frame:  829
+2026-05-08 16:20:47 | INFO | Reading frame:  830
+2026-05-08 16:20:47 | INFO | Reading frame:  831
+2026-05-08 16:20:47 | INFO | Reading frame:  832
+2026-05-08 16:20:47 | INFO | Reading frame:  833
+2026-05-08 16:20:47 | INFO | Reading frame:  834
+2026-05-08 16:20:47 | INFO | Reading frame:  835
+2026-05-08 16:20:47 | INFO | Reading frame:  836
+2026-05-08 16:20:47 | INFO | Reading frame:  837
+2026-05-08 16:20:47 | INFO | Reading frame:  838
+2026-05-08 16:20:47 | INFO | Reading frame:  839
+2026-05-08 16:20:47 | INFO | Reading frame:  840
+2026-05-08 16:20:47 | INFO | Reading frame:  841
+2026-05-08 16:20:47 | INFO | Reading frame:  842
+2026-05-08 16:20:47 | INFO | Reading frame:  843
+2026-05-08 16:20:47 | INFO | Reading frame:  844
+2026-05-08 16:20:47 | INFO | Reading frame:  845
+2026-05-08 16:20:47 | INFO | Reading frame:  846
+2026-05-08 16:20:47 | INFO | Reading frame:  847
+2026-05-08 16:20:47 | INFO | Reading frame:  848
+2026-05-08 16:20:47 | INFO | Reading frame:  849
+2026-05-08 16:20:47 | INFO | Reading frame:  850
+2026-05-08 16:20:47 | INFO | Reading frame:  851
+2026-05-08 16:20:47 | INFO | Reading frame:  852
+2026-05-08 16:20:47 | INFO | Reading frame:  853
+2026-05-08 16:20:47 | INFO | Reading frame:  854
+2026-05-08 16:20:47 | INFO | Reading frame:  855
+2026-05-08 16:20:47 | INFO | Reading frame:  856
+2026-05-08 16:20:47 | INFO | Reading frame:  857
+2026-05-08 16:20:47 | INFO | Reading frame:  858
+2026-05-08 16:20:47 | INFO | Reading frame:  859
+2026-05-08 16:20:47 | INFO | Reading frame:  860
+2026-05-08 16:20:47 | INFO | Reading frame:  861
+2026-05-08 16:20:47 | INFO | Reading frame:  862
+2026-05-08 16:20:47 | INFO | Reading frame:  863
+2026-05-08 16:20:47 | INFO | Reading frame:  864
+2026-05-08 16:20:47 | INFO | Reading frame:  865
+2026-05-08 16:20:47 | INFO | Reading frame:  866
+2026-05-08 16:20:47 | INFO | Reading frame:  867
+2026-05-08 16:20:47 | INFO | Reading frame:  868
+2026-05-08 16:20:47 | INFO | Reading frame:  869
+2026-05-08 16:20:47 | INFO | Reading frame:  870
+2026-05-08 16:20:47 | INFO | Reading frame:  871
+2026-05-08 16:20:47 | INFO | Reading frame:  872
+2026-05-08 16:20:47 | INFO | Reading frame:  873
+2026-05-08 16:20:47 | INFO | Reading frame:  874
+2026-05-08 16:20:47 | INFO | Reading frame:  875
+2026-05-08 16:20:47 | INFO | Reading frame:  876
+2026-05-08 16:20:47 | INFO | Reading frame:  877
+2026-05-08 16:20:47 | INFO | Reading frame:  878
+2026-05-08 16:20:47 | INFO | Reading frame:  879
+2026-05-08 16:20:47 | INFO | Reading frame:  880
+2026-05-08 16:20:47 | INFO | Reading frame:  881
+2026-05-08 16:20:47 | INFO | Reading frame:  882
+2026-05-08 16:20:47 | INFO | Reading frame:  883
+2026-05-08 16:20:47 | INFO | Reading frame:  884
+2026-05-08 16:20:47 | INFO | Reading frame:  885
+2026-05-08 16:20:47 | INFO | Reading frame:  886
+2026-05-08 16:20:47 | INFO | Reading frame:  887
+2026-05-08 16:20:47 | INFO | Reading frame:  888
+2026-05-08 16:20:47 | INFO | Reading frame:  889
+2026-05-08 16:20:47 | INFO | Reading frame:  890
+2026-05-08 16:20:47 | INFO | Reading frame:  891
+2026-05-08 16:20:47 | INFO | Reading frame:  892
+2026-05-08 16:20:47 | INFO | Reading frame:  893
+2026-05-08 16:20:47 | INFO | Reading frame:  894
+2026-05-08 16:20:47 | INFO | Reading frame:  895
+2026-05-08 16:20:47 | INFO | Reading frame:  896
+2026-05-08 16:20:47 | INFO | Reading frame:  897
+2026-05-08 16:20:47 | INFO | Reading frame:  898
+2026-05-08 16:20:47 | INFO | Reading frame:  899
+2026-05-08 16:20:47 | INFO | Reading frame:  900
+2026-05-08 16:20:47 | INFO | Reading frame:  901
+2026-05-08 16:20:47 | INFO | Reading frame:  902
+2026-05-08 16:20:47 | INFO | Reading frame:  903
+2026-05-08 16:20:47 | INFO | Reading frame:  904
+2026-05-08 16:20:47 | INFO | Reading frame:  905
+2026-05-08 16:20:47 | INFO | Reading frame:  906
+2026-05-08 16:20:47 | INFO | Reading frame:  907
+2026-05-08 16:20:47 | INFO | Reading frame:  908
+2026-05-08 16:20:47 | INFO | Reading frame:  909
+2026-05-08 16:20:47 | INFO | Reading frame:  910
+2026-05-08 16:20:47 | INFO | Reading frame:  911
+2026-05-08 16:20:47 | INFO | Reading frame:  912
+2026-05-08 16:20:47 | INFO | Reading frame:  913
+2026-05-08 16:20:47 | INFO | Reading frame:  914
+2026-05-08 16:20:47 | INFO | Reading frame:  915
+2026-05-08 16:20:47 | INFO | Reading frame:  916
+2026-05-08 16:20:47 | INFO | Reading frame:  917
+2026-05-08 16:20:47 | INFO | Reading frame:  918
+2026-05-08 16:20:47 | INFO | Reading frame:  919
+2026-05-08 16:20:47 | INFO | Reading frame:  920
+2026-05-08 16:20:47 | INFO | Reading frame:  921
+2026-05-08 16:20:47 | INFO | Reading frame:  922
+2026-05-08 16:20:47 | INFO | Reading frame:  923
+2026-05-08 16:20:47 | INFO | Reading frame:  924
+2026-05-08 16:20:47 | INFO | Reading frame:  925
+2026-05-08 16:20:47 | INFO | Reading frame:  926
+2026-05-08 16:20:47 | INFO | Reading frame:  927
+2026-05-08 16:20:47 | INFO | Reading frame:  928
+2026-05-08 16:20:47 | INFO | Reading frame:  929
+2026-05-08 16:20:47 | INFO | Reading frame:  930
+2026-05-08 16:20:47 | INFO | Reading frame:  931
+2026-05-08 16:20:47 | INFO | Reading frame:  932
+2026-05-08 16:20:47 | INFO | Reading frame:  933
+2026-05-08 16:20:47 | INFO | Reading frame:  934
+2026-05-08 16:20:47 | INFO | Reading frame:  935
+2026-05-08 16:20:47 | INFO | Reading frame:  936
+2026-05-08 16:20:47 | INFO | Reading frame:  937
+2026-05-08 16:20:47 | INFO | Reading frame:  938
+2026-05-08 16:20:47 | INFO | Reading frame:  939
+2026-05-08 16:20:47 | INFO | Reading frame:  940
+2026-05-08 16:20:47 | INFO | Reading frame:  941
+2026-05-08 16:20:47 | INFO | Reading frame:  942
+2026-05-08 16:20:47 | INFO | Reading frame:  943
+2026-05-08 16:20:47 | INFO | Reading frame:  944
+2026-05-08 16:20:47 | INFO | Reading frame:  945
+2026-05-08 16:20:47 | INFO | Reading frame:  946
+2026-05-08 16:20:47 | INFO | Reading frame:  947
+2026-05-08 16:20:47 | INFO | Reading frame:  948
+2026-05-08 16:20:47 | INFO | Reading frame:  949
+2026-05-08 16:20:47 | INFO | Reading frame:  950
+2026-05-08 16:20:47 | INFO | Reading frame:  951
+2026-05-08 16:20:47 | INFO | Reading frame:  952
+2026-05-08 16:20:47 | INFO | Reading frame:  953
+2026-05-08 16:20:47 | INFO | Reading frame:  954
+2026-05-08 16:20:47 | INFO | Reading frame:  955
+2026-05-08 16:20:47 | INFO | Reading frame:  956
+2026-05-08 16:20:47 | INFO | Reading frame:  957
+2026-05-08 16:20:47 | INFO | Reading frame:  958
+2026-05-08 16:20:47 | INFO | Reading frame:  959
+2026-05-08 16:20:47 | INFO | Reading frame:  960
+2026-05-08 16:20:47 | INFO | Reading frame:  961
+2026-05-08 16:20:47 | INFO | Reading frame:  962
+2026-05-08 16:20:47 | INFO | Reading frame:  963
+2026-05-08 16:20:47 | INFO | Reading frame:  964
+2026-05-08 16:20:47 | INFO | Reading frame:  965
+2026-05-08 16:20:47 | INFO | Reading frame:  966
+2026-05-08 16:20:47 | INFO | Reading frame:  967
+2026-05-08 16:20:47 | INFO | Reading frame:  968
+2026-05-08 16:20:47 | INFO | Reading frame:  969
+2026-05-08 16:20:47 | INFO | Reading frame:  970
+2026-05-08 16:20:47 | INFO | Reading frame:  971
+2026-05-08 16:20:47 | INFO | Reading frame:  972
+2026-05-08 16:20:47 | INFO | Reading frame:  973
+2026-05-08 16:20:47 | INFO | Reading frame:  974
+2026-05-08 16:20:47 | INFO | Reading frame:  975
+2026-05-08 16:20:47 | INFO | Reading frame:  976
+2026-05-08 16:20:47 | INFO | Reading frame:  977
+2026-05-08 16:20:47 | INFO | Reading frame:  978
+2026-05-08 16:20:47 | INFO | Reading frame:  979
+2026-05-08 16:20:47 | INFO | Reading frame:  980
+2026-05-08 16:20:47 | INFO | Reading frame:  981
+2026-05-08 16:20:47 | INFO | Reading frame:  982
+2026-05-08 16:20:47 | INFO | Reading frame:  983
+2026-05-08 16:20:47 | INFO | Reading frame:  984
+2026-05-08 16:20:47 | INFO | Reading frame:  985
+2026-05-08 16:20:47 | INFO | Reading frame:  986
+2026-05-08 16:20:47 | INFO | Reading frame:  987
+2026-05-08 16:20:47 | INFO | Reading frame:  988
+2026-05-08 16:20:47 | INFO | Reading frame:  989
+2026-05-08 16:20:47 | INFO | Reading frame:  990
+2026-05-08 16:20:47 | INFO | Reading frame:  991
+2026-05-08 16:20:47 | INFO | Reading frame:  992
+2026-05-08 16:20:47 | INFO | Reading frame:  993
+2026-05-08 16:20:47 | INFO | Reading frame:  994
+2026-05-08 16:20:47 | INFO | Reading frame:  995
+2026-05-08 16:20:47 | INFO | Reading frame:  996
+2026-05-08 16:20:47 | INFO | Reading frame:  997
+2026-05-08 16:20:47 | INFO | Reading frame:  998
+2026-05-08 16:20:47 | INFO | Reading frame:  999
+2026-05-08 16:20:47 | INFO | Reading frame:  1000
+2026-05-08 16:20:47 | INFO | Reading frame:  1001
+2026-05-08 16:20:47 | INFO | Reading frame:  1002
+2026-05-08 16:20:47 | INFO | Reading frame:  1003
+2026-05-08 16:20:47 | INFO | Reading frame:  1004
+2026-05-08 16:20:47 | INFO | Reading frame:  1005
+2026-05-08 16:20:47 | INFO | Reading frame:  1006
+2026-05-08 16:20:47 | INFO | Reading frame:  1007
+2026-05-08 16:20:47 | INFO | Reading frame:  1008
+2026-05-08 16:20:47 | INFO | Reading frame:  1009
+2026-05-08 16:20:47 | INFO | Reading frame:  1010
+2026-05-08 16:20:47 | INFO | Reading frame:  1011
+2026-05-08 16:20:47 | INFO | Reading frame:  1012
+2026-05-08 16:20:47 | INFO | Reading frame:  1013
+2026-05-08 16:20:47 | INFO | Reading frame:  1014
+2026-05-08 16:20:47 | INFO | Reading frame:  1015
+2026-05-08 16:20:47 | INFO | Reading frame:  1016
+2026-05-08 16:20:47 | INFO | Reading frame:  1017
+2026-05-08 16:20:47 | INFO | Reading frame:  1018
+2026-05-08 16:20:47 | INFO | Reading frame:  1019
+2026-05-08 16:20:47 | INFO | Reading frame:  1020
+2026-05-08 16:20:47 | INFO | Reading frame:  1021
+2026-05-08 16:20:47 | INFO | Reading frame:  1022
+2026-05-08 16:20:47 | INFO | Reading frame:  1023
+2026-05-08 16:20:47 | INFO | Reading frame:  1024
+2026-05-08 16:20:47 | INFO | Reading frame:  1025
+2026-05-08 16:20:47 | INFO | Reading frame:  1026
+2026-05-08 16:20:47 | INFO | Reading frame:  1027
+2026-05-08 16:20:47 | INFO | Reading frame:  1028
+2026-05-08 16:20:47 | INFO | Reading frame:  1029
+2026-05-08 16:20:47 | INFO | Reading frame:  1030
+2026-05-08 16:20:47 | INFO | Reading frame:  1031
+2026-05-08 16:20:47 | INFO | Reading frame:  1032
+2026-05-08 16:20:47 | INFO | Reading frame:  1033
+2026-05-08 16:20:47 | INFO | Reading frame:  1034
+2026-05-08 16:20:47 | INFO | Reading frame:  1035
+2026-05-08 16:20:47 | INFO | Reading frame:  1036
+2026-05-08 16:20:47 | INFO | Reading frame:  1037
+2026-05-08 16:20:47 | INFO | Reading frame:  1038
+2026-05-08 16:20:47 | INFO | Reading frame:  1039
+2026-05-08 16:20:47 | INFO | Reading frame:  1040
+2026-05-08 16:20:47 | INFO | Reading frame:  1041
+2026-05-08 16:20:47 | INFO | Reading frame:  1042
+2026-05-08 16:20:47 | INFO | Reading frame:  1043
+2026-05-08 16:20:47 | INFO | Reading frame:  1044
+2026-05-08 16:20:47 | INFO | Reading frame:  1045
+2026-05-08 16:20:47 | INFO | Reading frame:  1046
+2026-05-08 16:20:47 | INFO | Reading frame:  1047
+2026-05-08 16:20:47 | INFO | Reading frame:  1048
+2026-05-08 16:20:47 | INFO | Reading frame:  1049
+2026-05-08 16:20:47 | INFO | Reading frame:  1050
+2026-05-08 16:20:47 | INFO | Reading frame:  1051
+2026-05-08 16:20:47 | INFO | Reading frame:  1052
+2026-05-08 16:20:47 | INFO | Reading frame:  1053
+2026-05-08 16:20:47 | INFO | Reading frame:  1054
+2026-05-08 16:20:47 | INFO | Reading frame:  1055
+2026-05-08 16:20:47 | INFO | Reading frame:  1056
+2026-05-08 16:20:47 | INFO | Reading frame:  1057
+2026-05-08 16:20:47 | INFO | Reading frame:  1058
+2026-05-08 16:20:47 | INFO | Reading frame:  1059
+2026-05-08 16:20:47 | INFO | Reading frame:  1060
+2026-05-08 16:20:47 | INFO | Reading frame:  1061
+2026-05-08 16:20:47 | INFO | Reading frame:  1062
+2026-05-08 16:20:47 | INFO | Reading frame:  1063
+2026-05-08 16:20:47 | INFO | Reading frame:  1064
+2026-05-08 16:20:47 | INFO | Reading frame:  1065
+2026-05-08 16:20:47 | INFO | Reading frame:  1066
+2026-05-08 16:20:47 | INFO | Reading frame:  1067
+2026-05-08 16:20:47 | INFO | Reading frame:  1068
+2026-05-08 16:20:47 | INFO | Reading frame:  1069
+2026-05-08 16:20:47 | INFO | Reading frame:  1070
+2026-05-08 16:20:47 | INFO | Reading frame:  1071
+2026-05-08 16:20:47 | INFO | Reading frame:  1072
+2026-05-08 16:20:47 | INFO | Reading frame:  1073
+2026-05-08 16:20:47 | INFO | Reading frame:  1074
+2026-05-08 16:20:47 | INFO | Reading frame:  1075
+2026-05-08 16:20:47 | INFO | Reading frame:  1076
+2026-05-08 16:20:47 | INFO | Reading frame:  1077
+2026-05-08 16:20:47 | INFO | Reading frame:  1078
+2026-05-08 16:20:47 | INFO | Reading frame:  1079
+2026-05-08 16:20:47 | INFO | Reading frame:  1080
+2026-05-08 16:20:47 | INFO | Reading frame:  1081
+2026-05-08 16:20:47 | INFO | Reading frame:  1082
+2026-05-08 16:20:47 | INFO | Reading frame:  1083
+2026-05-08 16:20:47 | INFO | Reading frame:  1084
+2026-05-08 16:20:47 | INFO | Reading frame:  1085
+2026-05-08 16:20:47 | INFO | Reading frame:  1086
+2026-05-08 16:20:47 | INFO | Reading frame:  1087
+2026-05-08 16:20:47 | INFO | Reading frame:  1088
+2026-05-08 16:20:47 | INFO | Reading frame:  1089
+2026-05-08 16:20:47 | INFO | Reading frame:  1090
+2026-05-08 16:20:47 | INFO | Reading frame:  1091
+2026-05-08 16:20:47 | INFO | Reading frame:  1092
+2026-05-08 16:20:47 | INFO | Reading frame:  1093
+2026-05-08 16:20:47 | INFO | Reading frame:  1094
+2026-05-08 16:20:47 | INFO | Reading frame:  1095
+2026-05-08 16:20:47 | INFO | Reading frame:  1096
+2026-05-08 16:20:47 | INFO | Reading frame:  1097
+2026-05-08 16:20:47 | INFO | Reading frame:  1098
+2026-05-08 16:20:47 | INFO | Reading frame:  1099
+2026-05-08 16:20:47 | INFO | Reading frame:  1100
+2026-05-08 16:20:47 | INFO | Reading frame:  1101
+2026-05-08 16:20:47 | INFO | Reading frame:  1102
+2026-05-08 16:20:47 | INFO | Reading frame:  1103
+2026-05-08 16:20:47 | INFO | Reading frame:  1104
+2026-05-08 16:20:47 | INFO | Reading frame:  1105
+2026-05-08 16:20:47 | INFO | Reading frame:  1106
+2026-05-08 16:20:47 | INFO | Reading frame:  1107
+2026-05-08 16:20:47 | INFO | Reading frame:  1108
+2026-05-08 16:20:47 | INFO | Reading frame:  1109
+2026-05-08 16:20:47 | INFO | Reading frame:  1110
+2026-05-08 16:20:47 | INFO | Reading frame:  1111
+2026-05-08 16:20:47 | INFO | Reading frame:  1112
+2026-05-08 16:20:47 | INFO | Reading frame:  1113
+2026-05-08 16:20:47 | INFO | Reading frame:  1114
+2026-05-08 16:20:47 | INFO | Reading frame:  1115
+2026-05-08 16:20:47 | INFO | Reading frame:  1116
+2026-05-08 16:20:47 | INFO | Reading frame:  1117
+2026-05-08 16:20:47 | INFO | Reading frame:  1118
+2026-05-08 16:20:47 | INFO | Reading frame:  1119
+2026-05-08 16:20:47 | INFO | Reading frame:  1120
+2026-05-08 16:20:47 | INFO | Reading frame:  1121
+2026-05-08 16:20:47 | INFO | Reading frame:  1122
+2026-05-08 16:20:47 | INFO | Reading frame:  1123
+2026-05-08 16:20:47 | INFO | Reading frame:  1124
+2026-05-08 16:20:47 | INFO | Reading frame:  1125
+2026-05-08 16:20:47 | INFO | Reading frame:  1126
+2026-05-08 16:20:47 | INFO | Reading frame:  1127
+2026-05-08 16:20:47 | INFO | Reading frame:  1128
+2026-05-08 16:20:47 | INFO | Reading frame:  1129
+2026-05-08 16:20:47 | INFO | Reading frame:  1130
+2026-05-08 16:20:47 | INFO | Reading frame:  1131
+2026-05-08 16:20:47 | INFO | Reading frame:  1132
+2026-05-08 16:20:47 | INFO | Reading frame:  1133
+2026-05-08 16:20:47 | INFO | Reading frame:  1134
+2026-05-08 16:20:47 | INFO | Reading frame:  1135
+2026-05-08 16:20:47 | INFO | Reading frame:  1136
+2026-05-08 16:20:47 | INFO | Reading frame:  1137
+2026-05-08 16:20:47 | INFO | Reading frame:  1138
+2026-05-08 16:20:47 | INFO | Reading frame:  1139
+2026-05-08 16:20:47 | INFO | Reading frame:  1140
+2026-05-08 16:20:47 | INFO | Reading frame:  1141
+2026-05-08 16:20:47 | INFO | Reading frame:  1142
+2026-05-08 16:20:47 | INFO | Reading frame:  1143
+2026-05-08 16:20:47 | INFO | Reading frame:  1144
+2026-05-08 16:20:47 | INFO | Reading frame:  1145
+2026-05-08 16:20:47 | INFO | Reading frame:  1146
+2026-05-08 16:20:47 | INFO | Reading frame:  1147
+2026-05-08 16:20:47 | INFO | Reading frame:  1148
+2026-05-08 16:20:47 | INFO | Reading frame:  1149
+2026-05-08 16:20:47 | INFO | Reading frame:  1150
+2026-05-08 16:20:47 | INFO | Reading frame:  1151
+2026-05-08 16:20:47 | INFO | Reading frame:  1152
+2026-05-08 16:20:47 | INFO | Reading frame:  1153
+2026-05-08 16:20:47 | INFO | Reading frame:  1154
+2026-05-08 16:20:47 | INFO | Reading frame:  1155
+2026-05-08 16:20:47 | INFO | Reading frame:  1156
+2026-05-08 16:20:47 | INFO | Reading frame:  1157
+2026-05-08 16:20:47 | INFO | Reading frame:  1158
+2026-05-08 16:20:47 | INFO | Reading frame:  1159
+2026-05-08 16:20:47 | INFO | Reading frame:  1160
+2026-05-08 16:20:47 | INFO | Reading frame:  1161
+2026-05-08 16:20:47 | INFO | Reading frame:  1162
+2026-05-08 16:20:47 | INFO | Reading frame:  1163
+2026-05-08 16:20:47 | INFO | Reading frame:  1164
+2026-05-08 16:20:47 | INFO | Reading frame:  1165
+2026-05-08 16:20:47 | INFO | Reading frame:  1166
+2026-05-08 16:20:47 | INFO | Reading frame:  1167
+2026-05-08 16:20:47 | INFO | Reading frame:  1168
+2026-05-08 16:20:47 | INFO | Reading frame:  1169
+2026-05-08 16:20:47 | INFO | Reading frame:  1170
+2026-05-08 16:20:47 | INFO | Reading frame:  1171
+2026-05-08 16:20:47 | INFO | Reading frame:  1172
+2026-05-08 16:20:47 | INFO | Reading frame:  1173
+2026-05-08 16:20:47 | INFO | Reading frame:  1174
+2026-05-08 16:20:47 | INFO | Reading frame:  1175
+2026-05-08 16:20:47 | INFO | Reading frame:  1176
+2026-05-08 16:20:47 | INFO | Reading frame:  1177
+2026-05-08 16:20:47 | INFO | Reading frame:  1178
+2026-05-08 16:20:47 | INFO | Reading frame:  1179
+2026-05-08 16:20:47 | INFO | Reading frame:  1180
+2026-05-08 16:20:47 | INFO | Reading frame:  1181
+2026-05-08 16:20:47 | INFO | Reading frame:  1182
+2026-05-08 16:20:47 | INFO | Reading frame:  1183
+2026-05-08 16:20:47 | INFO | Reading frame:  1184
+2026-05-08 16:20:47 | INFO | Reading frame:  1185
+2026-05-08 16:20:47 | INFO | Reading frame:  1186
+2026-05-08 16:20:47 | INFO | Reading frame:  1187
+2026-05-08 16:20:47 | INFO | Reading frame:  1188
+2026-05-08 16:20:47 | INFO | Reading frame:  1189
+2026-05-08 16:20:47 | INFO | Reading frame:  1190
+2026-05-08 16:20:47 | INFO | Reading frame:  1191
+2026-05-08 16:20:47 | INFO | Reading frame:  1192
+2026-05-08 16:20:47 | INFO | Reading frame:  1193
+2026-05-08 16:20:47 | INFO | Reading frame:  1194
+2026-05-08 16:20:47 | INFO | Reading frame:  1195
+2026-05-08 16:20:47 | INFO | Reading frame:  1196
+2026-05-08 16:20:47 | INFO | Reading frame:  1197
+2026-05-08 16:20:47 | INFO | Reading frame:  1198
+2026-05-08 16:20:47 | INFO | Reading frame:  1199
+2026-05-08 16:20:47 | INFO | Reading frame:  1200
+2026-05-08 16:20:47 | INFO | Reading frame:  1201
+2026-05-08 16:20:47 | INFO | Reading frame:  1202
+2026-05-08 16:20:47 | INFO | Reading frame:  1203
+2026-05-08 16:20:47 | INFO | Reading frame:  1204
+2026-05-08 16:20:47 | INFO | Reading frame:  1205
+2026-05-08 16:20:47 | INFO | Reading frame:  1206
+2026-05-08 16:20:47 | INFO | Reading frame:  1207
+2026-05-08 16:20:47 | INFO | Reading frame:  1208
+2026-05-08 16:20:47 | INFO | Reading frame:  1209
+2026-05-08 16:20:47 | INFO | Reading frame:  1210
+2026-05-08 16:20:47 | INFO | Reading frame:  1211
+2026-05-08 16:20:47 | INFO | Reading frame:  1212
+2026-05-08 16:20:47 | INFO | Reading frame:  1213
+2026-05-08 16:20:47 | INFO | Reading frame:  1214
+2026-05-08 16:20:47 | INFO | Reading frame:  1215
+2026-05-08 16:20:47 | INFO | Reading frame:  1216
+2026-05-08 16:20:47 | INFO | Reading frame:  1217
+2026-05-08 16:20:47 | INFO | Reading frame:  1218
+2026-05-08 16:20:47 | INFO | Reading frame:  1219
+2026-05-08 16:20:47 | INFO | Reading frame:  1220
+2026-05-08 16:20:47 | INFO | Reading frame:  1221
+2026-05-08 16:20:47 | INFO | Reading frame:  1222
+2026-05-08 16:20:47 | INFO | Reading frame:  1223
+2026-05-08 16:20:47 | INFO | Reading frame:  1224
+2026-05-08 16:20:47 | INFO | Reading frame:  1225
+2026-05-08 16:20:47 | INFO | Reading frame:  1226
+2026-05-08 16:20:47 | INFO | Reading frame:  1227
+2026-05-08 16:20:47 | INFO | Reading frame:  1228
+2026-05-08 16:20:47 | INFO | Reading frame:  1229
+2026-05-08 16:20:47 | INFO | Reading frame:  1230
+2026-05-08 16:20:47 | INFO | Reading frame:  1231
+2026-05-08 16:20:47 | INFO | Reading frame:  1232
+2026-05-08 16:20:47 | INFO | Reading frame:  1233
+2026-05-08 16:20:47 | INFO | Reading frame:  1234
+2026-05-08 16:20:47 | INFO | Reading frame:  1235
+2026-05-08 16:20:47 | INFO | Reading frame:  1236
+2026-05-08 16:20:47 | INFO | Reading frame:  1237
+2026-05-08 16:20:47 | INFO | Reading frame:  1238
+2026-05-08 16:20:47 | INFO | Reading frame:  1239
+2026-05-08 16:20:47 | INFO | Reading frame:  1240
+2026-05-08 16:20:47 | INFO | Reading frame:  1241
+2026-05-08 16:20:47 | INFO | Reading frame:  1242
+2026-05-08 16:20:47 | INFO | Reading frame:  1243
+2026-05-08 16:20:47 | INFO | Reading frame:  1244
+2026-05-08 16:20:47 | INFO | Reading frame:  1245
+2026-05-08 16:20:47 | INFO | Reading frame:  1246
+2026-05-08 16:20:47 | INFO | Reading frame:  1247
+2026-05-08 16:20:47 | INFO | Reading frame:  1248
+2026-05-08 16:20:47 | INFO | Reading frame:  1249
+2026-05-08 16:20:47 | INFO | Reading frame:  1250
+2026-05-08 16:20:47 | INFO | Reading frame:  1251
+2026-05-08 16:20:47 | INFO | Reading frame:  1252
+2026-05-08 16:20:47 | INFO | Reading frame:  1253
+2026-05-08 16:20:47 | INFO | Reading frame:  1254
+2026-05-08 16:20:47 | INFO | Reading frame:  1255
+2026-05-08 16:20:47 | INFO | Reading frame:  1256
+2026-05-08 16:20:47 | INFO | Reading frame:  1257
+2026-05-08 16:20:47 | INFO | Reading frame:  1258
+2026-05-08 16:20:47 | INFO | Reading frame:  1259
+2026-05-08 16:20:47 | INFO | Reading frame:  1260
+2026-05-08 16:20:47 | INFO | Reading frame:  1261
+2026-05-08 16:20:47 | INFO | Reading frame:  1262
+2026-05-08 16:20:47 | INFO | Reading frame:  1263
+2026-05-08 16:20:47 | INFO | Reading frame:  1264
+2026-05-08 16:20:47 | INFO | Reading frame:  1265
+2026-05-08 16:20:47 | INFO | Reading frame:  1266
+2026-05-08 16:20:47 | INFO | Reading frame:  1267
+2026-05-08 16:20:47 | INFO | Reading frame:  1268
+2026-05-08 16:20:47 | INFO | Reading frame:  1269
+2026-05-08 16:20:47 | INFO | Reading frame:  1270
+2026-05-08 16:20:47 | INFO | Reading frame:  1271
+2026-05-08 16:20:47 | INFO | Reading frame:  1272
+2026-05-08 16:20:47 | INFO | Reading frame:  1273
+2026-05-08 16:20:47 | INFO | Reading frame:  1274
+2026-05-08 16:20:47 | INFO | Reading frame:  1275
+2026-05-08 16:20:47 | INFO | Reading frame:  1276
+2026-05-08 16:20:47 | INFO | Reading frame:  1277
+2026-05-08 16:20:47 | INFO | Reading frame:  1278
+2026-05-08 16:20:47 | INFO | Reading frame:  1279
+2026-05-08 16:20:47 | INFO | Reading frame:  1280
+2026-05-08 16:20:47 | INFO | Reading frame:  1281
+2026-05-08 16:20:47 | INFO | Reading frame:  1282
+2026-05-08 16:20:47 | INFO | Reading frame:  1283
+2026-05-08 16:20:47 | INFO | Reading frame:  1284
+2026-05-08 16:20:47 | INFO | Reading frame:  1285
+2026-05-08 16:20:47 | INFO | Reading frame:  1286
+2026-05-08 16:20:47 | INFO | Reading frame:  1287
+2026-05-08 16:20:47 | INFO | Reading frame:  1288
+2026-05-08 16:20:47 | INFO | Reading frame:  1289
+2026-05-08 16:20:47 | INFO | Reading frame:  1290
+2026-05-08 16:20:47 | INFO | Reading frame:  1291
+2026-05-08 16:20:47 | INFO | Reading frame:  1292
+2026-05-08 16:20:47 | INFO | Reading frame:  1293
+2026-05-08 16:20:47 | INFO | Reading frame:  1294
+2026-05-08 16:20:47 | INFO | Reading frame:  1295
+2026-05-08 16:20:47 | INFO | Reading frame:  1296
+2026-05-08 16:20:47 | INFO | Reading frame:  1297
+2026-05-08 16:20:47 | INFO | Reading frame:  1298
+2026-05-08 16:20:47 | INFO | Reading frame:  1299
+2026-05-08 16:20:47 | INFO | Reading frame:  1300
+2026-05-08 16:20:47 | INFO | Reading frame:  1301
+2026-05-08 16:20:47 | INFO | Reading frame:  1302
+2026-05-08 16:20:47 | INFO | Reading frame:  1303
+2026-05-08 16:20:47 | INFO | Reading frame:  1304
+2026-05-08 16:20:47 | INFO | Reading frame:  1305
+2026-05-08 16:20:47 | INFO | Reading frame:  1306
+2026-05-08 16:20:47 | INFO | Reading frame:  1307
+2026-05-08 16:20:47 | INFO | Reading frame:  1308
+2026-05-08 16:20:47 | INFO | Reading frame:  1309
+2026-05-08 16:20:47 | INFO | Reading frame:  1310
+2026-05-08 16:20:47 | INFO | Reading frame:  1311
+2026-05-08 16:20:47 | INFO | Reading frame:  1312
+2026-05-08 16:20:47 | INFO | Reading frame:  1313
+2026-05-08 16:20:47 | INFO | Reading frame:  1314
+2026-05-08 16:20:47 | INFO | Reading frame:  1315
+2026-05-08 16:20:47 | INFO | Reading frame:  1316
+2026-05-08 16:20:47 | INFO | Reading frame:  1317
+2026-05-08 16:20:47 | INFO | Reading frame:  1318
+2026-05-08 16:20:47 | INFO | Reading frame:  1319
+2026-05-08 16:20:47 | INFO | Reading frame:  1320
+2026-05-08 16:20:47 | INFO | Reading frame:  1321
+2026-05-08 16:20:47 | INFO | Reading frame:  1322
+2026-05-08 16:20:47 | INFO | Reading frame:  1323
+2026-05-08 16:20:47 | INFO | Reading frame:  1324
+2026-05-08 16:20:47 | INFO | Reading frame:  1325
+2026-05-08 16:20:47 | INFO | Reading frame:  1326
+2026-05-08 16:20:47 | INFO | Reading frame:  1327
+2026-05-08 16:20:47 | INFO | Reading frame:  1328
+2026-05-08 16:20:47 | INFO | Reading frame:  1329
+2026-05-08 16:20:47 | INFO | Reading frame:  1330
+2026-05-08 16:20:47 | INFO | Reading frame:  1331
+2026-05-08 16:20:47 | INFO | Reading frame:  1332
+2026-05-08 16:20:47 | INFO | Reading frame:  1333
+2026-05-08 16:20:47 | INFO | Reading frame:  1334
+2026-05-08 16:20:47 | INFO | Reading frame:  1335
+2026-05-08 16:20:47 | INFO | Reading frame:  1336
+2026-05-08 16:20:47 | INFO | Reading frame:  1337
+2026-05-08 16:20:47 | INFO | Reading frame:  1338
+2026-05-08 16:20:47 | INFO | Reading frame:  1339
+2026-05-08 16:20:47 | INFO | Reading frame:  1340
+2026-05-08 16:20:47 | INFO | Reading frame:  1341
+2026-05-08 16:20:47 | INFO | Reading frame:  1342
+2026-05-08 16:20:47 | INFO | Reading frame:  1343
+2026-05-08 16:20:47 | INFO | Reading frame:  1344
+2026-05-08 16:20:47 | INFO | Reading frame:  1345
+2026-05-08 16:20:47 | INFO | Reading frame:  1346
+2026-05-08 16:20:47 | INFO | Reading frame:  1347
+2026-05-08 16:20:47 | INFO | Reading frame:  1348
+2026-05-08 16:20:47 | INFO | Reading frame:  1349
+2026-05-08 16:20:47 | INFO | Reading frame:  1350
+2026-05-08 16:20:47 | INFO | Reading frame:  1351
+2026-05-08 16:20:47 | INFO | Reading frame:  1352
+2026-05-08 16:20:47 | INFO | Reading frame:  1353
+2026-05-08 16:20:47 | INFO | Reading frame:  1354
+2026-05-08 16:20:47 | INFO | Reading frame:  1355
+2026-05-08 16:20:47 | INFO | Reading frame:  1356
+2026-05-08 16:20:47 | INFO | Reading frame:  1357
+2026-05-08 16:20:47 | INFO | Reading frame:  1358
+2026-05-08 16:20:47 | INFO | Reading frame:  1359
+2026-05-08 16:20:47 | INFO | Reading frame:  1360
+2026-05-08 16:20:47 | INFO | Reading frame:  1361
+2026-05-08 16:20:47 | INFO | Reading frame:  1362
+2026-05-08 16:20:47 | INFO | Reading frame:  1363
+2026-05-08 16:20:47 | INFO | Reading frame:  1364
+2026-05-08 16:20:47 | INFO | Reading frame:  1365
+2026-05-08 16:20:47 | INFO | Reading frame:  1366
+2026-05-08 16:20:47 | INFO | Reading frame:  1367
+2026-05-08 16:20:47 | INFO | Reading frame:  1368
+2026-05-08 16:20:47 | INFO | Reading frame:  1369
+2026-05-08 16:20:47 | INFO | Reading frame:  1370
+2026-05-08 16:20:47 | INFO | Reading frame:  1371
+2026-05-08 16:20:47 | INFO | Reading frame:  1372
+2026-05-08 16:20:47 | INFO | Reading frame:  1373
+2026-05-08 16:20:47 | INFO | Reading frame:  1374
+2026-05-08 16:20:47 | INFO | Reading frame:  1375
+2026-05-08 16:20:47 | INFO | Reading frame:  1376
+2026-05-08 16:20:47 | INFO | Reading frame:  1377
+2026-05-08 16:20:47 | INFO | Reading frame:  1378
+2026-05-08 16:20:47 | INFO | Reading frame:  1379
+2026-05-08 16:20:47 | INFO | Reading frame:  1380
+2026-05-08 16:20:47 | INFO | Reading frame:  1381
+2026-05-08 16:20:47 | INFO | Reading frame:  1382
+2026-05-08 16:20:47 | INFO | Reading frame:  1383
+2026-05-08 16:20:47 | INFO | Reading frame:  1384
+2026-05-08 16:20:47 | INFO | Reading frame:  1385
+2026-05-08 16:20:47 | INFO | Reading frame:  1386
+2026-05-08 16:20:47 | INFO | Reading frame:  1387
+2026-05-08 16:20:47 | INFO | Reading frame:  1388
+2026-05-08 16:20:47 | INFO | Reading frame:  1389
+2026-05-08 16:20:47 | INFO | Reading frame:  1390
+2026-05-08 16:20:47 | INFO | Reading frame:  1391
+2026-05-08 16:20:47 | INFO | Reading frame:  1392
+2026-05-08 16:20:47 | INFO | Reading frame:  1393
+2026-05-08 16:20:47 | INFO | Reading frame:  1394
+2026-05-08 16:20:47 | INFO | Reading frame:  1395
+2026-05-08 16:20:47 | INFO | Reading frame:  1396
+2026-05-08 16:20:47 | INFO | Reading frame:  1397
+2026-05-08 16:20:47 | INFO | Reading frame:  1398
+2026-05-08 16:20:47 | INFO | Reading frame:  1399
+2026-05-08 16:20:47 | INFO | Reading frame:  1400
+2026-05-08 16:20:47 | INFO | Reading frame:  1401
+2026-05-08 16:20:47 | INFO | Reading frame:  1402
+2026-05-08 16:20:47 | INFO | Reading frame:  1403
+2026-05-08 16:20:47 | INFO | Reading frame:  1404
+2026-05-08 16:20:47 | INFO | Reading frame:  1405
+2026-05-08 16:20:47 | INFO | Reading frame:  1406
+2026-05-08 16:20:47 | INFO | Reading frame:  1407
+2026-05-08 16:20:47 | INFO | Reading frame:  1408
+2026-05-08 16:20:47 | INFO | Reading frame:  1409
+2026-05-08 16:20:47 | INFO | Reading frame:  1410
+2026-05-08 16:20:47 | INFO | Reading frame:  1411
+2026-05-08 16:20:47 | INFO | Reading frame:  1412
+2026-05-08 16:20:47 | INFO | Reading frame:  1413
+2026-05-08 16:20:47 | INFO | Reading frame:  1414
+2026-05-08 16:20:47 | INFO | Reading frame:  1415
+2026-05-08 16:20:47 | INFO | Reading frame:  1416
+2026-05-08 16:20:47 | INFO | Reading frame:  1417
+2026-05-08 16:20:47 | INFO | Reading frame:  1418
+2026-05-08 16:20:47 | INFO | Reading frame:  1419
+2026-05-08 16:20:47 | INFO | Reading frame:  1420
+2026-05-08 16:20:47 | INFO | Reading frame:  1421
+2026-05-08 16:20:47 | INFO | Reading frame:  1422
+2026-05-08 16:20:47 | INFO | Reading frame:  1423
+2026-05-08 16:20:47 | INFO | Reading frame:  1424
+2026-05-08 16:20:47 | INFO | Reading frame:  1425
+2026-05-08 16:20:47 | INFO | Reading frame:  1426
+2026-05-08 16:20:47 | INFO | Reading frame:  1427
+2026-05-08 16:20:47 | INFO | Reading frame:  1428
+2026-05-08 16:20:47 | INFO | Reading frame:  1429
+2026-05-08 16:20:47 | INFO | Reading frame:  1430
+2026-05-08 16:20:47 | INFO | Reading frame:  1431
+2026-05-08 16:20:47 | INFO | Reading frame:  1432
+2026-05-08 16:20:47 | INFO | Reading frame:  1433
+2026-05-08 16:20:47 | INFO | Reading frame:  1434
+2026-05-08 16:20:47 | INFO | Reading frame:  1435
+2026-05-08 16:20:47 | INFO | Reading frame:  1436
+2026-05-08 16:20:47 | INFO | Reading frame:  1437
+2026-05-08 16:20:47 | INFO | Reading frame:  1438
+2026-05-08 16:20:47 | INFO | Reading frame:  1439
+2026-05-08 16:20:47 | INFO | Reading frame:  1440
+2026-05-08 16:20:47 | INFO | Reading frame:  1441
+2026-05-08 16:20:47 | INFO | Reading frame:  1442
+2026-05-08 16:20:47 | INFO | Reading frame:  1443
+2026-05-08 16:20:47 | INFO | Reading frame:  1444
+2026-05-08 16:20:47 | INFO | Reading frame:  1445
+2026-05-08 16:20:47 | INFO | Reading frame:  1446
+2026-05-08 16:20:47 | INFO | Reading frame:  1447
+2026-05-08 16:20:47 | INFO | Reading frame:  1448
+2026-05-08 16:20:47 | INFO | Reading frame:  1449
+2026-05-08 16:20:47 | INFO | Reading frame:  1450
+2026-05-08 16:20:47 | INFO | Reading frame:  1451
+2026-05-08 16:20:47 | INFO | Reading frame:  1452
+2026-05-08 16:20:47 | INFO | Reading frame:  1453
+2026-05-08 16:20:47 | INFO | Reading frame:  1454
+2026-05-08 16:20:47 | INFO | Reading frame:  1455
+2026-05-08 16:20:47 | INFO | Reading frame:  1456
+2026-05-08 16:20:47 | INFO | Reading frame:  1457
+2026-05-08 16:20:47 | INFO | Reading frame:  1458
+2026-05-08 16:20:47 | INFO | Reading frame:  1459
+2026-05-08 16:20:47 | INFO | Reading frame:  1460
+2026-05-08 16:20:47 | INFO | Reading frame:  1461
+2026-05-08 16:20:47 | INFO | Reading frame:  1462
+2026-05-08 16:20:47 | INFO | Reading frame:  1463
+2026-05-08 16:20:47 | INFO | Reading frame:  1464
+2026-05-08 16:20:47 | INFO | Reading frame:  1465
+2026-05-08 16:20:47 | INFO | Reading frame:  1466
+2026-05-08 16:20:47 | INFO | Reading frame:  1467
+2026-05-08 16:20:47 | INFO | Reading frame:  1468
+2026-05-08 16:20:47 | INFO | Reading frame:  1469
+2026-05-08 16:20:47 | INFO | Reading frame:  1470
+2026-05-08 16:20:47 | INFO | Reading frame:  1471
+2026-05-08 16:20:47 | INFO | Reading frame:  1472
+2026-05-08 16:20:47 | INFO | Reading frame:  1473
+2026-05-08 16:20:47 | INFO | Reading frame:  1474
+2026-05-08 16:20:47 | INFO | Reading frame:  1475
+2026-05-08 16:20:47 | INFO | Reading frame:  1476
+2026-05-08 16:20:47 | INFO | Reading frame:  1477
+2026-05-08 16:20:47 | INFO | Reading frame:  1478
+2026-05-08 16:20:47 | INFO | Reading frame:  1479
+2026-05-08 16:20:47 | INFO | Reading frame:  1480
+2026-05-08 16:20:47 | INFO | Reading frame:  1481
+2026-05-08 16:20:47 | INFO | Reading frame:  1482
+2026-05-08 16:20:47 | INFO | Reading frame:  1483
+2026-05-08 16:20:47 | INFO | Reading frame:  1484
+2026-05-08 16:20:47 | INFO | Reading frame:  1485
+2026-05-08 16:20:47 | INFO | Reading frame:  1486
+2026-05-08 16:20:47 | INFO | Reading frame:  1487
+2026-05-08 16:20:47 | INFO | Reading frame:  1488
+2026-05-08 16:20:47 | INFO | Reading frame:  1489
+2026-05-08 16:20:47 | INFO | Reading frame:  1490
+2026-05-08 16:20:47 | INFO | Reading frame:  1491
+2026-05-08 16:20:47 | INFO | Reading frame:  1492
+2026-05-08 16:20:47 | INFO | Reading frame:  1493
+2026-05-08 16:20:47 | INFO | Reading frame:  1494
+2026-05-08 16:20:47 | INFO | Reading frame:  1495
+2026-05-08 16:20:47 | INFO | Reading frame:  1496
+2026-05-08 16:20:47 | INFO | Reading frame:  1497
+2026-05-08 16:20:47 | INFO | Reading frame:  1498
+2026-05-08 16:20:47 | INFO | Reading frame:  1499
+2026-05-08 16:20:47 | INFO | Reading frame:  1500
+2026-05-08 16:20:47 | INFO | Reading frame:  1501
+2026-05-08 16:20:47 | INFO | Reading frame:  1502
+2026-05-08 16:20:47 | INFO | Reading frame:  1503
+2026-05-08 16:20:47 | INFO | Reading frame:  1504
+2026-05-08 16:20:47 | INFO | Reading frame:  1505
+2026-05-08 16:20:47 | INFO | 🔍 Detecting stable segments...
+2026-05-08 16:20:47 | INFO | 
+2026-05-08 16:20:47 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-08 16:20:47 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 44455.09it/s]
+2026-05-08 16:20:47 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-08 16:20:47 | INFO | Key                                  | Status     |  | 
+2026-05-08 16:20:47 | INFO | -------------------------------------+------------+--+-
+2026-05-08 16:20:47 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-08 16:20:47 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-08 16:20:47 | INFO | 
+2026-05-08 16:20:47 | INFO | Notes:
+2026-05-08 16:20:47 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-08 16:20:53 | INFO | `use_return_dict` is deprecated! Use `return_dict` instead!
+2026-05-08 16:20:54 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 16:20:54 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 16:21:00 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 16:22:40 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 16:22:40 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 16:22:46 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 16:23:14 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 16:23:14 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 16:23:18 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 16:24:01 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 16:24:01 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 16:24:06 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 16:25:27 | INFO | ✅ CLIP similarity list loaded from cache.
+2026-05-08 16:25:27 | INFO | 
+2026-05-08 16:25:27 | INFO | 📂 Processing segment 0...
+2026-05-08 16:25:27 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_screenshot-0.png
+2026-05-08 16:25:27 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_dino.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_dino.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_tmp_stop.png
+2026-05-08 16:25:27 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 16:25:27 | INFO | {
+2026-05-08 16:25:27 | INFO |   "target_regions": [
+2026-05-08 16:25:27 | INFO |     6
+2026-05-08 16:25:27 | INFO |   ],
+2026-05-08 16:25:27 | INFO |   "predicted_action": "tap"
+2026-05-08 16:25:27 | INFO | }
+2026-05-08 16:25:27 | INFO | ```
+2026-05-08 16:25:27 | INFO | 🔍 Relevant regions: {'target_regions': [6], 'predicted_action': 'tap'}
+2026-05-08 16:25:27 | INFO | 🧠 GPT selected regions: [6]
+2026-05-08 16:25:27 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_relevant_regions.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_relevant_regions.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_screenshot-0.png
+2026-05-08 16:25:27 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 16:25:27 | INFO | {
+2026-05-08 16:25:27 | INFO |   "same_state": "no",
+2026-05-08 16:25:27 | INFO |   "description": "The reference screen is the initial empty state of the app, prompting the user to add a recipe by pressing the '+' button. The current screen is the 'Add Recipe' form, which is the screen that appears *after* the user has tapped the '+' button. They are two different functional states."
+2026-05-08 16:25:27 | INFO | }
+2026-05-08 16:25:27 | INFO | ```
+2026-05-08 16:25:27 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_tmp_start.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_tmp_stop.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_labeled.png
+2026-05-08 16:25:27 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 16:25:27 | INFO | {
+2026-05-08 16:25:27 | INFO |     "action": "no action",
+2026-05-08 16:25:27 | INFO |     "description": "No Action needed."
+2026-05-08 16:25:27 | INFO | }
+2026-05-08 16:25:27 | INFO | ```
+2026-05-08 16:25:27 | INFO | [1] No Action needed. -> no action
+2026-05-08 16:25:27 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_screenshot-0.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_tmp_start.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_screenshot-0.png
+2026-05-08 16:25:27 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 16:25:27 | INFO | {
+2026-05-08 16:25:27 | INFO |   "same_state": "no",
+2026-05-08 16:25:27 | INFO |   "description": "The reference image shows the initial empty state of the app, prompting the user to add a recipe via a '+' button. The current image is the 'Add Recipe' form, which is the screen that appears after the '+' button is pressed. These are two different screens in the application's workflow."
+2026-05-08 16:25:27 | INFO | }
+2026-05-08 16:25:27 | INFO | ```
+2026-05-08 16:25:27 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_tmp_start.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_tmp_stop.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_labeled.png
+2026-05-08 16:25:27 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 16:25:27 | INFO | {
+2026-05-08 16:25:27 | INFO |   "action": "no action",
+2026-05-08 16:25:27 | INFO |   "description": "The screen is already on the recipe creation page, which is the result of tapping the add button."
+2026-05-08 16:25:27 | INFO | }
+2026-05-08 16:25:27 | INFO | ```
+2026-05-08 16:25:27 | INFO | [1] The screen is already on the recipe creation page, which is the result of tapping the add button. -> no action
+2026-05-08 16:25:27 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_screenshot-0.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_tmp_start.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_screenshot-0.png
+2026-05-08 16:25:27 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 16:25:27 | INFO | {
+2026-05-08 16:25:27 | INFO |   "same_state": "no",
+2026-05-08 16:25:27 | INFO |   "description": "The reference screen is the initial empty state of the app, prompting the user to add a recipe with a '+' button. The current screen is the 'add recipe' form, which appears after the '+' button has been pressed. These are two different and sequential states in the application's workflow."
+2026-05-08 16:25:27 | INFO | }
+2026-05-08 16:25:27 | INFO | ```
+2026-05-08 16:25:27 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_tmp_start.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_tmp_stop.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_labeled.png
+2026-05-08 16:25:27 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 16:25:27 | INFO | {
+2026-05-08 16:25:27 | INFO |   "action": "no action",
+2026-05-08 16:25:27 | INFO |   "description": "The action from the recording has already been performed, and the current screen is the result of that action. No further action is needed."
+2026-05-08 16:25:27 | INFO | }
+2026-05-08 16:25:27 | INFO | ```
+2026-05-08 16:25:27 | INFO | [1] The action from the recording has already been performed, and the current screen is the result of that action. No further action is needed. -> no action
+2026-05-08 16:25:27 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_screenshot-0.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_tmp_start.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_0_screenshot-0.png
+2026-05-08 16:25:27 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 16:25:27 | INFO | {
+2026-05-08 16:25:27 | INFO |   "same_state": "no",
+2026-05-08 16:25:27 | INFO |   "description": "The reference screen is the main page of the app, showing a prompt to add a new recipe. The current screen is the 'Add Recipe' form, which appears after tapping the '+' button on the main page. These are two distinct and sequential states in the user flow."
+2026-05-08 16:25:27 | INFO | }
+2026-05-08 16:25:27 | INFO | ```
+2026-05-08 16:25:27 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-08 16:25:27 | INFO | Mismatch reason: the reference screen is the main page of the app, showing a prompt to add a new recipe. the current screen is the 'add recipe' form, which appears after tapping the '+' button on the main page. these are two distinct and sequential states in the user flow.
+2026-05-08 16:25:27 | INFO | 
+2026-05-08 16:25:27 | INFO | 📂 Processing segment 1...
+2026-05-08 16:25:27 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_1_screenshot-0.png
+2026-05-08 16:25:27 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_1_dino.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_1_dino.png
+2026-05-08 16:25:27 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_1_tmp_stop.png
+2026-05-08 16:25:27 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 16:25:27 | INFO | {
+2026-05-08 16:25:27 | INFO |   "target_regions": [
+2026-05-08 16:25:27 | INFO |     8
+2026-05-08 16:25:27 | INFO |   ],
+2026-05-08 16:25:27 | INFO |   "predicted_action": "tap"
+2026-05-08 16:25:27 | INFO | }
+2026-05-08 16:25:27 | INFO | ```
+2026-05-08 16:25:32 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 16:25:32 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 16:25:38 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 16:26:38 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 16:26:38 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 16:26:44 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 16:27:55 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 16:27:55 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 16:28:01 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 16:29:16 | INFO | 🔍 Relevant regions: {'target_regions': [8], 'predicted_action': 'tap'}
+2026-05-08 16:29:16 | INFO | 🧠 GPT selected regions: [8]
+2026-05-08 16:29:16 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_1_relevant_regions.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_1_relevant_regions.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_1_screenshot-0.png
+2026-05-08 16:29:16 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 16:29:16 | INFO | {
+2026-05-08 16:29:16 | INFO |   "same_state": "yes"
+2026-05-08 16:29:16 | INFO | }
+2026-05-08 16:29:16 | INFO | ```
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_1_relevant_regions.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_1_tmp_stop.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_1_labeled.png
+2026-05-08 16:29:16 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 16:29:16 | INFO | {
+2026-05-08 16:29:16 | INFO |   "action": "tap",
+2026-05-08 16:29:16 | INFO |   "region": 0,
+2026-05-08 16:29:16 | INFO |   "description": "Tap the 'Recipe Name' input field to bring up the keyboard."
+2026-05-08 16:29:16 | INFO | }
+2026-05-08 16:29:16 | INFO | ```
+2026-05-08 16:29:16 | INFO | 🎯 Using region index: 0 at (540, 192)
+2026-05-08 16:29:16 | INFO | [1] Tap the 'Recipe Name' input field to bring up the keyboard. -> tap
+2026-05-08 16:29:16 | INFO | ✅ Action executed.
+2026-05-08 16:29:16 | INFO | 
+2026-05-08 16:29:16 | INFO | 
+2026-05-08 16:29:16 | INFO | 📂 Processing segment 2...
+2026-05-08 16:29:16 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_2_screenshot-0.png
+2026-05-08 16:29:16 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_2_dino.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_2_dino.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_2_tmp_stop.png
+2026-05-08 16:29:16 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 16:29:16 | INFO | {
+2026-05-08 16:29:16 | INFO |   "target_regions": [
+2026-05-08 16:29:16 | INFO |     1
+2026-05-08 16:29:16 | INFO |   ],
+2026-05-08 16:29:16 | INFO |   "predicted_action": "input_text"
+2026-05-08 16:29:16 | INFO | }
+2026-05-08 16:29:16 | INFO | ```
+2026-05-08 16:29:16 | INFO | 🔍 Relevant regions: {'target_regions': [1], 'predicted_action': 'input_text'}
+2026-05-08 16:29:16 | INFO | 🧠 GPT selected regions: [1]
+2026-05-08 16:29:16 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_2_relevant_regions.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_2_relevant_regions.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_2_screenshot-0.png
+2026-05-08 16:29:16 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 16:29:16 | INFO | {
+2026-05-08 16:29:16 | INFO |   "same_state": "yes"
+2026-05-08 16:29:16 | INFO | }
+2026-05-08 16:29:16 | INFO | ```
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_2_relevant_regions.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_2_tmp_stop.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_2_labeled.png
+2026-05-08 16:29:16 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 16:29:16 | INFO | {
+2026-05-08 16:29:16 | INFO |     "action": "input_text",
+2026-05-08 16:29:16 | INFO |     "text": "100.0",
+2026-05-08 16:29:16 | INFO |     "region": 4,
+2026-05-08 16:29:16 | INFO |     "description": "Type 100.0 into the percentage field."
+2026-05-08 16:29:16 | INFO | }
+2026-05-08 16:29:16 | INFO | ```
+2026-05-08 16:29:16 | INFO | 🎯 Using region index: 4 at (807, 634)
+2026-05-08 16:29:16 | INFO | [1] Type 100.0 into the percentage field. -> input_text
+2026-05-08 16:29:16 | INFO | ✅ Action executed.
+2026-05-08 16:29:16 | INFO | 
+2026-05-08 16:29:16 | INFO | 
+2026-05-08 16:29:16 | INFO | 📂 Processing segment 3...
+2026-05-08 16:29:16 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_screenshot-0.png
+2026-05-08 16:29:16 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_dino.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_dino.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_tmp_stop.png
+2026-05-08 16:29:16 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 16:29:16 | INFO | {
+2026-05-08 16:29:16 | INFO |   "target_regions": [
+2026-05-08 16:29:16 | INFO |     5
+2026-05-08 16:29:16 | INFO |   ],
+2026-05-08 16:29:16 | INFO |   "predicted_action": "tap"
+2026-05-08 16:29:16 | INFO | }
+2026-05-08 16:29:16 | INFO | ```
+2026-05-08 16:29:16 | INFO | 🔍 Relevant regions: {'target_regions': [5], 'predicted_action': 'tap'}
+2026-05-08 16:29:16 | INFO | 🧠 GPT selected regions: [5]
+2026-05-08 16:29:16 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_relevant_regions.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_relevant_regions.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_screenshot-0.png
+2026-05-08 16:29:16 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 16:29:16 | INFO | {
+2026-05-08 16:29:16 | INFO |   "same_state": "no",
+2026-05-08 16:29:16 | INFO |   "description": "The current screen shows a full QWERTY keyboard, while the reference screen shows a numeric keypad. Additionally, the current screen is in dark mode and has different input values and a different number of ingredient fields compared to the reference screen, which is in light mode."
+2026-05-08 16:29:16 | INFO | }
+2026-05-08 16:29:16 | INFO | ```
+2026-05-08 16:29:16 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_tmp_start.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_tmp_stop.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_labeled.png
+2026-05-08 16:29:16 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 16:29:16 | INFO | {
+2026-05-08 16:29:16 | INFO |   "action": "tap",
+2026-05-08 16:29:16 | INFO |   "region": 9,
+2026-05-08 16:29:16 | INFO |   "description": "Tap the plus button to add a new ingredient."
+2026-05-08 16:29:16 | INFO | }
+2026-05-08 16:29:16 | INFO | ```
+2026-05-08 16:29:16 | INFO | 🎯 Recovery using region index: 9 at (540, 974)
+2026-05-08 16:29:16 | INFO | [1] Tap the plus button to add a new ingredient. -> tap
+2026-05-08 16:29:16 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_screenshot-0.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_tmp_start.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_screenshot-0.png
+2026-05-08 16:29:16 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 16:29:16 | INFO | {
+2026-05-08 16:29:16 | INFO |   "same_state": "yes"
+2026-05-08 16:29:16 | INFO | }
+2026-05-08 16:29:16 | INFO | ```
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_relevant_regions.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_tmp_stop.png
+2026-05-08 16:29:16 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_3_labeled.png
+2026-05-08 16:29:16 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 16:29:16 | INFO | {
+2026-05-08 16:29:16 | INFO |   "action": "tap",
+2026-05-08 16:29:16 | INFO |   "region": 12,
+2026-05-08 16:29:16 | INFO |   "description": "Tap the 'Save Recipe' button, which is the functional equivalent of tapping the 'Enter' key on the keyboard to submit the form."
+2026-05-08 16:29:16 | INFO | }
+2026-05-08 16:29:16 | INFO | ```
+2026-05-08 16:29:16 | INFO | 🎯 Using region index: 12 at (539, 1629)
+2026-05-08 16:29:16 | INFO | [1] Tap the 'Save Recipe' button, which is the functional equivalent of tapping the 'Enter' key on the keyboard to submit the form. -> tap
+2026-05-08 16:29:16 | INFO | ✅ Action executed.
+2026-05-08 16:29:16 | INFO | 
+2026-05-08 16:29:16 | INFO | 
+2026-05-08 16:29:16 | INFO | 📂 Processing segment 4...
+2026-05-08 16:29:20 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_screenshot-0.pngUserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 16:29:20 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 16:29:27 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 16:30:23 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 16:30:23 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 16:30:28 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 16:32:08 | INFO | 
+2026-05-08 16:32:08 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_dino.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_dino.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_tmp_stop.png
+2026-05-08 16:32:08 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "target_regions": [
+2026-05-08 16:32:08 | INFO |     18
+2026-05-08 16:32:08 | INFO |   ],
+2026-05-08 16:32:08 | INFO |   "predicted_action": "tap"
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | 🔍 Relevant regions: {'target_regions': [18], 'predicted_action': 'tap'}
+2026-05-08 16:32:08 | INFO | 🧠 GPT selected regions: [18]
+2026-05-08 16:32:08 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_screenshot-0.png
+2026-05-08 16:32:08 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "same_state": "no",
+2026-05-08 16:32:08 | INFO |   "description": "The current screen has an \"Image\" section with a plus button to add an image, which is not present in the reference screen. The reference screen only shows fields for ingredients, notes, and oven temperature."
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_tmp_start.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_tmp_stop.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_labeled.png
+2026-05-08 16:32:08 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "action": "tap",
+2026-05-08 16:32:08 | INFO |   "region": 4,
+2026-05-08 16:32:08 | INFO |   "description": "Tap on the percentage field with the value 100.0"
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | 🎯 Recovery using region index: 4 at (807, 634)
+2026-05-08 16:32:08 | INFO | [1] Tap on the percentage field with the value 100.0 -> tap
+2026-05-08 16:32:08 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_screenshot-0.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_tmp_start.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_screenshot-0.png
+2026-05-08 16:32:08 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "same_state": "yes"
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_tmp_stop.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_4_labeled.png
+2026-05-08 16:32:08 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |     "action": "tap",
+2026-05-08 16:32:08 | INFO |     "region": 12,
+2026-05-08 16:32:08 | INFO |     "description": "Tap the plus icon to add a new ingredient."
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | 🎯 Using region index: 12 at (540, 1135)
+2026-05-08 16:32:08 | INFO | [1] Tap the plus icon to add a new ingredient. -> tap
+2026-05-08 16:32:08 | INFO | ✅ Action executed.
+2026-05-08 16:32:08 | INFO | 
+2026-05-08 16:32:08 | INFO | 
+2026-05-08 16:32:08 | INFO | 📂 Processing segment 5...
+2026-05-08 16:32:08 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_5_screenshot-0.png
+2026-05-08 16:32:08 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_5_dino.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_5_dino.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_5_tmp_stop.png
+2026-05-08 16:32:08 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "target_regions": [
+2026-05-08 16:32:08 | INFO |     16
+2026-05-08 16:32:08 | INFO |   ],
+2026-05-08 16:32:08 | INFO |   "predicted_action": "input_text"
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | 🔍 Relevant regions: {'target_regions': [16], 'predicted_action': 'input_text'}
+2026-05-08 16:32:08 | INFO | 🧠 GPT selected regions: [16]
+2026-05-08 16:32:08 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_5_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_5_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_5_screenshot-0.png
+2026-05-08 16:32:08 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "same_state": "yes"
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_5_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_5_tmp_stop.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_5_labeled.png
+2026-05-08 16:32:08 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "action": "input_text",
+2026-05-08 16:32:08 | INFO |   "text": "nut",
+2026-05-08 16:32:08 | INFO |   "description": "Type 'nut' into the Notes text field."
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | 🎯 Matched element: 'Notes (e.g., seeds, nuts)' at (540, 1537)
+2026-05-08 16:32:08 | INFO | [1] Type 'nut' into the Notes text field. -> input_text
+2026-05-08 16:32:08 | INFO | ✅ Action executed.
+2026-05-08 16:32:08 | INFO | 
+2026-05-08 16:32:08 | INFO | 
+2026-05-08 16:32:08 | INFO | 📂 Processing segment 6...
+2026-05-08 16:32:08 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_6_screenshot-0.png
+2026-05-08 16:32:08 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_6_dino.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_6_dino.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_6_tmp_stop.png
+2026-05-08 16:32:08 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "target_regions": [
+2026-05-08 16:32:08 | INFO |     2
+2026-05-08 16:32:08 | INFO |   ],
+2026-05-08 16:32:08 | INFO |   "predicted_action": "tap"
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | 🔍 Relevant regions: {'target_regions': [2], 'predicted_action': 'tap'}
+2026-05-08 16:32:08 | INFO | 🧠 GPT selected regions: [2]
+2026-05-08 16:32:08 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_6_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_6_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_6_screenshot-0.png
+2026-05-08 16:32:08 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "same_state": "yes"
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_6_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_6_tmp_stop.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_6_labeled.png
+2026-05-08 16:32:08 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "action": "tap",
+2026-05-08 16:32:08 | INFO |   "region": 17,
+2026-05-08 16:32:08 | INFO |   "description": "Tap the 'Oven Temp & Time' text input field."
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | 🎯 Using region index: 17 at (540, 1768)
+2026-05-08 16:32:08 | INFO | [1] Tap the 'Oven Temp & Time' text input field. -> tap
+2026-05-08 16:32:08 | INFO | ✅ Action executed.
+2026-05-08 16:32:08 | INFO | 
+2026-05-08 16:32:08 | INFO | 
+2026-05-08 16:32:08 | INFO | 📂 Processing segment 7...
+2026-05-08 16:32:08 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_7_screenshot-0.png
+2026-05-08 16:32:08 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_7_dino.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_7_dino.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_7_tmp_stop.png
+2026-05-08 16:32:08 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "target_regions": [
+2026-05-08 16:32:08 | INFO |     0
+2026-05-08 16:32:08 | INFO |   ],
+2026-05-08 16:32:08 | INFO |   "predicted_action": "input_text"
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | 🔍 Relevant regions: {'target_regions': [0], 'predicted_action': 'input_text'}
+2026-05-08 16:32:08 | INFO | 🧠 GPT selected regions: [0]
+2026-05-08 16:32:08 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_7_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_7_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_7_screenshot-0.png
+2026-05-08 16:32:08 | INFO | Consistency Response from Gemini: { "same_state": "yes" }
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_7_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_7_tmp_stop.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_7_labeled.png
+2026-05-08 16:32:08 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "action": "input_text",
+2026-05-08 16:32:08 | INFO |   "text": "5",
+2026-05-08 16:32:08 | INFO |   "description": "Type 5 into the percentage field."
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | ⚠️ No valid region or element match. Proceeding without position.
+2026-05-08 16:32:08 | INFO | [1] Type 5 into the percentage field. -> input_text
+2026-05-08 16:32:08 | INFO | ✅ Action executed.
+2026-05-08 16:32:08 | INFO | 
+2026-05-08 16:32:08 | INFO | 
+2026-05-08 16:32:08 | INFO | 📂 Processing segment 8...
+2026-05-08 16:32:08 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_8_screenshot-0.png
+2026-05-08 16:32:08 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_8_dino.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_8_dino.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_8_tmp_stop.png
+2026-05-08 16:32:08 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "target_regions": [
+2026-05-08 16:32:08 | INFO |     8
+2026-05-08 16:32:08 | INFO |   ],
+2026-05-08 16:32:08 | INFO |   "predicted_action": "tap"
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | 🔍 Relevant regions: {'target_regions': [8], 'predicted_action': 'tap'}
+2026-05-08 16:32:08 | INFO | 🧠 GPT selected regions: [8]
+2026-05-08 16:32:08 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_8_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_8_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_8_screenshot-0.png
+2026-05-08 16:32:08 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |   "same_state": "yes"
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_8_relevant_regions.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_8_tmp_stop.png
+2026-05-08 16:32:08 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/step_8_labeled.png
+2026-05-08 16:32:08 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 16:32:08 | INFO | {
+2026-05-08 16:32:08 | INFO |     "action": "input_text",
+2026-05-08 16:32:08 | INFO |     "text": "2",
+2026-05-08 16:32:08 | INFO |     "description": "Type the number 2, which is the highlighted region in the first image."
+2026-05-08 16:32:08 | INFO | }
+2026-05-08 16:32:08 | INFO | ```
+2026-05-08 16:32:08 | INFO | ⚠️ No valid region or element match. Proceeding without position.
+2026-05-08 16:32:08 | INFO | [1] Type the number 2, which is the highlighted region in the first image. -> input_text
+2026-05-08 16:32:08 | INFO | ✅ Action executed.
+2026-05-08 16:32:08 | INFO | 
+2026-05-08 16:32:08 | INFO | ✅ Video processing completed.
+2026-05-08 16:32:08 | INFO | 📝 Summary saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/ViBR_gemini/handheld/run-001/artifacts/hhv-001/memory.md
+2026-05-08 16:32:10 | INFO | ========================================================================
+RUN SUMMARY
+  App         : bakerspercentagecalculator
+  Video type  : handheld
+  Status      : success
+  Scenes      : 9/9
+  Actions     : unknown=9
+  LLM calls   : action_inference=13  region_detection=9  state_comparison=14
+  LLM latency : min=6.2s  max=71.4s  avg=15.0s  total=539.4s
+  Tokens used : prompt=34,994  output=1,484  total=36,478
+  Wall time   : 11m 47s
+========================================================================
+
+```
