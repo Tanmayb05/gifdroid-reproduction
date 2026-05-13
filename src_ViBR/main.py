@@ -86,7 +86,7 @@ def run_single(project_root: Path, run_cfg: ViBRRunConfig, log_level: str, inter
     resolved_video = _resolve_video(project_root, run_cfg)
     source = detect_video_source(resolved_video)
     run_dt = datetime.now(timezone.utc)
-    layout = create_output_layout(project_root, run_cfg.app_name, run_cfg.llm, source, run_dt)
+    layout = create_output_layout(project_root, run_cfg.app_name, resolved_video, run_cfg.llm_model, run_dt)
 
     layout.run_dir.mkdir(parents=True, exist_ok=True)
     (layout.run_dir / "logs").mkdir(parents=True, exist_ok=True)
