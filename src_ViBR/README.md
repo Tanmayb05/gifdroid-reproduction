@@ -339,10 +339,30 @@ cd src_ViBR
 Outputs are written to:
 
 ```text
-apps/<app_name>/llm/ViBR/<handheld|screenrec>/run-XXX/
+apps/<app_name>/llm/<video-name>-<model>/run-NNN/
+├── metadata.json
+├── artifacts/
+└── logs/
 ```
 
-including `artifacts/`, `logs/`, and `metadata.json`.
+For example, a run of `hhv-001.mp4` with Gemini 2.5 Pro on the `binaryeye` app produces:
+
+```text
+apps/binaryeye/llm/hhv-001-gemini-2-5-pro/run-001/
+├── metadata.json
+├── artifacts/
+└── logs/
+```
+
+**Directory naming convention (flat structure, adopted 2026-05-12):**
+
+- `<video-name>` — stem of the `video_path` in config (e.g. `hhv-001`, `srv-003`)
+- `<model>` — normalized `llm_model` from config (lowercase, dots replaced by hyphens)
+- `run-NNN` — zero-padded run counter that auto-increments per unique variant directory
+
+> **Note:** The old nested path format (`apps/<app>/llm/ViBR/<handheld|screenrec>/run-XXX/`) was
+> retired in Phase 8 (2026-05-12). Existing runs stored in the old format are not migrated
+> automatically. See `docs/VIBR_MIGRATION.md` for details.
 
 ### Last Checkpoint Notes (Current Setup)
 
