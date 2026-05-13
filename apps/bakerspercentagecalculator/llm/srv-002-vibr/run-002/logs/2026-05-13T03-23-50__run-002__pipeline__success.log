@@ -755,3 +755,242 @@
 2026-05-12 23:39:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_6_tmp_start.pngUserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
 2026-05-12 23:39:36 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
 2026-05-12 23:39:41 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-12 23:41:38 | INFO | 
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_6_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_6_labeled.png
+2026-05-12 23:41:38 | INFO | Region Action Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "action": "no action",
+2026-05-12 23:41:38 | INFO |   "description": "No Action needed."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | [1] No Action needed. -> no action
+2026-05-12 23:41:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_6_screenshot-0.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_6_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_6_screenshot-0.png
+2026-05-12 23:41:38 | INFO | Consistency Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "same_state": "no",
+2026-05-12 23:41:38 | INFO |   "description": "The reference screen shows a list of saved recipes, while the current screen is a form for creating a new recipe. They are two different functional states of the application."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_6_tmp_start.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_6_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_6_labeled.png
+2026-05-12 23:41:38 | INFO | Region Action Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "action": "no action",
+2026-05-12 23:41:38 | INFO |   "description": "No Action needed."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | [1] No Action needed. -> no action
+2026-05-12 23:41:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_6_screenshot-0.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_6_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_6_screenshot-0.png
+2026-05-12 23:41:38 | INFO | Consistency Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "same_state": "no",
+2026-05-12 23:41:38 | INFO |   "description": "The reference screen shows a list of saved recipes, while the current screen is a form for creating a new recipe. These are two different functional states of the application."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-12 23:41:38 | INFO | Mismatch reason: the reference screen shows a list of saved recipes, while the current screen is a form for creating a new recipe. these are two different functional states of the application.
+2026-05-12 23:41:38 | INFO | 
+2026-05-12 23:41:38 | INFO | 📂 Processing segment 7...
+2026-05-12 23:41:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-12 23:41:38 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_dino.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_dino.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_tmp_stop.png
+2026-05-12 23:41:38 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "target_regions": [
+2026-05-12 23:41:38 | INFO |     13
+2026-05-12 23:41:38 | INFO |   ],
+2026-05-12 23:41:38 | INFO |   "predicted_action": "tap"
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🔍 Relevant regions: {'target_regions': [13], 'predicted_action': 'tap'}
+2026-05-12 23:41:38 | INFO | 🧠 GPT selected regions: [13]
+2026-05-12 23:41:38 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_relevant_regions.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_relevant_regions.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-12 23:41:38 | INFO | Consistency Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "same_state": "no",
+2026-05-12 23:41:38 | INFO |   "description": "The reference screen shows a list of recipes, while the current screen is a form for creating or editing a recipe. They are two different screens within the application."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_tmp_start.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_labeled.png
+2026-05-12 23:41:38 | INFO | Region Action Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "action": "tap",
+2026-05-12 23:41:38 | INFO |   "region": 0,
+2026-05-12 23:41:38 | INFO |   "description": "Tap on the Recipe Name text input."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🎯 Recovery using region index: 0 at (540, 192)
+2026-05-12 23:41:38 | INFO | [1] Tap on the Recipe Name text input. -> tap
+2026-05-12 23:41:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-12 23:41:38 | INFO | Consistency Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "same_state": "no",
+2026-05-12 23:41:38 | INFO |   "description": "The reference screen displays a list of saved recipes, while the current screen is a form for creating a new recipe. The UI elements and available actions are completely different."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_tmp_start.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_labeled.png
+2026-05-12 23:41:38 | INFO | Region Action Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "action": "tap",
+2026-05-12 23:41:38 | INFO |   "region": 5,
+2026-05-12 23:41:38 | INFO |   "description": "Tap the minus icon to delete the Flour ingredient."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🎯 Recovery using region index: 5 at (985, 627)
+2026-05-12 23:41:38 | INFO | [1] Tap the minus icon to delete the Flour ingredient. -> tap
+2026-05-12 23:41:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-12 23:41:38 | INFO | Consistency Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "same_state": "no",
+2026-05-12 23:41:38 | INFO |   "description": "The reference screen shows a list of saved recipes, with options to share or delete them. The current screen is a form for creating a new recipe, with input fields for recipe name, ingredients, notes, and a save button. These are two different functional states of the application."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_tmp_start.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_labeled.png
+2026-05-12 23:41:38 | INFO | Region Action Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |     "action": "tap",
+2026-05-12 23:41:38 | INFO |     "region": 0,
+2026-05-12 23:41:38 | INFO |     "description": "Tap on the Recipe Name text input field."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🎯 Recovery using region index: 0 at (540, 192)
+2026-05-12 23:41:38 | INFO | [1] Tap on the Recipe Name text input field. -> tap
+2026-05-12 23:41:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-12 23:41:38 | INFO | Consistency Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "same_state": "no",
+2026-05-12 23:41:38 | INFO |   "description": "The reference screen displays a list of saved recipes, while the current screen is a form for creating a new recipe. These are two distinct functional states within the application."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-12 23:41:38 | INFO | Mismatch reason: the reference screen displays a list of saved recipes, while the current screen is a form for creating a new recipe. these are two distinct functional states within the application.
+2026-05-12 23:41:38 | INFO | 
+2026-05-12 23:41:38 | INFO | 📂 Processing segment 8...
+2026-05-12 23:41:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-12 23:41:38 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_dino.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_dino.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_tmp_stop.png
+2026-05-12 23:41:38 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |  "target_regions": [12],
+2026-05-12 23:41:38 | INFO |  "predicted_action": "tap"
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🔍 Relevant regions: {'target_regions': [12], 'predicted_action': 'tap'}
+2026-05-12 23:41:38 | INFO | 🧠 GPT selected regions: [12]
+2026-05-12 23:41:38 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_relevant_regions.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_relevant_regions.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-12 23:41:38 | INFO | Consistency Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "same_state": "no",
+2026-05-12 23:41:38 | INFO |   "description": "The reference screen displays a list of saved recipes, while the current screen is the form for creating a new recipe. The current screen is likely the result of tapping the plus button on the reference screen."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_tmp_start.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_labeled.png
+2026-05-12 23:41:38 | INFO | Region Action Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "action": "tap",
+2026-05-12 23:41:38 | INFO |   "region": 0,
+2026-05-12 23:41:38 | INFO |   "description": "Tap on the Recipe Name text input with current value 0."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🎯 Recovery using region index: 0 at (540, 192)
+2026-05-12 23:41:38 | INFO | [1] Tap on the Recipe Name text input with current value 0. -> tap
+2026-05-12 23:41:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-12 23:41:38 | INFO | Consistency Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "same_state": "no",
+2026-05-12 23:41:38 | INFO |   "description": "The two screens are fundamentally different. The reference screen shows a list of saved recipes, while the current screen is a form for creating a new recipe. They represent different states in the application's workflow."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_tmp_start.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_labeled.png
+2026-05-12 23:41:38 | INFO | Region Action Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "action": "tap",
+2026-05-12 23:41:38 | INFO |   "region": 0,
+2026-05-12 23:41:38 | INFO |   "description": "Tap the Recipe Name field, which corresponds to the 'cake' recipe name tapped in the recording."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🎯 Recovery using region index: 0 at (540, 192)
+2026-05-12 23:41:38 | INFO | [1] Tap the Recipe Name field, which corresponds to the 'cake' recipe name tapped in the recording. -> tap
+2026-05-12 23:41:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-12 23:41:38 | INFO | Consistency Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "same_state": "no",
+2026-05-12 23:41:38 | INFO |   "description": "The reference screen displays a list of saved recipes, while the current screen is a form for creating or editing a recipe. These are two different functional states."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_tmp_start.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_labeled.png
+2026-05-12 23:41:38 | INFO | Region Action Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |     "action": "tap",
+2026-05-12 23:41:38 | INFO |     "region": 9,
+2026-05-12 23:41:38 | INFO |     "description": "Tap on the Save Recipe button."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | 🎯 Recovery using region index: 9 at (539, 1468)
+2026-05-12 23:41:38 | INFO | [1] Tap on the Save Recipe button. -> tap
+2026-05-12 23:41:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_tmp_stop.png
+2026-05-12 23:41:38 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-12 23:41:38 | INFO | Consistency Response from Gemini: ```json
+2026-05-12 23:41:38 | INFO | {
+2026-05-12 23:41:38 | INFO |   "same_state": "no",
+2026-05-12 23:41:38 | INFO |   "description": "The reference screen displays a list of saved recipes, while the current screen is a form for creating a new recipe. These are two different functional states of the app."
+2026-05-12 23:41:38 | INFO | }
+2026-05-12 23:41:38 | INFO | ```
+2026-05-12 23:41:38 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-12 23:41:38 | INFO | Mismatch reason: the reference screen displays a list of saved recipes, while the current screen is a form for creating a new recipe. these are two different functional states of the app.
+2026-05-12 23:41:38 | INFO | ✅ Video processing completed.
+2026-05-12 23:41:38 | INFO | 📝 Summary saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/srv-002-vibr/run-002/artifacts/srv-002/memory.md
+2026-05-12 23:41:39 | INFO | ========================================================================
+RUN SUMMARY
+  App         : bakerspercentagecalculator
+  Video type  : screenrec
+  Status      : success
+  Scenes      : 9/9
+  Actions     : unknown=9
+  LLM calls   : action_inference=23  region_detection=9  state_comparison=29
+  LLM latency : min=5.0s  max=72.2s  avg=14.5s  total=886.6s
+  Tokens used : prompt=59,504  output=2,884  total=62,388
+  Wall time   : 17m 49s
+========================================================================

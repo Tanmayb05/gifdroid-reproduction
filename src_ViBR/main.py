@@ -42,6 +42,20 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def _write_log_md(log_md_path: Path, log_file_path: Path, status: str, duration_sec: float) -> None:
+    """Create a markdown summary of the run log."""
+    log_content = f"# ViBR Run Log\n\n"
+    log_content += f"**Status**: {status.upper()}\n"
+    log_content += f"**Duration**: {duration_sec:.1f}s\n\n"
+    log_content += f"## Full Log\n\n```\n"
+
+    if log_file_path.exists():
+        log_content += log_file_path.read_text(encoding="utf-8")
+
+    log_content += "\n```\n"
+    log_md_path.write_text(log_content, encoding="utf-8")
+
+
 def _resolve_video(project_root: Path, run_cfg: ViBRRunConfig) -> Path:
     return run_cfg.video_path if run_cfg.video_path.is_absolute() else (project_root / run_cfg.video_path)
 
@@ -208,6 +222,10 @@ def run_single(project_root: Path, run_cfg: ViBRRunConfig, log_level: str, inter
                 handler.close()
                 logger.removeHandler(handler)
             finalize_log_file(layout.log_file_path, status)
+
+            # Create log.md at run root level
+            log_md_path = layout.run_dir / "log.md"
+            _write_log_md(log_md_path, layout.log_file_path, status, duration_sec)
 
 
 def main() -> int:

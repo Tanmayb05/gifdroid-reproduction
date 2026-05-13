@@ -211,9 +211,9 @@ def generate_summary(
     output_root: str,
 ) -> None:
     """
-    Generates and saves a video summary to memory.md in the output directory.
+    Generates and saves a video summary to memory.md in the parent directory.
     """
-    summary_path = os.path.join(output_root, video_stem, "memory.md")
+    summary_path = os.path.join(os.path.dirname(output_root), "memory.md")
 
     segment_count = len(stable_segments) - 1
     action_count = len([a for a in actions if a.get("executed")])
@@ -333,7 +333,7 @@ def main(
         _prepare_device_for_app(device, app_name)
 
     video_stem = os.path.splitext(os.path.basename(video_path))[0]
-    video_out_dir = os.path.join(output_root, video_stem)
+    video_out_dir = output_root
     os.makedirs(video_out_dir, exist_ok=True)
 
     live_path = device.screenshot(index=0, save_path=video_out_dir)
@@ -530,7 +530,7 @@ def main(
         "action_types": dict(action_types),
         "llm_calls": getattr(provider, "llm_calls", []) if hasattr(provider, "llm_calls") else [],
     }
-    metrics_path = os.path.join(output_root, "vibr_metrics.json")
+    metrics_path = os.path.join(os.path.dirname(output_root), "vibr_metrics.json")
     import json
     with open(metrics_path, "w") as f:
         json.dump(metrics_data, f, indent=2, default=str)
