@@ -21,6 +21,21 @@ class OutputLayout:
     run_id: str
 
 
+def _extract_video_name(video_path: Path | str) -> str:
+    """Extract video name without extension (e.g., 'hhv-002.mp4' -> 'hhv-002')."""
+    return Path(video_path).stem
+
+
+def _normalize_model_slug(model_str: str) -> str:
+    """Normalize model name to lowercase with hyphens and dots.
+
+    e.g., 'Gemini-2.5-Pro' -> 'gemini-2.5-pro', 'GPT-4o' -> 'gpt-4o'
+    Dots in version numbers are preserved; other non-alphanumeric chars become hyphens.
+    """
+    normalized = re.sub(r"[^a-z0-9.-]+", "-", model_str.lower()).strip("-")
+    return normalized if normalized else "model"
+
+
 def detect_video_source(video_path: Path) -> str:
     filename = video_path.name.lower()
     if filename.startswith("hhv"):
@@ -45,9 +60,25 @@ def _next_run_id(base_dir: Path) -> str:
     return f"run-{max_num + 1:03d}"
 
 
-def create_output_layout(project_root: Path, app_name: str, llm: str, source: str, run_dt: datetime) -> OutputLayout:
-    variant_dir = f"ViBR_{llm.lower()}"
-    base_dir = project_root / "apps" / app_name.lower() / "llm" / variant_dir / source
+def create_output_layout(project_root: Path, app_name: str, video_path: Path, llm_model: str, run_dt: datetime) -> OutputLayout:
+    """Create the output directory layout for a ViBR run.
+
+    Uses flat naming convention: apps/{app}/llm/{video-name}-{model}/run-NNN/
+
+    Args:
+        project_root: Repository root directory.
+        app_name: Application name (lowercased for path).
+        video_path: Path to the input video (stem used for directory name).
+        llm_model: Full LLM model name (normalized to slug for directory name).
+        run_dt: Run start datetime (used for log file naming).
+
+    Returns:
+        OutputLayout with all paths resolved.
+    """
+    video_name = _extract_video_name(video_path)
+    model_slug = _normalize_model_slug(llm_model)
+    flat_dir = f"{video_name}-{model_slug}"
+    base_dir = project_root / "apps" / app_name.lower() / "llm" / flat_dir
     run_id = _next_run_id(base_dir)
     run_dir = base_dir / run_id
     run_num = run_id.split("-")[1]
