@@ -301,7 +301,7 @@ def _prepare_device_for_app(device: ADBDeviceController, app_name: str):
 def main(
     video_path: str,
     algorithm: str,
-    output_root: str = "temp",
+    output_root: str = "approach/temp",
     cache_dir: str = "cache",
     interactive: bool = False,
     llm: str = "gemini",
@@ -549,8 +549,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output-root",
         type=str,
-        default="temp",
-        help="Directory where replay artifacts are written.",
+        default="approach/temp",
+        help="Directory where replay artifacts are written (relative to src_ViBR).",
     )
     parser.add_argument(
         "--cache-dir",
