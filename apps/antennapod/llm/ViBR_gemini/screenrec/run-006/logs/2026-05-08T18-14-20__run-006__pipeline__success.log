@@ -1,0 +1,1311 @@
+2026-05-08 14:14:20 | INFO | === src_vibr.2026-05-08T18-14-20__run-006__pipeline__started ===
+2026-05-08 14:14:20 | INFO | Starting ViBR run
+2026-05-08 14:14:20 | INFO | App: antennapod
+2026-05-08 14:14:20 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/videos/srv-002.mp4
+2026-05-08 14:14:20 | INFO | Algorithm: clip
+2026-05-08 14:14:20 | INFO | LLM: gemini (gemini-2.5-pro)
+2026-05-08 14:14:20 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006
+2026-05-08 14:14:25 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-08 14:14:25 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-08 14:14:25 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-08 14:14:26 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-08 14:14:26 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-08 14:14:26 | INFO | 
+2026-05-08 14:14:26 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-08 14:14:26 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 14638.91it/s]
+2026-05-08 14:14:26 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-08 14:14:26 | INFO | Key                                        | Status     |  | 
+2026-05-08 14:14:26 | INFO | -------------------------------------------+------------+--+-
+2026-05-08 14:14:26 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-08 14:14:26 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-08 14:14:26 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-08 14:14:26 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-08 14:14:26 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-08 14:14:26 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-08 14:14:26 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-08 14:14:26 | INFO | 
+2026-05-08 14:14:26 | INFO | Notes:
+2026-05-08 14:14:26 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-08 14:14:34 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-pro)...
+2026-05-08 14:14:34 | INFO | Initializing ADB device controller...
+2026-05-08 14:14:34 | INFO | 📱 Preparing device for app: antennapod
+2026-05-08 14:14:34 | INFO | 🏠 Going to home screen...
+2026-05-08 14:14:34 | INFO | 🚀 Opening app 'antennapod' with command: am start -n de.danoeh.antennapod/.activity.SplashActivity
+2026-05-08 14:14:34 | INFO | ✅ App 'antennapod' opened and ready
+2026-05-08 14:14:34 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/screenshot-0.png
+2026-05-08 14:14:34 | INFO | Reading frames from video...
+2026-05-08 14:14:34 | INFO | Reading frame:  2
+2026-05-08 14:14:34 | INFO | Reading frame:  3
+2026-05-08 14:14:34 | INFO | Reading frame:  4
+2026-05-08 14:14:34 | INFO | Reading frame:  5
+2026-05-08 14:14:34 | INFO | Reading frame:  6
+2026-05-08 14:14:34 | INFO | Reading frame:  7
+2026-05-08 14:14:34 | INFO | Reading frame:  8
+2026-05-08 14:14:34 | INFO | Reading frame:  9
+2026-05-08 14:14:34 | INFO | Reading frame:  10
+2026-05-08 14:14:34 | INFO | Reading frame:  11
+2026-05-08 14:14:34 | INFO | Reading frame:  12
+2026-05-08 14:14:34 | INFO | Reading frame:  13
+2026-05-08 14:14:34 | INFO | Reading frame:  14
+2026-05-08 14:14:34 | INFO | Reading frame:  15
+2026-05-08 14:14:34 | INFO | Reading frame:  16
+2026-05-08 14:14:34 | INFO | Reading frame:  17
+2026-05-08 14:14:34 | INFO | Reading frame:  18
+2026-05-08 14:14:34 | INFO | Reading frame:  19
+2026-05-08 14:14:34 | INFO | Reading frame:  20
+2026-05-08 14:14:34 | INFO | Reading frame:  21
+2026-05-08 14:14:34 | INFO | Reading frame:  22
+2026-05-08 14:14:34 | INFO | Reading frame:  23
+2026-05-08 14:14:34 | INFO | Reading frame:  24
+2026-05-08 14:14:34 | INFO | Reading frame:  25
+2026-05-08 14:14:34 | INFO | Reading frame:  26
+2026-05-08 14:14:34 | INFO | Reading frame:  27
+2026-05-08 14:14:34 | INFO | Reading frame:  28
+2026-05-08 14:14:34 | INFO | Reading frame:  29
+2026-05-08 14:14:34 | INFO | Reading frame:  30
+2026-05-08 14:14:34 | INFO | Reading frame:  31
+2026-05-08 14:14:34 | INFO | Reading frame:  32
+2026-05-08 14:14:34 | INFO | Reading frame:  33
+2026-05-08 14:14:34 | INFO | Reading frame:  34
+2026-05-08 14:14:34 | INFO | Reading frame:  35
+2026-05-08 14:14:34 | INFO | Reading frame:  36
+2026-05-08 14:14:34 | INFO | Reading frame:  37
+2026-05-08 14:14:34 | INFO | Reading frame:  38
+2026-05-08 14:14:34 | INFO | Reading frame:  39
+2026-05-08 14:14:34 | INFO | Reading frame:  40
+2026-05-08 14:14:34 | INFO | Reading frame:  41
+2026-05-08 14:14:34 | INFO | Reading frame:  42
+2026-05-08 14:14:34 | INFO | Reading frame:  43
+2026-05-08 14:14:34 | INFO | Reading frame:  44
+2026-05-08 14:14:34 | INFO | Reading frame:  45
+2026-05-08 14:14:34 | INFO | Reading frame:  46
+2026-05-08 14:14:34 | INFO | Reading frame:  47
+2026-05-08 14:14:34 | INFO | Reading frame:  48
+2026-05-08 14:14:34 | INFO | Reading frame:  49
+2026-05-08 14:14:34 | INFO | Reading frame:  50
+2026-05-08 14:14:34 | INFO | Reading frame:  51
+2026-05-08 14:14:34 | INFO | Reading frame:  52
+2026-05-08 14:14:34 | INFO | Reading frame:  53
+2026-05-08 14:14:34 | INFO | Reading frame:  54
+2026-05-08 14:14:34 | INFO | Reading frame:  55
+2026-05-08 14:14:34 | INFO | Reading frame:  56
+2026-05-08 14:14:34 | INFO | Reading frame:  57
+2026-05-08 14:14:34 | INFO | Reading frame:  58
+2026-05-08 14:14:34 | INFO | Reading frame:  59
+2026-05-08 14:14:34 | INFO | Reading frame:  60
+2026-05-08 14:14:34 | INFO | Reading frame:  61
+2026-05-08 14:14:34 | INFO | Reading frame:  62
+2026-05-08 14:14:34 | INFO | Reading frame:  63
+2026-05-08 14:14:34 | INFO | Reading frame:  64
+2026-05-08 14:14:34 | INFO | Reading frame:  65
+2026-05-08 14:14:34 | INFO | Reading frame:  66
+2026-05-08 14:14:34 | INFO | Reading frame:  67
+2026-05-08 14:14:34 | INFO | Reading frame:  68
+2026-05-08 14:14:34 | INFO | Reading frame:  69
+2026-05-08 14:14:34 | INFO | Reading frame:  70
+2026-05-08 14:14:34 | INFO | Reading frame:  71
+2026-05-08 14:14:34 | INFO | Reading frame:  72
+2026-05-08 14:14:34 | INFO | Reading frame:  73
+2026-05-08 14:14:34 | INFO | Reading frame:  74
+2026-05-08 14:14:34 | INFO | Reading frame:  75
+2026-05-08 14:14:34 | INFO | Reading frame:  76
+2026-05-08 14:14:34 | INFO | Reading frame:  77
+2026-05-08 14:14:34 | INFO | Reading frame:  78
+2026-05-08 14:14:34 | INFO | Reading frame:  79
+2026-05-08 14:14:34 | INFO | Reading frame:  80
+2026-05-08 14:14:34 | INFO | Reading frame:  81
+2026-05-08 14:14:34 | INFO | Reading frame:  82
+2026-05-08 14:14:34 | INFO | Reading frame:  83
+2026-05-08 14:14:34 | INFO | Reading frame:  84
+2026-05-08 14:14:34 | INFO | Reading frame:  85
+2026-05-08 14:14:34 | INFO | Reading frame:  86
+2026-05-08 14:14:34 | INFO | Reading frame:  87
+2026-05-08 14:14:34 | INFO | Reading frame:  88
+2026-05-08 14:14:34 | INFO | Reading frame:  89
+2026-05-08 14:14:34 | INFO | Reading frame:  90
+2026-05-08 14:14:34 | INFO | Reading frame:  91
+2026-05-08 14:14:34 | INFO | Reading frame:  92
+2026-05-08 14:14:34 | INFO | Reading frame:  93
+2026-05-08 14:14:34 | INFO | Reading frame:  94
+2026-05-08 14:14:34 | INFO | Reading frame:  95
+2026-05-08 14:14:34 | INFO | Reading frame:  96
+2026-05-08 14:14:34 | INFO | Reading frame:  97
+2026-05-08 14:14:34 | INFO | Reading frame:  98
+2026-05-08 14:14:34 | INFO | Reading frame:  99
+2026-05-08 14:14:34 | INFO | Reading frame:  100
+2026-05-08 14:14:34 | INFO | Reading frame:  101
+2026-05-08 14:14:34 | INFO | Reading frame:  102
+2026-05-08 14:14:34 | INFO | Reading frame:  103
+2026-05-08 14:14:34 | INFO | Reading frame:  104
+2026-05-08 14:14:34 | INFO | Reading frame:  105
+2026-05-08 14:14:34 | INFO | Reading frame:  106
+2026-05-08 14:14:34 | INFO | Reading frame:  107
+2026-05-08 14:14:34 | INFO | Reading frame:  108
+2026-05-08 14:14:34 | INFO | Reading frame:  109
+2026-05-08 14:14:34 | INFO | Reading frame:  110
+2026-05-08 14:14:34 | INFO | Reading frame:  111
+2026-05-08 14:14:34 | INFO | Reading frame:  112
+2026-05-08 14:14:34 | INFO | Reading frame:  113
+2026-05-08 14:14:34 | INFO | Reading frame:  114
+2026-05-08 14:14:34 | INFO | Reading frame:  115
+2026-05-08 14:14:34 | INFO | Reading frame:  116
+2026-05-08 14:14:34 | INFO | Reading frame:  117
+2026-05-08 14:14:34 | INFO | Reading frame:  118
+2026-05-08 14:14:34 | INFO | Reading frame:  119
+2026-05-08 14:14:34 | INFO | Reading frame:  120
+2026-05-08 14:14:34 | INFO | Reading frame:  121
+2026-05-08 14:14:34 | INFO | Reading frame:  122
+2026-05-08 14:14:34 | INFO | Reading frame:  123
+2026-05-08 14:14:34 | INFO | Reading frame:  124
+2026-05-08 14:14:34 | INFO | Reading frame:  125
+2026-05-08 14:14:34 | INFO | Reading frame:  126
+2026-05-08 14:14:34 | INFO | Reading frame:  127
+2026-05-08 14:14:34 | INFO | Reading frame:  128
+2026-05-08 14:14:34 | INFO | Reading frame:  129
+2026-05-08 14:14:34 | INFO | Reading frame:  130
+2026-05-08 14:14:34 | INFO | Reading frame:  131
+2026-05-08 14:14:34 | INFO | Reading frame:  132
+2026-05-08 14:14:34 | INFO | Reading frame:  133
+2026-05-08 14:14:34 | INFO | Reading frame:  134
+2026-05-08 14:14:34 | INFO | Reading frame:  135
+2026-05-08 14:14:34 | INFO | Reading frame:  136
+2026-05-08 14:14:34 | INFO | Reading frame:  137
+2026-05-08 14:14:34 | INFO | Reading frame:  138
+2026-05-08 14:14:34 | INFO | Reading frame:  139
+2026-05-08 14:14:34 | INFO | Reading frame:  140
+2026-05-08 14:14:34 | INFO | Reading frame:  141
+2026-05-08 14:14:34 | INFO | Reading frame:  142
+2026-05-08 14:14:34 | INFO | Reading frame:  143
+2026-05-08 14:14:34 | INFO | Reading frame:  144
+2026-05-08 14:14:34 | INFO | Reading frame:  145
+2026-05-08 14:14:34 | INFO | Reading frame:  146
+2026-05-08 14:14:34 | INFO | Reading frame:  147
+2026-05-08 14:14:34 | INFO | Reading frame:  148
+2026-05-08 14:14:34 | INFO | Reading frame:  149
+2026-05-08 14:14:34 | INFO | Reading frame:  150
+2026-05-08 14:14:34 | INFO | Reading frame:  151
+2026-05-08 14:14:34 | INFO | Reading frame:  152
+2026-05-08 14:14:34 | INFO | Reading frame:  153
+2026-05-08 14:14:34 | INFO | Reading frame:  154
+2026-05-08 14:14:34 | INFO | Reading frame:  155
+2026-05-08 14:14:34 | INFO | Reading frame:  156
+2026-05-08 14:14:34 | INFO | Reading frame:  157
+2026-05-08 14:14:34 | INFO | Reading frame:  158
+2026-05-08 14:14:34 | INFO | Reading frame:  159
+2026-05-08 14:14:34 | INFO | Reading frame:  160
+2026-05-08 14:14:34 | INFO | Reading frame:  161
+2026-05-08 14:14:34 | INFO | Reading frame:  162
+2026-05-08 14:14:34 | INFO | Reading frame:  163
+2026-05-08 14:14:34 | INFO | Reading frame:  164
+2026-05-08 14:14:34 | INFO | Reading frame:  165
+2026-05-08 14:14:34 | INFO | Reading frame:  166
+2026-05-08 14:14:34 | INFO | Reading frame:  167
+2026-05-08 14:14:34 | INFO | Reading frame:  168
+2026-05-08 14:14:34 | INFO | Reading frame:  169
+2026-05-08 14:14:34 | INFO | Reading frame:  170
+2026-05-08 14:14:34 | INFO | Reading frame:  171
+2026-05-08 14:14:34 | INFO | Reading frame:  172
+2026-05-08 14:14:34 | INFO | Reading frame:  173
+2026-05-08 14:14:34 | INFO | Reading frame:  174
+2026-05-08 14:14:34 | INFO | Reading frame:  175
+2026-05-08 14:14:34 | INFO | Reading frame:  176
+2026-05-08 14:14:34 | INFO | Reading frame:  177
+2026-05-08 14:14:34 | INFO | Reading frame:  178
+2026-05-08 14:14:34 | INFO | Reading frame:  179
+2026-05-08 14:14:34 | INFO | Reading frame:  180
+2026-05-08 14:14:34 | INFO | Reading frame:  181
+2026-05-08 14:14:34 | INFO | Reading frame:  182
+2026-05-08 14:14:34 | INFO | Reading frame:  183
+2026-05-08 14:14:34 | INFO | Reading frame:  184
+2026-05-08 14:14:34 | INFO | Reading frame:  185
+2026-05-08 14:14:34 | INFO | Reading frame:  186
+2026-05-08 14:14:34 | INFO | Reading frame:  187
+2026-05-08 14:14:34 | INFO | Reading frame:  188
+2026-05-08 14:14:34 | INFO | Reading frame:  189
+2026-05-08 14:14:34 | INFO | Reading frame:  190
+2026-05-08 14:14:34 | INFO | Reading frame:  191
+2026-05-08 14:14:34 | INFO | Reading frame:  192
+2026-05-08 14:14:34 | INFO | Reading frame:  193
+2026-05-08 14:14:34 | INFO | Reading frame:  194
+2026-05-08 14:14:34 | INFO | Reading frame:  195
+2026-05-08 14:14:34 | INFO | Reading frame:  196
+2026-05-08 14:14:34 | INFO | Reading frame:  197
+2026-05-08 14:14:34 | INFO | Reading frame:  198
+2026-05-08 14:14:34 | INFO | Reading frame:  199
+2026-05-08 14:14:34 | INFO | Reading frame:  200
+2026-05-08 14:14:34 | INFO | Reading frame:  201
+2026-05-08 14:14:34 | INFO | Reading frame:  202
+2026-05-08 14:14:34 | INFO | Reading frame:  203
+2026-05-08 14:14:34 | INFO | Reading frame:  204
+2026-05-08 14:14:34 | INFO | Reading frame:  205
+2026-05-08 14:14:34 | INFO | Reading frame:  206
+2026-05-08 14:14:34 | INFO | Reading frame:  207
+2026-05-08 14:14:34 | INFO | Reading frame:  208
+2026-05-08 14:14:34 | INFO | Reading frame:  209
+2026-05-08 14:14:34 | INFO | Reading frame:  210
+2026-05-08 14:14:34 | INFO | Reading frame:  211
+2026-05-08 14:14:34 | INFO | Reading frame:  212
+2026-05-08 14:14:34 | INFO | Reading frame:  213
+2026-05-08 14:14:34 | INFO | Reading frame:  214
+2026-05-08 14:14:34 | INFO | Reading frame:  215
+2026-05-08 14:14:34 | INFO | Reading frame:  216
+2026-05-08 14:14:34 | INFO | Reading frame:  217
+2026-05-08 14:14:34 | INFO | Reading frame:  218
+2026-05-08 14:14:34 | INFO | Reading frame:  219
+2026-05-08 14:14:34 | INFO | Reading frame:  220
+2026-05-08 14:14:34 | INFO | Reading frame:  221
+2026-05-08 14:14:34 | INFO | Reading frame:  222
+2026-05-08 14:14:34 | INFO | Reading frame:  223
+2026-05-08 14:14:34 | INFO | Reading frame:  224
+2026-05-08 14:14:34 | INFO | Reading frame:  225
+2026-05-08 14:14:34 | INFO | Reading frame:  226
+2026-05-08 14:14:34 | INFO | Reading frame:  227
+2026-05-08 14:14:34 | INFO | Reading frame:  228
+2026-05-08 14:14:34 | INFO | Reading frame:  229
+2026-05-08 14:14:34 | INFO | Reading frame:  230
+2026-05-08 14:14:34 | INFO | Reading frame:  231
+2026-05-08 14:14:34 | INFO | Reading frame:  232
+2026-05-08 14:14:34 | INFO | Reading frame:  233
+2026-05-08 14:14:34 | INFO | Reading frame:  234
+2026-05-08 14:14:34 | INFO | Reading frame:  235
+2026-05-08 14:14:34 | INFO | Reading frame:  236
+2026-05-08 14:14:34 | INFO | Reading frame:  237
+2026-05-08 14:14:34 | INFO | Reading frame:  238
+2026-05-08 14:14:34 | INFO | Reading frame:  239
+2026-05-08 14:14:34 | INFO | Reading frame:  240
+2026-05-08 14:14:34 | INFO | Reading frame:  241
+2026-05-08 14:14:34 | INFO | Reading frame:  242
+2026-05-08 14:14:34 | INFO | Reading frame:  243
+2026-05-08 14:14:34 | INFO | Reading frame:  244
+2026-05-08 14:14:34 | INFO | Reading frame:  245
+2026-05-08 14:14:34 | INFO | Reading frame:  246
+2026-05-08 14:14:34 | INFO | Reading frame:  247
+2026-05-08 14:14:34 | INFO | Reading frame:  248
+2026-05-08 14:14:34 | INFO | Reading frame:  249
+2026-05-08 14:14:34 | INFO | Reading frame:  250
+2026-05-08 14:14:34 | INFO | Reading frame:  251
+2026-05-08 14:14:34 | INFO | Reading frame:  252
+2026-05-08 14:14:34 | INFO | Reading frame:  253
+2026-05-08 14:14:34 | INFO | Reading frame:  254
+2026-05-08 14:14:34 | INFO | Reading frame:  255
+2026-05-08 14:14:34 | INFO | Reading frame:  256
+2026-05-08 14:14:34 | INFO | Reading frame:  257
+2026-05-08 14:14:34 | INFO | Reading frame:  258
+2026-05-08 14:14:34 | INFO | Reading frame:  259
+2026-05-08 14:14:34 | INFO | Reading frame:  260
+2026-05-08 14:14:34 | INFO | Reading frame:  261
+2026-05-08 14:14:34 | INFO | Reading frame:  262
+2026-05-08 14:14:34 | INFO | Reading frame:  263
+2026-05-08 14:14:34 | INFO | Reading frame:  264
+2026-05-08 14:14:34 | INFO | Reading frame:  265
+2026-05-08 14:14:34 | INFO | Reading frame:  266
+2026-05-08 14:14:34 | INFO | Reading frame:  267
+2026-05-08 14:14:34 | INFO | Reading frame:  268
+2026-05-08 14:14:34 | INFO | Reading frame:  269
+2026-05-08 14:14:34 | INFO | Reading frame:  270
+2026-05-08 14:14:34 | INFO | Reading frame:  271
+2026-05-08 14:14:34 | INFO | Reading frame:  272
+2026-05-08 14:14:34 | INFO | Reading frame:  273
+2026-05-08 14:14:34 | INFO | Reading frame:  274
+2026-05-08 14:14:34 | INFO | Reading frame:  275
+2026-05-08 14:14:34 | INFO | Reading frame:  276
+2026-05-08 14:14:34 | INFO | Reading frame:  277
+2026-05-08 14:14:34 | INFO | Reading frame:  278
+2026-05-08 14:14:34 | INFO | Reading frame:  279
+2026-05-08 14:14:34 | INFO | Reading frame:  280
+2026-05-08 14:14:34 | INFO | Reading frame:  281
+2026-05-08 14:14:34 | INFO | Reading frame:  282
+2026-05-08 14:14:34 | INFO | Reading frame:  283
+2026-05-08 14:14:34 | INFO | Reading frame:  284
+2026-05-08 14:14:34 | INFO | Reading frame:  285
+2026-05-08 14:14:34 | INFO | Reading frame:  286
+2026-05-08 14:14:34 | INFO | Reading frame:  287
+2026-05-08 14:14:34 | INFO | Reading frame:  288
+2026-05-08 14:14:34 | INFO | Reading frame:  289
+2026-05-08 14:14:34 | INFO | Reading frame:  290
+2026-05-08 14:14:34 | INFO | Reading frame:  291
+2026-05-08 14:14:34 | INFO | Reading frame:  292
+2026-05-08 14:14:34 | INFO | Reading frame:  293
+2026-05-08 14:14:34 | INFO | Reading frame:  294
+2026-05-08 14:14:34 | INFO | Reading frame:  295
+2026-05-08 14:14:34 | INFO | Reading frame:  296
+2026-05-08 14:14:34 | INFO | Reading frame:  297
+2026-05-08 14:14:34 | INFO | Reading frame:  298
+2026-05-08 14:14:34 | INFO | Reading frame:  299
+2026-05-08 14:14:34 | INFO | Reading frame:  300
+2026-05-08 14:14:34 | INFO | Reading frame:  301
+2026-05-08 14:14:34 | INFO | Reading frame:  302
+2026-05-08 14:14:34 | INFO | Reading frame:  303
+2026-05-08 14:14:34 | INFO | Reading frame:  304
+2026-05-08 14:14:34 | INFO | Reading frame:  305
+2026-05-08 14:14:34 | INFO | Reading frame:  306
+2026-05-08 14:14:34 | INFO | Reading frame:  307
+2026-05-08 14:14:34 | INFO | Reading frame:  308
+2026-05-08 14:14:34 | INFO | Reading frame:  309
+2026-05-08 14:14:34 | INFO | Reading frame:  310
+2026-05-08 14:14:34 | INFO | Reading frame:  311
+2026-05-08 14:14:34 | INFO | Reading frame:  312
+2026-05-08 14:14:34 | INFO | Reading frame:  313
+2026-05-08 14:14:34 | INFO | Reading frame:  314
+2026-05-08 14:14:34 | INFO | Reading frame:  315
+2026-05-08 14:14:34 | INFO | Reading frame:  316
+2026-05-08 14:14:34 | INFO | Reading frame:  317
+2026-05-08 14:14:34 | INFO | Reading frame:  318
+2026-05-08 14:14:34 | INFO | Reading frame:  319
+2026-05-08 14:14:34 | INFO | Reading frame:  320
+2026-05-08 14:14:34 | INFO | Reading frame:  321
+2026-05-08 14:14:34 | INFO | Reading frame:  322
+2026-05-08 14:14:34 | INFO | Reading frame:  323
+2026-05-08 14:14:34 | INFO | Reading frame:  324
+2026-05-08 14:14:34 | INFO | Reading frame:  325
+2026-05-08 14:14:34 | INFO | Reading frame:  326
+2026-05-08 14:14:34 | INFO | Reading frame:  327
+2026-05-08 14:14:34 | INFO | Reading frame:  328
+2026-05-08 14:14:34 | INFO | Reading frame:  329
+2026-05-08 14:14:34 | INFO | Reading frame:  330
+2026-05-08 14:14:34 | INFO | Reading frame:  331
+2026-05-08 14:14:34 | INFO | Reading frame:  332
+2026-05-08 14:14:34 | INFO | Reading frame:  333
+2026-05-08 14:14:34 | INFO | Reading frame:  334
+2026-05-08 14:14:34 | INFO | Reading frame:  335
+2026-05-08 14:14:34 | INFO | Reading frame:  336
+2026-05-08 14:14:34 | INFO | Reading frame:  337
+2026-05-08 14:14:34 | INFO | Reading frame:  338
+2026-05-08 14:14:34 | INFO | Reading frame:  339
+2026-05-08 14:14:34 | INFO | Reading frame:  340
+2026-05-08 14:14:34 | INFO | Reading frame:  341
+2026-05-08 14:14:34 | INFO | Reading frame:  342
+2026-05-08 14:14:34 | INFO | Reading frame:  343
+2026-05-08 14:14:34 | INFO | Reading frame:  344
+2026-05-08 14:14:34 | INFO | Reading frame:  345
+2026-05-08 14:14:34 | INFO | Reading frame:  346
+2026-05-08 14:14:34 | INFO | Reading frame:  347
+2026-05-08 14:14:34 | INFO | Reading frame:  348
+2026-05-08 14:14:34 | INFO | Reading frame:  349
+2026-05-08 14:14:34 | INFO | Reading frame:  350
+2026-05-08 14:14:34 | INFO | Reading frame:  351
+2026-05-08 14:14:34 | INFO | Reading frame:  352
+2026-05-08 14:14:34 | INFO | Reading frame:  353
+2026-05-08 14:14:34 | INFO | Reading frame:  354
+2026-05-08 14:14:34 | INFO | Reading frame:  355
+2026-05-08 14:14:34 | INFO | Reading frame:  356
+2026-05-08 14:14:34 | INFO | Reading frame:  357
+2026-05-08 14:14:34 | INFO | Reading frame:  358
+2026-05-08 14:14:34 | INFO | Reading frame:  359
+2026-05-08 14:14:34 | INFO | Reading frame:  360
+2026-05-08 14:14:34 | INFO | Reading frame:  361
+2026-05-08 14:14:34 | INFO | Reading frame:  362
+2026-05-08 14:14:34 | INFO | Reading frame:  363
+2026-05-08 14:14:34 | INFO | Reading frame:  364
+2026-05-08 14:14:34 | INFO | Reading frame:  365
+2026-05-08 14:14:34 | INFO | Reading frame:  366
+2026-05-08 14:14:34 | INFO | Reading frame:  367
+2026-05-08 14:14:34 | INFO | Reading frame:  368
+2026-05-08 14:14:34 | INFO | Reading frame:  369
+2026-05-08 14:14:34 | INFO | Reading frame:  370
+2026-05-08 14:14:34 | INFO | Reading frame:  371
+2026-05-08 14:14:34 | INFO | Reading frame:  372
+2026-05-08 14:14:34 | INFO | Reading frame:  373
+2026-05-08 14:14:34 | INFO | Reading frame:  374
+2026-05-08 14:14:34 | INFO | Reading frame:  375
+2026-05-08 14:14:34 | INFO | Reading frame:  376
+2026-05-08 14:14:34 | INFO | Reading frame:  377
+2026-05-08 14:14:34 | INFO | Reading frame:  378
+2026-05-08 14:14:34 | INFO | Reading frame:  379
+2026-05-08 14:14:34 | INFO | Reading frame:  380
+2026-05-08 14:14:34 | INFO | Reading frame:  381
+2026-05-08 14:14:34 | INFO | Reading frame:  382
+2026-05-08 14:14:34 | INFO | Reading frame:  383
+2026-05-08 14:14:34 | INFO | Reading frame:  384
+2026-05-08 14:14:34 | INFO | Reading frame:  385
+2026-05-08 14:14:34 | INFO | Reading frame:  386
+2026-05-08 14:14:34 | INFO | Reading frame:  387
+2026-05-08 14:14:34 | INFO | Reading frame:  388
+2026-05-08 14:14:34 | INFO | Reading frame:  389
+2026-05-08 14:14:34 | INFO | Reading frame:  390
+2026-05-08 14:14:34 | INFO | Reading frame:  391
+2026-05-08 14:14:34 | INFO | Reading frame:  392
+2026-05-08 14:14:34 | INFO | Reading frame:  393
+2026-05-08 14:14:34 | INFO | Reading frame:  394
+2026-05-08 14:14:34 | INFO | Reading frame:  395
+2026-05-08 14:14:34 | INFO | Reading frame:  396
+2026-05-08 14:14:34 | INFO | Reading frame:  397
+2026-05-08 14:14:34 | INFO | Reading frame:  398
+2026-05-08 14:14:34 | INFO | Reading frame:  399
+2026-05-08 14:14:34 | INFO | Reading frame:  400
+2026-05-08 14:14:34 | INFO | Reading frame:  401
+2026-05-08 14:14:34 | INFO | Reading frame:  402
+2026-05-08 14:14:34 | INFO | Reading frame:  403
+2026-05-08 14:14:34 | INFO | Reading frame:  404
+2026-05-08 14:14:34 | INFO | Reading frame:  405
+2026-05-08 14:14:34 | INFO | Reading frame:  406
+2026-05-08 14:14:34 | INFO | Reading frame:  407
+2026-05-08 14:14:34 | INFO | Reading frame:  408
+2026-05-08 14:14:34 | INFO | Reading frame:  409
+2026-05-08 14:14:34 | INFO | Reading frame:  410
+2026-05-08 14:14:34 | INFO | Reading frame:  411
+2026-05-08 14:14:34 | INFO | Reading frame:  412
+2026-05-08 14:14:34 | INFO | Reading frame:  413
+2026-05-08 14:14:34 | INFO | Reading frame:  414
+2026-05-08 14:14:34 | INFO | Reading frame:  415
+2026-05-08 14:14:34 | INFO | Reading frame:  416
+2026-05-08 14:14:34 | INFO | Reading frame:  417
+2026-05-08 14:14:34 | INFO | Reading frame:  418
+2026-05-08 14:14:34 | INFO | Reading frame:  419
+2026-05-08 14:14:34 | INFO | Reading frame:  420
+2026-05-08 14:14:34 | INFO | Reading frame:  421
+2026-05-08 14:14:34 | INFO | Reading frame:  422
+2026-05-08 14:14:34 | INFO | Reading frame:  423
+2026-05-08 14:14:34 | INFO | Reading frame:  424
+2026-05-08 14:14:34 | INFO | Reading frame:  425
+2026-05-08 14:14:34 | INFO | Reading frame:  426
+2026-05-08 14:14:34 | INFO | Reading frame:  427
+2026-05-08 14:14:34 | INFO | Reading frame:  428
+2026-05-08 14:14:34 | INFO | Reading frame:  429
+2026-05-08 14:14:34 | INFO | Reading frame:  430
+2026-05-08 14:14:34 | INFO | Reading frame:  431
+2026-05-08 14:14:34 | INFO | Reading frame:  432
+2026-05-08 14:14:34 | INFO | Reading frame:  433
+2026-05-08 14:14:34 | INFO | Reading frame:  434
+2026-05-08 14:14:34 | INFO | Reading frame:  435
+2026-05-08 14:14:34 | INFO | Reading frame:  436
+2026-05-08 14:14:34 | INFO | Reading frame:  437
+2026-05-08 14:14:34 | INFO | Reading frame:  438
+2026-05-08 14:14:34 | INFO | Reading frame:  439
+2026-05-08 14:14:34 | INFO | Reading frame:  440
+2026-05-08 14:14:34 | INFO | Reading frame:  441
+2026-05-08 14:14:34 | INFO | Reading frame:  442
+2026-05-08 14:14:34 | INFO | Reading frame:  443
+2026-05-08 14:14:34 | INFO | Reading frame:  444
+2026-05-08 14:14:34 | INFO | Reading frame:  445
+2026-05-08 14:14:34 | INFO | Reading frame:  446
+2026-05-08 14:14:34 | INFO | Reading frame:  447
+2026-05-08 14:14:34 | INFO | Reading frame:  448
+2026-05-08 14:14:34 | INFO | Reading frame:  449
+2026-05-08 14:14:34 | INFO | Reading frame:  450
+2026-05-08 14:14:34 | INFO | Reading frame:  451
+2026-05-08 14:14:34 | INFO | Reading frame:  452
+2026-05-08 14:14:34 | INFO | Reading frame:  453
+2026-05-08 14:14:34 | INFO | Reading frame:  454
+2026-05-08 14:14:34 | INFO | Reading frame:  455
+2026-05-08 14:14:34 | INFO | Reading frame:  456
+2026-05-08 14:14:34 | INFO | Reading frame:  457
+2026-05-08 14:14:34 | INFO | Reading frame:  458
+2026-05-08 14:14:34 | INFO | Reading frame:  459
+2026-05-08 14:14:34 | INFO | Reading frame:  460
+2026-05-08 14:14:34 | INFO | Reading frame:  461
+2026-05-08 14:14:34 | INFO | Reading frame:  462
+2026-05-08 14:14:34 | INFO | Reading frame:  463
+2026-05-08 14:14:34 | INFO | Reading frame:  464
+2026-05-08 14:14:34 | INFO | Reading frame:  465
+2026-05-08 14:14:34 | INFO | Reading frame:  466
+2026-05-08 14:14:34 | INFO | Reading frame:  467
+2026-05-08 14:14:34 | INFO | Reading frame:  468
+2026-05-08 14:14:34 | INFO | Reading frame:  469
+2026-05-08 14:14:34 | INFO | Reading frame:  470
+2026-05-08 14:14:34 | INFO | Reading frame:  471
+2026-05-08 14:14:34 | INFO | Reading frame:  472
+2026-05-08 14:14:34 | INFO | Reading frame:  473
+2026-05-08 14:14:34 | INFO | Reading frame:  474
+2026-05-08 14:14:34 | INFO | Reading frame:  475
+2026-05-08 14:14:34 | INFO | Reading frame:  476
+2026-05-08 14:14:34 | INFO | Reading frame:  477
+2026-05-08 14:14:34 | INFO | Reading frame:  478
+2026-05-08 14:14:34 | INFO | Reading frame:  479
+2026-05-08 14:14:34 | INFO | Reading frame:  480
+2026-05-08 14:14:34 | INFO | Reading frame:  481
+2026-05-08 14:14:34 | INFO | Reading frame:  482
+2026-05-08 14:14:34 | INFO | Reading frame:  483
+2026-05-08 14:14:34 | INFO | Reading frame:  484
+2026-05-08 14:14:34 | INFO | Reading frame:  485
+2026-05-08 14:14:34 | INFO | Reading frame:  486
+2026-05-08 14:14:34 | INFO | Reading frame:  487
+2026-05-08 14:14:34 | INFO | Reading frame:  488
+2026-05-08 14:14:34 | INFO | Reading frame:  489
+2026-05-08 14:14:34 | INFO | Reading frame:  490
+2026-05-08 14:14:34 | INFO | Reading frame:  491
+2026-05-08 14:14:34 | INFO | Reading frame:  492
+2026-05-08 14:14:34 | INFO | Reading frame:  493
+2026-05-08 14:14:34 | INFO | Reading frame:  494
+2026-05-08 14:14:34 | INFO | Reading frame:  495
+2026-05-08 14:14:34 | INFO | Reading frame:  496
+2026-05-08 14:14:34 | INFO | Reading frame:  497
+2026-05-08 14:14:34 | INFO | Reading frame:  498
+2026-05-08 14:14:34 | INFO | Reading frame:  499
+2026-05-08 14:14:34 | INFO | Reading frame:  500
+2026-05-08 14:14:34 | INFO | Reading frame:  501
+2026-05-08 14:14:34 | INFO | Reading frame:  502
+2026-05-08 14:14:34 | INFO | Reading frame:  503
+2026-05-08 14:14:34 | INFO | Reading frame:  504
+2026-05-08 14:14:34 | INFO | Reading frame:  505
+2026-05-08 14:14:34 | INFO | Reading frame:  506
+2026-05-08 14:14:34 | INFO | Reading frame:  507
+2026-05-08 14:14:34 | INFO | Reading frame:  508
+2026-05-08 14:14:34 | INFO | Reading frame:  509
+2026-05-08 14:14:34 | INFO | Reading frame:  510
+2026-05-08 14:14:34 | INFO | Reading frame:  511
+2026-05-08 14:14:34 | INFO | Reading frame:  512
+2026-05-08 14:14:34 | INFO | Reading frame:  513
+2026-05-08 14:14:34 | INFO | Reading frame:  514
+2026-05-08 14:14:34 | INFO | Reading frame:  515
+2026-05-08 14:14:34 | INFO | Reading frame:  516
+2026-05-08 14:14:34 | INFO | Reading frame:  517
+2026-05-08 14:14:34 | INFO | Reading frame:  518
+2026-05-08 14:14:34 | INFO | Reading frame:  519
+2026-05-08 14:14:34 | INFO | Reading frame:  520
+2026-05-08 14:14:34 | INFO | Reading frame:  521
+2026-05-08 14:14:34 | INFO | Reading frame:  522
+2026-05-08 14:14:34 | INFO | Reading frame:  523
+2026-05-08 14:14:34 | INFO | Reading frame:  524
+2026-05-08 14:14:34 | INFO | Reading frame:  525
+2026-05-08 14:14:34 | INFO | Reading frame:  526
+2026-05-08 14:14:34 | INFO | Reading frame:  527
+2026-05-08 14:14:34 | INFO | Reading frame:  528
+2026-05-08 14:14:34 | INFO | Reading frame:  529
+2026-05-08 14:14:34 | INFO | Reading frame:  530
+2026-05-08 14:14:34 | INFO | Reading frame:  531
+2026-05-08 14:14:34 | INFO | Reading frame:  532
+2026-05-08 14:14:34 | INFO | Reading frame:  533
+2026-05-08 14:14:34 | INFO | Reading frame:  534
+2026-05-08 14:14:34 | INFO | Reading frame:  535
+2026-05-08 14:14:34 | INFO | Reading frame:  536
+2026-05-08 14:14:34 | INFO | Reading frame:  537
+2026-05-08 14:14:34 | INFO | Reading frame:  538
+2026-05-08 14:14:34 | INFO | Reading frame:  539
+2026-05-08 14:14:34 | INFO | Reading frame:  540
+2026-05-08 14:14:34 | INFO | Reading frame:  541
+2026-05-08 14:14:34 | INFO | Reading frame:  542
+2026-05-08 14:14:34 | INFO | Reading frame:  543
+2026-05-08 14:14:34 | INFO | Reading frame:  544
+2026-05-08 14:14:34 | INFO | Reading frame:  545
+2026-05-08 14:14:34 | INFO | Reading frame:  546
+2026-05-08 14:14:34 | INFO | Reading frame:  547
+2026-05-08 14:14:34 | INFO | Reading frame:  548
+2026-05-08 14:14:34 | INFO | Reading frame:  549
+2026-05-08 14:14:34 | INFO | Reading frame:  550
+2026-05-08 14:14:34 | INFO | Reading frame:  551
+2026-05-08 14:14:34 | INFO | Reading frame:  552
+2026-05-08 14:14:34 | INFO | Reading frame:  553
+2026-05-08 14:14:34 | INFO | Reading frame:  554
+2026-05-08 14:14:34 | INFO | Reading frame:  555
+2026-05-08 14:14:34 | INFO | Reading frame:  556
+2026-05-08 14:14:34 | INFO | Reading frame:  557
+2026-05-08 14:14:34 | INFO | Reading frame:  558
+2026-05-08 14:14:34 | INFO | Reading frame:  559
+2026-05-08 14:14:34 | INFO | Reading frame:  560
+2026-05-08 14:14:34 | INFO | Reading frame:  561
+2026-05-08 14:14:34 | INFO | Reading frame:  562
+2026-05-08 14:14:34 | INFO | Reading frame:  563
+2026-05-08 14:14:34 | INFO | Reading frame:  564
+2026-05-08 14:14:34 | INFO | Reading frame:  565
+2026-05-08 14:14:34 | INFO | Reading frame:  566
+2026-05-08 14:14:34 | INFO | Reading frame:  567
+2026-05-08 14:14:34 | INFO | Reading frame:  568
+2026-05-08 14:14:34 | INFO | Reading frame:  569
+2026-05-08 14:14:34 | INFO | Reading frame:  570
+2026-05-08 14:14:34 | INFO | Reading frame:  571
+2026-05-08 14:14:34 | INFO | Reading frame:  572
+2026-05-08 14:14:34 | INFO | Reading frame:  573
+2026-05-08 14:14:34 | INFO | 🔍 Detecting stable segments...
+2026-05-08 14:14:34 | INFO | 
+2026-05-08 14:14:34 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-08 14:14:34 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 29652.78it/s]
+2026-05-08 14:14:34 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-08 14:14:34 | INFO | Key                                  | Status     |  | 
+2026-05-08 14:14:34 | INFO | -------------------------------------+------------+--+-
+2026-05-08 14:14:34 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-08 14:14:34 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-08 14:14:34 | INFO | 
+2026-05-08 14:14:34 | INFO | Notes:
+2026-05-08 14:14:34 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-08 14:14:38 | INFO | `use_return_dict` is deprecated! Use `return_dict` instead!
+2026-05-08 14:14:38 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 14:14:38 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 14:14:42 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 14:16:18 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 14:16:18 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 14:16:21 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 14:17:48 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 14:17:48 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 14:17:52 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 14:19:18 | INFO | ✅ CLIP similarity list loaded from cache.
+2026-05-08 14:19:18 | INFO | 
+2026-05-08 14:19:18 | INFO | 📂 Processing segment 0...
+2026-05-08 14:19:18 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_screenshot-0.png
+2026-05-08 14:19:18 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_dino.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_dino.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_tmp_stop.png
+2026-05-08 14:19:18 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 14:19:18 | INFO | {
+2026-05-08 14:19:18 | INFO |  "target_regions": [25],
+2026-05-08 14:19:18 | INFO |  "predicted_action": "tap"
+2026-05-08 14:19:18 | INFO | }
+2026-05-08 14:19:18 | INFO | ```
+2026-05-08 14:19:18 | INFO | 🔍 Relevant regions: {'target_regions': [25], 'predicted_action': 'tap'}
+2026-05-08 14:19:18 | INFO | 🧠 GPT selected regions: [25]
+2026-05-08 14:19:18 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_relevant_regions.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_relevant_regions.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_screenshot-0.png
+2026-05-08 14:19:18 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:19:18 | INFO | {
+2026-05-08 14:19:18 | INFO |   "same_state": "no",
+2026-05-08 14:19:18 | INFO |   "description": "The reference screen is the home page of the app, showing a welcome message. The current screen is a search results page. These are two different screens within the app's workflow."
+2026-05-08 14:19:18 | INFO | }
+2026-05-08 14:19:18 | INFO | ```
+2026-05-08 14:19:18 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_tmp_start.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_tmp_stop.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_labeled.png
+2026-05-08 14:19:18 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:19:18 | INFO | {
+2026-05-08 14:19:18 | INFO |   "action": "tap",
+2026-05-08 14:19:18 | INFO |   "region": 5,
+2026-05-08 14:19:18 | INFO |   "description": "Tap the 'More' button in the bottom navigation bar."
+2026-05-08 14:19:18 | INFO | }
+2026-05-08 14:19:18 | INFO | ```
+2026-05-08 14:19:18 | INFO | 🎯 Recovery using region index: 5 at (972, 1773)
+2026-05-08 14:19:18 | INFO | [1] Tap the 'More' button in the bottom navigation bar. -> tap
+2026-05-08 14:19:18 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_screenshot-0.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_tmp_start.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_screenshot-0.png
+2026-05-08 14:19:18 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:19:18 | INFO | {
+2026-05-08 14:19:18 | INFO |   "same_state": "no",
+2026-05-08 14:19:18 | INFO |   "description": "The reference screen is the initial home screen of the app, showing a welcome message. The current screen is a search results page with a 'No results' message and an open menu. These are completely different functional states within the app."
+2026-05-08 14:19:18 | INFO | }
+2026-05-08 14:19:18 | INFO | ```
+2026-05-08 14:19:18 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_tmp_start.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_tmp_stop.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_labeled.png
+2026-05-08 14:19:18 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:19:18 | INFO | {
+2026-05-08 14:19:18 | INFO |     "action": "tap",
+2026-05-08 14:19:18 | INFO |     "region": 5,
+2026-05-08 14:19:18 | INFO |     "description": "Tap on More button."
+2026-05-08 14:19:18 | INFO | }
+2026-05-08 14:19:18 | INFO | ```
+2026-05-08 14:19:18 | INFO | 🎯 Recovery using region index: 5 at (972, 1773)
+2026-05-08 14:19:18 | INFO | [1] Tap on More button. -> tap
+2026-05-08 14:19:18 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_screenshot-0.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_tmp_start.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_screenshot-0.png
+2026-05-08 14:19:18 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:19:18 | INFO | {
+2026-05-08 14:19:18 | INFO |   "same_state": "no",
+2026-05-08 14:19:18 | INFO |   "description": "The reference screen is the initial 'Home' screen, showing a welcome message and prompting the user to add a podcast. The current screen is a search results page, showing 'No results were found' and has the 'Subscriptions' tab selected in the bottom navigation bar, not the 'Home' tab. These are two different functional states."
+2026-05-08 14:19:18 | INFO | }
+2026-05-08 14:19:18 | INFO | ```
+2026-05-08 14:19:18 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_tmp_start.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_tmp_stop.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_labeled.png
+2026-05-08 14:19:18 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:19:18 | INFO | {
+2026-05-08 14:19:18 | INFO |   "action": "tap",
+2026-05-08 14:19:18 | INFO |   "region": 5,
+2026-05-08 14:19:18 | INFO |   "description": "Tap on the More button in the bottom navigation bar."
+2026-05-08 14:19:18 | INFO | }
+2026-05-08 14:19:18 | INFO | ```
+2026-05-08 14:19:18 | INFO | 🎯 Recovery using region index: 5 at (972, 1773)
+2026-05-08 14:19:18 | INFO | [1] Tap on the More button in the bottom navigation bar. -> tap
+2026-05-08 14:19:18 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_screenshot-0.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_tmp_start.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_0_screenshot-0.png
+2026-05-08 14:19:18 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:19:18 | INFO | {
+2026-05-08 14:19:18 | INFO |   "same_state": "no",
+2026-05-08 14:19:18 | INFO |   "description": "The reference image shows the initial home screen of the app, while the current image shows a search results screen with a pop-up menu open. The content on the screen, the top action bar, and the selected tab in the bottom navigation are all different."
+2026-05-08 14:19:18 | INFO | }
+2026-05-08 14:19:18 | INFO | ```
+2026-05-08 14:19:18 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-08 14:19:18 | INFO | Mismatch reason: the reference image shows the initial home screen of the app, while the current image shows a search results screen with a pop-up menu open. the content on the screen, the top action bar, and the selected tab in the bottom navigation are all different.
+2026-05-08 14:19:18 | INFO | 
+2026-05-08 14:19:18 | INFO | 📂 Processing segment 1...
+2026-05-08 14:19:18 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_screenshot-0.png
+2026-05-08 14:19:18 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_dino.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_dino.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_tmp_stop.png
+2026-05-08 14:19:18 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 14:19:18 | INFO | {
+2026-05-08 14:19:18 | INFO |   "target_regions": [],
+2026-05-08 14:19:18 | INFO |   "predicted_action": "no action"
+2026-05-08 14:19:18 | INFO | }
+2026-05-08 14:19:18 | INFO | ```
+2026-05-08 14:19:18 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'no action'}
+2026-05-08 14:19:18 | INFO | 🧠 GPT selected regions: []
+2026-05-08 14:19:18 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_relevant_regions.png
+2026-05-08 14:19:18 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_screenshot-0.png
+2026-05-08 14:19:18 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:19:18 | INFO | {
+2026-05-08 14:19:18 | INFO |   "same_state": "no",
+2026-05-08 14:19:18 | INFO |   "description": "The reference screen is the initial home screen, showing a welcome message and the 'Home' tab selected. The current screen is a search results page within the 'Subscriptions' tab, with a 'No results' message and an open menu. The screens represent completely different states and offer different functionalities."
+2026-05-08 14:19:18 | INFO | }
+2026-05-08 14:19:22 | INFO | ```UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 14:19:22 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 14:19:26 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 14:20:15 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 14:20:15 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 14:20:19 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 14:21:35 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 14:21:35 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 14:21:39 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 14:22:46 | INFO | 
+2026-05-08 14:22:46 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_tmp_start.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_tmp_stop.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_labeled.png
+2026-05-08 14:22:46 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:22:46 | INFO | {
+2026-05-08 14:22:46 | INFO |   "action": "no action",
+2026-05-08 14:22:46 | INFO |   "description": "No Action needed."
+2026-05-08 14:22:46 | INFO | }
+2026-05-08 14:22:46 | INFO | ```
+2026-05-08 14:22:46 | INFO | [1] No Action needed. -> no action
+2026-05-08 14:22:46 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_screenshot-0.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_tmp_start.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_screenshot-0.png
+2026-05-08 14:22:46 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:22:46 | INFO | {
+2026-05-08 14:22:46 | INFO |   "same_state": "no",
+2026-05-08 14:22:46 | INFO |   "description": "The reference screen is the initial empty 'Home' screen. The current screen is a search results page within the 'Subscriptions' tab with a menu open. The screens represent different sections of the app and have different UI elements and available actions."
+2026-05-08 14:22:46 | INFO | }
+2026-05-08 14:22:46 | INFO | ```
+2026-05-08 14:22:46 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_tmp_start.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_tmp_stop.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_labeled.png
+2026-05-08 14:22:46 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:22:46 | INFO | {
+2026-05-08 14:22:46 | INFO |   "action": "no action",
+2026-05-08 14:22:46 | INFO |   "description": "No Action needed."
+2026-05-08 14:22:46 | INFO | }
+2026-05-08 14:22:46 | INFO | ```
+2026-05-08 14:22:46 | INFO | [1] No Action needed. -> no action
+2026-05-08 14:22:46 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_screenshot-0.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_tmp_start.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_screenshot-0.png
+2026-05-08 14:22:46 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:22:46 | INFO | {
+2026-05-08 14:22:46 | INFO |   "same_state": "no",
+2026-05-08 14:22:46 | INFO |   "description": "The reference screen is the home page in an empty state, while the current screen is a search results page with a menu open. The content and available actions on the two screens are completely different."
+2026-05-08 14:22:46 | INFO | }
+2026-05-08 14:22:46 | INFO | ```
+2026-05-08 14:22:46 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_tmp_start.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_tmp_stop.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_labeled.png
+2026-05-08 14:22:46 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:22:46 | INFO | {
+2026-05-08 14:22:46 | INFO |   "action": "no action",
+2026-05-08 14:22:46 | INFO |   "description": "No Action needed."
+2026-05-08 14:22:46 | INFO | }
+2026-05-08 14:22:46 | INFO | ```
+2026-05-08 14:22:46 | INFO | [1] No Action needed. -> no action
+2026-05-08 14:22:46 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_screenshot-0.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_tmp_start.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_1_screenshot-0.png
+2026-05-08 14:22:46 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:22:46 | INFO | {
+2026-05-08 14:22:46 | INFO |   "same_state": "no",
+2026-05-08 14:22:46 | INFO |   "description": "The reference screen is the initial 'Home' screen of the app, showing a welcome message. The current screen is a search results page with a 'No results' message and a pop-up menu open. The screens are fundamentally different in their content, layout, and available actions."
+2026-05-08 14:22:46 | INFO | }
+2026-05-08 14:22:46 | INFO | ```
+2026-05-08 14:22:46 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-08 14:22:46 | INFO | Mismatch reason: the reference screen is the initial 'home' screen of the app, showing a welcome message. the current screen is a search results page with a 'no results' message and a pop-up menu open. the screens are fundamentally different in their content, layout, and available actions.
+2026-05-08 14:22:46 | INFO | 
+2026-05-08 14:22:46 | INFO | 📂 Processing segment 2...
+2026-05-08 14:22:46 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_screenshot-0.png
+2026-05-08 14:22:46 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_dino.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_dino.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_tmp_stop.png
+2026-05-08 14:22:46 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 14:22:46 | INFO | {
+2026-05-08 14:22:46 | INFO |   "target_regions": [
+2026-05-08 14:22:46 | INFO |     21
+2026-05-08 14:22:46 | INFO |   ],
+2026-05-08 14:22:46 | INFO |   "predicted_action": "tap"
+2026-05-08 14:22:46 | INFO | }
+2026-05-08 14:22:46 | INFO | ```
+2026-05-08 14:22:46 | INFO | 🔍 Relevant regions: {'target_regions': [21], 'predicted_action': 'tap'}
+2026-05-08 14:22:46 | INFO | 🧠 GPT selected regions: [21]
+2026-05-08 14:22:46 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_relevant_regions.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_relevant_regions.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_screenshot-0.png
+2026-05-08 14:22:46 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:22:46 | INFO | {
+2026-05-08 14:22:46 | INFO |   "same_state": "no",
+2026-05-08 14:22:46 | INFO |   "description": "The reference screen is the main 'Settings' page, while the current screen is a search results page with a 'More' menu overlay. The UI elements and available actions are completely different."
+2026-05-08 14:22:46 | INFO | }
+2026-05-08 14:22:46 | INFO | ```
+2026-05-08 14:22:46 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_tmp_start.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_tmp_stop.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_labeled.png
+2026-05-08 14:22:46 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:22:46 | INFO | {
+2026-05-08 14:22:46 | INFO |     "action": "tap",
+2026-05-08 14:22:46 | INFO |     "region": 11,
+2026-05-08 14:22:46 | INFO |     "description": "Tap on the 'Settings' option to navigate to the settings screen."
+2026-05-08 14:22:46 | INFO | }
+2026-05-08 14:22:46 | INFO | ```
+2026-05-08 14:22:46 | INFO | 🎯 Recovery using region index: 11 at (690, 1606)
+2026-05-08 14:22:46 | INFO | [1] Tap on the 'Settings' option to navigate to the settings screen. -> tap
+2026-05-08 14:22:46 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_screenshot-0.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_tmp_start.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_screenshot-0.png
+2026-05-08 14:22:46 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:22:46 | INFO | {
+2026-05-08 14:22:46 | INFO |   "same_state": "yes"
+2026-05-08 14:22:46 | INFO | }
+2026-05-08 14:22:46 | INFO | ```
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_relevant_regions.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_tmp_stop.png
+2026-05-08 14:22:46 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_2_labeled.png
+2026-05-08 14:22:46 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:22:46 | INFO | {
+2026-05-08 14:22:46 | INFO |   "action": "tap",
+2026-05-08 14:22:46 | INFO |   "region": 11,
+2026-05-08 14:22:46 | INFO |   "description": "Tap on Settings"
+2026-05-08 14:22:46 | INFO | }
+2026-05-08 14:23:26 | INFO | ```UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 14:23:26 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 14:23:30 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 14:26:23 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 14:26:23 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 14:26:27 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 14:26:41 | INFO | 
+2026-05-08 14:26:41 | INFO | 🎯 Using region index: 11 at (690, 1606)
+2026-05-08 14:26:41 | INFO | [1] Tap on Settings -> tap
+2026-05-08 14:26:41 | INFO | ✅ Action executed.
+2026-05-08 14:26:41 | INFO | 
+2026-05-08 14:26:41 | INFO | 
+2026-05-08 14:26:41 | INFO | 📂 Processing segment 3...
+2026-05-08 14:26:41 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_3_screenshot-0.png
+2026-05-08 14:26:41 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_3_dino.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_3_dino.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_3_tmp_stop.png
+2026-05-08 14:26:41 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 14:26:41 | INFO | {
+2026-05-08 14:26:41 | INFO |   "target_regions": [
+2026-05-08 14:26:41 | INFO |     31,
+2026-05-08 14:26:41 | INFO |     32,
+2026-05-08 14:26:41 | INFO |     33
+2026-05-08 14:26:41 | INFO |   ],
+2026-05-08 14:26:41 | INFO |   "predicted_action": "tap"
+2026-05-08 14:26:41 | INFO | }
+2026-05-08 14:26:41 | INFO | ```
+2026-05-08 14:26:41 | INFO | 🔍 Relevant regions: {'target_regions': [31, 32, 33], 'predicted_action': 'tap'}
+2026-05-08 14:26:41 | INFO | 🧠 GPT selected regions: [31, 32, 33]
+2026-05-08 14:26:41 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_3_relevant_regions.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_3_relevant_regions.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_3_screenshot-0.png
+2026-05-08 14:26:41 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:26:41 | INFO | {
+2026-05-08 14:26:41 | INFO |   "same_state": "yes"
+2026-05-08 14:26:41 | INFO | }
+2026-05-08 14:26:41 | INFO | ```
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_3_relevant_regions.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_3_tmp_stop.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_3_labeled.png
+2026-05-08 14:26:41 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:26:41 | INFO | {
+2026-05-08 14:26:41 | INFO |   "action": "tap",
+2026-05-08 14:26:41 | INFO |   "region": 4,
+2026-05-08 14:26:41 | INFO |   "description": "Tap on the Playback button"
+2026-05-08 14:26:41 | INFO | }
+2026-05-08 14:26:41 | INFO | ```
+2026-05-08 14:26:41 | INFO | 🎯 Using region index: 4 at (540, 687)
+2026-05-08 14:26:41 | INFO | [1] Tap on the Playback button -> tap
+2026-05-08 14:26:41 | INFO | ✅ Action executed.
+2026-05-08 14:26:41 | INFO | 
+2026-05-08 14:26:41 | INFO | 
+2026-05-08 14:26:41 | INFO | 📂 Processing segment 4...
+2026-05-08 14:26:41 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_4_screenshot-0.png
+2026-05-08 14:26:41 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_4_dino.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_4_dino.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_4_tmp_stop.png
+2026-05-08 14:26:41 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 14:26:41 | INFO | {
+2026-05-08 14:26:41 | INFO |   "target_regions": [
+2026-05-08 14:26:41 | INFO |     12,
+2026-05-08 14:26:41 | INFO |     25
+2026-05-08 14:26:41 | INFO |   ],
+2026-05-08 14:26:41 | INFO |   "predicted_action": "tap"
+2026-05-08 14:26:41 | INFO | }
+2026-05-08 14:26:41 | INFO | ```
+2026-05-08 14:26:41 | INFO | 🔍 Relevant regions: {'target_regions': [12, 25], 'predicted_action': 'tap'}
+2026-05-08 14:26:41 | INFO | 🧠 GPT selected regions: [12, 25]
+2026-05-08 14:26:41 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_4_relevant_regions.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_4_relevant_regions.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_4_screenshot-0.png
+2026-05-08 14:26:41 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:26:41 | INFO | {
+2026-05-08 14:26:41 | INFO |   "same_state": "yes"
+2026-05-08 14:26:41 | INFO | }
+2026-05-08 14:26:41 | INFO | ```
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_4_relevant_regions.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_4_tmp_stop.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_4_labeled.png
+2026-05-08 14:26:41 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:26:41 | INFO | {
+2026-05-08 14:26:41 | INFO |     "action": "tap",
+2026-05-08 14:26:41 | INFO |     "region": 25,
+2026-05-08 14:26:41 | INFO |     "description": "Tap the toggle switch next to 'Headphones or Bluetooth disconnect'."
+2026-05-08 14:26:41 | INFO | }
+2026-05-08 14:26:41 | INFO | ```
+2026-05-08 14:26:41 | INFO | ⚠️ No valid region or element match. Skipping action.
+2026-05-08 14:26:41 | INFO | 
+2026-05-08 14:26:41 | INFO | 📂 Processing segment 5...
+2026-05-08 14:26:41 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_screenshot-0.png
+2026-05-08 14:26:41 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_dino.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_dino.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_tmp_stop.png
+2026-05-08 14:26:41 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 14:26:41 | INFO | {
+2026-05-08 14:26:41 | INFO |   "target_regions": [],
+2026-05-08 14:26:41 | INFO |   "predicted_action": "no action"
+2026-05-08 14:26:41 | INFO | }
+2026-05-08 14:26:41 | INFO | ```
+2026-05-08 14:26:41 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'no action'}
+2026-05-08 14:26:41 | INFO | 🧠 GPT selected regions: []
+2026-05-08 14:26:41 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_relevant_regions.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_screenshot-0.png
+2026-05-08 14:26:41 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:26:41 | INFO | {
+2026-05-08 14:26:41 | INFO |   "same_state": "no",
+2026-05-08 14:26:41 | INFO |   "description": "The reference image shows the main 'Settings' screen with a list of categories, while the current image shows the 'Playback' settings sub-screen. The user is in a different part of the settings menu."
+2026-05-08 14:26:41 | INFO | }
+2026-05-08 14:26:41 | INFO | ```
+2026-05-08 14:26:41 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_tmp_start.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_tmp_stop.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_labeled.png
+2026-05-08 14:26:41 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:26:41 | INFO | {
+2026-05-08 14:26:41 | INFO |   "action": "no action",
+2026-05-08 14:26:41 | INFO |   "description": "No Action needed."
+2026-05-08 14:26:41 | INFO | }
+2026-05-08 14:26:41 | INFO | ```
+2026-05-08 14:26:41 | INFO | [1] No Action needed. -> no action
+2026-05-08 14:26:41 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_screenshot-0.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_tmp_start.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_screenshot-0.png
+2026-05-08 14:26:41 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:26:41 | INFO | {
+2026-05-08 14:26:41 | INFO |   "same_state": "no",
+2026-05-08 14:26:41 | INFO |   "description": "The reference screen is the main 'Settings' page, while the current screen is the 'Playback' settings page. The content and available actions are completely different."
+2026-05-08 14:26:41 | INFO | }
+2026-05-08 14:26:41 | INFO | ```
+2026-05-08 14:26:41 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_tmp_start.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_tmp_stop.png
+2026-05-08 14:26:41 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_labeled.png
+2026-05-08 14:26:41 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:26:41 | INFO | {
+2026-05-08 14:26:41 | INFO |   "action": "no action",
+2026-05-08 14:26:41 | INFO |   "description": "The first and second GUIs are identical, indicating no change in the screen. Therefore, no action is needed."
+2026-05-08 14:26:41 | INFO | }
+2026-05-08 14:26:41 | INFO | ```
+2026-05-08 14:26:41 | INFO | [1] The first and second GUIs are identical, indicating no change in the screen. Therefore, no action is needed. -> no action
+2026-05-08 14:28:21 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_screenshot-0.pngUserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-08 14:28:21 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-08 14:28:25 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-08 14:28:59 | INFO | 
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_tmp_start.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_screenshot-0.png
+2026-05-08 14:28:59 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:28:59 | INFO | {
+2026-05-08 14:28:59 | INFO |   "same_state": "no",
+2026-05-08 14:28:59 | INFO |   "description": "The reference image shows the main 'Settings' screen, while the current image shows the 'Playback' sub-menu within the settings. The user has navigated to a different screen."
+2026-05-08 14:28:59 | INFO | }
+2026-05-08 14:28:59 | INFO | ```
+2026-05-08 14:28:59 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_tmp_start.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_tmp_stop.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_labeled.png
+2026-05-08 14:28:59 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:28:59 | INFO | {
+2026-05-08 14:28:59 | INFO |   "action": "no action",
+2026-05-08 14:28:59 | INFO |   "description": "No Action needed."
+2026-05-08 14:28:59 | INFO | }
+2026-05-08 14:28:59 | INFO | ```
+2026-05-08 14:28:59 | INFO | [1] No Action needed. -> no action
+2026-05-08 14:28:59 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_screenshot-0.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_tmp_start.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_5_screenshot-0.png
+2026-05-08 14:28:59 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:28:59 | INFO | {
+2026-05-08 14:28:59 | INFO |   "same_state": "no",
+2026-05-08 14:28:59 | INFO |   "description": "The reference screen shows the main 'Settings' page with a list of categories, while the current screen shows the 'Playback' settings sub-page. The content and available actions are completely different."
+2026-05-08 14:28:59 | INFO | }
+2026-05-08 14:28:59 | INFO | ```
+2026-05-08 14:28:59 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-08 14:28:59 | INFO | Mismatch reason: the reference screen shows the main 'settings' page with a list of categories, while the current screen shows the 'playback' settings sub-page. the content and available actions are completely different.
+2026-05-08 14:28:59 | INFO | 
+2026-05-08 14:28:59 | INFO | 📂 Processing segment 6...
+2026-05-08 14:28:59 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_screenshot-0.png
+2026-05-08 14:28:59 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_dino.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_dino.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_tmp_stop.png
+2026-05-08 14:28:59 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 14:28:59 | INFO | {
+2026-05-08 14:28:59 | INFO |   "target_regions": [
+2026-05-08 14:28:59 | INFO |     4
+2026-05-08 14:28:59 | INFO |   ],
+2026-05-08 14:28:59 | INFO |   "predicted_action": "tap"
+2026-05-08 14:28:59 | INFO | }
+2026-05-08 14:28:59 | INFO | ```
+2026-05-08 14:28:59 | INFO | 🔍 Relevant regions: {'target_regions': [4], 'predicted_action': 'tap'}
+2026-05-08 14:28:59 | INFO | 🧠 GPT selected regions: [4]
+2026-05-08 14:28:59 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_relevant_regions.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_relevant_regions.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_screenshot-0.png
+2026-05-08 14:28:59 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:28:59 | INFO | {
+2026-05-08 14:28:59 | INFO |   "same_state": "no",
+2026-05-08 14:28:59 | INFO |   "description": "The content of the screens is completely different. The reference screen shows \"Downloads\" settings, while the current screen shows \"Playback\" settings. The UI elements from the reference screen are not present in the current screen."
+2026-05-08 14:28:59 | INFO | }
+2026-05-08 14:28:59 | INFO | ```
+2026-05-08 14:28:59 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_tmp_start.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_tmp_stop.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_labeled.png
+2026-05-08 14:28:59 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:28:59 | INFO | {
+2026-05-08 14:28:59 | INFO |   "action": "tap",
+2026-05-08 14:28:59 | INFO |   "region": 0,
+2026-05-08 14:28:59 | INFO |   "description": "Tap the back arrow to go to the previous screen."
+2026-05-08 14:28:59 | INFO | }
+2026-05-08 14:28:59 | INFO | ```
+2026-05-08 14:28:59 | INFO | 🎯 Recovery using region index: 0 at (73, 146)
+2026-05-08 14:28:59 | INFO | [1] Tap the back arrow to go to the previous screen. -> tap
+2026-05-08 14:28:59 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_screenshot-0.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_tmp_start.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_screenshot-0.png
+2026-05-08 14:28:59 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:28:59 | INFO | {
+2026-05-08 14:28:59 | INFO |   "same_state": "no",
+2026-05-08 14:28:59 | INFO |   "description": "The reference screen is the 'Downloads' settings page, while the current screen is the main 'Settings' page. The user is at a different level in the app's settings hierarchy."
+2026-05-08 14:28:59 | INFO | }
+2026-05-08 14:28:59 | INFO | ```
+2026-05-08 14:28:59 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_tmp_start.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_tmp_stop.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_labeled.png
+2026-05-08 14:28:59 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:28:59 | INFO | {
+2026-05-08 14:28:59 | INFO |   "action": "tap",
+2026-05-08 14:28:59 | INFO |   "region": [
+2026-05-08 14:28:59 | INFO |     332,
+2026-05-08 14:28:59 | INFO |     456,
+2026-05-08 14:28:59 | INFO |     1080,
+2026-05-08 14:28:59 | INFO |     548
+2026-05-08 14:28:59 | INFO |   ],
+2026-05-08 14:28:59 | INFO |   "description": "Tap on Downloads"
+2026-05-08 14:28:59 | INFO | }
+2026-05-08 14:28:59 | INFO | ```
+2026-05-08 14:28:59 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-08 14:28:59 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_tmp_start.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_tmp_stop.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_6_labeled.png
+2026-05-08 14:28:59 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:28:59 | INFO | {
+2026-05-08 14:28:59 | INFO |     "action": "tap",
+2026-05-08 14:28:59 | INFO |     "region": [
+2026-05-08 14:28:59 | INFO |         0,
+2026-05-08 14:28:59 | INFO |         458,
+2026-05-08 14:28:59 | INFO |         1080,
+2026-05-08 14:28:59 | INFO |         557
+2026-05-08 14:28:59 | INFO |     ],
+2026-05-08 14:28:59 | INFO |     "description": "Tap on Downloads to navigate to the downloads settings screen."
+2026-05-08 14:28:59 | INFO | }
+2026-05-08 14:28:59 | INFO | ```
+2026-05-08 14:28:59 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-08 14:28:59 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-08 14:28:59 | INFO | Mismatch reason: the reference screen is the 'downloads' settings page, while the current screen is the main 'settings' page. the user is at a different level in the app's settings hierarchy.
+2026-05-08 14:28:59 | INFO | 
+2026-05-08 14:28:59 | INFO | 📂 Processing segment 7...
+2026-05-08 14:28:59 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-08 14:28:59 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_dino.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_dino.png
+2026-05-08 14:28:59 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_tmp_stop.png
+2026-05-08 14:28:59 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 14:28:59 | INFO | {
+2026-05-08 14:28:59 | INFO |  "target_regions": [],
+2026-05-08 14:28:59 | INFO |  "predicted_action": "no action"
+2026-05-08 14:28:59 | INFO | }
+2026-05-08 14:28:59 | INFO | ```
+2026-05-08 14:28:59 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'no action'}
+2026-05-08 14:28:59 | INFO | 🧠 GPT selected regions: []
+2026-05-08 14:28:59 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_relevant_regions.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-08 14:29:33 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "same_state": "no",
+2026-05-08 14:29:33 | INFO |   "description": "The reference screen is the 'Downloads' settings page, while the current screen is the main 'Settings' page. The user needs to tap on 'Downloads' on the current screen to reach the state shown in the reference image."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_tmp_start.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_tmp_stop.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_labeled.png
+2026-05-08 14:29:33 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "action": "no action",
+2026-05-08 14:29:33 | INFO |   "description": "No Action needed."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | [1] No Action needed. -> no action
+2026-05-08 14:29:33 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_tmp_start.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-08 14:29:33 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "same_state": "no",
+2026-05-08 14:29:33 | INFO |   "description": "The reference screen is the 'Downloads' settings page, while the current screen is the main 'Settings' page. The user needs to tap on 'Downloads' on the current screen to navigate to the state shown in the reference image."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_tmp_start.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_tmp_stop.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_labeled.png
+2026-05-08 14:29:33 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "action": "no action",
+2026-05-08 14:29:33 | INFO |   "description": "No Action needed."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | [1] No Action needed. -> no action
+2026-05-08 14:29:33 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_tmp_start.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-08 14:29:33 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "same_state": "no",
+2026-05-08 14:29:33 | INFO |   "description": "The current screen is the main 'Settings' page, while the reference screen is the 'Downloads' sub-page. The user needs to tap on 'Downloads' on the current screen to get to the reference screen's state."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_tmp_start.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_tmp_stop.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_labeled.png
+2026-05-08 14:29:33 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "action": "no action",
+2026-05-08 14:29:33 | INFO |   "description": "The current screen is the result of the previous action, so no action is needed."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | [1] The current screen is the result of the previous action, so no action is needed. -> no action
+2026-05-08 14:29:33 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_tmp_start.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_7_screenshot-0.png
+2026-05-08 14:29:33 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "same_state": "no",
+2026-05-08 14:29:33 | INFO |   "description": "The current screen is the main 'Settings' page, while the reference screen is the 'Downloads' settings sub-page. The user needs to tap on 'Downloads' on the current screen to get to the reference screen."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-08 14:29:33 | INFO | Mismatch reason: the current screen is the main 'settings' page, while the reference screen is the 'downloads' settings sub-page. the user needs to tap on 'downloads' on the current screen to get to the reference screen.
+2026-05-08 14:29:33 | INFO | 
+2026-05-08 14:29:33 | INFO | 📂 Processing segment 8...
+2026-05-08 14:29:33 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-08 14:29:33 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_dino.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_dino.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_tmp_stop.png
+2026-05-08 14:29:33 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "target_regions": [],
+2026-05-08 14:29:33 | INFO |   "predicted_action": "no action"
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'no action'}
+2026-05-08 14:29:33 | INFO | 🧠 GPT selected regions: []
+2026-05-08 14:29:33 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_relevant_regions.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-08 14:29:33 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "same_state": "no",
+2026-05-08 14:29:33 | INFO |   "description": "The reference screen is the 'Home' screen, which is empty as no podcasts are subscribed. The current screen is the 'Settings' page, which displays a list of configuration options. These are two completely different screens with different functionalities."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_tmp_start.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_tmp_stop.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_labeled.png
+2026-05-08 14:29:33 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "action": "no action",
+2026-05-08 14:29:33 | INFO |   "description": "No Action needed."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | [1] No Action needed. -> no action
+2026-05-08 14:29:33 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_tmp_start.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-08 14:29:33 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "same_state": "no",
+2026-05-08 14:29:33 | INFO |   "description": "The reference image shows the app's home screen with a welcome message, while the current image shows the app's settings page. These are two different screens with different functionalities."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_tmp_start.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_tmp_stop.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_labeled.png
+2026-05-08 14:29:33 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "action": "no action",
+2026-05-08 14:29:33 | INFO |   "description": "No Action needed."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | [1] No Action needed. -> no action
+2026-05-08 14:29:33 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_tmp_start.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-08 14:29:33 | INFO | Consistency Response from Gemini: {
+2026-05-08 14:29:33 | INFO |   "same_state": "no",
+2026-05-08 14:29:33 | INFO |   "description": "The reference image shows the 'Home' screen of the app in an empty state, while the current image shows the 'Settings' screen. These are two different screens with completely different content and functionality."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_tmp_start.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_tmp_stop.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_labeled.png
+2026-05-08 14:29:33 | INFO | Region Action Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "action": "no action",
+2026-05-08 14:29:33 | INFO |   "description": "No Action needed."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | [1] No Action needed. -> no action
+2026-05-08 14:29:33 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_tmp_start.png
+2026-05-08 14:29:33 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/step_8_screenshot-0.png
+2026-05-08 14:29:33 | INFO | Consistency Response from Gemini: ```json
+2026-05-08 14:29:33 | INFO | {
+2026-05-08 14:29:33 | INFO |   "same_state": "no",
+2026-05-08 14:29:33 | INFO |   "description": "The reference screen is the 'Home' page, which is empty as no podcasts are subscribed. The current screen is the 'Settings' page, which displays a list of configuration options. These are two distinct screens with different content and functionalities."
+2026-05-08 14:29:33 | INFO | }
+2026-05-08 14:29:33 | INFO | ```
+2026-05-08 14:29:33 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-08 14:29:33 | INFO | Mismatch reason: the reference screen is the 'home' page, which is empty as no podcasts are subscribed. the current screen is the 'settings' page, which displays a list of configuration options. these are two distinct screens with different content and functionalities.
+2026-05-08 14:29:33 | INFO | ✅ Video processing completed.
+2026-05-08 14:29:33 | INFO | 📝 Summary saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/antennapod/llm/ViBR_gemini/screenrec/run-006/artifacts/srv-002/memory.md
+2026-05-08 14:29:34 | INFO | ========================================================================
+RUN SUMMARY
+  App         : antennapod
+  Video type  : screenrec
+  Status      : success
+  Scenes      : 9/9
+  Actions     : unknown=9
+  LLM calls   : action_inference=22  region_detection=9  state_comparison=26
+  LLM latency : min=5.1s  max=60.8s  avg=12.9s  total=733.8s
+  Tokens used : prompt=55,827  output=2,710  total=58,537
+  Wall time   : 15m 14s
+========================================================================

@@ -89,7 +89,8 @@
       "mcp__claude_ai_Figma__use_figma",
       "Skill(update-config)",
       "Skill(update-config:*)",
-      "Bash(.venv/bin/python src_ViBR/main.py --config src_ViBR/input/config.yml --dry-run)"
+      "Bash(.venv/bin/python src_ViBR/main.py --config src_ViBR/input/config.yml --dry-run)",
+      "Bash([ -f \"$DIR/$f\" ])"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",

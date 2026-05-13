@@ -39,7 +39,7 @@ SUPPORTED_ALGORITHMS = ("ssim", "clip")
 
 def extract_json(reply_text):
     """
-    Extracts JSON object from GPT reply (removes any markdown formatting).
+    Extracts JSON object from GPT/Gemini reply (removes any markdown formatting).
     """
     reply_text = reply_text.strip()
 
@@ -51,20 +51,36 @@ def extract_json(reply_text):
     if reply_text.endswith("```"):
         reply_text = reply_text[:-3]
 
+    reply_text = reply_text.strip()
+
     try:
-        return json.loads(reply_text.strip())
+        return json.loads(reply_text)
     except json.JSONDecodeError:
         pass
 
-    # Fall back: extract the first {...} block from prose responses
-    match = re.search(r'\{.*?\}', reply_text, re.DOTALL)
-    if match:
-        try:
-            return json.loads(match.group())
-        except json.JSONDecodeError:
-            pass
+    # Fall back: extract first {...} block with proper brace matching
+    brace_start = reply_text.find('{')
+    if brace_start == -1:
+        print("❌ JSON decoding failed: no valid JSON object found in response")
+        raise json.JSONDecodeError("No JSON object found", reply_text, 0)
+
+    # Count braces to find matching closing brace
+    brace_count = 0
+    for i in range(brace_start, len(reply_text)):
+        if reply_text[i] == '{':
+            brace_count += 1
+        elif reply_text[i] == '}':
+            brace_count -= 1
+            if brace_count == 0:
+                json_str = reply_text[brace_start:i+1]
+                try:
+                    return json.loads(json_str)
+                except json.JSONDecodeError:
+                    pass
+                break
 
     print("❌ JSON decoding failed: no valid JSON found in response")
+    print(f"Reply text: {reply_text[:500]}")
     raise json.JSONDecodeError("No valid JSON found", reply_text, 0)
 
 
@@ -446,7 +462,7 @@ def main(
             execute_actions(device, [recovery_action])
             time.sleep(1.0)
             live_path = device.screenshot(index=0, save_path=video_out_dir, filename=f"step_{i}_screenshot-0.png")
-            match = extract_json(provider.ask_gpt_state_consistency(tmp_start_path, live_path))
+            match = extract_json(provider.ask_gpt_state_consistency(tmp_stop_path, live_path))
             attempts += 1
 
         if match["same_state"] == "yes":

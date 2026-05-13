@@ -48,102 +48,118 @@ logging:
 #   - Explicit path           → "apps/adaway/videos/srv-001.mp4"
 
 runs:
-  - app_name: "adaway"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "adaway"
+  #   video_path:
+  # #     - "hhv-001"
+  # #     - "hhv-004"
+  #     - "hhv-005.mp4"
+  # #     - "srv-001"
+  #     - "srv-002.mp4"
 
-  - app_name: "antennapod"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "antennapod"
+  #   video_path:
+  # #     - "hhv-001"
+  #     - "hhv-002.mp4"
+  # #     - "hhv-003"
+  # #     - "srv-001"
+  #     - "srv-002.mp4"
 
   - app_name: "bakerspercentagecalculator"
     video_path:
-      - "hhv-*"
-      - "srv-*"
+      # - "hhv-001.mp4"
+      # - "hhv-002"
+      - "srv-001.mp4"
+      # - "srv-002.mp4"
 
-  - app_name: "batterytemperaturedisplay"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "batterytemperaturedisplay"
+  #   video_path:
+  #     - "hhv-001.mp4"
+  #     - "srv-001.mp4"
 
-  - app_name: "bily"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "bily"
+  #   video_path:
+  #     - "hhv-001.mp4"
+  #     - "srv-001.mp4"
 
-  - app_name: "binaryeye"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "binaryeye"
+  #   video_path:
+  #     - "hhv-001"
+  #     # - "srv-001"
 
-  - app_name: "bloodpressuremonitor"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "bloodpressuremonitor"
+  #   video_path:
+  #     - "hhv-001"
+  #     - "hhv-002"
+  #     # - "srv-001"
 
-  - app_name: "brethap"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "brethap"
+  #   video_path:
+  #     - "hhv-001"
+  #     # - "srv-001"
 
-  - app_name: "deadhash"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "deadhash"
+  #   video_path:
+  #     - "hhv-001"
+  #     # - "srv-001"
 
-  - app_name: "homemedkit"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "homemedkit"
+  #   video_path:
+  #     - "hhv-001"
+  #     - "hhv-002"
+  #     # - "srv-001"
 
-  - app_name: "homeraudioplayer"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "homeraudioplayer"
+  #   video_path:
+  #     - "hhv-001"
+  #     # - "srv-001"
 
-  - app_name: "jigsaw"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "jigsaw"
+  #   video_path:
+  #     - "hhv-001"
+  #     - "hhv-002"
+  #     # - "srv-001"
+  #     # - "srv-002"
 
-  - app_name: "luxalarm"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "luxalarm"
+  #   video_path:
+  #     - "hhv-001"
+  #     - "hhv-002"
+  #     # - "srv-001"
 
-  - app_name: "newpipe"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "newpipe"
+  #   video_path:
+  #     - "hhv-001"
+  #     # - "srv-001"
 
-  - app_name: "pantry"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "pantry"
+  #   video_path:
+  #     - "hhv-001"
+  #     # - "srv-001"
 
-  - app_name: "portauthority"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "portauthority"
+  #   video_path:
+  #     - "hhv-001"
+  #     - "hhv-002"
+  #     # - "srv-001"
 
-  - app_name: "quitter"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "quitter"
+  #   video_path:
+  #     - "hhv-001"
+  #     # - "srv-001"
 
-  - app_name: "simplenotes"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "simplenotes"
+  #   video_path:
+  #     - "hhv-001"
+  #     - "hhv-002"
+  #     # - "srv-001"
 
-  - app_name: "vanilla"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "vanilla"
+  #   video_path:
+  #     - "hhv-001"
+  #     # - "srv-001"
 
-  - app_name: "wifianalyzer"
-    video_path:
-      - "hhv-*"
-      - "srv-*"
+  # - app_name: "wifianalyzer"
+  #   video_path:
+  #     - "hhv-001"
+  #     - "hhv-002"
+  #     # - "srv-001"

@@ -161,8 +161,13 @@ def _call_gemini(parts: list[dict], timeout: int = _DEFAULT_TIMEOUT, kind: str =
                 error = f"HTTP {exc.code}"
                 raise RuntimeError(f"Gemini HTTP error {exc.code}: {body[:300]}") from exc
         except url_error.URLError as exc:
-            error = str(exc)
-            raise RuntimeError(f"Gemini URL error: {exc}") from exc
+            if isinstance(exc.reason, TimeoutError) and attempt < _MAX_RETRIES - 1:
+                delay = _BASE_DELAY * (2 ** attempt)
+                print(f"Gemini request timed out (attempt {attempt + 1}/{_MAX_RETRIES}). Retrying in {delay}s...")
+                time.sleep(delay)
+            else:
+                error = str(exc)
+                raise RuntimeError(f"Gemini URL error: {exc}") from exc
         except TimeoutError:
             if attempt < _MAX_RETRIES - 1:
                 delay = _BASE_DELAY * (2 ** attempt)
@@ -316,7 +321,7 @@ def ask_gpt_for_action_region(start_img, stop_img, live_img, predicted_action, r
     ]
     response = _call_gemini(parts, kind="action_inference")
     print("Region Action Response from Gemini:", response)
-    return response
+    return response.strip()
 
 
 def ask_gpt_for_relevant_regions(start_img_path, stop_img_path):
@@ -363,4 +368,4 @@ def ask_gpt_for_relevant_regions(start_img_path, stop_img_path):
     ]
     response = _call_gemini(parts, kind="region_detection")
     print("Relevant Region Response from Gemini:", response)
-    return response
+    return response.strip()

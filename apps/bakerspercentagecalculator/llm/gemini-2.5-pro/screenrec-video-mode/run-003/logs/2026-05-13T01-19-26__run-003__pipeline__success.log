@@ -1,0 +1,18 @@
+2026-05-12 21:19:26 | INFO | === src_llm.2026-05-13T01-19-26__run-003__pipeline__started ===
+2026-05-12 21:19:26 | INFO | Starting src_llm pipeline
+2026-05-12 21:19:26 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/videos/srv-001.mp4
+2026-05-12 21:19:26 | INFO | Environment validated for llm=gemini model=gemini-2.5-pro
+2026-05-12 21:19:26 | INFO | Running gemini API preflight before trace generation
+2026-05-12 21:19:26 | INFO | Gemini preflight started | model=gemini-2.5-pro | validating API key and endpoint access
+2026-05-12 21:19:27 | INFO | Gemini ADC default credentials loaded | adc_project=gifdroid-reproduction | runtime_project=project-1edeecda-ad08-47a7-867 | token_present=True
+2026-05-12 21:19:27 | INFO | Gemini auth route selected | route=adc_default | endpoint=vertex_ai
+2026-05-12 21:19:27 | INFO | Gemini API request sent | kind=preflight | model=gemini-2.5-pro | auth=adc_default | endpoint=vertex_ai | waiting for response
+2026-05-12 21:19:28 | INFO | Gemini API response received | kind=preflight | elapsed_sec=1.29
+2026-05-12 21:19:28 | INFO | Gemini preflight successful | model=gemini-2.5-pro
+2026-05-12 21:19:28 | INFO | Video mode enabled — skipping frame extraction and keyframe selection
+2026-05-12 21:19:28 | INFO | Encoding video for inline upload | file=srv-001.mp4 | size=641355 bytes
+2026-05-12 21:19:29 | INFO | Sending video inference request | model=gemini-2.5-pro | video=srv-001.mp4
+2026-05-12 21:19:48 | INFO | Video inference response received | elapsed_sec=19.40
+2026-05-12 21:19:48 | INFO | Memory trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/gemini-2.5-pro/screenrec-video-mode/run-003/memory.md
+2026-05-12 21:19:48 | INFO | Parsed memory: task_desc=57 | ui_elements=1 | completion_criteria=1
+2026-05-12 21:19:48 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/gemini-2.5-pro/screenrec-video-mode/run-003/llm_raw_response.txt

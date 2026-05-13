@@ -63,11 +63,11 @@ logging:
 #   quitter, simplenotes, vanilla, wifianalyzer
 
 runs:
-  - app_name: "adaway"
-    video_path:
+  # - app_name: "adaway"
+  #   video_path:
   #     - "hhv-001"
   #     - "hhv-004"
-      - "hhv-005"
+      # - "hhv-005"
   #     - "srv-001"
       # - "srv-002"
 
@@ -79,11 +79,11 @@ runs:
   #     - "srv-001"
   #     - "srv-002"
 
-  # - app_name: "bakerspercentagecalculator"
-  #   video_path:
+  - app_name: "bakerspercentagecalculator"
+    video_path:
   #     - "hhv-001"
   #     - "hhv-002"
-  #     # - "srv-001"
+      - "srv-001"
   #     # - "srv-002"
 
   # - app_name: "batterytemperaturedisplay"
