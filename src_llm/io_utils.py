@@ -115,6 +115,11 @@ def _normalize_model_slug(model_str: str) -> str:
     return normalized if normalized else "model"
 
 
+def _extract_video_name(video_path: Path | str) -> str:
+    """Extract video name without extension (e.g., 'hhv-002.mp4' -> 'hhv-002')."""
+    return Path(video_path).stem
+
+
 def create_output_layout(
     project_root: Path,
     cfg: AppConfig,
@@ -122,21 +127,24 @@ def create_output_layout(
     run_dt: datetime,
     is_dry_run: bool = False,
 ) -> OutputLayout:
-    """Build output paths under apps/{app}/llm/{model}/{source}{-video-mode}/run-NNN/ or dry-run/
+    """Build output paths under apps/{app}/llm/{video-name}-{model}{-vm}/run-NNN/ or dry-run/
 
-    Flat structure without provider directory (model name includes provider info).
+    Flat structure: video name + model + optional vm suffix for video_mode runs.
     """
     model_slug = _normalize_model_slug(cfg.llm_model)
-    source = "handheld" if video_type == "hhv" else "screenrec"
-    source_dir = f"{source}-video-mode" if cfg.video_mode else source
+    video_name = _extract_video_name(cfg.video_path)
+
+    dir_parts = [video_name, model_slug]
+    if cfg.video_mode:
+        dir_parts.append("vm")
+    flat_dir = "-".join(dir_parts)
 
     run_parent = (
         project_root
         / "apps"
         / cfg.app_name.lower()
         / "llm"
-        / model_slug
-        / source_dir
+        / flat_dir
     )
 
     if is_dry_run:

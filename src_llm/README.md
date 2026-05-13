@@ -51,42 +51,45 @@ python -m src_llm.llama_prereq \
 
 ## Output Structure
 
-**Flat directory structure** with provider-qualified model names:
+**Flat directory structure** combining video name + model + mode:
 
 ```text
 apps/{app}/
   llm/
-    {model}/                    <- provider-qualified (e.g., "gemini-1.5-flash", "qwen2.5vl-7b")
-      {video_type}-video-mode/  <- "hhv-video-mode", "srv-video-mode"
-        run-001/
-          memory.md             <- Stage 1 output: task summary, steps, UI elements
-          metadata.json         <- run config, timing, memory_content (for Stage 2)
-          execution_trace.json  <- action sequence (legacy or Stage 2 output)
-          frames_manifest.json  <- sampled + selected keyframe metadata
-          llm_raw_response.txt  <- raw model output for debugging
-          keyframes/
-            kf-0001.png
-            kf-0002.png
-            ...
-          logs/
-            run.log
-      {video_type}-keyframe-mode/  <- optional: keyframe-only automation (no Stage 1)
-        run-001/
+    {video-name}-{model}{-vm}/  <- video name + model + optional -vm for video_mode
+                                   e.g., "hhv-001-gemini-2.5-pro-vm", "srv-002-vibr"
+      run-001/
+        memory.md             <- Stage 1 output: task summary, steps, UI elements
+        metadata.json         <- run config, timing, memory_content (for Stage 2)
+        execution_trace.json  <- action sequence (legacy or Stage 2 output)
+        frames_manifest.json  <- sampled + selected keyframe metadata
+        llm_raw_response.txt  <- raw model output for debugging
+        keyframes/
+          kf-0001.png
+          kf-0002.png
           ...
-  utgs/                         <- UTG input data only, not touched by src_llm
+        logs/
+          run.log
+  utgs/                       <- UTG input data only, not touched by src_llm
   videos/
   apk/
 ```
 
-**Model name format:**
+**Directory naming convention:**
 
-- Local providers: `{provider}{version}-{size}` (e.g., `qwen2.5vl-7b`, `llama3.2-vision-11b`)
-- Cloud providers: `{provider}-{version}` (e.g., `gemini-1.5-flash`, `claude-opus-4`)
+- `{video-name}`: Extracted from video filename without extension (e.g., `hhv-001`, `srv-002`)
+- `{model}`: Normalized model name in lowercase with hyphens (e.g., `gemini-2.5-pro`, `vibr`)
+- `-vm` suffix: Added only when `video_mode=true` to distinguish video-mode runs from standard runs
+
+**Examples:**
+
+- `hhv-001-gemini-2.5-pro-vm/` — handheld video HHV-001, Gemini 2.5 Pro, video mode enabled
+- `srv-002-vibr/` — screenrec video SRV-002, ViBR model, standard mode
 
 **video_mode flag** (defaults to `true`):
 
-- `true`: Stage 1 generates `memory.md` from video, Stage 2 uses memory for automation
-- `false`: Skip video analysis, use keyframes only (legacy mode)
+- `true`: Stage 1 generates `memory.md` from video, Stage 2 uses memory for automation, directory has `-vm` suffix
+- `false`: Skip video analysis, use keyframes only (legacy mode), directory has no `-vm` suffix
 
 ### memory.md schema (Stage 1 output)
 

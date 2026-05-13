@@ -90,7 +90,9 @@
       "Skill(update-config)",
       "Skill(update-config:*)",
       "Bash(.venv/bin/python src_ViBR/main.py --config src_ViBR/input/config.yml --dry-run)",
-      "Bash([ -f \"$DIR/$f\" ])"
+      "Bash([ -f \"$DIR/$f\" ])",
+      "Bash(grep -E \"\\\\.py$\")",
+      "Bash(grep -E \"test.*\\\\.py$\")"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",
