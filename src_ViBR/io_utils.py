@@ -63,21 +63,20 @@ def _next_run_id(base_dir: Path) -> str:
 def create_output_layout(project_root: Path, app_name: str, video_path: Path, llm_model: str, run_dt: datetime) -> OutputLayout:
     """Create the output directory layout for a ViBR run.
 
-    Uses flat naming convention: apps/{app}/llm/{video-name}-{model}-vibr/run-NNN/
+    Uses flat naming convention: apps/{app}/llm/{video-name}-vibr/run-NNN/
 
     Args:
         project_root: Repository root directory.
         app_name: Application name (lowercased for path).
         video_path: Path to the input video (stem used for directory name).
-        llm_model: Full LLM model name (normalized to slug for directory name).
+        llm_model: Full LLM model name (used for metadata, not directory name).
         run_dt: Run start datetime (used for log file naming).
 
     Returns:
         OutputLayout with all paths resolved.
     """
     video_name = _extract_video_name(video_path)
-    model_slug = _normalize_model_slug(llm_model)
-    flat_dir = f"{video_name}-{model_slug}-vibr"
+    flat_dir = f"{video_name}-vibr"
     base_dir = project_root / "apps" / app_name.lower() / "llm" / flat_dir
     run_id = _next_run_id(base_dir)
     run_dir = base_dir / run_id

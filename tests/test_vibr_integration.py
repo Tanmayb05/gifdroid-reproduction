@@ -44,7 +44,7 @@ class TestCreateOutputLayoutIntegration(unittest.TestCase):
     # ------------------------------------------------------------------
     def test_base_dir_path_matches_flat_convention(self):
         layout = self._run()
-        expected_suffix = Path("apps") / "binaryeye" / "llm" / "hhv-001-gemini-2.5-pro-vibr"
+        expected_suffix = Path("apps") / "binaryeye" / "llm" / "hhv-001-vibr"
         self.assertTrue(
             str(layout.base_dir).endswith(str(expected_suffix)),
             msg=f"base_dir '{layout.base_dir}' does not end with '{expected_suffix}'",
@@ -100,10 +100,11 @@ class TestCreateOutputLayoutIntegration(unittest.TestCase):
         layout_b = self._run(app="appB")
         self.assertNotEqual(layout_a.base_dir, layout_b.base_dir)
 
-    def test_different_models_produce_different_base_dirs(self):
+    def test_different_models_same_video_same_base_dir(self):
+        # Different models with same video produce same base_dir (model not in path)
         layout_a = self._run(model="gemini-2.5-pro")
         layout_b = self._run(model="gpt-4o")
-        self.assertNotEqual(layout_a.base_dir, layout_b.base_dir)
+        self.assertEqual(layout_a.base_dir, layout_b.base_dir)
 
     def test_different_videos_produce_different_base_dirs(self):
         layout_a = self._run(video="hhv-001.mp4")

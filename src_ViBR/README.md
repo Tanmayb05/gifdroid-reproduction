@@ -339,7 +339,7 @@ cd src_ViBR
 Outputs are written to:
 
 ```text
-apps/<app_name>/llm/<video-name>-<model>-vibr/run-NNN/
+apps/<app_name>/llm/<video-name>-vibr/run-NNN/
 ├── metadata.json
 ├── artifacts/
 └── logs/
@@ -348,7 +348,7 @@ apps/<app_name>/llm/<video-name>-<model>-vibr/run-NNN/
 For example, a run of `hhv-001.mp4` with Gemini 2.5 Pro on the `binaryeye` app produces:
 
 ```text
-apps/binaryeye/llm/hhv-001-gemini-2.5-pro-vibr/run-001/
+apps/binaryeye/llm/hhv-001-vibr/run-001/
 ├── metadata.json
 ├── artifacts/
 └── logs/
@@ -357,9 +357,10 @@ apps/binaryeye/llm/hhv-001-gemini-2.5-pro-vibr/run-001/
 **Directory naming convention (flat structure, adopted 2026-05-12):**
 
 - `<video-name>` — stem of the `video_path` in config (e.g. `hhv-001`, `srv-003`)
-- `<model>` — normalized `llm_model` from config (lowercase, dots preserved in version strings)
-- `-vibr` — suffix indicating this is a ViBR run (distinguishes from src_llm `-llm` suffix)
-- `run-NNN` — zero-padded run counter that auto-increments per unique variant directory
+- `-vibr` — suffix indicating this is a ViBR run (distinguishes subsystem regardless of model)
+- `run-NNN` — zero-padded run counter that auto-increments per unique video
+
+The LLM model used is recorded in `metadata.json` for observability but does not affect directory structure.
 
 > **Note:** The old nested path format (`apps/<app>/llm/ViBR/<handheld|screenrec>/run-XXX/`) was
 > retired in Phase 8 (2026-05-12). Existing runs stored in the old format are not migrated
