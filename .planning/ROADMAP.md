@@ -130,6 +130,27 @@ Eliminates redundant video processing and reduces LLM token usage by 10x.
 
 ---
 
+## Phase 8: Apply Flattened Run Directory Structure to src_ViBR
+**Goal:** Update src_ViBR codebase to use the same flattened directory structure as src_llm
+
+**Requirements:**
+- [R8.1] Update src_ViBR/io_utils.py with new flat naming convention
+- [R8.2] Extract video name from config and construct paths like `{video-name}-{model}-{vm?}/run-NNN/`
+- [R8.3] Update src_ViBR/config.py to support video_file field
+- [R8.4] Add helper functions: _extract_video_name(), path normalization
+- [R8.5] Update create_output_layout() to match src_llm pattern
+- [R8.6] Unit tests for path construction logic
+- [R8.7] Integration test with actual run to verify new structure
+
+**Deliverables:**
+- Refactored src_ViBR/io_utils.py with flat naming
+- Updated src_ViBR/config.py with video_file handling
+- Path extraction and normalization helpers
+- Unit and integration tests
+- Updated documentation
+
+---
+
 ## Summary
 
 | Phase | Title | Status |
@@ -141,6 +162,7 @@ Eliminates redundant video processing and reduces LLM token usage by 10x.
 | 5 | Stage 2 Implementation (Memory → Device) | ✅ |
 | 6 | Automation Memory Context Integration | ✅ |
 | 7 | End-to-End Orchestration & Testing | ✅ |
+| 8 | Flatten Run Directory Structure for src_ViBR | ○ |
 
-**Total effort:** ~7 phases, estimated 40-60 hours of implementation
+**Total effort:** ~8 phases, ~80 hours total implementation
 **Token savings:** ~90% reduction in video re-analysis (10x improvement)
