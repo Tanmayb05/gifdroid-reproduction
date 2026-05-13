@@ -78,7 +78,8 @@ class VideoStableSegmentCLIP:
             if idx % frame_step == 0:
                 frames.append(Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)))
             idx += 1
-            print(f"  frame {idx}", end="\r")
+            if idx % 100 == 0:
+                print(f"  frame {idx}", end="\r")
         cap.release()
         print(f"\nTotal frames read: {len(frames)}")
         return frames
@@ -117,7 +118,8 @@ class VideoStableSegmentCLIP:
                 feat = self._to_feature_tensor(feat_out)
                 feat = feat / feat.norm(p=2, dim=-1, keepdim=True)
                 embeddings.append(feat.squeeze(0).cpu())
-                print(f"  Encoded {i + 1}/{len(frame_list)}", end="\r")
+                if (i + 1) % 100 == 0:
+                    print(f"  Encoded {i + 1}/{len(frame_list)}", end="\r")
         print()
         return embeddings
 

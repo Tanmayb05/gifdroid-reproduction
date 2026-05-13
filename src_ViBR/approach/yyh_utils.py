@@ -45,7 +45,8 @@ def read_frames_from_video(video, header_pixel_size):
         frames.append(frame)
         y_frame = extract_Y(frame)
         y_frames.append(y_frame[header_pixel_size:])
-        print("Reading frame: ", len(frames), end="\r")
+        if len(frames) % 100 == 0:
+            print("Reading frame: ", len(frames), end="\r")
     vidcap.release()
     return frames, y_frames
 
@@ -129,6 +130,7 @@ def calculate_sim_seq(frame_list):
     for i in range(len(frame_list) - 1):
         score = ssim(frame_list[i], frame_list[i + 1])
         sim_list.append(score)
-        print(f"  SSIM {i + 1}/{len(frame_list) - 1}", end="\r")
+        if (i + 1) % 100 == 0:
+            print(f"  SSIM {i + 1}/{len(frame_list) - 1}", end="\r")
     print()
     return sim_list
