@@ -1,0 +1,393 @@
+2026-05-13 18:50:02 | INFO | === src_vibr.2026-05-13T22-50-02__run-006__pipeline__started ===
+2026-05-13 18:50:02 | INFO | Starting ViBR run
+2026-05-13 18:50:02 | INFO | App: bloodpressuremonitor
+2026-05-13 18:50:02 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/videos/hhv-002.mp4
+2026-05-13 18:50:02 | INFO | Algorithm: clip
+2026-05-13 18:50:02 | INFO | LLM: gemini (gemini-2.5-pro)
+2026-05-13 18:50:02 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006
+2026-05-13 18:50:09 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-13 18:50:09 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-13 18:50:09 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-13 18:50:10 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-13 18:50:10 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-13 18:50:10 | INFO | 
+2026-05-13 18:50:10 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-13 18:50:10 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7582.64it/s]
+2026-05-13 18:50:10 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-13 18:50:10 | INFO | Key                                        | Status     |  | 
+2026-05-13 18:50:10 | INFO | -------------------------------------------+------------+--+-
+2026-05-13 18:50:10 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-13 18:50:10 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-13 18:50:10 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-13 18:50:10 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-13 18:50:10 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-13 18:50:10 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-13 18:50:10 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-13 18:50:10 | INFO | 
+2026-05-13 18:50:10 | INFO | Notes:
+2026-05-13 18:50:10 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-13 18:50:47 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-pro)...
+2026-05-13 18:50:47 | INFO | Initializing ADB device controller...
+2026-05-13 18:50:47 | INFO | 📱 Preparing device for app: bloodpressuremonitor
+2026-05-13 18:50:47 | INFO | 🏠 Going to home screen...
+2026-05-13 18:50:47 | INFO | 🚀 Opening app 'bloodpressuremonitor' with command: am start -n com.derdilla.bloodPressureApp/com.derdilla.blood_pressure_app.MainActivity
+2026-05-13 18:50:47 | INFO | ✅ App 'bloodpressuremonitor' opened and ready
+2026-05-13 18:50:47 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/screenshot-0.png
+2026-05-13 18:50:47 | INFO | Reading frames from video...
+2026-05-13 18:50:47 | INFO | Reading frame:  100
+2026-05-13 18:50:47 | INFO | Reading frame:  200
+2026-05-13 18:50:47 | INFO | Reading frame:  300
+2026-05-13 18:50:47 | INFO | Reading frame:  400
+2026-05-13 18:50:47 | INFO | Reading frame:  500
+2026-05-13 18:50:47 | INFO | Reading frame:  600
+2026-05-13 18:50:47 | INFO | Reading frame:  700
+2026-05-13 18:50:47 | INFO | Reading frame:  800
+2026-05-13 18:50:47 | INFO | Reading frame:  900
+2026-05-13 18:50:47 | INFO | Reading frame:  1000
+2026-05-13 18:50:47 | INFO | Reading frame:  1100
+2026-05-13 18:50:47 | INFO | Reading frame:  1200
+2026-05-13 18:50:47 | INFO | Reading frame:  1300
+2026-05-13 18:50:47 | INFO | Reading frame:  1400
+2026-05-13 18:50:47 | INFO | Reading frame:  1500
+2026-05-13 18:50:47 | INFO | Reading frame:  1600
+2026-05-13 18:50:47 | INFO | Reading frame:  1700
+2026-05-13 18:50:47 | INFO | Reading frame:  1800
+2026-05-13 18:50:47 | INFO | Reading frame:  1900
+2026-05-13 18:50:47 | INFO | 🔍 Detecting stable segments...
+2026-05-13 18:50:47 | INFO | 
+2026-05-13 18:50:47 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-13 18:50:47 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 31799.85it/s]
+2026-05-13 18:50:47 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-13 18:50:47 | INFO | Key                                  | Status     |  | 
+2026-05-13 18:50:47 | INFO | -------------------------------------+------------+--+-
+2026-05-13 18:50:47 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-13 18:50:47 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-13 18:50:47 | INFO | 
+2026-05-13 18:50:47 | INFO | Notes:
+2026-05-13 18:50:47 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-13 18:50:54 | INFO | `use_return_dict` is deprecated! Use `return_dict` instead!
+2026-05-13 18:50:55 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-13 18:50:55 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-13 18:51:05 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-13 18:54:34 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-13 18:54:34 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-13 18:54:39 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-13 18:58:29 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-13 18:58:29 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-13 18:58:34 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-13 19:01:27 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-13 19:01:27 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-13 19:01:31 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-13 19:02:36 | INFO | ✅ CLIP similarity list loaded from cache.
+2026-05-13 19:02:36 | INFO | 
+2026-05-13 19:02:36 | INFO | 📂 Processing segment 0...
+2026-05-13 19:02:36 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_screenshot-0.png
+2026-05-13 19:02:36 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_dino.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_dino.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_tmp_stop.png
+2026-05-13 19:02:36 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-13 19:02:36 | INFO | {
+2026-05-13 19:02:36 | INFO |   "target_regions": [
+2026-05-13 19:02:36 | INFO |     10
+2026-05-13 19:02:36 | INFO |   ],
+2026-05-13 19:02:36 | INFO |   "predicted_action": "tap"
+2026-05-13 19:02:36 | INFO | }
+2026-05-13 19:02:36 | INFO | ```
+2026-05-13 19:02:36 | INFO | 🔍 Relevant regions: {'target_regions': [10], 'predicted_action': 'tap'}
+2026-05-13 19:02:36 | INFO | 🧠 GPT selected regions: [10]
+2026-05-13 19:02:36 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_relevant_regions.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_relevant_regions.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_screenshot-0.png
+2026-05-13 19:02:36 | INFO | Consistency Response from Gemini: ```json
+2026-05-13 19:02:36 | INFO | {
+2026-05-13 19:02:36 | INFO |   "same_state": "no",
+2026-05-13 19:02:36 | INFO |   "description": "The reference screen is a data entry form with input fields for blood pressure readings. The current screen is a graph display area, which shows a message 'Not enough data to draw a graph'. The UI elements and functionalities are completely different."
+2026-05-13 19:02:36 | INFO | }
+2026-05-13 19:02:36 | INFO | ```
+2026-05-13 19:02:36 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_tmp_start.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_tmp_stop.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_labeled.png
+2026-05-13 19:02:36 | INFO | Region Action Response from Gemini: ```json
+2026-05-13 19:02:36 | INFO | {
+2026-05-13 19:02:36 | INFO |     "action": "tap",
+2026-05-13 19:02:36 | INFO |     "region": 6,
+2026-05-13 19:02:36 | INFO |     "description": "Tap the add button to add a new entry."
+2026-05-13 19:02:36 | INFO | }
+2026-05-13 19:02:36 | INFO | ```
+2026-05-13 19:02:36 | INFO | 🎯 Recovery using region index: 6 at (939, 1716)
+2026-05-13 19:02:36 | INFO | [1] Tap the add button to add a new entry. -> tap
+2026-05-13 19:02:36 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_screenshot-0.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_tmp_stop.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_screenshot-0.png
+2026-05-13 19:02:36 | INFO | Consistency Response from Gemini: ```json
+2026-05-13 19:02:36 | INFO | {
+2026-05-13 19:02:36 | INFO |   "same_state": "yes"
+2026-05-13 19:02:36 | INFO | }
+2026-05-13 19:02:36 | INFO | ```
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_relevant_regions.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_tmp_stop.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_0_labeled.png
+2026-05-13 19:02:36 | INFO | Region Action Response from Gemini: ```json
+2026-05-13 19:02:36 | INFO | {
+2026-05-13 19:02:36 | INFO |   "action": "tap",
+2026-05-13 19:02:36 | INFO |   "region": 2,
+2026-05-13 19:02:36 | INFO |   "description": "Tap on the filter icon to select which data to display, corresponding to the original action of selecting the 'Diastolic' field."
+2026-05-13 19:02:36 | INFO | }
+2026-05-13 19:02:36 | INFO | ```
+2026-05-13 19:02:36 | INFO | 🎯 Using region index: 2 at (786, 814)
+2026-05-13 19:02:36 | INFO | [1] Tap on the filter icon to select which data to display, corresponding to the original action of selecting the 'Diastolic' field. -> tap
+2026-05-13 19:02:36 | INFO | ✅ Action executed.
+2026-05-13 19:02:36 | INFO | 
+2026-05-13 19:02:36 | INFO | 
+2026-05-13 19:02:36 | INFO | 📂 Processing segment 1...
+2026-05-13 19:02:36 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_screenshot-0.png
+2026-05-13 19:02:36 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_dino.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_dino.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_tmp_stop.png
+2026-05-13 19:02:36 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-13 19:02:36 | INFO | {
+2026-05-13 19:02:36 | INFO |   "target_regions": [
+2026-05-13 19:02:36 | INFO |     11
+2026-05-13 19:02:36 | INFO |   ],
+2026-05-13 19:02:36 | INFO |   "predicted_action": "input_text"
+2026-05-13 19:02:36 | INFO | }
+2026-05-13 19:02:36 | INFO | ```
+2026-05-13 19:02:36 | INFO | 🔍 Relevant regions: {'target_regions': [11], 'predicted_action': 'input_text'}
+2026-05-13 19:02:36 | INFO | 🧠 GPT selected regions: [11]
+2026-05-13 19:02:36 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_relevant_regions.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_relevant_regions.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_screenshot-0.png
+2026-05-13 19:02:36 | INFO | Consistency Response from Gemini: ```json
+2026-05-13 19:02:36 | INFO | {
+2026-05-13 19:02:36 | INFO |   "same_state": "no",
+2026-05-13 19:02:36 | INFO |   "description": "The current screen displays a color picker dialog, which is a different state from the reference screen where the user is inputting text into the 'Systolic' field. The underlying form is visible but not interactive in the current state."
+2026-05-13 19:02:36 | INFO | }
+2026-05-13 19:02:36 | INFO | ```
+2026-05-13 19:02:36 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_tmp_start.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_tmp_stop.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_labeled.png
+2026-05-13 19:02:36 | INFO | Region Action Response from Gemini: ```json
+2026-05-13 19:02:36 | INFO | {
+2026-05-13 19:02:36 | INFO |     "action": "input_text",
+2026-05-13 19:02:36 | INFO |     "text": "118",
+2026-05-13 19:02:36 | INFO |     "description": "Type 118 into the Systolic text field."
+2026-05-13 19:02:36 | INFO | }
+2026-05-13 19:02:36 | INFO | ```
+2026-05-13 19:02:36 | INFO | [1] Type 118 into the Systolic text field. -> input_text
+2026-05-13 19:02:36 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_screenshot-0.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_tmp_stop.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_screenshot-0.png
+2026-05-13 19:02:36 | INFO | Consistency Response from Gemini: ```json
+2026-05-13 19:02:36 | INFO | {
+2026-05-13 19:02:36 | INFO |   "same_state": "no",
+2026-05-13 19:02:36 | INFO |   "description": "The current screen displays a color picker dialog that is not present in the reference screen. This dialog blocks interaction with the underlying form fields, such as the numeric inputs for blood pressure, which are accessible in the reference state."
+2026-05-13 19:02:36 | INFO | }
+2026-05-13 19:02:36 | INFO | ```
+2026-05-13 19:02:36 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_tmp_start.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_tmp_stop.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_labeled.png
+2026-05-13 19:02:36 | INFO | Region Action Response from Gemini: ```json
+2026-05-13 19:02:36 | INFO | {
+2026-05-13 19:02:36 | INFO |   "action": "no action",
+2026-05-13 19:02:36 | INFO |   "description": "The current screen is a color picker, which does not have a text input field. The requested action 'input_text' cannot be performed."
+2026-05-13 19:02:36 | INFO | }
+2026-05-13 19:02:36 | INFO | ```
+2026-05-13 19:02:36 | INFO | [1] The current screen is a color picker, which does not have a text input field. The requested action 'input_text' cannot be performed. -> no action
+2026-05-13 19:02:36 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_screenshot-0.png
+2026-05-13 19:02:36 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_tmp_stop.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_screenshot-0.png
+2026-05-13 19:05:28 | INFO | Consistency Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |   "same_state": "no",
+2026-05-13 19:05:28 | INFO |   "description": "The reference screen shows a data entry form where the user can input text and numbers. The current screen shows a modal color picker dialog that is overlaid on top of the form, blocking interaction with the form fields. The available actions are completely different in the two states."
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_tmp_start.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_tmp_stop.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_labeled.png
+2026-05-13 19:05:28 | INFO | Region Action Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |     "action": "input_text",
+2026-05-13 19:05:28 | INFO |     "text": "8",
+2026-05-13 19:05:28 | INFO |     "description": "Type 8 into the Systolic field."
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | [1] Type 8 into the Systolic field. -> input_text
+2026-05-13 19:05:28 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_screenshot-0.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_tmp_stop.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_1_screenshot-0.png
+2026-05-13 19:05:28 | INFO | Consistency Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |   "same_state": "no",
+2026-05-13 19:05:28 | INFO |   "description": "The current screen displays a color picker dialog that is not present in the reference screen. This dialog is modal and blocks interaction with the underlying form fields, which are accessible in the reference screen."
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-13 19:05:28 | INFO | Mismatch reason: the current screen displays a color picker dialog that is not present in the reference screen. this dialog is modal and blocks interaction with the underlying form fields, which are accessible in the reference screen.
+2026-05-13 19:05:28 | INFO | 
+2026-05-13 19:05:28 | INFO | 📂 Processing segment 2...
+2026-05-13 19:05:28 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_screenshot-0.png
+2026-05-13 19:05:28 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_dino.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_dino.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_tmp_stop.png
+2026-05-13 19:05:28 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |   "target_regions": [
+2026-05-13 19:05:28 | INFO |     6,
+2026-05-13 19:05:28 | INFO |     17
+2026-05-13 19:05:28 | INFO |   ],
+2026-05-13 19:05:28 | INFO |   "predicted_action": "tap"
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | 🔍 Relevant regions: {'target_regions': [6, 17], 'predicted_action': 'tap'}
+2026-05-13 19:05:28 | INFO | 🧠 GPT selected regions: [6, 17]
+2026-05-13 19:05:28 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_relevant_regions.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_relevant_regions.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_screenshot-0.png
+2026-05-13 19:05:28 | INFO | Consistency Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |   "same_state": "no",
+2026-05-13 19:05:28 | INFO |   "description": "The current screen displays a color picker dialog, which is the result of tapping the 'Color' field in the reference screen. The original form is now in the background and not fully interactive."
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_tmp_start.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_tmp_stop.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_labeled.png
+2026-05-13 19:05:28 | INFO | Region Action Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |     "action": "tap",
+2026-05-13 19:05:28 | INFO |     "region": 39,
+2026-05-13 19:05:28 | INFO |     "description": "Tap on the Color field."
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | 🎯 Recovery using region index: 39 at (540, 960)
+2026-05-13 19:05:28 | INFO | [1] Tap on the Color field. -> tap
+2026-05-13 19:05:28 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_screenshot-0.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_tmp_stop.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_screenshot-0.png
+2026-05-13 19:05:28 | INFO | Consistency Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |   "same_state": "yes"
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_relevant_regions.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_tmp_stop.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_2_labeled.png
+2026-05-13 19:05:28 | INFO | Region Action Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |   "action": "tap",
+2026-05-13 19:05:28 | INFO |   "region": 17,
+2026-05-13 19:05:28 | INFO |   "description": "Tap on the light blue color swatch."
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | 🎯 Using region index: 17 at (514, 787)
+2026-05-13 19:05:28 | INFO | [1] Tap on the light blue color swatch. -> tap
+2026-05-13 19:05:28 | INFO | ✅ Action executed.
+2026-05-13 19:05:28 | INFO | 
+2026-05-13 19:05:28 | INFO | 
+2026-05-13 19:05:28 | INFO | 📂 Processing segment 3...
+2026-05-13 19:05:28 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_screenshot-0.png
+2026-05-13 19:05:28 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_dino.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_dino.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_tmp_stop.png
+2026-05-13 19:05:28 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |   "target_regions": [
+2026-05-13 19:05:28 | INFO |     3,
+2026-05-13 19:05:28 | INFO |     10
+2026-05-13 19:05:28 | INFO |   ],
+2026-05-13 19:05:28 | INFO |   "predicted_action": "input_text"
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | 🔍 Relevant regions: {'target_regions': [3, 10], 'predicted_action': 'input_text'}
+2026-05-13 19:05:28 | INFO | 🧠 GPT selected regions: [3, 10]
+2026-05-13 19:05:28 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_relevant_regions.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_relevant_regions.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_screenshot-0.png
+2026-05-13 19:05:28 | INFO | Consistency Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |   "same_state": "no",
+2026-05-13 19:05:28 | INFO |   "description": "The current screen shows a color picker dialog that is not present in the reference screen. This dialog blocks interaction with the underlying form, preventing the user from inputting text into the 'Note' field as suggested by the reference state."
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_tmp_start.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_tmp_stop.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_labeled.png
+2026-05-13 19:05:28 | INFO | Region Action Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |   "action": "input_text",
+2026-05-13 19:05:28 | INFO |   "text": "68",
+2026-05-13 19:05:28 | INFO |   "description": "Type 68 into the pulse field."
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | [1] Type 68 into the pulse field. -> input_text
+2026-05-13 19:05:28 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_screenshot-0.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_tmp_stop.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_screenshot-0.png
+2026-05-13 19:05:28 | INFO | Consistency Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |   "same_state": "no",
+2026-05-13 19:05:28 | INFO |   "description": "The current screen displays a color picker dialog that is not present in the reference screen. This dialog blocks interaction with the underlying form fields, thus changing the available actions for the user."
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_tmp_start.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_tmp_stop.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_labeled.png
+2026-05-13 19:05:28 | INFO | Region Action Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |     "action": "input_text",
+2026-05-13 19:05:28 | INFO |     "text": "68",
+2026-05-13 19:05:28 | INFO |     "description": "Input 68 into the Pulse text field."
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | [1] Input 68 into the Pulse text field. -> input_text
+2026-05-13 19:05:28 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_screenshot-0.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_tmp_stop.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_screenshot-0.png
+2026-05-13 19:05:28 | INFO | Consistency Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |   "same_state": "no",
+2026-05-13 19:05:28 | INFO |   "description": "The current screen displays a color picker dialog that is not present in the reference screen. This dialog overlays the main form and changes the available user interactions."
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_tmp_start.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_tmp_stop.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_labeled.png
+2026-05-13 19:05:28 | INFO | Region Action Response from Gemini: {
+2026-05-13 19:05:28 | INFO |         "action": "no action",
+2026-05-13 19:05:28 | INFO |         "description": "The current screen is a color picker, which does not have a text input field. Therefore, the 'input_text' action cannot be performed."
+2026-05-13 19:05:28 | INFO |     }
+2026-05-13 19:05:28 | INFO | [1] The current screen is a color picker, which does not have a text input field. Therefore, the 'input_text' action cannot be performed. -> no action
+2026-05-13 19:05:28 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_screenshot-0.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_tmp_stop.png
+2026-05-13 19:05:28 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/artifacts/step_3_screenshot-0.png
+2026-05-13 19:05:28 | INFO | Consistency Response from Gemini: ```json
+2026-05-13 19:05:28 | INFO | {
+2026-05-13 19:05:28 | INFO |   "same_state": "no",
+2026-05-13 19:05:28 | INFO |   "description": "The reference screen shows a data entry form with a keyboard open. The current screen shows a color picker dialog that has appeared on top of the data entry form. These are two different functional states."
+2026-05-13 19:05:28 | INFO | }
+2026-05-13 19:05:28 | INFO | ```
+2026-05-13 19:05:28 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-13 19:05:28 | INFO | Mismatch reason: the reference screen shows a data entry form with a keyboard open. the current screen shows a color picker dialog that has appeared on top of the data entry form. these are two different functional states.
+2026-05-13 19:05:28 | INFO | ✅ Video processing completed.
+2026-05-13 19:05:28 | INFO | 📝 Summary saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-002-vibr/run-006/memory.md
+2026-05-13 19:05:31 | INFO | ========================================================================
+RUN SUMMARY
+  App         : bloodpressuremonitor
+  Video type  : handheld
+  Status      : success
+  Scenes      : 0/0
+  Actions     : none
+  LLM calls   : n/a
+  LLM latency : n/a
+  Tokens used : n/a
+  Wall time   : 15m 28s
+========================================================================

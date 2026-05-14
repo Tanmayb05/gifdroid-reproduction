@@ -50,32 +50,46 @@ def _normalize_model_slug(model_str: str) -> str:
 def _locate_latest_run(app_name: str, llm_model: str, video_type: str) -> Path:
     """Locate the latest Stage 1 run for an app+model+video_type combination.
 
-    Searches: apps/<app>/llm/<model>/<video_type>-video-mode/run-*/
+    Searches: apps/<app>/llm/*-<model>-vm/run-*/
     Only returns runs with metadata.json (Stage 1 outputs), skipping Stage 2 device-automation dirs.
-    Returns: Path to run directory (e.g., apps/adaway/llm/gemini-2.5-pro/screenrec-video-mode/run-001)
+    Returns: Path to run directory (e.g., apps/bakerspercentagecalculator/llm/srv-002-gemini-2.5-pro-vm/run-001)
     Raises: FileNotFoundError if no run found
     """
     model_slug = _normalize_model_slug(llm_model)
-    source = "handheld" if video_type == "handheld" else "screenrec"
-    source_dir = f"{source}-video-mode"
+    llm_base = Path("apps") / app_name / "llm"
 
-    base = Path("apps") / app_name / "llm" / model_slug / source_dir
-    if not base.exists():
+    if not llm_base.exists():
         raise FileNotFoundError(
-            f"No Stage 1 runs found for {app_name} | {model_slug} | {source_dir}\n"
-            f"Expected path: {base}\n"
+            f"No Stage 1 runs found for {app_name} | {model_slug}\n"
+            f"Expected path: {llm_base}\n"
             f"Make sure to run Stage 1 (src_llm.main) first with video_mode=true"
         )
 
-    # Only accept run-NNN directories that have metadata.json (Stage 1 outputs)
-    existing = [
-        p for p in sorted(base.glob("run-*"), key=lambda p: int(p.name[4:]))
-        if (p / "metadata.json").exists()
-    ]
-    if not existing:
-        raise FileNotFoundError(f"No Stage 1 runs with metadata.json in {base}")
+    # Find all directories matching *-{model}-vm pattern (Stage 1 outputs with video_mode)
+    pattern = f"*-{model_slug}-vm"
+    matching_dirs = list(llm_base.glob(pattern))
 
-    return existing[-1]
+    if not matching_dirs:
+        raise FileNotFoundError(
+            f"No Stage 1 runs found for {app_name} | {model_slug}\n"
+            f"Expected path pattern: {llm_base}/{pattern}/run-*/\n"
+            f"Make sure to run Stage 1 (src_llm.main) first with video_mode=true"
+        )
+
+    # For each matching directory, find runs with metadata.json
+    all_runs = []
+    for dir_match in matching_dirs:
+        existing = [
+            p for p in sorted(dir_match.glob("run-*"), key=lambda p: int(p.name[4:]))
+            if (p / "metadata.json").exists()
+        ]
+        all_runs.extend(existing)
+
+    if not all_runs:
+        raise FileNotFoundError(f"No Stage 1 runs with metadata.json found in {llm_base}/{pattern}")
+
+    # Return the most recent run (by run number, then by modification time)
+    return sorted(all_runs, key=lambda p: (int(p.name[4:]), p.stat().st_mtime))[-1]
 
 
 def _load_run_metadata(run_dir: Path) -> dict:

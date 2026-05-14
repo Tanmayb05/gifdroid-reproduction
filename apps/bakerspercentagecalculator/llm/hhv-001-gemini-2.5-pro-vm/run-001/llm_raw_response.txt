@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Baker's Percentage Calculator\ngoal: The user wants to create and save a new baking recipe.\noutcome: success - The recipe was successfully created and appeared on the main list.\n---\n\n## Session Summary\nThe user started on the app's empty main screen and tapped the add button to create a new recipe. They named the recipe \"cake\", adjusted the default flour amount, and added a new ingredient named \"nuts\" without specifying a quantity. After saving, the app returned to the main screen, which now correctly displayed the newly created \"cake\" recipe.\n\n## Steps\n\n### 1. App Launch — 0s\n- **Screen:** Main Screen\n- **Action:** launch → `App Icon`\n- **Details:** The screen is empty with the message \"Press the + button to add your first recipe!\".\n- **Result:** The application's main screen is displayed.\n- **Confidence:** 1.0\n\n### 2. Open New Recipe Form — 1s\n- **Screen:** Main Screen\n- **Action:** tap → `+` button (top right)\n- **Details:** The user taps the floating action button to add a recipe.\n- **Result:** The app navigates to the \"New Recipe\" screen.\n- **Confidence:** 1.0\n\n### 3. Enter Recipe Name — 4s\n- **Screen:** New Recipe\n- **Action:** type → `Recipe Name` field\n- **Details:** Typed \"cake\".\n- **Result:** The text \"cake\" is entered into the recipe name field.\n- **Confidence:** 1.0\n\n### 4. Edit Flour Amount — 12s\n- **Screen:** New Recipe\n- **Action:** type → `grams` field for \"Flour\"\n- **Details:** The user changed the default value from \"100.0\" to \"50.0\".\n- **Result:** The gram amount for the \"Flour\" ingredient is updated to \"50.0\".\n- **Confidence:** 1.0\n\n### 5. Add New Ingredient — 14s\n- **Screen:** New Recipe\n- **Action:** tap → `+` button (in Ingredients section)\n- **Details:** The user taps the plus button to add another ingredient to the list.\n- **Result:** A new, empty ingredient row appears below the \"Flour\" ingredient.\n- **Confidence:** 1.0\n\n### 6. Name New Ingredient — 16s\n- **Screen:** New Recipe\n- **Action:** type → `Ingredient Name` field (for the new ingredient)\n- **Details:** Typed \"nuts\".\n- **Result:** The text \"nuts\" is entered as the name for the new ingredient.\n- **Confidence:** 1.0\n\n### 7. Save Recipe — 22s\n- **Screen:** New Recipe\n- **Action:** tap → `Save Recipe` button\n- **Details:** The user saves the form with the entered details.\n- **Result:** The app navigates back to the main screen, which now shows a list item for \"cake\".\n- **Confidence:** 1.0\n\n## Key Observations\n- When creating a new recipe, the form pre-populates with a default \"Flour\" ingredient set to \"100.0\" grams.\n- The user was able to save the recipe even though the newly added \"nuts\" ingredient had no gram amount specified. The quantity field for new ingredients appears to be optional or has a default value of zero."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.37661376792082374
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 7656,
+    "candidatesTokenCount": 758,
+    "totalTokenCount": 10298,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "VIDEO",
+        "tokenCount": 6450
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "AUDIO",
+        "tokenCount": 650
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 758
+      }
+    ],
+    "thoughtsTokenCount": 1884
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-13T07:59:17.074253Z",
+  "responseId": "VS8Eao3EBISslu8P6dPvyAU"
+}

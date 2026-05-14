@@ -168,3 +168,352 @@
 [INFO] 2026-05-12 21:20:50   Wall time   : 1m 2s
 [INFO] 2026-05-12 21:20:50   Output      : apps/bakerspercentagecalculator/llm/gemini-2.5-pro/screenrec-video-mode/run-003/device-automation
 [INFO] 2026-05-12 21:20:50 ========================================================================
+[INFO] 2026-05-13 11:01:31 --- Run: app=bakerspercentagecalculator video_type=screenrec video=apps/bakerspercentagecalculator/videos/srv-002.mp4 ---
+[INFO] 2026-05-13 11:01:31 Output dir: apps/bakerspercentagecalculator/llm/srv-001-gemini-2.5-pro-vm/run-003/device-automation
+[INFO] 2026-05-13 11:01:32 Installing APK: apps/bakerspercentagecalculator/apk/bakerspercentagecalculator.apk
+[INFO] 2026-05-13 11:01:33 APK installed: com.pep1lo.bakerspercentagecalculator
+[INFO] 2026-05-13 11:01:33 Launching app: com.pep1lo.bakerspercentagecalculator / com.pep1lo.bakerspercentagecalculator.MainActivity
+[INFO] 2026-05-13 11:01:35 App launched: com.pep1lo.bakerspercentagecalculator/.MainActivity
+[INFO] 2026-05-13 11:01:35 Using pre-generated memory context from Stage 1 | len=2078
+[INFO] 2026-05-13 11:01:35 Step 1/10
+[INFO] 2026-05-13 11:01:36 Step 1: Sending to LLM | task=The user wants to add a new recipe for a cake to the app. | video_summary_len=2078 | history_len=0 | a11y_tree_len=20249
+[INFO] 2026-05-13 11:01:36 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-13 11:01:44 decide_next_action_with_video_context: response received | elapsed_sec=7.94
+[INFO] 2026-05-13 11:01:44 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/fabAddRecipe",
+    "coordinates": [
+      964,
+      1741
+    ],
+    "text": null,
+    "direction": null,
+    "target_description": "the plus button to add a new recipe"
+  },
+  "reasoning": "The user wants to add a new recipe. The screen explicitly states 'Press the + button to add your first recipe!'. The first step in the task summary is to tap the '+' floating action but
+[INFO] 2026-05-13 11:01:44 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/fabAddRecipe",
+    "coordinates": [
+      964,
+      1741
+    ],
+    "text":
+[INFO] 2026-05-13 11:01:44 Step 1: LLM response | continue=True action_type=tap reasoning=The user wants to add a new recipe. The screen explicitly states 'Press the + button to add your fir confidence=1.00
+[INFO] 2026-05-13 11:01:46 Step 2/10
+[INFO] 2026-05-13 11:01:46 Step 2: Sending to LLM | task=The user wants to add a new recipe for a cake to the app. | video_summary_len=2078 | history_len=1 | a11y_tree_len=30569
+[INFO] 2026-05-13 11:01:47 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-13 11:01:54 decide_next_action_with_video_context: response received | elapsed_sec=7.38
+[INFO] 2026-05-13 11:01:54 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextRecipeName",
+    "coordinates": null,
+    "text": "cake",
+    "direction": null,
+    "target_description": "the 'Recipe Name' input field"
+  },
+  "reasoning": "The user is on the 'Add Recipe' screen. According to the video summary, the next step is to enter 'cake' as the recipe name.",
+  "confidence": 1.0
+}
+```
+[INFO] 2026-05-13 11:01:54 Parsed decision | continue=True action=type_text | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextRecipeName",
+    "coordinates": null,
+    "text": "cake",
+    
+[INFO] 2026-05-13 11:01:54 Step 2: LLM response | continue=True action_type=type_text reasoning=The user is on the 'Add Recipe' screen. According to the video summary, the next step is to enter 'c confidence=1.00
+[INFO] 2026-05-13 11:01:57 Step 2: Field state verified — text 'cake' found in a11y tree
+[INFO] 2026-05-13 11:01:57 Step 3/10
+[INFO] 2026-05-13 11:01:57 Step 3: Sending to LLM | task=The user wants to add a new recipe for a cake to the app. | video_summary_len=2078 | history_len=2 | a11y_tree_len=30561
+[INFO] 2026-05-13 11:01:58 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-13 11:02:04 decide_next_action_with_video_context: response received | elapsed_sec=6.58
+[INFO] 2026-05-13 11:02:04 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextNotes",
+    "coordinates": null,
+    "text": "nuts",
+    "direction": null,
+    "target_description": "the notes input field with placeholder text 'Notes (e.g., seeds, nuts)'"
+  },
+  "reasoning": "The user has entered the recipe name. According to the task description, the next step is to enter 'nuts' into the notes field.",
+  "confidence": 1.0
+}
+```
+[INFO] 2026-05-13 11:02:04 Parsed decision | continue=True action=type_text | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextNotes",
+    "coordinates": null,
+    "text": "nuts",
+    "dire
+[INFO] 2026-05-13 11:02:04 Step 3: LLM response | continue=True action_type=type_text reasoning=The user has entered the recipe name. According to the task description, the next step is to enter ' confidence=1.00
+[INFO] 2026-05-13 11:02:07 Step 3: Field state verified — text 'nuts' found in a11y tree
+[INFO] 2026-05-13 11:02:07 Step 4/10
+[INFO] 2026-05-13 11:02:07 Step 4: Sending to LLM | task=The user wants to add a new recipe for a cake to the app. | video_summary_len=2078 | history_len=3 | a11y_tree_len=30538
+[INFO] 2026-05-13 11:02:08 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-13 11:02:15 decide_next_action_with_video_context: response received | elapsed_sec=7.24
+[INFO] 2026-05-13 11:02:15 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextOven",
+    "coordinates": null,
+    "text": "400",
+    "direction": null,
+    "target_description": "Oven Temp & Time input field"
+  },
+  "reasoning": "Based on the video summary, the next step is to enter the oven temperature. The user typed '400' into the 'Oven Temp & Time' field.",
+  "confidence": 1.0
+}
+```
+[INFO] 2026-05-13 11:02:15 Parsed decision | continue=True action=type_text | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextOven",
+    "coordinates": null,
+    "text": "400",
+    "direct
+[INFO] 2026-05-13 11:02:15 Step 4: LLM response | continue=True action_type=type_text reasoning=Based on the video summary, the next step is to enter the oven temperature. The user typed '400' int confidence=1.00
+[INFO] 2026-05-13 11:02:17 Step 4: Field state verified — text '400' found in a11y tree
+[INFO] 2026-05-13 11:02:17 Step 5/10
+[INFO] 2026-05-13 11:02:17 Step 5: Sending to LLM | task=The user wants to add a new recipe for a cake to the app. | video_summary_len=2078 | history_len=3 | a11y_tree_len=30521
+[INFO] 2026-05-13 11:02:18 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-13 11:02:26 decide_next_action_with_video_context: response received | elapsed_sec=7.48
+[INFO] 2026-05-13 11:02:26 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/buttonSaveRecipe",
+    "coordinates": null,
+    "text": null,
+    "direction": null,
+    "target_description": "the 'Save Recipe' button"
+  },
+  "reasoning": "The user has finished entering all the details for the new recipe, including the name, notes, and oven temperature. The final step to complete the task is to save the recipe by tapping the 'Save Recipe' button.",
+  "c
+[INFO] 2026-05-13 11:02:26 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/buttonSaveRecipe",
+    "coordinates": null,
+    "text": null,
+    "direction
+[INFO] 2026-05-13 11:02:26 Step 5: LLM response | continue=True action_type=tap reasoning=The user has finished entering all the details for the new recipe, including the name, notes, and ov confidence=1.00
+[INFO] 2026-05-13 11:02:28 Step 5: Save appears successful — recipe list visible on main screen
+[INFO] 2026-05-13 11:02:28 Session trace saved to apps/bakerspercentagecalculator/llm/srv-001-gemini-2.5-pro-vm/run-003/device-automation/session_trace.json
+[INFO] 2026-05-13 11:02:28 Run complete: app=bakerspercentagecalculator video_type=screenrec steps=5 status=completed
+[INFO] 2026-05-13 11:02:28 Session trace: apps/bakerspercentagecalculator/llm/srv-001-gemini-2.5-pro-vm/run-003/device-automation/session_trace.json
+[INFO] 2026-05-13 11:02:28 Resetting app state: force-stop + clear data | pkg=com.pep1lo.bakerspercentagecalculator
+[INFO] 2026-05-13 11:02:29 App reset complete: com.pep1lo.bakerspercentagecalculator
+[INFO] 2026-05-13 11:02:29 Replay script: apps/bakerspercentagecalculator/llm/srv-001-gemini-2.5-pro-vm/run-003/device-automation/replay.py
+[INFO] 2026-05-13 11:02:29 ========================================================================
+[INFO] 2026-05-13 11:02:29 RUN SUMMARY
+[INFO] 2026-05-13 11:02:29   App         : bakerspercentagecalculator
+[INFO] 2026-05-13 11:02:29   Video type  : screenrec
+[INFO] 2026-05-13 11:02:29   Status      : completed
+[INFO] 2026-05-13 11:02:29   Steps       : 5
+[INFO] 2026-05-13 11:02:29   Actions     : tap=2  type_text=3
+[INFO] 2026-05-13 11:02:29   LLM calls   : decide_next_action_with_video_context=5
+[INFO] 2026-05-13 11:02:29   LLM latency : min=6.6s  max=7.9s  avg=7.3s  total=36.6s
+[INFO] 2026-05-13 11:02:29   Tokens used : prompt=15,690  output=775  total=16,465
+[INFO] 2026-05-13 11:02:29   Wall time   : 0m 57s
+[INFO] 2026-05-13 11:02:29   Output      : apps/bakerspercentagecalculator/llm/srv-001-gemini-2.5-pro-vm/run-003/device-automation
+[INFO] 2026-05-13 11:02:29 ========================================================================
+[INFO] 2026-05-13 11:11:25 --- Run: app=bakerspercentagecalculator video_type=screenrec video=apps/bakerspercentagecalculator/videos/srv-002.mp4 ---
+[INFO] 2026-05-13 11:11:25 Output dir: apps/bakerspercentagecalculator/llm/srv-001-gemini-2.5-pro-vm/run-003/device-automation
+[INFO] 2026-05-13 11:11:26 Installing APK: apps/bakerspercentagecalculator/apk/bakerspercentagecalculator.apk
+[INFO] 2026-05-13 11:11:27 APK installed: com.pep1lo.bakerspercentagecalculator
+[INFO] 2026-05-13 11:11:27 Launching app: com.pep1lo.bakerspercentagecalculator / com.pep1lo.bakerspercentagecalculator.MainActivity
+[INFO] 2026-05-13 11:11:29 App launched: com.pep1lo.bakerspercentagecalculator/.MainActivity
+[INFO] 2026-05-13 11:11:29 Using pre-generated memory context from Stage 1 | len=2078
+[INFO] 2026-05-13 11:11:29 Step 1/10
+[INFO] 2026-05-13 11:11:29 Step 1: Sending to LLM | task=The user wants to add a new recipe for a cake to the app. | video_summary_len=2078 | history_len=0 | a11y_tree_len=20246
+[INFO] 2026-05-13 11:11:30 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-13 11:11:39 decide_next_action_with_video_context: response received | elapsed_sec=8.49
+[INFO] 2026-05-13 11:11:39 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/fabAddRecipe",
+    "coordinates": [
+      964,
+      1741
+    ],
+    "text": null,
+    "direction": null,
+    "target_description": "the plus button to add a new recipe"
+  },
+  "reasoning": "The user wants to add a new recipe. The screen prompts the user to 'Press the + button to add your first recipe!'. The first step of the task is to tap the add button. Therefore, I shou
+[INFO] 2026-05-13 11:11:39 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/fabAddRecipe",
+    "coordinates": [
+      964,
+      1741
+    ],
+    "text":
+[INFO] 2026-05-13 11:11:39 Step 1: LLM response | continue=True action_type=tap reasoning=The user wants to add a new recipe. The screen prompts the user to 'Press the + button to add your f confidence=1.00
+[INFO] 2026-05-13 11:11:40 Step 2/10
+[INFO] 2026-05-13 11:11:41 Step 2: Sending to LLM | task=The user wants to add a new recipe for a cake to the app. | video_summary_len=2078 | history_len=1 | a11y_tree_len=30566
+[INFO] 2026-05-13 11:11:41 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-13 11:11:46 decide_next_action_with_video_context: response received | elapsed_sec=4.50
+[INFO] 2026-05-13 11:11:46 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextRecipeName",
+    "coordinates": null,
+    "text": "cake",
+    "direction": null,
+    "target_description": "the Recipe Name input field"
+  },
+  "reasoning": "The user is on the 'Add Recipe' screen. According to the task description, the first step in filling out the form is to enter the recipe name, which is 'cake'.",
+  "confidence": 1.0
+}
+```
+[INFO] 2026-05-13 11:11:46 Parsed decision | continue=True action=type_text | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextRecipeName",
+    "coordinates": null,
+    "text": "cake",
+    
+[INFO] 2026-05-13 11:11:46 Step 2: LLM response | continue=True action_type=type_text reasoning=The user is on the 'Add Recipe' screen. According to the task description, the first step in filling confidence=1.00
+[INFO] 2026-05-13 11:11:48 Step 2: Field state verified — text 'cake' found in a11y tree
+[INFO] 2026-05-13 11:11:48 Step 3/10
+[INFO] 2026-05-13 11:11:48 Step 3: Sending to LLM | task=The user wants to add a new recipe for a cake to the app. | video_summary_len=2078 | history_len=2 | a11y_tree_len=30558
+[INFO] 2026-05-13 11:11:49 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-13 11:11:54 decide_next_action_with_video_context: response received | elapsed_sec=5.35
+[INFO] 2026-05-13 11:11:54 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextNotes",
+    "coordinates": null,
+    "text": "nuts",
+    "direction": null,
+    "target_description": "Notes (e.g., seeds, nuts) input field"
+  },
+  "reasoning": "The user has entered the recipe name. According to the task description, the next step is to enter 'nuts' into the 'Notes' field.",
+  "confidence": 1.0
+}
+```
+[INFO] 2026-05-13 11:11:54 Parsed decision | continue=True action=type_text | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextNotes",
+    "coordinates": null,
+    "text": "nuts",
+    "dire
+[INFO] 2026-05-13 11:11:54 Step 3: LLM response | continue=True action_type=type_text reasoning=The user has entered the recipe name. According to the task description, the next step is to enter ' confidence=1.00
+[INFO] 2026-05-13 11:11:57 Step 3: Field state verified — text 'nuts' found in a11y tree
+[INFO] 2026-05-13 11:11:57 Step 4/10
+[INFO] 2026-05-13 11:11:57 Step 4: Sending to LLM | task=The user wants to add a new recipe for a cake to the app. | video_summary_len=2078 | history_len=3 | a11y_tree_len=30537
+[INFO] 2026-05-13 11:11:57 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-13 11:12:05 decide_next_action_with_video_context: response received | elapsed_sec=7.54
+[INFO] 2026-05-13 11:12:05 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextOven",
+    "coordinates": null,
+    "text": "400",
+    "direction": null,
+    "target_description": "Oven Temp & Time input field"
+  },
+  "reasoning": "The user has entered the recipe name and notes. According to the video summary, the next step is to enter the oven temperature, which is '400'.",
+  "confidence": 1.0
+}
+```
+[INFO] 2026-05-13 11:12:05 Parsed decision | continue=True action=type_text | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "type_text",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/editTextOven",
+    "coordinates": null,
+    "text": "400",
+    "direct
+[INFO] 2026-05-13 11:12:05 Step 4: LLM response | continue=True action_type=type_text reasoning=The user has entered the recipe name and notes. According to the video summary, the next step is to  confidence=1.00
+[INFO] 2026-05-13 11:12:08 Step 4: Field state verified — text '400' found in a11y tree
+[INFO] 2026-05-13 11:12:08 Step 5/10
+[INFO] 2026-05-13 11:12:08 Step 5: Sending to LLM | task=The user wants to add a new recipe for a cake to the app. | video_summary_len=2078 | history_len=3 | a11y_tree_len=30522
+[INFO] 2026-05-13 11:12:08 decide_next_action_with_video_context: calling Gemini | model=gemini-2.5-pro
+[INFO] 2026-05-13 11:12:14 decide_next_action_with_video_context: response received | elapsed_sec=6.09
+[INFO] 2026-05-13 11:12:14 LLM extracted text: ```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/buttonSaveRecipe",
+    "coordinates": null,
+    "text": null,
+    "direction": null,
+    "target_description": "the 'Save Recipe' button"
+  },
+  "reasoning": "The user has filled in all the necessary details for the new recipe (name, notes, and oven temperature). The next logical step, according to the task description, is to save the recipe by tapping the 'Save Recipe' but
+[INFO] 2026-05-13 11:12:14 Parsed decision | continue=True action=tap | raw_json=```json
+{
+  "continue": true,
+  "action": {
+    "type": "tap",
+    "resource_id": "com.pep1lo.bakerspercentagecalculator:id/buttonSaveRecipe",
+    "coordinates": null,
+    "text": null,
+    "direction
+[INFO] 2026-05-13 11:12:14 Step 5: LLM response | continue=True action_type=tap reasoning=The user has filled in all the necessary details for the new recipe (name, notes, and oven temperatu confidence=1.00
+[INFO] 2026-05-13 11:12:17 Step 5: Save appears successful — recipe list visible on main screen
+[INFO] 2026-05-13 11:12:17 Session trace saved to apps/bakerspercentagecalculator/llm/srv-001-gemini-2.5-pro-vm/run-003/device-automation/session_trace.json
+[INFO] 2026-05-13 11:12:17 Run complete: app=bakerspercentagecalculator video_type=screenrec steps=5 status=completed
+[INFO] 2026-05-13 11:12:17 Session trace: apps/bakerspercentagecalculator/llm/srv-001-gemini-2.5-pro-vm/run-003/device-automation/session_trace.json
+[INFO] 2026-05-13 11:12:17 Resetting app state: force-stop + clear data | pkg=com.pep1lo.bakerspercentagecalculator
+[INFO] 2026-05-13 11:12:18 App reset complete: com.pep1lo.bakerspercentagecalculator
+[INFO] 2026-05-13 11:12:18 Replay script: apps/bakerspercentagecalculator/llm/srv-001-gemini-2.5-pro-vm/run-003/device-automation/replay.py
+[INFO] 2026-05-13 11:12:18 ========================================================================
+[INFO] 2026-05-13 11:12:18 RUN SUMMARY
+[INFO] 2026-05-13 11:12:18   App         : bakerspercentagecalculator
+[INFO] 2026-05-13 11:12:18   Video type  : screenrec
+[INFO] 2026-05-13 11:12:18   Status      : completed
+[INFO] 2026-05-13 11:12:18   Steps       : 5
+[INFO] 2026-05-13 11:12:18   Actions     : tap=2  type_text=3
+[INFO] 2026-05-13 11:12:18   LLM calls   : decide_next_action_with_video_context=5
+[INFO] 2026-05-13 11:12:18   LLM latency : min=4.5s  max=8.5s  avg=6.4s  total=32.0s
+[INFO] 2026-05-13 11:12:18   Tokens used : prompt=15,690  output=785  total=16,475
+[INFO] 2026-05-13 11:12:18   Wall time   : 0m 52s
+[INFO] 2026-05-13 11:12:18   Output      : apps/bakerspercentagecalculator/llm/srv-001-gemini-2.5-pro-vm/run-003/device-automation
+[INFO] 2026-05-13 11:12:18 ========================================================================

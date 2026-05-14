@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "---\napp: Baker's Percentage Calculator\ngoal: The user wants to back up their saved recipes to a file on their device.\noutcome: success - The user successfully created and saved a backup file.\n---\n\n## Session Summary\nThe user started on the main screen of the Baker's Percentage Calculator, which listed a single recipe. They opened the overflow menu, selected the \"Backup Recipes\" option, and used the system file manager to save the backup file. The process completed successfully, confirmed by a toast message on the main screen.\n\n## Steps\n\n### 1. Open Overflow Menu — 1s\n- **Screen:** Baker's Percentage Calculator\n- **Action:** `tap` → `three-dot menu icon`\n- **Details:** The screen shows one recipe named \"cake\".\n- **Result:** A dropdown menu appears with options: \"Import Recipe\", \"Backup Recipes\", and \"Restore Recipes\".\n- **Confidence:** 1.0\n\n### 2. Select Backup Option — 3s\n- **Screen:** Baker's Percentage Calculator\n- **Action:** `tap` → `Backup Recipes`\n- **Details:** The user selects the second option from the menu.\n- **Result:** The system file manager opens, defaulting to the \"Downloads\" folder.\n- **Confidence:** 1.0\n\n### 3. Save Backup File — 5s\n- **Screen:** Downloads\n- **Action:** `tap` → `SAVE` button\n- **Details:** The default filename \"bakers_percentage_backup.j\" is used.\n- **Result:** The app returns to the main screen and a toast message \"Backup successful!\" appears at the bottom.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app contained a single recipe named \"cake\" at the time of backup.\n- The backup file was saved with the name `bakers_percentage_backup.j`. The file extension is `.j`.\n- The backup process was confirmed with a \"Backup successful!\" toast notification."
+          }
+        ]
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.2635799674100654
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 3103,
+    "candidatesTokenCount": 430,
+    "totalTokenCount": 4360,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "AUDIO",
+        "tokenCount": 225
+      },
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      },
+      {
+        "modality": "VIDEO",
+        "tokenCount": 2322
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 430
+      }
+    ],
+    "thoughtsTokenCount": 827
+  },
+  "modelVersion": "gemini-2.5-pro",
+  "createTime": "2026-05-13T15:11:11.496295Z",
+  "responseId": "j5QEaqelHsTpkNAPtOjm0QY"
+}
