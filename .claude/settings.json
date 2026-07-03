@@ -93,7 +93,11 @@
       "Bash([ -f \"$DIR/$f\" ])",
       "Bash(grep -E \"\\\\.py$\")",
       "Bash(grep -E \"test.*\\\\.py$\")",
-      "Bash(./.venv/bin/python -m pytest tests/test_vibr_io_utils.py tests/test_vibr_integration.py -v)"
+      "Bash(./.venv/bin/python -m pytest tests/test_vibr_io_utils.py tests/test_vibr_integration.py -v)",
+      "Bash(chmod +x /Users/tanmaybhuskute/Documents/gifdroid-reproduction/activate_gpu.sh)",
+      "Bash(awk '{print $2}')",
+      "Bash(xargs kill -9)",
+      "Bash(ffmpeg -i /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/videos/hhv-001.mp4 -vf scale=1080:1920,format=yuv420p -c:v libx264 -pix_fmt yuv420p -color_range 1 -colorspace bt709 -color_trc bt709 -color_primaries bt709 /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/videos/hhv-002-converted.mp4 -y)"
     ],
     "additionalDirectories": [
       "/Users/tanmaybhuskute/Documents/gifdroid-reproduction",
