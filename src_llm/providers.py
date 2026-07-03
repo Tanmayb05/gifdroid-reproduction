@@ -217,6 +217,13 @@ class GeminiProvider(BaseLLMProvider):
         )
         self.logger.info("Gemini preflight successful | model=%s", self.llm_model)
 
+    def _gemini_api_key(self) -> str:
+        """Get Gemini API key from env, checking GEMINI_API_KEY first, then fallback."""
+        key = str(self.env.get("GEMINI_API_KEY", "")).strip()
+        if key:
+            return key
+        return str(self.env.get("GOOGLE_GENERATIVE_AI_API_KEY", "")).strip()
+
     def infer_actions(self, keyframes: List[Keyframe]) -> List[ProviderAction]:
         if not keyframes:
             return []
@@ -301,7 +308,7 @@ class GeminiProvider(BaseLLMProvider):
             img_b64 = base64.b64encode(f.read()).decode("ascii")
 
         # Use Vertex AI if no API key, else Google AI Studio
-        api_key = self.env.get("GOOGLE_GENERATIVE_AI_API_KEY", "").strip()
+        api_key = self._gemini_api_key()
         if api_key:
             url = (
                 "https://generativelanguage.googleapis.com/v1beta/models/"
@@ -488,7 +495,7 @@ class GeminiProvider(BaseLLMProvider):
         screenshot.save(buf, format="PNG")
         img_b64 = base64.b64encode(buf.getvalue()).decode("ascii")
 
-        api_key = self.env.get("GOOGLE_GENERATIVE_AI_API_KEY", "").strip()
+        api_key = self._gemini_api_key()
         if api_key:
             url = (
                 "https://generativelanguage.googleapis.com/v1beta/models/"
@@ -627,7 +634,7 @@ class GeminiProvider(BaseLLMProvider):
             )
         })
 
-        api_key = self.env.get("GOOGLE_GENERATIVE_AI_API_KEY", "").strip()
+        api_key = self._gemini_api_key()
         if api_key:
             url = (
                 "https://generativelanguage.googleapis.com/v1beta/models/"
@@ -793,7 +800,7 @@ class GeminiProvider(BaseLLMProvider):
         screenshot.save(buf, format="PNG")
         img_b64 = base64.b64encode(buf.getvalue()).decode("ascii")
 
-        api_key = self.env.get("GOOGLE_GENERATIVE_AI_API_KEY", "").strip()
+        api_key = self._gemini_api_key()
         if api_key:
             url = (
                 "https://generativelanguage.googleapis.com/v1beta/models/"
@@ -889,7 +896,7 @@ class GeminiProvider(BaseLLMProvider):
         )
 
     def _call_gemini(self, prompt: str, timeout_sec: int, request_kind: str) -> str:
-        api_key = self.env.get("GOOGLE_GENERATIVE_AI_API_KEY", "").strip()
+        api_key = self._gemini_api_key()
 
         headers = {"Content-Type": "application/json"}
         endpoint_name = ""
@@ -997,7 +1004,7 @@ class GeminiProvider(BaseLLMProvider):
             raise ProviderError(
                 "Failed to load Application Default Credentials via google.auth.default(). "
                 "Set GOOGLE_APPLICATION_CREDENTIALS, run gcloud auth application-default login, "
-                "or provide GOOGLE_GENERATIVE_AI_API_KEY."
+                "or provide GEMINI_API_KEY or GOOGLE_GENERATIVE_AI_API_KEY."
             ) from exc
 
         token = getattr(creds, "token", None)
