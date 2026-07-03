@@ -1,0 +1,82 @@
+2026-05-15 12:45:37 | INFO | === src_vibr.log ===
+2026-05-15 12:45:37 | INFO | Starting ViBR run
+2026-05-15 12:45:37 | INFO | App: bily
+2026-05-15 12:45:37 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/videos/srv-001.mp4
+2026-05-15 12:45:37 | INFO | Algorithm: clip
+2026-05-15 12:45:37 | INFO | LLM: gemini (gemini-2.5-pro)
+2026-05-15 12:45:37 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-009
+2026-05-15 12:45:37 | INFO | Running Gemini API health check...
+2026-05-15 12:45:37 | INFO | 2026-05-15 12:45:37,614 | INFO | ======================================================================
+2026-05-15 12:45:37 | INFO | 2026-05-15 12:45:37,614 | INFO | 🔍 Testing Gemini API Health...
+2026-05-15 12:45:37 | INFO | 2026-05-15 12:45:37,614 | INFO | ======================================================================
+2026-05-15 12:45:37 | INFO | 2026-05-15 12:45:37,614 | INFO | Model: gemini-2.5-pro
+2026-05-15 12:45:37 | INFO | 2026-05-15 12:45:37,614 | INFO | Timeout: 60s
+2026-05-15 12:45:38 | INFO | 2026-05-15 12:45:38,893 | INFO | ✅ Built URL and headers
+2026-05-15 12:45:38 | INFO | 2026-05-15 12:45:38,894 | INFO | 📤 Sending test request to Gemini API...
+2026-05-15 12:45:58 | INFO | 2026-05-15 12:45:58,332 | INFO | ✅ API Response received in 19.44s
+2026-05-15 12:45:58 | INFO | 2026-05-15 12:45:58,333 | INFO |    Response: API connection successful.
+2026-05-15 12:45:58 | INFO | 2026-05-15 12:45:58,333 | INFO |    Tokens: 13 input, 4 output
+2026-05-15 12:45:58 | INFO | 2026-05-15 12:45:58,333 | INFO | ======================================================================
+2026-05-15 12:45:58 | INFO | 2026-05-15 12:45:58,333 | INFO | ✅ Gemini API is HEALTHY
+2026-05-15 12:45:58 | INFO | 2026-05-15 12:45:58,334 | INFO | ======================================================================
+2026-05-15 12:45:58 | INFO | ✅ Gemini API health check passed. Proceeding with inference...
+2026-05-15 12:46:12 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-15 12:46:12 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-15 12:46:12 | INFO | SyntaxWarning: invalid escape sequence '\s'
+2026-05-15 12:46:12 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-15 12:46:12 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-15 12:46:13 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-15 12:46:13 | INFO | 
+2026-05-15 12:46:13 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-15 12:46:13 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 23000.54it/s]
+2026-05-15 12:46:13 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-15 12:46:13 | INFO | Key                                        | Status     |  | 
+2026-05-15 12:46:13 | INFO | -------------------------------------------+------------+--+-
+2026-05-15 12:46:13 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-15 12:46:13 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-15 12:46:13 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-15 12:46:13 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-15 12:46:13 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-15 12:46:13 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-15 12:46:13 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-15 12:46:13 | INFO | 
+2026-05-15 12:46:13 | INFO | Notes:
+2026-05-15 12:46:13 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 12:46:19 | INFO | [DINO] Model loaded on device: mps
+2026-05-15 12:46:19 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-pro)...
+2026-05-15 12:46:19 | INFO | Initializing ADB device controller...
+2026-05-15 12:46:19 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-009/artifacts/screenshot-0.png
+2026-05-15 12:46:19 | INFO | Reading frames from video...
+2026-05-15 12:46:19 | INFO | Reading frame:  100
+2026-05-15 12:46:19 | INFO | Reading frame:  200
+2026-05-15 12:46:19 | INFO | Reading frame:  300
+2026-05-15 12:46:19 | INFO | 🔍 Detecting stable segments...
+2026-05-15 12:46:19 | INFO | [CLIP_PIPELINE] Starting CLIP-based segmentation for 312 frames
+2026-05-15 12:46:19 | INFO | [CLIP_PIPELINE] Cache file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/cache/sim_list_clip_srv-001.pkl
+2026-05-15 12:46:19 | INFO | 
+2026-05-15 12:46:19 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-15 12:46:19 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 37690.12it/s]
+2026-05-15 12:46:19 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-15 12:46:19 | INFO | Key                                  | Status     |  | 
+2026-05-15 12:46:19 | INFO | -------------------------------------+------------+--+-
+2026-05-15 12:46:19 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-15 12:46:19 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-15 12:46:19 | INFO | 
+2026-05-15 12:46:19 | INFO | Notes:
+2026-05-15 12:46:19 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 12:46:21 | INFO | [CLIP_PIPELINE] Model initialization took 2.47s
+2026-05-15 12:46:21 | INFO | ✅ CLIP similarity list loaded from cache in 0.00s
+2026-05-15 12:46:21 | INFO | [CLIP_PIPELINE] Keyframe detection took 0.00s
+2026-05-15 12:46:21 | INFO | [CLIP_PIPELINE] Total: 2.47s | Found 9 segments
+2026-05-15 13:04:48 | INFO | ========================================================================
+RUN SUMMARY
+  App         : bily
+  Video type  : screenrec
+  Status      : unknown
+  Scenes      : 0/0
+  Actions     : none
+  LLM calls   : n/a
+  LLM latency : n/a
+  Tokens used : n/a
+  Wall time   : 19m 11s
+========================================================================

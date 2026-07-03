@@ -1,0 +1,755 @@
+2026-05-14 20:40:50 | INFO | === src_vibr.log ===
+2026-05-14 20:40:50 | INFO | Starting ViBR run
+2026-05-14 20:40:50 | INFO | App: homemedkit
+2026-05-14 20:40:50 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/videos/hhv-001.mp4
+2026-05-14 20:40:50 | INFO | Algorithm: clip
+2026-05-14 20:40:50 | INFO | LLM: gemini (gemini-2.5-pro)
+2026-05-14 20:40:50 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005
+2026-05-14 20:40:57 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-14 20:40:57 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-14 20:40:57 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-14 20:40:58 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-14 20:40:58 | INFO | 
+2026-05-14 20:40:58 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-14 20:40:58 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7464.64it/s]
+2026-05-14 20:40:58 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-14 20:40:58 | INFO | Key                                        | Status     |  | 
+2026-05-14 20:40:58 | INFO | -------------------------------------------+------------+--+-
+2026-05-14 20:40:58 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-14 20:40:58 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-14 20:40:58 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-14 20:40:58 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-14 20:40:58 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-14 20:40:58 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-14 20:40:58 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-14 20:40:58 | INFO | 
+2026-05-14 20:40:58 | INFO | Notes:
+2026-05-14 20:40:58 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-14 20:41:18 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-14 20:41:19 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-pro)...
+2026-05-14 20:41:19 | INFO | Initializing ADB device controller...
+2026-05-14 20:41:19 | INFO | 📱 Preparing device for app: homemedkit
+2026-05-14 20:41:19 | INFO | 🏠 Going to home screen...
+2026-05-14 20:41:19 | INFO | 🚀 Opening app 'homemedkit' with command: am start -n ru.application.homemedkit/.MainActivity
+2026-05-14 20:41:19 | INFO | ✅ App 'homemedkit' opened and ready
+2026-05-14 20:41:19 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/screenshot-0.png
+2026-05-14 20:41:19 | INFO | Reading frames from video...
+2026-05-14 20:41:19 | INFO | Reading frame:  100
+2026-05-14 20:41:19 | INFO | Reading frame:  200
+2026-05-14 20:41:19 | INFO | Reading frame:  300
+2026-05-14 20:41:19 | INFO | Reading frame:  400
+2026-05-14 20:41:19 | INFO | Reading frame:  500
+2026-05-14 20:41:19 | INFO | Reading frame:  600
+2026-05-14 20:41:19 | INFO | Reading frame:  700
+2026-05-14 20:41:19 | INFO | Reading frame:  800
+2026-05-14 20:41:19 | INFO | Reading frame:  900
+2026-05-14 20:41:19 | INFO | Reading frame:  1000
+2026-05-14 20:41:19 | INFO | Reading frame:  1100
+2026-05-14 20:41:19 | INFO | Reading frame:  1200
+2026-05-14 20:41:19 | INFO | Reading frame:  1300
+2026-05-14 20:41:19 | INFO | 🔍 Detecting stable segments...
+2026-05-14 20:41:19 | INFO | 
+2026-05-14 20:41:19 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-14 20:41:19 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 23349.93it/s]
+2026-05-14 20:41:19 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-14 20:41:19 | INFO | Key                                  | Status     |  | 
+2026-05-14 20:41:19 | INFO | -------------------------------------+------------+--+-
+2026-05-14 20:41:19 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-14 20:41:19 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-14 20:41:19 | INFO | 
+2026-05-14 20:41:19 | INFO | Notes:
+2026-05-14 20:41:19 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-14 20:41:32 | INFO | `use_return_dict` is deprecated! Use `return_dict` instead!
+2026-05-14 20:41:33 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 20:41:33 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 20:41:47 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 20:43:45 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 20:43:45 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 20:43:50 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 20:44:51 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 20:44:51 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 20:44:57 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 20:46:04 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 20:46:04 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 20:46:10 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 20:50:01 | INFO | ✅ CLIP similarity list loaded from cache.
+2026-05-14 20:50:01 | INFO | 
+2026-05-14 20:50:01 | INFO | 📂 Processing segment 0...
+2026-05-14 20:50:01 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_screenshot-0.png
+2026-05-14 20:50:01 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_dino.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_dino.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_tmp_stop.png
+2026-05-14 20:50:01 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 20:50:01 | INFO | {
+2026-05-14 20:50:01 | INFO |   "target_regions": [
+2026-05-14 20:50:01 | INFO |     29
+2026-05-14 20:50:01 | INFO |   ],
+2026-05-14 20:50:01 | INFO |   "predicted_action": "tap"
+2026-05-14 20:50:01 | INFO | }
+2026-05-14 20:50:01 | INFO | ```
+2026-05-14 20:50:01 | INFO | 🔍 Relevant regions: {'target_regions': [29], 'predicted_action': 'tap'}
+2026-05-14 20:50:01 | INFO | 🧠 GPT selected regions: [29]
+2026-05-14 20:50:01 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_relevant_regions.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_relevant_regions.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_screenshot-0.png
+2026-05-14 20:50:01 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:50:01 | INFO | {
+2026-05-14 20:50:01 | INFO |   "same_state": "no",
+2026-05-14 20:50:01 | INFO |   "description": "The reference screen is the Google Play Store page for the app, while the current screen is the main screen inside the app. These are two completely different applications and states."
+2026-05-14 20:50:01 | INFO | }
+2026-05-14 20:50:01 | INFO | ```
+2026-05-14 20:50:01 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_tmp_start.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_tmp_stop.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_labeled.png
+2026-05-14 20:50:01 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 20:50:01 | INFO | {
+2026-05-14 20:50:01 | INFO |   "action": "no action",
+2026-05-14 20:50:01 | INFO |   "description": "No Action needed."
+2026-05-14 20:50:01 | INFO | }
+2026-05-14 20:50:01 | INFO | ```
+2026-05-14 20:50:01 | INFO | [1] No Action needed. -> no action
+2026-05-14 20:50:01 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_screenshot-0.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_tmp_stop.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_screenshot-0.png
+2026-05-14 20:50:01 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:50:01 | INFO | {
+2026-05-14 20:50:01 | INFO |   "same_state": "no",
+2026-05-14 20:50:01 | INFO |   "description": "The reference screen is the Google Play Store page for the app, showing an 'Open' button. The current screen is the main interface of the app itself, which is what you see after opening it. The states are fundamentally different."
+2026-05-14 20:50:01 | INFO | }
+2026-05-14 20:50:01 | INFO | ```
+2026-05-14 20:50:01 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_tmp_start.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_tmp_stop.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_labeled.png
+2026-05-14 20:50:01 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 20:50:01 | INFO | {
+2026-05-14 20:50:01 | INFO |   "action": "no action",
+2026-05-14 20:50:01 | INFO |   "description": "The app is already open, which was the result of the tap action in the recording. No further action is needed to replicate this transition."
+2026-05-14 20:50:01 | INFO | }
+2026-05-14 20:50:01 | INFO | ```
+2026-05-14 20:50:01 | INFO | [1] The app is already open, which was the result of the tap action in the recording. No further action is needed to replicate this transition. -> no action
+2026-05-14 20:50:01 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_screenshot-0.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_tmp_stop.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_screenshot-0.png
+2026-05-14 20:50:01 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:50:01 | INFO | {
+2026-05-14 20:50:01 | INFO |   "same_state": "no",
+2026-05-14 20:50:01 | INFO |   "description": "The reference screen is the Google Play Store page for the app, from which the app can be opened. The current screen is the main interface of the app itself. These are two completely different states and applications."
+2026-05-14 20:50:01 | INFO | }
+2026-05-14 20:50:01 | INFO | ```
+2026-05-14 20:50:01 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_tmp_start.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_tmp_stop.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_labeled.png
+2026-05-14 20:50:01 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 20:50:01 | INFO | {
+2026-05-14 20:50:01 | INFO |   "action": "no action",
+2026-05-14 20:50:01 | INFO |   "description": "No Action needed."
+2026-05-14 20:50:01 | INFO | }
+2026-05-14 20:50:01 | INFO | ```
+2026-05-14 20:50:01 | INFO | [1] No Action needed. -> no action
+2026-05-14 20:50:01 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_screenshot-0.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_tmp_stop.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_0_screenshot-0.png
+2026-05-14 20:50:01 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:50:01 | INFO | {
+2026-05-14 20:50:01 | INFO |   "same_state": "no",
+2026-05-14 20:50:01 | INFO |   "description": "The reference image shows the app's page on the Google Play Store, while the current image shows the main screen of the app itself. These are two completely different screens from different applications."
+2026-05-14 20:50:01 | INFO | }
+2026-05-14 20:50:01 | INFO | ```
+2026-05-14 20:50:01 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-14 20:50:01 | INFO | Mismatch reason: the reference image shows the app's page on the google play store, while the current image shows the main screen of the app itself. these are two completely different screens from different applications.
+2026-05-14 20:50:01 | INFO | 
+2026-05-14 20:50:01 | INFO | 📂 Processing segment 1...
+2026-05-14 20:50:01 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_1_screenshot-0.png
+2026-05-14 20:50:01 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_1_dino.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_1_dino.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_1_tmp_stop.png
+2026-05-14 20:50:01 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 20:50:01 | INFO | {
+2026-05-14 20:50:01 | INFO |   "target_regions": [
+2026-05-14 20:50:01 | INFO |     10,
+2026-05-14 20:50:01 | INFO |     21
+2026-05-14 20:50:01 | INFO |   ],
+2026-05-14 20:50:01 | INFO |   "predicted_action": "tap"
+2026-05-14 20:50:01 | INFO | }
+2026-05-14 20:50:01 | INFO | ```
+2026-05-14 20:50:01 | INFO | 🔍 Relevant regions: {'target_regions': [10, 21], 'predicted_action': 'tap'}
+2026-05-14 20:50:01 | INFO | 🧠 GPT selected regions: [10, 21]
+2026-05-14 20:50:01 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_1_relevant_regions.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_1_relevant_regions.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_1_screenshot-0.png
+2026-05-14 20:50:01 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:50:01 | INFO | {
+2026-05-14 20:50:01 | INFO |   "same_state": "yes"
+2026-05-14 20:50:01 | INFO | }
+2026-05-14 20:50:01 | INFO | ```
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_1_relevant_regions.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_1_tmp_stop.png
+2026-05-14 20:50:01 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_1_labeled.png
+2026-05-14 20:50:01 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 20:50:01 | INFO | {
+2026-05-14 20:50:01 | INFO |   "action": "tap",
+2026-05-14 20:50:01 | INFO |   "region": 0,
+2026-05-14 20:50:01 | INFO |   "description": "Tap on the search input field."
+2026-05-14 20:50:01 | INFO | }
+2026-05-14 20:50:01 | INFO | ```
+2026-05-14 20:50:01 | INFO | 🎯 Using region index: 0 at (408, 147)
+2026-05-14 20:50:01 | INFO | [1] Tap on the search input field. -> tap
+2026-05-14 20:50:01 | INFO | ✅ Action executed.
+2026-05-14 20:50:01 | INFO | 
+2026-05-14 20:50:01 | INFO | 
+2026-05-14 20:50:01 | INFO | 📂 Processing segment 2...
+2026-05-14 20:50:05 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_screenshot-0.pngUserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 20:50:05 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 20:50:10 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 20:51:44 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 20:51:44 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 20:51:48 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 20:52:56 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 20:52:56 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 20:53:01 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 20:54:13 | INFO | 
+2026-05-14 20:54:13 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_dino.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_dino.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_tmp_stop.png
+2026-05-14 20:54:13 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 20:54:13 | INFO | {
+2026-05-14 20:54:13 | INFO |   "target_regions": [
+2026-05-14 20:54:13 | INFO |     9,
+2026-05-14 20:54:13 | INFO |     10,
+2026-05-14 20:54:13 | INFO |     14
+2026-05-14 20:54:13 | INFO |   ],
+2026-05-14 20:54:13 | INFO |   "predicted_action": "tap"
+2026-05-14 20:54:13 | INFO | }
+2026-05-14 20:54:13 | INFO | ```
+2026-05-14 20:54:13 | INFO | 🔍 Relevant regions: {'target_regions': [9, 10, 14], 'predicted_action': 'tap'}
+2026-05-14 20:54:13 | INFO | 🧠 GPT selected regions: [9, 10, 14]
+2026-05-14 20:54:13 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_relevant_regions.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_relevant_regions.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_screenshot-0.png
+2026-05-14 20:54:13 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:54:13 | INFO | {
+2026-05-14 20:54:13 | INFO |   "same_state": "no",
+2026-05-14 20:54:13 | INFO |   "description": "The floating action buttons are different. The reference screen has two buttons, 'Scan' and 'Add', while the current screen has a single '+' button."
+2026-05-14 20:54:13 | INFO | }
+2026-05-14 20:54:13 | INFO | ```
+2026-05-14 20:54:13 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_tmp_start.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_tmp_stop.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_labeled.png
+2026-05-14 20:54:13 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 20:54:13 | INFO | {
+2026-05-14 20:54:13 | INFO |   "action": "tap",
+2026-05-14 20:54:13 | INFO |   "region": 3,
+2026-05-14 20:54:13 | INFO |   "description": "Tap the plus button to add a medication."
+2026-05-14 20:54:13 | INFO | }
+2026-05-14 20:54:13 | INFO | ```
+2026-05-14 20:54:13 | INFO | 🎯 Recovery using region index: 3 at (964, 1573)
+2026-05-14 20:54:13 | INFO | [1] Tap the plus button to add a medication. -> tap
+2026-05-14 20:54:13 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_screenshot-0.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_tmp_stop.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_screenshot-0.png
+2026-05-14 20:54:13 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:54:13 | INFO | {
+2026-05-14 20:54:13 | INFO |   "same_state": "yes"
+2026-05-14 20:54:13 | INFO | }
+2026-05-14 20:54:13 | INFO | ```
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_relevant_regions.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_tmp_stop.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_2_labeled.png
+2026-05-14 20:54:13 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 20:54:13 | INFO | {
+2026-05-14 20:54:13 | INFO |   "action": "tap",
+2026-05-14 20:54:13 | INFO |   "region": 3,
+2026-05-14 20:54:13 | INFO |   "description": "Tap the add button."
+2026-05-14 20:54:13 | INFO | }
+2026-05-14 20:54:13 | INFO | ```
+2026-05-14 20:54:13 | INFO | 🎯 Using region index: 3 at (964, 1573)
+2026-05-14 20:54:13 | INFO | [1] Tap the add button. -> tap
+2026-05-14 20:54:13 | INFO | ✅ Action executed.
+2026-05-14 20:54:13 | INFO | 
+2026-05-14 20:54:13 | INFO | 
+2026-05-14 20:54:13 | INFO | 📂 Processing segment 3...
+2026-05-14 20:54:13 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_screenshot-0.png
+2026-05-14 20:54:13 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_dino.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_dino.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_tmp_stop.png
+2026-05-14 20:54:13 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 20:54:13 | INFO | {
+2026-05-14 20:54:13 | INFO |   "target_regions": [],
+2026-05-14 20:54:13 | INFO |   "predicted_action": "swipe"
+2026-05-14 20:54:13 | INFO | }
+2026-05-14 20:54:13 | INFO | ```
+2026-05-14 20:54:13 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'swipe'}
+2026-05-14 20:54:13 | INFO | 🧠 GPT selected regions: []
+2026-05-14 20:54:13 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_relevant_regions.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_screenshot-0.png
+2026-05-14 20:54:13 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:54:13 | INFO | {
+2026-05-14 20:54:13 | INFO |   "same_state": "no",
+2026-05-14 20:54:13 | INFO |   "description": "The reference image shows a form-filling screen with a green header and a checkmark icon for confirmation. The current image displays an empty list screen with a search bar, a 'No medications found' message, and a bottom navigation bar. These are two completely different screens within the application's user flow."
+2026-05-14 20:54:13 | INFO | }
+2026-05-14 20:54:13 | INFO | ```
+2026-05-14 20:54:13 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_tmp_start.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_tmp_stop.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_labeled.png
+2026-05-14 20:54:13 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 20:54:13 | INFO | {
+2026-05-14 20:54:13 | INFO |   "action": "tap",
+2026-05-14 20:54:13 | INFO |   "region": 3,
+2026-05-14 20:54:13 | INFO |   "description": "Tap the add button to add a new medication."
+2026-05-14 20:54:13 | INFO | }
+2026-05-14 20:54:13 | INFO | ```
+2026-05-14 20:54:13 | INFO | 🎯 Recovery using region index: 3 at (964, 1573)
+2026-05-14 20:54:13 | INFO | [1] Tap the add button to add a new medication. -> tap
+2026-05-14 20:54:13 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_screenshot-0.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_tmp_stop.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_screenshot-0.png
+2026-05-14 20:54:13 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:54:13 | INFO | {
+2026-05-14 20:54:13 | INFO |   "same_state": "no",
+2026-05-14 20:54:13 | INFO |   "description": "The reference screen is a form for adding medication details, while the current screen is the main medication list, which is currently empty. The two screens show completely different UI elements and functionalities."
+2026-05-14 20:54:13 | INFO | }
+2026-05-14 20:54:13 | INFO | ```
+2026-05-14 20:54:13 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_tmp_start.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_tmp_stop.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_labeled.png
+2026-05-14 20:54:13 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 20:54:13 | INFO | {
+2026-05-14 20:54:13 | INFO |   "action": "tap",
+2026-05-14 20:54:13 | INFO |   "region": [
+2026-05-14 20:54:13 | INFO |     794,
+2026-05-14 20:54:13 | INFO |     1652,
+2026-05-14 20:54:13 | INFO |     995,
+2026-05-14 20:54:13 | INFO |     1730
+2026-05-14 20:54:13 | INFO |   ],
+2026-05-14 20:54:13 | INFO |   "description": "Tap the 'Add' button to add a new medication."
+2026-05-14 20:54:13 | INFO | }
+2026-05-14 20:54:13 | INFO | ```
+2026-05-14 20:54:13 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-14 20:54:13 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_tmp_start.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_tmp_stop.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_labeled.png
+2026-05-14 20:54:13 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 20:54:13 | INFO | {
+2026-05-14 20:54:13 | INFO |   "action": "swipe",
+2026-05-14 20:54:13 | INFO |   "from": [
+2026-05-14 20:54:13 | INFO |     540,
+2026-05-14 20:54:13 | INFO |     1600
+2026-05-14 20:54:13 | INFO |   ],
+2026-05-14 20:54:13 | INFO |   "to": [
+2026-05-14 20:54:13 | INFO |     540,
+2026-05-14 20:54:13 | INFO |     400
+2026-05-14 20:54:13 | INFO |   ],
+2026-05-14 20:54:13 | INFO |   "duration": 500,
+2026-05-14 20:54:13 | INFO |   "description": "Swipe up to scroll."
+2026-05-14 20:54:13 | INFO | }
+2026-05-14 20:54:13 | INFO | ```
+2026-05-14 20:54:13 | INFO | [1] Swipe up to scroll. -> swipe
+2026-05-14 20:54:13 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_screenshot-0.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_tmp_stop.png
+2026-05-14 20:54:13 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_3_screenshot-0.png
+2026-05-14 20:54:13 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:54:13 | INFO | {
+2026-05-14 20:54:13 | INFO |   "same_state": "no",
+2026-05-14 20:54:13 | INFO |   "description": "The reference screen is a form for adding or editing a medication. The current screen is the main medication list, which is currently empty. To reach a state similar to the reference, the user would first need to tap the 'Add' button."
+2026-05-14 20:54:13 | INFO | }
+2026-05-14 20:54:13 | INFO | ```
+2026-05-14 20:54:13 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-14 20:55:46 | INFO | Mismatch reason: the reference screen is a form for adding or editing a medication. the current screen is the main medication list, which is currently empty. to reach a state similar to the reference, the user would first need to tap the 'add' button.UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 20:55:46 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 20:55:51 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 20:58:35 | INFO | 
+2026-05-14 20:58:35 | INFO | 
+2026-05-14 20:58:35 | INFO | 📂 Processing segment 4...
+2026-05-14 20:58:35 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_screenshot-0.png
+2026-05-14 20:58:35 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_dino.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_dino.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_tmp_stop.png
+2026-05-14 20:58:35 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 20:58:35 | INFO | {
+2026-05-14 20:58:35 | INFO |   "target_regions": [
+2026-05-14 20:58:35 | INFO |     7,
+2026-05-14 20:58:35 | INFO |     21,
+2026-05-14 20:58:35 | INFO |     25
+2026-05-14 20:58:35 | INFO |   ],
+2026-05-14 20:58:35 | INFO |   "predicted_action": "tap"
+2026-05-14 20:58:35 | INFO | }
+2026-05-14 20:58:35 | INFO | ```
+2026-05-14 20:58:35 | INFO | 🔍 Relevant regions: {'target_regions': [7, 21, 25], 'predicted_action': 'tap'}
+2026-05-14 20:58:35 | INFO | 🧠 GPT selected regions: [7, 21, 25]
+2026-05-14 20:58:35 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_relevant_regions.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_relevant_regions.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_screenshot-0.png
+2026-05-14 20:58:35 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:58:35 | INFO | {
+2026-05-14 20:58:35 | INFO |   "same_state": "no",
+2026-05-14 20:58:35 | INFO |   "description": "The reference screen shows a detailed form for adding or editing a medication, with fields like 'Product name', 'Exp. date', and 'Package opened'. The current screen is the main medication list, which is empty. The form and its fields from the reference screen are not present on the current screen."
+2026-05-14 20:58:35 | INFO | }
+2026-05-14 20:58:35 | INFO | ```
+2026-05-14 20:58:35 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_tmp_start.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_tmp_stop.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_labeled.png
+2026-05-14 20:58:35 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 20:58:35 | INFO | {
+2026-05-14 20:58:35 | INFO |   "action": "tap",
+2026-05-14 20:58:35 | INFO |   "region": 4,
+2026-05-14 20:58:35 | INFO |   "description": "Tap the 'Add' button to add a new medication."
+2026-05-14 20:58:35 | INFO | }
+2026-05-14 20:58:35 | INFO | ```
+2026-05-14 20:58:35 | INFO | 🎯 Recovery using region index: 4 at (893, 1405)
+2026-05-14 20:58:35 | INFO | [1] Tap the 'Add' button to add a new medication. -> tap
+2026-05-14 20:58:35 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_screenshot-0.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_tmp_stop.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_screenshot-0.png
+2026-05-14 20:58:35 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:58:35 | INFO | {
+2026-05-14 20:58:35 | INFO |   "same_state": "yes"
+2026-05-14 20:58:35 | INFO | }
+2026-05-14 20:58:35 | INFO | ```
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_relevant_regions.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_tmp_stop.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_4_labeled.png
+2026-05-14 20:58:35 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 20:58:35 | INFO | {
+2026-05-14 20:58:35 | INFO |   "action": "tap",
+2026-05-14 20:58:35 | INFO |   "region": 4,
+2026-05-14 20:58:35 | INFO |   "description": "Tap the 'Add' button."
+2026-05-14 20:58:35 | INFO | }
+2026-05-14 20:58:35 | INFO | ```
+2026-05-14 20:58:35 | INFO | 🎯 Using region index: 4 at (893, 1405)
+2026-05-14 20:58:35 | INFO | [1] Tap the 'Add' button. -> tap
+2026-05-14 20:58:35 | INFO | ✅ Action executed.
+2026-05-14 20:58:35 | INFO | 
+2026-05-14 20:58:35 | INFO | 
+2026-05-14 20:58:35 | INFO | 📂 Processing segment 5...
+2026-05-14 20:58:35 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_5_screenshot-0.png
+2026-05-14 20:58:35 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_5_dino.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_5_dino.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_5_tmp_stop.png
+2026-05-14 20:58:35 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 20:58:35 | INFO | {
+2026-05-14 20:58:35 | INFO |   "target_regions": [
+2026-05-14 20:58:35 | INFO |     17
+2026-05-14 20:58:35 | INFO |   ],
+2026-05-14 20:58:35 | INFO |   "predicted_action": "input_text"
+2026-05-14 20:58:35 | INFO | }
+2026-05-14 20:58:35 | INFO | ```
+2026-05-14 20:58:35 | INFO | 🔍 Relevant regions: {'target_regions': [17], 'predicted_action': 'input_text'}
+2026-05-14 20:58:35 | INFO | 🧠 GPT selected regions: [17]
+2026-05-14 20:58:35 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_5_relevant_regions.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_5_relevant_regions.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_5_screenshot-0.png
+2026-05-14 20:58:35 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:58:35 | INFO | {
+2026-05-14 20:58:35 | INFO |   "same_state": "yes"
+2026-05-14 20:58:35 | INFO | }
+2026-05-14 20:58:35 | INFO | ```
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_5_relevant_regions.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_5_tmp_stop.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_5_labeled.png
+2026-05-14 20:58:35 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 20:58:35 | INFO | {
+2026-05-14 20:58:35 | INFO |     "action": "input_text",
+2026-05-14 20:58:35 | INFO |     "text": "Ygl",
+2026-05-14 20:58:35 | INFO |     "description": "Type Ygl into the Display name field, which currently says Empty."
+2026-05-14 20:58:35 | INFO | }
+2026-05-14 20:58:35 | INFO | ```
+2026-05-14 20:58:35 | INFO | ⚠️ No valid region or element match. Proceeding without position.
+2026-05-14 20:58:35 | INFO | [1] Type Ygl into the Display name field, which currently says Empty. -> input_text
+2026-05-14 20:58:35 | INFO | ✅ Action executed.
+2026-05-14 20:58:35 | INFO | 
+2026-05-14 20:58:35 | INFO | 
+2026-05-14 20:58:35 | INFO | 📂 Processing segment 6...
+2026-05-14 20:58:35 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_screenshot-0.png
+2026-05-14 20:58:35 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_dino.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_dino.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_tmp_stop.png
+2026-05-14 20:58:35 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 20:58:35 | INFO | {
+2026-05-14 20:58:35 | INFO |   "target_regions": [
+2026-05-14 20:58:35 | INFO |     18
+2026-05-14 20:58:35 | INFO |   ],
+2026-05-14 20:58:35 | INFO |   "predicted_action": "tap"
+2026-05-14 20:58:35 | INFO | }
+2026-05-14 20:58:35 | INFO | ```
+2026-05-14 20:58:35 | INFO | 🔍 Relevant regions: {'target_regions': [18], 'predicted_action': 'tap'}
+2026-05-14 20:58:35 | INFO | 🧠 GPT selected regions: [18]
+2026-05-14 20:58:35 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_relevant_regions.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_relevant_regions.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_screenshot-0.png
+2026-05-14 20:58:35 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 20:58:35 | INFO | {
+2026-05-14 20:58:35 | INFO |   "same_state": "no",
+2026-05-14 20:58:35 | INFO |   "description": "The two screens represent different states of the application. The reference image shows a form that is partially filled out, with fields like 'Display name' and 'form', and is in dark mode. The current image shows a blank form with a different set of fields at the top ('Product name', 'Group', 'Exp. date'), a different layout (e.g., the bandage icon), and is in light mode. The structure and content of the forms are significantly different, indicating they are not functionally the same state."
+2026-05-14 20:58:35 | INFO | }
+2026-05-14 20:58:35 | INFO | ```
+2026-05-14 20:58:35 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_tmp_start.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_tmp_stop.png
+2026-05-14 20:58:35 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_labeled.png
+2026-05-14 20:58:35 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 20:58:35 | INFO | {
+2026-05-14 20:58:35 | INFO |   "action": "input_text",
+2026-05-14 20:58:35 | INFO |   "text": "h",
+2026-05-14 20:58:35 | INFO |   "description": "Type the letter h on the keyboard."
+2026-05-14 20:58:35 | INFO | }
+2026-05-14 20:58:35 | INFO | ```
+2026-05-14 20:58:35 | INFO | [1] Type the letter h on the keyboard. -> input_text
+2026-05-14 20:59:22 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_screenshot-0.pngUserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 20:59:22 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 20:59:27 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 21:01:57 | INFO | 
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_tmp_stop.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_screenshot-0.png
+2026-05-14 21:01:57 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 21:01:57 | INFO | {
+2026-05-14 21:01:57 | INFO |   "same_state": "no",
+2026-05-14 21:01:57 | INFO |   "description": "The current screen shows a form with empty fields, while the reference screen shows the same form but with some fields already filled in and the keyboard open for the 'Release form' field. The state is different because user input has occurred in the reference image that has not occurred in the current image."
+2026-05-14 21:01:57 | INFO | }
+2026-05-14 21:01:57 | INFO | ```
+2026-05-14 21:01:57 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_tmp_start.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_tmp_stop.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_labeled.png
+2026-05-14 21:01:57 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 21:01:57 | INFO | {
+2026-05-14 21:01:57 | INFO |   "action": "tap",
+2026-05-14 21:01:57 | INFO |   "region": 6,
+2026-05-14 21:01:57 | INFO |   "description": "Tap on the 'Release form' input field."
+2026-05-14 21:01:57 | INFO | }
+2026-05-14 21:01:57 | INFO | ```
+2026-05-14 21:01:57 | INFO | 🎯 Recovery using region index: 6 at (540, 1523)
+2026-05-14 21:01:57 | INFO | [1] Tap on the 'Release form' input field. -> tap
+2026-05-14 21:01:57 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_screenshot-0.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_tmp_stop.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_screenshot-0.png
+2026-05-14 21:01:57 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 21:01:57 | INFO | {
+2026-05-14 21:01:57 | INFO |   "same_state": "no",
+2026-05-14 21:01:57 | INFO |   "description": "The current screen is an empty form, while the reference screen shows a form that is partially filled out with user data. For example, the 'Display name' field is empty in the current screen but contains 'Yqil' in the reference screen. The layout and some placeholder texts at the top of the screen are also different."
+2026-05-14 21:01:57 | INFO | }
+2026-05-14 21:01:57 | INFO | ```
+2026-05-14 21:01:57 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_tmp_start.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_tmp_stop.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_labeled.png
+2026-05-14 21:01:57 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 21:01:57 | INFO | {
+2026-05-14 21:01:57 | INFO |   "action": "tap",
+2026-05-14 21:01:57 | INFO |   "region": 6,
+2026-05-14 21:01:57 | INFO |   "description": "Tap on the 'Release form' input field."
+2026-05-14 21:01:57 | INFO | }
+2026-05-14 21:01:57 | INFO | ```
+2026-05-14 21:01:57 | INFO | 🎯 Recovery using region index: 6 at (540, 1523)
+2026-05-14 21:01:57 | INFO | [1] Tap on the 'Release form' input field. -> tap
+2026-05-14 21:01:57 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_screenshot-0.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_tmp_stop.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_6_screenshot-0.png
+2026-05-14 21:01:57 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 21:01:57 | INFO | {
+2026-05-14 21:01:57 | INFO |   "same_state": "no",
+2026-05-14 21:01:57 | INFO |   "description": "The two screens represent different states of the same form. The reference screen appears to be an edit screen for an existing item, as it has pre-filled data and lacks fields for 'Product name' and 'Group'. The current screen is a blank form for adding a new item, which includes input fields for 'Product name' and 'Group' that are not present in the reference screen. This difference in available input fields makes the screens functionally inconsistent."
+2026-05-14 21:01:57 | INFO | }
+2026-05-14 21:01:57 | INFO | ```
+2026-05-14 21:01:57 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-14 21:01:57 | INFO | Mismatch reason: the two screens represent different states of the same form. the reference screen appears to be an edit screen for an existing item, as it has pre-filled data and lacks fields for 'product name' and 'group'. the current screen is a blank form for adding a new item, which includes input fields for 'product name' and 'group' that are not present in the reference screen. this difference in available input fields makes the screens functionally inconsistent.
+2026-05-14 21:01:57 | INFO | 
+2026-05-14 21:01:57 | INFO | 📂 Processing segment 7...
+2026-05-14 21:01:57 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_screenshot-0.png
+2026-05-14 21:01:57 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_dino.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_dino.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_tmp_stop.png
+2026-05-14 21:01:57 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 21:01:57 | INFO | {
+2026-05-14 21:01:57 | INFO |   "target_regions": [
+2026-05-14 21:01:57 | INFO |     29
+2026-05-14 21:01:57 | INFO |   ],
+2026-05-14 21:01:57 | INFO |   "predicted_action": "tap"
+2026-05-14 21:01:57 | INFO | }
+2026-05-14 21:01:57 | INFO | ```
+2026-05-14 21:01:57 | INFO | 🔍 Relevant regions: {'target_regions': [29], 'predicted_action': 'tap'}
+2026-05-14 21:01:57 | INFO | 🧠 GPT selected regions: [29]
+2026-05-14 21:01:57 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_relevant_regions.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_relevant_regions.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_screenshot-0.png
+2026-05-14 21:01:57 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 21:01:57 | INFO | {
+2026-05-14 21:01:57 | INFO |   "same_state": "no",
+2026-05-14 21:01:57 | INFO |   "description": "The two screens represent different states of the app. The reference screen shows a form that is already filled with data, suggesting an 'edit' mode. The current screen shows a blank form, suggesting a 'create new' mode. The layout and the fields at the top of the screen are also completely different."
+2026-05-14 21:01:57 | INFO | }
+2026-05-14 21:01:57 | INFO | ```
+2026-05-14 21:01:57 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_tmp_start.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_tmp_stop.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_labeled.png
+2026-05-14 21:01:57 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 21:01:57 | INFO | {
+2026-05-14 21:01:57 | INFO |   "action": "tap",
+2026-05-14 21:01:57 | INFO |   "region": 4,
+2026-05-14 21:01:57 | INFO |   "description": "Tap on the 'Package opened' checkbox."
+2026-05-14 21:01:57 | INFO | }
+2026-05-14 21:01:57 | INFO | ```
+2026-05-14 21:01:57 | INFO | 🎯 Recovery using region index: 4 at (724, 861)
+2026-05-14 21:01:57 | INFO | [1] Tap on the 'Package opened' checkbox. -> tap
+2026-05-14 21:01:57 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_screenshot-0.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_tmp_stop.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_screenshot-0.png
+2026-05-14 21:01:57 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 21:01:57 | INFO | {
+2026-05-14 21:01:57 | INFO |   "same_state": "no",
+2026-05-14 21:01:57 | INFO |   "description": "The reference screen shows a form with a date field. The current screen shows a date picker dialog that has appeared on top of the form. The user can no longer interact with the original form elements as the dialog is now the active element."
+2026-05-14 21:01:57 | INFO | }
+2026-05-14 21:01:57 | INFO | ```
+2026-05-14 21:01:57 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_tmp_start.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_tmp_stop.png
+2026-05-14 21:01:57 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_labeled.png
+2026-05-14 21:01:57 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 21:01:57 | INFO | {
+2026-05-14 21:01:57 | INFO |   "action": "tap",
+2026-05-14 21:01:57 | INFO |   "region": 11,
+2026-05-14 21:01:57 | INFO |   "description": "Tap the checkmark to save the selected date."
+2026-05-14 21:01:57 | INFO | }
+2026-05-14 21:01:57 | INFO | ```
+2026-05-14 21:01:57 | INFO | 🎯 Recovery using region index: 11 at (1007, 148)
+2026-05-14 21:01:57 | INFO | [1] Tap the checkmark to save the selected date. -> tap
+2026-05-14 21:02:12 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_screenshot-0.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_tmp_stop.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_screenshot-0.png
+2026-05-14 21:02:12 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 21:02:12 | INFO | {
+2026-05-14 21:02:12 | INFO |   "same_state": "no",
+2026-05-14 21:02:12 | INFO |   "description": "The current screen is missing several input fields that are present in the reference screen, such as 'Usage indications' and 'Comment'. Additionally, the layout and fields at the top of the screen are different; the current screen has 'Product name', 'Group', and 'Exp. date' fields which are not present in the same way on the reference screen."
+2026-05-14 21:02:12 | INFO | }
+2026-05-14 21:02:12 | INFO | ```
+2026-05-14 21:02:12 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_tmp_start.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_tmp_stop.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_labeled.png
+2026-05-14 21:02:12 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 21:02:12 | INFO | {
+2026-05-14 21:02:12 | INFO |   "action": "tap",
+2026-05-14 21:02:12 | INFO |   "region": 4,
+2026-05-14 21:02:12 | INFO |   "description": "Tap on the 'Package opened' date field."
+2026-05-14 21:02:12 | INFO | }
+2026-05-14 21:02:12 | INFO | ```
+2026-05-14 21:02:12 | INFO | 🎯 Recovery using region index: 4 at (724, 861)
+2026-05-14 21:02:12 | INFO | [1] Tap on the 'Package opened' date field. -> tap
+2026-05-14 21:02:12 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_screenshot-0.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_tmp_stop.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_7_screenshot-0.png
+2026-05-14 21:02:12 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 21:02:12 | INFO | {
+2026-05-14 21:02:12 | INFO |   "same_state": "no",
+2026-05-14 21:02:12 | INFO |   "description": "The reference screen shows a form where the user can input data into various fields. The current screen shows a date picker dialog that has appeared on top of the form, blocking interaction with the underlying fields. The available actions are completely different; in the reference state, the user can edit the form, while in the current state, the user can only interact with the date picker."
+2026-05-14 21:02:12 | INFO | }
+2026-05-14 21:02:12 | INFO | ```
+2026-05-14 21:02:12 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-14 21:02:12 | INFO | Mismatch reason: the reference screen shows a form where the user can input data into various fields. the current screen shows a date picker dialog that has appeared on top of the form, blocking interaction with the underlying fields. the available actions are completely different; in the reference state, the user can edit the form, while in the current state, the user can only interact with the date picker.
+2026-05-14 21:02:12 | INFO | 
+2026-05-14 21:02:12 | INFO | 📂 Processing segment 8...
+2026-05-14 21:02:12 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_screenshot-0.png
+2026-05-14 21:02:12 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_dino.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_dino.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_tmp_stop.png
+2026-05-14 21:02:12 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 21:02:12 | INFO | {
+2026-05-14 21:02:12 | INFO |   "target_regions": [],
+2026-05-14 21:02:12 | INFO |   "predicted_action": "no action"
+2026-05-14 21:02:12 | INFO | }
+2026-05-14 21:02:12 | INFO | ```
+2026-05-14 21:02:12 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'no action'}
+2026-05-14 21:02:12 | INFO | 🧠 GPT selected regions: []
+2026-05-14 21:02:12 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_relevant_regions.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_screenshot-0.png
+2026-05-14 21:02:12 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 21:02:12 | INFO | {
+2026-05-14 21:02:12 | INFO |   "same_state": "no",
+2026-05-14 21:02:12 | INFO |   "description": "The reference image shows a product details screen, while the current image shows a date picker dialog overlaid on top of that screen. These are two different functional states; the user can interact with the product details in the first screen, but only with the date picker in the second."
+2026-05-14 21:02:12 | INFO | }
+2026-05-14 21:02:12 | INFO | ```
+2026-05-14 21:02:12 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_tmp_start.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_tmp_stop.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_labeled.png
+2026-05-14 21:02:12 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 21:02:12 | INFO | {
+2026-05-14 21:02:12 | INFO |   "action": "no action",
+2026-05-14 21:02:12 | INFO |   "description": "The date picker is already displayed, which is the result of tapping the expiration date in the previous step."
+2026-05-14 21:02:12 | INFO | }
+2026-05-14 21:02:12 | INFO | ```
+2026-05-14 21:02:12 | INFO | [1] The date picker is already displayed, which is the result of tapping the expiration date in the previous step. -> no action
+2026-05-14 21:02:12 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_screenshot-0.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_tmp_stop.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_screenshot-0.png
+2026-05-14 21:02:12 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 21:02:12 | INFO | {
+2026-05-14 21:02:12 | INFO |   "same_state": "no",
+2026-05-14 21:02:12 | INFO |   "description": "The reference screen displays the details of a product. The current screen shows a date picker dialog, which is a different state that likely appears after tapping a date field on the previous screen. The available actions on each screen are different."
+2026-05-14 21:02:12 | INFO | }
+2026-05-14 21:02:12 | INFO | ```
+2026-05-14 21:02:12 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_tmp_start.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_tmp_stop.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_labeled.png
+2026-05-14 21:02:12 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 21:02:12 | INFO | {
+2026-05-14 21:02:12 | INFO |   "action": "no action",
+2026-05-14 21:02:12 | INFO |   "description": "No action is needed."
+2026-05-14 21:02:12 | INFO | }
+2026-05-14 21:02:12 | INFO | ```
+2026-05-14 21:02:12 | INFO | [1] No action is needed. -> no action
+2026-05-14 21:02:12 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_screenshot-0.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_tmp_stop.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_screenshot-0.png
+2026-05-14 21:02:12 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 21:02:12 | INFO | {
+2026-05-14 21:02:12 | INFO |   "same_state": "no",
+2026-05-14 21:02:12 | INFO |   "description": "The reference screen shows the details of a product. The current screen shows a date picker dialog, which is a different functional state. The user cannot perform the same actions on both screens."
+2026-05-14 21:02:12 | INFO | }
+2026-05-14 21:02:12 | INFO | ```
+2026-05-14 21:02:12 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_tmp_start.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_tmp_stop.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_labeled.png
+2026-05-14 21:02:12 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 21:02:12 | INFO | {
+2026-05-14 21:02:12 | INFO |   "action": "no action",
+2026-05-14 21:02:12 | INFO |   "description": "No action is needed as the transition from the first to the second GUI shows no change."
+2026-05-14 21:02:12 | INFO | }
+2026-05-14 21:02:12 | INFO | ```
+2026-05-14 21:02:12 | INFO | [1] No action is needed as the transition from the first to the second GUI shows no change. -> no action
+2026-05-14 21:02:12 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_screenshot-0.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_tmp_stop.png
+2026-05-14 21:02:12 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/artifacts/step_8_screenshot-0.png
+2026-05-14 21:02:12 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 21:02:12 | INFO | {
+2026-05-14 21:02:12 | INFO |   "same_state": "no",
+2026-05-14 21:02:12 | INFO |   "description": "The reference image displays a product details screen, while the current image shows a date picker dialog that has appeared on top of that screen. These are two distinct states in a user workflow, offering different sets of actions."
+2026-05-14 21:02:12 | INFO | }
+2026-05-14 21:02:12 | INFO | ```
+2026-05-14 21:02:12 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-14 21:02:12 | INFO | Mismatch reason: the reference image displays a product details screen, while the current image shows a date picker dialog that has appeared on top of that screen. these are two distinct states in a user workflow, offering different sets of actions.
+2026-05-14 21:02:12 | INFO | ✅ Video processing completed.
+2026-05-14 21:02:12 | INFO | 📝 Summary saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/homemedkit/llm/hhv-001-vibr/run-005/memory.md
+2026-05-14 21:02:14 | INFO | ========================================================================
+RUN SUMMARY
+  App         : homemedkit
+  Video type  : handheld
+  Status      : success
+  Scenes      : 0/0
+  Actions     : none
+  LLM calls   : n/a
+  LLM latency : n/a
+  Tokens used : n/a
+  Wall time   : 21m 24s
+========================================================================

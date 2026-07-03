@@ -1,0 +1,126 @@
+2026-05-15 13:50:22 | INFO | === src_vibr.log ===
+2026-05-15 13:50:22 | INFO | Starting ViBR run
+2026-05-15 13:50:22 | INFO | App: bloodpressuremonitor
+2026-05-15 13:50:22 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/videos/hhv-003.mp4
+2026-05-15 13:50:22 | INFO | Algorithm: clip
+2026-05-15 13:50:22 | INFO | LLM: gemini (gemini-2.5-pro)
+2026-05-15 13:50:22 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-003-vibr/run-001
+2026-05-15 13:50:22 | INFO | Running Gemini API health check...
+2026-05-15 13:50:22 | INFO | 2026-05-15 13:50:22,357 | INFO | ======================================================================
+2026-05-15 13:50:22 | INFO | 2026-05-15 13:50:22,357 | INFO | 🔍 Testing Gemini API Health...
+2026-05-15 13:50:22 | INFO | 2026-05-15 13:50:22,357 | INFO | ======================================================================
+2026-05-15 13:50:22 | INFO | 2026-05-15 13:50:22,357 | INFO | Model: gemini-2.5-pro
+2026-05-15 13:50:22 | INFO | 2026-05-15 13:50:22,357 | INFO | Timeout: 60s
+2026-05-15 13:50:23 | INFO | 2026-05-15 13:50:23,307 | INFO | ✅ Built URL and headers
+2026-05-15 13:50:23 | INFO | 2026-05-15 13:50:23,307 | INFO | 📤 Sending test request to Gemini API...
+2026-05-15 13:50:33 | INFO | 2026-05-15 13:50:33,924 | INFO | ✅ API Response received in 10.62s
+2026-05-15 13:50:33 | INFO | 2026-05-15 13:50:33,924 | INFO |    Response: API is working.
+2026-05-15 13:50:33 | INFO | 2026-05-15 13:50:33,924 | INFO |    Tokens: 13 input, 4 output
+2026-05-15 13:50:33 | INFO | 2026-05-15 13:50:33,924 | INFO | ======================================================================
+2026-05-15 13:50:33 | INFO | 2026-05-15 13:50:33,924 | INFO | ✅ Gemini API is HEALTHY
+2026-05-15 13:50:33 | INFO | 2026-05-15 13:50:33,924 | INFO | ======================================================================
+2026-05-15 13:50:33 | INFO | ✅ Gemini API health check passed. Proceeding with inference...
+2026-05-15 13:50:38 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-15 13:50:38 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-15 13:50:38 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-15 13:50:39 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-15 13:50:39 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-15 13:50:39 | INFO | 
+2026-05-15 13:50:39 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-15 13:50:39 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 8088.17it/s]
+2026-05-15 13:50:39 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-15 13:50:39 | INFO | Key                                        | Status     |  | 
+2026-05-15 13:50:39 | INFO | -------------------------------------------+------------+--+-
+2026-05-15 13:50:39 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-15 13:50:39 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-15 13:50:39 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-15 13:50:39 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-15 13:50:39 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-15 13:50:39 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-15 13:50:39 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-15 13:50:39 | INFO | 
+2026-05-15 13:50:39 | INFO | Notes:
+2026-05-15 13:50:39 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 13:50:51 | INFO | [DINO] Model loaded on device: mps
+2026-05-15 13:50:51 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-pro)...
+2026-05-15 13:50:51 | INFO | Initializing ADB device controller...
+2026-05-15 13:50:51 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-003-vibr/run-001/artifacts/screenshot-0.png
+2026-05-15 13:50:51 | INFO | Reading frames from video...
+2026-05-15 13:50:51 | INFO | Reading frame:  100
+2026-05-15 13:50:51 | INFO | Reading frame:  200
+2026-05-15 13:50:51 | INFO | Reading frame:  300
+2026-05-15 13:50:51 | INFO | Reading frame:  400
+2026-05-15 13:50:51 | INFO | Reading frame:  500
+2026-05-15 13:50:51 | INFO | Reading frame:  600
+2026-05-15 13:50:51 | INFO | Reading frame:  700
+2026-05-15 13:50:51 | INFO | Reading frame:  800
+2026-05-15 13:50:51 | INFO | Reading frame:  900
+2026-05-15 13:50:51 | INFO | Reading frame:  1000
+2026-05-15 13:50:51 | INFO | Reading frame:  1100
+2026-05-15 13:50:51 | INFO | Reading frame:  1200
+2026-05-15 13:50:51 | INFO | Reading frame:  1300
+2026-05-15 13:50:51 | INFO | Reading frame:  1400
+2026-05-15 13:50:51 | INFO | Reading frame:  1500
+2026-05-15 13:50:51 | INFO | Reading frame:  1600
+2026-05-15 13:50:51 | INFO | Reading frame:  1700
+2026-05-15 13:50:51 | INFO | Reading frame:  1800
+2026-05-15 13:50:51 | INFO | Reading frame:  1900
+2026-05-15 13:50:51 | INFO | 🔍 Detecting stable segments...
+2026-05-15 13:50:51 | INFO | [CLIP_PIPELINE] Starting CLIP-based segmentation for 1938 frames
+2026-05-15 13:50:51 | INFO | [CLIP_PIPELINE] Cache file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/cache/sim_list_clip_hhv-003.pkl
+2026-05-15 13:50:52 | INFO | 
+2026-05-15 13:50:52 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-15 13:50:52 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 38335.81it/s]
+2026-05-15 13:50:52 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-15 13:50:52 | INFO | Key                                  | Status     |  | 
+2026-05-15 13:50:52 | INFO | -------------------------------------+------------+--+-
+2026-05-15 13:50:52 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-15 13:50:52 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-15 13:50:52 | INFO | 
+2026-05-15 13:50:52 | INFO | Notes:
+2026-05-15 13:50:52 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 13:50:55 | INFO | [CLIP_PIPELINE] Model initialization took 3.40s
+2026-05-15 13:50:55 | INFO | [CLIP_PIPELINE] No cache found, computing similarities...
+2026-05-15 13:51:37 | INFO | [CLIP_PIPELINE] Frame conversion took 42.28s
+2026-05-15 13:51:37 | INFO | [CLIP_PIPELINE] Starting similarity computation at 13:51:37
+2026-05-15 13:51:37 | INFO | [CLIP] Starting calculate_clip_sim_seq...
+2026-05-15 13:51:37 | INFO | [CLIP] Starting encoding for 1938 frames on device: mps
+2026-05-15 13:51:37 | INFO | [CLIP] Batch size: 32
+2026-05-15 13:52:11 | INFO | [CLIP] Encoded 800/1938 | Batch time: 0.01s (model) + 0.77s (proc) | Total: 34.1s
+2026-05-15 13:52:37 | INFO | [CLIP_PIPELINE] Still computing... (60s elapsed)
+2026-05-15 13:52:42 | INFO | [CLIP] Encoded 1600/1938 | Batch time: 0.01s (model) + 0.58s (proc) | Total: 64.7s
+2026-05-15 13:52:52 | INFO | [CLIP] Encoded 1938/1938 | Batch time: 0.05s (model) + 0.67s (proc) | Total: 75.3s
+2026-05-15 13:52:52 | INFO | [CLIP] ✅ Encoding complete: 75.26s for 1938 frames
+2026-05-15 13:52:52 | INFO | [CLIP] Embedding phase took 75.26s
+2026-05-15 13:52:52 | INFO | [CLIP] Computing similarity for 1937 frame pairs...
+2026-05-15 13:52:52 | INFO | [CLIP] Similarity computation took 0.03s
+2026-05-15 13:52:52 | INFO | [CLIP] Total time: 75.30s
+2026-05-15 13:52:52 | INFO | [CLIP_PIPELINE] Similarity computation took 75.31s
+2026-05-15 13:52:52 | INFO | 📼 CLIP similarity list calculated and saved in 0.00s
+2026-05-15 13:52:52 | INFO | [CLIP_PIPELINE] Keyframe detection took 0.00s
+2026-05-15 13:52:52 | INFO | [CLIP_PIPELINE] Total: 121.00s | Found 2 segments
+2026-05-15 13:53:43 | INFO | 
+2026-05-15 13:53:43 | INFO | 📂 Processing segment 0...
+2026-05-15 13:53:43 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-003-vibr/run-001/artifacts/step_0_screenshot-0.png
+2026-05-15 13:53:43 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-003-vibr/run-001/artifacts/step_0_dino.png
+2026-05-15 13:53:43 | INFO | 🔍 Relevant regions: {'target_regions': [3], 'predicted_action': 'tap'}
+2026-05-15 13:53:43 | INFO | 🧠 GPT selected regions: [3]
+2026-05-15 13:53:43 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-003-vibr/run-001/artifacts/step_0_relevant_regions.png
+2026-05-15 13:53:43 | INFO | 🎯 Using region index: 5 at (939, 1518)
+2026-05-15 13:53:43 | INFO | [1] Tap the graph icon to view statistics. -> tap
+2026-05-15 13:53:43 | INFO | ✅ Action executed.
+2026-05-15 13:53:43 | INFO | 
+2026-05-15 13:53:43 | INFO | ✅ Video processing completed.
+2026-05-15 13:53:43 | INFO | 📝 Summary saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/hhv-003-vibr/run-001/memory.md
+2026-05-15 13:53:45 | INFO | ========================================================================
+RUN SUMMARY
+  App         : bloodpressuremonitor
+  Video type  : handheld
+  Status      : success
+  Scenes      : 1/1
+  Actions     : unknown=1
+  LLM calls   : action_inference=1  region_detection=1  state_comparison=1
+  LLM latency : min=9.1s  max=13.9s  avg=11.1s  total=33.4s
+  Tokens used : prompt=2,889  output=88  total=2,977
+  Wall time   : 3m 23s
+========================================================================

@@ -1,0 +1,155 @@
+2026-05-15 13:28:28 | INFO | === src_vibr.log ===
+2026-05-15 13:28:28 | INFO | Starting ViBR run
+2026-05-15 13:28:28 | INFO | App: bloodpressuremonitor
+2026-05-15 13:28:28 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/videos/srv-001.mp4
+2026-05-15 13:28:28 | INFO | Algorithm: clip
+2026-05-15 13:28:28 | INFO | LLM: gemini (gemini-2.5-flash)
+2026-05-15 13:28:28 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006
+2026-05-15 13:28:28 | INFO | Running Gemini API health check...
+2026-05-15 13:28:28 | INFO | 2026-05-15 13:28:28,291 | INFO | ======================================================================
+2026-05-15 13:28:28 | INFO | 2026-05-15 13:28:28,291 | INFO | 🔍 Testing Gemini API Health...
+2026-05-15 13:28:28 | INFO | 2026-05-15 13:28:28,291 | INFO | ======================================================================
+2026-05-15 13:28:28 | INFO | 2026-05-15 13:28:28,291 | INFO | Model: gemini-2.5-flash
+2026-05-15 13:28:28 | INFO | 2026-05-15 13:28:28,291 | INFO | Timeout: 60s
+2026-05-15 13:28:29 | INFO | 2026-05-15 13:28:29,143 | INFO | ✅ Built URL and headers
+2026-05-15 13:28:29 | INFO | 2026-05-15 13:28:29,143 | INFO | 📤 Sending test request to Gemini API...
+2026-05-15 13:28:30 | INFO | 2026-05-15 13:28:30,231 | INFO | ✅ API Response received in 1.09s
+2026-05-15 13:28:30 | INFO | 2026-05-15 13:28:30,231 | INFO |    Response: API is working.
+2026-05-15 13:28:30 | INFO | 2026-05-15 13:28:30,231 | INFO |    Tokens: 13 input, 4 output
+2026-05-15 13:28:30 | INFO | 2026-05-15 13:28:30,231 | INFO | ======================================================================
+2026-05-15 13:28:30 | INFO | 2026-05-15 13:28:30,231 | INFO | ✅ Gemini API is HEALTHY
+2026-05-15 13:28:30 | INFO | 2026-05-15 13:28:30,231 | INFO | ======================================================================
+2026-05-15 13:28:30 | INFO | ✅ Gemini API health check passed. Proceeding with inference...
+2026-05-15 13:28:34 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-15 13:28:34 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-15 13:28:34 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-15 13:28:35 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-15 13:28:36 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-15 13:28:36 | INFO | 
+2026-05-15 13:28:36 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-15 13:28:36 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7651.45it/s]
+2026-05-15 13:28:36 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-15 13:28:36 | INFO | Key                                        | Status     |  | 
+2026-05-15 13:28:36 | INFO | -------------------------------------------+------------+--+-
+2026-05-15 13:28:36 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-15 13:28:36 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-15 13:28:36 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-15 13:28:36 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-15 13:28:36 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-15 13:28:36 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-15 13:28:36 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-15 13:28:36 | INFO | 
+2026-05-15 13:28:36 | INFO | Notes:
+2026-05-15 13:28:36 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 13:28:39 | INFO | [DINO] Model loaded on device: mps
+2026-05-15 13:28:39 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-flash)...
+2026-05-15 13:28:39 | INFO | Initializing ADB device controller...
+2026-05-15 13:28:39 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/screenshot-0.png
+2026-05-15 13:28:39 | INFO | Reading frames from video...
+2026-05-15 13:28:39 | INFO | Reading frame:  100
+2026-05-15 13:28:39 | INFO | Reading frame:  200
+2026-05-15 13:28:39 | INFO | 🔍 Detecting stable segments...
+2026-05-15 13:28:39 | INFO | [CLIP_PIPELINE] Starting CLIP-based segmentation for 258 frames
+2026-05-15 13:28:39 | INFO | [CLIP_PIPELINE] Cache file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/cache/sim_list_clip_srv-001.pkl
+2026-05-15 13:28:39 | INFO | 
+2026-05-15 13:28:39 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-15 13:28:39 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 32328.23it/s]
+2026-05-15 13:28:39 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-15 13:28:39 | INFO | Key                                  | Status     |  | 
+2026-05-15 13:28:39 | INFO | -------------------------------------+------------+--+-
+2026-05-15 13:28:39 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-15 13:28:39 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-15 13:28:39 | INFO | 
+2026-05-15 13:28:39 | INFO | Notes:
+2026-05-15 13:28:39 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 13:28:42 | INFO | [CLIP_PIPELINE] Model initialization took 2.81s
+2026-05-15 13:28:42 | INFO | ✅ CLIP similarity list loaded from cache in 0.00s
+2026-05-15 13:28:42 | INFO | [CLIP_PIPELINE] Keyframe detection took 0.00s
+2026-05-15 13:28:42 | INFO | [CLIP_PIPELINE] Total: 2.82s | Found 6 segments
+2026-05-15 13:33:03 | INFO | 
+2026-05-15 13:33:03 | INFO | 📂 Processing segment 0...
+2026-05-15 13:33:03 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_0_screenshot-0.png
+2026-05-15 13:33:03 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_0_dino.png
+2026-05-15 13:33:03 | INFO | 🔍 Relevant regions: {'target_regions': [4], 'predicted_action': 'tap'}
+2026-05-15 13:33:03 | INFO | 🧠 GPT selected regions: [4]
+2026-05-15 13:33:03 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_0_relevant_regions.png
+2026-05-15 13:33:03 | INFO | 🎯 Using region index: 5 at (939, 1518)
+2026-05-15 13:33:03 | INFO | [1] Tap the graph icon to view statistics. -> tap
+2026-05-15 13:33:03 | INFO | ✅ Action executed.
+2026-05-15 13:33:03 | INFO | 
+2026-05-15 13:33:03 | INFO | 
+2026-05-15 13:33:03 | INFO | 📂 Processing segment 1...
+2026-05-15 13:33:03 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_1_screenshot-0.png
+2026-05-15 13:33:03 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_1_dino.png
+2026-05-15 13:33:03 | INFO | 🔍 Relevant regions: {'target_regions': [19, 20], 'predicted_action': 'tap'}
+2026-05-15 13:33:03 | INFO | 🧠 GPT selected regions: [19, 20]
+2026-05-15 13:33:03 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_1_relevant_regions.png
+2026-05-15 13:33:03 | INFO | 🎯 Using region index: 3 at (872, 869)
+2026-05-15 13:33:03 | INFO | [1] Tap the 'Pulse' button to view pulse statistics. -> tap
+2026-05-15 13:33:03 | INFO | ✅ Action executed.
+2026-05-15 13:33:03 | INFO | 
+2026-05-15 13:33:03 | INFO | 
+2026-05-15 13:33:03 | INFO | 📂 Processing segment 2...
+2026-05-15 13:33:03 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_2_screenshot-0.png
+2026-05-15 13:33:03 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_2_dino.png
+2026-05-15 13:33:03 | INFO | 🔍 Relevant regions: {'target_regions': [16], 'predicted_action': 'tap'}
+2026-05-15 13:33:03 | INFO | 🧠 GPT selected regions: [16]
+2026-05-15 13:33:03 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_2_relevant_regions.png
+2026-05-15 13:33:03 | INFO | 🎯 Using region index: 3 at (872, 869)
+2026-05-15 13:33:03 | INFO | [1] Tap the 'Pulse' button to view pulse statistics. -> tap
+2026-05-15 13:33:03 | INFO | ✅ Action executed.
+2026-05-15 13:33:03 | INFO | 
+2026-05-15 13:33:03 | INFO | 
+2026-05-15 13:33:03 | INFO | 📂 Processing segment 3...
+2026-05-15 13:33:03 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_3_screenshot-0.png
+2026-05-15 13:33:03 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_3_dino.png
+2026-05-15 13:33:03 | INFO | 🔍 Relevant regions: {'target_regions': [27], 'predicted_action': 'tap'}
+2026-05-15 13:33:03 | INFO | 🧠 GPT selected regions: [27]
+2026-05-15 13:33:03 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_3_relevant_regions.png
+2026-05-15 13:33:03 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 13:33:03 | INFO | 🎯 Recovery using region index: 3 at (872, 869)
+2026-05-15 13:33:03 | INFO | [1] Tap the 'Pulse' button to reproduce the recorded action. -> tap
+2026-05-15 13:33:03 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_3_screenshot-0.png
+2026-05-15 13:33:03 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 13:33:03 | INFO | 🎯 Recovery using region index: 3 at (872, 869)
+2026-05-15 13:33:03 | INFO | [1] Tap the 'Pulse' button, which was highlighted in the recording, to reproduce the interaction. -> tap
+2026-05-15 13:33:03 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_3_screenshot-0.png
+2026-05-15 13:33:03 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 13:33:03 | INFO | 🎯 Recovery using region index: 3 at (872, 869)
+2026-05-15 13:33:03 | INFO | [1] Tap the 'Pulse' button to reproduce the recorded action. -> tap
+2026-05-15 13:33:03 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_3_screenshot-0.png
+2026-05-15 13:33:03 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 13:33:03 | INFO | Mismatch reason: the current screen displays different content above the 'metrics by time of day' section. the reference screen shows a large circular graph and a radar chart, while the current screen shows 'measurement count', 'measurements per day', 'value distribution' with 'systolic', 'diastolic', 'pulse' options, and 'no data'. the interactive elements and information presented in this main section are different, meaning the user cannot perform the same actions related to these specific graphs/data points.
+2026-05-15 13:33:03 | INFO | 
+2026-05-15 13:33:03 | INFO | 📂 Processing segment 4...
+2026-05-15 13:33:03 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_4_screenshot-0.png
+2026-05-15 13:33:03 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_4_dino.png
+2026-05-15 13:33:03 | INFO | 🔍 Relevant regions: {'target_regions': [14], 'predicted_action': 'tap'}
+2026-05-15 13:33:03 | INFO | 🧠 GPT selected regions: [14]
+2026-05-15 13:33:03 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_4_relevant_regions.png
+2026-05-15 13:33:03 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 13:33:03 | INFO | 🎯 Recovery using region index: 0 at (74, 137)
+2026-05-15 13:33:03 | INFO | [1] Tap the back arrow to go back to the previous screen. -> tap
+2026-05-15 13:33:03 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_4_screenshot-0.png
+2026-05-15 13:33:03 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 13:33:03 | INFO | [1] The element that was tapped in the recording (the circular graph) is not present in the current GUI. The current GUI states 'Not enough data to draw a graph.', making it impossible to reproduce the original tap action on the same element to achieve the same transition. -> no action
+2026-05-15 13:33:03 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_4_screenshot-0.png
+2026-05-15 13:33:03 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 13:33:03 | INFO | [1] The element that was tapped in the recording (the circular graph) is not present in the current GUI. The current GUI states 'Not enough data to draw a graph', indicating a different state where the original interaction cannot be replicated. -> no action
+2026-05-15 13:33:03 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/artifacts/step_4_screenshot-0.png
+2026-05-15 13:33:03 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 13:33:03 | INFO | Mismatch reason: the main content area is different: the reference shows a 'metrics by time of day' graph, while the current state displays 'not enough data to draw a graph.' this means interactions with the graph are not possible in the current state. additionally, the current state includes new ui elements such as 'systolic', 'diastolic', 'pulse' tabs and three floating action buttons (settings, graph, plus icon) which are not present in the reference state, indicating different available actions.
+2026-05-15 13:33:03 | INFO | ✅ Video processing completed.
+2026-05-15 13:33:03 | INFO | 📝 Summary saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-006/memory.md
+2026-05-15 13:33:05 | INFO | ========================================================================
+RUN SUMMARY
+  App         : bloodpressuremonitor
+  Video type  : screenrec
+  Status      : success
+  Scenes      : 5/5
+  Actions     : unknown=5
+  LLM calls   : action_inference=9  region_detection=5  state_comparison=11
+  LLM latency : min=4.1s  max=23.9s  avg=8.4s  total=208.8s
+  Tokens used : prompt=24,259  output=1,498  total=25,757
+  Wall time   : 4m 36s
+========================================================================

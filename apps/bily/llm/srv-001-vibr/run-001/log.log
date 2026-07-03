@@ -1,0 +1,157 @@
+2026-05-15 10:59:06 | INFO | === src_vibr.log ===
+2026-05-15 10:59:06 | INFO | Starting ViBR run
+2026-05-15 10:59:06 | INFO | App: bily
+2026-05-15 10:59:06 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/videos/srv-001.mp4
+2026-05-15 10:59:06 | INFO | Algorithm: clip
+2026-05-15 10:59:06 | INFO | LLM: gemini (gemini-2.5-pro)
+2026-05-15 10:59:06 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-001
+2026-05-15 10:59:13 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-15 10:59:13 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-15 10:59:13 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-15 10:59:14 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-15 10:59:14 | INFO | 
+2026-05-15 10:59:14 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-15 10:59:14 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7187.53it/s]
+2026-05-15 10:59:14 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-15 10:59:14 | INFO | Key                                        | Status     |  | 
+2026-05-15 10:59:14 | INFO | -------------------------------------------+------------+--+-
+2026-05-15 10:59:14 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-15 10:59:14 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-15 10:59:14 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-15 10:59:14 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-15 10:59:14 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-15 10:59:14 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-15 10:59:14 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-15 10:59:14 | INFO | 
+2026-05-15 10:59:14 | INFO | Notes:
+2026-05-15 10:59:14 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 10:59:18 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-15 10:59:18 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-pro)...
+2026-05-15 10:59:18 | INFO | Initializing ADB device controller...
+2026-05-15 10:59:18 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-001/artifacts/screenshot-0.png
+2026-05-15 10:59:18 | INFO | Reading frames from video...
+2026-05-15 10:59:18 | INFO | Reading frame:  100
+2026-05-15 10:59:18 | INFO | Reading frame:  200
+2026-05-15 10:59:18 | INFO | Reading frame:  300
+2026-05-15 10:59:18 | INFO | 🔍 Detecting stable segments...
+2026-05-15 10:59:18 | INFO | 
+2026-05-15 10:59:18 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-15 10:59:18 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 35949.89it/s]
+2026-05-15 10:59:18 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-15 10:59:18 | INFO | Key                                  | Status     |  | 
+2026-05-15 10:59:18 | INFO | -------------------------------------+------------+--+-
+2026-05-15 10:59:18 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-15 10:59:18 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-15 10:59:18 | INFO | 
+2026-05-15 10:59:18 | INFO | Notes:
+2026-05-15 10:59:18 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 11:19:13 | INFO | ✅ CLIP similarity list loaded from cache.
+2026-05-15 11:19:13 | INFO | 
+2026-05-15 11:19:13 | INFO | 📂 Processing segment 0...
+2026-05-15 11:19:13 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-001/artifacts/step_0_screenshot-0.png
+2026-05-15 11:19:13 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-001/artifacts/step_0_dino.png
+2026-05-15 11:19:13 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'no action'}
+2026-05-15 11:19:13 | INFO | 🧠 GPT selected regions: []
+2026-05-15 11:19:13 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-15 11:19:13 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 11:19:13 | INFO | [1] No Action needed. -> no action
+2026-05-15 11:19:13 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-001/artifacts/step_0_screenshot-0.png
+2026-05-15 11:19:13 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 11:19:13 | INFO | [1] No Action needed. -> no action
+2026-05-15 11:19:13 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-001/artifacts/step_0_screenshot-0.png
+2026-05-15 11:19:13 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 11:19:13 | INFO | [1] No Action needed. -> no action
+2026-05-15 11:19:13 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-001/artifacts/step_0_screenshot-0.png
+2026-05-15 11:19:13 | INFO | ⚠️ No valid region or element match. Proceeding without position.
+2026-05-15 11:19:13 | INFO | [1] No action is needed as the transition from the first to the second screen shows no change. -> no action
+2026-05-15 11:19:13 | INFO | ✅ Action executed.
+2026-05-15 11:19:13 | INFO | 
+2026-05-15 11:19:13 | INFO | 
+2026-05-15 11:19:13 | INFO | 📂 Processing segment 1...
+2026-05-15 11:19:13 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-001/artifacts/step_1_screenshot-0.png
+2026-05-15 11:19:13 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-001/artifacts/step_1_dino.png
+2026-05-15 11:19:13 | INFO | 🔍 Relevant regions: {'target_regions': [19], 'predicted_action': 'tap'}
+2026-05-15 11:19:13 | INFO | 🧠 GPT selected regions: [19]
+2026-05-15 11:19:13 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-001/artifacts/step_1_relevant_regions.png
+2026-05-15 11:19:13 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 11:19:13 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-15 11:19:13 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 11:19:13 | INFO | Gemini request timed out (attempt 1/5). Retrying in 10s...
+2026-05-15 11:19:13 | INFO | Gemini request timed out (attempt 2/5). Retrying in 20s...
+2026-05-15 11:19:13 | INFO | Gemini request timed out (attempt 3/5). Retrying in 40s...
+2026-05-15 11:19:13 | INFO | Gemini request timed out (attempt 4/5). Retrying in 80s...
+2026-05-15 11:19:13 | INFO | Traceback (most recent call last):
+2026-05-15 11:19:13 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/approach/gemini_api.py", line 154, in _call_gemini
+2026-05-15 11:19:13 | INFO |     with url_request.urlopen(req, timeout=timeout) as resp:
+2026-05-15 11:19:13 | INFO |          ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+2026-05-15 11:19:13 | INFO |   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py", line 189, in urlopen
+2026-05-15 11:19:13 | INFO |     return opener.open(url, data, timeout)
+2026-05-15 11:19:13 | INFO |            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+2026-05-15 11:19:13 | INFO |   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py", line 489, in open
+2026-05-15 11:19:13 | INFO |     response = self._open(req, data)
+2026-05-15 11:19:13 | INFO |   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py", line 506, in _open
+2026-05-15 11:19:13 | INFO |     result = self._call_chain(self.handle_open, protocol, protocol +
+2026-05-15 11:19:13 | INFO |                               '_open', req)
+2026-05-15 11:19:13 | INFO |   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py", line 466, in _call_chain
+2026-05-15 11:19:13 | INFO |     result = func(*args)
+2026-05-15 11:19:13 | INFO |   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py", line 1367, in https_open
+2026-05-15 11:19:13 | INFO |     return self.do_open(http.client.HTTPSConnection, req,
+2026-05-15 11:19:13 | INFO |            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-15 11:19:13 | INFO |                         context=self._context)
+2026-05-15 11:19:13 | INFO |                         ^^^^^^^^^^^^^^^^^^^^^^
+2026-05-15 11:19:13 | INFO |   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py", line 1323, in do_open
+2026-05-15 11:19:13 | INFO |     r = h.getresponse()
+2026-05-15 11:19:13 | INFO |   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 1430, in getresponse
+2026-05-15 11:19:13 | INFO |     response.begin()
+2026-05-15 11:19:13 | INFO |     ~~~~~~~~~~~~~~^^
+2026-05-15 11:19:13 | INFO |   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 331, in begin
+2026-05-15 11:19:13 | INFO |     version, status, reason = self._read_status()
+2026-05-15 11:19:13 | INFO |                               ~~~~~~~~~~~~~~~~~^^
+2026-05-15 11:19:13 | INFO |   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py", line 292, in _read_status
+2026-05-15 11:19:13 | INFO |     line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+2026-05-15 11:19:13 | INFO |                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+2026-05-15 11:19:13 | INFO |   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socket.py", line 719, in readinto
+2026-05-15 11:19:13 | INFO |     return self._sock.recv_into(b)
+2026-05-15 11:19:13 | INFO |            ~~~~~~~~~~~~~~~~~~~~^^^
+2026-05-15 11:19:13 | INFO |   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py", line 1304, in recv_into
+2026-05-15 11:19:13 | INFO |     return self.read(nbytes, buffer)
+2026-05-15 11:19:13 | INFO |            ~~~~~~~~~^^^^^^^^^^^^^^^^
+2026-05-15 11:19:13 | INFO |   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py", line 1138, in read
+2026-05-15 11:19:13 | INFO |     return self._sslobj.read(len, buffer)
+2026-05-15 11:19:13 | INFO |            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+2026-05-15 11:19:13 | INFO | TimeoutError: The read operation timed out
+2026-05-15 11:19:13 | INFO | 
+2026-05-15 11:19:13 | INFO | During handling of the above exception, another exception occurred:
+2026-05-15 11:19:13 | INFO | 
+2026-05-15 11:19:13 | INFO | Traceback (most recent call last):
+2026-05-15 11:19:13 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/approach/segment_replay.py", line 586, in <module>
+2026-05-15 11:19:13 | INFO |     main(
+2026-05-15 11:19:13 | INFO |     ~~~~^
+2026-05-15 11:19:13 | INFO |         args.video_path,
+2026-05-15 11:19:13 | INFO |         ^^^^^^^^^^^^^^^^
+2026-05-15 11:19:13 | INFO |     ...<6 lines>...
+2026-05-15 11:19:13 | INFO |         app_name=args.app_name,
+2026-05-15 11:19:13 | INFO |         ^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-15 11:19:13 | INFO |     )
+2026-05-15 11:19:13 | INFO |     ^
+2026-05-15 11:19:13 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/approach/segment_replay.py", line 441, in main
+2026-05-15 11:19:13 | INFO |     recovery_reply = provider.ask_gpt_for_action_region(
+2026-05-15 11:19:13 | INFO |         tmp_start_path, tmp_stop_path, labeled_path, relevant["predicted_action"],
+2026-05-15 11:19:13 | INFO |     )
+2026-05-15 11:19:13 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/approach/gemini_api.py", line 324, in ask_gpt_for_action_region
+2026-05-15 11:19:13 | INFO |     response = _call_gemini(parts, kind="action_inference")
+2026-05-15 11:19:13 | INFO |   File "/Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/approach/gemini_api.py", line 181, in _call_gemini
+2026-05-15 11:19:13 | INFO |     raise RuntimeError(f"Gemini request timed out after {_MAX_RETRIES} attempts ({timeout}s each)")
+2026-05-15 11:19:13 | INFO | RuntimeError: Gemini request timed out after 5 attempts (180s each)
+2026-05-15 11:19:15 | INFO | ========================================================================
+RUN SUMMARY
+  App         : bily
+  Video type  : screenrec
+  Status      : failed
+  Scenes      : 0/0
+  Actions     : none
+  LLM calls   : n/a
+  LLM latency : n/a
+  Tokens used : n/a
+  Wall time   : 20m 8s
+========================================================================

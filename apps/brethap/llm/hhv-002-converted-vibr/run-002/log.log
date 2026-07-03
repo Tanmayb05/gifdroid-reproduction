@@ -1,0 +1,105 @@
+2026-05-15 16:23:24 | INFO | === src_vibr.log ===
+2026-05-15 16:23:24 | INFO | Starting ViBR run
+2026-05-15 16:23:24 | INFO | App: brethap
+2026-05-15 16:23:24 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/videos/hhv-002-converted.mp4
+2026-05-15 16:23:24 | INFO | Algorithm: clip
+2026-05-15 16:23:24 | INFO | LLM: gemini (gemini-2.5-pro)
+2026-05-15 16:23:24 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-002-converted-vibr/run-002
+2026-05-15 16:23:24 | INFO | Running Gemini API health check...
+2026-05-15 16:23:24 | INFO | 2026-05-15 16:23:24,641 | INFO | ======================================================================
+2026-05-15 16:23:24 | INFO | 2026-05-15 16:23:24,642 | INFO | 🔍 Testing Gemini API Health...
+2026-05-15 16:23:24 | INFO | 2026-05-15 16:23:24,642 | INFO | ======================================================================
+2026-05-15 16:23:24 | INFO | 2026-05-15 16:23:24,642 | INFO | Model: gemini-2.5-pro
+2026-05-15 16:23:24 | INFO | 2026-05-15 16:23:24,642 | INFO | Timeout: 60s
+2026-05-15 16:23:26 | INFO | 2026-05-15 16:23:26,891 | INFO | ✅ Built URL and headers
+2026-05-15 16:23:26 | INFO | 2026-05-15 16:23:26,891 | INFO | 📤 Sending test request to Gemini API...
+2026-05-15 16:23:40 | INFO | 2026-05-15 16:23:40,815 | INFO | ✅ API Response received in 13.92s
+2026-05-15 16:23:40 | INFO | 2026-05-15 16:23:40,815 | INFO |    Response: API connection successful.
+2026-05-15 16:23:40 | INFO | 2026-05-15 16:23:40,815 | INFO |    Tokens: 13 input, 4 output
+2026-05-15 16:23:40 | INFO | 2026-05-15 16:23:40,815 | INFO | ======================================================================
+2026-05-15 16:23:40 | INFO | 2026-05-15 16:23:40,815 | INFO | ✅ Gemini API is HEALTHY
+2026-05-15 16:23:40 | INFO | 2026-05-15 16:23:40,815 | INFO | ======================================================================
+2026-05-15 16:23:40 | INFO | ✅ Gemini API health check passed. Proceeding with inference...
+2026-05-15 16:23:46 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-15 16:23:46 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-15 16:23:46 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-15 16:23:47 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-15 16:23:48 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-15 16:23:48 | INFO | 
+2026-05-15 16:23:48 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-15 16:23:48 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 6127.93it/s]
+2026-05-15 16:23:48 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-15 16:23:48 | INFO | Key                                        | Status     |  | 
+2026-05-15 16:23:48 | INFO | -------------------------------------------+------------+--+-
+2026-05-15 16:23:48 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-15 16:23:48 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-15 16:23:48 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-15 16:23:48 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-15 16:23:48 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-15 16:23:48 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-15 16:23:48 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-15 16:23:48 | INFO | 
+2026-05-15 16:23:48 | INFO | Notes:
+2026-05-15 16:23:48 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 16:23:58 | INFO | [DINO] Model loaded on device: mps
+2026-05-15 16:23:58 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-pro)...
+2026-05-15 16:23:58 | INFO | Initializing ADB device controller...
+2026-05-15 16:23:58 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-002-converted-vibr/run-002/artifacts/screenshot-0.png
+2026-05-15 16:23:58 | INFO | Reading frames from video...
+2026-05-15 16:23:58 | INFO | Reading frame:  100
+2026-05-15 16:23:58 | INFO | Reading frame:  200
+2026-05-15 16:23:58 | INFO | Reading frame:  300
+2026-05-15 16:23:58 | INFO | Reading frame:  400
+2026-05-15 16:23:59 | INFO | Reading frame:  500
+2026-05-15 16:23:59 | INFO | Reading frame:  600
+2026-05-15 16:23:59 | INFO | Reading frame:  700
+2026-05-15 16:23:59 | INFO | Reading frame:  800
+2026-05-15 16:23:59 | INFO | Reading frame:  900
+2026-05-15 16:23:59 | INFO | Reading frame:  1000
+2026-05-15 16:23:59 | INFO | Reading frame:  1100
+2026-05-15 16:23:59 | INFO | Reading frame:  1200
+2026-05-15 16:23:59 | INFO | Reading frame:  1300
+2026-05-15 16:23:59 | INFO | 🔍 Detecting stable segments...
+2026-05-15 16:23:59 | INFO | [CLIP_PIPELINE] Starting CLIP-based segmentation for 1336 frames
+2026-05-15 16:23:59 | INFO | [CLIP_PIPELINE] Cache file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/cache/sim_list_clip_hhv-002-converted.pkl
+2026-05-15 16:23:59 | INFO | 
+2026-05-15 16:23:59 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-15 16:23:59 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 26835.56it/s]
+2026-05-15 16:23:59 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-15 16:23:59 | INFO | Key                                  | Status     |  | 
+2026-05-15 16:23:59 | INFO | -------------------------------------+------------+--+-
+2026-05-15 16:23:59 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-15 16:23:59 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-15 16:23:59 | INFO | 
+2026-05-15 16:23:59 | INFO | Notes:
+2026-05-15 16:23:59 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 16:24:01 | INFO | [CLIP_PIPELINE] Model initialization took 2.90s
+2026-05-15 16:24:01 | INFO | ✅ CLIP similarity list loaded from cache in 0.00s
+2026-05-15 16:24:01 | INFO | [CLIP_PIPELINE] Keyframe detection took 0.00s
+2026-05-15 16:24:01 | INFO | [CLIP_PIPELINE] Total: 2.90s | Found 2 segments
+2026-05-15 16:25:49 | INFO | 
+2026-05-15 16:25:49 | INFO | 📂 Processing segment 0...
+2026-05-15 16:25:49 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-002-converted-vibr/run-002/artifacts/step_0_screenshot-0.png
+2026-05-15 16:25:49 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-002-converted-vibr/run-002/artifacts/step_0_dino.png
+2026-05-15 16:25:49 | INFO | 🔍 Relevant regions: {'target_regions': [8], 'predicted_action': 'tap'}
+2026-05-15 16:25:49 | INFO | 🧠 GPT selected regions: [8]
+2026-05-15 16:25:49 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-002-converted-vibr/run-002/artifacts/step_0_relevant_regions.png
+2026-05-15 16:25:49 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 16:25:49 | INFO | 🎯 Recovery using region index: 0 at (540, 960)
+2026-05-15 16:25:49 | INFO | [1] Tap on 'Press Start' to begin the breathing exercise. -> tap
+2026-05-15 16:25:49 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-002-converted-vibr/run-002/artifacts/step_0_screenshot-0.png
+2026-05-15 16:25:49 | INFO | ⚠️ No valid region or element match. Skipping action.
+2026-05-15 16:25:49 | INFO | ✅ Video processing completed.
+2026-05-15 16:25:49 | INFO | 📝 Summary saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-002-converted-vibr/run-002/memory.md
+2026-05-15 16:25:52 | INFO | ========================================================================
+RUN SUMMARY
+  App         : brethap
+  Video type  : handheld
+  Status      : success
+  Scenes      : 1/1
+  Actions     : unknown=1
+  LLM calls   : action_inference=2  region_detection=1  state_comparison=2
+  LLM latency : min=8.3s  max=32.3s  avg=18.1s  total=90.6s
+  Tokens used : prompt=4,927  output=194  total=5,121
+  Wall time   : 2m 28s
+========================================================================

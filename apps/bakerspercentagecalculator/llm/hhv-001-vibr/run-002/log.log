@@ -1,0 +1,95 @@
+2026-05-15 16:26:44 | INFO | === src_vibr.log ===
+2026-05-15 16:26:44 | INFO | Starting ViBR run
+2026-05-15 16:26:44 | INFO | App: bakerspercentagecalculator
+2026-05-15 16:26:44 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/videos/hhv-001.mp4
+2026-05-15 16:26:44 | INFO | Algorithm: clip
+2026-05-15 16:26:44 | INFO | LLM: gemini (gemini-2.5-pro)
+2026-05-15 16:26:44 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/hhv-001-vibr/run-002
+2026-05-15 16:26:44 | INFO | Running Gemini API health check...
+2026-05-15 16:26:44 | INFO | INFO:__main__:======================================================================
+2026-05-15 16:26:44 | INFO | INFO:__main__:🔍 Testing Gemini API Health...
+2026-05-15 16:26:44 | INFO | INFO:__main__:======================================================================
+2026-05-15 16:26:44 | INFO | INFO:__main__:Model: gemini-2.5-pro
+2026-05-15 16:26:44 | INFO | INFO:__main__:Timeout: 60s
+2026-05-15 16:26:45 | INFO | INFO:__main__:✅ Built URL and headers
+2026-05-15 16:26:45 | INFO | INFO:__main__:📤 Sending test request to Gemini API...
+2026-05-15 16:27:05 | INFO | INFO:__main__:✅ API Response received in 20.50s
+2026-05-15 16:27:05 | INFO | INFO:__main__:   Response: API connection successful.
+2026-05-15 16:27:05 | INFO | INFO:__main__:   Tokens: 13 input, 4 output
+2026-05-15 16:27:05 | INFO | INFO:__main__:======================================================================
+2026-05-15 16:27:05 | INFO | INFO:__main__:✅ Gemini API is HEALTHY
+2026-05-15 16:27:05 | INFO | INFO:__main__:======================================================================
+2026-05-15 16:27:05 | INFO | ✅ Gemini API health check passed. Proceeding with inference...
+2026-05-15 16:27:11 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-15 16:27:11 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-15 16:27:11 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-15 16:27:11 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-15 16:27:12 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-15 16:27:12 | INFO | 
+2026-05-15 16:27:12 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-15 16:27:12 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 8486.52it/s]
+2026-05-15 16:27:12 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-15 16:27:12 | INFO | Key                                        | Status     |  | 
+2026-05-15 16:27:12 | INFO | -------------------------------------------+------------+--+-
+2026-05-15 16:27:12 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-15 16:27:12 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-15 16:27:12 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-15 16:27:12 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-15 16:27:12 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-15 16:27:12 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-15 16:27:12 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-15 16:27:12 | INFO | 
+2026-05-15 16:27:12 | INFO | Notes:
+2026-05-15 16:27:12 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 16:27:25 | INFO | [DINO] Model loaded on device: mps
+2026-05-15 16:27:25 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-pro)...
+2026-05-15 16:27:25 | INFO | Initializing ADB device controller...
+2026-05-15 16:27:25 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/hhv-001-vibr/run-002/artifacts/screenshot-0.png
+2026-05-15 16:27:25 | INFO | Reading frames from video...
+2026-05-15 16:27:25 | INFO | Reading frame:  100
+2026-05-15 16:27:25 | INFO | Reading frame:  200
+2026-05-15 16:27:25 | INFO | Reading frame:  300
+2026-05-15 16:27:25 | INFO | Reading frame:  400
+2026-05-15 16:27:25 | INFO | Reading frame:  500
+2026-05-15 16:27:25 | INFO | Reading frame:  600
+2026-05-15 16:27:25 | INFO | Reading frame:  700
+2026-05-15 16:27:25 | INFO | Reading frame:  800
+2026-05-15 16:27:25 | INFO | Reading frame:  900
+2026-05-15 16:27:25 | INFO | Reading frame:  1000
+2026-05-15 16:27:25 | INFO | Reading frame:  1100
+2026-05-15 16:27:25 | INFO | Reading frame:  1200
+2026-05-15 16:27:25 | INFO | Reading frame:  1300
+2026-05-15 16:27:25 | INFO | Reading frame:  1400
+2026-05-15 16:27:25 | INFO | Reading frame:  1500
+2026-05-15 16:27:25 | INFO | 🔍 Detecting stable segments...
+2026-05-15 16:27:25 | INFO | [CLIP_PIPELINE] Starting CLIP-based segmentation for 1505 frames
+2026-05-15 16:27:25 | INFO | [CLIP_PIPELINE] Cache file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/cache/sim_list_clip_hhv-001.pkl
+2026-05-15 16:27:26 | INFO | 
+2026-05-15 16:27:26 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-15 16:27:26 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 58235.93it/s]
+2026-05-15 16:27:26 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-15 16:27:26 | INFO | Key                                  | Status     |  | 
+2026-05-15 16:27:26 | INFO | -------------------------------------+------------+--+-
+2026-05-15 16:27:26 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-15 16:27:26 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-15 16:27:26 | INFO | 
+2026-05-15 16:27:26 | INFO | Notes:
+2026-05-15 16:27:26 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 16:27:31 | INFO | [CLIP_PIPELINE] Model initialization took 5.64s
+2026-05-15 16:27:31 | INFO | ✅ CLIP similarity list loaded from cache in 0.00s
+2026-05-15 16:27:31 | INFO | [CLIP_PIPELINE] Keyframe detection took 0.00s
+2026-05-15 16:27:31 | INFO | [CLIP_PIPELINE] Total: 5.64s | Found 1 segments
+2026-05-15 16:27:31 | INFO | ✅ Video processing completed.
+2026-05-15 16:27:31 | INFO | 📝 Summary saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bakerspercentagecalculator/llm/hhv-001-vibr/run-002/memory.md
+2026-05-15 16:27:33 | INFO | ========================================================================
+RUN SUMMARY
+  App         : bakerspercentagecalculator
+  Video type  : handheld
+  Status      : success
+  Scenes      : 0/0
+  Actions     : none
+  LLM calls   : n/a
+  LLM latency : n/a
+  Tokens used : n/a
+  Wall time   : 0m 49s
+========================================================================

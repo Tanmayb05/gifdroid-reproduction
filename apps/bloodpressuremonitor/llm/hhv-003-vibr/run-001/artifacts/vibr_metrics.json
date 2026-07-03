@@ -1,0 +1,31 @@
+{
+  "total_scenes": 1,
+  "scenes_processed": 1,
+  "scenes_failed": 0,
+  "action_types": {
+    "unknown": 1
+  },
+  "llm_calls": [
+    {
+      "kind": "region_detection",
+      "elapsed_sec": 9.069560050964355,
+      "prompt_tokens": 848,
+      "output_tokens": 32,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 13.89153790473938,
+      "prompt_tokens": 830,
+      "output_tokens": 18,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 10.46701192855835,
+      "prompt_tokens": 1211,
+      "output_tokens": 38,
+      "error": null
+    }
+  ]
+}

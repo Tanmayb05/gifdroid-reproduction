@@ -1,0 +1,80 @@
+2026-05-15 13:04:54 | INFO | === src_vibr.log ===
+2026-05-15 13:04:54 | INFO | Starting ViBR run
+2026-05-15 13:04:54 | INFO | App: bloodpressuremonitor
+2026-05-15 13:04:54 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/videos/srv-001.mp4
+2026-05-15 13:04:54 | INFO | Algorithm: clip
+2026-05-15 13:04:54 | INFO | LLM: gemini (gemini-2.5-flash)
+2026-05-15 13:04:54 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-003
+2026-05-15 13:04:54 | INFO | Running Gemini API health check...
+2026-05-15 13:04:54 | INFO | 2026-05-15 13:04:54,903 | INFO | ======================================================================
+2026-05-15 13:04:54 | INFO | 2026-05-15 13:04:54,903 | INFO | 🔍 Testing Gemini API Health...
+2026-05-15 13:04:54 | INFO | 2026-05-15 13:04:54,903 | INFO | ======================================================================
+2026-05-15 13:04:54 | INFO | 2026-05-15 13:04:54,903 | INFO | Model: gemini-2.5-flash
+2026-05-15 13:04:54 | INFO | 2026-05-15 13:04:54,903 | INFO | Timeout: 60s
+2026-05-15 13:04:56 | INFO | 2026-05-15 13:04:56,064 | INFO | ✅ Built URL and headers
+2026-05-15 13:04:56 | INFO | 2026-05-15 13:04:56,065 | INFO | 📤 Sending test request to Gemini API...
+2026-05-15 13:04:56 | INFO | 2026-05-15 13:04:56,853 | INFO | ✅ API Response received in 0.79s
+2026-05-15 13:04:56 | INFO | 2026-05-15 13:04:56,853 | INFO |    Response: API is working.
+2026-05-15 13:04:56 | INFO | 2026-05-15 13:04:56,853 | INFO |    Tokens: 13 input, 4 output
+2026-05-15 13:04:56 | INFO | 2026-05-15 13:04:56,853 | INFO | ======================================================================
+2026-05-15 13:04:56 | INFO | 2026-05-15 13:04:56,853 | INFO | ✅ Gemini API is HEALTHY
+2026-05-15 13:04:56 | INFO | 2026-05-15 13:04:56,853 | INFO | ======================================================================
+2026-05-15 13:04:56 | INFO | ✅ Gemini API health check passed. Proceeding with inference...
+2026-05-15 13:05:02 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-15 13:05:02 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-15 13:05:02 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-15 13:05:02 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-15 13:05:03 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-15 13:05:03 | INFO | 
+2026-05-15 13:05:03 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-15 13:05:03 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7419.52it/s]
+2026-05-15 13:05:03 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-15 13:05:03 | INFO | Key                                        | Status     |  | 
+2026-05-15 13:05:03 | INFO | -------------------------------------------+------------+--+-
+2026-05-15 13:05:03 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-15 13:05:03 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-15 13:05:03 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-15 13:05:03 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-15 13:05:03 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-15 13:05:03 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-15 13:05:03 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-15 13:05:03 | INFO | 
+2026-05-15 13:05:03 | INFO | Notes:
+2026-05-15 13:05:03 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 13:05:06 | INFO | [DINO] Model loaded on device: mps
+2026-05-15 13:05:06 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-flash)...
+2026-05-15 13:05:06 | INFO | Initializing ADB device controller...
+2026-05-15 13:05:06 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-003/artifacts/screenshot-0.png
+2026-05-15 13:05:06 | INFO | Reading frames from video...
+2026-05-15 13:05:06 | INFO | Reading frame:  100
+2026-05-15 13:05:06 | INFO | Reading frame:  200
+2026-05-15 13:05:06 | INFO | 🔍 Detecting stable segments...
+2026-05-15 13:05:06 | INFO | [CLIP_PIPELINE] Starting CLIP-based segmentation for 258 frames
+2026-05-15 13:05:06 | INFO | [CLIP_PIPELINE] Cache file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/cache/sim_list_clip_srv-001.pkl
+2026-05-15 13:05:06 | INFO | 
+2026-05-15 13:05:06 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-15 13:05:06 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 40055.98it/s]
+2026-05-15 13:05:06 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-15 13:05:06 | INFO | Key                                  | Status     |  | 
+2026-05-15 13:05:06 | INFO | -------------------------------------+------------+--+-
+2026-05-15 13:05:06 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-15 13:05:06 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-15 13:05:06 | INFO | 
+2026-05-15 13:05:06 | INFO | Notes:
+2026-05-15 13:05:06 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 13:05:08 | INFO | [CLIP_PIPELINE] Model initialization took 2.44s
+2026-05-15 13:05:08 | INFO | ✅ CLIP similarity list loaded from cache in 0.00s
+2026-05-15 13:05:08 | INFO | [CLIP_PIPELINE] Keyframe detection took 0.00s
+2026-05-15 13:05:08 | INFO | [CLIP_PIPELINE] Total: 2.44s | Found 9 segments
+2026-05-15 13:10:14 | INFO | ========================================================================
+RUN SUMMARY
+  App         : bloodpressuremonitor
+  Video type  : screenrec
+  Status      : unknown
+  Scenes      : 0/0
+  Actions     : none
+  LLM calls   : n/a
+  LLM latency : n/a
+  Tokens used : n/a
+  Wall time   : 5m 19s
+========================================================================

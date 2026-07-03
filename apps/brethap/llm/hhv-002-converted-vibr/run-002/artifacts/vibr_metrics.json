@@ -1,0 +1,45 @@
+{
+  "total_scenes": 1,
+  "scenes_processed": 1,
+  "scenes_failed": 0,
+  "action_types": {
+    "unknown": 1
+  },
+  "llm_calls": [
+    {
+      "kind": "region_detection",
+      "elapsed_sec": 10.24914002418518,
+      "prompt_tokens": 848,
+      "output_tokens": 32,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 8.341137886047363,
+      "prompt_tokens": 830,
+      "output_tokens": 65,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 32.27684497833252,
+      "prompt_tokens": 1211,
+      "output_tokens": 42,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 9.150457859039307,
+      "prompt_tokens": 827,
+      "output_tokens": 18,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 30.55914282798767,
+      "prompt_tokens": 1211,
+      "output_tokens": 37,
+      "error": null
+    }
+  ]
+}

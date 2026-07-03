@@ -1,0 +1,187 @@
+2026-05-15 13:10:17 | INFO | === src_vibr.log ===
+2026-05-15 13:10:17 | INFO | Starting ViBR run
+2026-05-15 13:10:17 | INFO | App: bloodpressuremonitor
+2026-05-15 13:10:17 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/videos/srv-001.mp4
+2026-05-15 13:10:17 | INFO | Algorithm: clip
+2026-05-15 13:10:17 | INFO | LLM: gemini (gemini-2.5-flash)
+2026-05-15 13:10:17 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004
+2026-05-15 13:10:17 | INFO | Running Gemini API health check...
+2026-05-15 13:10:17 | INFO | 2026-05-15 13:10:17,609 | INFO | ======================================================================
+2026-05-15 13:10:17 | INFO | 2026-05-15 13:10:17,609 | INFO | 🔍 Testing Gemini API Health...
+2026-05-15 13:10:17 | INFO | 2026-05-15 13:10:17,609 | INFO | ======================================================================
+2026-05-15 13:10:17 | INFO | 2026-05-15 13:10:17,609 | INFO | Model: gemini-2.5-flash
+2026-05-15 13:10:17 | INFO | 2026-05-15 13:10:17,609 | INFO | Timeout: 60s
+2026-05-15 13:10:18 | INFO | 2026-05-15 13:10:18,512 | INFO | ✅ Built URL and headers
+2026-05-15 13:10:18 | INFO | 2026-05-15 13:10:18,513 | INFO | 📤 Sending test request to Gemini API...
+2026-05-15 13:10:19 | INFO | 2026-05-15 13:10:19,500 | INFO | ✅ API Response received in 0.99s
+2026-05-15 13:10:19 | INFO | 2026-05-15 13:10:19,500 | INFO |    Response: API is working.
+2026-05-15 13:10:19 | INFO | 2026-05-15 13:10:19,500 | INFO |    Tokens: 13 input, 4 output
+2026-05-15 13:10:19 | INFO | 2026-05-15 13:10:19,500 | INFO | ======================================================================
+2026-05-15 13:10:19 | INFO | 2026-05-15 13:10:19,500 | INFO | ✅ Gemini API is HEALTHY
+2026-05-15 13:10:19 | INFO | 2026-05-15 13:10:19,500 | INFO | ======================================================================
+2026-05-15 13:10:19 | INFO | ✅ Gemini API health check passed. Proceeding with inference...
+2026-05-15 13:10:24 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-15 13:10:24 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-15 13:10:24 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-15 13:10:25 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-15 13:10:26 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-15 13:10:26 | INFO | 
+2026-05-15 13:10:26 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-15 13:10:26 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 8008.93it/s]
+2026-05-15 13:10:26 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-15 13:10:26 | INFO | Key                                        | Status     |  | 
+2026-05-15 13:10:26 | INFO | -------------------------------------------+------------+--+-
+2026-05-15 13:10:26 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-15 13:10:26 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-15 13:10:26 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-15 13:10:26 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-15 13:10:26 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-15 13:10:26 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-15 13:10:26 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-15 13:10:26 | INFO | 
+2026-05-15 13:10:26 | INFO | Notes:
+2026-05-15 13:10:26 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 13:10:29 | INFO | [DINO] Model loaded on device: mps
+2026-05-15 13:10:29 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-flash)...
+2026-05-15 13:10:29 | INFO | Initializing ADB device controller...
+2026-05-15 13:10:29 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/screenshot-0.png
+2026-05-15 13:10:29 | INFO | Reading frames from video...
+2026-05-15 13:10:29 | INFO | Reading frame:  100
+2026-05-15 13:10:29 | INFO | Reading frame:  200
+2026-05-15 13:10:29 | INFO | 🔍 Detecting stable segments...
+2026-05-15 13:10:29 | INFO | [CLIP_PIPELINE] Starting CLIP-based segmentation for 258 frames
+2026-05-15 13:10:29 | INFO | [CLIP_PIPELINE] Cache file: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/src_ViBR/cache/sim_list_clip_srv-001.pkl
+2026-05-15 13:10:29 | INFO | 
+2026-05-15 13:10:29 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-15 13:10:29 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 38499.38it/s]
+2026-05-15 13:10:29 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-15 13:10:29 | INFO | Key                                  | Status     |  | 
+2026-05-15 13:10:29 | INFO | -------------------------------------+------------+--+-
+2026-05-15 13:10:29 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-15 13:10:29 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-15 13:10:29 | INFO | 
+2026-05-15 13:10:29 | INFO | Notes:
+2026-05-15 13:10:29 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 13:10:31 | INFO | [CLIP_PIPELINE] Model initialization took 2.36s
+2026-05-15 13:10:31 | INFO | [CLIP_PIPELINE] No cache found, computing similarities...
+2026-05-15 13:10:33 | INFO | [CLIP_PIPELINE] Frame conversion took 1.93s
+2026-05-15 13:10:33 | INFO | [CLIP_PIPELINE] Starting similarity computation at 13:10:33
+2026-05-15 13:10:33 | INFO | [CLIP] Starting calculate_clip_sim_seq...
+2026-05-15 13:10:33 | INFO | [CLIP] Starting encoding for 258 frames on device: mps
+2026-05-15 13:10:33 | INFO | [CLIP] Batch size: 32
+2026-05-15 13:10:38 | INFO | [CLIP] Encoded 258/258 | Batch time: 0.45s (model) + 0.02s (proc) | Total: 5.1s
+2026-05-15 13:10:38 | INFO | [CLIP] ✅ Encoding complete: 5.07s for 258 frames
+2026-05-15 13:10:38 | INFO | [CLIP] Embedding phase took 5.07s
+2026-05-15 13:10:38 | INFO | [CLIP] Computing similarity for 257 frame pairs...
+2026-05-15 13:10:38 | INFO | [CLIP] Similarity computation took 0.00s
+2026-05-15 13:10:38 | INFO | [CLIP] Total time: 5.07s
+2026-05-15 13:10:38 | INFO | [CLIP_PIPELINE] Similarity computation took 5.07s
+2026-05-15 13:10:38 | INFO | 📼 CLIP similarity list calculated and saved in 0.00s
+2026-05-15 13:10:38 | INFO | [CLIP_PIPELINE] Keyframe detection took 0.00s
+2026-05-15 13:10:38 | INFO | [CLIP_PIPELINE] Total: 9.36s | Found 6 segments
+2026-05-15 13:17:15 | INFO | 
+2026-05-15 13:17:15 | INFO | 📂 Processing segment 0...
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_0_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_0_dino.png
+2026-05-15 13:17:15 | INFO | 🔍 Relevant regions: {'target_regions': [20], 'predicted_action': 'tap'}
+2026-05-15 13:17:15 | INFO | 🧠 GPT selected regions: [20]
+2026-05-15 13:17:15 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_0_relevant_regions.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 13:17:15 | INFO | 🎯 Recovery using region index: 4 at (164, 759)
+2026-05-15 13:17:15 | INFO | [1] Tap on 'Expenses' to view expense details or statistics. -> tap
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_0_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 13:17:15 | INFO | [1] The current screen is completely different from the recording context. The original action was likely tapping a 'statistics' or 'graph' button to navigate to a statistics screen. There is no equivalent element on the current 'Global Bill' screen to achieve the same transition. -> no action
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_0_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 13:17:15 | INFO | [1] The current GUI is completely different from the GUI in the recording. There is no corresponding element to tap to reproduce the recorded transition. -> no action
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_0_screenshot-0.png
+2026-05-15 13:17:15 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 13:17:15 | INFO | Mismatch reason: the two screens are completely different. the reference screen displays 'statistics' related to measurements with charts and date navigation, while the current screen displays a 'global bill' with balance and expense management options. the content, layout, and available actions are entirely distinct.
+2026-05-15 13:17:15 | INFO | 
+2026-05-15 13:17:15 | INFO | 📂 Processing segment 1...
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_1_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_1_dino.png
+2026-05-15 13:17:15 | INFO | 🔍 Relevant regions: {'target_regions': [19, 20], 'predicted_action': 'tap'}
+2026-05-15 13:17:15 | INFO | 🧠 GPT selected regions: [19, 20]
+2026-05-15 13:17:15 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_1_relevant_regions.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 13:17:15 | INFO | [1] The target element 'Pulse' from the recording is not present on the current GUI. The current GUI is completely different from the 'Statistics' screen. -> no action
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_1_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 13:17:15 | INFO | 🎯 Recovery using region index: 5 at (869, 1752)
+2026-05-15 13:17:15 | INFO | [1] Tap the '+ Add Expense' button to initiate adding a new expense, analogous to changing the data view in the original recording. -> tap
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_1_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 13:17:15 | INFO | [1] The current GUI is completely different from the recording. There is no corresponding element to tap to reproduce the recorded transition. -> no action
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_1_screenshot-0.png
+2026-05-15 13:17:15 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 13:17:15 | INFO | Mismatch reason: the two screens are completely different. the reference screen displays 'statistics' with measurement data, graphs, and date range navigation. the current screen displays 'global bill' with balance information and options to add users or expenses. no common functional elements or actions are present.
+2026-05-15 13:17:15 | INFO | 
+2026-05-15 13:17:15 | INFO | 📂 Processing segment 2...
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_2_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_2_dino.png
+2026-05-15 13:17:15 | INFO | 🔍 Relevant regions: {'target_regions': [16], 'predicted_action': 'tap'}
+2026-05-15 13:17:15 | INFO | 🧠 GPT selected regions: [16]
+2026-05-15 13:17:15 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_2_relevant_regions.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 13:17:15 | INFO | [1] The current GUI is completely different from the GUI in the recording. There is no equivalent element to 'Pulse' or any statistics-related component to tap on to achieve the same transition. -> no action
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_2_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 13:17:15 | INFO | [1] The element 'Pulse' that was tapped in the recording is not present on the current screen. Therefore, the same transition cannot be reproduced. -> no action
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_2_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 13:17:15 | INFO | [1] The current GUI is completely different from the recording context. There is no 'Pulse' button or similar element to tap to achieve the same transition (scrolling down to 'Metrics by time of day'). -> no action
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_2_screenshot-0.png
+2026-05-15 13:17:15 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 13:17:15 | INFO | Mismatch reason: the two screens display completely different content and functionality. the reference screen shows 'statistics' with graphs and date range selection, while the current screen shows 'global bill' with balance and expense input fields and an 'add expense' button. no common actions can be performed.
+2026-05-15 13:17:15 | INFO | 
+2026-05-15 13:17:15 | INFO | 📂 Processing segment 3...
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_3_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_3_dino.png
+2026-05-15 13:17:15 | INFO | 🔍 Relevant regions: {'target_regions': [21], 'predicted_action': 'swipe'}
+2026-05-15 13:17:15 | INFO | 🧠 GPT selected regions: [21]
+2026-05-15 13:17:15 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_3_relevant_regions.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 13:17:15 | INFO | [1] Swipe up to scroll the content on the screen. -> swipe
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_3_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 13:17:15 | INFO | [1] The current screen is completely different from the recording. The original action was a swipe up on a graph, but the current screen does not have a similar scrollable graph or content to perform the same action and achieve a similar transition. -> no action
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_3_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 13:17:15 | INFO | [1] The current GUI is different from the recording's starting GUI. The original action was a swipe up on a specific graph element on the 'Statistics' screen. This transition cannot be reproduced on the current 'Global Bill' screen as there is no equivalent context or element. -> no action
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_3_screenshot-0.png
+2026-05-15 13:17:15 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 13:17:15 | INFO | Mismatch reason: the current screen displays a 'global bill' interface with options to manage balance and expenses, including an 'add expense' button. the reference screen shows a 'statistics' interface with a circular graph and options to filter by date and time. these are entirely different functionalities and screens.
+2026-05-15 13:17:15 | INFO | 
+2026-05-15 13:17:15 | INFO | 📂 Processing segment 4...
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_4_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_4_dino.png
+2026-05-15 13:17:15 | INFO | 🔍 Relevant regions: {'target_regions': [14], 'predicted_action': 'tap'}
+2026-05-15 13:17:15 | INFO | 🧠 GPT selected regions: [14]
+2026-05-15 13:17:15 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_4_relevant_regions.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 13:17:15 | INFO | [1] The current screen is completely different from the screen where the original action was performed. The element to tap (date range 'Apr 14, 2026 - Apr 21, 2026') is not present on the current GUI. -> no action
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_4_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 13:17:15 | INFO | [1] The current screen is different from the screen where the action was recorded. The element to be tapped (a circular chart on the 'Statistics' screen) does not exist on the current 'Global Bill' screen, so the recorded action cannot be reproduced to achieve the same transition. -> no action
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_4_screenshot-0.png
+2026-05-15 13:17:15 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 13:17:15 | INFO | [1] The original action in the recording was a tap on the circular chart on the 'Statistics' screen, which resulted in a white dot appearing on the chart. The current GUI is the 'Global Bill' screen, which is completely different and does not contain the 'Statistics' screen or a circular chart. Therefore, the same transition cannot be achieved from the current state. -> no action
+2026-05-15 13:17:15 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/artifacts/step_4_screenshot-0.png
+2026-05-15 13:17:15 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 13:17:15 | INFO | Mismatch reason: the current screen displays 'global bill' with expense tracking features, while the reference screen shows 'statistics' with a time-of-day metric chart and date range controls. the content and available actions are entirely different.
+2026-05-15 13:17:15 | INFO | ✅ Video processing completed.
+2026-05-15 13:17:15 | INFO | 📝 Summary saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bloodpressuremonitor/llm/srv-001-vibr/run-004/memory.md
+2026-05-15 13:17:16 | INFO | ========================================================================
+RUN SUMMARY
+  App         : bloodpressuremonitor
+  Video type  : screenrec
+  Status      : success
+  Scenes      : 0/0
+  Actions     : none
+  LLM calls   : n/a
+  LLM latency : n/a
+  Tokens used : n/a
+  Wall time   : 6m 58s
+========================================================================

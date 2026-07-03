@@ -1,0 +1,353 @@
+{
+  "total_scenes": 9,
+  "scenes_processed": 9,
+  "scenes_failed": 0,
+  "action_types": {
+    "unknown": 9
+  },
+  "llm_calls": [
+    {
+      "kind": "region_detection",
+      "elapsed_sec": 27.563518047332764,
+      "prompt_tokens": 848,
+      "output_tokens": 26,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 11.778797149658203,
+      "prompt_tokens": 828,
+      "output_tokens": 80,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 63.40708088874817,
+      "prompt_tokens": 1211,
+      "output_tokens": 42,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 15.131932973861694,
+      "prompt_tokens": 827,
+      "output_tokens": 83,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 43.501991987228394,
+      "prompt_tokens": 1211,
+      "output_tokens": 41,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 8.962975978851318,
+      "prompt_tokens": 827,
+      "output_tokens": 80,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 15.718539953231812,
+      "prompt_tokens": 1211,
+      "output_tokens": 42,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 10.081300973892212,
+      "prompt_tokens": 827,
+      "output_tokens": 107,
+      "error": null
+    },
+    {
+      "kind": "region_detection",
+      "elapsed_sec": 13.329602718353271,
+      "prompt_tokens": 848,
+      "output_tokens": 32,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 14.111489057540894,
+      "prompt_tokens": 830,
+      "output_tokens": 110,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 22.9118971824646,
+      "prompt_tokens": 1211,
+      "output_tokens": 56,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 15.834127187728882,
+      "prompt_tokens": 1211,
+      "output_tokens": 44,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 9.411152124404907,
+      "prompt_tokens": 827,
+      "output_tokens": 89,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 14.240415096282959,
+      "prompt_tokens": 1211,
+      "output_tokens": 44,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 8.204013109207153,
+      "prompt_tokens": 827,
+      "output_tokens": 90,
+      "error": null
+    },
+    {
+      "kind": "region_detection",
+      "elapsed_sec": 53.575926065444946,
+      "prompt_tokens": 848,
+      "output_tokens": 26,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 16.315669059753418,
+      "prompt_tokens": 828,
+      "output_tokens": 18,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 39.00955510139465,
+      "prompt_tokens": 1211,
+      "output_tokens": 41,
+      "error": null
+    },
+    {
+      "kind": "region_detection",
+      "elapsed_sec": 10.885240077972412,
+      "prompt_tokens": 848,
+      "output_tokens": 32,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 17.234690189361572,
+      "prompt_tokens": 830,
+      "output_tokens": 78,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 12.694337844848633,
+      "prompt_tokens": 1211,
+      "output_tokens": 39,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 8.574329137802124,
+      "prompt_tokens": 827,
+      "output_tokens": 18,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 7.357073783874512,
+      "prompt_tokens": 1211,
+      "output_tokens": 44,
+      "error": null
+    },
+    {
+      "kind": "region_detection",
+      "elapsed_sec": 23.15456795692444,
+      "prompt_tokens": 848,
+      "output_tokens": 33,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 11.955394744873047,
+      "prompt_tokens": 831,
+      "output_tokens": 18,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 16.09467387199402,
+      "prompt_tokens": 1211,
+      "output_tokens": 83,
+      "error": null
+    },
+    {
+      "kind": "region_detection",
+      "elapsed_sec": 18.627238988876343,
+      "prompt_tokens": 848,
+      "output_tokens": 32,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 12.111236095428467,
+      "prompt_tokens": 830,
+      "output_tokens": 64,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 38.665635108947754,
+      "prompt_tokens": 1211,
+      "output_tokens": 52,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 62.11692714691162,
+      "prompt_tokens": 1211,
+      "output_tokens": 37,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 10.718209028244019,
+      "prompt_tokens": 827,
+      "output_tokens": 83,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 57.412317991256714,
+      "prompt_tokens": 1211,
+      "output_tokens": 62,
+      "error": null
+    },
+    {
+      "kind": "region_detection",
+      "elapsed_sec": 21.99207377433777,
+      "prompt_tokens": 848,
+      "output_tokens": 32,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 17.309367895126343,
+      "prompt_tokens": 830,
+      "output_tokens": 97,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 69.62349319458008,
+      "prompt_tokens": 1211,
+      "output_tokens": 64,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 29.222800970077515,
+      "prompt_tokens": 1211,
+      "output_tokens": 36,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 74.77873110771179,
+      "prompt_tokens": 1211,
+      "output_tokens": 66,
+      "error": null
+    },
+    {
+      "kind": "region_detection",
+      "elapsed_sec": 13.474281787872314,
+      "prompt_tokens": 848,
+      "output_tokens": 32,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 11.692286968231201,
+      "prompt_tokens": 830,
+      "output_tokens": 74,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 46.638092041015625,
+      "prompt_tokens": 1211,
+      "output_tokens": 63,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 26.748974084854126,
+      "prompt_tokens": 1211,
+      "output_tokens": 57,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 48.928114891052246,
+      "prompt_tokens": 1211,
+      "output_tokens": 63,
+      "error": null
+    },
+    {
+      "kind": "region_detection",
+      "elapsed_sec": 31.177850008010864,
+      "prompt_tokens": 848,
+      "output_tokens": 32,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 13.149752140045166,
+      "prompt_tokens": 830,
+      "output_tokens": 86,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 44.03676915168762,
+      "prompt_tokens": 1211,
+      "output_tokens": 62,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 19.2549569606781,
+      "prompt_tokens": 1211,
+      "output_tokens": 41,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 13.485037088394165,
+      "prompt_tokens": 827,
+      "output_tokens": 72,
+      "error": null
+    },
+    {
+      "kind": "action_inference",
+      "elapsed_sec": 28.12452983856201,
+      "prompt_tokens": 1211,
+      "output_tokens": 38,
+      "error": null
+    },
+    {
+      "kind": "state_comparison",
+      "elapsed_sec": 12.101233005523682,
+      "prompt_tokens": 827,
+      "output_tokens": 79,
+      "error": null
+    }
+  ]
+}

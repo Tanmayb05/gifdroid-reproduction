@@ -1,0 +1,214 @@
+2026-05-15 12:01:14 | INFO | === src_vibr.log ===
+2026-05-15 12:01:14 | INFO | Starting ViBR run
+2026-05-15 12:01:14 | INFO | App: bily
+2026-05-15 12:01:14 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/videos/srv-001.mp4
+2026-05-15 12:01:14 | INFO | Algorithm: clip
+2026-05-15 12:01:14 | INFO | LLM: gemini (gemini-2.5-pro)
+2026-05-15 12:01:14 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002
+2026-05-15 12:01:14 | INFO | Running Gemini API health check...
+2026-05-15 12:01:15 | INFO | 2026-05-15 12:01:15,057 | INFO | ======================================================================
+2026-05-15 12:01:15 | INFO | 2026-05-15 12:01:15,057 | INFO | 🔍 Testing Gemini API Health...
+2026-05-15 12:01:15 | INFO | 2026-05-15 12:01:15,057 | INFO | ======================================================================
+2026-05-15 12:01:15 | INFO | 2026-05-15 12:01:15,057 | INFO | Model: gemini-2.5-pro
+2026-05-15 12:01:15 | INFO | 2026-05-15 12:01:15,057 | INFO | Timeout: 60s
+2026-05-15 12:01:16 | INFO | 2026-05-15 12:01:16,146 | INFO | ✅ Built URL and headers
+2026-05-15 12:01:16 | INFO | 2026-05-15 12:01:16,147 | INFO | 📤 Sending test request to Gemini API...
+2026-05-15 12:01:22 | INFO | 2026-05-15 12:01:22,510 | INFO | ✅ API Response received in 6.36s
+2026-05-15 12:01:22 | INFO | 2026-05-15 12:01:22,511 | INFO |    Response: API is working.
+2026-05-15 12:01:22 | INFO | 2026-05-15 12:01:22,511 | INFO |    Tokens: 13 input, 4 output
+2026-05-15 12:01:22 | INFO | 2026-05-15 12:01:22,511 | INFO | ======================================================================
+2026-05-15 12:01:22 | INFO | 2026-05-15 12:01:22,511 | INFO | ✅ Gemini API is HEALTHY
+2026-05-15 12:01:22 | INFO | 2026-05-15 12:01:22,511 | INFO | ======================================================================
+2026-05-15 12:01:22 | INFO | ✅ Gemini API health check passed. Proceeding with inference...
+2026-05-15 12:01:28 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-15 12:01:28 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-15 12:01:28 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-15 12:01:29 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-15 12:01:29 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-15 12:01:29 | INFO | 
+2026-05-15 12:01:29 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-15 12:01:29 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7379.38it/s]
+2026-05-15 12:01:29 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-15 12:01:29 | INFO | Key                                        | Status     |  | 
+2026-05-15 12:01:29 | INFO | -------------------------------------------+------------+--+-
+2026-05-15 12:01:29 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-15 12:01:29 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-15 12:01:29 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-15 12:01:29 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-15 12:01:29 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-15 12:01:29 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-15 12:01:29 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-15 12:01:29 | INFO | 
+2026-05-15 12:01:29 | INFO | Notes:
+2026-05-15 12:01:29 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 12:01:34 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-pro)...
+2026-05-15 12:01:34 | INFO | Initializing ADB device controller...
+2026-05-15 12:01:34 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/screenshot-0.png
+2026-05-15 12:01:34 | INFO | Reading frames from video...
+2026-05-15 12:01:34 | INFO | Reading frame:  100
+2026-05-15 12:01:34 | INFO | Reading frame:  200
+2026-05-15 12:01:34 | INFO | Reading frame:  300
+2026-05-15 12:01:34 | INFO | 🔍 Detecting stable segments...
+2026-05-15 12:01:34 | INFO | 
+2026-05-15 12:01:34 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-15 12:01:34 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 29485.70it/s]
+2026-05-15 12:01:34 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-15 12:01:34 | INFO | Key                                  | Status     |  | 
+2026-05-15 12:01:34 | INFO | -------------------------------------+------------+--+-
+2026-05-15 12:01:34 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-15 12:01:34 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-15 12:01:34 | INFO | 
+2026-05-15 12:01:34 | INFO | Notes:
+2026-05-15 12:01:34 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-15 12:50:37 | INFO | ✅ CLIP similarity list loaded from cache.
+2026-05-15 12:50:37 | INFO | 
+2026-05-15 12:50:37 | INFO | 📂 Processing segment 0...
+2026-05-15 12:50:37 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_0_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_0_dino.png
+2026-05-15 12:50:38 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'back'}
+2026-05-15 12:50:38 | INFO | 🧠 GPT selected regions: []
+2026-05-15 12:50:38 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 12:50:38 | INFO | 🎯 Recovery using region index: 5 at (869, 1752)
+2026-05-15 12:50:38 | INFO | [1] Tap the 'Add Expense' button. -> tap
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_0_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 12:50:38 | INFO | [1] The user list from the original screen is not present in the current GUI, so no action can be taken. -> no action
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_0_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 12:50:38 | INFO | 🎯 Recovery using region index: 5 at (869, 1752)
+2026-05-15 12:50:38 | INFO | [1] Tap the 'Add Expense' button. -> tap
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_0_screenshot-0.png
+2026-05-15 12:50:38 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 12:50:38 | INFO | Mismatch reason: the reference screen shows a state with users and expenses already added, and the total bill is calculated. the current screen is an empty state with a total bill of $0.00 and a message at the bottom stating "you need at least two users to continue", which indicates that adding an expense is not possible. this is a significant functional difference.
+2026-05-15 12:50:38 | INFO | 
+2026-05-15 12:50:38 | INFO | 📂 Processing segment 1...
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_1_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_1_dino.png
+2026-05-15 12:50:38 | INFO | 🔍 Relevant regions: {'target_regions': [19], 'predicted_action': 'tap'}
+2026-05-15 12:50:38 | INFO | 🧠 GPT selected regions: [19]
+2026-05-15 12:50:38 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_1_relevant_regions.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 12:50:38 | INFO | 🎯 Recovery using region index: 1 at (540, 262)
+2026-05-15 12:50:38 | INFO | [1] Tap the three-dot menu icon in the top right corner. -> tap
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_1_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 12:50:38 | INFO | 🎯 Recovery using region index: 1 at (540, 262)
+2026-05-15 12:50:38 | INFO | [1] Tap the three-dot menu icon in the top right corner. -> tap
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_1_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 12:50:38 | INFO | 🎯 Recovery using region index: 1 at (540, 262)
+2026-05-15 12:50:38 | INFO | [1] Tap the three-dot menu icon in the top right corner. -> tap
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_1_screenshot-0.png
+2026-05-15 12:50:38 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 12:50:38 | INFO | Mismatch reason: the reference image shows a menu with options 'modify bill', 'reset bill', and 'settings' which is open, while in the current image, this menu is closed. additionally, the current screen is in an initial empty state with no users or expenses listed, unlike the reference screen.
+2026-05-15 12:50:38 | INFO | 
+2026-05-15 12:50:38 | INFO | 📂 Processing segment 2...
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_2_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_2_dino.png
+2026-05-15 12:50:38 | INFO | 🔍 Relevant regions: {'target_regions': [19], 'predicted_action': 'tap'}
+2026-05-15 12:50:38 | INFO | 🧠 GPT selected regions: [19]
+2026-05-15 12:50:38 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_2_relevant_regions.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 12:50:38 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 12:50:38 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 12:50:38 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-15 12:50:38 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 12:50:38 | INFO | Mismatch reason: the three-dot menu is open in the reference image, showing options like 'modify bill' and 'reset bill'. in the current image, this menu is closed, so the user cannot perform the same action.
+2026-05-15 12:50:38 | INFO | 
+2026-05-15 12:50:38 | INFO | 📂 Processing segment 3...
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_3_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_3_dino.png
+2026-05-15 12:50:38 | INFO | 🔍 Relevant regions: {'target_regions': [10], 'predicted_action': 'tap'}
+2026-05-15 12:50:38 | INFO | 🧠 GPT selected regions: [10]
+2026-05-15 12:50:38 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_3_relevant_regions.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 12:50:38 | INFO | [1] No Action needed. -> no action
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_3_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 12:50:38 | INFO | [1] No Action needed. -> no action
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_3_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 12:50:38 | INFO | [1] No Action needed. -> no action
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_3_screenshot-0.png
+2026-05-15 12:50:38 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 12:50:38 | INFO | Mismatch reason: the reference screen displays a list of two users ('abc' and 'xyz') under the 'balance per user' section, whereas the current screen shows an empty list in the same section.
+2026-05-15 12:50:38 | INFO | 
+2026-05-15 12:50:38 | INFO | 📂 Processing segment 4...
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_4_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_4_dino.png
+2026-05-15 12:50:38 | INFO | 🔍 Relevant regions: {'target_regions': [9, 23], 'predicted_action': 'tap'}
+2026-05-15 12:50:38 | INFO | 🧠 GPT selected regions: [9, 23]
+2026-05-15 12:50:38 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_4_relevant_regions.png
+2026-05-15 12:50:38 | INFO | ⚠️ No valid region or element match. Skipping action.
+2026-05-15 12:50:38 | INFO | 
+2026-05-15 12:50:38 | INFO | 📂 Processing segment 5...
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_5_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_5_dino.png
+2026-05-15 12:50:38 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'no action'}
+2026-05-15 12:50:38 | INFO | 🧠 GPT selected regions: []
+2026-05-15 12:50:38 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 12:50:38 | INFO | [1] No Action needed. -> no action
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_5_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 12:50:38 | INFO | [1] No Action needed. -> no action
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_5_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 12:50:38 | INFO | [1] No Action needed. -> no action
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_5_screenshot-0.png
+2026-05-15 12:50:38 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 12:50:38 | INFO | Mismatch reason: the reference screen shows two users, 'abc' and 'xyz', listed under 'balance per user'. the current screen does not show any users in that section.
+2026-05-15 12:50:38 | INFO | 
+2026-05-15 12:50:38 | INFO | 📂 Processing segment 6...
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_6_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_6_dino.png
+2026-05-15 12:50:38 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'wait'}
+2026-05-15 12:50:38 | INFO | 🧠 GPT selected regions: []
+2026-05-15 12:50:38 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 12:50:38 | INFO | [1] The recorded action is a wait, as the screen does not change between the first and second screenshots. -> wait
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_6_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 12:50:38 | INFO | [1] Wait for a moment. -> wait
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_6_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 12:50:38 | INFO | [1] Wait for the screen to load. -> wait
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_6_screenshot-0.png
+2026-05-15 12:50:38 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 12:50:38 | INFO | Mismatch reason: the current screen is missing the list of users ('abc' and 'xyz') that is present under the 'balance per user' section in the reference screen.
+2026-05-15 12:50:38 | INFO | 
+2026-05-15 12:50:38 | INFO | 📂 Processing segment 7...
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_7_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_7_dino.png
+2026-05-15 12:50:38 | INFO | 🔍 Relevant regions: {'target_regions': [15], 'predicted_action': 'tap'}
+2026-05-15 12:50:38 | INFO | 🧠 GPT selected regions: [15]
+2026-05-15 12:50:38 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_7_relevant_regions.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-15 12:50:38 | INFO | [1] The user list is empty, so the element corresponding to the original tap action is not present. -> no action
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_7_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-15 12:50:38 | INFO | [1] The user 'xyz' is not present on the current screen, so the tap action cannot be performed. -> no action
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_7_screenshot-0.png
+2026-05-15 12:50:38 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-15 12:50:38 | INFO | 🎯 Recovery using region index: 5 at (869, 1752)
+2026-05-15 12:50:38 | INFO | [1] Tap on the '+ Add Expense' button. -> tap
+2026-05-15 12:50:38 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/artifacts/step_7_screenshot-0.png
+2026-05-15 12:50:38 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-15 12:50:38 | INFO | Mismatch reason: the current screen is missing the two users ('abc' and 'xyz') that are present in the reference screen. this functional difference is highlighted by the toast message 'you need at least two users to continue', which indicates that the 'add expense' action is not available, unlike in the reference state.
+2026-05-15 12:50:38 | INFO | ✅ Video processing completed.
+2026-05-15 12:50:38 | INFO | 📝 Summary saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/bily/llm/srv-001-vibr/run-002/memory.md
+2026-05-15 12:50:40 | INFO | ========================================================================
+RUN SUMMARY
+  App         : bily
+  Video type  : screenrec
+  Status      : success
+  Scenes      : 0/0
+  Actions     : none
+  LLM calls   : n/a
+  LLM latency : n/a
+  Tokens used : n/a
+  Wall time   : 49m 25s
+========================================================================

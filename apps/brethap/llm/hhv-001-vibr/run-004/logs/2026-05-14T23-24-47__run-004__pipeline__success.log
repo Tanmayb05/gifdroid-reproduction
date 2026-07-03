@@ -1,0 +1,731 @@
+2026-05-14 19:24:47 | INFO | === src_vibr.2026-05-14T23-24-47__run-004__pipeline__started ===
+2026-05-14 19:24:47 | INFO | Starting ViBR run
+2026-05-14 19:24:47 | INFO | App: brethap
+2026-05-14 19:24:47 | INFO | Video: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/videos/hhv-001.mp4
+2026-05-14 19:24:47 | INFO | Algorithm: clip
+2026-05-14 19:24:47 | INFO | LLM: gemini (gemini-2.5-pro)
+2026-05-14 19:24:47 | INFO | Output: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004
+2026-05-14 19:24:53 | INFO | FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+2026-05-14 19:24:53 | INFO | UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+2026-05-14 19:24:53 | INFO | UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4383.)
+2026-05-14 19:24:54 | INFO | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-14 19:24:54 | INFO | final text_encoder_type: bert-base-uncased
+2026-05-14 19:24:54 | INFO | 
+2026-05-14 19:24:54 | INFO | Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+2026-05-14 19:24:54 | INFO | Loading weights: 100%|██████████| 199/199 [00:00<00:00, 6648.03it/s]
+2026-05-14 19:24:54 | INFO | [1mBertModel LOAD REPORT[0m from: bert-base-uncased
+2026-05-14 19:24:54 | INFO | Key                                        | Status     |  | 
+2026-05-14 19:24:54 | INFO | -------------------------------------------+------------+--+-
+2026-05-14 19:24:54 | INFO | cls.predictions.bias                       | UNEXPECTED |  | 
+2026-05-14 19:24:54 | INFO | cls.seq_relationship.bias                  | UNEXPECTED |  | 
+2026-05-14 19:24:54 | INFO | cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+2026-05-14 19:24:54 | INFO | cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+2026-05-14 19:24:54 | INFO | cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+2026-05-14 19:24:54 | INFO | cls.seq_relationship.weight                | UNEXPECTED |  | 
+2026-05-14 19:24:54 | INFO | cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+2026-05-14 19:24:54 | INFO | 
+2026-05-14 19:24:54 | INFO | Notes:
+2026-05-14 19:24:54 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-14 19:25:11 | INFO | 🔹 Starting video processing (algorithm=clip, llm=gemini, model=gemini-2.5-pro)...
+2026-05-14 19:25:11 | INFO | Initializing ADB device controller...
+2026-05-14 19:25:11 | INFO | 📱 Preparing device for app: brethap
+2026-05-14 19:25:11 | INFO | 🏠 Going to home screen...
+2026-05-14 19:25:11 | INFO | 🚀 Opening app 'brethap' with command: am start -n com.jithware.brethap/.MainActivity
+2026-05-14 19:25:11 | INFO | ✅ App 'brethap' opened and ready
+2026-05-14 19:25:11 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/screenshot-0.png
+2026-05-14 19:25:11 | INFO | Reading frames from video...
+2026-05-14 19:25:11 | INFO | Reading frame:  100
+2026-05-14 19:25:11 | INFO | Reading frame:  200
+2026-05-14 19:25:11 | INFO | Reading frame:  300
+2026-05-14 19:25:11 | INFO | Reading frame:  400
+2026-05-14 19:25:11 | INFO | Reading frame:  500
+2026-05-14 19:25:11 | INFO | Reading frame:  600
+2026-05-14 19:25:11 | INFO | Reading frame:  700
+2026-05-14 19:25:11 | INFO | Reading frame:  800
+2026-05-14 19:25:11 | INFO | Reading frame:  900
+2026-05-14 19:25:11 | INFO | Reading frame:  1000
+2026-05-14 19:25:11 | INFO | Reading frame:  1100
+2026-05-14 19:25:11 | INFO | Reading frame:  1200
+2026-05-14 19:25:11 | INFO | Reading frame:  1300
+2026-05-14 19:25:11 | INFO | 🔍 Detecting stable segments...
+2026-05-14 19:25:11 | INFO | 
+2026-05-14 19:25:11 | INFO | Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+2026-05-14 19:25:11 | INFO | Loading weights: 100%|██████████| 398/398 [00:00<00:00, 37966.14it/s]
+2026-05-14 19:25:11 | INFO | [1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+2026-05-14 19:25:11 | INFO | Key                                  | Status     |  | 
+2026-05-14 19:25:11 | INFO | -------------------------------------+------------+--+-
+2026-05-14 19:25:11 | INFO | text_model.embeddings.position_ids   | UNEXPECTED |  | 
+2026-05-14 19:25:11 | INFO | vision_model.embeddings.position_ids | UNEXPECTED |  | 
+2026-05-14 19:25:11 | INFO | 
+2026-05-14 19:25:11 | INFO | Notes:
+2026-05-14 19:25:11 | INFO | - UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-14 19:25:17 | INFO | `use_return_dict` is deprecated! Use `return_dict` instead!
+2026-05-14 19:25:19 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 19:25:19 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 19:25:24 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 19:29:01 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 19:29:01 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 19:29:06 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 19:30:56 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 19:30:56 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 19:31:01 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 19:32:58 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 19:32:58 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 19:33:03 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 19:33:48 | INFO | ✅ CLIP similarity list loaded from cache.
+2026-05-14 19:33:48 | INFO | 
+2026-05-14 19:33:48 | INFO | 📂 Processing segment 0...
+2026-05-14 19:33:48 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_screenshot-0.png
+2026-05-14 19:33:48 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_dino.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_dino.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_tmp_stop.png
+2026-05-14 19:33:48 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 19:33:48 | INFO | {
+2026-05-14 19:33:48 | INFO |   "target_regions": [],
+2026-05-14 19:33:48 | INFO |   "predicted_action": "back"
+2026-05-14 19:33:48 | INFO | }
+2026-05-14 19:33:48 | INFO | ```
+2026-05-14 19:33:48 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'back'}
+2026-05-14 19:33:48 | INFO | 🧠 GPT selected regions: []
+2026-05-14 19:33:48 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_relevant_regions.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_screenshot-0.png
+2026-05-14 19:33:48 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:33:48 | INFO | {
+2026-05-14 19:33:48 | INFO |   "same_state": "no",
+2026-05-14 19:33:48 | INFO |   "description": "The reference screen shows an active breathing exercise in progress, with a timer counting down and text like 'Inhale'. The current screen is the initial state before starting an exercise, displaying 'Press Start' and a play button. The two screens represent different functional states of the app."
+2026-05-14 19:33:48 | INFO | }
+2026-05-14 19:33:48 | INFO | ```
+2026-05-14 19:33:48 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_tmp_start.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_tmp_stop.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_labeled.png
+2026-05-14 19:33:48 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:33:48 | INFO | {
+2026-05-14 19:33:48 | INFO |   "action": "tap",
+2026-05-14 19:33:48 | INFO |   "region": 0,
+2026-05-14 19:33:48 | INFO |   "description": "Tap on 'Press Start' to begin the breathing exercise."
+2026-05-14 19:33:48 | INFO | }
+2026-05-14 19:33:48 | INFO | ```
+2026-05-14 19:33:48 | INFO | 🎯 Recovery using region index: 0 at (540, 960)
+2026-05-14 19:33:48 | INFO | [1] Tap on 'Press Start' to begin the breathing exercise. -> tap
+2026-05-14 19:33:48 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_screenshot-0.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_tmp_stop.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_screenshot-0.png
+2026-05-14 19:33:48 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:33:48 | INFO | {
+2026-05-14 19:33:48 | INFO |   "same_state": "no",
+2026-05-14 19:33:48 | INFO |   "description": "The reference screen shows a breathing exercise in progress, with the text 'Inhale' and a timer counting down. The current screen is in a pre-start state, with the text 'Press Start' and a play button to begin the exercise. The functional states and available actions are different."
+2026-05-14 19:33:48 | INFO | }
+2026-05-14 19:33:48 | INFO | ```
+2026-05-14 19:33:48 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_tmp_start.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_tmp_stop.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_labeled.png
+2026-05-14 19:33:48 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:33:48 | INFO | {
+2026-05-14 19:33:48 | INFO |     "action": "tap",
+2026-05-14 19:33:48 | INFO |     "region": 0,
+2026-05-14 19:33:48 | INFO |     "description": "Tap 'Press Start' to begin the breathing exercise."
+2026-05-14 19:33:48 | INFO | }
+2026-05-14 19:33:48 | INFO | ```
+2026-05-14 19:33:48 | INFO | 🎯 Recovery using region index: 0 at (540, 960)
+2026-05-14 19:33:48 | INFO | [1] Tap 'Press Start' to begin the breathing exercise. -> tap
+2026-05-14 19:33:48 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_screenshot-0.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_tmp_stop.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_screenshot-0.png
+2026-05-14 19:33:48 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:33:48 | INFO | {
+2026-05-14 19:33:48 | INFO |   "same_state": "no",
+2026-05-14 19:33:48 | INFO |   "description": "The reference image shows a breathing exercise in progress, indicated by the text 'Inhale' and a running timer. The current image shows the state before the exercise has started, with the text 'Press Start' and a reset timer. These are different functional states of the app."
+2026-05-14 19:33:48 | INFO | }
+2026-05-14 19:33:48 | INFO | ```
+2026-05-14 19:33:48 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_tmp_start.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_tmp_stop.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_labeled.png
+2026-05-14 19:33:48 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:33:48 | INFO | {
+2026-05-14 19:33:48 | INFO |   "action": "tap",
+2026-05-14 19:33:48 | INFO |   "region": 0,
+2026-05-14 19:33:48 | INFO |   "description": "Tap on 'Press Start' to begin the breathing exercise."
+2026-05-14 19:33:48 | INFO | }
+2026-05-14 19:33:48 | INFO | ```
+2026-05-14 19:33:48 | INFO | 🎯 Recovery using region index: 0 at (540, 960)
+2026-05-14 19:33:48 | INFO | [1] Tap on 'Press Start' to begin the breathing exercise. -> tap
+2026-05-14 19:33:48 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_screenshot-0.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_tmp_stop.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_0_screenshot-0.png
+2026-05-14 19:33:48 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:33:48 | INFO | {
+2026-05-14 19:33:48 | INFO |   "same_state": "no",
+2026-05-14 19:33:48 | INFO |   "description": "The reference image shows an active breathing session in progress, with the text 'Inhale' and a running timer. The main action is to stop the session. The current image shows the app before a session has started, with the text 'Press Start' and a start button. The states are functionally different as one is an 'in-progress' state and the other is a 'pre-start' state."
+2026-05-14 19:33:48 | INFO | }
+2026-05-14 19:33:48 | INFO | ```
+2026-05-14 19:33:48 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-14 19:33:48 | INFO | Mismatch reason: the reference image shows an active breathing session in progress, with the text 'inhale' and a running timer. the main action is to stop the session. the current image shows the app before a session has started, with the text 'press start' and a start button. the states are functionally different as one is an 'in-progress' state and the other is a 'pre-start' state.
+2026-05-14 19:33:48 | INFO | 
+2026-05-14 19:33:48 | INFO | 📂 Processing segment 1...
+2026-05-14 19:33:48 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_screenshot-0.png
+2026-05-14 19:33:48 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_dino.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_dino.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_tmp_stop.png
+2026-05-14 19:33:48 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 19:33:48 | INFO | {
+2026-05-14 19:33:48 | INFO |   "target_regions": [
+2026-05-14 19:33:48 | INFO |     7
+2026-05-14 19:33:48 | INFO |   ],
+2026-05-14 19:33:48 | INFO |   "predicted_action": "tap"
+2026-05-14 19:33:48 | INFO | }
+2026-05-14 19:33:48 | INFO | ```
+2026-05-14 19:33:48 | INFO | 🔍 Relevant regions: {'target_regions': [7], 'predicted_action': 'tap'}
+2026-05-14 19:33:48 | INFO | 🧠 GPT selected regions: [7]
+2026-05-14 19:33:48 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_relevant_regions.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_relevant_regions.png
+2026-05-14 19:33:48 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_screenshot-0.png
+2026-05-14 19:33:48 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:33:48 | INFO | {
+2026-05-14 19:33:48 | INFO |   "same_state": "no",
+2026-05-14 19:33:48 | INFO |   "description": "The reference screen shows a breathing exercise in progress, indicated by the 'Inhale' text and a running timer. The current screen is the initial state before the exercise has begun, as shown by the 'Press Start' text and the timer at its starting value. The functionality of the button in the bottom right is different; in the reference, it would likely pause the exercise, whereas in the current screen, it starts it."
+2026-05-14 19:33:48 | INFO | }
+2026-05-14 19:34:09 | INFO | ```UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 19:34:09 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 19:34:14 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 19:35:13 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 19:35:13 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 19:35:18 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 19:38:48 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 19:38:48 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 19:38:53 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 19:38:53 | INFO | 
+2026-05-14 19:38:53 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_tmp_start.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_tmp_stop.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_labeled.png
+2026-05-14 19:38:53 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:38:53 | INFO | {
+2026-05-14 19:38:53 | INFO |   "action": "tap",
+2026-05-14 19:38:53 | INFO |   "region": [381, 841, 699, 1225],
+2026-05-14 19:38:53 | INFO |   "description": "Tap on the text 'Press Start'."
+2026-05-14 19:38:53 | INFO | }
+2026-05-14 19:38:53 | INFO | ```
+2026-05-14 19:38:53 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-14 19:38:53 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_tmp_start.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_tmp_stop.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_labeled.png
+2026-05-14 19:38:53 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:38:53 | INFO | {
+2026-05-14 19:38:53 | INFO |   "action": "tap",
+2026-05-14 19:38:53 | INFO |   "region": 0,
+2026-05-14 19:38:53 | INFO |   "description": "Tap on the 'Press Start' text to begin the breathing exercise."
+2026-05-14 19:38:53 | INFO | }
+2026-05-14 19:38:53 | INFO | ```
+2026-05-14 19:38:53 | INFO | 🎯 Recovery using region index: 0 at (540, 960)
+2026-05-14 19:38:53 | INFO | [1] Tap on the 'Press Start' text to begin the breathing exercise. -> tap
+2026-05-14 19:38:53 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_screenshot-0.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_tmp_stop.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_screenshot-0.png
+2026-05-14 19:38:53 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:38:53 | INFO | {
+2026-05-14 19:38:53 | INFO |   "same_state": "no",
+2026-05-14 19:38:53 | INFO |   "description": "The reference screen shows a breathing exercise in progress, indicated by the 'Inhale' text and a running timer. The current screen is in a pre-start state, showing 'Press Start' and a play button. The available actions are different in each state (e.g., stopping an exercise vs. starting one)."
+2026-05-14 19:38:53 | INFO | }
+2026-05-14 19:38:53 | INFO | ```
+2026-05-14 19:38:53 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_tmp_start.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_tmp_stop.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_labeled.png
+2026-05-14 19:38:53 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:38:53 | INFO | {
+2026-05-14 19:38:53 | INFO |   "action": "tap",
+2026-05-14 19:38:53 | INFO |   "region": 0,
+2026-05-14 19:38:53 | INFO |   "description": "Tap on the text 'Press Start' to begin the breathing exercise."
+2026-05-14 19:38:53 | INFO | }
+2026-05-14 19:38:53 | INFO | ```
+2026-05-14 19:38:53 | INFO | 🎯 Recovery using region index: 0 at (540, 960)
+2026-05-14 19:38:53 | INFO | [1] Tap on the text 'Press Start' to begin the breathing exercise. -> tap
+2026-05-14 19:38:53 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_screenshot-0.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_tmp_stop.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_1_screenshot-0.png
+2026-05-14 19:38:53 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:38:53 | INFO | {
+2026-05-14 19:38:53 | INFO |   "same_state": "no",
+2026-05-14 19:38:53 | INFO |   "description": "The reference screen shows a breathing exercise in progress, indicated by the 'Inhale' text and a running timer. The current screen is in a pre-start state, showing 'Press Start' and a play button. The actions available in each state (e.g., stopping an exercise vs. starting one) are different."
+2026-05-14 19:38:53 | INFO | }
+2026-05-14 19:38:53 | INFO | ```
+2026-05-14 19:38:53 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-14 19:38:53 | INFO | Mismatch reason: the reference screen shows a breathing exercise in progress, indicated by the 'inhale' text and a running timer. the current screen is in a pre-start state, showing 'press start' and a play button. the actions available in each state (e.g., stopping an exercise vs. starting one) are different.
+2026-05-14 19:38:53 | INFO | 
+2026-05-14 19:38:53 | INFO | 📂 Processing segment 2...
+2026-05-14 19:38:53 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_2_screenshot-0.png
+2026-05-14 19:38:53 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_2_dino.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_2_dino.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_2_tmp_stop.png
+2026-05-14 19:38:53 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 19:38:53 | INFO | {
+2026-05-14 19:38:53 | INFO |   "target_regions": [],
+2026-05-14 19:38:53 | INFO |   "predicted_action": "back"
+2026-05-14 19:38:53 | INFO | }
+2026-05-14 19:38:53 | INFO | ```
+2026-05-14 19:38:53 | INFO | 🔍 Relevant regions: {'target_regions': [], 'predicted_action': 'back'}
+2026-05-14 19:38:53 | INFO | 🧠 GPT selected regions: []
+2026-05-14 19:38:53 | INFO | ⚠️ No relevant regions to annotate.
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_2_relevant_regions.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_2_screenshot-0.png
+2026-05-14 19:38:53 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:38:53 | INFO | {
+2026-05-14 19:38:53 | INFO |   "same_state": "yes"
+2026-05-14 19:38:53 | INFO | }
+2026-05-14 19:38:53 | INFO | ```
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_2_relevant_regions.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_2_tmp_stop.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_2_labeled.png
+2026-05-14 19:38:53 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:38:53 | INFO | {
+2026-05-14 19:38:53 | INFO |     "action": "tap",
+2026-05-14 19:38:53 | INFO |     "region": 0,
+2026-05-14 19:38:53 | INFO |     "description": "Tap on 'Press Start' to start the timer."
+2026-05-14 19:38:53 | INFO | }
+2026-05-14 19:38:53 | INFO | ```
+2026-05-14 19:38:53 | INFO | 🎯 Using region index: 0 at (540, 960)
+2026-05-14 19:38:53 | INFO | [1] Tap on 'Press Start' to start the timer. -> tap
+2026-05-14 19:38:53 | INFO | ✅ Action executed.
+2026-05-14 19:38:53 | INFO | 
+2026-05-14 19:38:53 | INFO | 
+2026-05-14 19:38:53 | INFO | 📂 Processing segment 3...
+2026-05-14 19:38:53 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_screenshot-0.png
+2026-05-14 19:38:53 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_dino.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_dino.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_tmp_stop.png
+2026-05-14 19:38:53 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 19:38:53 | INFO | {
+2026-05-14 19:38:53 | INFO |   "target_regions": [
+2026-05-14 19:38:53 | INFO |     8
+2026-05-14 19:38:53 | INFO |   ],
+2026-05-14 19:38:53 | INFO |   "predicted_action": "tap"
+2026-05-14 19:38:53 | INFO | }
+2026-05-14 19:38:53 | INFO | ```
+2026-05-14 19:38:53 | INFO | 🔍 Relevant regions: {'target_regions': [8], 'predicted_action': 'tap'}
+2026-05-14 19:38:53 | INFO | 🧠 GPT selected regions: [8]
+2026-05-14 19:38:53 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_relevant_regions.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_relevant_regions.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_screenshot-0.png
+2026-05-14 19:38:53 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:38:53 | INFO | {
+2026-05-14 19:38:53 | INFO |   "same_state": "no",
+2026-05-14 19:38:53 | INFO |   "description": "In the reference image, the 'Press Start' text is a button that can be tapped. In the current image, 'Press Start' is just static text, and the action to start has been moved to a floating action button at the bottom right of the screen."
+2026-05-14 19:38:53 | INFO | }
+2026-05-14 19:38:53 | INFO | ```
+2026-05-14 19:38:53 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_tmp_start.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_tmp_stop.png
+2026-05-14 19:38:53 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_labeled.png
+2026-05-14 19:38:53 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:38:53 | INFO | {
+2026-05-14 19:38:53 | INFO |   "action": "tap",
+2026-05-14 19:38:53 | INFO |   "region": 0,
+2026-05-14 19:38:53 | INFO |   "description": "Tap on the 'Press Start' text."
+2026-05-14 19:38:53 | INFO | }
+2026-05-14 19:38:53 | INFO | ```
+2026-05-14 19:38:53 | INFO | 🎯 Recovery using region index: 0 at (540, 960)
+2026-05-14 19:38:53 | INFO | [1] Tap on the 'Press Start' text. -> tap
+2026-05-14 19:42:34 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_screenshot-0.pngUserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 19:42:34 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 19:42:40 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 19:45:17 | INFO | UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. Starting in PyTorch 2.9, calling checkpoint without use_reentrant will raise an exception. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+2026-05-14 19:45:17 | INFO | UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+2026-05-14 19:45:23 | INFO | FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+2026-05-14 19:45:56 | INFO | 
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_tmp_stop.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_screenshot-0.png
+2026-05-14 19:45:56 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:45:56 | INFO | {
+2026-05-14 19:45:56 | INFO |   "same_state": "yes"
+2026-05-14 19:45:56 | INFO | }
+2026-05-14 19:45:56 | INFO | ```
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_relevant_regions.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_tmp_stop.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_3_labeled.png
+2026-05-14 19:45:56 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:45:56 | INFO | {
+2026-05-14 19:45:56 | INFO |   "action": "tap",
+2026-05-14 19:45:56 | INFO |   "region": 0,
+2026-05-14 19:45:56 | INFO |   "description": "Tap on the 'Press Start' text to begin the breathing exercise."
+2026-05-14 19:45:56 | INFO | }
+2026-05-14 19:45:56 | INFO | ```
+2026-05-14 19:45:56 | INFO | 🎯 Using region index: 0 at (540, 960)
+2026-05-14 19:45:56 | INFO | [1] Tap on the 'Press Start' text to begin the breathing exercise. -> tap
+2026-05-14 19:45:56 | INFO | ✅ Action executed.
+2026-05-14 19:45:56 | INFO | 
+2026-05-14 19:45:56 | INFO | 
+2026-05-14 19:45:56 | INFO | 📂 Processing segment 4...
+2026-05-14 19:45:56 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_4_screenshot-0.png
+2026-05-14 19:45:56 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_4_dino.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_4_dino.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_4_tmp_stop.png
+2026-05-14 19:45:56 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 19:45:56 | INFO | {
+2026-05-14 19:45:56 | INFO |   "target_regions": [
+2026-05-14 19:45:56 | INFO |     10
+2026-05-14 19:45:56 | INFO |   ],
+2026-05-14 19:45:56 | INFO |   "predicted_action": "swipe"
+2026-05-14 19:45:56 | INFO | }
+2026-05-14 19:45:56 | INFO | ```
+2026-05-14 19:45:56 | INFO | 🔍 Relevant regions: {'target_regions': [10], 'predicted_action': 'swipe'}
+2026-05-14 19:45:56 | INFO | 🧠 GPT selected regions: [10]
+2026-05-14 19:45:56 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_4_relevant_regions.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_4_relevant_regions.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_4_screenshot-0.png
+2026-05-14 19:45:56 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:45:56 | INFO | {
+2026-05-14 19:45:56 | INFO |   "same_state": "yes"
+2026-05-14 19:45:56 | INFO | }
+2026-05-14 19:45:56 | INFO | ```
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_4_relevant_regions.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_4_tmp_stop.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_4_labeled.png
+2026-05-14 19:45:56 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:45:56 | INFO | {
+2026-05-14 19:45:56 | INFO |   "action": "swipe",
+2026-05-14 19:45:56 | INFO |   "from": [
+2026-05-14 19:45:56 | INFO |     972,
+2026-05-14 19:45:56 | INFO |     1184
+2026-05-14 19:45:56 | INFO |   ],
+2026-05-14 19:45:56 | INFO |   "to": [
+2026-05-14 19:45:56 | INFO |     108,
+2026-05-14 19:45:56 | INFO |     1184
+2026-05-14 19:45:56 | INFO |   ],
+2026-05-14 19:45:56 | INFO |   "duration": 500,
+2026-05-14 19:45:56 | INFO |   "description": "Swipe left to go to the next screen."
+2026-05-14 19:45:56 | INFO | }
+2026-05-14 19:45:56 | INFO | ```
+2026-05-14 19:45:56 | INFO | ⚠️ No valid region or element match. Proceeding without position.
+2026-05-14 19:45:56 | INFO | [1] Swipe left to go to the next screen. -> swipe
+2026-05-14 19:45:56 | INFO | ✅ Action executed.
+2026-05-14 19:45:56 | INFO | 
+2026-05-14 19:45:56 | INFO | 
+2026-05-14 19:45:56 | INFO | 📂 Processing segment 5...
+2026-05-14 19:45:56 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_screenshot-0.png
+2026-05-14 19:45:56 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_dino.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_dino.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_tmp_stop.png
+2026-05-14 19:45:56 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 19:45:56 | INFO | {
+2026-05-14 19:45:56 | INFO |   "target_regions": [
+2026-05-14 19:45:56 | INFO |     1
+2026-05-14 19:45:56 | INFO |   ],
+2026-05-14 19:45:56 | INFO |   "predicted_action": "tap"
+2026-05-14 19:45:56 | INFO | }
+2026-05-14 19:45:56 | INFO | ```
+2026-05-14 19:45:56 | INFO | 🔍 Relevant regions: {'target_regions': [1], 'predicted_action': 'tap'}
+2026-05-14 19:45:56 | INFO | 🧠 GPT selected regions: [1]
+2026-05-14 19:45:56 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_relevant_regions.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_relevant_regions.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_screenshot-0.png
+2026-05-14 19:45:56 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:45:56 | INFO | {
+2026-05-14 19:45:56 | INFO |   "same_state": "no",
+2026-05-14 19:45:56 | INFO |   "description": "The reference screen displays a list of past 'Sessions', while the current screen is the main app screen with a 'Press Start' prompt. The content and functionality of the two screens are entirely different."
+2026-05-14 19:45:56 | INFO | }
+2026-05-14 19:45:56 | INFO | ```
+2026-05-14 19:45:56 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_tmp_start.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_tmp_stop.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_labeled.png
+2026-05-14 19:45:56 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:45:56 | INFO | {
+2026-05-14 19:45:56 | INFO |   "action": "tap",
+2026-05-14 19:45:56 | INFO |   "region": [33, 132, 148, 219],
+2026-05-14 19:45:56 | INFO |   "description": "Tap the hamburger menu icon."
+2026-05-14 19:45:56 | INFO | }
+2026-05-14 19:45:56 | INFO | ```
+2026-05-14 19:45:56 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-14 19:45:56 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_tmp_start.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_tmp_stop.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_labeled.png
+2026-05-14 19:45:56 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:45:56 | INFO | {
+2026-05-14 19:45:56 | INFO |   "action": "tap",
+2026-05-14 19:45:56 | INFO |   "region": 0,
+2026-05-14 19:45:56 | INFO |   "description": "Tap the text 'Press Start'."
+2026-05-14 19:45:56 | INFO | }
+2026-05-14 19:45:56 | INFO | ```
+2026-05-14 19:45:56 | INFO | 🎯 Recovery using region index: 0 at (540, 960)
+2026-05-14 19:45:56 | INFO | [1] Tap the text 'Press Start'. -> tap
+2026-05-14 19:45:56 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_screenshot-0.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_tmp_stop.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_screenshot-0.png
+2026-05-14 19:45:56 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:45:56 | INFO | {
+2026-05-14 19:45:56 | INFO |   "same_state": "no",
+2026-05-14 19:45:56 | INFO |   "description": "The two screens are from different parts of the application. The reference image shows a \"Sessions\" screen, which is a list of past activities. The current image shows the main screen of the app, titled \"Brethap\", with a \"Press Start\" prompt to begin a new activity."
+2026-05-14 19:45:56 | INFO | }
+2026-05-14 19:45:56 | INFO | ```
+2026-05-14 19:45:56 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_tmp_start.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_tmp_stop.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_5_labeled.png
+2026-05-14 19:45:56 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:45:56 | INFO | {
+2026-05-14 19:45:56 | INFO |     "action": "tap",
+2026-05-14 19:45:56 | INFO |     "region": [
+2026-05-14 19:45:56 | INFO |         326,
+2026-05-14 19:45:56 | INFO |         460,
+2026-05-14 19:45:56 | INFO |         534,
+2026-05-14 19:45:56 | INFO |         668
+2026-05-14 19:45:56 | INFO |     ],
+2026-05-14 19:45:56 | INFO |     "description": "Tap on the text 'Press Start'."
+2026-05-14 19:45:56 | INFO | }
+2026-05-14 19:45:56 | INFO | ```
+2026-05-14 19:45:56 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-14 19:45:56 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-14 19:45:56 | INFO | Mismatch reason: the two screens are from different parts of the application. the reference image shows a "sessions" screen, which is a list of past activities. the current image shows the main screen of the app, titled "brethap", with a "press start" prompt to begin a new activity.
+2026-05-14 19:45:56 | INFO | 
+2026-05-14 19:45:56 | INFO | 📂 Processing segment 6...
+2026-05-14 19:45:56 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_screenshot-0.png
+2026-05-14 19:45:56 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_dino.png
+2026-05-14 19:45:56 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_dino.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_tmp_stop.png
+2026-05-14 19:48:21 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |   "target_regions": [
+2026-05-14 19:48:21 | INFO |     5
+2026-05-14 19:48:21 | INFO |   ],
+2026-05-14 19:48:21 | INFO |   "predicted_action": "tap"
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | 🔍 Relevant regions: {'target_regions': [5], 'predicted_action': 'tap'}
+2026-05-14 19:48:21 | INFO | 🧠 GPT selected regions: [5]
+2026-05-14 19:48:21 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_relevant_regions.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_relevant_regions.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_screenshot-0.png
+2026-05-14 19:48:21 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |   "same_state": "no",
+2026-05-14 19:48:21 | INFO |   "description": "The reference screen shows a 'Sessions' list with an open menu containing 'Clear', 'Backup', and 'Export' options. The current screen is the main app screen with a 'Press Start' message and a play button. The two screens represent completely different parts of the application, and the action of tapping 'Export' is not possible on the current screen."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_tmp_start.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_tmp_stop.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_labeled.png
+2026-05-14 19:48:21 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |     "action": "tap",
+2026-05-14 19:48:21 | INFO |     "region": [
+2026-05-14 19:48:21 | INFO |         992,
+2026-05-14 19:48:21 | INFO |         126,
+2026-05-14 19:48:21 | INFO |         1080,
+2026-05-14 19:48:21 | INFO |         210
+2026-05-14 19:48:21 | INFO |     ],
+2026-05-14 19:48:21 | INFO |     "description": "Tap on the three-dot menu icon."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-14 19:48:21 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_tmp_start.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_tmp_stop.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_labeled.png
+2026-05-14 19:48:21 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |     "action": "tap",
+2026-05-14 19:48:21 | INFO |     "description": "Tap on the three-dot menu icon in the top right corner."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-14 19:48:21 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_tmp_start.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_tmp_stop.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_6_labeled.png
+2026-05-14 19:48:21 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |     "action": "tap",
+2026-05-14 19:48:21 | INFO |     "region": [
+2026-05-14 19:48:21 | INFO |         48,
+2026-05-14 19:48:21 | INFO |         903,
+2026-05-14 19:48:21 | INFO |         96,
+2026-05-14 19:48:21 | INFO |         999
+2026-05-14 19:48:21 | INFO |     ],
+2026-05-14 19:48:21 | INFO |     "description": "Tap on the three-dot menu icon in the top right corner."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-14 19:48:21 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-14 19:48:21 | INFO | Mismatch reason: the reference screen shows a 'sessions' list with an open menu containing 'clear', 'backup', and 'export' options. the current screen is the main app screen with a 'press start' message and a play button. the two screens represent completely different parts of the application, and the action of tapping 'export' is not possible on the current screen.
+2026-05-14 19:48:21 | INFO | 
+2026-05-14 19:48:21 | INFO | 📂 Processing segment 7...
+2026-05-14 19:48:21 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_screenshot-0.png
+2026-05-14 19:48:21 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_dino.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_dino.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_tmp_stop.png
+2026-05-14 19:48:21 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |   "target_regions": [
+2026-05-14 19:48:21 | INFO |     1
+2026-05-14 19:48:21 | INFO |   ],
+2026-05-14 19:48:21 | INFO |   "predicted_action": "tap"
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | 🔍 Relevant regions: {'target_regions': [1], 'predicted_action': 'tap'}
+2026-05-14 19:48:21 | INFO | 🧠 GPT selected regions: [1]
+2026-05-14 19:48:21 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_relevant_regions.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_relevant_regions.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_screenshot-0.png
+2026-05-14 19:48:21 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |   "same_state": "no",
+2026-05-14 19:48:21 | INFO |   "description": "The current screen is the main screen of the app, showing 'Press Start'. The reference screen is a 'Sessions' list with a 'Clear All' confirmation dialog open. The UI elements from the reference screen are not present on the current screen."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_tmp_start.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_tmp_stop.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_labeled.png
+2026-05-14 19:48:21 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |     "action": "tap",
+2026-05-14 19:48:21 | INFO |     "region": [
+2026-05-14 19:48:21 | INFO |         450,
+2026-05-14 19:48:21 | INFO |         488,
+2026-05-14 19:48:21 | INFO |         630,
+2026-05-14 19:48:21 | INFO |         668
+2026-05-14 19:48:21 | INFO |     ],
+2026-05-14 19:48:21 | INFO |     "description": "Tap on the 'Press Start' text."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-14 19:48:21 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_tmp_start.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_tmp_stop.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_labeled.png
+2026-05-14 19:48:21 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |     "action": "tap",
+2026-05-14 19:48:21 | INFO |     "region": [35, 125, 105, 175],
+2026-05-14 19:48:21 | INFO |     "description": "Tap the hamburger menu icon in the top left corner."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-14 19:48:21 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_tmp_start.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_tmp_stop.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_7_labeled.png
+2026-05-14 19:48:21 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |     "action": "tap",
+2026-05-14 19:48:21 | INFO |     "region": [
+2026-05-14 19:48:21 | INFO |         450,
+2026-05-14 19:48:21 | INFO |         475,
+2026-05-14 19:48:21 | INFO |         630,
+2026-05-14 19:48:21 | INFO |         605
+2026-05-14 19:48:21 | INFO |     ],
+2026-05-14 19:48:21 | INFO |     "description": "Tap on the 'Press Start' button."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-14 19:48:21 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-14 19:48:21 | INFO | Mismatch reason: the current screen is the main screen of the app, showing 'press start'. the reference screen is a 'sessions' list with a 'clear all' confirmation dialog open. the ui elements from the reference screen are not present on the current screen.
+2026-05-14 19:48:21 | INFO | 
+2026-05-14 19:48:21 | INFO | 📂 Processing segment 8...
+2026-05-14 19:48:21 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_screenshot-0.png
+2026-05-14 19:48:21 | INFO | 🔍 Annotated DINO output saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_dino.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_dino.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_tmp_stop.png
+2026-05-14 19:48:21 | INFO | Relevant Region Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |   "target_regions": [
+2026-05-14 19:48:21 | INFO |     8
+2026-05-14 19:48:21 | INFO |   ],
+2026-05-14 19:48:21 | INFO |   "predicted_action": "tap"
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | 🔍 Relevant regions: {'target_regions': [8], 'predicted_action': 'tap'}
+2026-05-14 19:48:21 | INFO | 🧠 GPT selected regions: [8]
+2026-05-14 19:48:21 | INFO | ✅ Relevant-only annotation saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_relevant_regions.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_relevant_regions.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_screenshot-0.png
+2026-05-14 19:48:21 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |   "same_state": "no",
+2026-05-14 19:48:21 | INFO |   "description": "The reference screen shows a 'Clear All' confirmation dialog over a list of sessions. The current screen is the main start screen of the app, which has a 'Press Start' message and a timer. The UI elements are completely different, and the action of clearing sessions cannot be performed from the current screen."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | 🔄 Attempting to align state (try 1/3)...
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_tmp_start.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_tmp_stop.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_labeled.png
+2026-05-14 19:48:21 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |     "action": "tap",
+2026-05-14 19:48:21 | INFO |     "region": [
+2026-05-14 19:48:21 | INFO |         333,
+2026-05-14 19:48:21 | INFO |         479,
+2026-05-14 19:48:21 | INFO |         747,
+2026-05-14 19:48:21 | INFO |         679
+2026-05-14 19:48:21 | INFO |     ],
+2026-05-14 19:48:21 | INFO |     "description": "Tap on the text 'Press Start'."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | ⚠️ Recovery: no position resolved, skipping action.
+2026-05-14 19:48:21 | INFO | 🔄 Attempting to align state (try 2/3)...
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_tmp_start.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_tmp_stop.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_labeled.png
+2026-05-14 19:48:21 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |   "action": "tap",
+2026-05-14 19:48:21 | INFO |   "region": 0,
+2026-05-14 19:48:21 | INFO |   "description": "Tap on 'Press Start' to begin the session."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | 🎯 Recovery using region index: 0 at (540, 960)
+2026-05-14 19:48:21 | INFO | [1] Tap on 'Press Start' to begin the session. -> tap
+2026-05-14 19:48:21 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_screenshot-0.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_tmp_stop.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_screenshot-0.png
+2026-05-14 19:48:21 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |   "same_state": "no",
+2026-05-14 19:48:21 | INFO |   "description": "The reference screen shows a 'Clear All' confirmation dialog within a 'Sessions' page. The current screen is the main start page of the app, showing 'Press Start' and a timer. The UI and available actions are completely different."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | 🔄 Attempting to align state (try 3/3)...
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_tmp_start.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_tmp_stop.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_labeled.png
+2026-05-14 19:48:21 | INFO | Region Action Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |     "action": "tap",
+2026-05-14 19:48:21 | INFO |     "region": 0,
+2026-05-14 19:48:21 | INFO |     "description": "Tap on the text 'Press Start'."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | 🎯 Recovery using region index: 0 at (540, 960)
+2026-05-14 19:48:21 | INFO | [1] Tap on the text 'Press Start'. -> tap
+2026-05-14 19:48:21 | INFO | Taking screenshot: /sdcard/screenshot-0.png -> /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_screenshot-0.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_tmp_stop.png
+2026-05-14 19:48:21 | INFO | /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/artifacts/step_8_screenshot-0.png
+2026-05-14 19:48:21 | INFO | Consistency Response from Gemini: ```json
+2026-05-14 19:48:21 | INFO | {
+2026-05-14 19:48:21 | INFO |   "same_state": "no",
+2026-05-14 19:48:21 | INFO |   "description": "The reference screen shows a 'Clear All' confirmation dialog within the 'Sessions' page. The current screen is the main start page of the app, showing 'Press Start' and a timer. The two screens are from different parts of the app and have completely different functionalities."
+2026-05-14 19:48:21 | INFO | }
+2026-05-14 19:48:21 | INFO | ```
+2026-05-14 19:48:21 | INFO | ⚠️ Skipping action: current GUI state does not match start state.
+2026-05-14 19:48:21 | INFO | Mismatch reason: the reference screen shows a 'clear all' confirmation dialog within the 'sessions' page. the current screen is the main start page of the app, showing 'press start' and a timer. the two screens are from different parts of the app and have completely different functionalities.
+2026-05-14 19:48:21 | INFO | ✅ Video processing completed.
+2026-05-14 19:48:21 | INFO | 📝 Summary saved to /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/brethap/llm/hhv-001-vibr/run-004/memory.md
+2026-05-14 19:48:24 | INFO | ========================================================================
+RUN SUMMARY
+  App         : brethap
+  Video type  : handheld
+  Status      : success
+  Scenes      : 0/0
+  Actions     : none
+  LLM calls   : n/a
+  LLM latency : n/a
+  Tokens used : n/a
+  Wall time   : 23m 37s
+========================================================================
