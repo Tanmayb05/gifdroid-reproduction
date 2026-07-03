@@ -11,13 +11,13 @@ try:
     from src_ViBR.config import ConfigError, ViBRRunConfig, load_config
     from src_ViBR.env_loader import EnvError, load_and_validate_env
     from src_ViBR.io_utils import PathError, create_output_layout, detect_video_source, write_json
-    from src_ViBR.logging_utils import finalize_log_file, setup_logger
+    from src_ViBR.logging_utils import finalize_log_file, set_project_root, setup_logger
     from src_ViBR.metrics import MetricsCollector
 except ModuleNotFoundError:
     from config import ConfigError, ViBRRunConfig, load_config
     from env_loader import EnvError, load_and_validate_env
     from io_utils import PathError, create_output_layout, detect_video_source, write_json
-    from logging_utils import finalize_log_file, setup_logger
+    from logging_utils import finalize_log_file, set_project_root, setup_logger
     from metrics import MetricsCollector
 
 
@@ -40,20 +40,6 @@ def parse_args() -> argparse.Namespace:
         help="Validate config and path resolution without running replay.",
     )
     return parser.parse_args()
-
-
-def _write_log_md(log_md_path: Path, log_file_path: Path, status: str, duration_sec: float) -> None:
-    """Create a markdown summary of the run log."""
-    log_content = f"# ViBR Run Log\n\n"
-    log_content += f"**Status**: {status.upper()}\n"
-    log_content += f"**Duration**: {duration_sec:.1f}s\n\n"
-    log_content += f"## Full Log\n\n```\n"
-
-    if log_file_path.exists():
-        log_content += log_file_path.read_text(encoding="utf-8")
-
-    log_content += "\n```\n"
-    log_md_path.write_text(log_content, encoding="utf-8")
 
 
 def _resolve_video(project_root: Path, run_cfg: ViBRRunConfig) -> Path:
@@ -103,10 +89,10 @@ def run_single(project_root: Path, run_cfg: ViBRRunConfig, log_level: str, inter
     layout = create_output_layout(project_root, run_cfg.app_name, resolved_video, run_cfg.llm_model, run_dt)
 
     layout.run_dir.mkdir(parents=True, exist_ok=True)
-    (layout.run_dir / "logs").mkdir(parents=True, exist_ok=True)
     layout.artifacts_dir.mkdir(parents=True, exist_ok=True)
 
     logger = setup_logger(layout.log_file_path, log_level)
+    set_project_root(project_root)
     status = "failed"
     started = datetime.now(timezone.utc)
 
@@ -144,6 +130,22 @@ def run_single(project_root: Path, run_cfg: ViBRRunConfig, log_level: str, inter
                 )
 
             src_vibr_dir = project_root / "src_ViBR"
+
+            # TODO: Disable Gemini API health check for now
+            # Run Gemini API health check before inference
+            # if run_cfg.llm == "gemini":
+            #     logger.info("Running Gemini API health check...")
+            #     health_check_cmd = [
+            #         sys.executable,
+            #         str(src_vibr_dir / "approach" / "gemini_health_check.py"),
+            #         run_cfg.llm_model,
+            #         "60"
+            #     ]
+            #     rc_health = _stream_subprocess_to_logger(health_check_cmd, project_root, logger)
+            #     if rc_health != 0:
+            #         raise RuntimeError("Gemini API health check failed. Please verify API key and connectivity.")
+            #     logger.info("✅ Gemini API health check passed. Proceeding with inference...")
+
             cmd = [
                 sys.executable,
                 str(src_vibr_dir / "approach" / "segment_replay.py"),
@@ -222,10 +224,6 @@ def run_single(project_root: Path, run_cfg: ViBRRunConfig, log_level: str, inter
                 handler.close()
                 logger.removeHandler(handler)
             finalize_log_file(layout.log_file_path, status)
-
-            # Create log.md at run root level
-            log_md_path = layout.run_dir / "log.md"
-            _write_log_md(log_md_path, layout.log_file_path, status, duration_sec)
 
 
 def main() -> int:

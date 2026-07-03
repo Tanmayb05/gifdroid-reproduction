@@ -1,9 +1,12 @@
 import base64
 import json
+import logging
 import os
 import time
 from pathlib import Path
 from urllib import error as url_error, request as url_request
+
+logger = logging.getLogger(__name__)
 
 """
 Functions to interact with Google Gemini for visual app state comparison, action region prediction,
@@ -126,8 +129,8 @@ def _build_url_and_headers(model: str) -> tuple[str, dict[str, str]]:
 # ---------------------------------------------------------------------------
 
 _MAX_RETRIES = 5
-_BASE_DELAY = 10  # seconds
-_DEFAULT_TIMEOUT = 180  # seconds — increased for slower models like gemini-2.5-pro
+_BASE_DELAY = 15  # seconds — starting delay for exponential backoff
+_DEFAULT_TIMEOUT = 300  # seconds — increased for slower models and API reliability
 
 
 def _call_gemini(parts: list[dict], timeout: int = _DEFAULT_TIMEOUT, kind: str = "unknown") -> str:
@@ -154,28 +157,31 @@ def _call_gemini(parts: list[dict], timeout: int = _DEFAULT_TIMEOUT, kind: str =
         except url_error.HTTPError as exc:
             if exc.code == 429 and attempt < _MAX_RETRIES - 1:
                 delay = _BASE_DELAY * (2 ** attempt)
-                print(f"Gemini rate limit (429). Retrying in {delay}s...")
+                logger.info(f"Gemini rate limit (429). Retrying in {delay}s...")
                 time.sleep(delay)
+                continue
             else:
                 body = exc.read().decode("utf-8", errors="replace")
                 error = f"HTTP {exc.code}"
                 raise RuntimeError(f"Gemini HTTP error {exc.code}: {body[:300]}") from exc
         except url_error.URLError as exc:
-            if isinstance(exc.reason, TimeoutError) and attempt < _MAX_RETRIES - 1:
+            if isinstance(exc.reason, (TimeoutError, OSError)) and attempt < _MAX_RETRIES - 1:
                 delay = _BASE_DELAY * (2 ** attempt)
-                print(f"Gemini request timed out (attempt {attempt + 1}/{_MAX_RETRIES}). Retrying in {delay}s...")
+                logger.info(f"Gemini request timed out (attempt {attempt + 1}/{_MAX_RETRIES}). Retrying in {delay}s...")
                 time.sleep(delay)
+                continue
             else:
                 error = str(exc)
                 raise RuntimeError(f"Gemini URL error: {exc}") from exc
-        except TimeoutError:
+        except (TimeoutError, OSError) as exc:
             if attempt < _MAX_RETRIES - 1:
                 delay = _BASE_DELAY * (2 ** attempt)
-                print(f"Gemini request timed out (attempt {attempt + 1}/{_MAX_RETRIES}). Retrying in {delay}s...")
+                logger.info(f"Gemini request timed out (attempt {attempt + 1}/{_MAX_RETRIES}). Retrying in {delay}s...")
                 time.sleep(delay)
+                continue
             else:
                 error = f"Timeout after {_MAX_RETRIES} attempts"
-                raise RuntimeError(f"Gemini request timed out after {_MAX_RETRIES} attempts ({timeout}s each)")
+                raise RuntimeError(f"Gemini request timed out after {_MAX_RETRIES} attempts ({timeout}s each)") from exc
 
     elapsed_sec = time.time() - call_start
 
@@ -209,7 +215,6 @@ def _call_gemini(parts: list[dict], timeout: int = _DEFAULT_TIMEOUT, kind: str =
 # ---------------------------------------------------------------------------
 
 def _encode_image(image_path: str) -> str:
-    print(image_path)
     with open(image_path, "rb") as f:
         return base64.b64encode(f.read()).decode("utf-8")
 
@@ -273,7 +278,7 @@ def ask_gpt_state_consistency(start_img, live_img, action="", target_region=""):
         _image_part(live_img),
     ]
     response = _call_gemini(parts, kind="state_comparison")
-    print("Consistency Response from Gemini:", response)
+    logger.info("Consistency Response from Gemini: %s", response)
     return response.strip().lower()
 
 
@@ -320,7 +325,7 @@ def ask_gpt_for_action_region(start_img, stop_img, live_img, predicted_action, r
         _image_part(live_img),
     ]
     response = _call_gemini(parts, kind="action_inference")
-    print("Region Action Response from Gemini:", response)
+    logger.info("Action Response from Gemini: %s", response)
     return response.strip()
 
 
@@ -367,5 +372,5 @@ def ask_gpt_for_relevant_regions(start_img_path, stop_img_path):
         _image_part(stop_img_path),
     ]
     response = _call_gemini(parts, kind="region_detection")
-    print("Relevant Region Response from Gemini:", response)
+    logger.info("Region Response from Gemini: %s", response)
     return response.strip()

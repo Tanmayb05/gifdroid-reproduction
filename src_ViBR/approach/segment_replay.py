@@ -6,6 +6,7 @@ import time
 import cv2
 import sys
 import argparse
+import hashlib
 from typing import List, Optional
 from math import hypot
 
@@ -171,32 +172,101 @@ def segment_with_ssim(frames, y_frames, video_stem, cache_folder):
 
 
 def segment_with_clip(frames, video_stem, cache_folder,
-                      stable_sim_threshold=0.95, stable_interval_threshold=3):
+                      stable_sim_threshold=0.95, stable_interval_threshold=3,
+                      header_pixel_size=33):
     """Run CLIP-based stable-segment detection."""
+    import time
+    import sys
     from clip_seg import VideoStableSegmentCLIP
 
     os.makedirs(cache_folder, exist_ok=True)
-    sim_file = os.path.join(cache_folder, f"sim_list_clip_{video_stem}.pkl")
 
+    # Create config hash from parameters that affect frame processing/similarity
+    config_dict = {
+        "header_pixel_size": header_pixel_size,
+        "stable_sim_threshold": stable_sim_threshold,
+        "stable_interval_threshold": stable_interval_threshold,
+    }
+    config_str = json.dumps(config_dict, sort_keys=True)
+    config_hash = hashlib.md5(config_str.encode()).hexdigest()[:8]
+
+    sim_file = os.path.join(cache_folder, f"sim_list_clip_{video_stem}_{config_hash}.pkl")
+
+    sys.stdout.write(f"[CLIP_PIPELINE] Starting CLIP-based segmentation for {len(frames)} frames\n")
+    sys.stdout.write(f"[CLIP_PIPELINE] Cache file: {sim_file}\n")
+    sys.stdout.flush()
+
+    clip_start = time.time()
     clip_segmenter = VideoStableSegmentCLIP(
         stable_sim_threshold=stable_sim_threshold,
         stable_interval_threshold=stable_interval_threshold,
     )
+    init_time = time.time() - clip_start
+    sys.stdout.write(f"[CLIP_PIPELINE] Model initialization took {init_time:.2f}s\n")
+    sys.stdout.flush()
 
-    if os.path.exists(sim_file):
+    # Always recompute, skip cache loading
+    sys.stdout.write("[CLIP_PIPELINE] Recomputing similarities (cache disabled)...\n")
+    sys.stdout.flush()
+
+    if False:  # Cache loading disabled
+        cache_start = time.time()
         with open(sim_file, "rb") as f:
             sim_list = pickle.load(f)
-        print("✅ CLIP similarity list loaded from cache.")
+        cache_time = time.time() - cache_start
+        sys.stdout.write(f"✅ CLIP similarity list loaded from cache in {cache_time:.2f}s\n")
+        sys.stdout.flush()
     else:
         # Convert BGR numpy frames → PIL for CLIP
         from PIL import Image
+        convert_start = time.time()
         pil_frames = [Image.fromarray(cv2.cvtColor(f, cv2.COLOR_BGR2RGB)) for f in frames]
+        convert_time = time.time() - convert_start
+        sys.stdout.write(f"[CLIP_PIPELINE] Frame conversion took {convert_time:.2f}s\n")
+        sys.stdout.flush()
+
+        compute_start = time.time()
+        # Wrap compute with heartbeat logging every 60 seconds
+        sim_list = []
+        last_heartbeat = compute_start
+        sys.stdout.write(f"[CLIP_PIPELINE] Starting similarity computation at {time.strftime('%H:%M:%S')}\n")
+        sys.stdout.flush()
+
+        # Monkey-patch to add heartbeat during computation
+        import threading
+        stop_heartbeat = threading.Event()
+
+        def heartbeat():
+            while not stop_heartbeat.is_set():
+                time.sleep(60)
+                if not stop_heartbeat.is_set():
+                    elapsed = time.time() - compute_start
+                    sys.stdout.write(f"[CLIP_PIPELINE] Still computing... ({elapsed:.0f}s elapsed)\n")
+                    sys.stdout.flush()
+
+        hb_thread = threading.Thread(target=heartbeat, daemon=True)
+        hb_thread.start()
+
         sim_list = clip_segmenter.calculate_clip_sim_seq(pil_frames)
+        stop_heartbeat.set()
+
+        compute_time = time.time() - compute_start
+        sys.stdout.write(f"[CLIP_PIPELINE] Similarity computation took {compute_time:.2f}s\n")
+        sys.stdout.flush()
+
+        save_start = time.time()
         with open(sim_file, "wb") as f:
             pickle.dump(sim_list, f)
-        print("📼 CLIP similarity list calculated and saved.")
+        save_time = time.time() - save_start
+        sys.stdout.write(f"📼 CLIP similarity list calculated and saved in {save_time:.2f}s\n")
+        sys.stdout.flush()
 
+    keyframe_start = time.time()
     stable_segments = clip_segmenter.detect_keyframes(sim_list)
+    keyframe_time = time.time() - keyframe_start
+    sys.stdout.write(f"[CLIP_PIPELINE] Keyframe detection took {keyframe_time:.2f}s\n")
+    sys.stdout.write(f"[CLIP_PIPELINE] Total: {time.time() - clip_start:.2f}s | Found {len(stable_segments)} segments\n")
+    sys.stdout.flush()
     return stable_segments
 
 
@@ -328,24 +398,33 @@ def main(
     print("Initializing ADB device controller...")
     device = ADBDeviceController()
 
-    if app_name:
-        print(f"📱 Preparing device for app: {app_name}")
-        _prepare_device_for_app(device, app_name)
+    # if app_name:
+    #     print(f"📱 Preparing device for app: {app_name}")
+    #     _prepare_device_for_app(device, app_name)
 
     video_stem = os.path.splitext(os.path.basename(video_path))[0]
     video_out_dir = output_root
     os.makedirs(video_out_dir, exist_ok=True)
 
+    # Determine cache directory: if app_name provided, use apps/<app_name>/videos/cache
+    # Otherwise use the cache_dir parameter
+    if app_name:
+        project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        cache_dir = os.path.join(project_root, "apps", app_name, "videos", "cache")
+        print(f"💾 Using app-specific cache: {cache_dir}")
+
     live_path = device.screenshot(index=0, save_path=video_out_dir)
 
-    frames, y_frames = yyh_utils.read_frames_from_video(video_path, header_pixel_size=33)
+    header_pixel_size = 33
+    frames, y_frames = yyh_utils.read_frames_from_video(video_path, header_pixel_size=header_pixel_size)
 
     # ---- Segment detection (switchable) ----
     print("🔍 Detecting stable segments...")
     if algorithm == "ssim":
         stable_segments = segment_with_ssim(frames, y_frames, video_stem, cache_folder=cache_dir)
     else:
-        stable_segments = segment_with_clip(frames, video_stem, cache_folder=cache_dir)
+        stable_segments = segment_with_clip(frames, video_stem, cache_folder=cache_dir,
+                                           header_pixel_size=header_pixel_size)
 
     if stable_segments[0][0] > 2:
         stable_segments = [(0, 1)] + stable_segments
@@ -427,6 +506,8 @@ def main(
         max_attempts = 3
         while match["same_state"] != "yes" and attempts < max_attempts:
             print(f"🔄 Attempting to align state (try {attempts + 1}/{max_attempts})...")
+            # Refresh XML from current device state for accurate element mapping
+            xml_str = device.get_ui_xml()
             elements = parse_xml_string(xml_str, bound_margin=10, min_cent_dist=20, clickable_only=True)
             if len(elements) <= 5:
                 elements = parse_xml_string(xml_str, bound_margin=10, min_cent_dist=20)
@@ -443,7 +524,9 @@ def main(
             )
             recovery_action = extract_json(recovery_reply)
 
-            pos = _resolve_region_position(recovery_action, region_index_to_center)
+            # Build current region index from fresh elements, not the original start-state regions
+            current_region_index_to_center = {idx: elem.center for idx, elem in enumerate(elements)}
+            pos = _resolve_region_position(recovery_action, current_region_index_to_center)
             if pos is not None:
                 recovery_action["position"] = pos
                 print(f"🎯 Recovery using region index: {recovery_action['region']} at {pos}")
@@ -530,7 +613,7 @@ def main(
         "action_types": dict(action_types),
         "llm_calls": getattr(provider, "llm_calls", []) if hasattr(provider, "llm_calls") else [],
     }
-    metrics_path = os.path.join(os.path.dirname(output_root), "vibr_metrics.json")
+    metrics_path = os.path.join(output_root, "vibr_metrics.json")
     import json
     with open(metrics_path, "w") as f:
         json.dump(metrics_data, f, indent=2, default=str)

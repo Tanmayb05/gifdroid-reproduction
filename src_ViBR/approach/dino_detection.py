@@ -13,8 +13,13 @@ GroundingDINO region detection and annotation utilities.
 - Provides annotation functions for highlighting both all detected regions and a subset of relevant regions.
 """
 
-# Force CPU usage for easier compatibility.
-device = torch.device("cpu")
+# Detect best available device (MPS on macOS, CUDA on Linux/Windows, CPU fallback)
+if torch.cuda.is_available():
+    device = torch.device("cuda")
+elif torch.backends.mps.is_available():
+    device = torch.device("mps")
+else:
+    device = torch.device("cpu")
 
 # Configuration for model and detection.
 _REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -68,6 +73,8 @@ TEXT_THRESHOLD = 0.2
 
 # Load the DINO model only once to avoid reloads in repeated calls
 MODEL = load_model(CONFIG_PATH, WEIGHTS_PATH)
+MODEL = MODEL.to(device)
+print(f"[DINO] Model loaded on device: {device}")
 
 def run_grounding_dino(image_path: str, output_path: str):
     """

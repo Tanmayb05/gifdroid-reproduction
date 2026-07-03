@@ -80,9 +80,7 @@ def create_output_layout(project_root: Path, app_name: str, video_path: Path, ll
     base_dir = project_root / "apps" / app_name.lower() / "llm" / flat_dir
     run_id = _next_run_id(base_dir)
     run_dir = base_dir / run_id
-    run_num = run_id.split("-")[1]
-    ts_file = run_dt.strftime("%Y-%m-%dT%H-%M-%S")
-    log_file = run_dir / "logs" / f"{ts_file}__run-{run_num}__pipeline__started.log"
+    log_file = run_dir / "log.log"
     return OutputLayout(
         base_dir=base_dir,
         run_dir=run_dir,
