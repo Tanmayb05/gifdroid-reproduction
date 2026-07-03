@@ -1,0 +1,21 @@
+flowchart TD
+    A["config.yml<br/>video_path: ...hhv-NNN.mp4<br/>video_mode: true<br/>llm: gemini"]
+    A --> B["pipeline.py<br/>run all stages"]
+    B --> C["main.py::main"]
+    C --> D["Load Config<br/>config.py::load_config"]
+    D --> E["Create OutputLayout<br/>io_utils.py<br/>run-NNN dir"]
+    E --> F["Load LLM Prompt<br/>prompts/llama_action_prompt_memory.txt"]
+    F --> G["Initialize Provider<br/>providers.py<br/>GeminiVideoProvider"]
+    G --> H["Encode Video to Base64<br/>Full MP4 → bytes → base64"]
+    H --> I["Send to Gemini API<br/>generateContent with video + prompt<br/>temperature=0.1"]
+    I --> J["Parse LLM Response<br/>main.py::_parse_memory_md"]
+    J --> K["Extract Sections<br/>• app, goal, outcome<br/>• Steps array<br/>• Key Observations"]
+    K --> L["Write memory.md<br/>run-NNN/memory.md"]
+    L --> M["Write metadata.json<br/>video_mode_metadata:<br/>  memory_md_content<br/>  task_description<br/>  ui_elements<br/>  completion_criteria"]
+    M --> N["Write llm_raw_response.txt<br/>Raw Gemini response"]
+    N --> O["✅ Stage 1 Complete<br/>Ready for Stage 2"]
+
+    style A fill:#e3f2fd
+    style I fill:#ffccbc
+    style L fill:#c8e6c9
+    style O fill:#c8e6c9

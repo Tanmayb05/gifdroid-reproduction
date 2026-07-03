@@ -1,0 +1,66 @@
+sequenceDiagram
+    participant User
+    participant Config as Config Files
+    participant P as pipeline.py
+    participant M as main.py
+    participant Prov as GeminiVideoProvider
+    participant API as Gemini API
+    participant IO as io_utils.py
+    participant A as automate.py
+    participant Auto as automation.py
+    participant Dev as DeviceController
+    participant Device as Android Device
+
+    User->>Config: Provides config.yml<br/>automation_config.yml
+    User->>Config: Provides video MP4<br/>Provides APK
+
+    Config->>P: Load config
+    P->>M: Call main() Stage 1
+    M->>IO: Create output layout<br/>run-NNN/
+    M->>Prov: Load GeminiVideoProvider
+
+    Note over Prov,API: Stage 1: Video → Memory
+    Prov->>Prov: Read MP4 video<br/>Encode to base64
+    Prov->>API: POST generateContent<br/>Video + memory prompt
+    API-->>Prov: Return memory.md<br/>structured markdown
+    Prov->>M: Return parsed memory
+    M->>IO: Write memory.md
+    M->>IO: Write metadata.json<br/>with memory content
+    P->>A: Call automate() Stage 2
+
+    Note over A,Device: Stage 2: Memory → Device Automation
+    A->>IO: Locate latest run<br/>Load metadata.json
+    A->>Auto: Pass memory_md_content<br/>task_description
+    A->>Dev: Connect uiautomator2
+    Dev->>Device: ADB connect
+    Dev->>Device: Install APK
+    Dev->>Device: Launch app
+
+    A->>A: Init AutomationSession<br/>history_window=3
+
+    loop Up to max_steps
+        Auto->>Dev: Capture screenshot
+        Dev->>Device: screencap → PIL.Image
+        Auto->>Dev: Dump accessibility tree
+        Dev->>Device: uiautomator2 dump
+        Dev-->>Auto: XML + coordinates
+        Auto->>Auto: Parse top 20 elements
+
+        Note over Auto,API: LLM Decision
+        Auto->>Prov: decide_next_action<br/>with_video_context()
+        Prov->>API: POST generateContent<br/>Screenshot base64<br/>Memory summary<br/>Task description<br/>Accessibility tree<br/>History (last 3 steps)
+        API-->>Prov: ActionDecision JSON<br/>action, target, reasoning
+        Prov-->>Auto: Parsed ActionDecision
+
+        Auto->>Dev: Execute action<br/>tap/scroll/type
+        Dev->>Device: ADB/uiautomator2<br/>Execute
+        Auto->>A: Record step<br/>add_turn()
+
+        Auto->>Auto: Check stall?<br/>If repeated N times → stop
+    end
+
+    Auto->>IO: Write session_trace.json
+    Auto->>IO: Write step_*.png screenshots
+    A->>IO: Write replay_script.sh
+
+    A-->>User: ✅ Automation complete

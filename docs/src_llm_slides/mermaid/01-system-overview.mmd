@@ -1,0 +1,18 @@
+flowchart TD
+    A["📹 Input: Video<br/>apps/app/videos/hhv-NNN.mp4"] --> B["🔧 Load Config<br/>src_llm/input/config.yml"]
+    C["🔑 Load APK<br/>apps/app/apk/app.apk"] --> D["🤖 Stage 2: Memory → Device"]
+    B --> E["▶️ Stage 1: Video → Memory<br/>pipeline.py → main.py"]
+    E --> F["📝 Generate memory.md<br/>GeminiVideoProvider<br/>infer_memory_from_video"]
+    F --> G["💾 Output: Metadata & Memory<br/>run-NNN/memory.md<br/>run-NNN/metadata.json"]
+    G --> D
+    D --> H["▶️ Automation Loop<br/>automate.py → automation.py<br/>LLM guides each step"]
+    H --> I["📱 Device Execution<br/>DeviceController<br/>uiautomator2/ADB"]
+    I --> J["📸 Capture Screenshots<br/>Extract UI XML<br/>Parse Accessibility Tree"]
+    J --> H
+    H --> K["✅ Final Output<br/>run-NNN/session_trace.json<br/>run-NNN/steps/step_*.png<br/>run-NNN/replay_script.sh"]
+
+    style A fill:#e1f5ff
+    style C fill:#e1f5ff
+    style E fill:#fff3e0
+    style D fill:#f3e5f5
+    style K fill:#e8f5e9

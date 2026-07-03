@@ -1,0 +1,46 @@
+flowchart TD
+    A["automation_config.yml<br/>app_name: X<br/>apk_path: apps/X/apk/X.apk<br/>llm: gemini"]
+    B["Latest Stage 1 Output<br/>run-NNN/metadata.json<br/>Contains: memory.md content"]
+    A --> C["automate.py::main"]
+    B --> C
+    C --> D["Load Automation Config<br/>config.py::load_automation_config"]
+    D --> E["Locate Latest Run<br/>io_utils.py::_locate_latest_run<br/>Find newest run-* metadata.json"]
+    E --> F["Extract Memory + Task<br/>Load memory_md_content<br/>Extract task_description"]
+    F --> G["Initialize DeviceController<br/>device.py<br/>uiautomator2 connection"]
+    G --> H["Install APK<br/>adb uninstall + install -r<br/>apps/X/apk/X.apk"]
+    H --> I["Launch App<br/>adb shell am start"]
+    I --> J["Initialize Automation Session<br/>session.py::AutomationSession<br/>history_window = 3 steps"]
+
+    J --> K["🔄 AUTOMATION LOOP<br/>max_steps or until done"]
+    K --> L["Capture Screenshot<br/>device.py::capture_screenshot<br/>PIL.Image"]
+    K --> M["Dump Accessibility Tree<br/>device.py::dump_accessibility_tree<br/>XML string"]
+    K --> N["Extract Top 20 Elements<br/>Parse clickable regions<br/>resource_id, coordinates, text"]
+    L --> O["LLM Decision<br/>providers.py<br/>decide_next_action_with_video_context"]
+    M --> O
+    N --> O
+    F --> O
+    J --> O
+
+    O --> P["LLM Prompt Sent:<br/>• Current screenshot base64<br/>• Video summary memory.md<br/>• Task description<br/>• Accessibility tree elements<br/>• Last 3 steps history"]
+    P --> Q["LLM Response:<br/>action: tap/scroll/type<br/>target: resource_id or coords<br/>reasoning: why<br/>confidence: 0-100"]
+
+    Q --> R["Parse ActionDecision<br/>automation.py::ActionDecision"]
+    R --> S["Execute on Device<br/>device.py<br/>tap/scroll/type/back/home/wait"]
+    S --> T["Record Step<br/>session.py::add_turn<br/>Log action taken"]
+    T --> U["Check Stall Detection<br/>Same action repeat > threshold?<br/>→ Stop if repeated"]
+    U --> V{"Stall Detected?"}
+    V -->|No| W["Continue Loop"]
+    V -->|Yes| X["🛑 Stop Automation"]
+
+    W --> K
+    X --> Y["Write session_trace.json<br/>automation.py<br/>Task, steps[], status, assertions"]
+    Y --> Z["Write replay_script.sh<br/>replay_writer.py<br/>Executable replay"]
+    Z --> AA["Save step screenshots<br/>steps/step_NNN.png"]
+    AA --> AB["✅ Stage 2 Complete"]
+
+    style A fill:#f3e5f5
+    style B fill:#ffe0b2
+    style O fill:#ffccbc
+    style P fill:#ffccbc
+    style Y fill:#c8e6c9
+    style AB fill:#c8e6c9
