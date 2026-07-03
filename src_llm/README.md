@@ -432,6 +432,55 @@ python -m src_llm.reset_runs \
   --apply
 ```
 
+## FAQ: How does video_mode work?
+
+**Q: What happens when `video_mode: true`?**
+
+A: Video mode skips keyframe extraction and sends the entire video directly to the LLM provider (Gemini) for analysis. The LLM returns a structured markdown summary (memory.md) instead of an execution trace.
+
+**Q: What's the execution flow in video mode?**
+
+A:
+
+1. **Entry point** ([main.py:261–275](src_llm/main.py#L261-L275)):
+   - Check `cfg.video_mode` flag
+   - Call `provider.infer_memory_from_video(video_path)` → returns markdown directly
+   - Parse markdown for task description, UI elements, and completion criteria
+   - Skip frame extraction + keyframe selection (entire normal pipeline bypassed)
+
+2. **Provider layer** ([providers.py:1182–1199](src_llm/providers.py#L1182-L1199)):
+   - Base class defines `infer_memory_from_video()` interface (line 129)
+   - Only Gemini implements it; other providers raise `NotImplementedError`
+   - Reads memory prompt from `src_llm/input/prompts/llama_action_prompt_memory.txt`
+   - Calls `_send_video_request(video_path, prompt)` → sends to Gemini API
+   - Extracts + returns raw markdown text
+
+3. **Video encoding** ([providers.py](src_llm/providers.py)):
+   - `_send_video_request()` encodes video as base64
+   - Sends inline to Gemini generateContent API
+   - Parses JSON response, extracts text content
+
+**Q: When should I use video_mode?**
+
+A: Use `video_mode: true` (default) for Stage 1 memory generation. It reduces API calls and token usage by generating the task summary once. Disable it (`video_mode: false`) only if you need keyframe-level precision or don't have API access.
+
+**Q: Why is video_mode Gemini-only?**
+
+A: Gemini's API natively supports inline video uploads in requests. Local Ollama providers don't support video input directly; they require pre-extracted keyframes. To use video_mode with local models, keyframes must be extracted first (use `video_mode: false`).
+
+**Q: What's the difference: video_mode vs. legacy keyframe mode?**
+
+A:
+
+| Aspect | video_mode=true | video_mode=false |
+| --- | --- | --- |
+| Input | Full video file | Extracted keyframes |
+| Output | memory.md + metadata | execution_trace.json |
+| Keyframe extraction | Skipped | Required (1–2 min) |
+| LLM calls | 1× (video → memory) | N× (1 per keyframe) |
+| Use case | Stage 1 analysis | Detailed action traces |
+| Provider support | Gemini only | All providers |
+
 ## Architecture & Design Decisions
 
 | Decision | Rationale |
