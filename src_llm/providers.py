@@ -13,46 +13,11 @@ from urllib import error as url_error
 from urllib import request as url_request
 
 import cv2
+from google.genai import types
+from PIL import Image
 
 from src_llm.keyframes import Keyframe
 from src_llm.llama_prereq import LlamaPrereqError, assert_llama_accessible
-
-_RETRY_LOG = logging.getLogger(__name__)
-
-
-def _urlopen_with_retry(
-    req: url_request.Request,
-    timeout: int,
-    max_retries: int = 5,
-    base_delay: float = 10.0,
-) -> str:
-    """Call urlopen, retrying on HTTP 429 and TimeoutError with exponential backoff."""
-    for attempt in range(max_retries + 1):
-        try:
-            with url_request.urlopen(req, timeout=timeout) as resp:
-                return resp.read().decode("utf-8")
-        except url_error.HTTPError as exc:
-            if exc.code == 429 and attempt < max_retries:
-                delay = base_delay * (2 ** attempt)
-                _RETRY_LOG.warning(
-                    "HTTP 429 rate limit on attempt %d/%d — retrying in %.0fs",
-                    attempt + 1, max_retries, delay,
-                )
-                time.sleep(delay)
-                continue
-            raise
-        except TimeoutError as exc:
-            if attempt < max_retries:
-                delay = base_delay * (2 ** attempt)
-                _RETRY_LOG.warning(
-                    "Request timeout on attempt %d/%d — retrying in %.0fs",
-                    attempt + 1, max_retries, delay,
-                )
-                time.sleep(delay)
-                continue
-            raise
-    raise RuntimeError("unreachable")
-
 
 @dataclass
 class SuggestedAction:
@@ -88,6 +53,7 @@ class ActionDecision:
     action: ExecutableAction | None
     reasoning: str
     confidence: float
+    raw_response: str = ""
 
 
 @dataclass(frozen=True)
@@ -205,13 +171,18 @@ class BaseLLMProvider(ABC):
 
 
 class GeminiProvider(BaseLLMProvider):
+    # Class-level singleton for genai.Client, keyed by resolved API key/auth mode
+    _genai_client_instance: Any = None
+    _genai_client_key: str | None = None
+    _genai_client_lock: threading.Lock = threading.Lock()
+
     def validate_connection(self) -> None:
         self.logger.info(
             "Gemini preflight started | model=%s | validating API key and endpoint access",
             self.llm_model,
         )
-        _ = self._call_gemini(
-            prompt="Reply with exactly: OK",
+        text, usage = self._generate(
+            contents=["Reply with exactly: OK"],
             timeout_sec=30,
             request_kind="preflight",
         )
@@ -224,6 +195,141 @@ class GeminiProvider(BaseLLMProvider):
             return key
         return str(self.env.get("GOOGLE_GENERATIVE_AI_API_KEY", "")).strip()
 
+    def _gemini_vertex_project_id(self) -> str | None:
+        """Get Vertex AI project ID from env, checking runtime override first, then ADC default."""
+        project_id = str(self.env.get("GEMINI_VERTEX_PROJECT_ID", "")).strip()
+        if project_id:
+            return project_id
+        try:
+            _, adc_project = self._build_default_adc_token()
+            return adc_project
+        except ProviderError:
+            return None
+
+    def _gemini_vertex_location(self) -> str:
+        """Get Vertex AI location from env, default to us-central1."""
+        location = str(self.env.get("GEMINI_VERTEX_LOCATION", "")).strip()
+        return location or "us-central1"
+
+    def _genai_client(self) -> Any:
+        """Get or create singleton genai.Client, thread-safe, cached by resolved key/auth mode."""
+        try:
+            from google import genai
+        except ImportError as exc:
+            raise ProviderError(
+                "Gemini support requires the google-genai package. "
+                "Install dependencies from src_llm/requirements.txt"
+            ) from exc
+
+        api_key = self._gemini_api_key()
+        # Determine cache key: either API key or "adc" for ADC auth mode
+        cache_key = api_key if api_key else "adc"
+
+        with GeminiProvider._genai_client_lock:
+            # Return cached client if key matches
+            if (
+                GeminiProvider._genai_client_instance is not None
+                and GeminiProvider._genai_client_key == cache_key
+            ):
+                return GeminiProvider._genai_client_instance
+
+            # Create new client based on auth mode
+            if api_key:
+                self.logger.debug("Creating genai.Client with API key")
+                client = genai.Client(api_key=api_key)
+            else:
+                # ADC/Vertex AI mode
+                project_id = self._gemini_vertex_project_id()
+                location = self._gemini_vertex_location()
+                if not project_id:
+                    raise ProviderError(
+                        "No project_id available for Vertex AI. "
+                        "Set GEMINI_VERTEX_PROJECT_ID or configure Application Default Credentials."
+                    )
+                self.logger.debug(
+                    "Creating genai.Client with Vertex AI | project=%s | location=%s",
+                    project_id, location,
+                )
+                client = genai.Client(
+                    api_key=None,
+                    vertexai=True,
+                    project=project_id,
+                    location=location,
+                )
+
+            # Cache the new client
+            GeminiProvider._genai_client_instance = client
+            GeminiProvider._genai_client_key = cache_key
+            return client
+
+    def _generate(
+        self,
+        contents: list,
+        timeout_sec: int,
+        request_kind: str,
+    ) -> tuple[str, dict]:
+        """Call genai.Client.models.generate_content with retry logic for 429/timeout.
+
+        Returns (response_text, usage_dict) where usage_dict contains token counts.
+        Wraps SDK exceptions into ProviderError. Reimplements 429/timeout retry with
+        exponential backoff (10/20/40/80/160s, 5 attempts).
+        """
+        client = self._genai_client()
+        max_retries = 5
+        base_delay = 10.0
+
+        for attempt in range(max_retries + 1):
+            try:
+                self.logger.info(
+                    "Gemini generateContent call | kind=%s | model=%s | attempt=%d/%d",
+                    request_kind, self.llm_model, attempt + 1, max_retries + 1,
+                )
+                start = time.perf_counter()
+                response = client.models.generate_content(
+                    model=self.llm_model,
+                    contents=contents,
+                    config=types.GenerateContentConfig(temperature=0.1)
+                )
+                elapsed = time.perf_counter() - start
+                self.logger.info(
+                    "Gemini generateContent response | kind=%s | elapsed_sec=%.2f",
+                    request_kind, elapsed,
+                )
+
+                # Extract response text and usage
+                response_text = response.text.strip() if response.text else ""
+                usage_dict = {
+                    "prompt_token_count": getattr(response.usage_metadata, "prompt_token_count", 0),
+                    "candidates_token_count": getattr(
+                        response.usage_metadata, "candidates_token_count", 0
+                    ),
+                }
+
+                return response_text, usage_dict
+
+            except Exception as exc:
+                error_name = type(exc).__name__
+                error_msg = str(exc)
+                is_rate_limit = "429" in error_msg or "quota" in error_msg.lower()
+                is_timeout = isinstance(exc, TimeoutError) or "timeout" in error_msg.lower()
+
+                if (is_rate_limit or is_timeout) and attempt < max_retries:
+                    delay = base_delay * (2 ** attempt)
+                    retry_type = "rate limit" if is_rate_limit else "timeout"
+                    self.logger.warning(
+                        "Gemini %s on attempt %d/%d — retrying in %.0fs | error=%s",
+                        retry_type, attempt + 1, max_retries, delay, error_msg[:100],
+                    )
+                    time.sleep(delay)
+                    continue
+
+                # Non-retryable error
+                raise ProviderError(
+                    f"Gemini {request_kind} failed ({error_name}): {error_msg[:300]}"
+                ) from exc
+
+        raise ProviderError(f"Gemini {request_kind} exhausted {max_retries + 1} retry attempts")
+
     def infer_actions(self, keyframes: List[Keyframe]) -> List[ProviderAction]:
         if not keyframes:
             return []
@@ -235,11 +341,12 @@ class GeminiProvider(BaseLLMProvider):
         )
         prompt = self._build_action_prompt(keyframes)
         try:
-            raw_text = self._call_gemini(
-                prompt=prompt,
+            raw_text, usage = self._generate(
+                contents=[prompt],
                 timeout_sec=90,
                 request_kind="action_inference",
             )
+            self._record_call("action_inference", 0.0, usage)
             parsed = self._parse_actions(raw_text, keyframes)
             if parsed:
                 self.logger.info(
@@ -303,69 +410,16 @@ class GeminiProvider(BaseLLMProvider):
             + clickable_summary
         )
 
-        # Read screenshot as base64
-        with screenshot_path.open("rb") as f:
-            img_b64 = base64.b64encode(f.read()).decode("ascii")
-
-        # Use Vertex AI if no API key, else Google AI Studio
-        api_key = self._gemini_api_key()
-        if api_key:
-            url = (
-                "https://generativelanguage.googleapis.com/v1beta/models/"
-                f"{self.llm_model}:generateContent?key={api_key}"
-            )
-            headers = {"Content-Type": "application/json"}
-        else:
-            token, adc_project_id = self._build_default_adc_token()
-            project_id = (
-                str(self.env.get("GEMINI_VERTEX_PROJECT_ID", "")).strip() or adc_project_id
-            )
-            if not project_id:
-                raise ProviderError("No project_id for Vertex AI in describe_screen")
-            location = str(self.env.get("GEMINI_VERTEX_LOCATION", "us-central1")).strip() or "us-central1"
-            url = (
-                f"https://{location}-aiplatform.googleapis.com/v1/"
-                f"projects/{project_id}/locations/{location}/publishers/google/models/"
-                f"{self.llm_model}:generateContent"
-            )
-            headers = {
-                "Authorization": f"Bearer {token}",
-                "Content-Type": "application/json",
-            }
-
-        payload = {
-            "contents": [{
-                "role": "user",
-                "parts": [
-                    {"inlineData": {"mimeType": "image/png", "data": img_b64}},
-                    {"text": prompt},
-                ],
-            }],
-            "generationConfig": {"temperature": 0.1},
-        }
-        payload_bytes = json.dumps(payload).encode("utf-8")
-        req = url_request.Request(url=url, data=payload_bytes, headers=headers, method="POST")
+        # Load screenshot as PIL Image
+        screenshot_image = Image.open(screenshot_path)
 
         self.logger.info("describe_screen: sending screenshot to Gemini | model=%s", self.llm_model)
-        start = time.perf_counter()
-        try:
-            response_text = _urlopen_with_retry(req, timeout=180)
-        except url_error.HTTPError as exc:
-            err_body = exc.read().decode("utf-8", errors="replace")
-            raise ProviderError(f"describe_screen HTTP {exc.code}: {err_body[:300]}") from exc
-        except url_error.URLError as exc:
-            raise ProviderError(f"describe_screen URL error: {exc}") from exc
-        except TimeoutError as exc:
-            raise ProviderError(f"describe_screen timed out after 180s") from exc
-
-        elapsed = time.perf_counter() - start
-        self.logger.info("describe_screen: response received | elapsed_sec=%.2f", elapsed)
-
-        try:
-            data = json.loads(response_text)
-            raw_text = self._extract_text(data)
-        except (json.JSONDecodeError, KeyError, TypeError, ProviderError) as exc:
-            raise ProviderError(f"describe_screen: invalid response format: {exc}") from exc
+        raw_text, usage = self._generate(
+            contents=[prompt, screenshot_image],
+            timeout_sec=180,
+            request_kind="describe_screen",
+        )
+        self._record_call("describe_screen", 0.0, usage)
 
         return self._parse_screen_description(raw_text)
 
@@ -428,7 +482,6 @@ class GeminiProvider(BaseLLMProvider):
 
         Returns an ActionDecision with continue_automation flag and action details.
         """
-        import io
         import xml.etree.ElementTree as ET
 
         # Build clickable elements summary
@@ -490,67 +543,13 @@ class GeminiProvider(BaseLLMProvider):
             "Return ONLY valid JSON, no markdown fences."
         ).format(task_line=task_line) + history_text + clickable_summary
 
-        # Encode current screenshot as base64 PNG
-        buf = io.BytesIO()
-        screenshot.save(buf, format="PNG")
-        img_b64 = base64.b64encode(buf.getvalue()).decode("ascii")
-
-        api_key = self._gemini_api_key()
-        if api_key:
-            url = (
-                "https://generativelanguage.googleapis.com/v1beta/models/"
-                f"{self.llm_model}:generateContent?key={api_key}"
-            )
-            headers = {"Content-Type": "application/json"}
-        else:
-            token, adc_project_id = self._build_default_adc_token()
-            project_id = (
-                str(self.env.get("GEMINI_VERTEX_PROJECT_ID", "")).strip() or adc_project_id
-            )
-            if not project_id:
-                raise ProviderError("No project_id for Vertex AI in decide_next_action")
-            location = str(self.env.get("GEMINI_VERTEX_LOCATION", "us-central1")).strip() or "us-central1"
-            url = (
-                f"https://{location}-aiplatform.googleapis.com/v1/"
-                f"projects/{project_id}/locations/{location}/publishers/google/models/"
-                f"{self.llm_model}:generateContent"
-            )
-            headers = {
-                "Authorization": f"Bearer {token}",
-                "Content-Type": "application/json",
-            }
-
-        payload = {
-            "contents": [{
-                "role": "user",
-                "parts": [
-                    {"inlineData": {"mimeType": "image/png", "data": img_b64}},
-                    {"text": prompt},
-                ],
-            }],
-            "generationConfig": {"temperature": 0.1},
-        }
-        payload_bytes = json.dumps(payload).encode("utf-8")
-        req = url_request.Request(url=url, data=payload_bytes, headers=headers, method="POST")
-
         self.logger.info("decide_next_action: calling Gemini | model=%s", self.llm_model)
-        start = time.perf_counter()
-        try:
-            response_text = _urlopen_with_retry(req, timeout=180)
-        except url_error.HTTPError as exc:
-            err_body = exc.read().decode("utf-8", errors="replace")
-            raise ProviderError(f"decide_next_action HTTP {exc.code}: {err_body[:300]}") from exc
-        except url_error.URLError as exc:
-            raise ProviderError(f"decide_next_action URL error: {exc}") from exc
-        except TimeoutError as exc:
-            raise ProviderError(f"decide_next_action timed out after 180s") from exc
-
-        elapsed = time.perf_counter() - start
-        self.logger.info("decide_next_action: response received | elapsed_sec=%.2f", elapsed)
-
-        data = json.loads(response_text)
-        self._record_call("decide_next_action", elapsed, data)
-        raw_text = self._extract_text(data)
+        raw_text, usage = self._generate(
+            contents=[prompt, screenshot],
+            timeout_sec=180,
+            request_kind="decide_next_action",
+        )
+        self._record_call("decide_next_action", 0.0, usage)
         return self._parse_action_decision(raw_text)
 
     def _parse_action_decision(self, raw_text: str) -> "ActionDecision":
@@ -602,6 +601,7 @@ class GeminiProvider(BaseLLMProvider):
             action=action,
             reasoning=reasoning,
             confidence=max(0.0, min(1.0, confidence)),
+            raw_response=raw_text,
         )
 
     def summarize_video_task(self, keyframes: List["Keyframe"]) -> str:
@@ -613,78 +613,34 @@ class GeminiProvider(BaseLLMProvider):
         if not keyframes:
             return ""
 
-        # Build multipart payload: interleave images with timestamp captions
-        parts: list = []
+        # Build multipart contents: interleave images with timestamp captions
+        contents: list = []
         for idx, kf in enumerate(keyframes):
-            import cv2 as _cv2
-            success, buf = _cv2.imencode(".png", kf.image_bgr)
-            if not success:
-                continue
-            img_b64 = base64.b64encode(buf.tobytes()).decode("ascii")
-            parts.append({"inlineData": {"mimeType": "image/png", "data": img_b64}})
-            parts.append({"text": f"Frame {idx + 1} at {kf.timestamp_sec:.1f}s"})
+            # Convert keyframe BGR (cv2 format) to RGB PIL Image
+            rgb_array = cv2.cvtColor(kf.image_bgr, cv2.COLOR_BGR2RGB)
+            pil_image = Image.fromarray(rgb_array)
+            contents.append(pil_image)
+            contents.append(f"Frame {idx + 1} at {kf.timestamp_sec:.1f}s")
 
-        parts.append({
-            "text": (
-                "These are keyframes from a screen recording of an Android app.\n"
-                "Describe in 2-4 sentences what task the user is performing in the video. "
-                "Be specific about the sequence of actions (e.g. 'The user opens AdAway, "
-                "grants root permission by tapping Allow, then enables host blocking.'). "
-                "Return only the plain-text description, no JSON."
-            )
-        })
-
-        api_key = self._gemini_api_key()
-        if api_key:
-            url = (
-                "https://generativelanguage.googleapis.com/v1beta/models/"
-                f"{self.llm_model}:generateContent?key={api_key}"
-            )
-            headers = {"Content-Type": "application/json"}
-        else:
-            token, adc_project_id = self._build_default_adc_token()
-            project_id = (
-                str(self.env.get("GEMINI_VERTEX_PROJECT_ID", "")).strip() or adc_project_id
-            )
-            if not project_id:
-                raise ProviderError("No project_id for Vertex AI in summarize_video_task")
-            location = str(self.env.get("GEMINI_VERTEX_LOCATION", "us-central1")).strip() or "us-central1"
-            url = (
-                f"https://{location}-aiplatform.googleapis.com/v1/"
-                f"projects/{project_id}/locations/{location}/publishers/google/models/"
-                f"{self.llm_model}:generateContent"
-            )
-            headers = {
-                "Authorization": f"Bearer {token}",
-                "Content-Type": "application/json",
-            }
-
-        payload = {
-            "contents": [{"role": "user", "parts": parts}],
-            "generationConfig": {"temperature": 0.1},
-        }
-        payload_bytes = json.dumps(payload).encode("utf-8")
-        req = url_request.Request(url=url, data=payload_bytes, headers=headers, method="POST")
+        contents.append(
+            "These are keyframes from a screen recording of an Android app.\n"
+            "Describe in 2-4 sentences what task the user is performing in the video. "
+            "Be specific about the sequence of actions (e.g. 'The user opens AdAway, "
+            "grants root permission by tapping Allow, then enables host blocking.'). "
+            "Return only the plain-text description, no JSON."
+        )
 
         self.logger.info(
             "summarize_video_task: sending %d keyframes to Gemini | model=%s",
             len(keyframes), self.llm_model,
         )
-        start = time.perf_counter()
-        try:
-            response_text = _urlopen_with_retry(req, timeout=120)
-        except url_error.HTTPError as exc:
-            err_body = exc.read().decode("utf-8", errors="replace")
-            raise ProviderError(f"summarize_video_task HTTP {exc.code}: {err_body[:300]}") from exc
-        except url_error.URLError as exc:
-            raise ProviderError(f"summarize_video_task URL error: {exc}") from exc
-
-        elapsed = time.perf_counter() - start
-        self.logger.info("summarize_video_task: response received | elapsed_sec=%.2f", elapsed)
-
-        data = json.loads(response_text)
-        self._record_call("summarize_video_task", elapsed, data)
-        return self._extract_text(data).strip()
+        raw_text, usage = self._generate(
+            contents=contents,
+            timeout_sec=120,
+            request_kind="summarize_video_task",
+        )
+        self._record_call("summarize_video_task", 0.0, usage)
+        return raw_text.strip()
 
     def summarize_video_task_from_video(self, video_path: "Path") -> str:
         """Summarize the task shown in a raw video file without keyframe extraction.
@@ -707,19 +663,9 @@ class GeminiProvider(BaseLLMProvider):
             "summarize_video_task_from_video: sending raw video to Gemini | video=%s",
             video_path.name,
         )
-        response_text = self._send_video_request(video_path, prompt_text)
-        try:
-            data = json.loads(response_text)
-            self._record_call(
-                "summarize_video_task_from_video",
-                getattr(self, "_last_video_request_elapsed", 0.0),
-                data,
-            )
-            return self._extract_text(data).strip()
-        except (json.JSONDecodeError, KeyError, TypeError, ProviderError) as exc:
-            raise ProviderError(
-                f"summarize_video_task_from_video: invalid response: {exc}"
-            ) from exc
+        raw_text, usage = self._send_video_request(video_path, prompt_text)
+        self._record_call("summarize_video_task_from_video", 0.0, usage)
+        return raw_text.strip()
 
     def decide_next_action_with_video_context(
         self,
@@ -730,7 +676,6 @@ class GeminiProvider(BaseLLMProvider):
         video_summary: str,
     ) -> "ActionDecision":
         """Like decide_next_action but includes the video task summary as additional context."""
-        import io
         import xml.etree.ElementTree as ET
 
         # Build clickable elements summary
@@ -795,86 +740,42 @@ class GeminiProvider(BaseLLMProvider):
 
         self.logger.debug("LLM Prompt (first 500 chars): %s", prompt[:500])
 
-        import io as _io
-        buf = _io.BytesIO()
-        screenshot.save(buf, format="PNG")
-        img_b64 = base64.b64encode(buf.getvalue()).decode("ascii")
-
-        api_key = self._gemini_api_key()
-        if api_key:
-            url = (
-                "https://generativelanguage.googleapis.com/v1beta/models/"
-                f"{self.llm_model}:generateContent?key={api_key}"
-            )
-            headers = {"Content-Type": "application/json"}
-        else:
-            token, adc_project_id = self._build_default_adc_token()
-            project_id = (
-                str(self.env.get("GEMINI_VERTEX_PROJECT_ID", "")).strip() or adc_project_id
-            )
-            if not project_id:
-                raise ProviderError("No project_id for Vertex AI in decide_next_action_with_video_context")
-            location = str(self.env.get("GEMINI_VERTEX_LOCATION", "us-central1")).strip() or "us-central1"
-            url = (
-                f"https://{location}-aiplatform.googleapis.com/v1/"
-                f"projects/{project_id}/locations/{location}/publishers/google/models/"
-                f"{self.llm_model}:generateContent"
-            )
-            headers = {
-                "Authorization": f"Bearer {token}",
-                "Content-Type": "application/json",
-            }
-
-        payload = {
-            "contents": [{
-                "role": "user",
-                "parts": [
-                    {"inlineData": {"mimeType": "image/png", "data": img_b64}},
-                    {"text": prompt},
-                ],
-            }],
-            "generationConfig": {"temperature": 0.1},
-        }
-        payload_bytes = json.dumps(payload).encode("utf-8")
-        req = url_request.Request(url=url, data=payload_bytes, headers=headers, method="POST")
-
         self.logger.info("decide_next_action_with_video_context: calling Gemini | model=%s", self.llm_model)
-        start = time.perf_counter()
-        try:
-            response_text = _urlopen_with_retry(req, timeout=180)
-        except url_error.HTTPError as exc:
-            err_body = exc.read().decode("utf-8", errors="replace")
-            raise ProviderError(f"decide_next_action_with_video_context HTTP {exc.code}: {err_body[:300]}") from exc
-        except url_error.URLError as exc:
-            raise ProviderError(f"decide_next_action_with_video_context URL error: {exc}") from exc
-        except TimeoutError as exc:
-            raise ProviderError(f"decide_next_action_with_video_context timed out after 180s") from exc
-
-        elapsed = time.perf_counter() - start
-        self.logger.info("decide_next_action_with_video_context: response received | elapsed_sec=%.2f", elapsed)
-
-        data = json.loads(response_text)
-        self.logger.debug("LLM raw response (first 1000 chars): %s", response_text[:1000])
-
-        self._record_call("decide_next_action_with_video_context", elapsed, data)
-        raw_text = self._extract_text(data)
-        self.logger.info("LLM extracted text: %s", raw_text[:500])
+        raw_text, usage = self._generate(
+            contents=[prompt, screenshot],
+            timeout_sec=180,
+            request_kind="decide_next_action_with_video_context",
+        )
+        self.logger.debug("LLM raw response: %s", raw_text)
+        self._record_call("decide_next_action_with_video_context", 0.0, usage)
+        self.logger.info("LLM extracted text: %s", raw_text)
 
         decision = self._parse_action_decision(raw_text)
         self.logger.info("Parsed decision | continue=%s action=%s | raw_json=%s",
                          decision.continue_automation,
                          decision.action.type if decision.action else "none",
-                         raw_text[:200])
+                         raw_text)
         return decision
 
     def _record_call(self, kind: str, elapsed: float, data: dict) -> None:
-        """Append per-call stats to llm_calls using Gemini's usageMetadata."""
-        usage = data.get("usageMetadata") or {}
+        """Append per-call stats to llm_calls using SDK usage dict or legacy usageMetadata."""
+        # Support both new SDK format (direct dict with snake_case keys)
+        # and legacy format (REST response with usageMetadata camelCase)
+        if "prompt_token_count" in data:
+            # SDK format
+            prompt_tokens = int(data.get("prompt_token_count") or 0)
+            output_tokens = int(data.get("candidates_token_count") or 0)
+        else:
+            # Legacy REST format
+            usage = data.get("usageMetadata") or {}
+            prompt_tokens = int(usage.get("promptTokenCount") or 0)
+            output_tokens = int(usage.get("candidatesTokenCount") or 0)
+
         self.llm_calls.append({
             "kind": kind,
             "elapsed_sec": elapsed,
-            "prompt_tokens": int(usage.get("promptTokenCount") or 0),
-            "output_tokens": int(usage.get("candidatesTokenCount") or 0),
+            "prompt_tokens": prompt_tokens,
+            "output_tokens": output_tokens,
         })
 
     def _build_action_prompt(self, keyframes: List[Keyframe]) -> str:
@@ -894,96 +795,6 @@ class GeminiProvider(BaseLLMProvider):
             "Keyframes:\n"
             f"{joined}\n"
         )
-
-    def _call_gemini(self, prompt: str, timeout_sec: int, request_kind: str) -> str:
-        api_key = self._gemini_api_key()
-
-        headers = {"Content-Type": "application/json"}
-        endpoint_name = ""
-
-        if api_key:
-            auth_mode = "api_key"
-            endpoint_name = "google_ai_studio"
-            url = (
-                "https://generativelanguage.googleapis.com/v1beta/models/"
-                f"{self.llm_model}:generateContent?key={api_key}"
-            )
-        else:
-            auth_mode = "adc_default"
-            token, adc_project_id = self._build_default_adc_token()
-            vertex_project_id = (
-                str(self.env.get("GEMINI_VERTEX_PROJECT_ID", "")).strip() or adc_project_id
-            )
-            if not vertex_project_id:
-                raise ProviderError(
-                    "ADC did not provide a project_id and GEMINI_VERTEX_PROJECT_ID is not set."
-                )
-            headers["Authorization"] = f"Bearer {token}"
-            location = str(self.env.get("GEMINI_VERTEX_LOCATION", "us-central1")).strip() or "us-central1"
-            endpoint_name = "vertex_ai"
-            url = (
-                f"https://{location}-aiplatform.googleapis.com/v1/"
-                f"projects/{vertex_project_id}/locations/{location}/publishers/google/models/"
-                f"{self.llm_model}:generateContent"
-            )
-            self.logger.info(
-                "Gemini ADC default credentials loaded | adc_project=%s | runtime_project=%s | token_present=%s",
-                adc_project_id,
-                vertex_project_id,
-                bool(token),
-            )
-        self.logger.info(
-            "Gemini auth route selected | route=%s | endpoint=%s",
-            auth_mode,
-            endpoint_name,
-        )
-
-        payload = {
-            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-            "generationConfig": {"temperature": 0.1},
-        }
-        payload_bytes = json.dumps(payload).encode("utf-8")
-        req = url_request.Request(
-            url=url,
-            data=payload_bytes,
-            headers=headers,
-            method="POST",
-        )
-
-        self.logger.info(
-            "Gemini API request sent | kind=%s | model=%s | auth=%s | endpoint=%s | waiting for response",
-            request_kind,
-            self.llm_model,
-            auth_mode,
-            endpoint_name,
-        )
-        start = time.perf_counter()
-        try:
-            response_text = _urlopen_with_retry(req, timeout=timeout_sec)
-        except url_error.HTTPError as exc:
-            err_body = exc.read().decode("utf-8", errors="replace")
-            raise ProviderError(
-                f"Gemini HTTP error {exc.code} during {request_kind}: {err_body[:300]}"
-            ) from exc
-        except url_error.URLError as exc:
-            raise ProviderError(f"Gemini URL error during {request_kind}: {exc}") from exc
-        except TimeoutError as exc:
-            raise ProviderError(
-                f"Gemini request timed out during {request_kind} after {timeout_sec}s"
-            ) from exc
-
-        elapsed = time.perf_counter() - start
-        self.logger.info(
-            "Gemini API response received | kind=%s | elapsed_sec=%.2f",
-            request_kind,
-            elapsed,
-        )
-
-        try:
-            data = json.loads(response_text)
-            return self._extract_text(data)
-        except (json.JSONDecodeError, KeyError, TypeError) as exc:
-            raise ProviderError(f"Invalid Gemini response format during {request_kind}") from exc
 
     def _build_default_adc_token(self) -> tuple[str, str | None]:
         try:
@@ -1011,34 +822,6 @@ class GeminiProvider(BaseLLMProvider):
         if not token:
             raise ProviderError("ADC token refresh returned empty token")
         return token, project_id
-
-    def _extract_text(self, response_data: Dict[str, object]) -> str:
-        candidates = response_data.get("candidates")
-        if not isinstance(candidates, list) or not candidates:
-            raise ProviderError("Gemini response missing candidates")
-
-        first = candidates[0]
-        if not isinstance(first, dict):
-            raise ProviderError("Gemini candidate payload has invalid structure")
-
-        content = first.get("content")
-        if not isinstance(content, dict):
-            raise ProviderError("Gemini candidate missing content")
-
-        parts = content.get("parts")
-        if not isinstance(parts, list) or not parts:
-            raise ProviderError("Gemini candidate missing parts")
-
-        texts: List[str] = []
-        for part in parts:
-            if isinstance(part, dict):
-                text = part.get("text")
-                if isinstance(text, str) and text.strip():
-                    texts.append(text.strip())
-
-        if not texts:
-            raise ProviderError("Gemini response contained no text parts")
-        return "\n".join(texts)
 
     def _parse_actions(
         self,
@@ -1118,73 +901,54 @@ class GeminiVideoProvider(GeminiProvider):
         super().__init__(llm_name, llm_model, env, logger)
         self._llm_prompt_file = llm_prompt_file
 
-    def _get_vertex_base(self) -> tuple[str, str, str]:
-        """Return (token, project_id, location) for Vertex AI calls."""
-        token, adc_project_id = self._build_default_adc_token()
-        project_id = (
-            str(self.env.get("GEMINI_VERTEX_PROJECT_ID", "")).strip() or adc_project_id
-        )
-        if not project_id:
+    def _send_video_request(self, video_path: Path, prompt_text: str) -> tuple[str, dict]:
+        """Load video file, send to Gemini via SDK, return (response_text, usage_dict)."""
+        try:
+            from google import genai
+        except ImportError as exc:
             raise ProviderError(
-                "ADC did not provide a project_id and GEMINI_VERTEX_PROJECT_ID is not set."
-            )
-        location = str(self.env.get("GEMINI_VERTEX_LOCATION", "us-central1")).strip() or "us-central1"
-        return token, project_id, location
+                "Gemini video support requires the google-genai package. "
+                "Install dependencies from src_llm/requirements.txt"
+            ) from exc
 
-    def _send_video_request(self, video_path: Path, prompt_text: str) -> str:
-        """Encode video as base64, send to Vertex AI generateContent, return raw response text."""
         file_size = video_path.stat().st_size
         self.logger.info(
-            "Encoding video for inline upload | file=%s | size=%d bytes",
+            "Loading video for upload | file=%s | size=%d bytes",
             video_path.name, file_size,
         )
         with video_path.open("rb") as f:
-            video_b64 = base64.b64encode(f.read()).decode("ascii")
+            video_bytes = f.read()
 
-        token, project_id, location = self._get_vertex_base()
-        url = (
-            f"https://{location}-aiplatform.googleapis.com/v1/"
-            f"projects/{project_id}/locations/{location}/publishers/google/models/"
-            f"{self.llm_model}:generateContent"
-        )
-        payload = {
-            "contents": [{
-                "role": "user",
-                "parts": [
-                    {"inlineData": {"mimeType": "video/mp4", "data": video_b64}},
-                    {"text": prompt_text},
-                ],
-            }],
-            "generationConfig": {"temperature": 0.1},
-        }
-        payload_bytes = json.dumps(payload).encode("utf-8")
-        req = url_request.Request(
-            url=url,
-            data=payload_bytes,
-            headers={
-                "Authorization": f"Bearer {token}",
-                "Content-Type": "application/json",
-            },
-            method="POST",
-        )
         self.logger.info(
             "Sending video inference request | model=%s | video=%s",
             self.llm_model, video_path.name,
         )
-        start = time.perf_counter()
-        try:
-            response_text = _urlopen_with_retry(req, timeout=300)
-        except url_error.HTTPError as exc:
-            err_body = exc.read().decode("utf-8", errors="replace")
-            raise ProviderError(f"Video generateContent HTTP {exc.code}: {err_body[:300]}") from exc
-        except url_error.URLError as exc:
-            raise ProviderError(f"Video generateContent URL error: {exc}") from exc
 
-        elapsed = time.perf_counter() - start
-        self.logger.info("Video inference response received | elapsed_sec=%.2f", elapsed)
-        self.raw_llm_response = response_text
-        self._last_video_request_elapsed = elapsed
-        return response_text
+        video_mime_types = {
+            ".mp4": "video/mp4",
+            ".mov": "video/quicktime",
+            ".avi": "video/x-msvideo",
+            ".mkv": "video/x-matroska",
+            ".webm": "video/webm",
+            ".m4v": "video/x-m4v",
+        }
+        mime_type = video_mime_types.get(video_path.suffix.lower(), "video/mp4")
+
+        # Create video part using SDK
+        video_part = genai.types.Part.from_bytes(
+            data=video_bytes,
+            mime_type=mime_type,
+        )
+
+        # Call _generate with video part and prompt
+        raw_text, usage = self._generate(
+            contents=[prompt_text, video_part],
+            timeout_sec=300,
+            request_kind="video_inference",
+        )
+
+        self.raw_llm_response = raw_text
+        return raw_text, usage
 
     def infer_memory_from_video(self, video_path: Path) -> str:
         """Send video to Gemini with the memory prompt, return raw Markdown text."""
@@ -1195,18 +959,12 @@ class GeminiVideoProvider(GeminiProvider):
         except OSError as exc:
             raise ProviderError(f"Failed to read memory prompt: {prompt_path}") from exc
 
-        response_text = self._send_video_request(video_path, prompt_text)
-
-        try:
-            data = json.loads(response_text)
-            raw_text = self._extract_text(data)
-        except (json.JSONDecodeError, KeyError, TypeError, ProviderError) as exc:
-            raise ProviderError(f"Invalid video generateContent response: {exc}") from exc
-
+        raw_text, usage = self._send_video_request(video_path, prompt_text)
+        self._record_call("infer_memory_from_video", 0.0, usage)
         return raw_text
 
     def infer_actions_from_video(self, video_path: Path) -> List[ProviderAction]:
-        """Encode video as base64, send inline to generateContent, parse actions."""
+        """Send video to Gemini, parse actions from response."""
         default_prompt = Path("src_llm/input/prompts/gemini_video_prompt.txt")
         prompt_path = self._llm_prompt_file or default_prompt
         try:
@@ -1214,13 +972,8 @@ class GeminiVideoProvider(GeminiProvider):
         except OSError as exc:
             raise ProviderError(f"Failed to read video prompt: {prompt_path}") from exc
 
-        response_text = self._send_video_request(video_path, prompt_text)
-
-        try:
-            data = json.loads(response_text)
-            raw_text = self._extract_text(data)
-        except (json.JSONDecodeError, KeyError, TypeError, ProviderError) as exc:
-            raise ProviderError(f"Invalid video generateContent response: {exc}") from exc
+        raw_text, usage = self._send_video_request(video_path, prompt_text)
+        self._record_call("infer_actions_from_video", 0.0, usage)
 
         actions = self._parse_video_actions(raw_text)
         if not actions:
