@@ -177,6 +177,15 @@ python -m src_llm.memory_to_device \
   --env-file .env.local
 ```
 
+To start from the screen already open on the emulator, skip APK install and app launch:
+
+```bash
+python -m src_llm.memory_to_device \
+  --config src_llm/input/config.yml \
+  --env-file .env.local \
+  --skip-apk-install
+```
+
 **Input:**
 
 - Locates latest Stage 1 run for app+model+video_type
@@ -203,6 +212,7 @@ python -m src_llm.end_to_end \
 - `--stage 2` — Run only Stage 2 (memory → device)
 - `--stage all` — Run both stages (default)
 - `--dry-run` — Validate config without executing
+- `--skip-apk-install` — Stage 2 starts from the emulator's current screen
 
 **Example:**
 
@@ -215,6 +225,9 @@ python -m src_llm.end_to_end --stage 1 --config src_llm/input/config.yml --env-f
 
 # Stage 2 only
 python -m src_llm.end_to_end --stage 2 --config src_llm/input/config.yml --env-file .env.local
+
+# Stage 2 only, from current emulator screen
+python -m src_llm.end_to_end --stage 2 --config src_llm/input/config.yml --env-file .env.local --skip-apk-install
 
 # Dry-run both
 python -m src_llm.end_to_end --dry-run --config src_llm/input/config.yml --env-file .env.local
@@ -317,6 +330,8 @@ python -m src_llm.memory_to_device \
   --config src_llm/input/config.yml \
   --env-file .env.local
 ```
+
+Add `--skip-apk-install` when the app is already open on the emulator and you want automation to begin from that current screen.
 
 Uses memory from Stage 1 run to guide device automation.
 
