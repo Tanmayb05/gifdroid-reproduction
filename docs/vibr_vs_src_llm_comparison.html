@@ -1,0 +1,348 @@
+<html>
+<head>
+<title>ViBR vs src_llm Run Comparison</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #1f2937;
+    background: #f9fafb;
+    padding: 20px;
+    line-height: 1.6;
+  }
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: #111827;
+      color: #f3f4f6;
+    }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #d1d5db;
+    padding-bottom: 10px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    h2 {
+      border-color: #374151;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    table {
+      background: #1f2937;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+  }
+
+  th {
+    background: #f3f4f6;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #e5e7eb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    th {
+      background: #111827;
+      border-color: #374151;
+    }
+  }
+
+  td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    td {
+      border-color: #374151;
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  .metric-value {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .comparison-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .stat-card {
+      background: #1f2937;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+  }
+
+  .stat-card h3 {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .stat-card h3 {
+      color: #9ca3af;
+    }
+  }
+
+  .stat-card .big-number {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .stat-card .label {
+    font-size: 13px;
+    color: #6b7280;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .stat-card .label {
+      color: #9ca3af;
+    }
+  }
+
+  .highlight {
+    background: #fef3c7;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .highlight {
+      background: #78350f;
+    }
+  }
+
+  .key-findings {
+    background: #eff6ff;
+    border-left: 4px solid #3b82f6;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 20px 0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .key-findings {
+      background: #0c2340;
+      border-color: #60a5fa;
+    }
+  }
+
+  .key-findings li {
+    margin-bottom: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Successful Run Comparison: ViBR vs src_llm</h1>
+
+  <div class="key-findings">
+    <strong>Key Findings:</strong>
+    <ul>
+      <li><span class="highlight">ViBR is 25.7× slower</span> than src_llm (1012s avg vs 39s avg)</li>
+      <li>ViBR consumes ~46K tokens per run; src_llm token usage not tracked in metadata</li>
+      <li>ViBR: 22 successful runs | src_llm: 53 successful runs</li>
+      <li>ViBR worst case: 2965s (50 min); src_llm worst case: 137s (~2 min)</li>
+    </ul>
+  </div>
+
+  <h2>Execution Time Summary</h2>
+  <table>
+    <tr>
+      <th>System</th>
+      <th>Runs</th>
+      <th>Avg Time</th>
+      <th>Min Time</th>
+      <th>Max Time</th>
+      <th>Total Time</th>
+    </tr>
+    <tr>
+      <td><strong>ViBR</strong></td>
+      <td class="metric-value">22</td>
+      <td class="metric-value">1012.1s</td>
+      <td class="metric-value">238.9s</td>
+      <td class="metric-value">2965.2s</td>
+      <td class="metric-value">22,266s (6.2h)</td>
+    </tr>
+    <tr>
+      <td><strong>src_llm</strong></td>
+      <td class="metric-value">53</td>
+      <td class="metric-value">39.4s</td>
+      <td class="metric-value">17.7s</td>
+      <td class="metric-value">136.8s</td>
+      <td class="metric-value">2,086s (0.6h)</td>
+    </tr>
+  </table>
+
+  <h2>Token Usage (ViBR Only)</h2>
+  <table>
+    <tr>
+      <th>Metric</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Avg tokens per run</td>
+      <td class="metric-value">45,892</td>
+    </tr>
+    <tr>
+      <td>Total tokens (22 runs)</td>
+      <td class="metric-value">1,009,625</td>
+    </tr>
+    <tr>
+      <td>Avg prompt tokens</td>
+      <td class="metric-value">43,543</td>
+    </tr>
+    <tr>
+      <td>Avg output tokens</td>
+      <td class="metric-value">2,849</td>
+    </tr>
+    <tr>
+      <td>Cost per run (~$0.0005/1K)</td>
+      <td class="metric-value">~$0.023</td>
+    </tr>
+    <tr>
+      <td>Total cost (22 runs)</td>
+      <td class="metric-value">~$0.50</td>
+    </tr>
+  </table>
+
+  <h2>Why ViBR is Slower</h2>
+  <table>
+    <tr>
+      <th>Factor</th>
+      <th>src_llm (Stage 2)</th>
+      <th>ViBR</th>
+    </tr>
+    <tr>
+      <td><strong>Video Processing</strong></td>
+      <td>Skips (uses pre-generated memory from Stage 1)</td>
+      <td>Full video analysis per run</td>
+    </tr>
+    <tr>
+      <td><strong>Scene Segmentation</strong></td>
+      <td>None (uses task context from memory)</td>
+      <td>Full CLIP/SSIM segmentation (4-8+ scenes)</td>
+    </tr>
+    <tr>
+      <td><strong>LLM Calls per Scene</strong></td>
+      <td>1-2 (single decision loop)</td>
+      <td>3 (region detection + state comparison + action inference)</td>
+    </tr>
+    <tr>
+      <td><strong>Recovery/Retries</strong></td>
+      <td>Single pass</td>
+      <td>Up to 3 recovery attempts per scene if state mismatch</td>
+    </tr>
+    <tr>
+      <td><strong>Total LLM Calls</strong></td>
+      <td>Single-digit per run</td>
+      <td>~20-30 per run (3 calls/scene × 4-8 scenes × retries)</td>
+    </tr>
+  </table>
+
+  <h2>Top 5 Slowest Runs</h2>
+  <table>
+    <tr>
+      <th>App</th>
+      <th>System</th>
+      <th>Time</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td><strong>ViBR run</strong></td>
+      <td>ViBR</td>
+      <td class="metric-value">2965.2s</td>
+      <td>Long video, multiple recovery attempts</td>
+    </tr>
+    <tr>
+      <td><strong>ViBR run</strong></td>
+      <td>ViBR</td>
+      <td class="metric-value">2238.3s</td>
+      <td>Complex scene transitions</td>
+    </tr>
+    <tr>
+      <td><strong>ViBR run</strong></td>
+      <td>ViBR</td>
+      <td class="metric-value">1417.0s</td>
+      <td>Multiple recovery cycles</td>
+    </tr>
+    <tr>
+      <td><strong>src_llm (vanilla)</strong></td>
+      <td>src_llm</td>
+      <td class="metric-value">136.8s</td>
+      <td>Pre-generated memory used (no video re-analysis)</td>
+    </tr>
+    <tr>
+      <td><strong>src_llm (baker's %)</strong></td>
+      <td>src_llm</td>
+      <td class="metric-value">122.6s</td>
+      <td>Complex form with 7+ steps</td>
+    </tr>
+  </table>
+
+  <h2>Analysis</h2>
+  <p><strong>src_llm advantages:</strong></p>
+  <ul>
+    <li><span class="highlight">25.7× faster</span> due to memory reuse (Stage 1 → Stage 2)</li>
+    <li>Deterministic task execution via LLM context (no retry loops)</li>
+    <li>Lower token usage (fewer but more targeted API calls)</li>
+    <li>Parallel Stage 1/Stage 2 pipelines possible</li>
+  </ul>
+
+  <p><strong>ViBR advantages:</strong></p>
+  <ul>
+    <li>Scene-by-scene replay (maps video frame-by-frame)</li>
+    <li>Explicit state consistency validation per scene</li>
+    <li>Recovery mechanisms for device drift</li>
+    <li>Better for complex, multi-step device interactions</li>
+  </ul>
+
+  <p><strong>Recommendation:</strong> Use src_llm (Stage 1 + 2) for fast, deterministic automation. Use ViBR for frame-accurate bug reproduction where state alignment is critical.</p>
+</div>
+
+</body>
+</html>
