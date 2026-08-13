@@ -50,6 +50,11 @@ def _parse_args() -> argparse.Namespace:
         action="store_true",
         help="Validate config/env without processing (skips video analysis and device automation)",
     )
+    parser.add_argument(
+        "--skip-apk-install",
+        action="store_true",
+        help="Stage 2 only: skip APK install and launch; automate from the current device screen",
+    )
     return parser.parse_args()
 
 
@@ -102,7 +107,13 @@ def run_stage1(config_path: Path, env_file: Path, dry_run: bool, logger: logging
         return 1
 
 
-def run_stage2(config_path: Path, env_file: Path, dry_run: bool, logger: logging.Logger) -> int:
+def run_stage2(
+    config_path: Path,
+    env_file: Path,
+    dry_run: bool,
+    logger: logging.Logger,
+    skip_apk_install: bool = False,
+) -> int:
     """Run Stage 2: Memory → Device Automation.
 
     Args:
@@ -118,11 +129,16 @@ def run_stage2(config_path: Path, env_file: Path, dry_run: bool, logger: logging
     logger.info("STAGE 2: Memory → Device Automation")
     logger.info("=" * 60)
 
-    stage2_args = argparse.Namespace(
-        config=config_path,
-        env_file=env_file,
-        dry_run=dry_run,
-    )
+    stage2_args = [
+        "--config",
+        str(config_path),
+        "--env-file",
+        str(env_file),
+    ]
+    if dry_run:
+        stage2_args.append("--dry-run")
+    if skip_apk_install:
+        stage2_args.append("--skip-apk-install")
 
     try:
         result = stage2_automate.main(stage2_args)
@@ -153,6 +169,8 @@ def main(argv: list[str] | None = None) -> int:
     logger.info("Env file: %s", args.env_file)
     if args.dry_run:
         logger.info("Mode: DRY-RUN (no actual processing)")
+    if args.skip_apk_install:
+        logger.info("Stage 2 mode: skip APK install and launch")
     logger.info("Stages: %s", f"Stage {args.stage}" if args.stage else "1 → 2")
 
     if not args.config.exists():
@@ -185,7 +203,13 @@ def main(argv: list[str] | None = None) -> int:
         # Stage 2: Memory → Device Automation
         if args.stage is None or args.stage == 2:
             stage2_start = time.perf_counter()
-            result = run_stage2(args.config, args.env_file, args.dry_run, logger)
+            result = run_stage2(
+                args.config,
+                args.env_file,
+                args.dry_run,
+                logger,
+                skip_apk_install=args.skip_apk_install,
+            )
             stage2_duration = time.perf_counter() - stage2_start
             logger.info("Stage 2 duration: %.1f seconds", stage2_duration)
 

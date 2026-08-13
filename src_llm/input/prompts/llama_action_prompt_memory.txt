@@ -36,9 +36,10 @@ outcome: <success | failure | incomplete — and why in a few words>
 3. For step names: use short descriptive labels like "App Launch", "Open Navigation Menu", "Submit Dialog".
 4. For `action_type`: use one of: launch, tap, long_press, swipe_up, swipe_down, swipe_left, swipe_right, type, back, open_menu, select, wait.
 5. For `Result`: describe what actually happened on screen — not the intent, but the observed consequence.
-6. Skip idle frames, loading spinners, and system transitions the user did not initiate.
+6. Skip idle frames, loading spinners, and system transitions the user did not initiate. This does NOT apply to any user-initiated tap — including icon-only buttons in action bars/toolbars (e.g. Cut, Copy, Paste, Delete, Share) that have no visible text label. Every such tap is a required step.
 7. `Key Observations` should contain 1–5 entries: anomalies, unexpected dialogs, data extracted from UI, deviations from happy path. Omit the section if nothing notable.
-8. Return ONLY the Markdown document. No extra prose before or after.
+8. Before finalizing, re-scan the video specifically for any top action-bar / toolbar icon taps you may have omitted from the Steps list — these are commonly missed and are often the critical trigger for bugs/crashes. If the session ends in a crash or error, verify the 1-2 actions immediately preceding it are captured with high fidelity, since they are most likely the cause.
+9. Return ONLY the Markdown document. No extra prose before or after.
 
 Input:
 {KEYFRAMES}

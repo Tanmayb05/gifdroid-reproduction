@@ -12,6 +12,21 @@ from src_llm.config import AppConfig, FrameSamplingConfig, KeyframeSelectionConf
 
 VideoType = Literal["hhv", "srv"]
 
+VIDEO_EXTENSIONS = (".mp4", ".mov", ".MOV", ".MP4", ".m4v", ".avi", ".mkv", ".webm")
+
+
+def _resolve_existing_or_glob(path: Path) -> Path:
+    """If path has no suffix and doesn't exist, glob its directory for a same-stem video file."""
+    if path.exists() or path.suffix:
+        return path
+    if not path.parent.is_dir():
+        return path
+    matches = sorted(
+        p for p in path.parent.iterdir()
+        if p.stem.lower() == path.name.lower() and p.suffix in VIDEO_EXTENSIONS
+    )
+    return matches[0] if matches else path
+
 
 class PathError(ValueError):
     """Raised when input video path or output layout is invalid."""
@@ -59,6 +74,7 @@ def resolve_video_path(project_root: Path, cfg: AppConfig) -> Tuple[Path, VideoT
             / "videos"
             / video_file
         )
+        resolved = _resolve_existing_or_glob(resolved)
         return resolved, video_type
 
     # Filename or explicit path: if "/" in path, use as-is; else resolve to app's videos dir
@@ -74,6 +90,7 @@ def resolve_video_path(project_root: Path, cfg: AppConfig) -> Tuple[Path, VideoT
             / cfg.video_path
         )
 
+    explicit = _resolve_existing_or_glob(explicit)
     video_type = detect_video_type(explicit)
     return explicit, video_type
 

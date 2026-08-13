@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 # Action types that represent real device interactions (exclude done/wait/none)
-_EXECUTABLE_TYPES = {"tap", "scroll", "type_text", "press_back", "press_home", "long_tap"}
+_EXECUTABLE_TYPES = {"tap", "scroll", "type_text", "press_back", "press_home", "long_tap", "long_press"}
 
 
 def _filter_actionable(steps: list[dict]) -> list[dict]:
@@ -45,13 +45,13 @@ def _render_action_dispatch(action: dict) -> str:
         else:
             lines.append('        pass  # no target info for tap')
 
-    elif atype == "long_tap":
+    elif atype in ("long_tap", "long_press"):
         if resource_id:
             lines.append(f'        d(resourceId={resource_id!r}).long_click()')
         elif coords:
             lines.append(f'        d.long_click({coords[0]}, {coords[1]})')
         else:
-            lines.append('        pass  # no target info for long_tap')
+            lines.append(f'        pass  # no target info for {atype}')
 
     elif atype == "type_text":
         if text is not None:
@@ -205,7 +205,7 @@ def _execute(d: u2.Device, action: dict) -> None:
             d(resourceId=resource_id).click()
         elif coords:
             d.click(coords[0], coords[1])
-    elif atype == "long_tap":
+    elif atype in ("long_tap", "long_press"):
         if resource_id:
             d(resourceId=resource_id).long_click()
         elif coords:

@@ -12,6 +12,9 @@ Usage:
     # Run only Stage 2
     python -m src_llm.end_to_end --config src_llm/input/config.yml --env-file .env.local --stage 2
 
+    # Run Stage 2 from the current emulator screen without installing/launching
+    python -m src_llm.end_to_end --config src_llm/input/config.yml --env-file .env.local --stage 2 --skip-apk-install
+
     # Dry-run both stages
     python -m src_llm.end_to_end --config src_llm/input/config.yml --env-file .env.local --dry-run
 """
@@ -20,6 +23,7 @@ from __future__ import annotations
 import argparse
 import logging
 import sys
+from datetime import datetime
 from pathlib import Path
 
 
@@ -51,6 +55,11 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         action="store_true",
         help="Validate config without executing",
     )
+    parser.add_argument(
+        "--skip-apk-install",
+        action="store_true",
+        help="Stage 2 only: skip APK install and launch; automate from the current device screen",
+    )
     return parser.parse_args(argv)
 
 
@@ -70,7 +79,12 @@ def _run_stage_1(config_path: Path, env_file: Path, dry_run: bool) -> int:
     return video_to_memory.main(argv)
 
 
-def _run_stage_2(config_path: Path, env_file: Path, dry_run: bool) -> int:
+def _run_stage_2(
+    config_path: Path,
+    env_file: Path,
+    dry_run: bool,
+    skip_apk_install: bool = False,
+) -> int:
     """Run Stage 2: memory_to_device."""
     from src_llm import memory_to_device
 
@@ -82,6 +96,8 @@ def _run_stage_2(config_path: Path, env_file: Path, dry_run: bool) -> int:
     ]
     if dry_run:
         argv.append("--dry-run")
+    if skip_apk_install:
+        argv.append("--skip-apk-install")
 
     return memory_to_device.main(argv)
 
@@ -97,14 +113,31 @@ def main(argv: list[str] | None = None) -> int:
         stream=sys.stderr,
     )
     logger = logging.getLogger("src_llm.end_to_end")
+    log_dir = Path("src_llm/logs")
+    log_dir.mkdir(parents=True, exist_ok=True)
+    log_path = log_dir / f"end_to_end_{datetime.now().strftime('%Y-%m-%dT%H-%M-%S')}.log"
+    file_handler = logging.FileHandler(log_path, encoding="utf-8")
+    file_handler.setFormatter(logging.Formatter(
+        "[%(levelname)s] %(asctime)s %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    ))
+    logger.addHandler(file_handler)
 
     logger.info("=== End-to-End Workflow Orchestrator ===")
     logger.info("Config: %s", args.config)
+    logger.info("Log file: %s", log_path)
     logger.info("Stages: %s", args.stage)
+    if args.skip_apk_install:
+        logger.info("Stage 2 mode: skip APK install and launch")
+
+    def close_log_handler() -> None:
+        logger.removeHandler(file_handler)
+        file_handler.close()
 
     # Validate config file exists
     if not args.config.exists():
         logger.error("Config file not found: %s", args.config)
+        close_log_handler()
         return 1
 
     exit_code = 0
@@ -118,6 +151,7 @@ def main(argv: list[str] | None = None) -> int:
             logger.error("Stage 1 failed with exit code %d", code)
             exit_code = code
             if args.stage == "1":
+                close_log_handler()
                 return exit_code
         else:
             logger.info("✓ Stage 1 complete")
@@ -126,7 +160,12 @@ def main(argv: list[str] | None = None) -> int:
     if args.stage in ("2", "all"):
         logger.info("\n=== STAGE 2: memory_to_device ===")
         logger.info("Automating on device using memory from Stage 1")
-        code = _run_stage_2(args.config, args.env_file, args.dry_run)
+        code = _run_stage_2(
+            args.config,
+            args.env_file,
+            args.dry_run,
+            skip_apk_install=args.skip_apk_install,
+        )
         if code != 0:
             logger.error("Stage 2 failed with exit code %d", code)
             exit_code = code
@@ -138,6 +177,7 @@ def main(argv: list[str] | None = None) -> int:
     else:
         logger.error("\n=== End-to-End Workflow Failed ===")
 
+    close_log_handler()
     return exit_code
 
 

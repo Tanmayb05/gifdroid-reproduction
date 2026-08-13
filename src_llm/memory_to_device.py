@@ -36,6 +36,11 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         action="store_true",
         help="Validate config and imports then exit without running automation",
     )
+    parser.add_argument(
+        "--skip-apk-install",
+        action="store_true",
+        help="Skip APK install and app launch; start automation from the current device screen",
+    )
     return parser.parse_args(argv)
 
 
@@ -47,49 +52,63 @@ def _normalize_model_slug(model_str: str) -> str:
     return normalized if normalized else "model"
 
 
-def _locate_latest_run(app_name: str, llm_model: str, video_type: str) -> Path:
-    """Locate the latest Stage 1 run for an app+model+video_type combination.
+def _run_number(run_dir: Path) -> int:
+    match = re.match(r"^run-(\d+)$", run_dir.name)
+    return int(match.group(1)) if match else -1
 
-    Searches: apps/<app>/llm/*-<model>-vm/run-*/
+
+def _runs_with_metadata(run_parent: Path) -> list[Path]:
+    return [
+        p for p in sorted(run_parent.glob("run-*"), key=_run_number)
+        if (p / "metadata.json").exists()
+    ]
+
+
+def _locate_latest_run(app_name: str, llm_model: str, video_path: Path) -> Path:
+    """Locate the latest Stage 1 run for this exact app+model+video.
+
+    Searches: apps/<app>/llm/<video-stem>-<model>-vm/run-*/
     Only returns runs with metadata.json (Stage 1 outputs), skipping Stage 2 device-automation dirs.
     Returns: Path to run directory (e.g., apps/bakerspercentagecalculator/llm/srv-002-gemini-2.5-pro-vm/run-001)
     Raises: FileNotFoundError if no run found
     """
     model_slug = _normalize_model_slug(llm_model)
+    video_stem = video_path.stem
+    video_name = video_path.name
     llm_base = Path("apps") / app_name / "llm"
 
     if not llm_base.exists():
         raise FileNotFoundError(
-            f"No Stage 1 runs found for {app_name} | {model_slug}\n"
+            f"No Stage 1 runs found for {app_name} | {model_slug} | {video_name}\n"
             f"Expected path: {llm_base}\n"
             f"Make sure to run Stage 1 (src_llm.main) first with video_mode=true"
         )
 
-    # Find all directories matching *-{model}-vm pattern (Stage 1 outputs with video_mode)
-    pattern = f"*-{model_slug}-vm"
-    matching_dirs = list(llm_base.glob(pattern))
+    exact_parent = llm_base / f"{video_stem}-{model_slug}-vm"
+    exact_runs = _runs_with_metadata(exact_parent) if exact_parent.exists() else []
+    if exact_runs:
+        return sorted(exact_runs, key=lambda p: (_run_number(p), p.stat().st_mtime))[-1]
 
-    if not matching_dirs:
+    # Fallback for older/renamed layouts: scan same-model dirs, but only accept metadata
+    # for the exact configured video filename.
+    matching_runs = []
+    for run_parent in llm_base.glob(f"*-{model_slug}-vm"):
+        for run_dir in _runs_with_metadata(run_parent):
+            try:
+                metadata = _load_run_metadata(run_dir)
+            except (OSError, json.JSONDecodeError):
+                continue
+            if metadata.get("video") == video_name:
+                matching_runs.append(run_dir)
+
+    if not matching_runs:
         raise FileNotFoundError(
-            f"No Stage 1 runs found for {app_name} | {model_slug}\n"
-            f"Expected path pattern: {llm_base}/{pattern}/run-*/\n"
-            f"Make sure to run Stage 1 (src_llm.main) first with video_mode=true"
+            f"No Stage 1 runs with metadata.json found for {app_name} | {model_slug} | {video_name}\n"
+            f"Expected path: {exact_parent}/run-*/metadata.json\n"
+            f"Make sure to run Stage 1 for this exact video first with video_mode=true"
         )
 
-    # For each matching directory, find runs with metadata.json
-    all_runs = []
-    for dir_match in matching_dirs:
-        existing = [
-            p for p in sorted(dir_match.glob("run-*"), key=lambda p: int(p.name[4:]))
-            if (p / "metadata.json").exists()
-        ]
-        all_runs.extend(existing)
-
-    if not all_runs:
-        raise FileNotFoundError(f"No Stage 1 runs with metadata.json found in {llm_base}/{pattern}")
-
-    # Return the most recent run (by run number, then by modification time)
-    return sorted(all_runs, key=lambda p: (int(p.name[4:]), p.stat().st_mtime))[-1]
+    return sorted(matching_runs, key=lambda p: (_run_number(p), p.stat().st_mtime))[-1]
 
 
 def _load_run_metadata(run_dir: Path) -> dict:
@@ -181,8 +200,15 @@ def _log_run_stats(logger: logging.Logger, run, trace: dict, output_dir: Path, p
     logger.info(sep)
 
 
-def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict | None:
+def _run_single(
+    run,
+    env: dict,
+    logger: logging.Logger,
+    dry_run: bool,
+    skip_apk_install: bool = False,
+) -> dict | None:
     """Execute one automation run. Returns the trace dict or None on dry-run."""
+    skip_apk_install = skip_apk_install or run.skip_apk_install
     # --- Locate prior Stage 1 run FIRST (before creating output dir) ---
     prior_stage1_run = None
     memory_md_content = None
@@ -190,7 +216,7 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
 
     if not dry_run:
         try:
-            prior_stage1_run = _locate_latest_run(run.app_name, run.llm_model, run.video_type)
+            prior_stage1_run = _locate_latest_run(run.app_name, run.llm_model, run.video_path)
             logger.info("Located prior Stage 1 run: %s", prior_stage1_run)
 
             prior_metadata = _load_run_metadata(prior_stage1_run)
@@ -210,8 +236,11 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
     # Now resolve output directory (uses prior_stage1_run if provided)
     output_dir = _resolve_output_dir(run, run.llm, run.llm_model, prior_stage1_run)
 
-    # Attach a per-run file handler so logs are saved alongside run outputs.
+    # Attach a per-run file handler to the whole src_llm logger tree so
+    # device/provider/automation logs are saved alongside run outputs.
     file_handler: logging.FileHandler | None = None
+    file_logger: logging.Logger | None = None
+    file_logger_level: int | None = None
     if not dry_run:
         log_dir = output_dir / "logs"
         log_dir.mkdir(parents=True, exist_ok=True)
@@ -220,7 +249,10 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
             "[%(levelname)s] %(asctime)s %(message)s",
             datefmt="%Y-%m-%d %H:%M:%S",
         ))
-        logger.addHandler(file_handler)
+        file_logger = logging.getLogger("src_llm")
+        file_logger_level = file_logger.level
+        file_logger.setLevel(min(logger.getEffectiveLevel(), logging.INFO))
+        file_logger.addHandler(file_handler)
 
     logger.info(
         "--- Run: app=%s video_type=%s video=%s ---",
@@ -230,7 +262,7 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
 
     if dry_run:
         # Note: Stage 2 doesn't need the video file; memory is already generated in Stage 1
-        if not run.apk_path.exists():
+        if not skip_apk_install and not run.apk_path.exists():
             logger.error("APK not found: %s", run.apk_path)
             return None
         return {}
@@ -238,14 +270,17 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
     # --- Pre-flight: verify required files exist before touching the device ---
     # Note: Stage 2 doesn't need the video file; memory is already generated in Stage 1
     missing = []
-    if not run.apk_path.exists():
+    if not skip_apk_install and not run.apk_path.exists():
         missing.append(f"APK not found: {run.apk_path}")
     if missing:
         for msg in missing:
             logger.warning("SKIP run — %s", msg)
         logger.warning("Skipping run: app=%s video_type=%s", run.app_name, run.video_type)
         if file_handler is not None:
-            logger.removeHandler(file_handler)
+            if file_logger is not None:
+                file_logger.removeHandler(file_handler)
+                if file_logger_level is not None:
+                    file_logger.setLevel(file_logger_level)
             file_handler.close()
         return None
 
@@ -256,32 +291,54 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
 
     provider = create_provider(run.llm, run.llm_model, env, logger=logger, video_mode=True)
 
-    # --- Connect device + install APK ---
+    # --- Connect device + optionally install/launch APK ---
     from src_llm.device import DeviceController
 
     device = DeviceController()
     device.connect(serial=run.device_serial)
 
-    logger.info("Installing APK: %s", run.apk_path)
-    pkg = device.install_apk(run.apk_path)
-    logger.info("APK installed: %s", pkg)
+    pkg = None
+    activity = None
 
-    from src_llm.apk_utils import extract_main_activity
-
-    activity = extract_main_activity(run.apk_path)
-    if activity:
-        logger.info("Launching app: %s / %s", pkg, activity)
-        device.launch_app(pkg, activity)
-    else:
-        logger.info("Launching app: %s (no main activity found, using monkey)", pkg)
-        import subprocess
-        subprocess.run(
-            ["adb", "shell", "monkey", "-p", pkg, "-c", "android.intent.category.LAUNCHER", "1"],
-            check=True,
+    if skip_apk_install:
+        logger.info(
+            "Skipping APK install and launch; starting automation from current device screen"
         )
+        if run.apk_path.exists():
+            try:
+                from src_llm.apk_utils import extract_main_activity, extract_package_name
 
-    time.sleep(2)
-    logger.info("App launched: %s", device.get_current_activity())
+                pkg = extract_package_name(run.apk_path)
+                activity = extract_main_activity(run.apk_path)
+                logger.info("Resolved package from APK metadata for replay: %s", pkg)
+            except Exception as exc:
+                logger.warning("Could not resolve package metadata from APK: %s", exc)
+        try:
+            current_activity = device.get_current_activity()
+            logger.info("Current device activity: %s", current_activity or "unknown")
+        except Exception as exc:
+            logger.warning("Could not read current device activity: %s", exc)
+    else:
+        logger.info("Installing APK: %s", run.apk_path)
+        pkg = device.install_apk(run.apk_path)
+        logger.info("APK installed: %s", pkg)
+
+        from src_llm.apk_utils import extract_main_activity
+
+        activity = extract_main_activity(run.apk_path)
+        if activity:
+            logger.info("Launching app: %s / %s", pkg, activity)
+            device.launch_app(pkg, activity)
+        else:
+            logger.info("Launching app: %s (no main activity found, using monkey)", pkg)
+            import subprocess
+            subprocess.run(
+                ["adb", "shell", "monkey", "-p", pkg, "-c", "android.intent.category.LAUNCHER", "1"],
+                check=True,
+            )
+
+        time.sleep(2)
+        logger.info("App launched: %s", device.get_current_activity())
 
     # --- Run automation with memory context ---
     from src_llm.automation import run_automation
@@ -305,27 +362,37 @@ def _run_single(run, env: dict, logger: logging.Logger, dry_run: bool) -> dict |
     )
     logger.info("Session trace: %s", output_dir / "session_trace.json")
 
-    if run.reset_between_runs:
+    if run.reset_between_runs and skip_apk_install:
+        logger.info("Skipping app reset because skip_apk_install uses a manually prepared screen")
+    elif run.reset_between_runs and pkg:
         logger.info("Resetting app state: force-stop + clear data | pkg=%s", pkg)
         device.reset_app(pkg)
         logger.info("App reset complete: %s", pkg)
+    elif run.reset_between_runs:
+        logger.info("Skipping app reset because no package name is available")
 
-    from src_llm.replay_writer import write_replay_script
+    if pkg:
+        from src_llm.replay_writer import write_replay_script
 
-    replay_path = write_replay_script(
-        output_dir=output_dir,
-        trace=trace,
-        apk_path=run.apk_path,
-        package=pkg,
-        activity=activity,
-        device_serial=run.device_serial,
-    )
-    logger.info("Replay script: %s", replay_path)
+        replay_path = write_replay_script(
+            output_dir=output_dir,
+            trace=trace,
+            apk_path=run.apk_path,
+            package=pkg,
+            activity=activity,
+            device_serial=run.device_serial,
+        )
+        logger.info("Replay script: %s", replay_path)
+    else:
+        logger.info("Skipping replay script because no package name is available")
 
     _log_run_stats(logger, run, trace, output_dir, provider, time.perf_counter() - run_start)
 
     if file_handler is not None:
-        logger.removeHandler(file_handler)
+        if file_logger is not None:
+            file_logger.removeHandler(file_handler)
+            if file_logger_level is not None:
+                file_logger.setLevel(file_logger_level)
         file_handler.close()
 
     return trace
@@ -371,7 +438,13 @@ def main(argv: list[str] | None = None) -> int:
             return 1
         ok = True
         for run in cfg.runs:
-            result = _run_single(run, env, logger, dry_run=True)
+            result = _run_single(
+                run,
+                env,
+                logger,
+                dry_run=True,
+                skip_apk_install=args.skip_apk_install,
+            )
             if result is None:
                 ok = False
         if ok:
@@ -381,7 +454,13 @@ def main(argv: list[str] | None = None) -> int:
     # --- Execute all runs ---
     summaries = []
     for run in cfg.runs:
-        trace = _run_single(run, env, logger, dry_run=False)
+        trace = _run_single(
+            run,
+            env,
+            logger,
+            dry_run=False,
+            skip_apk_install=args.skip_apk_install,
+        )
         if trace is not None:
             summaries.append({
                 "app": run.app_name,

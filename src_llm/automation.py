@@ -295,12 +295,20 @@ def run_automation(
             video_summary=video_summary,
         )
 
+        raw_response_path: str | None = None
+        if output_dir is not None and getattr(decision, "raw_response", ""):
+            step_dir = output_dir / "steps"
+            step_dir.mkdir(parents=True, exist_ok=True)
+            raw_response_path = str(step_dir / f"step_{step_num + 1:03d}_llm_raw_response.txt")
+            Path(raw_response_path).write_text(decision.raw_response, encoding="utf-8")
+            logger.info("Step %d: LLM raw response saved to %s", step_num + 1, raw_response_path)
+
         logger.info(
             "Step %d: LLM response | continue=%s action_type=%s reasoning=%s confidence=%.2f",
             step_num + 1,
             decision.continue_automation,
             decision.action.type if decision.action else "none",
-            (decision.reasoning or "")[:100],
+            decision.reasoning or "",
             decision.confidence,
         )
 
@@ -311,6 +319,7 @@ def run_automation(
             "continue": decision.continue_automation,
             "reasoning": decision.reasoning,
             "confidence": decision.confidence,
+            "llm_raw_response": raw_response_path,
         }
 
         if decision.action:

@@ -135,6 +135,18 @@ class DeviceController:
             if action.coordinates:
                 logger.info("Tapping at coordinates [%d, %d]", action.coordinates[0], action.coordinates[1])
                 self.tap(action.coordinates[0], action.coordinates[1])
+        elif action_type in ("long_press", "long_tap"):
+            if action.resource_id:
+                el = self._device(resourceId=action.resource_id)
+                if el.exists:
+                    logger.info("Long-pressing element with resource_id=%s", action.resource_id)
+                    el.long_click(duration=1.0)
+                    return
+                else:
+                    logger.warning("Element with resource_id=%s not found", action.resource_id)
+            if action.coordinates:
+                logger.info("Long-pressing at coordinates [%d, %d]", action.coordinates[0], action.coordinates[1])
+                self._device.long_click(action.coordinates[0], action.coordinates[1], duration=1.0)
         elif action_type == "scroll":
             direction = action.direction or "down"
             x, y = (action.coordinates or [540, 960])
