@@ -1,0 +1,21 @@
+{
+  "app": "amazefilemanager",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "handheld",
+  "video": "hhv-001.mp4",
+  "timestamp": "2026-08-07T17:58:33",
+  "duration_sec": 34.6,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Amaze\ngoal: The user was trying to create a new text file in a directory.\noutcome: success \u2014 the app created the requested file, and then unexpectedly allowed the creation of a second file with the exact same name.\n---\n\n## Session Summary\nThe user started in an empty directory within the Amaze file manager. They used the floating action button to open the \"New File\" dialog, named a file \"demo.txt\", and successfully created it. The user then repeated the exact same steps, creating a second file also named \"demo.txt\" in the same directory, which the app allowed without any warning or error.\n\n## Steps\n\n### 1. Open 'New' Menu \u2014 1s\n- **Screen:** Amaze File Manager\n- **Action:** tap \u2192 `+ Floating Action Button`\n- **Details:** The directory is currently empty.\n- **Result:** A menu appeared with options: \"Folder\", \"File\", \"Cloud Connection\".\n- **Confidence:** 1.0\n\n### 2. Select 'New File' \u2014 2s\n- **Screen:** Amaze File Manager\n- **Action:** tap \u2192 `File` menu option\n- **Result:** A \"New File\" dialog appeared, with the input field pre-filled with \".txt\".\n- **Confidence:** 1.0\n\n### 3. Clear Default Text \u2014 9s\n- **Screen:** New File dialog\n- **Action:** tap \u2192 `Cut` from context menu\n- **Details:** User long-pressed the input field to show the context menu, then selected \"Cut\".\n- **Result:** The pre-filled \".txt\" was removed, and an error message \"Field can't be empty\" appeared.\n- **Confidence:** 0.95\n\n### 4. Enter First Filename \u2014 17s\n- **Screen:** New File dialog\n- **Action:** type \u2192 `Enter Name` input field\n- **Details:** Typed \"demo.txt\".\n- **Result:** The text \"demo.txt\" was entered, and the error message disappeared.\n- **Confidence:** 1.0\n\n### 5. Create First File \u2014 18s\n- **Screen:** New File dialog\n- **Action:** tap \u2192 `CREATE` button\n- **Result:** The dialog closed, a \"Creating File\" toast message appeared, and a new file \"demo.txt\" was added to the file list.\n- **Confidence:** 1.0\n\n### 6. Open 'New' Menu Again \u2014 19s\n- **Screen:** Amaze File Manager\n- **Action:** tap \u2192 `+ Floating Action Button`\n- **Result:** The menu with \"Folder\", \"File\", and \"Cloud Connection\" appeared again.\n- **Confidence:** 1.0\n\n### 7. Select 'New File' Again \u2014 20s\n- **Screen:** Amaze File Manager\n- **Action:** tap \u2192 `File` menu option\n- **Result:** The \"New File\" dialog appeared again, pre-filled with \".txt\".\n- **Confidence:** 1.0\n\n### 8. Enter Second Filename \u2014 32s\n- **Screen:** New File dialog\n- **Action:** type \u2192 `New File` input field\n- **Details:** User first deleted the pre-filled \".txt\" and then typed \"demo.txt\".\n- **Result:** The text \"demo.txt\" was entered into the field.\n- **Confidence:** 1.0\n\n### 9. Create Second File \u2014 33s\n- **Screen:** New File dialog\n- **Action:** tap \u2192 `CREATE` button\n- **Result:** The dialog closed, a \"Creating File\" toast appeared, and a second file also named \"demo.txt\" was added to the file list.\n- **Confidence:** 1.0\n\n## Key Observations\n- The app allowed the creation of two files with the identical name (\"demo.txt\") in the same directory without any warning, error, or overwrite prompt.\n- The \"New File\" dialog correctly displays a \"Field can't be empty\" validation error when the input field is cleared.\n- The file creation flow takes place in the `/storage/emulated/0/Download/Amaze2595` directory.",
+    "task_description": "The user was trying to create a new text file in a directory.",
+    "ui_elements": {
+      "screen: Amaze File Manager": "navigation_target",
+      "+ Floating Action Button": "tap"
+    },
+    "completion_criteria": [
+      "Task outcome: success \u2014 the app created the requested file, and then unexpectedly allowed the creation of a second file with the exact same name."
+    ]
+  }
+}

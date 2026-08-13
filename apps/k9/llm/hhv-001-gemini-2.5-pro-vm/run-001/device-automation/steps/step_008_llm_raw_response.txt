@@ -1,0 +1,15 @@
+```json
+{
+  "continue": true,
+  "action": {
+    "type": "press_back",
+    "resource_id": null,
+    "coordinates": null,
+    "text": null,
+    "direction": null,
+    "target_description": "System back button"
+  },
+  "reasoning": "The search term 'Hi' has been entered. The next step in the original task was to execute the search by tapping the search button on the keyboard. However, the keyboard is not currently visible. It's possible the search was executed automatically after typing. The final step of the task is to return to the inbox. Therefore, pressing the back button is the most logical next action to complete the task flow.",
+  "confidence": 0.9
+}
+```

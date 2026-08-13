@@ -1,0 +1,15 @@
+```json
+{
+  "continue": true,
+  "action": {
+    "type": "wait",
+    "resource_id": null,
+    "coordinates": null,
+    "text": null,
+    "direction": null,
+    "target_description": "wait for search results to load"
+  },
+  "reasoning": "The previous step was to type the search query 'Hi'. The next step is to execute the search. The video summary specifies this was done by tapping the search button on the keyboard. However, the keyboard is not visible in the current screenshot, and there is no corresponding UI element to interact with. It is possible that the search executes automatically after a delay. Therefore, the most logical action is to wait for the search results to appear on the screen.",
+  "confidence": 0.6
+}
+```

@@ -1,0 +1,21 @@
+{
+  "app": "k9",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "handheld",
+  "video": "hhv-001.mp4",
+  "timestamp": "2026-08-07T19:34:00",
+  "duration_sec": 26.2,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Email App\ngoal: To search for an email in the inbox.\noutcome: success - the user found a search result and returned to the inbox.\n---\n\n## Session Summary\nThe user started in the \"Unified Inbox\" of an email application. They initiated a search by tapping the search icon and typing \"Hi\". The app displayed a single search result, and the user then tapped the system back button to return to the main inbox screen.\n\n## Steps\n\n### 1. Initiate Search \u2014 1s\n- **Screen:** Unified Inbox\n- **Action:** tap \u2192 `Search icon`\n- **Details:** The search icon is located in the top action bar.\n- **Result:** The view changed to a search interface, and the on-screen keyboard appeared.\n- **Confidence:** 1.0\n\n### 2. Enter Search Query \u2014 2s\n- **Screen:** Search\n- **Action:** type \u2192 `Search text field`\n- **Details:** Typed text: \"Hi\"\n- **Result:** The text \"Hi\" appeared in the search input field.\n- **Confidence:** 1.0\n\n### 3. Execute Search \u2014 4s\n- **Screen:** Search\n- **Action:** tap \u2192 `Search button (on keyboard)`\n- **Details:** The user tapped the magnifying glass icon on the keyboard to submit the search.\n- **Result:** The keyboard was dismissed, and the screen transitioned to display the search results.\n- **Confidence:** 1.0\n\n### 4. Navigate Back \u2014 7s\n- **Screen:** Search results\n- **Action:** back \u2192 `System back button`\n- **Details:** The user tapped the triangle-shaped system back button in the navigation bar.\n- **Result:** The app returned to the initial \"Unified Inbox\" screen.\n- **Confidence:** 1.0\n\n## Key Observations\n- A search for the term \"Hi\" returned an email with the subject \"Hello World\".\n- The single search result was from/to the email address `xtoxoeleartart1524@gmail.com`.",
+    "task_description": "To search for an email in the inbox.",
+    "ui_elements": {
+      "screen: Unified Inbox": "navigation_target",
+      "Search icon": "tap"
+    },
+    "completion_criteria": [
+      "Task outcome: success - the user found a search result and returned to the inbox."
+    ]
+  }
+}

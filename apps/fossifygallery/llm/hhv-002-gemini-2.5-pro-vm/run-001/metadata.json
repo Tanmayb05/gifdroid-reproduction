@@ -1,0 +1,21 @@
+{
+  "app": "fossifygallery",
+  "method": "llm",
+  "variant": "gemini-2.5-pro",
+  "source": "handheld",
+  "video": "hhv-002.mp4",
+  "timestamp": "2026-07-31T19:22:50",
+  "duration_sec": 40.1,
+  "status": "success",
+  "video_mode_metadata": {
+    "memory_md_content": "---\napp: Simple Gallery\ngoal: To enable and use the feature for changing images by tapping the sides of the screen.\noutcome: failure \u2014 The feature did not work; tapping the screen sides only toggled the UI visibility.\n---\n\n## Session Summary\nThe user started in the gallery's folder view and opened an image. They then navigated to the settings menu, enabled the \"Allow instantly changing media by clicking on screen sides\" option, and returned to the image. Upon trying to use the newly enabled feature, tapping the sides of the screen failed to change the image and instead only toggled the visibility of the UI toolbars.\n\n## Steps\n\n### 1. Open Image \u2014 2s\n- **Screen:** Folder View\n- **Action:** tap \u2192 Image thumbnail in \"Download\" folder\n- **Details:** The user taps an image thumbnail showing a purple and orange sci-fi scene.\n- **Result:** The app transitions to the full-screen image viewer.\n- **Confidence:** 1.0\n\n### 2. Open Options Menu \u2014 4s\n- **Screen:** Image Viewer\n- **Action:** tap \u2192 \"More options\" (three-dot icon)\n- **Details:** The image displayed is \"Samus_vs_Quadraxis...\".\n- **Result:** A context menu appears over the image.\n- **Confidence:** 1.0\n\n### 3. Open Settings \u2014 5s\n- **Screen:** Image Viewer\n- **Action:** tap \u2192 \"Settings\" menu item\n- **Details:** The user selects \"Settings\" from the bottom of the context menu.\n- **Result:** The app navigates to the main Settings screen.\n- **Confidence:** 1.0\n\n### 4. Scroll Settings \u2014 8s\n- **Screen:** Settings\n- **Action:** swipe_up \u2192 Settings list\n- **Details:** The user scrolls down to reveal more options.\n- **Result:** The list scrolls, showing the \"Fullscreen media\" section.\n- **Confidence:** 1.0\n\n### 5. Enable Setting \u2014 11s\n- **Screen:** Settings\n- **Action:** tap \u2192 Toggle switch\n- **Details:** The user enables the setting \"Allow instantly changing media by clicking on screen sides\".\n- **Result:** The toggle switch turns on (changes color).\n- **Confidence:** 1.0\n\n### 6. Navigate Back \u2014 13s\n- **Screen:** Settings\n- **Action:** back \u2192 System back gesture\n- **Details:** The user performs a swipe-from-edge back gesture.\n- **Result:** The app returns to the Image Viewer screen.\n- **Confidence:** 1.0\n\n### 7. Test Feature (Right Tap) \u2014 16s\n- **Screen:** Image Viewer\n- **Action:** tap \u2192 Right side of the image\n- **Details:** The user taps the right edge of the screen, expecting the next image to appear.\n- **Result:** The top and bottom UI bars disappear, but the image does not change.\n- **Confidence:** 1.0\n\n### 8. Test Feature (Left Tap) \u2014 19s\n- **Screen:** Image Viewer\n- **Action:** tap \u2192 Left side of the image\n- **Details:** After the UI reappears, the user taps the left edge of the screen, expecting the previous image to appear.\n- **Result:** The top and bottom UI bars disappear again. The image does not change.\n- **Confidence:** 1.0\n\n## Key Observations\n- **Bug:** The setting \"Allow instantly changing media by clicking on screen sides\" does not function as expected. When enabled, tapping the screen sides only toggles the UI visibility, which is the default behavior, instead of navigating between media files.\n- **Image Details:** The image being viewed is named \"Samus_vs_Quadraxis...\", with a resolution of 1666 x 1666 (2.8MP) and a creation date of 31 July 2020.",
+    "task_description": "To enable and use the feature for changing images by tapping the sides of the screen.",
+    "ui_elements": {
+      "screen: Folder View": "navigation_target",
+      "Image thumbnail in \"Download\" folder": "tap"
+    },
+    "completion_criteria": [
+      "Task outcome: failure \u2014 The feature did not work; tapping the screen sides only toggled the UI visibility."
+    ]
+  }
+}

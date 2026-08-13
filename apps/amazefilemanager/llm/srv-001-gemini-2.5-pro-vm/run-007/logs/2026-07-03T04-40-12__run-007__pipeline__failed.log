@@ -1,0 +1,17 @@
+2026-07-03 00:40:12 | INFO | === src_llm.2026-07-03T04-40-12__run-007__pipeline__started ===
+2026-07-03 00:40:12 | INFO | Starting src_llm pipeline
+2026-07-03 00:40:12 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/amazefilemanager/videos/srv-001.mp4
+2026-07-03 00:40:12 | INFO | Environment validated for llm=gemini model=gemini-2.5-pro
+2026-07-03 00:40:12 | INFO | Running gemini API preflight before trace generation
+2026-07-03 00:40:12 | INFO | Gemini preflight started | model=gemini-2.5-pro | validating API key and endpoint access
+2026-07-03 00:40:12 | INFO | Gemini generateContent call | kind=preflight | model=gemini-2.5-pro | attempt=1/6
+2026-07-03 00:40:13 | WARNING | Gemini rate limit on attempt 1/5 — retrying in 10s | error=429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Pl
+2026-07-03 00:40:23 | INFO | Gemini generateContent call | kind=preflight | model=gemini-2.5-pro | attempt=2/6
+2026-07-03 00:40:23 | WARNING | Gemini rate limit on attempt 2/5 — retrying in 20s | error=429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Pl
+2026-07-03 00:40:43 | INFO | Gemini generateContent call | kind=preflight | model=gemini-2.5-pro | attempt=3/6
+2026-07-03 00:40:43 | WARNING | Gemini rate limit on attempt 3/5 — retrying in 40s | error=429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Pl
+2026-07-03 00:41:23 | INFO | Gemini generateContent call | kind=preflight | model=gemini-2.5-pro | attempt=4/6
+2026-07-03 00:41:24 | WARNING | Gemini rate limit on attempt 4/5 — retrying in 80s | error=429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Pl
+2026-07-03 00:42:44 | INFO | Gemini generateContent call | kind=preflight | model=gemini-2.5-pro | attempt=5/6
+2026-07-03 00:42:44 | WARNING | Gemini rate limit on attempt 5/5 — retrying in 160s | error=429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Pl
+2026-07-03 00:45:24 | INFO | Gemini generateContent call | kind=preflight | model=gemini-2.5-pro | attempt=6/6

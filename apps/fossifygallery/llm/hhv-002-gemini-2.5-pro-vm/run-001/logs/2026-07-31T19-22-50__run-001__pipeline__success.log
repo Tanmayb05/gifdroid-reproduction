@@ -1,0 +1,17 @@
+2026-07-31 15:22:50 | INFO | === src_llm.2026-07-31T19-22-50__run-001__pipeline__started ===
+2026-07-31 15:22:50 | INFO | Starting src_llm pipeline
+2026-07-31 15:22:50 | INFO | Resolved video path: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/fossifygallery/videos/hhv-002.mp4
+2026-07-31 15:22:50 | INFO | Environment validated for llm=gemini model=gemini-2.5-pro
+2026-07-31 15:22:50 | INFO | Running gemini API preflight before trace generation
+2026-07-31 15:22:50 | INFO | Gemini preflight started | model=gemini-2.5-pro | validating API key and endpoint access
+2026-07-31 15:22:50 | INFO | Gemini generateContent call | kind=preflight | model=gemini-2.5-pro | attempt=1/6
+2026-07-31 15:22:54 | INFO | Gemini generateContent response | kind=preflight | elapsed_sec=4.16
+2026-07-31 15:22:54 | INFO | Gemini preflight successful | model=gemini-2.5-pro
+2026-07-31 15:22:54 | INFO | Video mode enabled — skipping frame extraction and keyframe selection
+2026-07-31 15:22:54 | INFO | Loading video for upload | file=hhv-002.mp4 | size=65155379 bytes
+2026-07-31 15:22:54 | INFO | Sending video inference request | model=gemini-2.5-pro | video=hhv-002.mp4
+2026-07-31 15:22:54 | INFO | Gemini generateContent call | kind=video_inference | model=gemini-2.5-pro | attempt=1/6
+2026-07-31 15:23:30 | INFO | Gemini generateContent response | kind=video_inference | elapsed_sec=35.87
+2026-07-31 15:23:30 | INFO | Memory trace written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/fossifygallery/llm/hhv-002-gemini-2.5-pro-vm/run-001/memory.md
+2026-07-31 15:23:30 | INFO | Parsed memory: task_desc=85 | ui_elements=2 | completion_criteria=1
+2026-07-31 15:23:30 | INFO | LLM raw response written: /Users/tanmaybhuskute/Documents/gifdroid-reproduction/apps/fossifygallery/llm/hhv-002-gemini-2.5-pro-vm/run-001/llm_raw_response.txt
