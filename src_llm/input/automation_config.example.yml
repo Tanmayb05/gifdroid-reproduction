@@ -46,6 +46,10 @@ history_window: 3
 # seconds to wait between each action (gives the device/app time to respond before taking a screenshot for the next step)
 step_delay: 1.5
 
+# when true, Stage 2 connects to the emulator and starts automation from the current screen
+# without installing the APK or launching the app
+skip_apk_install: false
+
 # ---------------------------------------------------------------------------
 # Output directory
 # ---------------------------------------------------------------------------
@@ -76,6 +80,7 @@ output_dir:
 # Per-run optional overrides:
 #   apk_path   — defaults to apps/<app>/apk/<app>.apk
 #   max_steps  — overrides the shared max_steps for this run only
+#   skip_apk_install — start from the emulator's current screen for this run only
 #   output_dir — overrides the shared output_dir for this run only
 runs:
   # Run both screenrec and handheld for adaway
@@ -95,6 +100,7 @@ runs:
       - "screenrec"
       - "handheld"
     max_steps: 15
+    # skip_apk_install: true
 
   # Run with an explicit APK path
   - app_name: "deadhash"

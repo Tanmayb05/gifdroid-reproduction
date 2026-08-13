@@ -54,6 +54,7 @@ class AutomationRunConfig:
     step_delay: float
     stall_repeat_threshold: int  # stop if same action repeats this many times
     reset_between_runs: bool     # force-stop + clear app data after each run
+    skip_apk_install: bool       # start from current device screen without install/launch
     output_dir: Path | None  # None = auto-derive in automate.py
 
 
@@ -68,6 +69,7 @@ class AutomationConfig:
     step_delay: float
     stall_repeat_threshold: int
     reset_between_runs: bool
+    skip_apk_install: bool
     output_dir: Path | None
     runs: List["AutomationRunConfig"]
 
@@ -99,6 +101,7 @@ def _build_run_configs(
     step_delay: float,
     stall_repeat_threshold: int,
     reset_between_runs: bool,
+    skip_apk_install: bool,
     output_dir: "Path | None",
 ) -> "List[AutomationRunConfig]":
     """Parse the runs list and expand each entry into one AutomationRunConfig per video type."""
@@ -146,6 +149,9 @@ def _build_run_configs(
             run_max_steps = entry.get("max_steps", max_steps)
             run_output_dir_raw = _optional_str(entry, "output_dir")
             run_output_dir = Path(run_output_dir_raw) if run_output_dir_raw else output_dir
+            run_skip_apk_install = entry.get("skip_apk_install", skip_apk_install)
+            if not isinstance(run_skip_apk_install, bool):
+                raise ConfigError(f"runs[{i}].skip_apk_install must be a boolean when provided")
 
             result.append(AutomationRunConfig(
                 app_name=app_name,
@@ -160,6 +166,7 @@ def _build_run_configs(
                 step_delay=step_delay,
                 stall_repeat_threshold=stall_repeat_threshold,
                 reset_between_runs=reset_between_runs,
+                skip_apk_install=run_skip_apk_install,
                 output_dir=run_output_dir,
             ))
 
@@ -212,6 +219,11 @@ def load_automation_config(config_path: Path) -> "AutomationConfig":
         raise ConfigError("reset_between_runs must be a boolean")
     reset_between_runs = reset_between_runs_raw
 
+    skip_apk_install_raw = root.get("skip_apk_install", False)
+    if not isinstance(skip_apk_install_raw, bool):
+        raise ConfigError("skip_apk_install must be a boolean")
+    skip_apk_install = skip_apk_install_raw
+
     output_dir_raw = _optional_str(root, "output_dir")
     output_dir = Path(output_dir_raw) if output_dir_raw else None
 
@@ -219,7 +231,7 @@ def load_automation_config(config_path: Path) -> "AutomationConfig":
     runs = _build_run_configs(
         root, llm, llm_model, device_serial,
         max_steps, history_window, step_delay, stall_repeat_threshold,
-        reset_between_runs, output_dir,
+        reset_between_runs, skip_apk_install, output_dir,
     )
 
     return AutomationConfig(
@@ -231,6 +243,7 @@ def load_automation_config(config_path: Path) -> "AutomationConfig":
         step_delay=step_delay,
         stall_repeat_threshold=stall_repeat_threshold,
         reset_between_runs=reset_between_runs,
+        skip_apk_install=skip_apk_install,
         output_dir=output_dir,
         runs=runs,
     )

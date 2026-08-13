@@ -21,6 +21,9 @@ video_mode: true
 #   - "src_llm/input/prompts/llama_action_prompt_claude.txt"
 llm_prompt_file: "src_llm/input/prompts/llama_action_prompt_memory.txt"
 
+# Max automation steps per run (default 10)
+max_steps: 20
+
 # -----------------
 # Frame Sampling (ignored in video_mode)
 # -----------------
@@ -52,15 +55,18 @@ output:
 logging:
   level: "INFO"
 
+skip_apk_install: true
+
 # -----------------
 # Run Definitions
 # -----------------
 
 # All available apps in the gifdroid-reproduction dataset:
-#   adaway, antennapod, bakerspercentagecalculator, batterytemperaturedisplay,
-#   bily, binaryeye, bloodpressuremonitor, brethap, deadhash, homemedkit,
-#   homeraudioplayer, jigsaw, luxalarm, newpipe, pantry, portauthority,
-#   quitter, simplenotes, vanilla, wifianalyzer
+#   adaway, amazefilemanager, ankidroid, antennapod, bakerspercentagecalculator,
+#   batterytemperaturedisplay, bily, binaryeye, bloodpressuremonitor, brethap,
+#   deadhash, fossifygallery, homemedkit, homeraudioplayer, jigsaw, k9,
+#   luxalarm, markor, newpipe, pantry, portauthority, quitter, simplenotes,
+#   vanilla, wifianalyzer, wordpress
 
 runs:
   # - app_name: "adaway"
@@ -71,9 +77,11 @@ runs:
   #     - "srv-001"
       # - "srv-002"
 
-  - app_name: "amazefilemanager"
-    video_path:
-      - "srv-001"
+  # - app_name: "amazefilemanager"
+  #   video_path:
+  #     # - "hhv-001"
+  #     - "hhv-002"
+      # - "srv-001"
 
   # - app_name: "antennapod"
   #   video_path:
@@ -121,9 +129,17 @@ runs:
   #     - "hhv-001"
   #     # - "srv-001"
 
-  - app_name: "homemedkit"
-    video_path:
-      - "hhv-001"
+  # - app_name: "fossifygallery"
+  #   video_path:
+      # - "hhv-001"
+      # - "hhv-002"
+      # - "hhv-003"
+      # - "hhv-004"
+      # - "hhv-005"
+
+  # - app_name: "homemedkit"
+  #   video_path:
+  #     - "hhv-001"
       # - "hhv-002"
       # - "srv-001"
 
@@ -144,6 +160,15 @@ runs:
   #     - "hhv-001"
   #     - "hhv-002"
   #     # - "srv-001"
+
+  # - app_name: "markor"
+  #   video_path:
+  #     - "hhv-001"
+  #     - "hhv-002"
+  #     - "hhv-003"
+  #     - "hhv-004"
+  #     - "hhv-005"
+  #     - "hhv-006"
 
   # - app_name: "newpipe"
   #   video_path:
@@ -181,4 +206,19 @@ runs:
   #   video_path:
   #     - "hhv-001"
   #     - "hhv-002"
+  #     # - "srv-001"
+
+  # - app_name: "ankidroid"
+  #   video_path:
+  #     - "hhv-001"
+  #     # - "srv-001"
+
+  - app_name: "k9"
+    video_path:
+      # - "hhv-001"
+      - "hhv-002"
+
+  # - app_name: "wordpress"
+  #   video_path:
+  #     - "hhv-001"
   #     # - "srv-001"
